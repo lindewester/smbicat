@@ -3,6 +3,19 @@
 \usepackage[neveradjust]{paralist}
 \usepackage{hyperref}
 \usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usetikzlibrary{topaths}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{matrix,backgrounds,folding}
+\usetikzlibrary{chains,scopes,positioning,fit}
+\usetikzlibrary{arrows,shadows}
+\usetikzlibrary{calc} 
+\usetikzlibrary{chains}
+\usetikzlibrary{shapes,shapes.geometric,shapes.misc}
 
 \makeatletter
 \let\ea\expandafter
@@ -423,6 +436,7 @@
 \mdef\sqten{\mathrel{\boxtimes}}
 \def\pow(#1,#2){\mathop{\pitchfork}(#1,#2)} % powers and
 \def\cpw{\mathop{\odot}}                    % copowers
+\newcommand{\mathid}{\mbox{id}}
 
 %% OPERATORS
 \DeclareMathOperator\lan{Lan}
@@ -708,6 +722,9 @@
 \let\vth\vartheta
 
 \makeatother
+
+% Tikz styles
+\tikzstyle{tickarrow}=[->,postaction={decorate},decoration={markings,mark=at position .5 with {\draw[-] (0,-0.1) -- (0,0.1);}},line width=0.50]
 
 % Local Variables:
 % mode: latex
