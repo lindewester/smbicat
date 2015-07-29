@@ -16,6 +16,7 @@
 \usetikzlibrary{calc} 
 \usetikzlibrary{chains}
 \usetikzlibrary{shapes,shapes.geometric,shapes.misc}
+\usepackage{smbicat}
 
 \makeatletter
 \let\ea\expandafter
@@ -437,6 +438,8 @@
 \def\pow(#1,#2){\mathop{\pitchfork}(#1,#2)} % powers and
 \def\cpw{\mathop{\odot}}                    % copowers
 \newcommand{\mathid}{\mbox{id}}
+\newcommand{\cat}[1]{\ensuremath{\mathbf{#1}}}
+
 
 %% OPERATORS
 \DeclareMathOperator\lan{Lan}

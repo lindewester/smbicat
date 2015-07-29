@@ -1,5 +1,6 @@
 \documentclass{amsart}
 \input{decls}
+
 \UseAllTwocells
 \title{Constructing symmetric monoidal bicategories}
 \author{Michael A.\ Shulman}
@@ -16,6 +17,7 @@
 \mdef\Conj{\mathcal{C}\mathit{onj}}
 \mdef\D{\mathbb{D}}
 \mdef\E{\mathbb{E}}
+\newcommand{\Alg}{\mathbb{A}\mathit{lg}}
 \begin{document}
 \maketitle
 
@@ -357,7 +359,7 @@ finite products there is a notion of a \emph{pseudomonoid}, which
 generalizes the notion of monoidal category in \cCat.  Specializing
 this to \cDbl, we obtain the following.
 
-\begin{defn}
+\begin{defn}\label{def:symmondoub}
   A \textbf{monoidal double category} is a double category equipped
   with functors $\ten\maps \lD\times\lD\to\lD$ and $I\maps * \to\lD$,
   and invertible transformations
@@ -391,12 +393,13 @@ structure.
 \item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
   = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
   preserve the associativity and unit constraints.
-\item We have globular isomorphisms derived from $\otimes_{\odot}$ and $\otimes_U$
+\item \label{eq:mon1} We have globular isomorphisms derived from $\otimes_{\odot}$ and $\otimes_U$
   \[\fx\maps (M_1\ten N_1)\odot (M_2\ten N_2)\too[\iso] (M_1\odot M_2)\ten (N_1\odot N_2)\]
   and
   \[\fu\maps U_{A\ten B} \too[\iso] (U_A \ten U_B)\]
   such that the following diagrams commute, expressing that $\otimes$ is a monoidal function with respect to $\odot$:
-  \[\xymatrix{
+\[
+  \xymatrix{
     ((M_1\ten N_1)\odot (M_2\ten N_2)) \odot (M_3\ten N_3) \ar[r]\ar[d]
     & ((M_1\odot M_2)\ten (N_1\odot N_2)) \odot (M_3\ten N_3) \ar[d]\\
     (M_1\ten N_1)\odot ((M_2\ten N_2) \odot (M_3\ten N_3)) \ar[d] &
@@ -411,7 +414,7 @@ structure.
     M\ten N\ar@{<-}[r] & (U_A \odot M) \ten (U_B\odot N)}\]
   (these arise from the constraint data for the pseudo double functor
   $\ten$).
-\item The following diagrams commute, expressing that the
+\item \label{eq:mon2}The following diagrams commute, expressing that the
   associativity isomorphism for $\ten$ is a transformation of double
   categories.
   \[\xymatrix{
@@ -425,7 +428,7 @@ structure.
     U_{(A\ten B)\ten C} \ar[r] \ar[d] & U_{A\ten (B\ten C)} \ar[d]\\
     U_{A\ten B} \ten U_C \ar[d] & U_A\ten U_{B\ten C}\ar[d]\\
     (U_A\ten U_B)\ten U_C \ar[r] & U_A\ten (U_B\ten U_C) }\]
-\item The following diagrams commute, expressing that the unit
+\item \label{eq:mon3}The following diagrams commute, expressing that the unit
   isomorphisms for $\ten$ are transformations of double categories.
   \[\vcenter{\xymatrix{
       (M\ten U_I)\odot (N\ten U_I)\ar[r]\ar[d] &
@@ -488,7 +491,7 @@ Unfolding definitions gives us:
 
 \begin{enumerate}
 \item $F_0$ and $F_1$ are (braided/symmetric) monoidal functors
-\item The following diagrams, expressing that $\phi$ is a transformation of double categories,
+\item \label{eq:braid1}The following diagrams, expressing that $\phi$ is a transformation of double categories,
  commute:
 
 \begin{tikzpicture}[xscale=2, yscale=2]
@@ -1316,10 +1319,7 @@ to mean a morphism between bicategories that preserves composition up
 to isomorphism; equivalent terms include \emph{weak 2-functor},
 \emph{pseudofunctor}, and \emph{homomorphism}.
 
-\begin{thm}
-The assignment $\cH$, that sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globural 2-morphisms of $\lD$, extends to a trifunctor $\cH: \mathcal{D}bl_{\bf F} \rightarrow \mathcal{B}icat$
-\end{thm}
-
+Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globural 2-morphisms of $\lD$.
 
 \begin{thm}
   If \lD\ is a double category, then $\cH(\lD)$ is a bicategory, and
@@ -1722,7 +1722,7 @@ modifications.
   commute; again this follows from \autoref{thm:theta-compose-vert}.
 \end{proof}
 
-We end this section with one final lemma.
+We end this section with two final lemma's.
 
 \begin{lem}\label{thm:theta-nat}
   Suppose $F,G\maps \lD\to\lE$ are functors, $\al\maps F\to G$ is a
@@ -2355,7 +2355,848 @@ This brings us to the proof of our theorem.
 Combining Lemma's \ref{lem:monfun}, \ref{lem:brfun},  \ref{lem:symfun}, \ref{lem:montran}, \ref{lem:brtran} and Corrolary \ref{cor:symtran} gives the required result.
 \end{proof}
 
+\section{An example}
+As an illustration, we will construct the symmetric monoidal bicategory $\mathcal{A}lg$ of algebras, bimodules and bimodule homomorphisms. This is the horizontal bicategory of the fibrant double category $\Alg$, which we define below.
 
+We will use the language of string diagrams for symmetric monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}, as it is the most straightforward way to introduce certain concepts.  We refer to ~\cite{selinger} for an overview. In the string diagrammatic language, we depict objects (and identity morphisms) as lines $\tinyid$, morphisms generally as boxes, but  multiplications as circles $\tinymult[white dot]$, and the swap map as two crossing lines; we write tensor products as a juxtaposition of lines/boxes. The diagrams should be read from bottom to top.  
+
+
+We will use the abstract definition of an {\bf algebra} $(A, \tinymult[white dot], \tinyunit[white dot])$, as an object $A$ of a symmetric monoidal category, together with a multiplication map $\tinymult[white dot]: A \times A \rightarrow A$ and a unit map $\tinyunit[white dot]: I \rightarrow A$, satisfying the following two equations:
+
+\begin{calign}
+\label{eq:frobenius}
+  \begin{pic}[yscale=0.85]
+    \node[white dot] (l) at (0,0) {};
+    \node[white dot] (r) at (.5,.5) {};
+    \draw (l.center) to[out=90,in=180] (r.center);
+    \draw (r.center) to (.5,1)node[right] {$A$};
+    \draw (r.center) to[out=0,in=90] (1,-.5)node[right] {$A$};
+    \draw (l.center) to[out=180,in=90] (-.5,-.5)node[left] {$A$};
+    \draw (l.center) to[out=0,in=90] (.5,-.5)node [left] {$A$};
+  \end{pic}
+  \quad=\quad
+  \begin{pic}[yscale=0.85]
+    \node[white dot] (r) at (0,0) {};
+    \node[white dot] (l) at (-.5,.5) {};
+    \draw (r.center) to[in=0,out=90] (l);
+    \draw (l.center) to (-.5,1)node[right] {$A$};
+    \draw (l.center) to[in=90,out=180] (-1,-.5)node[left] {$A$};
+    \draw (r.center) to[in=90,out=0] (.5,-.5)node[right] {$A$};
+    \draw (r.center) to[in=90,out=180] (-.5,-.5)node[right] {$A$};
+  \end{pic}
+  &
+  \begin{pic}[yscale=0.85]
+    \node[white dot] (m) at (0,.5) {};
+    \node[white dot] (u) at (-.5,0) {};
+    \draw (m.center) to (0,1)node[right] {$A$};
+    \draw (u.center) to[out=90,in=180] (m.center);
+    \draw (m.center) to[out=0,in=90] (.5,-.5)node[right] {$A$};
+  \end{pic}
+  \quad=\quad
+  \begin{pic}[yscale=0.85]
+    \draw (0,-.5) node[right] {$A$} to (0,1);
+  \end{pic}
+  \quad=\quad
+  \begin{pic}[yscale=0.85]
+    \node[white dot] (m) at (0,.5) {};
+    \node[white dot] (u) at (.5,0) {};
+    \draw (m.center) to (0,1)node[right] {$A$};
+    \draw (u.center) to[out=90,in=0] (m.center);
+    \draw (m.center) to[out=180,in=90] (-.5,-.5)node[left] {$A$};
+  \end{pic}
+\end{calign}
+
+An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ is a morphism $f:A \rightarrow B$ that respects the multiplication, $f \circ \tinymult[white dot] = \tinymult[gray dot] \circ (f \otimes f)$, and the unit, $\tinyunit[gray dot] = f \circ \tinyunit[white dot]$. Algebras and algebra homomorphisms form a symmetric monoidal category with the usual tensorproduct for morphisms and for objects as $(A, \tinymult[white dot], \tinyunit[white dot]) \otimes (B, \tinymult[gray dot], \tinyunit[gray dot]) := (A \otimes B, \prodmult{white dot}{gray dot}, \whiteunit \grayunit)$. The unit is the trivial algebra $(I, \lambda_I, \mathid_I)$. The crossing lines in the multiplication map represent the swap morphism $\sigma_{A,B}$. 
+
+An A,B-{\bf bimodule} on an object $M$ is a morphism $M: A \otimes M \otimes B \rightarrow M$, satisfying the following two module equations:
+
+\begin{equation}\label{eq:bimodule}
+    \begin{pic}[yscale=0.85]
+      \node[morphism, minimum width=10mm] (u) at (0,0) {$\mathbf{M}$};
+      \node[morphism, minimum width=10mm] (l) at (0,-1.1) {$\mathbf{M}$};
+      \draw (u.north) to (0,.6) node[right] {$M$};
+      \draw (u.south) to (l.north);
+      \draw (l.south) to (0,-2) node[right] {$M$};
+      \draw (l.-45) to[out=-90,in=90] (.6,-2) node[right] {$D$};
+      \draw (l.-135) to[out=-90,in=90] (-.6,-2) node[right] {$C$};
+      \draw (u.-45) to[out=-90,in=90] (1.1,-1) to (1.1,-2) node[right] {$D$};
+      \draw (u.-135) to[out=-90,in=90] (-1.1,-1) to (-1.1,-2) node[right] {$C$};
+    \end{pic}
+    =
+    \begin{pic}[yscale=0.85]
+      \node[morphism, minimum width=10mm] (m) at (0,0) {$\mathbf{M}$};
+      \node[white dot] (l) at (-.75,-1) {};
+      \node[black dot] (r) at (.75,-1) {};
+      \draw (m.north) to (0,.6) node[right] {$M$};
+      \draw (m.south) to (0,-2) node[right] {$M$};
+      \draw (m.-45) to[out=-90,in=90] (r);
+      \draw (m.-135) to[out=-90,in=90] (l);
+      \draw (l) to[out=-150,in=90] (-1.1,-2) node[left] {$C$};
+      \draw (l) to[out=-30,in=90] (-.4,-2) node[left] {$C$};
+      \draw (r) to[out=-150,in=90] (.4,-2) node[right] {$D$};
+      \draw (r) to[out=-30,in=90] (1.1,-2) node[right] {$D$};
+    \end{pic}
+    \qquad
+    \begin{pic}[yscale=0.85]
+      \draw (0,.6) node[right] {$M$} to (0,-2) node[right] {$M$};
+    \end{pic}
+    \!\!\!=\,\,\,
+    \begin{pic}[yscale=0.85]
+      \node[morphism, minimum width=10mm] (m) at (0,0) {$\mathbf{M}$};
+      \draw (m.north) to (0,.6) node[right] {$M$};
+      \draw (m.south) to (0,-2) node[right] {$M$};
+      \draw (m.-135) to[out=-90,in=90] +(0,-0.75) node[white dot] {};
+      \draw (m.-45) to[out=-90,in=90] +(0,-0.75) node[black dot] {};
+    \end{pic}
+  \end{equation}
+We will write to A,B-bimodules as $_A{\bf M}_B$. An {\bf extended module homomorphism} ${\bf f}: {\bf M} \rightarrow {\bf N}$ is a triple of morphism $(A \xrightarrow{f_l} C, M \xrightarrow{f} N, B \xrightarrow{f_r} D)$ such that $f \circ M = N \circ (f_l \otimes f \otimes f_r)$. Where $f_l$ and $f_r$ are both identities, this corresponds to the standard definition of a {\bf bimodule homomorphism}.
+Bimodules and extended bimodule homomorphisms form a symmetric monoidal category where the tensor product is defined on morphisms componentwise. the unit object and the tensor product for objects are defined below:
+\begin{equation}
+{\bf I}:=
+\smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=1.5,string,yscale=-1]
+      \node (0) at (0,0) {};
+      \node[gray dot, inner sep=1.5pt] (1) at (0,0.55) {};
+      \node (2) at (-0.5,1) {};
+      \node (3) at (0.5,1) {};
+      \draw (0.center)node[left]{$I$} to (1.center);
+      \draw (1.center) to [out=left, in=down, out looseness=1.5] (2.center)node[left]{$I$};
+      \draw (1.center) to [out=right, in=down, out looseness=1.5] (3.center)node[left]{$I$};
+      \draw (1.center) to (0,1)node[left]{$I$};
+      \end{pic}}\hspace{-3pt}}}
+\quad
+_A{\bf M}_B \otimes {}_C{\bf N}_D :=
+\begin{pic} [scale=0.7]
+\draw (0,0) -- (0,0.5) -- (1,0.5) -- (1,0) -- (0,0);
+\draw (1.5,0) -- (1.5,0.5) -- (2.5,0.5) -- (2.5,0) -- (1.5,0);
+\draw (0.2,0) to[out=-90, in=90] (-1,-1)node[left]{$A$};
+\draw (0.5,0) to[out=-90, in=90] (0.5,-1)node[right]{$M$};
+\draw (0.8,0) to[out=-90, in=90] (3,-1)node[left]{$B$};
+\draw (1.7,0) to[out=-90, in=90] (-0.5,-1)node[right]{$C$};
+\draw (2,0) to[out=-90, in=90] (2,-1)node[left]{$N$};
+\draw (2.2,0) to[out=-90, in=90] (3.5,-1)node[right]{$D$};
+\draw (0.5,1)node[left]{$M$} to (0.5,0.5);
+\draw (2, 1)node[left]{$N$} to (2, 0.5);
+\node at (0.5,0.25) [] {${\bf M}$};
+\node at (2,0.25) [] {${\bf N}$};
+\end{pic}
+\end{equation}
+by the notation for the unit object, we mean that we apply the multiplication map $\tinymult[gray dot]$ on $I$ twice. By the associativity condition, it does not matter in which order we do the multiplication.
+The associator and unitor and swap natural isomorphisms are given by the maps with the following components: 
+\begin{align}
+ {\bf \alpha}_{_A{\bf M}_B,_C{\bf N}_D,_E{\bf P}_F} &:= (\alpha_{A,C,E}, \alpha_{M,N,P}, \alpha_{B,D,F}) 
+\\{\bf \lambda}_{_A{\bf M}_B}&:= (\lambda_A, \lambda_M, \lambda_B)
+\\{\bf \rho}_{_A{\bf M}_B} &:= (\rho_A, \rho_M, \rho_B)
+\\{\bf \sigma}_{\bf {}_AM_B,{}_CN_D}&: = (\sigma_{A,C}, \sigma_{M,N}, \sigma_{B,D})
+\end{align}
+
+\begin{lem}\label{lem:algdouble}
+Let ${\cat C}$ be a symmetric monoidal category where all colimits exist, and where the tensor product $\otimes$ preserves all colimits. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf C}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf C}$ form a double category, which we call $\Alg$
+\end{lem}
+
+\begin{proof}
+The {\bf unit functor} $D_0 \xrightarrow{U} D_1$ is defined on objects as $U(A,\tinymult[gray dot],\tinyunit[gray dot]) = 
+      \smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=0.4,string,yscale=-1]
+      \node (0) at (0,0) {};
+      \node[gray dot, inner sep=1.5pt] (1) at (0,0.55) {};
+      \node (2) at (-0.5,1) {};
+      \node (3) at (0.5,1) {};
+      \draw (0.center) to (1.center);
+      \draw (1.center) to [out=left, in=down, out looseness=1.5] (2.center);
+      \draw (1.center) to [out=right, in=down, out looseness=1.5] (3.center);
+      \draw (1.center) to (0,1);
+      \end{pic}}\hspace{-3pt}}}$; 
+      and on morphisms as $U(f) = (f,f,f)$. The {\bf source and target functors} $S,T: {\cat D_0} \rightarrow {\cat D_1}$ are defined on objects as $S({}_A {\bf M}_B) = A$, and  $T({}_A {\bf M}_B) = B$, and on morphisms as  $S(f_1,f,f_2)=f_1$, and $T(f_1, f, f_2) = f_2$.
+The functor $\ominus: {\cat D_1} \times_{\cat D_0} {\cat D_1} \rightarrow {\cat D_1}$, maps objects $(_A{\bf M}_B$, $_B{\bf N}_C)$ to $_A{\bf M} \tinydot[gray dot] {\bf N}_C$, and morphisms $((f_1, f, h), (h, g, g_2))$ to $(f_1, f \tinydot[gray dot] g, g_2)$, where ${M} \tinydot[gray dot] {N}$ and $f \tinydot[gray dot] g$ are defined by the following coequalisers:
+
+\begin{equation}\label{eq:coequaliser}
+  \begin{pic}[xscale=4,yscale=1.66, thin]
+    \node (tl) at (-.3,1) {$M \otimes B \otimes N$};
+    \node (bl) at (-.3,0) {$M' \otimes B' \otimes N'$};
+    \node (t) at (1,1) {$M \otimes N$};
+    \node (b) at (1,0) {$M' \otimes N'$};
+    \node (tr) at (1.7,1) {$M \tinydot[gray dot] N$};
+    \node (br) at (1.7,0) {$M' \tinydot[gray dot] N'$};
+    \draw[->] (tl) to node[left] {$(f \otimes h \otimes g)$} (bl);
+    \draw[->] (t) to node[right] {$f \otimes g$} (b);
+    \draw[->, dashed] (tr) to node[right] {$f \tinydot[gray dot] g$} (br);
+    \draw[->] (t) to node[above] {$c$} (tr);
+    \draw[->] (b) to node[below] {$c$} (br);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M} \otimes \id[N]$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\id[M] \otimes \mathbf{N}_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \otimes \id[N']$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\id[M'] \otimes \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
+  \end{pic}
+ \end{equation}
+ 
+  The module ${\bf M} \tinydot[gray dot] {\bf N}$ is given by the map that makes the diagram below commute. The map $\mathid_A \otimes c \otimes \mathid_C$ defines the coequaliser, since $\otimes$ preserves coequalisers. By commutativity of the left square, $c \circ ({\bf M}_{ \tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf N})$ is another cocone of the same maps. Hence, ${\bf M} \tinydot[gray dot] {\bf N}$ exists and is unique.
+
+\begin{equation}\label{eq:coequaliser2}
+  \begin{pic}[xscale=4,yscale=1.66, thin]
+    \node (tl) at (-.3,1) {$A \otimes M \otimes B \otimes N \otimes C$};
+    \node (bl) at (-.3,0) {$M \otimes B \otimes N$};
+    \node (t) at (1,1) {$A \otimes M \otimes N \otimes C$};
+    \node (b) at (1,0) {$M \otimes N$};
+    \node (tr) at (1.7,1) {$A \otimes M \tinydot[gray dot] N \otimes C$};
+    \node (br) at (1.7,0) {$M \tinydot[gray dot] N$};
+    \draw[->] (tl) to node[left] {${\bf M}_{\tinydot[gray dot]} \otimes \mathid_B \otimes {}_{\tinydot[gray dot]}{\bf N}$} (bl);
+    \draw[->] (t) to node[right] {${\bf M}_{\tinydot[gray dot]} \otimes  {}_{\tinydot[gray dot]}{\bf N}$} (b);
+    \draw[->, dashed] (tr) to node[right] {${\bf M} \tinydot[gray dot] {\bf N}$} (br);
+    \draw[->] (t) to node[above] {$\mathid_A \otimes c \otimes \mathid_C$} (tr);
+    \draw[->] (b) to node[below] {$c$} (br);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {$\mathid_A \otimes {}_{\tinydot[white dot]}\mathbf{M} \otimes \mathid_N \otimes \mathid_C$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_A \otimes \mathid_M \otimes \mathbf{N}_{\tinydot[black dot]} \otimes \mathid_C$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \otimes \mathid_{N'}$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{M'} \otimes \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
+  \end{pic}  
+ \end{equation}
+ 
+Note that ${\bf N}_{\tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf N}$ is a module. It is easy to check that ${\bf M}_{\tinydot[gray dot]}{\bf N}$ satisfies the module axioms as well, using commutativity of the diagram above and the fact that $c$ is epic.
+ 
+ It is left to verify functoriality of $\ominus$. Unfolding definitions gives us that we only need to check that $(f\tinydot[gray dot]f') \circ( g \tinydot[gray dot] g') = (f \circ f')\tinydot[gray dot] (g \circ g')$, and $\mathid_{\bf M} \tinydot[gray dot] \mathid_{\bf M'} = \mathid_{\bf M \tinydot[gray dot] M'}$ in ${\cat C}$. In Lemma 3.2.6  and Lemma 3.4.4 of ~\cite{wester:mscthesis}, this is proven for a restricted class of coequalisers, but the argument holds in the general case as well. [{\it write out the details?}]
+  
+The natural isomorphism ${\bf a}: ({\bf M_1} \ominus {\bf M_2}) \ominus {\bf M_3} \rightarrow {\bf M_1} \ominus ({\bf M_2} \ominus {\bf M_3})$ is the extended algebra homomorphism $(\mathid, a, \mathid)$ where $a$ is defined by the coequalisers below. We will show that $\pi_1$ and $\pi_2$ are coequalisers of the upper two parallel horizontal maps. This induces the unique isomorphism $a_{M_1,M_2,M_3}$. The component $a_{N_1,N_2,N_3}$ is derived in the same way. Naturality of $a$ follows from the rightmost square of the diagram, which commutes because all other sub diagrams commute.
+
+\begin{tikzpicture}[xscale=5,yscale=2.5]
+ \node (tl) at (0,1) {$M_1 \otimes B \otimes M_2 \otimes C \otimes M_3$};
+ \node (bl) at (0,0) {$N_1 \otimes D \otimes N_2 \otimes E \otimes N_3$};
+  \node (tm) at (1,1) {$M_1 \otimes M_2 \otimes M_3$};
+ \node (bm) at (1,0) {$N_1 \otimes N_2 \otimes N_3$};
+\draw[->] ([yshift=1.5pt] tl.east) to node[above] {$_{\tinydot [gray dot]}{\bf M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$} ([yshift=1.5pt] tm.west);
+\draw[->] ([yshift=-1.5pt] tl.east) to node[below] {$\mathid_{M_1} \otimes {\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]}$} ([yshift=-1.5pt] tm.west);
+\draw[->] ([yshift=1.5pt] bl.east) to node[above] {$_{\tinydot [gray dot]}{\bf N_1} \otimes {}_{\tinydot[gray dot]}{\bf N_2} \otimes \mathid_{N_3}$} ([yshift=1.5pt] bm.west);
+\draw[->] ([yshift=-1.5pt] bl.east) to node[below] {$\mathid_{N_1} \otimes {\bf N_2}_{\tinydot[gray dot]} \otimes  {\bf N_3}_{\tinydot[gray dot]}$} ([yshift=-1.5pt] bm.west);
+ \node (r1) at (2,1.25) {$({M_1}_{\tinydot[gray dot]} {M_2})_{\tinydot[gray dot]} {M_3}$};
+ \node (r2) at (1.6,0.75) {${M_1}_{\tinydot[gray dot]} ({M_2}_{\tinydot[gray dot]} M_3)$};
+  \node (r3) at (2,0.25) {$({N_1}_{\tinydot[gray dot]} {N_2})_{\tinydot[gray dot]} N_3$};
+ \node (r4) at (1.6,-0.25) {${N_1}_{\tinydot[gray dot]} ({N_2}_{\tinydot[gray dot]} N_3)$};
+ \draw[->] (tm.east) to node[above] {$\pi_1$} (r1.west);
+ \draw[->] (tm.east) to node[below] {$\pi_2$} (r2);
+  \draw[->] (bm.east) to node[above] {$\phi_1$} (r3.west);
+ \draw[->] (bm.east) to node[below] {$\phi_2$} (r4);
+  \draw[->, dashed] (r1) to node[left] {$a_{M_1,M_2,M_3}$} (r2);
+ \draw[->, dashed] (r3) to node[right] {$a_{N_1,N_2,N_3}$} (r4);
+  \draw[->, dashed] (r1) to node[right] {$(f_1 \tinydot[gray dot] f_2) \tinydot[gray dot] f_3$} (r3);
+ \draw[->, dashed, cross] (r2) to node[left, yshift=14pt] {$f_1 \tinydot[gray dot] (f_2 \tinydot[gray dot] f_3)$} (r4);
+ \draw (tl) to (0,0.6) node[below]{$f_1 \otimes f_B \otimes f_2 \otimes f_C \otimes f_3$};
+  \draw[->] (0,0.4) to (bl);
+ \draw[->] (tm) to node[left] {$f_1 \otimes f_2 \otimes f_3$} (bm); 
+\end{tikzpicture}
+
+The morphisms $\pi_1$, $\pi_2$, $\phi_1$, $\phi_2$ are  defined below.
+
+\begin{equation}
+\pi_1 :=
+\begin{aligned}
+\begin{tikzpicture}[scale=0.75]
+\node at (0.75,1.25) {$({M_1}_{\tinydot[gray dot]} {M_2})_{\tinydot[gray dot]} {M_3}$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_B$};
+\draw (0.75,0.5) to  (0.75,1);
+\draw (0.3,0) -- (0.3,-1.5)node[left]{$M_1$};
+\draw  (1.1,0) to node[right]{${M_2}_{\tinydot[gray dot]}M_3$} (1.1,-0.5);
+\draw (0.6,-1) -- (0.6,-0.5) -- (1.65, -0.5) -- (1.65,-1) -- (0.6,-1);
+\node at (1,-0.75) [] {$c_C$};
+\draw (0.8,-1) to (0.8,-1.5)node[right,xshift=-3pt]{$M_2$}; 
+\draw (1.45,-1) -- (1.45,-1.5)node[right]{$M_3$};
+\end{tikzpicture}
+\end{aligned}
+\hspace{.35cm}
+\pi_2:=
+\begin{aligned}
+\begin{tikzpicture}[xscale=-0.75, yscale=0.75]
+\node at (0.75,1.25) {${M_1}_{\tinydot[gray dot]} ({M_2}_{\tinydot[gray dot]} {M_3})$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_C$};
+\draw (0.75,0.5) -- (0.75,1);
+\draw (0.3,0) -- (0.3,-1.5)node [right]{$M_3$};
+\draw  (1.1,0) to node[left]{${M_1}_{\tinydot[gray dot]}M_2$} (1.1,-0.5);
+\draw (0.6,-1) -- (0.6,-0.5) -- (1.65, -0.5) -- (1.65,-1) -- (0.6,-1);
+\node at (1,-0.75) [] {$c_B$};
+\draw (0.8,-1) to (0.8,-1.5)node [left,xshift=3pt]{$M_2$}; 
+\draw (1.45,-1) to (1.45,-1.5)node[left]{$M_1$};
+\end{tikzpicture}
+\end{aligned}
+\hspace{.35cm}
+\phi_1 :=
+\begin{aligned}
+\begin{tikzpicture}[scale=0.75]
+\node at (0.75,1.25) {$({N_1}_{\tinydot[gray dot]} {N_2})_{\tinydot[gray dot]} {N_3}$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_D$};
+\draw (0.75,0.5) -- (0.75,1);
+\draw (0.3,0) -- (0.3,-1.5)node[left]{$M_1$};
+\draw  (1.1,0) to node[right]{${N_2}_{\tinydot[gray dot]}N_3$}  (1.1,-0.5);
+\draw (0.6,-1) -- (0.6,-0.5) -- (1.65, -0.5) -- (1.65,-1) -- (0.6,-1);
+\node at (1,-0.75) [] {$c_E$};
+\draw (0.8,-1) to (0.8,-1.5)node[right,xshift=-3pt]{$M_2$};; 
+\draw (1.45,-1) -- (1.45,-1.5)node[right]{$M_3$};
+\end{tikzpicture}
+\end{aligned}
+\hspace{.35cm}
+\phi_2:=
+\begin{aligned}
+\begin{tikzpicture}[xscale=-.75, yscale=0.75]
+\node at (0.75,1.25) {${N_1}_{\tinydot[gray dot]} ({N_2}_{\tinydot[gray dot]} {N_3})$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_E$};
+\draw (0.75,0.5) -- (0.75,1);
+\draw (0.3,0) -- (0.3,-1.5)node[right]{$M_3$};
+\draw  (1.1,0) to node[left]{${N_1}_{\tinydot[gray dot]}N_2$}  (1.1,-0.5);
+\draw (0.6,-1) -- (0.6,-0.5) -- (1.65, -0.5) -- (1.65,-1) -- (0.6,-1);
+\node at (1,-0.75) [] {$c_D$};
+\draw (0.8,-1) to (0.8,-1.5)node[left,xshift=3pt]{$M_2$}; 
+\draw (1.45,-1) -- (1.45,-1.5)node[left]{$M_1$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+We will prove that $\pi_1$ is a coequaliser. A similar argument holds for $\pi_2$, $\phi_1$, and $\phi_2$. 
+By the equations below, $\pi_1$ is a cocone of the $_{\tinydot [gray dot]}{\bf M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes {\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]}$.
+
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=0.8,yscale=0.7]
+\node at (0.75,1.25) {$({M_1}_{\tinydot[gray dot]} {M_2})_{\tinydot[gray dot]} {M_3}$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_B$};
+\draw (0.75,0.5) -- (0.75,1);
+\draw (0.3,0) to[in=90,out=-90] (-0.1,-1.5);
+\draw  (1.1,0) -- (1.1,-0.5);
+\draw (0.6,-1) -- (0.6,-0.5) -- (1.65, -0.5) -- (1.65,-1) -- (0.6,-1);
+\node at (1.1,-0.75) [] {$c_C$};
+\draw (0.8,-1) to (0.8,-1.5); 
+\draw (1.45,-1) to[in=90,out=-90] (1.85,-3);
+\draw (-0.5,-2) -- (0.3, -2) -- (0.3, -1.5) -- (-0.5,-1.5) -- (-0.5,-2);
+\node at (-0.1, -1.75) {$\bf M_1$};
+\draw (0.4,-2) -- (1.2,-2) -- (1.2,-1.5) -- (0.4,-1.5) -- (0.4,-2);
+\draw (-0.4,-2) to (-0.4,-2.25) node[gray dot]{};
+\draw (-0.1,-2) -- (-0.1,-3);
+\draw (0.2,-2) -- (0.2,-3);
+\draw (0.5,-2) to (0.5,-2.25) node[gray dot]{};
+\draw (0.8,-2) to (0.8,-3);
+\draw (1.1,-2) to[in=90,out=-90] (1.3,-3);
+\node at (0.8,-1.75) {$\bf M_2$};
+\node at (-0.1,-3.25) [] {$M_1$};
+\node at (0.3,-3.25) [] {$B$};
+\node at (0.8,-3.25) [] {$M_2$};
+\node at (1.3,-3.25) [] {$C$};
+\node at (1.85,-3.25) [] {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.2,yscale=0.7]
+\node at (0.75,1.25) {$({M_1}_{\tinydot[gray dot]} {M_2})_{\tinydot[gray dot]} {M_3}$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_B$};
+\draw (0.75,0.5) -- (0.75,1);
+\draw (0.3,0) to[in=90, out=-90] (0.1,-3.5);
+\draw  (1.1,0) -- (1.1,-0.5);
+\draw (0.5,-1) -- (0.5,-0.5) -- (1.7, -0.5) -- (1.7,-1) -- (0.5,-1);
+\node at (1.1,-0.75) [] {$\bf {M_2}_{\tinydot[gray dot]}M_3$};
+\draw (0.6,-1) to[in=90,out=-90] (0.5,-3.5); 
+\draw (1.1,-1) -- (1.1,-1.5);
+\draw (1.6,-1) to (1.6,-1.25) node[gray dot] {};
+\draw (0.7,-2) -- (1.7,-2) -- (1.7,-1.5) -- (0.7,-1.5) -- (0.7,-2);
+\node at (1.1,-1.75) {$c_C$};
+\draw (0.9,-2) -- (0.9,-3.5);
+\draw (1.5,-2) -- (1.5,-2.5);
+\draw (1.1,-3) -- (1.9,-3) -- (1.9,-2.5) -- (1.1,-2.5) -- (1.1,-3);
+\node at (1.5,-2.75) {$\bf M_3$};
+\draw (1.2,-3) -- (1.2,-3.5);
+\draw (1.5,-3) -- (1.5,-3.5);
+\draw (1.8,-3) to (1.8,-3.25) node[gray dot]{};
+\node at (0.1,-3.75) [] {$M_1$};
+\node at (0.5,-3.75) [] {$B$};
+\node at (0.9,-3.75) [] {$M_2$};
+\node at (1.2,-3.75) [] {$C$};
+\node at (1.5,-3.75) [] {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.2,yscale=0.7]
+\node at (0.75,1.25) {$({M_1}_{\tinydot[gray dot]} {M_2})_{\tinydot[gray dot]} {M_3}$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_B$};
+\draw (0.75,0.5) -- (0.75,1);
+\draw (0.2,0) to[in=90, out=-90] (-0.2,-3.5);
+\draw  (1.1,0) -- (1.1,-0.5);
+\draw (0.5,-1) -- (0.5,-0.5) -- (1.7, -0.5) -- (1.7,-1) -- (0.5,-1);
+\node at (1.1,-0.75) [] {$c_C$};
+\draw (0.6,-1) -- (0.6,-1.5); 
+\draw (1.6,-1) -- (1.6,-1.5);
+\draw (0.2,-2) -- (1,-2) -- (1,-1.5) -- (0.2,-1.5) -- (0.2,-2);
+\node at (0.6,-1.75) {$\bf M_2$};
+\draw (0.3,-2) to [in=90,out=-90] (0.2,-3.5);
+\draw (0.6,-2) -- (0.6,-3.5);
+\draw (0.9,-2) to (0.9,-2.25) node[gray dot] {};
+\draw (1.2,-2) -- (2,-2) -- (2,-1.5) -- (1.2,-1.5) -- (1.2,-2);
+\node at (1.6,-1.75) {$\bf M_3$};
+\draw (1.3,-2) to (1.3,-2.25) node[gray dot] {};
+\draw (1.6,-2) -- (1.6,-2.5);
+\draw (1.9,-2) to (1.9,-2.25) node[gray dot] {};
+\draw (1.1,-3) -- (1.9,-3) -- (1.9,-2.5) -- (1.1,-2.5) -- (1.1,-3);
+\node at (1.5,-2.75) {$\bf M_3$};
+\draw (1.2,-3) to[in=90,out=-90] (1.1,-3.5);
+\draw (1.5,-3) -- (1.5,-3.5);
+\draw (1.8,-3) to (1.8,-3.25) node[gray dot]{};
+\node at (-0.2,-3.75) [] {$M_1$};
+\node at (0.2,-3.75) [] {$B$};
+\node at (0.6,-3.75) [] {$M_2$};
+\node at (1.1,-3.75) [] {$C$};
+\node at (1.5,-3.75) [] {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.2,yscale=0.7]
+\node at (0.75,1.25) {$({M_1}_{\tinydot[gray dot]} {M_2})_{\tinydot[gray dot]} {M_3}$};
+\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
+\node at (0.75,0.25) [] {$\tilde{c}_B$};
+\draw (0.75,0.5) -- (0.75,1);
+\draw (0.2,0) to[in=90, out=-90] (-0.2,-3);
+\draw  (1.1,0) -- (1.1,-0.5);
+\draw (0.5,-1) -- (0.5,-0.5) -- (1.7, -0.5) -- (1.7,-1) -- (0.5,-1);
+\node at (1.1,-0.75) [] {$c_C$};
+\draw (0.6,-1) -- (0.6,-1.5); 
+\draw (1.6,-1) -- (1.6,-1.5);
+\draw (0.2,-2) -- (1,-2) -- (1,-1.5) -- (0.2,-1.5) -- (0.2,-2);
+\node at (0.6,-1.75) {$\bf M_2$};
+\draw (0.3,-2) to [in=90,out=-90] (0.2,-3);
+\draw (0.6,-2) -- (0.6,-3);
+\draw (0.9,-2) to (0.9,-2.25) node[gray dot] {};
+\draw (1.2,-2) -- (2,-2) -- (2,-1.5) -- (1.2,-1.5) -- (1.2,-2);
+\node at (1.6,-1.75) {$\bf M_3$};
+\draw (1.3,-2) to [in=90, out=-90] (1.2,-3) {};
+\draw (1.6,-2) -- (1.6,-3);
+\draw (1.9,-2) to (1.9,-2.25) node[gray dot] {};
+\node at (-0.2,-3.25) [] {$M_1$};
+\node at (0.2,-3.25) [] {$B$};
+\node at (0.6,-3.25) [] {$M_2$};
+\node at (1.2,-3.25) [] {$C$};
+\node at (1.6,-3.25) [] {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+The first equality holds because $\tilde{c}_B$ and $c_C$ are cocones. The second equality holds by definition of ${\bf {M_2}_{\tinydot [gray dot]}M_3}$. The third is by the identity rule for modules.
+The last step is to prove that if we have another cocone $f$, then $f$ factorises through $\pi_1$. Plugging in the unit for $B$ gives us that $f \circ (_{\tinydot [gray dot]}{\bf M_1}_{\tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}) = f( \mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]})$, so by the unit law for modules, $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}\otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}\otimes {\bf M_3}_{\tinydot[gray dot]}$. Similarly, $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}\otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}\otimes {\bf M_3}_{\tinydot[gray dot]}$.   
+
+%The two equalities below hold by assumption that $f$ is a cocone of $_{\tinydot [gray dot]}{\bf M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes {\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]}$:
+
+%\begin{equation}
+%\begin{aligned}
+%\begin{tikzpicture}[scale=0.8]
+%\draw (2,2.5) -- (2,3);
+%\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- %(0.8,2);
+%\node at (2,2.25) {$f$};
+%\draw (1,2) -- (1,1.5);
+%\draw (2,2) -- (2,1.5);
+%\draw (3,2) -- (3,0.5);
+%\draw (0.6,1) -- (1.4,1) -- (1.4,1.5) -- (0.6,1.5) -- (0.6,1);
+%\node at (1,1.25) {$\bf M_1$};
+%\draw (1.6,1) -- (2.4,1) -- (2.4,1.5) -- (1.6,1.5) -- (1.6,1);
+%\node at (2,1.25) {$\bf M_2$};
+%\draw (0.7,1) to (0.7,0.75) node[gray dot] {};
+%\draw (1,1) -- (1,0.5);
+%\draw (1.3,1) to (1.3,0.75) node[gray dot] {};
+%\node at (1,0.25) {$M_1$};
+%\draw (1.7,1) to (1.7,0.75) node[gray dot] {};
+%\draw (2,1) -- (2,0.5);
+%\draw (2.3,1) to [in=90,out=-90] (2.4,0.5);
+%\node at (2,0.25) {$M_2$};
+%\node at (2.4,.25) {$C$};
+%\node at (3,0.25) {$M_3$};
+%\end{tikzpicture}
+%\end{aligned}
+%=
+%\begin{aligned}
+%\begin{tikzpicture}[scale=0.8]
+%\draw (2,2.5) -- (2,3);
+%\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- %(0.8,2);
+%\node at (2,2.25) {$f$};
+%\draw (1,2) -- (1,0.5);
+%\draw (2,2) -- (2,1.5);
+%\draw (3,2) -- (3,1.5);
+%\draw (1.6,1) -- (2.4,1) -- (2.4,1.5) -- (1.6,1.5) -- %(1.6,1);
+%\node at (2,1.25) {$\bf M_2$};
+%\draw (2.6,1) -- (3.4,1) -- (3.4,1.5) -- (2.6,1.5) -- %(2.6,1);
+%\node at (3,1.25) {$\bf M_3$};
+%\draw (1.7,1) to (1.7,0.75) node[gray dot] {};
+%\draw (2,1) -- (2,0.5);
+%\draw (2.3,1) to (2.3,0.75) node[gray dot] {};
+%\node at (1,0.25) {$M_1$};
+%\draw (2.7,1) to [in=90,out=-90] (2.6,0.5);
+%\draw (3,1) -- (3,0.5);
+%\draw (3.3,1) to (3.3,0.75) node[gray dot] {};
+%\node at (2,0.25) {$M_2$};
+%\node at (2.6,.25) {$C$};
+%\node at (3,0.25) {$M_3$};
+%\end{tikzpicture}
+%\end{aligned}
+%\quad \quad \quad
+%\begin{aligned}
+%\begin{tikzpicture}[scale=0.8]
+%\draw (2,2.5) -- (2,3);
+%\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- %(0.8,2);
+%\node at (2,2.25) {$f$};
+%\draw (1,2) -- (1,1.5);
+%\draw (2,2) -- (2,1.5);
+%\draw (3,2) -- (3,0.5);
+%\draw (0.6,1) -- (1.4,1) -- (1.4,1.5) -- (0.6,1.5) -- %(0.6,1);
+%\node at (1,1.25) {$\bf M_1$};
+%\draw (1.6,1) -- (2.4,1) -- (2.4,1.5) -- (1.6,1.5) -- %(1.6,1);
+%\node at (2,1.25) {$\bf M_2$};
+%\draw (0.7,1) to (0.7,0.75) node[gray dot] {};
+%\draw (1,1) -- (1,0.5);
+%\draw (1.3,1) to[in=90,out=-90] (1.4,0.5) ;
+%\node at (1,0.25) {$M_1$};
+%\draw (1.7,1) to (1.7,0.75) node[gray dot] {};
+%\draw (2,1) -- (2,0.5);
+%\draw (2.3,1) to (2.3,0.75) node[gray dot] {};
+%\node at (2,0.25) {$M_2$};
+%\node at (1.4,.25) {$B$};
+%\node at (3,0.25) {$M_3$};
+%\end{tikzpicture}
+%\end{aligned}
+%=
+%\begin{aligned}
+%\begin{tikzpicture}[scale=0.8]
+%\draw (2,2.5) -- (2,3);
+%\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- %(0.8,2);
+%\node at (2,2.25) {$f$};
+%\draw (1,2) -- (1,0.5);
+%\draw (2,2) -- (2,1.5);
+%\draw (3,2) -- (3,1.5);
+%\draw (1.6,1) -- (2.4,1) -- (2.4,1.5) -- (1.6,1.5) -- %(1.6,1);
+%\node at (2,1.25) {$\bf M_2$};
+%\draw (2.6,1) -- (3.4,1) -- (3.4,1.5) -- (2.6,1.5) -- %(2.6,1);
+%\node at (3,1.25) {$\bf M_3$};
+%\draw (1.7,1) to [in=90, out=-90] (1.6,0.5);
+%\draw (2,1) -- (2,0.5);
+%\draw (2.3,1) to (2.3,0.75) node[gray dot] {};
+%\node at (1,0.25) {$M_1$};
+%\draw (2.7,1) to (2.7,0.75)node[gray dot]{};
+%\draw (3,1) -- (3,0.5);
+%\draw (3.3,1) to (3.3,0.75) node[gray dot] {};
+%\node at (2,0.25) {$M_2$};
+%\node at (1.6,.25) {$B$};
+%\node at (3,0.25) {$M_3$};
+%\end{tikzpicture}
+%\end{aligned}
+%\end{equation}
+
+%By the identity rule for modules, we deduce that $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}  \otimes {\bf M_3}_{\tinydot[gray dot]}$ and of $_{\tinydot [gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes { \bf M_2}_{\tinydot [gray dot]} \otimes \mathid_{M_3}$
+
+The first statement implies that $f$ factorises through $c_C$; Therefore, there exists a morphism $f'$ such that $f = f' \circ c_C$. From the second statement we decude that $f'$ factorises through $\tilde{c}_B$, which finishes our proof. This follows from the equations below, and the fact that $\mathid \otimes c_C$ is epic, since $\otimes$ preserves coequalizers: 
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[scale=0.75]
+\draw (2,2.5) -- (2,3);
+\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
+\node at (2,2.25) {$f'$};
+\draw (1,2) -- (1,1.5);
+\draw (2.5,2) -- (2.5,0.5);
+\draw (0.6,1) -- (1.4,1) -- (1.4,1.5) -- (0.6,1.5) -- (0.6,1);
+\node at (1,1.25) {$\bf M_1$};
+\draw (1.8,0) -- (3.2,0) -- (3.2,0.5) -- (1.8,0.5) -- (1.8,0);
+\node at (2.5,0.25) {$c_C$};
+\draw (0.7,1) to (0.7,0.75) node[gray dot] {};
+\draw (1,1) to (1,-0.5);
+\draw (1.3,1) to [in=90,out=-90] (1.5,-0.5);
+\node at (1,-0.75) {$M_1$};
+\node at (1.5,-0.75) {$B$};
+\draw (2,0) -- (2,-0.5);
+\draw (3,0) -- (3,-0.5);
+\node at (2,-0.75) {$M_2$};
+\node at (3,-0.75) {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[scale=0.75]
+\draw (2,2.5) -- (2,3);
+\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
+\node at (2,2.25) {$f$};
+\draw (1,2) -- (1,1.5);
+\draw (2,2) -- (2,-0.5);
+\draw (3,2) -- (3,-0.5);
+\draw (0.6,1) -- (1.4,1) -- (1.4,1.5) -- (0.6,1.5) -- (0.6,1);
+\node at (1,1.25) {$\bf M_1$};
+\draw (0.7,1) to (0.7,0.75) node[gray dot] {};
+\draw (1,1) to (1,-0.5);
+\draw (1.3,1) to [in=90,out=-90](1.5,-0.5);
+\node at (1,-0.75) {$M_1$};
+\node at (1.5,-0.75) {$B$};
+\node at (2,-0.75) {$M_2$};
+\node at (3,-0.75) {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[scale=0.75]
+\draw (2,2.5) -- (2,3);
+\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
+\node at (2,2.25) {$f$};
+\draw (1,2) -- (1,-0.5);
+\draw (2,2) -- (2,1.5);
+\draw (3,2) -- (3,1.5);
+\draw (1.6,1) -- (2.4,1) -- (2.4,1.5) -- (1.6,1.5) -- (1.6,1);
+\node at (2,1.25) {$\bf M_2$};
+\draw (2.6,1) -- (3.4,1) -- (3.4,1.5) -- (2.6,1.5) -- (2.6,1);
+\node at (3,1.25) {$\bf M_3$};
+\draw (1.7,1) to [in=90,out=-90](1.5,-0.5);
+\draw (2,1) -- (2,-0.5);
+\draw (2.3,1) to (2.3,0.75) node[gray dot] {};
+\node at (1,-0.75) {$M_1$};
+\draw (2.7,1) to (2.7,0.75)node[gray dot]{};
+\draw (3,1) -- (3,-0.5);
+\draw (3.3,1) to (3.3,0.75) node[gray dot] {};
+\node at (1.5,-0.75) {$B$};
+\node at (2,-0.75) {$M_2$};
+\node at (3,-0.75) {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[scale=0.75]
+\draw (2,2.5) -- (2,3);
+\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
+\node at (2,2.25) {$f'$};
+\draw (1,2) -- (1,-0.5);
+\draw (2.5,2) -- (2.5,1.5);
+\draw (1.8,1.5) -- (3.2,1.5) -- (3.2,1) -- (1.8,1) -- (1.8,1.5);
+\node at (2.5,1.25){$c_C$};
+\draw (2,1) -- (2,0.5);
+\draw (3,1) -- (3,0.5);
+\draw (1.6,0) -- (2.4,0) -- (2.4,0.5) -- (1.6,0.5) -- (1.6,0);
+\node at (2,0.25) {$\bf M_2$};
+\draw (2.6,0) -- (3.4,0) -- (3.4,0.5) -- (2.6,0.5) -- (2.6,0);
+\node at (3,0.25) {$\bf M_3$};
+\draw (1.7,0) to [in=90,out=-90] (1.5,-0.5);
+\draw (2,0) -- (2,-0.5);
+\draw (2.3,0) to (2.3,-0.25) node[gray dot] {};
+\node at (1,-0.75) {$M_1$};
+\draw (2.7,0) to (2.7,-0.25)node[gray dot]{};
+\draw (3,1) -- (3,-0.5);
+\draw (3.3,0) to (3.3,-0.25) node[gray dot] {};
+\draw (2,0) -- (2,-0.5);
+\draw (3,0) -- (3,-0.5);
+\node at (1.5,-0.75) {$B$};
+\node at (2,-0.75) {$M_2$};
+\node at (3,-0.75) {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[scale=0.75]
+\draw (2,2.5) -- (2,3);
+\draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
+\node at (2,2.25) {$f'$};
+\draw (1,2) -- (1,-0.5);
+\draw (2.5,2) -- (2.5,1.5);
+\draw (1.5,1.5) -- (3.5,1.5) -- (3.5,1) -- (1.5,1) -- (1.5,1.5);
+\node at (2.5,1.25) {${\bf M_2}_{\tinydot[gray dot]}{\bf M_3}$};
+\draw (2.5,1) -- (2.5,0.5);
+\draw (1.6,1) to [in=90,out=-90] (1.5,-0.5);
+\draw (3.4,1) to (3.4,0.5); 
+\node at (3.4,0.5) {$\tinydot[gray dot]$};
+\draw (2,0) to (2,-0.5);
+\draw (3,0) to (3,-0.5);
+\draw (1.8, 0.5) -- (3.2,0.5) -- (3.2,0) -- (1.8,0) -- (1.8,0.5);
+\node at (2.5,0.25) {$c_C$};
+\node at (1.5,-0.75) {$B$};
+\node at (1,-0.75) {$M_1$};
+\node at (2,-0.75) {$M_2$};
+\node at (3,-0.75) {$M_3$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+The first equality is obtained by interchanging $c_C$ and ${\bf M_1} \otimes \mathid$, the second holds because $f$ is a cocone of $_{\tinydot [gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes { \bf M_2}_{\tinydot [gray dot]} \otimes \mathid_{M_3}$, the third since $f= f' \circ (\id \otimes c_C)$, and the fourth by definition of ${\bf M_2}_{\tinydot[gray dot]}{\bf M_3}$. This means that there exists a morphism $f''$ such that $f= f' \circ (\mathid \otimes c_C) = f'' \circ \tilde{c}_B \circ (\mathid \otimes c_C)$, hence $f$ factorizes through $\pi_1$. 
+
+The components of the natural isomorphism $l_{\bf M}: U_A \ominus {\bf M} \rightarrow {\bf M}$ are given by $(\mathid, l_{\bf M}, \mathid)$, where $ l_{M}$ is defined as follows: By the module laws, ${\bf M}_{\tinydot[gray dot]}: A \otimes M \rightarrow M$ is a coequaliser of the maps $_{\tinydot[gray dot]}{\bf A} \otimes \mathid_{M}$ and $\mathid_{A} \otimes {\bf M}_{\tinydot[gray dot]}$. The canonical isomorphisms between ${\bf M}$ and ${\bf A}_{\tinydot[gray dot]}{\bf M}$ is the middle component of $l_{\bf M}$. 
+ Naturality of $l$ follows from commutativity of the diagram below. We can define $r$, and prove its naturality, in a similar way.
+    
+\begin{tikzpicture}[xscale=4,yscale=2]
+ \node (tl) at (0,1) {$A \otimes A \otimes M$};
+ \node (bl) at (0,0) {$B \otimes B \otimes N$};
+  \node (tm) at (1,1) {$A \otimes M$};
+ \node (bm) at (1,0) {$B \otimes N$};
+\draw[->] ([yshift=1.5pt] tl.east) to node[above] {${}_{\tinydot[gray dot]}U_{A} \otimes \mathid_M$} ([yshift=1.5pt] tm.west);
+\draw[->] ([yshift=-1.5pt] tl.east) to node[below] {$\mathid_{A} \otimes {\bf M}_{\tinydot[gray dot]}$} ([yshift=-1.5pt] tm.west);
+\draw[->] ([yshift=1.5pt] bl.east) to node[above] {$_{\tinydot[gray dot]}U_A \otimes \mathid_N$} ([yshift=1.5pt] bm.west);
+\draw[->] ([yshift=-1.5pt] bl.east) to node[below] {$\mathid_{B} \otimes {N}_{\tinydot[gray dot]}$} ([yshift=-1.5pt] bm.west);
+ \node (r1) at (2,1.25) {$A_{\tinydot[gray dot]} M$};
+ \node (r2) at (1.6,0.75) {$M$};
+  \node (r3) at (2,0.25) {$B_{\tinydot[gray dot]} N$};
+ \node (r4) at (1.6,-0.25) {$N$};
+ \draw[->] (tm.east) to node[above] {$c_M$} (r1.west);
+ \draw[->] (tm.east) to node[below] {${\bf M}_{\tinydot[gray dot]}$} (r2);
+  \draw[->] (bm.east) to node[above] {$c_N$} (r3.west);
+ \draw[->] (bm.east) to node[below] {${\bf N}_{\tinydot[gray dot]}$} (r4);
+  \draw[->, dashed] (r1) to node[left] {$l_M$} (r2);
+ \draw[->, dashed] (r3) to node[right] {$l_N$} (r4);
+  \draw[->, dashed] (r1) to node[right] {$f \tinydot[gray dot] g$} (r3);
+ \draw[->, dashed, cross] (r2) to node[left, yshift=10pt] {$g$} (r4);
+ \draw[->] (tl) to node[left] {$f \otimes f \otimes g$} (bl);
+ \draw[->] (tm) to node[left] {$f \otimes g$} (bm);
+\end{tikzpicture}
+\end{proof}
+
+\begin{rmk}
+It was shown in ~\cite{heunenvicarywester} that under the same conditions, dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms form a bicategory. This bicategory is a subcategory of $\mathcal{M}od$ and the methods we used above are extensions of the methods used in ~\cite{heunenvicarywester}. 
+\end{rmk}
+
+\begin{lem}\label{lem:algsymmon}
+The double category $\Alg({\cat C})$ is symmetric monoidal
+\end{lem}
+
+\begin{proof}
+
+We have seen that $\D_0$ and $\D_1$ are symmetric monoidal. Clearly, $S$ and $T$ are strict symmetric monoidal functors preserving the associativity and unit constraints, and $U_I$ is the monoidal unit of $D_1$, when $I$ is the monoidal unit of $D_0$.
+
+Unfolding definitions shows that the globular isomorphism $\upsilon$ from $U \circ (\otimes)$ to $\otimes \circ (U \times U)$ is the identity. We define the exchange law between the functors $\ominus$ and $\otimes$ as $(\mathid, \hat{\xi}, \mathid)$, where the morphism $\hat{\xi}$ in ${\cat C}$ is the unique morphism completing the commuting diagram below.
+In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({\bf M_1} \otimes {\bf N_1}) \ominus ({\bf M_2} \otimes {\bf N_2})$, ${M_1}_{\tinydot[gray dot]} M_2$, and ${N_1}_{\tinydot[gray dot]} N_2$, respectively. By a similar argument given while defining $a$, one can show that $c_M \otimes c_N$ is the coequaliser of the lower two parallel maps in the diagram. The to leftmost vertical morphisms natural isomoprhisms swapping the objects. We will call the middle morphism the name $\hat{\sigma}$.
+
+\begin{equation}\label{def:xi}
+  \begin{tikzpicture}[xscale=5, yscale=2, thin]
+    \node (tl) at (-.3,1) {$M_1 \otimes M_2 \otimes B_1 \otimes B_2 \otimes N_1 \otimes N_2$};
+    \node (bl) at (-.3,0) {$M_1 \otimes B_1 \otimes N_1 \otimes M_2 \otimes B_2 \otimes N_2$};
+    \node (t) at (1,1) {$M_1 \otimes M_2 \otimes N_1 \otimes N_2$};
+    \node (b) at (1,0) {$M_1 \otimes N_1 \otimes M_2 \otimes N_2$};
+    \node (tr) at (1.7,1) {$({M_1} \otimes {N_1}) \tinydot[gray dot] ({M_2} \otimes {N_2})$};
+    \node (br) at (1.7,0) {$({M_1} \tinydot[gray dot] {M_2}) \otimes ({N_1} \tinydot[gray dot] {N_2})$};
+    \draw[->] (tl) to node[left] {} (bl);
+    % \draw[->] ([xshift=-5pt]tl.south) to node[left] {1} ([xshift=2
+   ]bl.north);
+    \draw[->] (t) to node[right] {$\hat{\sigma}$} (b);
+    \draw[->, dashed] (tr) to node[right] {$\hat{\xi}$} (br);
+    \draw[->] (t) to node[above] {c} (tr);
+    \draw[->] (b) to node[below] {$c_M \otimes c_N$} (br);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}(\mathbf{M_1} \otimes \mathbf{M_2}) \otimes \mathid_{N_1 \otimes N_2}$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_{M_1 \otimes M_2} \otimes (\mathbf{N_1} \otimes \mathbf{N_2})_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {$
+    {}_{\tinydot[white dot]}\mathbf{M_1} \otimes \mathid_{N_1} \otimes {}_{\tinydot[white dot]}\mathbf{M_2} \otimes \mathid_{N_2}$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{M_1} \otimes \mathbf{N_1}_{\tinydot[black dot]} \otimes \mathid{M_2} \otimes \mathbf{N_2}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
+  \end{tikzpicture}
+ \end{equation}
+
+
+What is left to prove is that that diagrams of \ref{eq:mon1}-\ref{eq:braid1} of Definition ~\ref{def:symmondoub} commute. Because $\upsilon$ and $\xi$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
+
+For the first equation of \ref{eq:mon1} , this corresponds to the front square of the diagram below. The unlabeled arrows coequalisers that defining their target object.
+The bottom square and the upper square on the right commute by definition of $\hat{\xi}$. The back square holds by coherence of ${\cat C}$. The upper left and lower right square commute by definition of $a$. The lower left, upper right, and the top square commute by definition of $\xi$ and $\tinydot[gray dot]$.
+It follows that the front square must commute as well.
+\begin{equation}
+\begin{tikzpicture}[xscale=3.2, yscale=2]
+%lowersquare
+\node (b1) at (0,0) [] {$(M_1 \otimes N_1) \otimes ((M_2 \otimes M_3) \otimes (N_2 \otimes N_3))$};
+\node (b2) at (2,0) [] {$(M_1 \otimes (M_2 \otimes M_3) \otimes (N_1 \otimes (N_2 \otimes N_3))$};
+\node (b3) at (1,-0.5) [] {$(M_1 \otimes {N_1})_{\tinydot[gray dot]} (({M_2}_{\tinydot[gray dot]} M_3) \otimes ({N_2}_{\tinydot[gray dot]} N_3))$};
+\node (b4) at (3,-0.5) [] {$({M_1}_{\tinydot[gray dot]} ({M_2}_{\tinydot[gray dot]} M_3 )) \otimes ({N_1}_{\tinydot[gray dot]} ({N_2}_{\tinydot[gray dot]} N_3))$}; 
+\draw[->] (b1) to node[above, xshift=7pt] {$\hat{\sigma}$} (b2);
+\draw[->] (b3) to node[above] {$\hat{\xi}$} (b4);
+\draw[->] (b1) to node[above] {} (b3); 
+\draw[->] (b2) to node[above] {} (b4);
+%middlesquare
+\node (m1) at (0,1.5) [] {$(M_1 \otimes N_1) \otimes ((M_2 \otimes N_2)) \otimes (M_3 \otimes N_3))$};
+\node (m2) at (2,1.5) [] {$((M_1 \otimes M_2) \otimes M_3) \otimes ((N_1 \otimes N_2) \otimes N_3)$};
+\node (m3) at (1,1) [] {$(M_1 \otimes {N_1})_{\tinydot[gray dot]} ((M_2 \otimes {N_2})_{\tinydot[gray dot]} (M_3 \otimes N_3))$};
+\node (m4) at (3,1) [] {$({M_1}_{\tinydot[gray dot]} {M_2})_{\tinydot[gray dot]} {M_3}) \otimes (({N_1}_{\tinydot[gray dot]}N_2)_{\tinydot[gray dot]} N_3)$};
+\draw[->] (m1) to node[above] {} (m3); 
+\draw[->] (m2) to node[above] {} (m4);
+%lowervertical
+\draw[->] (m1) to node[left] {$\hat{\sigma} \otimes \mathid$} (b1); 
+\draw[->] (m2) to node[left] {$\alpha \otimes \alpha$} (b2);
+\draw[->, cross] (m3) to node[left, yshift=8pt] {$\mathid \tinydot[gray dot] \hat{\xi}$} (b3); 
+\draw[->] (m4) to node[left] {$\bar{a} \otimes \bar{a}$} (b4);
+%uppersquare
+\node (u1) at (0,3) [] {$((M_1 \otimes N_1) \otimes (M_2 \otimes N_2)) \otimes (M_3 \otimes N_3)$};
+\node (u2) at (2,3) [] {$((M_1 \otimes M_2) \otimes (N_1 \otimes N_2)) \otimes (M_3 \otimes N_3)$};
+\node (u3) at (1,2.5) [] {$((M_1 \otimes N_1)_{\tinydot[gray dot]}(M_2 \otimes N_2))_{\tinydot[gray dot]}(M_3 \otimes N_3)$};
+\node (u4) at (3,2.5) [] {$(({M_1}_{\tinydot[gray dot]} M_2) \otimes ({N_1}_{\tinydot[gray dot]} N_2))_{\tinydot[gray dot]} (M_3 \otimes N_3)$};
+\draw[->] (u1) to node[left] {$\alpha$} (m1); 
+\draw[->] (u2) to node[left] {$\hat{\sigma}$} (m2);
+\draw[->, cross] (u3) to node[left] {$\bar{a}$} (m3); 
+\draw[->] (u4) to node[left] {$\hat{\xi}$} (m4);
+\draw[->, cross] (u3) to node[above, xshift=8pt] {$\hat{\xi}_{\tinydot[gray dot]} \mathid$} (u4); 
+\draw[->] (u1) to node[above] {$\hat{\sigma} \otimes \mathid$} (u2);
+\draw[->] (u1) to node[below] {} (u3); 
+\draw[->, cross] (u2) to node[above] {} (u4);
+\end{tikzpicture}
+\end{equation}
+
+All equations concerning $\xi$ are proven in the same way. These are the second and third equation of \ref{eq:mon1}, the first equation of \ref{eq:mon2}, the first and the third equation of \ref{eq:mon3}, and the first equation of \ref{eq:braid1}.
+The equations concerning $\upsilon$ hold because $\upsilon$ is the identity, and because $U_{\alpha_{A,B,C}} = \alpha_{U_A,U_B,U_C}$, $U(\rho_A) = \rho_{U_A}$, $U(\lambda_A) = \lambda_{U_A}$, and $\sigma_{U_A,U_B} = U(\sigma_{A,B})$.
+These are the second equation of \ref{eq:mon2}, the second and the fourth equation of \ref{eq:mon3}, the second equation of \ref{eq:braid1} hold because $\upsilon$ is the identity, 
+\end{proof}
+
+
+Finally, we will prove that $\Alg(\cat C$) is fibrant, hence we can lift all structure to the horizontal bicategory $\mathcal{H}(\Alg)$. 
+
+\begin{lem}\label{lem:algfib}
+Let ${\cat C}$ be a symmetric monoidal category, where $\otimes$ preserves colimits, then $\Alg({\cat C})$ is fibrant.
+\end{lem}
+
+\begin{proof}
+Let $f$ be a morphism of ${\cat D_1}$. We will prove that $f$ has a companion. It follows that $f$ has a conjoint, because $\Alg({\bf C}^{h* op}) \cong$ $\Alg({\cat C})$.
+
+We define
+\begin{equation}
+\hat{f}:= 
+\begin{aligned}
+ \begin{tikzpicture}[scale=0.6] 
+\draw (0.5,-0.5)node[below]{$A$} -- (0.5, -0.2);
+\draw (0.2,-0.2) -- (0.8,-0.2) -- (0.8,0.7) -- (0.2,0.7) -- (0.2,-0.2);
+\draw (0.5,0.7) to[out=90,in=160] (1.2,1.2) node[gray dot] {};
+\draw (1.2,-0.5) node[below]{$B$} to (1.2,1.2);
+\draw (1.9,0.7) to[out=90, in=20] (1.2,1.2){};
+\draw (1.9,0.7)  to (1.9,-0.5)node [below]{$B$};
+\draw (1.2,1.9) -- (1.2,1.2){};
+\node at (0.5,0.25)[] {$f$};
+\node at (1.2,2.1)[]{$B$};
+\end{tikzpicture}
+\end{aligned}
+\quad \quad \eta_{\hat{f}} := (id_A, f, f)
+\quad \quad \epsilon_{\hat{f}} := (f, \mathid_B, \mathid_B)
+\end{equation}
+
+the first equation of \ref{eq:compeqn} holds because we  $\epsilon_{\hat{f}} \circ \eta_{\hat{f}} = (f,f,f) = U_f$. The left-hand-side of the second equation corresponds to $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}}= (id_A, f\tinydot[gray dot] \mathid_B, \mathid_B)$, where $f\tinydot[gray dot] \mathid_B: {U_A}_{\tinydot[gray dot]} \hat{f} \rightarrow \hat{f}_{\tinydot[gray dot]}U_B$ is  is the unique map that makes back of the diagram below commute.  
+
+\begin{tikzpicture}[xscale=4,yscale=2]
+ \node (tl) at (0,1) {$A \otimes A \otimes B$};
+ \node (bl) at (0,0) {$B \otimes B \otimes B$};
+  \node (tm) at (1,1) {$A \otimes B$};
+ \node (bm) at (1,0) {$B \otimes B$};
+\draw[->] ([yshift=1.5pt] tl.east) to node[above] {${}_{\tinydot[white dot]}U_A \otimes \mathid_B$} ([yshift=1.5pt] tm.west);
+\draw[->] ([yshift=-1.5pt] tl.east) to node[below] {$\mathid_{A} \otimes \hat{f}_{\tinydot[gray dot]}$} ([yshift=-1.5pt] tm.west);
+\draw[->] ([yshift=1.5pt] bl.east) to node[above] {$_{\tinydot[white dot]}\hat{f} \otimes \mathid_B$} ([yshift=1.5pt] bm.west);
+\draw[->] ([yshift=-1.5pt] bl.east) to node[below] {$\mathid_{B} \otimes {U_B}_{\tinydot[gray dot]}$} ([yshift=-1.5pt] bm.west);
+ \node (r1) at (2,1.25) {$A_{\tinydot[gray dot]} B$};
+ \node (r2) at (1.6,0.75) {$B$};
+  \node (r3) at (2,0.25) {$B_{\tinydot[gray dot]} B$};
+ \node (r4) at (1.6,-0.25) {$B$};
+ \draw[->] (tm.east) to node[above] {$c_A$} (r1.west);
+ \draw[->] (tm.east) to node[below] {$\hat{f}_{\tinydot[gray dot]}$} (r2);
+  \draw[->] (bm.east) to node[above,xshift=-2pt] {$c_B$} (r3.west);
+ \draw[->] (bm.east) to node[below] {$_{\tinydot[white dot]}\hat{f}$} (r4);
+  \draw[->, dashed] (r1) to node[left] {$l_{\hat{f}}$} (r2);
+ \draw[->, dashed] (r3) to node[right] {$r_{\hat{f}}$} (r4);
+  \draw[->, dashed] (r1) to node[right] {$f \tinydot[gray dot] \mathid_B$} (r3);
+ \draw[->, dashed, cross] (r2) to node[right] {$\mathid_B$} (r4);
+ \draw[->] (tl) to node[left] {$f \otimes f \otimes \mathid_B$} (bl);
+ \draw[->] (tm) to node[left] {$f \otimes \mathid_B$} (bm);
+\end{tikzpicture}
+
+In this diagram, $c_A$ and $c_B$ are the coequalisers defining ${U_A}_{\tinydot[gray dot]} \hat{f}$ and $\hat{f}_{\tinydot[gray dot]}U_B$, respectively.
+As we observed before,  $\hat{f}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\hat{f}}$ are coequalisers for the corresponding pairs of maps. The identity morphism on $B$ makes the front part of the diagram commute. If we assume the double category to be strict, it follows that $f \tinydot[gray dot] \mathid_B = \mathid_B$, and thus $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}} = 1_{\hat{f}}$.
+\end{proof}
+
+\begin{eg}
+When we take ${\bf C}$ to be $AB$, the symmetric monoidal category of abelian groups, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's \ref{lem:aldoub}, \ref{lem:algsymmon}, \ref{lem:algfib}, \ref{thm:mon11-monbi}, the horizontal bicategory $\lMod$ of $\cMod$ is a symmetric monoidal.
+\end{eg}
+ 
 \bibliographystyle{alpha}
 \bibliography{smbicat}
 
