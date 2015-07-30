@@ -845,9 +845,9 @@
 \newcommand{\dotmult}[1]{%
 \,\begin{tikzpicture}[dotpic]
 	\node [#1] (a) {};
-	\draw [diredge] (a) -- (90:0.55);
-	\draw [diredge] (a) (-45:0.6) -- (a);
-	\draw [diredge] (a) (-135:0.6) -- (a);
+	\draw (a) -- (90:0.55);
+	\draw (a) (-45:0.6) -- (a);
+	\draw (a) (-135:0.6) -- (a);
 \end{tikzpicture}\,}
 
 \newcommand{\prodmult}[2]{\dotmult{#1}\!\!\!\!\dotmult{#2}}

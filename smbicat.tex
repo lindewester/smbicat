@@ -26,7 +26,7 @@
   from symmetric monoidal double categories that satisfy a lifting
   condition. Such symmetric monoidal double categories frequently
   occur in nature, so the method is widely applicable, though not
-  universally so. This method extends to a trifunctor from the tricategory of symmetric monoidal double categories, to the tricategory of symmetric monoidal bicategories; hence it can be used to lift symmetric monoidal functors and transformations.
+  universally so. Our main example is the bicategory ${\cA}lg$ of algebras, bimodules and bimodule homomorphisms. The same method can be used to construct symmetric monoidal functors and symmetric monoidal transformations, and is functorial.   
 \end{abstract}
 
 
@@ -126,10 +126,10 @@ notions of `companion' and `conjoint' whose presence supplies the
 necessary lifting property, which we call being \emph{fibrant}.  Then
 in \S\ref{sec:1x1-to-bicat} we describe a functor from fibrant double
 categories to bicategories, and in \S\ref{sec:constr-symm-mono} we
-show that it preserves monoidal, braided, and symmetric structures.
+show that it preserves monoidal, braided, and symmetric structures. Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${clA}lg$ of algebras, bimodules and bimodule homomorphisms.
 
-I would like to thank Peter May, Tom Fiore, Stephan Stolz, Chris
-Douglas, and Nick Gurski for helpful discussions and comments.
+We would like to thank Peter May, Tom Fiore, Stephan Stolz, Chris
+Douglas, Nick Gurski, and Jamie Vicary for helpful discussions and comments.
 
 
 \section{Symmetric monoidal double categories}
@@ -257,7 +257,7 @@ naturally ocurring double category.  Here are just a few examples.
   The double category \lMod\ has as objects rings, as 1-morphisms ring
   homomorphisms, as 1-cells bimodules, and as 2-morphisms equivariant
   bimodule maps.  Its horizontal bicategory $\cMod = \cH(\lMod)$ is
-  the usual bicategory of rings and bimodules.
+  the usual bicategory of rings and bimodules. In Section ~\ref{sec:Alg} we prove that this bicategory is symmetric monoidal.
 \end{eg}
 
 \begin{eg}
@@ -349,8 +349,7 @@ categories naturally form a \emph{2-category}, a much simpler object.
 \end{defn}
 
 We write \cDbl\ for the 2-category of double categories, functors, and
-transformations, and $\mathbf{Dbl}$ for its underlying 1-category.
-Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
+transformations, and $\mathbf{Dbl}$ for its underlying 1-category. As pseudofunctors compose strictly associatively, this is well-defined. Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
 $\al_A$, \emph{and} each $\al_M$, is invertible.
 
 The 2-category \cDbl\ gives us an easy way to define what we mean by a
@@ -1333,8 +1332,7 @@ Recall that the assignment $\cH$ sends each double category $\lC$ to the horizon
 \end{proof}
 
 The action of \cH\ on transformations, however, is less obvious, and
-requires the presence of companions or conjoints.  Recall that if
-$F,G\maps \cA\to\cB$ are functors between bicategories, then an
+requires the presence of companions or conjoints.  We briefly recall the definition of transformations of bifunctors. If $F,G\maps \cA\to\cB$ are functors between bicategories, then an
 \textbf{oplax transformation} $\al\maps F\to G$ consists of 1-cells
 $\al_A\maps FA\to GA$ and 2-cells
 \[\vcenter{\xymatrix{ \ar[r]^{Ff}\ar[d]_{\al_A} \drtwocell\omit{\al_f} &  \ar[d]^{\al_B}\\
@@ -1761,16 +1759,14 @@ We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{F
 
 \section{Symmetric Monoidal Bicategories}
 \label{sec:constr-symm-mono}
-In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with $\mathcal{D}bl_{\bf F}^{\bf M}$, $\mathcal{D}bl_{\bf F}^{\bf B}$, and $\mathcal{D}bl_{\bf F}^{\bf S}$, respectively. Their images are the tricategories  of monoidal bicategories, braided monoidal bicategories and symmetric monoidal bicategories, $\mathcal{B}icat^{\bf M}$, $\mathcal{B}icat^{\bf B}$, and $\mathcal{B}icat^{\bf S}$, respectively.
+In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with $\mathcal{D}bl_{\bf F}^{\bf M}$, $\mathcal{D}bl_{\bf F}^{\bf B}$, and $\mathcal{D}bl_{\bf F}^{\bf S}$, respectively. Their images are the tricategories  of monoidal bicategories, braided monoidal bicategories, and symmetric monoidal bicategories, $\mathcal{B}icat^{\bf M}$, $\mathcal{B}icat^{\bf B}$, and $\mathcal{B}icat^{\bf S}$, respectively.
 
-Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal or strong monoidal. However, as we have observed before, there are no tricategories containing conjuntional transformations. We will show that the main result for this section, formulated in the theorem below, holds for those functors whose structure transformations are horizontally strong; which means that they lift to pseudo transformations. We leave a further generalization to future work.
+Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal or strong monoidal. No matter what choice we make, $\mathcal{H}$ preserves the monoidal structure. However, as we have observed before, there are no tricategories containing conjuntional transformations. Hence, $\mathcal{H}$ can only be a trifunctor of monoidal double categories, if we restrict to transformations that are horizontally strong; which means that they lift to pseudo transformations. Under this condition, we will prove the main theorem of this section, stated below. We leave a further generalization to future work.
 %[{\it is there a better definition? or examples where this works/ some justification}]     
 
 \begin{thm}\label{thm:trifunctor2}
 The functor $\mathcal{H}: \mathcal{D}bl_{\bf F} \rightarrow \mathcal{B}icat$ extends to functors $\mathcal{H}^{\bf M}: \mathcal{D}bl_{\bf F}^{\bf M} \rightarrow \mathcal{B}icat^{\bf M}$, $\mathcal{H}^{\bf B}: \mathcal{D}bl_{\bf F}^{\bf B} \rightarrow \mathcal{B}icat^{\bf B}$, and $\mathcal{H}^{\bf S}: \mathcal{D}bl_{\bf F}^{\bf S} \rightarrow \mathcal{B}icat^{\bf S}$ 
 \end{thm}
-
-We require transformations to be horizontally strong, because this i
 
 \subsection{Strategy}
 We need to show that $\mathcal{H}$ preserves all of the relevant (braided/symmetric) monoidal structure.
@@ -2355,13 +2351,12 @@ This brings us to the proof of our theorem.
 Combining Lemma's \ref{lem:monfun}, \ref{lem:brfun},  \ref{lem:symfun}, \ref{lem:montran}, \ref{lem:brtran} and Corrolary \ref{cor:symtran} gives the required result.
 \end{proof}
 
-\section{An example}
-As an illustration, we will construct the symmetric monoidal bicategory $\mathcal{A}lg$ of algebras, bimodules and bimodule homomorphisms. This is the horizontal bicategory of the fibrant double category $\Alg$, which we define below.
+\section{An example}\label{sec:Alg}
+As an illustration, we will construct the symmetric monoidal bicategory $\mathcal{A}lg$ of algebras, bimodules, and bimodule homomorphisms. This is the horizontal bicategory of the fibrant double category $\Alg$, which we define below.
 
-We will use the language of string diagrams for symmetric monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}, as it is the most straightforward way to introduce certain concepts.  We refer to ~\cite{selinger} for an overview. In the string diagrammatic language, we depict objects (and identity morphisms) as lines $\tinyid$, morphisms generally as boxes, but  multiplications as circles $\tinymult[white dot]$, and the swap map as two crossing lines; we write tensor products as a juxtaposition of lines/boxes. The diagrams should be read from bottom to top.  
+We will use the language of string diagrams for symmetric monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}. A good overview is given in ~\cite{selinger}. In the string diagrammatic language, we depict objects (and identity morphisms) as lines $\tinyid$, morphisms generally as boxes with the source object in the bottom and the target object on top. However, multiplication maps are depicted as circles $\tinymult[white dot]$, and the swap map as crossing lines; we write tensor products as a juxtaposition of lines/boxes. This diagrammatic language is sound and complete for symmetric monoidal categories, as shown in ~\cite{selinger}.
 
-
-We will use the abstract definition of an {\bf algebra} $(A, \tinymult[white dot], \tinyunit[white dot])$, as an object $A$ of a symmetric monoidal category, together with a multiplication map $\tinymult[white dot]: A \times A \rightarrow A$ and a unit map $\tinyunit[white dot]: I \rightarrow A$, satisfying the following two equations:
+We will consider the abstract notion of an {\bf algebra} $(A, \tinymult[white dot], \tinyunit[white dot])$. This is an object, $A$, of a symmetric monoidal category, ${\bf C}$, together with a multiplication map, $\tinymult[white dot]: A \times A \rightarrow A$, and a unit map, $\tinyunit[white dot]: I \rightarrow A$, satisfying the associativity and unit law below.
 
 \begin{calign}
 \label{eq:frobenius}
@@ -2406,9 +2401,8 @@ We will use the abstract definition of an {\bf algebra} $(A, \tinymult[white dot
   \end{pic}
 \end{calign}
 
-An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ is a morphism $f:A \rightarrow B$ that respects the multiplication, $f \circ \tinymult[white dot] = \tinymult[gray dot] \circ (f \otimes f)$, and the unit, $\tinyunit[gray dot] = f \circ \tinyunit[white dot]$. Algebras and algebra homomorphisms form a symmetric monoidal category with the usual tensorproduct for morphisms and for objects as $(A, \tinymult[white dot], \tinyunit[white dot]) \otimes (B, \tinymult[gray dot], \tinyunit[gray dot]) := (A \otimes B, \prodmult{white dot}{gray dot}, \whiteunit \grayunit)$. The unit is the trivial algebra $(I, \lambda_I, \mathid_I)$. The crossing lines in the multiplication map represent the swap morphism $\sigma_{A,B}$. 
-
-An A,B-{\bf bimodule} on an object $M$ is a morphism $M: A \otimes M \otimes B \rightarrow M$, satisfying the following two module equations:
+An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ is a morphism $f:A \rightarrow B$ in ${\bf C}$ that respects the multiplication, $f \circ \tinymult[white dot] = \tinymult[gray dot] \circ (f \otimes f)$, and the unit, $\tinyunit[gray dot] = f \circ \tinyunit[white dot]$. Algebras and algebra homomorphisms form a symmetric monoidal category with the usual tensorproduct for morphisms, the usual structure natural isomorphisms, and for objects, the tensor product $(A, \tinymult[white dot], \tinyunit[white dot]) \otimes (B, \tinymult[gray dot], \tinyunit[gray dot]) := (A \otimes B, \prodmult{white dot}{gray dot}, \whiteunit \grayunit)$. The unit is the trivial algebra $(I, \lambda_I, \mathid_I)$. 
+An A,B-{\bf bimodule} on an object $M$ is a morphism ${\bf M}: A \otimes M \otimes B \rightarrow M$, satisfying the composition and unit law below.
 
 \begin{equation}\label{eq:bimodule}
     \begin{pic}[yscale=0.85]
@@ -2449,11 +2443,11 @@ An A,B-{\bf bimodule} on an object $M$ is a morphism $M: A \otimes M \otimes B \
       \draw (m.-45) to[out=-90,in=90] +(0,-0.75) node[black dot] {};
     \end{pic}
   \end{equation}
-We will write to A,B-bimodules as $_A{\bf M}_B$. An {\bf extended module homomorphism} ${\bf f}: {\bf M} \rightarrow {\bf N}$ is a triple of morphism $(A \xrightarrow{f_l} C, M \xrightarrow{f} N, B \xrightarrow{f_r} D)$ such that $f \circ M = N \circ (f_l \otimes f \otimes f_r)$. Where $f_l$ and $f_r$ are both identities, this corresponds to the standard definition of a {\bf bimodule homomorphism}.
-Bimodules and extended bimodule homomorphisms form a symmetric monoidal category where the tensor product is defined on morphisms componentwise. the unit object and the tensor product for objects are defined below:
+For readability, we sometimes write A-B-bimodules ${\bf M}$ as $_A{\bf M}_B$ and we abreviate the following compositions: ${}_{\tinydot[white dot]}{\bf M} := {\bf M} \circ (\tinyunit[white dot] \otimes \mathid)$, ${\bf M}_{\tinydot[gray dot]}:= {\bf M} \circ (\mathid \otimes \tinyunit[gray dot])$, and $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}:= {\bf M} \circ (\tinyunit[white dot] \otimes \tinyunit[gray dot])$. An {\bf extended module homomorphism} ${\bf f}: {\bf M} \rightarrow {\bf N}$ is a triple of morphisms $(A \xrightarrow{f_l} C, M \xrightarrow{f} N, B \xrightarrow{f_r} D)$ such that $f \circ M = N \circ (f_l \otimes f \otimes f_r)$. When $f_l$ and $f_r$ are both identities, this corresponds to the standard definition of a {\bf bimodule homomorphism}.
+Bimodules and extended bimodule homomorphisms form a symmetric monoidal category, where the tensor product is defined on morphisms componentwise. The unit object and the tensor product for objects are defined below:
 \begin{equation}
 {\bf I}:=
-\smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=1.5,string,yscale=-1]
+\smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=1.2,string,yscale=-1]
       \node (0) at (0,0) {};
       \node[gray dot, inner sep=1.5pt] (1) at (0,0.55) {};
       \node (2) at (-0.5,1) {};
@@ -2465,7 +2459,7 @@ Bimodules and extended bimodule homomorphisms form a symmetric monoidal category
       \end{pic}}\hspace{-3pt}}}
 \quad
 _A{\bf M}_B \otimes {}_C{\bf N}_D :=
-\begin{pic} [scale=0.7]
+\begin{pic} [scale=0.6]
 \draw (0,0) -- (0,0.5) -- (1,0.5) -- (1,0) -- (0,0);
 \draw (1.5,0) -- (1.5,0.5) -- (2.5,0.5) -- (2.5,0) -- (1.5,0);
 \draw (0.2,0) to[out=-90, in=90] (-1,-1)node[left]{$A$};
@@ -2480,8 +2474,9 @@ _A{\bf M}_B \otimes {}_C{\bf N}_D :=
 \node at (2,0.25) [] {${\bf N}$};
 \end{pic}
 \end{equation}
-by the notation for the unit object, we mean that we apply the multiplication map $\tinymult[gray dot]$ on $I$ twice. By the associativity condition, it does not matter in which order we do the multiplication.
-The associator and unitor and swap natural isomorphisms are given by the maps with the following components: 
+By the notation for the unit object, we mean that we apply the multiplication map, $\tinymult[gray dot]$, on $I$ twice. We draw it symmetrically because of the associativity condition.
+The associator, unitor, and swap natural isomorphisms are given by the maps with the following components: 
+
 \begin{align}
  {\bf \alpha}_{_A{\bf M}_B,_C{\bf N}_D,_E{\bf P}_F} &:= (\alpha_{A,C,E}, \alpha_{M,N,P}, \alpha_{B,D,F}) 
 \\{\bf \lambda}_{_A{\bf M}_B}&:= (\lambda_A, \lambda_M, \lambda_B)
@@ -2494,7 +2489,7 @@ Let ${\cat C}$ be a symmetric monoidal category where all colimits exist, and wh
 \end{lem}
 
 \begin{proof}
-The {\bf unit functor} $D_0 \xrightarrow{U} D_1$ is defined on objects as $U(A,\tinymult[gray dot],\tinyunit[gray dot]) = 
+The {\bf unit functor} $\lD_0 \xrightarrow{U} \lD_1$ is defined on objects as $U(A,\tinymult[gray dot],\tinyunit[gray dot]) := 
       \smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=0.4,string,yscale=-1]
       \node (0) at (0,0) {};
       \node[gray dot, inner sep=1.5pt] (1) at (0,0.55) {};
@@ -2505,8 +2500,8 @@ The {\bf unit functor} $D_0 \xrightarrow{U} D_1$ is defined on objects as $U(A,\
       \draw (1.center) to [out=right, in=down, out looseness=1.5] (3.center);
       \draw (1.center) to (0,1);
       \end{pic}}\hspace{-3pt}}}$; 
-      and on morphisms as $U(f) = (f,f,f)$. The {\bf source and target functors} $S,T: {\cat D_0} \rightarrow {\cat D_1}$ are defined on objects as $S({}_A {\bf M}_B) = A$, and  $T({}_A {\bf M}_B) = B$, and on morphisms as  $S(f_1,f,f_2)=f_1$, and $T(f_1, f, f_2) = f_2$.
-The functor $\ominus: {\cat D_1} \times_{\cat D_0} {\cat D_1} \rightarrow {\cat D_1}$, maps objects $(_A{\bf M}_B$, $_B{\bf N}_C)$ to $_A{\bf M} \tinydot[gray dot] {\bf N}_C$, and morphisms $((f_1, f, h), (h, g, g_2))$ to $(f_1, f \tinydot[gray dot] g, g_2)$, where ${M} \tinydot[gray dot] {N}$ and $f \tinydot[gray dot] g$ are defined by the following coequalisers:
+      and on morphisms as $U(f) := (f,f,f)$. The {\bf source and target functors} $S,T: \lD_1 \rightarrow \lD_0$ are defined on objects as $S({}_A {\bf M}_B) = A$, and  $T({}_A {\bf M}_B) = B$, and on morphisms as  $S(f_l,f,f_r)=f_l$, and $T(f_l, f, f_r) = f_r$.
+The functor $\ominus: {\lD_1} \times_{\lD_0} {\lD_1} \rightarrow {\lD_1}$, maps objects $(_A{\bf M}_B$, $_B{\bf N}_C)$ to $_A{\bf M} \tinydot[gray dot] {\bf N}_C$, and morphisms $((f_l, f, h), (h, g, g_r))$ to $(f_l, f \tinydot[gray dot] g, g_r)$, where ${M} \tinydot[gray dot] {N}$ and $f \tinydot[gray dot] g$ are defined by the following coequalisers:
 
 \begin{equation}\label{eq:coequaliser}
   \begin{pic}[xscale=4,yscale=1.66, thin]
@@ -2520,15 +2515,16 @@ The functor $\ominus: {\cat D_1} \times_{\cat D_0} {\cat D_1} \rightarrow {\cat 
     \draw[->] (t) to node[right] {$f \otimes g$} (b);
     \draw[->, dashed] (tr) to node[right] {$f \tinydot[gray dot] g$} (br);
     \draw[->] (t) to node[above] {$c$} (tr);
-    \draw[->] (b) to node[below] {$c$} (br);
-    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M} \otimes \id[N]$} ([yshift=1.5pt]t.west);
-    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\id[M] \otimes \mathbf{N}_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
-    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \otimes \id[N']$} ([yshift=1.5pt]b.west);
-    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\id[M'] \otimes \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
+    \draw[->] (b) to node[below] {$c'$} (br);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M} \otimes \mathid_{N}$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid{M} \otimes \mathbf{N}_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \otimes \mathid{N'}$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid{M'} \otimes \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
   \end{pic}
  \end{equation}
- 
-  The module ${\bf M} \tinydot[gray dot] {\bf N}$ is given by the map that makes the diagram below commute. The map $\mathid_A \otimes c \otimes \mathid_C$ defines the coequaliser, since $\otimes$ preserves coequalisers. By commutativity of the left square, $c \circ ({\bf M}_{ \tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf N})$ is another cocone of the same maps. Hence, ${\bf M} \tinydot[gray dot] {\bf N}$ exists and is unique.
+
+By commutativily of the left square, $c \circ (f \otimes g)$ is another coequaliser of the upper two parallel maps, hence $f \tinydot[gray dot] g$ exists and is unique. 
+  The module ${\bf M} \tinydot[gray dot] {\bf N}$ is given by the map that makes the diagram below commute. It exists and is unique by uniqueness of coequalisers, taking commutativity of the left square into account, and the fact that $\otimes$ preserves coequalisers. 
 
 \begin{equation}\label{eq:coequaliser2}
   \begin{pic}[xscale=4,yscale=1.66, thin]
@@ -2549,12 +2545,72 @@ The functor $\ominus: {\cat D_1} \times_{\cat D_0} {\cat D_1} \rightarrow {\cat 
     \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{M'} \otimes \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
   \end{pic}  
  \end{equation}
+
+Note that ${\bf N}_{\tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf N}$ is a module. It is easy to check that ${\bf M}_{\tinydot[gray dot]}{\bf N}$ satisfies the module axioms as well, using commutativity of the diagram above and the fact that $c$ is epic. Pasting the two diagrams together into a cube proves that $(f \otimes g)$ is a bimodule homomorphism.
  
-Note that ${\bf N}_{\tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf N}$ is a module. It is easy to check that ${\bf M}_{\tinydot[gray dot]}{\bf N}$ satisfies the module axioms as well, using commutativity of the diagram above and the fact that $c$ is epic.
+It is left to verify functoriality of $\ominus$. When we unfold the definitions we see that we only need to check that $(f\tinydot[gray dot]f') \circ( g \tinydot[gray dot] g') = (f \circ f')\tinydot[gray dot] (g \circ g')$, and $\mathid_{\bf M} \tinydot[gray dot] \mathid_{\bf M'} = \mathid_{\bf M \tinydot[gray dot] M'}$. The two sides of the first equality are the unique maps making the two diagram below commute. If we forget the middle part of the left diagram, the diagrams are equal by the exchange law for $\otimes$ and $\circ$. As a consequence, the dashed arrows must me equal too. A similar argument shows that $\mathid_{\bf M} \tinydot[gray dot] \mathid_{\bf M'} = \mathid_{\bf M \tinydot[gray dot] M'}$.
  
- It is left to verify functoriality of $\ominus$. Unfolding definitions gives us that we only need to check that $(f\tinydot[gray dot]f') \circ( g \tinydot[gray dot] g') = (f \circ f')\tinydot[gray dot] (g \circ g')$, and $\mathid_{\bf M} \tinydot[gray dot] \mathid_{\bf M'} = \mathid_{\bf M \tinydot[gray dot] M'}$ in ${\cat C}$. In Lemma 3.2.6  and Lemma 3.4.4 of ~\cite{wester:mscthesis}, this is proven for a restricted class of coequalisers, but the argument holds in the general case as well. [{\it write out the details?}]
-  
-The natural isomorphism ${\bf a}: ({\bf M_1} \ominus {\bf M_2}) \ominus {\bf M_3} \rightarrow {\bf M_1} \ominus ({\bf M_2} \ominus {\bf M_3})$ is the extended algebra homomorphism $(\mathid, a, \mathid)$ where $a$ is defined by the coequalisers below. We will show that $\pi_1$ and $\pi_2$ are coequalisers of the upper two parallel horizontal maps. This induces the unique isomorphism $a_{M_1,M_2,M_3}$. The component $a_{N_1,N_2,N_3}$ is derived in the same way. Naturality of $a$ follows from the rightmost square of the diagram, which commutes because all other sub diagrams commute.
+ \begin{equation}
+  \begin{pic}[xscale=2.3, yscale=1.5, thin]
+    \node (tl) at (-.3,1) {$M \otimes B \otimes N$};
+    \node (bl) at (-.3,0) {$L \otimes C \otimes K$};
+    \node (ld) at (-.3,-1) {$P \otimes D \otimes Q$};
+    \node (t) at (1,1) {$M \otimes N$};
+    \node (b) at (1,0) {$L \otimes K$};
+    \node (md) at (1,-1) {$P \otimes Q$};
+    \node (tr) at (1.7,1) {${M}_{\tinydot[gray dot]} {N}$};
+    \node (br) at (1.7,0) {${K}_{\tinydot[gray dot]} {L}$};
+    \node (rd) at (1.7,-1) {${M}_{\tinydot[gray dot]} {N}$};
+    \draw (tl) to  (-.3,.65);
+    \node at (-.3, 0.5) {$f \otimes i \otimes g$};
+    \draw[->] (-.3,.35) to  (bl);
+    \draw[->] (t) to node[right] {$f \otimes g$} (b);
+    \draw[->, dashed] (tr) to node[right] {$f_{\tinydot[gray dot]}g$} (br);
+    \draw[->, dashed] (br) to node[right] {$h_{\tinydot[gray dot]}k$} (rd);
+    \draw[->] (t) to node[above] {$c_B$} (tr);
+    \draw[->] (b) to node[below] {$c_C$} (br);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M} \otimes \mathid_{N}$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_{M} \otimes \mathbf{N}_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{K} \otimes \mathid_{L}$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{K} \otimes \mathbf{L}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
+    \draw (bl) to  (-.3,-.35);
+    \node at (-.3,-.5) {$h \otimes j \otimes k$};
+    \draw[->] (-.3,-.65) to  (ld);
+    \draw[->] (b) to node[right] {$h \otimes k$} (md);
+   % \draw[->, dashed] (tr) to node[right] {$\rho_M \tinydot[gray dot] \rho_N$} (rd);
+    \draw[->] (md) to node[above] {$c_D$} (rd);
+    \draw[->] ([yshift=1.5pt]ld.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{P} \otimes \mathid_{Q}$} ([yshift=1.5pt]md.west);
+    \draw[->] ([yshift=-1.5pt]ld.east) to node[below] {$\mathid_{P}  \otimes \mathbf{Q}_{\tinydot[black dot]}$} ([yshift=-1.5pt]md.west);
+%    \draw[->, dashed] (br) to [in=90, out=90] {$\hat{\xi}^{-1}$} (rd);
+  \end{pic}  
+   \begin{pic}[xscale=2.3, yscale=1.5, thin]
+    \node (tl) at (-.3,1) {$M \otimes B \otimes N$};
+    \node (ld) at (-.3,-1) {$P \otimes D \otimes Q$};
+    \node (t) at (1,1) {$M \otimes N$};
+    \node (md) at (1,-1) {$P \otimes Q$};
+    \node (tr) at (1.7,1) {${M}_{\tinydot[gray dot]} {N}$};
+    \node (rd) at (1.7,-1) {${M}_{\tinydot[gray dot]} {N}$};
+    \draw (tl) to  (-.3,0.25);
+    \draw[->] (-.3,-0.25) to  (ld);
+    \node at (-.3,0.125) {$(k \circ f) \otimes (j \circ i)$};
+    \node at (-.3,-.125) {$\otimes (k \circ g)$};
+    \draw (t) to  (1,0.3);
+    \draw[->] (1,0.1) to  (md);
+    \node at (1,0.2) {$(h \circ f) \otimes (k \circ g)$};
+    \draw[dashed] (tr) to (1.7,-0.1);
+    \node at (1.7,-.2) {$(h \circ f)_{\tinydot[gray dot]}(k \circ g)$};
+    \draw[->, dashed] (1.7,-0.3) to (rd); 
+    \draw[->] (t) to node[above] {$c_B$} (tr);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M} \otimes \mathid_{N}$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_{M} \otimes \mathbf{N}_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
+    \draw[->] (md) to node[above] {$c_D$} (rd);
+    \draw[->] ([yshift=1.5pt]ld.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{P} \otimes \mathid_{Q}$} ([yshift=1.5pt]md.west);
+    \draw[->] ([yshift=-1.5pt]ld.east) to node[below] {$\mathid_{P}  \otimes \mathbf{Q}_{\tinydot[black dot]}$} ([yshift=-1.5pt]md.west);
+  \end{pic}
+ \end{equation}
+
+The {\bf associator} ${\bf a}: ({\bf M_1} \ominus {\bf M_2}) \ominus {\bf M_3} \rightarrow {\bf M_1} \ominus ({\bf M_2} \ominus {\bf M_3})$ is an the extended algebra homomorphism of the form $(\mathid, a, \mathid)$. Let $\pi_1$ and $\pi_2$ be two different coequalisers of the maps depicted below. Then $a_{M_1,M_2,M_3}$ is defined as the unique isomorphism between their images.
+Similarly we derive the component $a_{N_1,N_2,N_3}$. Naturality of $a$ follows from the rightmost square of the diagram, which commutes because all other sub diagrams commute. 
 
 \begin{tikzpicture}[xscale=5,yscale=2.5]
  \node (tl) at (0,1) {$M_1 \otimes B \otimes M_2 \otimes C \otimes M_3$};
@@ -2582,7 +2638,7 @@ The natural isomorphism ${\bf a}: ({\bf M_1} \ominus {\bf M_2}) \ominus {\bf M_3
  \draw[->] (tm) to node[left] {$f_1 \otimes f_2 \otimes f_3$} (bm); 
 \end{tikzpicture}
 
-The morphisms $\pi_1$, $\pi_2$, $\phi_1$, $\phi_2$ are  defined below.
+The coequalisers $\pi_1$ and $\pi_2$ correspond to the compositions of coequalisers below. 
 
 \begin{equation}
 \pi_1 :=
@@ -2600,7 +2656,7 @@ The morphisms $\pi_1$, $\pi_2$, $\phi_1$, $\phi_2$ are  defined below.
 \draw (1.45,-1) -- (1.45,-1.5)node[right]{$M_3$};
 \end{tikzpicture}
 \end{aligned}
-\hspace{.35cm}
+\hspace{.5cm}
 \pi_2:=
 \begin{aligned}
 \begin{tikzpicture}[xscale=-0.75, yscale=0.75]
@@ -2616,42 +2672,9 @@ The morphisms $\pi_1$, $\pi_2$, $\phi_1$, $\phi_2$ are  defined below.
 \draw (1.45,-1) to (1.45,-1.5)node[left]{$M_1$};
 \end{tikzpicture}
 \end{aligned}
-\hspace{.35cm}
-\phi_1 :=
-\begin{aligned}
-\begin{tikzpicture}[scale=0.75]
-\node at (0.75,1.25) {$({N_1}_{\tinydot[gray dot]} {N_2})_{\tinydot[gray dot]} {N_3}$};
-\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
-\node at (0.75,0.25) [] {$\tilde{c}_D$};
-\draw (0.75,0.5) -- (0.75,1);
-\draw (0.3,0) -- (0.3,-1.5)node[left]{$M_1$};
-\draw  (1.1,0) to node[right]{${N_2}_{\tinydot[gray dot]}N_3$}  (1.1,-0.5);
-\draw (0.6,-1) -- (0.6,-0.5) -- (1.65, -0.5) -- (1.65,-1) -- (0.6,-1);
-\node at (1,-0.75) [] {$c_E$};
-\draw (0.8,-1) to (0.8,-1.5)node[right,xshift=-3pt]{$M_2$};; 
-\draw (1.45,-1) -- (1.45,-1.5)node[right]{$M_3$};
-\end{tikzpicture}
-\end{aligned}
-\hspace{.35cm}
-\phi_2:=
-\begin{aligned}
-\begin{tikzpicture}[xscale=-.75, yscale=0.75]
-\node at (0.75,1.25) {${N_1}_{\tinydot[gray dot]} ({N_2}_{\tinydot[gray dot]} {N_3})$};
-\draw (0,0) -- (0,0.5) -- (1.5, 0.5) -- (1.5,0) -- (0,0);
-\node at (0.75,0.25) [] {$\tilde{c}_E$};
-\draw (0.75,0.5) -- (0.75,1);
-\draw (0.3,0) -- (0.3,-1.5)node[right]{$M_3$};
-\draw  (1.1,0) to node[left]{${N_1}_{\tinydot[gray dot]}N_2$}  (1.1,-0.5);
-\draw (0.6,-1) -- (0.6,-0.5) -- (1.65, -0.5) -- (1.65,-1) -- (0.6,-1);
-\node at (1,-0.75) [] {$c_D$};
-\draw (0.8,-1) to (0.8,-1.5)node[left,xshift=3pt]{$M_2$}; 
-\draw (1.45,-1) -- (1.45,-1.5)node[left]{$M_1$};
-\end{tikzpicture}
-\end{aligned}
 \end{equation}
 
-We will prove that $\pi_1$ is a coequaliser. A similar argument holds for $\pi_2$, $\phi_1$, and $\phi_2$. 
-By the equations below, $\pi_1$ is a cocone of the $_{\tinydot [gray dot]}{\bf M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes {\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]}$.
+The equations below express the fact that $\pi_1$ is a cocone of $_{\tinydot [gray dot]}{\bf M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes {\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]}$.
 
 \begin{equation}
 \begin{aligned}
@@ -2780,8 +2803,8 @@ By the equations below, $\pi_1$ is a cocone of the $_{\tinydot [gray dot]}{\bf M
 \end{aligned}
 \end{equation}
 
-The first equality holds because $\tilde{c}_B$ and $c_C$ are cocones. The second equality holds by definition of ${\bf {M_2}_{\tinydot [gray dot]}M_3}$. The third is by the identity rule for modules.
-The last step is to prove that if we have another cocone $f$, then $f$ factorises through $\pi_1$. Plugging in the unit for $B$ gives us that $f \circ (_{\tinydot [gray dot]}{\bf M_1}_{\tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}) = f( \mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]})$, so by the unit law for modules, $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}\otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}\otimes {\bf M_3}_{\tinydot[gray dot]}$. Similarly, $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}\otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}\otimes {\bf M_3}_{\tinydot[gray dot]}$.   
+The first equality holds because $\tilde{c}_B$ and $c_C$ are cocones; the second equality holds by definition of ${\bf {M_2}_{\tinydot [gray dot]}M_3}$; and the third holds by the unit law for modules.
+The last step for showing that $\pi_1$ is a coequaliser, is to prove that if we have another cocone $f$, then $f$ factorises through $\pi_1$. Plugging in the unit for $B$ gives us that $f \circ (_{\tinydot [gray dot]}{\bf M_1}_{\tinydot[gray dot]} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}) = f( \mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]})$, so by the unit law for modules, $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2}\otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}\otimes {\bf M_3}_{\tinydot[gray dot]}$. Similarly, $f$ is a cocone of $_{\tinydot[gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes {\bf M_2}_{\tinydot[gray dot]} \otimes \mathid_{M_3}$.   
 
 %The two equalities below hold by assumption that $f$ is a cocone of $_{\tinydot [gray dot]}{\bf M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes {\bf M_2}_{\tinydot[gray dot]} \otimes  {\bf M_3}_{\tinydot[gray dot]}$:
 
@@ -2889,10 +2912,10 @@ The last step is to prove that if we have another cocone $f$, then $f$ factorise
 
 %By the identity rule for modules, we deduce that $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}  \otimes {\bf M_3}_{\tinydot[gray dot]}$ and of $_{\tinydot [gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes { \bf M_2}_{\tinydot [gray dot]} \otimes \mathid_{M_3}$
 
-The first statement implies that $f$ factorises through $c_C$; Therefore, there exists a morphism $f'$ such that $f = f' \circ c_C$. From the second statement we decude that $f'$ factorises through $\tilde{c}_B$, which finishes our proof. This follows from the equations below, and the fact that $\mathid \otimes c_C$ is epic, since $\otimes$ preserves coequalizers: 
+The first statement implies that $f$ factorises through $c_C$; Therefore, there exists a morphism $f'$, such that $f = f' \circ c_C$. From the second statement we decude that $f'$ factorises through $\tilde{c}_B$, which finishes our proof. This follows from the equations below, and the fact that $\mathid \otimes c_C$ is epic, since $\otimes$ preserves coequalizers. 
 \begin{equation}
 \begin{aligned}
-\begin{tikzpicture}[scale=0.75]
+\begin{tikzpicture}[yscale=0.78, xscale=0.7]
 \draw (2,2.5) -- (2,3);
 \draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
 \node at (2,2.25) {$f'$};
@@ -2915,7 +2938,7 @@ The first statement implies that $f$ factorises through $c_C$; Therefore, there 
 \end{aligned}
 =
 \begin{aligned}
-\begin{tikzpicture}[scale=0.75]
+\begin{tikzpicture}[yscale=0.78, xscale=0.7]
 \draw (2,2.5) -- (2,3);
 \draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
 \node at (2,2.25) {$f$};
@@ -2935,7 +2958,7 @@ The first statement implies that $f$ factorises through $c_C$; Therefore, there 
 \end{aligned}
 =
 \begin{aligned}
-\begin{tikzpicture}[scale=0.75]
+\begin{tikzpicture}[yscale=0.78, xscale=0.7]
 \draw (2,2.5) -- (2,3);
 \draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
 \node at (2,2.25) {$f$};
@@ -2960,7 +2983,7 @@ The first statement implies that $f$ factorises through $c_C$; Therefore, there 
 \end{aligned}
 =
 \begin{aligned}
-\begin{tikzpicture}[scale=0.75]
+\begin{tikzpicture}[yscale=0.78, xscale=0.7]
 \draw (2,2.5) -- (2,3);
 \draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
 \node at (2,2.25) {$f'$};
@@ -2990,7 +3013,7 @@ The first statement implies that $f$ factorises through $c_C$; Therefore, there 
 \end{aligned}
 =
 \begin{aligned}
-\begin{tikzpicture}[scale=0.75]
+\begin{tikzpicture}[yscale=0.78, xscale=0.7]
 \draw (2,2.5) -- (2,3);
 \draw (0.8,2) -- (3.2,2) -- (3.2,2.5) -- (0.8,2.5) -- (0.8,2);
 \node at (2,2.25) {$f'$};
@@ -3013,10 +3036,9 @@ The first statement implies that $f$ factorises through $c_C$; Therefore, there 
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
-The first equality is obtained by interchanging $c_C$ and ${\bf M_1} \otimes \mathid$, the second holds because $f$ is a cocone of $_{\tinydot [gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes { \bf M_2}_{\tinydot [gray dot]} \otimes \mathid_{M_3}$, the third since $f= f' \circ (\id \otimes c_C)$, and the fourth by definition of ${\bf M_2}_{\tinydot[gray dot]}{\bf M_3}$. This means that there exists a morphism $f''$ such that $f= f' \circ (\mathid \otimes c_C) = f'' \circ \tilde{c}_B \circ (\mathid \otimes c_C)$, hence $f$ factorizes through $\pi_1$. 
+The first equality is obtained by interchanging $c_C$ and ${\bf M_1} \otimes \mathid$, the second holds because $f$ is a cocone of $_{\tinydot [gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes { \bf M_2}_{\tinydot [gray dot]} \otimes \mathid_{M_3}$, the third since $f= f' \circ (\mathid \otimes c_C)$, and the fourth by definition of ${\bf M_2}_{\tinydot[gray dot]}{\bf M_3}$. This means that there exists a morphism $f''$ such that $f= f' \circ (\mathid \otimes c_C) = f'' \circ \tilde{c}_B \circ (\mathid \otimes c_C)$, hence $f$ factorizes through $\pi_1$. A similar argument shows that $\pi_2$ is a coequaliser as well. 
 
-The components of the natural isomorphism $l_{\bf M}: U_A \ominus {\bf M} \rightarrow {\bf M}$ are given by $(\mathid, l_{\bf M}, \mathid)$, where $ l_{M}$ is defined as follows: By the module laws, ${\bf M}_{\tinydot[gray dot]}: A \otimes M \rightarrow M$ is a coequaliser of the maps $_{\tinydot[gray dot]}{\bf A} \otimes \mathid_{M}$ and $\mathid_{A} \otimes {\bf M}_{\tinydot[gray dot]}$. The canonical isomorphisms between ${\bf M}$ and ${\bf A}_{\tinydot[gray dot]}{\bf M}$ is the middle component of $l_{\bf M}$. 
- Naturality of $l$ follows from commutativity of the diagram below. We can define $r$, and prove its naturality, in a similar way.
+The components of the {\bf left unitor} $l_{\bf M}: U_A \ominus {\bf M} \rightarrow {\bf M}$ are given by $(\mathid, l_{M}, \mathid)$, where $ l_{M}$ is defined as follows: By the module laws, ${\bf M}_{\tinydot[gray dot]}: A \otimes M \rightarrow M$ is a coequaliser of the maps $_{\tinydot[gray dot]}{\bf A} \otimes \mathid_{M}$ and $\mathid_{A} \otimes {\bf M}_{\tinydot[gray dot]}$. The canonical isomorphisms between ${\bf M}$ and ${\bf A}_{\tinydot[gray dot]}{\bf M}$ is the middle component of $l_{\bf M}$, and naturality of $l$ follows from commutativity of the diagram below. We can define $r$, and prove its naturality, in a similar way.
     
 \begin{tikzpicture}[xscale=4,yscale=2]
  \node (tl) at (0,1) {$A \otimes A \otimes M$};
@@ -3056,8 +3078,8 @@ The double category $\Alg({\cat C})$ is symmetric monoidal
 
 We have seen that $\D_0$ and $\D_1$ are symmetric monoidal. Clearly, $S$ and $T$ are strict symmetric monoidal functors preserving the associativity and unit constraints, and $U_I$ is the monoidal unit of $D_1$, when $I$ is the monoidal unit of $D_0$.
 
-Unfolding definitions shows that the globular isomorphism $\upsilon$ from $U \circ (\otimes)$ to $\otimes \circ (U \times U)$ is the identity. We define the exchange law between the functors $\ominus$ and $\otimes$ as $(\mathid, \hat{\xi}, \mathid)$, where the morphism $\hat{\xi}$ in ${\cat C}$ is the unique morphism completing the commuting diagram below.
-In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({\bf M_1} \otimes {\bf N_1}) \ominus ({\bf M_2} \otimes {\bf N_2})$, ${M_1}_{\tinydot[gray dot]} M_2$, and ${N_1}_{\tinydot[gray dot]} N_2$, respectively. By a similar argument given while defining $a$, one can show that $c_M \otimes c_N$ is the coequaliser of the lower two parallel maps in the diagram. The to leftmost vertical morphisms natural isomoprhisms swapping the objects. We will call the middle morphism the name $\hat{\sigma}$.
+Unfolding definitions shows that the globular isomorphism $\upsilon$ from $U \circ (\otimes)$ to $\otimes \circ (U \times U)$ is the identity. We define the exchange law, ${\bf \xi}$, between the functors $\ominus$ and $\otimes$ as $(\mathid, \hat{\xi}, \mathid)$, where $\hat{\xi}$ is the unique morphism completing the commuting diagram below.
+In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({M_1} \otimes {N_1})_{\tinydot[gray dot]}({M_2} \otimes {N_2})$, ${M_1}_{\tinydot[gray dot]} M_2$, and ${N_1}_{\tinydot[gray dot]} N_2$, respectively. By a similar argument given while defining $a$, one can show that $c_M \otimes c_N$ is the coequaliser of the lower two parallel maps in the diagram. The two leftmost vertical morphisms are natural isomorphisms swapping the objects. We will call the middle morphism $\hat{\sigma}$.
 
 \begin{equation}\label{def:xi}
   \begin{tikzpicture}[xscale=5, yscale=2, thin]
@@ -3067,11 +3089,11 @@ In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({\bf M_1
     \node (b) at (1,0) {$M_1 \otimes N_1 \otimes M_2 \otimes N_2$};
     \node (tr) at (1.7,1) {$({M_1} \otimes {N_1}) \tinydot[gray dot] ({M_2} \otimes {N_2})$};
     \node (br) at (1.7,0) {$({M_1} \tinydot[gray dot] {M_2}) \otimes ({N_1} \tinydot[gray dot] {N_2})$};
-    \draw[->] (tl) to node[left] {} (bl);
+    \draw[->] (tl) to node[left] {$\iso$} (bl);
     % \draw[->] ([xshift=-5pt]tl.south) to node[left] {1} ([xshift=2
    ]bl.north);
-    \draw[->] (t) to node[right] {$\hat{\sigma}$} (b);
-    \draw[->, dashed] (tr) to node[right] {$\hat{\xi}$} (br);
+    \draw[->] (t) to node[right] {$\iso \hat{\sigma} $} (b);
+    \draw[->, dashed] (tr) to node[right] {$\iso \hat{\xi} $} (br);
     \draw[->] (t) to node[above] {c} (tr);
     \draw[->] (b) to node[below] {$c_M \otimes c_N$} (br);
     \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}(\mathbf{M_1} \otimes \mathbf{M_2}) \otimes \mathid_{N_1 \otimes N_2}$} ([yshift=1.5pt]t.west);
@@ -3083,10 +3105,10 @@ In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({\bf M_1
  \end{equation}
 
 
-What is left to prove is that that diagrams of \ref{eq:mon1}-\ref{eq:braid1} of Definition ~\ref{def:symmondoub} commute. Because $\upsilon$ and $\xi$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
+What is left to prove is that that diagrams of \ref{eq:braid1}-\ref{eq:mon1} of Definition ~\ref{def:symmondoub} commute. Because $\upsilon$ and $\xi$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
 
-For the first equation of \ref{eq:mon1} , this corresponds to the front square of the diagram below. The unlabeled arrows coequalisers that defining their target object.
-The bottom square and the upper square on the right commute by definition of $\hat{\xi}$. The back square holds by coherence of ${\cat C}$. The upper left and lower right square commute by definition of $a$. The lower left, upper right, and the top square commute by definition of $\xi$ and $\tinydot[gray dot]$.
+The first equation of \ref{eq:mon1} corresponds to the front square of the diagram below. The unlabeled arrows represent the coequalisers defining their target object.
+The bottom square and the upper right square commute by the definition of $\hat{\xi}$. The square at the back commutes by coherence of ${\cat C}$. The upper left and lower right square commute by definition of $a$. The lower left and the top square commute by definition of $\xi$ and $\tinydot[gray dot]$.
 It follows that the front square must commute as well.
 \begin{equation}
 \begin{tikzpicture}[xscale=3.2, yscale=2]
@@ -3110,7 +3132,7 @@ It follows that the front square must commute as well.
 \draw[->] (m1) to node[left] {$\hat{\sigma} \otimes \mathid$} (b1); 
 \draw[->] (m2) to node[left] {$\alpha \otimes \alpha$} (b2);
 \draw[->, cross] (m3) to node[left, yshift=8pt] {$\mathid \tinydot[gray dot] \hat{\xi}$} (b3); 
-\draw[->] (m4) to node[left] {$\bar{a} \otimes \bar{a}$} (b4);
+\draw[->] (m4) to node[left] {$a \otimes a$} (b4);
 %uppersquare
 \node (u1) at (0,3) [] {$((M_1 \otimes N_1) \otimes (M_2 \otimes N_2)) \otimes (M_3 \otimes N_3)$};
 \node (u2) at (2,3) [] {$((M_1 \otimes M_2) \otimes (N_1 \otimes N_2)) \otimes (M_3 \otimes N_3)$};
@@ -3118,31 +3140,29 @@ It follows that the front square must commute as well.
 \node (u4) at (3,2.5) [] {$(({M_1}_{\tinydot[gray dot]} M_2) \otimes ({N_1}_{\tinydot[gray dot]} N_2))_{\tinydot[gray dot]} (M_3 \otimes N_3)$};
 \draw[->] (u1) to node[left] {$\alpha$} (m1); 
 \draw[->] (u2) to node[left] {$\hat{\sigma}$} (m2);
-\draw[->, cross] (u3) to node[left] {$\bar{a}$} (m3); 
+\draw[->, cross] (u3) to node[left] {$a$} (m3); 
 \draw[->] (u4) to node[left] {$\hat{\xi}$} (m4);
 \draw[->, cross] (u3) to node[above, xshift=8pt] {$\hat{\xi}_{\tinydot[gray dot]} \mathid$} (u4); 
-\draw[->] (u1) to node[above] {$\hat{\sigma} \otimes \mathid$} (u2);
+\draw[->] (u1) to node[above] {$\mathid \otimes \hat{\sigma}$} (u2);
 \draw[->] (u1) to node[below] {} (u3); 
 \draw[->, cross] (u2) to node[above] {} (u4);
 \end{tikzpicture}
 \end{equation}
 
-All equations concerning $\xi$ are proven in the same way. These are the second and third equation of \ref{eq:mon1}, the first equation of \ref{eq:mon2}, the first and the third equation of \ref{eq:mon3}, and the first equation of \ref{eq:braid1}.
+All other equations concerning $\xi$ are proven in the same way. These are the second and third equation of \ref{eq:mon1}, the first equation of \ref{eq:mon2}, the first and the third equation of \ref{eq:mon3}, and the first equation of \ref{eq:braid1}.
 The equations concerning $\upsilon$ hold because $\upsilon$ is the identity, and because $U_{\alpha_{A,B,C}} = \alpha_{U_A,U_B,U_C}$, $U(\rho_A) = \rho_{U_A}$, $U(\lambda_A) = \lambda_{U_A}$, and $\sigma_{U_A,U_B} = U(\sigma_{A,B})$.
-These are the second equation of \ref{eq:mon2}, the second and the fourth equation of \ref{eq:mon3}, the second equation of \ref{eq:braid1} hold because $\upsilon$ is the identity, 
+These remaining equations are the second equation of \ref{eq:mon2}, the second and the fourth equation of \ref{eq:mon3}, and the second equation of \ref{eq:braid1}.
 \end{proof}
 
-
-Finally, we will prove that $\Alg(\cat C$) is fibrant, hence we can lift all structure to the horizontal bicategory $\mathcal{H}(\Alg)$. 
+Finally, we will prove that $\Alg(\cat C$) is fibrant. this is the last step we need to take to show that we can lift the symmetric monoidal structure of $\Alg({\cat C})$ to the bicategory ${\cA}lg({\cat C})$. 
 
 \begin{lem}\label{lem:algfib}
-Let ${\cat C}$ be a symmetric monoidal category, where $\otimes$ preserves colimits, then $\Alg({\cat C})$ is fibrant.
+The double category $\Alg({\cat C})$ is fibrant.
 \end{lem}
 
 \begin{proof}
-Let $f$ be a morphism of ${\cat D_1}$. We will prove that $f$ has a companion. It follows that $f$ has a conjoint, because $\Alg({\bf C}^{h* op}) \cong$ $\Alg({\cat C})$.
+Let $f$ be a morphism of ${\lD_1}$. The companion of $f$ is defined by the following data: 
 
-We define
 \begin{equation}
 \hat{f}:= 
 \begin{aligned}
@@ -3162,7 +3182,7 @@ We define
 \quad \quad \epsilon_{\hat{f}} := (f, \mathid_B, \mathid_B)
 \end{equation}
 
-the first equation of \ref{eq:compeqn} holds because we  $\epsilon_{\hat{f}} \circ \eta_{\hat{f}} = (f,f,f) = U_f$. The left-hand-side of the second equation corresponds to $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}}= (id_A, f\tinydot[gray dot] \mathid_B, \mathid_B)$, where $f\tinydot[gray dot] \mathid_B: {U_A}_{\tinydot[gray dot]} \hat{f} \rightarrow \hat{f}_{\tinydot[gray dot]}U_B$ is  is the unique map that makes back of the diagram below commute.  
+The first equation of \ref{eq:compeqn} holds because $\epsilon_{\hat{f}} \circ \eta_{\hat{f}} = (f,f,f) = U_f$. The left-hand-side of the second equation corresponds to $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}}= (id_A, f\tinydot[gray dot] \mathid_B, \mathid_B)$, where $f\tinydot[gray dot] \mathid_B: {U_A}_{\tinydot[gray dot]} \hat{f} \rightarrow \hat{f}_{\tinydot[gray dot]}U_B$ is the unique map that makes back of the diagram below commute.  
 
 \begin{tikzpicture}[xscale=4,yscale=2]
  \node (tl) at (0,1) {$A \otimes A \otimes B$};
@@ -3179,22 +3199,24 @@ the first equation of \ref{eq:compeqn} holds because we  $\epsilon_{\hat{f}} \ci
  \node (r4) at (1.6,-0.25) {$B$};
  \draw[->] (tm.east) to node[above] {$c_A$} (r1.west);
  \draw[->] (tm.east) to node[below] {$\hat{f}_{\tinydot[gray dot]}$} (r2);
-  \draw[->] (bm.east) to node[above,xshift=-2pt] {$c_B$} (r3.west);
+  \draw[->] (bm.east) to node[above,xshift=-4pt] {$c_B$} (r3.west);
  \draw[->] (bm.east) to node[below] {$_{\tinydot[white dot]}\hat{f}$} (r4);
   \draw[->, dashed] (r1) to node[left] {$l_{\hat{f}}$} (r2);
  \draw[->, dashed] (r3) to node[right] {$r_{\hat{f}}$} (r4);
   \draw[->, dashed] (r1) to node[right] {$f \tinydot[gray dot] \mathid_B$} (r3);
- \draw[->, dashed, cross] (r2) to node[right] {$\mathid_B$} (r4);
+ \draw[->, dashed, cross] (r2) to node[right,yshift=7pt] {$\mathid_B$} (r4);
  \draw[->] (tl) to node[left] {$f \otimes f \otimes \mathid_B$} (bl);
  \draw[->] (tm) to node[left] {$f \otimes \mathid_B$} (bm);
 \end{tikzpicture}
 
 In this diagram, $c_A$ and $c_B$ are the coequalisers defining ${U_A}_{\tinydot[gray dot]} \hat{f}$ and $\hat{f}_{\tinydot[gray dot]}U_B$, respectively.
-As we observed before,  $\hat{f}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\hat{f}}$ are coequalisers for the corresponding pairs of maps. The identity morphism on $B$ makes the front part of the diagram commute. If we assume the double category to be strict, it follows that $f \tinydot[gray dot] \mathid_B = \mathid_B$, and thus $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}} = 1_{\hat{f}}$.
+It is easy to check that $\hat{f}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\hat{f}}$ are coequalisers. The identity morphism on $B$ makes the front part of the diagram commute, which means that it is the unique map that makes this diagram commute. If we assume the double category to be strict, it follows that $f \tinydot[gray dot] \mathid_B = \mathid_B$, and thus $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}} = 1_{\hat{f}}$.
+
+This simultaneously proves that $f$ has a conjoint, because $\Alg({\bf C}^{h* op}) \cong$ $\Alg({\cat C})$.
 \end{proof}
 
 \begin{eg}
-When we take ${\bf C}$ to be $AB$, the symmetric monoidal category of abelian groups, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's \ref{lem:aldoub}, \ref{lem:algsymmon}, \ref{lem:algfib}, \ref{thm:mon11-monbi}, the horizontal bicategory $\lMod$ of $\cMod$ is a symmetric monoidal.
+When we take the category $AB$ of abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{thm:sym11-symbi}, ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
 \end{eg}
  
 \bibliographystyle{alpha}
