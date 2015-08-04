@@ -1212,6 +1212,7 @@ only for companions, but all have dual versions for conjoints. Later we will use
 %   as desired.
 \end{proof}
 
+
 \begin{lem}\label{thm:comp-iso}
   If $f\maps A\to B$ is a vertical isomorphism with a companion \fhat,
   then \fhat\ is a conjoint of its inverse $f\inv$.
@@ -1289,6 +1290,16 @@ only for companions, but all have dual versions for conjoints. Later we will use
   involving an equivalence is an adjoint equivalence.
 \end{proof}
 
+To conclude this section, we combine some of the Lemma's above to derive a more general statement which will play a central role in section ~\ref{sec:constr-symm-mono}.
+
+\begin{lem}\label{lem:equal}
+Any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells are equal.
+\end{lem}
+
+\begin{proof}
+By Lemma's ~\ref{thm:theta-compose-vert} and ~\ref{thm:theta-compose-horiz}, $\theta$-isomorphisms are closed under composition. By uniqueness of $\theta$-isomorphisms, any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells must be equal.
+\end{proof}
+
 \begin{rmk}
   In the following section we actually only require our double
   categories to have companions and conjoints for vertical
@@ -1320,7 +1331,7 @@ to isomorphism; equivalent terms include \emph{weak 2-functor},
 
 Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globural 2-morphisms of $\lD$.
 
-\begin{thm}
+\begin{thm}\label{thm:1-func}
   If \lD\ is a double category, then $\cH(\lD)$ is a bicategory, and
   any functor $F\maps \lD\to\lE$ induces a functor $\cH(F)\maps
   \cH(\lD)\to\cH(\lE)$.  In this way $\cH$ defines a functor of
@@ -1331,8 +1342,10 @@ Recall that the assignment $\cH$ sends each double category $\lC$ to the horizon
   $\cH(F)$.  Functoriality is evident.
 \end{proof}
 
-The action of \cH\ on transformations, however, is less obvious, and
-requires the presence of companions or conjoints.  We briefly recall the definition of transformations of bifunctors. If $F,G\maps \cA\to\cB$ are functors between bicategories, then an
+The action of \cH\ on transformations, however, is less obvious. It
+requires the presence of companions or conjoints, to lift the part of the data given by vertical morphisms to horizontal 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations of bifunctors. 
+
+If $F,G\maps \cA\to\cB$ are functors between bicategories, then an
 \textbf{oplax transformation} $\al\maps F\to G$ consists of 1-cells
 $\al_A\maps FA\to GA$ and 2-cells
 \[\vcenter{\xymatrix{ \ar[r]^{Ff}\ar[d]_{\al_A} \drtwocell\omit{\al_f} &  \ar[d]^{\al_B}\\
@@ -1374,6 +1387,8 @@ It is a \textbf{lax transformation} if the 2-cells $\al_f$ go the
 other direction, and a \textbf{pseudo transformation} if they are
 isomorphisms.
 
+It was argued by Nick Gurski in ~\cite{nick:tricats}, that often one would like to have a stronger notion of equivalence tranformations, than simply pseudo transformations. For practical purposes, it is useful to have a notion that provides canonical pseudoinverses for all of the appropriate structure constraints, as well as the necessary modifications to exhibit this pseudoinvertibility explicitly. It turns out that pseudo natural adjoint equivalences, which we discuss below, do the job.
+
 By doctrinal adjunction~\cite{kelly:doc-adjn}, given collections of
 1-cells $\al_A\maps FA\to GA$ and $\be_A\maps GA\to FA$ and
 adjunctions $\al_A\adj \be_A$ in \cB, there is a bijection between
@@ -1409,7 +1424,7 @@ equivalence.  In this case we call $\al\conj \be$ a \textbf{pseudo
   natural adjoint equivalence}.  A pseudo natural adjoint equivalence
 can equivalently be defined as an internal equivalence in the
 bicategory $\cBicat(\cA,\cB)$ of functors, pseudo natural
-transformations, and modifications $\cA\to\cB$.
+transformations, and modifications $\cA\to\cB$. 
 
 Recall also that if $\al,\al'\maps F\to G$ are oplax transformations,
 a \textbf{modification} $\mu\maps \al\to\al'$ consists of 2-cells
@@ -1535,7 +1550,7 @@ bicategory with only identity 2-cells.
   and the second is dual.  Thus $(\alhat\conj\alchk)$ is a
   conjunctional transformation.
 
-  Now suppose given $\al\maps F\to G$ and $\be\maps G\to H$.  Then by
+  It is left to check the axioms for functors of bicategories. Suppose we are given $\al\maps F\to G$ and $\be\maps G\to H$.  Then by
   \autoref{thm:comp-compose}, $\behat_A\odot\alhat_A$ is a companion
   of $\be_A\circ \al_A$, so we have a canonical isomorphism
   \[\theta_{\widehat{\be\al}_A, \,\behat_A\odot\alhat_A}\maps
@@ -1545,18 +1560,15 @@ bicategory with only identity 2-cells.
   \widehat{1_A} \too[\iso] U_A$ by \autoref{thm:comp-unit}.  These
   constraints are automatically natural, since $\cDbl(\lD,\lE)$ has no
   nonidentity 2-cells.  The axiom for the composition constraint says
-  that two constructed isomorphisms
+  that two constructed isomorphisms of the form
   \[\widehat{\gm\be\al}_A \too[\iso] (\gmhat_A \odot \behat_A)\odot \alhat_A\]
   are equal.  However, both $\widehat{\gm\be\al}_A$ and $(\gmhat_A
   \odot \behat_A)\odot \alhat_A$ are companions of $\gm_A\be_A\al_A$,
-  and both of these isomorphisms are constructed from composites (both
-  $\circ$-composites and $\odot$-composites) of $\theta$s; hence by
-  Lemmas \ref{thm:theta-compose-vert} and
-  \ref{thm:theta-compose-horiz} they are both equal to
+  and both of these isomorphisms are constructed from composites of $\theta$s; hence by
+  Lemma \ref{lem:equal}, they are both equal to
   \[\theta_{\widehat{\gm\be\al}_A,\, (\gmhat_A \odot \behat_A)\odot
     \alhat_A}\] and thus equal to each other.  The same argument
-  applies to the axioms for the unit constraint; thus we have a
-  functor of bicategories.
+  applies to the axioms for the unit constraint; thus we have a functor of bicategories.
 
   Finally, if $\al$ is an isomorphism, then in particular each $\al_A$
   is an isomorphism, so by \autoref{thm:compconj-adj} each
@@ -1607,8 +1619,8 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
 \end{lem}
 \begin{proof}
   We must first show that for a given transformation $\al\maps F\to
-  G\maps \lD\to\lE$ in \cDbl, the isomorphisms \th\ form an invertible
-  modification $\alhat \iso \alhat'$.
+  G\maps \lD\to\lE$ in \cDbl, the isomorphisms \th\ correspond to 2-cells $\alhat \iso \alhat'$ of $\Conj(\cH(\lD),\cH(\lE))$; that is, they form invertible
+  modifications.
   Substituting~\eqref{eq:oplax-2cell} and the definition of \th\
   into~\eqref{eq:modif-ax}, this becomes the assertion that
   \begin{equation}
@@ -1646,9 +1658,8 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
   on objects, i.e.\ that~\eqref{eq:laxtransf-nat}
   and~\eqref{eq:laxtransf-ax} are satisfied.
   But~\eqref{eq:laxtransf-nat} is vacuous since $\cDbl(\lD,\lE)$ has
-  no nonidentity 2-cells, and~\eqref{eq:laxtransf-ax} follows from
-  Lemmas \ref{thm:theta-compose-vert} and
-  \ref{thm:theta-compose-horiz} since all the constraints involved are
+  no nonidentity 2-cells, and~\eqref{eq:laxtransf-ax} follows from uniqueness of $\theta$s,
+  Lemma \ref{lem:equal}, since all the constraints involved are
   also instances of \th.
 \end{proof}
 
@@ -1672,40 +1683,62 @@ modifications.
   \autoref{thm:h-locfr}, we require pseudo natural (adjoint)
   equivalences $\chi$ and $\iota$ relating composition and units in
   $\cDbl_{\bf F}$ and \cBicat, and modifications relating composites of
-  these, which satisfy various axioms.  However, since composition of
-  1-cells in $\cDbl_{\bf F}$ and \cBicat\ is strictly associative and
-  unital, \cH\ strictly preserves this composition, and $\cDbl_{\bf F}$
-  has no nonidentity 3-cells, this merely amounts to the following.
+  these, which satisfy various axioms.  %However, since composition of
+  %1-cells in $\cDbl_{\bf F}$ and \cBicat\ is strictly associative and
+  %unital, \cH\ strictly preserves this composition, and $\cDbl_{\bf F}$
+  %has no nonidentity 3-cells, this merely amounts to the following.
 
-  Firstly, for every pair of transformations
+For $\chi$ this means that for every pair of transformations
   \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
       & \lE}}\]
   between fibrant double categories, we require an invertible
-  modification $\chi\maps \behat * \alhat \iso \widehat{\be*\al}$ such
-  that
-  \begin{equation}
-    \vcenter{\xymatrix@-.5pc{1 \ar[r] \ar[dr] & \hat{1}*\hat{1} \ar[d]^\chi\\
-        & \widehat{1*1} }} \quad\text{and}\quad
+  modification
+\begin{equation}
+\begin{tikzpicture}[xscale=0.75, yscale=1.3]
+\node (tl) at (0,2) {${\cH}(H) \circ {\cH}(F)$};
+\node (bl) at (0,1) {${\cH}(H \circ F)$};
+\node (tr) at (4,2) {${\cH}(K) \circ {\cH}(G)$};
+\node (br) at (4,1) {${\cH}(K \circ G)$};
+\draw[->] (tl) to node [above] {$\hat{\beta} * \hat{\alpha}$} (tr);
+\draw[->] (tr) to node [right] {$\chi_{K,G}$} (br);
+\draw[->] (tl) to node [right] {$\chi_{H,F}$} (bl);
+\draw[->] (bl) to node [below] {$\widehat{\be*\al}$} (br);
+\node at (2,1.5) {$\Arrow{5} \chi_{\alpha,\beta} $};
+\end{tikzpicture}
+\end{equation}
+satisfying the naturality and composition constraints ~\ref{eq:laxtransf-ax} and ~\ref{thm:1-func}.
+
+However, since composition of
+  1-cells in $\cDbl_{\bf F}$ and \cBicat\ is strictly associative and
+  unital, and \cH\ strictly preserves this composition (Theorem \ref{thm:1-func}),
+  the 1-cell components are identities. Consequently, it is merely  a modificaton $\chi\maps \behat * \alhat \iso \widehat{\be*\al}$, such that 
+ 
+ \begin{equation}
+        \vcenter{\xymatrix@-.5pc{
+        1_{{\cH}H \circ {\cH}F} \ar[r]\ar[d]_{=} &
+        \hat{1}_{K}*\hat{1}_{H}\ar[d]^{\chi}\\
+        1_{{\cH}(H \circ F)}\ar[r] &
+        \widehat{1_{K} *1_{H}}}} \quad\text{and}\quad       
     \vcenter{\xymatrix@-.5pc{
         \widehat{\gm\al}*\widehat{\de\be} \ar[r]\ar[d]_\chi &
-        (\gmhat*\dehat)(\alhat*\behat)\ar[d]^{\chi\chi}\\
+        (\gmhat*\dehat)\odot(\alhat*\behat)\ar[d]^{\chi \odot \chi}\\
         \widehat{\gm\al*\de\be}\ar[r] &
-        (\widehat{\gm*\de})(\widehat{\al*\be})}}
+        (\widehat{\gm*\de})\odot(\widehat{\al*\be})}}
   \end{equation}
-  commute.  (Here we are writing $*$ for the `Godement product' of
-  2-cells in $\cDbl$ and $\cBicat$.)  These are the 2-cell
-  components of the composition constraint, its 1-cell components
-  being identities.  Now by Lemmas \ref{thm:comp-compose} and
+commute. (Here we are writing $*$ for the `Godement product' of 2-cells in $\cDbl$ and $\cBicat$.)    
+Note that condition ~\ref{eq:laxtransf-nat} is satisfied because $\cDbl_{\bf F}$ has no nonidentity 3-cells.
+  
+  Now by Lemmas \ref{thm:comp-compose} and
   \ref{thm:comp-func}, $(\behat *\alhat)_A = \behat_{GA} \circ
   H(\alhat_A)$ is a companion of $(\be*\al)_A = \be_{GA} \circ
   H(\al_A)$.  Therefore, we take the component $\chi_A$ to be
   \[\theta_{\behat_{GA} \circ H(\alhat_A),\, \widehat{\be*\al}_A}.\]
-  Equation~\eqref{eq:modif-ax}, saying that these form a modification,
+  The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
+   Equation~\eqref{eq:modif-ax}, saying that these form a modification,
   becomes the equality of two large composites of 2-cells in \lD,
-  which as usual follows from~\eqref{eq:compeqn}.
+  which as usual follows from~\eqref{eq:compeqn}. The equations above are satisfied by uniqueness of $\theta$-isomorphisms, Lemma ~\ref{lem:equal}.
 
-  Secondly, for every $F\maps \lD\to\lE$ we require an isomorphism
-  $\iota\maps \widehat{1_F} \iso 1_{\cH(F)}$ satisfying a couple of
+  For $\iota$, we require for every $F\maps \lD\to\lE$ an isomorphism  $\iota\maps \widehat{1_F} \iso 1_{\cH(F)}$ satisfying a couple of
   axioms which simply require it to be equal to the unit constraint of
   the local functor \cH\ from \autoref{thm:h-locfr}; these are the
   2-cell components of the unit constraint.  Finally, the required
@@ -1723,7 +1756,7 @@ modifications.
 We end this section with two final lemma's.
 
 \begin{lem}\label{thm:theta-nat}
-  Suppose $F,G\maps \lD\to\lE$ are functors, $\al\maps F\to G$ is a
+  Suppose $F,G\maps \lD\to\lE$ are functors of double categories, $\al\maps F\to G$ is a
   transformation, and that $f\maps A\to B$ has a companion \fhat\ in
   \lD.  Then the oplax comparison 2-cell for \alhat:
   \[\vcenter{\xymatrix{
@@ -1747,11 +1780,11 @@ We end this section with two final lemma's.
 \end{proof}
 
 \begin{lem}\label{lem:FUtheta}
-The lifting $\hat{F}_U$ of the natural horizontal transformation $F_U: U_{F_0A} \rightarrow F_1U_A$ is a $\theta$-isomorphism.
+Suppose $F:\lD \rightarrow \lE$ is a functor of double categories. The lifted oplax 2-cell $\hat{F}_U$ forms the vertical natural transformation $F_U: U_{F_0A} \rightarrow F_1U_A$ is equal to $\theta_{id_{FA}, id_FA}$
 \end{lem}
 
 \begin{proof}
-We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{FA}, id_FA}$ by $\hat{F}_U$.  Unfolding the definitions of $\eta_{U_{FA}}$, $\epsilon_{FU_A}$, and $\hat{F}_U$ and applying functoriality of $F$, we obtain an expression that collapses to $U_{id_A}$. It follows that $F_U$ is a $\theta$-isomorphism, by the uniqueness of $\theta s$ in this expression.
+We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{FA}, id_FA}$ by $\hat{F}_U$.  Unfolding the definitions of $\eta_{U_{FA}}$, $\epsilon_{FU_A}$, and $\hat{F}_U$, and applying functoriality of $F$, we obtain an expression that can be rewritten to $U_{id_A}$. It follows that $F_U$ is a $\theta$-isomorphism, by the uniqueness of $\theta s$ in this expression.
 \end{proof}
 
 
@@ -1761,7 +1794,7 @@ We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{F
 \label{sec:constr-symm-mono}
 In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with $\mathcal{D}bl_{\bf F}^{\bf M}$, $\mathcal{D}bl_{\bf F}^{\bf B}$, and $\mathcal{D}bl_{\bf F}^{\bf S}$, respectively. Their images are the tricategories  of monoidal bicategories, braided monoidal bicategories, and symmetric monoidal bicategories, $\mathcal{B}icat^{\bf M}$, $\mathcal{B}icat^{\bf B}$, and $\mathcal{B}icat^{\bf S}$, respectively.
 
-Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal or strong monoidal. No matter what choice we make, $\mathcal{H}$ preserves the monoidal structure. However, as we have observed before, there are no tricategories containing conjuntional transformations. Hence, $\mathcal{H}$ can only be a trifunctor of monoidal double categories, if we restrict to transformations that are horizontally strong; which means that they lift to pseudo transformations. Under this condition, we will prove the main theorem of this section, stated below. We leave a further generalization to future work.
+Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal, or strong monoidal. No matter what choice we make, $\mathcal{H}$ preserves the monoidal structure. However, as we have observed before, there are no tricategories containing conjuntional transformations. Hence, $\mathcal{H}$ can only be a trifunctor of monoidal double categories, if we restrict to transformations that are horizontally strong; which means that they lift to pseudo transformations. Under this condition, we will prove the main theorem of this section, stated below. We leave a further generalization to future work.
 %[{\it is there a better definition? or examples where this works/ some justification}]     
 
 \begin{thm}\label{thm:trifunctor2}
@@ -1770,32 +1803,25 @@ The functor $\mathcal{H}: \mathcal{D}bl_{\bf F} \rightarrow \mathcal{B}icat$ ext
 
 \subsection{Strategy}
 We need to show that $\mathcal{H}$ preserves all of the relevant (braided/symmetric) monoidal structure.
-Lifting the monoidal or braided structure from a double category, double functor or vertical transformation, to their corresponding bicategory, pseudo functor or pseudo natural transformation, respectively, is done in three steps:
+This lifting of monoidal structure is done in three steps:
 \begin{enumerate}
-\item Structural vertical transformations are mapped by $H$ to structural pseudo natural transformations.
-\item The characteristic commuting diagrams between structural vertical transformations induce canonical $\theta$-isomorphism between the companions of the vertical transformations. These give us the structure modifications.
-\item The characteristic equalities between compositions of structure modifications with the same source and target are satisfied, due to the fact that $\theta$-isomorphisms are unique and closed under composition.
+\item Structural vertical isomorphisms are mapped by $\cH$ to structural pseudo natural adjoint equivalences, as discussed in Theorem ~\ref{thm:h-locfr}.
+\item The characteristic commuting diagrams between structural vertical isomorphisms induce canonical $\theta$-isomorphism between their companions. These give us the required structure modifications for bicategories.
+\item The characteristic equalities between compositions of structure modifications are satisfied due to the fact that $\theta$-isomorphisms are unique and closed under composition (Lemma ~\ref{lem:equal}).
 \end{enumerate}
 
-Of these steps, 1.  was shown in Theorem ~\ref{thm:h-locfr}. To make step 2 and 3 precise, we will prove the following two lemmas, which we will repeatedly use for any lifting of monoidal structure from double categories to corresponding bicategories.
+To make step 2 precise, we will prove the following Lemma.
 
 \begin{lem}\label{lem:modification}
 Let $\D$ be a double category, and let $M,N$ be objects in the category $\D_1$ of morphisms of $\D$. Any two composites of morphisms $s_1 \circ ... \circ s_n:A \rightarrow B$ and $t_1 \circ ... \circ t_m: A \rightarrow B$ in $\D_1$, that form a commuting polygon, induce a canonical modification $\theta_{\hat{s},\hat{t}} : \hat{s} = \hat{s1} \odot ... \odot \hat{s_n} \rightarrow \hat{t} = \hat{t_1} \odot ... \odot \hat{t_m}$. 
 \end{lem}
 
 \begin{proof}
-Repeatedly applying Lemma ~\ref{thm:theta-compose-horiz} tells us that $\hat{s}_1 \odot ... \odot \hat{s}_n$ and $\hat{t}_1 \odot ... \odot \hat{t}_m$ are two companions of $s$ and $t$ respectively. As $s$ and $t$ form a commuting diagram, they are in fact the same morphism. It follows from Lemma ~\ref{thm:theta} that there exists a canonical globular isomorphism $\theta_{\hat{s},\hat{t}}: \hat{s} \rightarrow \hat{t}$. This isomorphism is a modification by Lemma ~\ref{thm:h-locfr-uniq}.
+Repeatedly applying Lemma ~\ref{thm:theta-compose-horiz} tells us that $\hat{s}_1 \odot ... \odot \hat{s}_n$ and $\hat{t}_1 \odot ... \odot \hat{t}_m$ are two companions of $s$ and $t$, respectively. As $s$ and $t$ form a commuting diagram, they are in fact the same morphism. It follows from Lemma ~\ref{thm:theta} that there exists a canonical globular isomorphism $\theta_{\hat{s},\hat{t}}: \hat{s} \rightarrow \hat{t}$. This isomorphism is a modification by Lemma ~\ref{thm:h-locfr-uniq}.
 %It is not really clear from lemma 4.8 that $\theta$ is a modification...
 %And why is this even part of the proof anyway?
 \end{proof}
    
-\begin{lem}\label{lem:equal}
-Any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells are equal.
-\end{lem}
-
-\begin{proof}
-By Lemma's ~\ref{thm:theta-compose-vert} and ~\ref{thm:theta-compose-horiz}, $\theta$-isomorphisms are closed under composition. By uniqueness of $\theta$-isomorphisms, any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells must be equal.
-\end{proof}
 
 %One of the results central to our proof is the coherence of monoidal functors. A detailed proof can be found in chapter 2 of ~\cite{gur2}. This amounts to the fact that for every bicategory $B$ there exists a strict 2-category $stB$, and a biequivalence $f_B : B \rightarrow stB$; and for every pseudo functor of bicategories $F: B \rightarrow C$ corresponds to a strict 2-functor $stF: stB \rightarrow stC$ such that the square below commutes:
 
@@ -1875,7 +1901,8 @@ give a direct proof.
   \ar "E";"C";^{U_A\ten \fahat}
   \endxy
   \]
-  This modification is constructed using Lemma \ref{lem:modification}, which we can apply because of  Lemma's ~\ref{thm:comp-unit},  ~\ref{thm:comp-compose}, and ~\ref{thm:comp-ten}. We construct the other invertible modifications $\mu, \lambda, \rho$ in the same way.
+By Lemma's ~\ref{thm:comp-unit},  ~\ref{thm:comp-compose}, and ~\ref{thm:comp-ten}, the outside of this diagram commutes.  
+ As a result, we can construct $\pi$ by Lemma \ref{lem:modification}. The other invertible modifications $\mu, \lambda$, and $\rho$ are constructed in the same way.
 
   Finally, we must show that three equations between pasting
   composites of 2-cells hold, relating composites of
@@ -1888,7 +1915,7 @@ give a direct proof.
   \]
   for the other two it is simply the associator $(A\ten B)\ten C
   \too[\iso] A\ten (B\ten C)$.  By Lemma \ref{lem:modification},
-  every 2-cell in these diagrams is a $\theta$ isomorphism relating
+  every 2-cell in these diagrams is a $\theta$-isomorphism relating
   two companions of the same vertical isomorphism.  Therefore, Lemma ~\ref{lem:equal} implies that the three equations hold.
 \end{proof}
 
@@ -1915,7 +1942,7 @@ give a direct proof.
   The first piece of data we require to make $\cH(\lD)$ braided is a
   pseudo natural adjoint equivalence $\mathord{\otimes} \too[\eqv]
   \mathord{\otimes}\circ \tau$, where $\tau$ is the switch
-  isomorphism.  This arises by \autoref{thm:h-locfr} from the braiding
+  isomorphism.  This arises by \autoref{thm:h-locfr} from the braiding $\sigma$
   of \lD.  We also require two invertible modifications filling the
   usual hexagons for a braiding:
   \begin{equation}
@@ -1928,11 +1955,11 @@ give a direct proof.
 \node (tr) at (4,2) {$A \otimes (B \otimes C)$};
 \node (br) at (4,1) {$(B \otimes C) \otimes A$};
 \draw[->] (t) to node [above,xshift=10pt, yshift=-2] {$\hat{\alpha}$} (tr);
-\draw[->] (tr) to node [right] {$\theta_{A, B\otimes C} $} (br);
+\draw[->] (tr) to node [right] {$\hat{\sigma}$} (br);
 \draw[->] (br) to node [below,xshift=10pt, yshift=2pt] {$\hat{\alpha}$} (b);
-\draw[->] (t) to node [above,xshift=-10pt, yshift=-2pt] {$\theta \otimes \mbox{id}$} (tl);
+\draw[->] (t) to node [above,xshift=-10pt, yshift=-2pt] {$\hat{\sigma} \otimes \mbox{id}$} (tl);
 \draw[->] (tl) to node [left] {$\hat{\alpha}$} (bl);
-\draw[->] (bl) to node [below,xshift=-10pt,yshift=2pt] {$\mathid \otimes \theta$} (b);
+\draw[->] (bl) to node [below,xshift=-10pt,yshift=2pt] {$\mathid \otimes \hat{\sigma}$} (b);
 \node at (2,1.5) {$\Leftarrow_{\zeta \iso}$};
 \end{tikzpicture}
   \end{aligned}
@@ -1946,11 +1973,11 @@ give a direct proof.
 \node (tr) at (4,2) {$(A \otimes B) \otimes C$};
 \node (br) at (4,1) {$C \otimes (A \otimes B)$};
 \draw[->] (tr) to node [above,xshift=10pt, yshift=-2] {$\hat{\alpha}$} (t);
-\draw[->] (tr) to node [right] {$\theta $} (br);
+\draw[->] (tr) to node [right] {$\hat{\sigma} $} (br);
 \draw[->] (b) to node [below,xshift=10pt, yshift=2pt] {$\hat{\alpha}$} (br);
-\draw[->] (t) to node [above,xshift=-10pt, yshift=-2pt] {$\mbox{id} \otimes \theta$} (tl);
+\draw[->] (t) to node [above,xshift=-10pt, yshift=-2pt] {$\mbox{id} \otimes \hat{\sigma}$} (tl);
 \draw[->] (tl) to node [left] {$\hat{\alpha}^{-1}$} (bl);
-\draw[->] (bl) to node [below,xshift=-10pt,yshift=2pt] {$\theta \otimes \mathid$} (b);
+\draw[->] (bl) to node [below,xshift=-10pt,yshift=2pt] {$\hat{\sigma} \otimes \mathid$} (b);
 \node at (2,1.5) {$\Leftarrow_{\xi \iso}$};
 \end{tikzpicture}
 \end{aligned}
@@ -1993,14 +2020,14 @@ Suppose that \lD\ is symmetric.  To make $\cH(\lD)$ symmetric,
  \node (tr) at (2,1) {$A \otimes B$};
  \node (b) at (0,-.25) {$B \otimes A$};
  \draw[double] (tl)  -- (tr);
- \draw[->] (tl) to node[left, yshift=-5pt]{$\theta$} (b);
- \draw[->] (b) to node[right, yshift=-5pt] {$\theta$}(tr);
+ \draw[->] (tl) to node[left, yshift=-5pt]{$\hat{\sigma}$} (b);
+ \draw[->] (b) to node[right, yshift=-5pt] {$\hat{\sigma}$}(tr);
  \node at (0,0.5) {\footnotesize $\Downarrow \nu\iso$}; 
  \end{tikzpicture}
  \]
   Since the braiding in $\lD_0$ is self-inverse, the top and bottom of
   this triangle are both companions of $1_{A\ten B}$; thus we have a
-  $\theta$ isomorphism between them which we take as $\nu$.  For
+  $\theta$-isomorphism between them which we take as $\nu$.  For
   $\cH(\lD)$ to be sylleptic, the syllepsis must satisfy the two
   axioms on~\cite[p144--145]{mccrudden:bal-coalgb}.  As before, these
   diagrams of 2-cells are made up entirely of $\theta$s relating
@@ -2043,17 +2070,17 @@ Suppose that \lD\ is symmetric.  To make $\cH(\lD)$ symmetric,
   k)$-category to have an underlying $(n+k)$-category.
 \end{rmk}
 
-Now we will show that the functor $\cH$ lifts monoidal double functors to monoidal pseudo functors. We use definition 3.3.1 of ~\cite{nick:tricats} of a trifunctor, between tricategories with one object. We will assume that all double categories are fibrant.
+Now we will show that the functor $\cH$ lifts monoidal double functors to monoidal pseudo functors. We use definition 3.3.1 of ~\cite{nick:tricats} of a trifunctor, between tricategories with one object. From now on we will assume that all double categories are fibrant.
 
 \begin{lem}\label{lem:monfun}
 If $F$ is a {\bf strong monoidal double functor}, $\cH(F)$ is a monoidal pseudo functor, if $F$ is {\bf lax monoidal double functor}, $\cH(F)$ is a lax monoidal pseudo functor, and if $F$ is an {\bf oplax monoidal double functor}, $\cH(F)$ is an oplax monoidal pseudo functor. 
 \end{lem}
 
 \begin{proof}
-Let $\D, \E$ be monoidal double categories and let $F:\D \rightarrow \E$ be a strong monoidal double functor. 
-By Theorem ~\ref{thm:h-locfr}, the vertical transformations $\phi: \otimes \circ (F,F) \rightarrow F \circ \otimes $ and $\phi_u: I_{\E} \rightarrow F(I_{\D})$ from definition \ref{def:monfunc}, are mapped by $\cH$ to the pseudo natural adjoint equivalences $\hat{\phi}$ and $\hat{\phi_u}$.
+Let $\D, \E$ be monoidal double categories, and let $F:\D \rightarrow \E$ be a strong monoidal double functor. 
+By Theorem ~\ref{thm:h-locfr}, the vertical transformations $\phi: \otimes \circ (F,F) \rightarrow F \circ \otimes $ and $\phi_u: I_{\E} \rightarrow F(I_{\D})$, are mapped by $\cH$ to the pseudo natural adjoint equivalences $\hat{\phi}$ and $\hat{\phi_u}$.
 
-We need to show that there exist invertible modifications relating  different compositions of $F$, $\hat{\phi}$, the associator, and the unitors. 
+We need to show that there exist invertible modifications relating  different compositions of $F$, $\hat{\phi}$, $\hat{\phi_u}$, the associator, and the unitors. 
 The components of the first one of these modifications are given below.
 
 \begin{equation}
@@ -2075,39 +2102,36 @@ The components of the first one of these modifications are given below.
 \end{equation} 
 
 By Lemmas ~\ref{thm:comp-unit}
-and ~\ref{thm:comp-ten}, the composed morphisms are companions of the components of the commuting diagram characteristic to the monoidal structure of $F_0$. As a result, the existence of $\omega$ follows from Lemma \ref{lem:modification}. The other modifications, $\delta$ and $\gamma$, are constructed in the same way.
+and ~\ref{thm:comp-ten}, the morphisms above are companions first coherence diagram for monoidal functors. As a result, the existence of $\omega$ follows from Lemma \ref{lem:modification}. The other modifications, $\delta$ and $\gamma$, are constructed in the same way.
 
-Finally, we need to show that the equalities between the relevant compositions of structure modifications, as described in definition 3.3.1 of ~\cite{nick:tricats} hold. The source and target of these composites are $F(((A \otimes B) \otimes C) \otimes D) \rightarrow FA \otimes ( FB \otimes (FC \otimes FD)))$, and $F(A \otimes B) \rightarrow F(A \otimes (I \otimes B))$, respectively.  Each individual composed 2-cell is a $\theta$-isomorphism, either by definition, or by Lemma \ref{thm:theta-nat}. As a result, the equality follows from uniqueness of compositions of $\theta$-isomorphisms.
+Finally, we need to show that the equalities between compositions of structure modifications hold, as described in definition 3.3.1 of ~\cite{nick:tricats}. The source and target of these composites are $F(((A \otimes B) \otimes C) \otimes D) \rightarrow FA \otimes ( FB \otimes (FC \otimes FD)))$, and $F(A \otimes B) \rightarrow F(A \otimes (I \otimes B))$, respectively.  Each individual composed 2-cell is a $\theta$-isomorphism, either by definition, or by Lemma \ref{thm:theta-nat}. As a result, the equality follows from uniqueness of compositions of $\theta$-isomorphisms.
 
-By the same argument, one can show that lax/oplax monoidal double functors are lifted by $\mathcal{H}$ to lax/oplax monoidal pseudofunctors. In the latter case, the arrows corresponding to all instances of $\phi$ are reversed. 
+By the same argument, one can show that oplax/lax monoidal double functors are lifted by $\mathcal{H}$ to lax/oplax monoidal pseudofunctors. In the latter case, the arrows corresponding to all instances of $\phi$ are reversed. 
 \end{proof}
 
 
 \begin{lem}\label{lem:brfun}
-Let $(F, \phi) :\D \rightarrow \E$ be a {\bf braided monoidal double functor}, then $\cH(F):\c H(\D) \rightarrow \cH(\E)$ is a braided monoidal pseudofunctor. 
+Let $(F, \phi) :\D \rightarrow \E$ be a {\bf braided monoidal double functor}, then $\cH(F):\cH(\D) \rightarrow \cH(\E)$ is a braided monoidal pseudofunctor. 
 \end{lem}
 
 \begin{proof}
-We use the definition of a braided monoidal pseudo functor given in ~\cite{mccrudden:bal-coalgb}.
-If $\D$ is a braided monoidal double category, this means that in addition to the monoidal structure, there exists an invertible horizontal transformation $\rho : \otimes \rightarrow  \otimes \circ \sigma$.
-This transformation is lifted by $\cH$ to a pseudo natural adjoint equivalence $\hat{\rho}: \otimes \rightarrow \otimes \circ \sigma$.
-
-We need to show that there exists an invertible modification between the adjoint equivalences with the following components:
+We follow the definition of a braided monoidal pseudo functor given in ~\cite{mccrudden:bal-coalgb}.
+We need to show that there exists an invertible modification with the following components:
 
 \begin{tikzpicture}[xscale=4,yscale=2]
 \node (tl) at (0,1) {$FA \otimes FB$};
 \node (tr) at (1,1) {$FB \otimes FA$};
 \node (bl) at (0,0) {$F(A \otimes B)$};
 \node (br) at (1,0) {$F(B \otimes A)$};
-\node at (0.5,0.5){$\Downarrow \mu$};
-\draw[->] (tl) to node [above]{$\hat{\rho}_{FA,FB}$} (tr);
-\draw[->] (bl) to node [above]{$F\hat{\rho}_{A,B}$} (br);
+\node at (0.5,0.5){$\Downarrow \mu_{a,B}$};
+\draw[->] (tl) to node [above]{$\hat{\sigma}_{FA,FB}$} (tr);
+\draw[->] (bl) to node [above]{$F\hat{\sigma}_{A,B}$} (br);
 \draw[->](tl) to node [left]{$\hat{\phi}_{A,B}$} (bl);
 \draw[->] (tr) to node [right]{$\hat{\phi}_{B,A}$} (br);
 \end{tikzpicture}
  
-This modification is given by $\hat{\phi}_{\hat{\rho}_{A,B}}$, which is a $\theta$-isomorphism by Lemma ~\ref{thm:theta-nat}[{\it ??????}]. 
-It remains to show that the two diagrams of 2-cells given  in ~\cite{mccrudden:bal-coalgb} commute. The domain and codomain of these compositions are of the form $(FA \otimes FB) \otimes FC)  \rightarrow F(B \otimes (C \otimes A))$  and $(FA \otimes FB) \otimes FC) \rightarrow F((C \otimes A) \otimes B)$ in $\E_0$.
+As before, this modification is induced by the characteristic diagram for braided monoidal functors, by Lemma ~\ref{lem:modification}.
+It remains to show that the two diagrams of 2-cells given  in ~\cite{mccrudden:bal-coalgb} commute. The domain and codomain of these compositions are of the form $(FA \otimes FB) \otimes FC  \rightarrow F(B \otimes (C \otimes A))$  and $(FA \otimes FB) \otimes FC) \rightarrow F((C \otimes A) \otimes B)$ in $\E_0$.
 Each individual composed 2-cell is a $\theta$-isomorphism, either by definition, or by Lemma ~\ref{thm:theta-nat}. As a result, the equality follows from uniqueness of $\theta$-isomorphisms. 
 \end{proof}
 
@@ -2117,10 +2141,10 @@ Let $F:(\D, \phi) \rightarrow (\E, \phi)$ be a {\bf symmetric monoidal double fu
 
 Recall that by remark ~\ref{rmk:sym}, any syllepsis obtained by our construction is a $\theta$-isomorphism, which makes it a symmetry. This means that it is sufficient to show that symmetric monoidal double functors are mapped by $\cH$ to sylleptic monoidal pseudo functors. 
 
-Recall that a sylleptic bicategory is defined as a braided bicategory with an additional invertible modification $\nu: \id \rightarrow \rho \odot \rho$, which was defined in Lemma ~\ref{thm:sym11-symbi}. 
+Recall that a sylleptic bicategory is a braided bicategory with an additional invertible modification $\nu: \id \rightarrow \hat{\sigma} \odot \hat{\sigma}$. 
 
 Following the definition given in \cite{mccrudden:bal-coalgb}, 
-we need to show that the equality between the compositions of 2-cells below holds. The unlabelled $2$-cells correspond to $\theta$-isomorphism, obtained as described in Lemma ~\ref{thm:theta-nat}. 
+we need to show that the equality between the compositions of 2-cells below holds. 
 
 \begin{equation}
 \begin{aligned}
@@ -2130,15 +2154,15 @@ we need to show that the equality between the compositions of 2-cells below hold
 \node (bl) at (0,1) {$F(A\otimes B)$};
 \node (tr) at (4,2) {$FA \otimes FB$};
 \node (br) at (4,1) {$F(A\otimes B)$};
-\draw[->] (t) to node [above] {$\rho$} (tr);
+\draw[->] (t) to node [above] {$\hat{\sigma}$} (tr);
 \draw[->] (tr) to node [right] {$\hat{\phi}_{A,B}$} (br);
-\draw[->] (tl) to node [above] {$\rho$} (t);
+\draw[->] (tl) to node [above] {$\hat{\sigma}$} (t);
 \draw[->] (tl) to node [right] {$\hat{\phi}_{A,B}$} (bl);
 \draw[->] (tl) to node [above] {$U_{FA \otimes FB}$} (tr);
 \draw[->] (bl) to[in=-135, out=-45] node [below] {$FU_{A\otimes B}$} (br);
 \draw[->] (bl) to node [below] {$U_{F(A \otimes B)}$} (br);
-\node at (2,2.6) {$\upsilon \Uparrow$};
-\node at (2,1.5) {$\Downarrow$};
+\node at (2,2.6) {$\nu \Uparrow$};
+\node at (2,1.5) {$U_{\hat{\phi}_{A,B}} \Downarrow$};
 \node at (2, 0.4) {$\hat{F}_U \Downarrow$};
 \end{tikzpicture}
 \end{aligned}
@@ -2151,29 +2175,29 @@ we need to show that the equality between the compositions of 2-cells below hold
 \node (m) at (2,2) {$F(B\otimes A)$};
 \node (tr) at (4,2) {$FA \otimes FB$};
 \node (br) at (4,1) {$F(A\otimes B)$};
-\draw[->] (t) to node [above] {$\rho$} (tr);
+\draw[->] (t) to node [above] {$\hat{\sigma}$} (tr);
 \draw[->] (t) to node [right] {$\hat{\phi}_{B,A}$} (m);
 \draw[->] (tr) to node [right] {$\hat{\phi}_{A,B}$} (br);
-\draw[->] (tl) to node [above] {$\rho$} (t);
+\draw[->] (tl) to node [above] {$\hat{\sigma}$} (t);
 \draw[->] (tl) to node [right] {$\hat{\phi}_{A,B}$} (bl);
-\draw[->] (bl) to node [left,yshift=10pt, xshift=14pt] {$F{\rho}_{A,B}$} (m);
-\draw[->] (m) to node [right,xshift=-7,yshift=6] {$F{\rho}_{B,A}$} (br);
+\draw[->] (bl) to node [left,yshift=10pt, xshift=14pt] {$F\hat{\sigma}_{A,B}$} (m);
+\draw[->] (m) to node [right,xshift=-7,yshift=6] {$F{\hat{\sigma}}_{B,A}$} (br);
 \draw[->] (bl) to[in=-135, out=-45] node [below] {$FU_{A\otimes B}$} (br);
-\draw[->] (bl) to node [below] {$F({\rho}_{B,A} \odot {\rho}_{A, B})$} (br);
+\draw[->] (bl) to node [below] {$F({\hat{\sigma}}_{B,A} \odot {\hat{\sigma}}_{A, B})$} (br);
 \node at (1.1,2.2) {$\mu \Downarrow$};
 \node at (2.9,2.2) {$\mu \Downarrow$};
-\node at (2,1.3) {$\Downarrow$};
-\node at (2, 0.3) {$F\upsilon \Uparrow$};
+\node at (2,1.3) {$ \hat{F}_{\odot} \Downarrow$};
+\node at (2, 0.3) {$F\nu \Uparrow$};
 \end{tikzpicture}
 \end{aligned}
 \end{equation} 
 
-Each individual 2-cell is a $\theta$-isomorphism. For $F\upsilon$ this follows from Lemma {thm:theta-func}, for $F_U$ this follows from Lemma ~\ref{lem:FUtheta}. The other 2-cells are $\theta$-isomorphisms by definition.
+Each individual 2-cell is a $\theta$-isomorphism. For $U_{\hat{\phi}}$ and $\hat{F}_{\odot}$, 
+this follows from Lemma ~\ref{thm:theta-nat}, for $\hat{F}_{U}$ this follows from Lemma ~\ref{lem:FUtheta}, and for $F \nu$ this follows from Lemma ~\ref{thm:theta-func}. The other 2-cells are $\theta$-isomorphisms by definition.
 As a result, we can apply Lemma \ref{lem:equal} to obtain the equality.  
 
-
 \begin{lem}\label{lem:montran}
-Let $\alpha: (F, \phi) \rightarrow (G,\psi)$ be a {\bf monoidal vertical transformation}. The image of $\alpha$ under $\mathcal{H}$, $\hat{\alpha}: (F, \phi) \rightarrow (G,\psi)$, is a monoidal pseudonatural adjoint equivalence.
+Let $\beta: (F, \phi) \rightarrow (G,\psi)$ be a {\bf monoidal vertical transformation}. The image of $\beta$ under $\mathcal{H}$, $\hat{\beta}: (F, \phi) \rightarrow (G,\psi)$, is a monoidal pseudonatural adjoint equivalence.
 \end{lem}
 
 \begin{proof}
@@ -2184,8 +2208,8 @@ Following Definition 3 of ~\cite{gg:ldstr-tricat} of a pseudo icon, applied to t
 \node (bl) at (0,0) {$F(A \otimes B)$};
 \node (tr) at (1,1) {$GA \otimes GB$};
 \node (br) at (1,0) {$G(A \otimes B)$};
-\draw[->] (tl) to node [above] {$\hat{\alpha}_A \otimes \hat{\alpha}_B$} (tr);
-\draw[->] (bl) to node [below] {$\hat{\alpha}_{A \otimes B}$} (br);
+\draw[->] (tl) to node [above] {$\hat{\beta}_A \otimes \hat{\beta}_B$} (tr);
+\draw[->] (bl) to node [below] {$\hat{\beta}_{A \otimes B}$} (br);
 \draw[->] (tl) to node [left] {$\hat{\phi}_{A,B}$} (bl);
 \draw[->] (tr) to node [right] {$\hat{\psi}_{A,B}$} (br);
 \node at (0.5,0.5) {$\Downarrow \kappa$};
@@ -2197,7 +2221,7 @@ Following Definition 3 of ~\cite{gg:ldstr-tricat} of a pseudo icon, applied to t
 \node (br) at (1,0) {$GI_{\D}$};
 \draw[->] (t) to node [left] {$\hat{\phi}_U$} (bl);
 \draw[->] (t) to node [right] {$\hat{\psi}_U$} (br);
-\draw[->] (bl) to node [below] {$\hat{\alpha}_{I}$} (br);
+\draw[->] (bl) to node [below] {$\hat{\beta}_{I}$} (br);
 \node at (0.5,0.4) {$\Downarrow \iota$};
 \end{tikzpicture}
 
@@ -2219,7 +2243,7 @@ The first of the three equalities is given by the diagrams below.
 \node (brr) at (3,1) {$GA$};
 \node (trr) at (3,2) {$FA$};
 \draw[->] (llb) to node [below]{$\hat{l}$} (bbl);
-\draw[->] (llt) to node [left]{$\id \otimes \hat{\alpha}_A$} (llb);
+\draw[->] (llt) to node [left]{$\id \otimes \hat{\beta}_A$} (llb);
 \draw[->] (llt) to node [above,xshift=-12,yshift=-2]{${\hat{F}_U} \otimes \id$} (tl);
 \draw[->] (llt) to node [above]{$\hat{l}$} (bml);
 \draw[->] (tl) to node [above]{$\hat{\phi}_{I,A}$} (tr);
@@ -2228,11 +2252,11 @@ The first of the three equalities is given by the diagrams below.
 \draw[double] (bbr) to (brr);
 \draw[->] (tr) to node [above,xshift=2]{$F\hat{l}$} (trr);
 \draw[double] (bmr) to (trr);
-\draw[->] (trr) to node [right]{$\hat{\alpha}_A$} (brr);
-\draw[->] (bml) to node [right]{$\hat{\alpha}_A$} (bbl);
-\draw[->] (bmr) to node [right]{$\hat{\alpha}_A$} (bbr);
+\draw[->] (trr) to node [right]{$\hat{\beta}_A$} (brr);
+\draw[->] (bml) to node [right]{$\hat{\beta}_A$} (bbl);
+\draw[->] (bmr) to node [right]{$\hat{\beta}_A$} (bbr);
 \node at (1.5, 2) {$\Downarrow \gamma$};
-\node at (0.5, 1) {$\hat{l}_{\hat{\alpha}}$};
+\node at (0.5, 1) {$\hat{l}_{\hat{\beta}}$};
 \node at (1.5, 0.5) {$=$};
 \node at (2.5, 1) {$=$};
 \end{tikzpicture}
@@ -2251,7 +2275,7 @@ The first of the three equalities is given by the diagrams below.
 \node (brr) at (3,1) {$GA$};
 \node (trr) at (3,2) {$FA$};
 \draw[->] (llb) to node [below]{$\hat{l}$} (bbl);
-\draw[->] (llt) to node [left]{$\id \otimes \hat{\alpha}_A$} (llb);
+\draw[->] (llt) to node [left]{$\id \otimes \hat{\beta}_A$} (llb);
 \draw[->] (llt) to node [above,xshift=-16pt,yshift=-6pt]{${\hat{F}_U} \otimes \id$} (tl);
 \draw[->] (llb) to node [below, xshift=16,yshift=6]{$ \hat{G}_U \otimes \id$} (bml);
 \draw[->] (tl) to node [above]{$\hat{\phi}_{I,A}$} (tr);
@@ -2260,13 +2284,13 @@ The first of the three equalities is given by the diagrams below.
 \draw[double] (bbr) to (brr);
 \draw[->] (tr) to node [above,xshift=4, yshift=-2]{$F\hat{l}$} (trr);
 \draw[->] (bmr) to node [below,xshift=-10,yshift=8] {$G \hat{l}$} (brr);
-\draw[->] (trr) to node [right]{$\hat{\alpha}_A$} (brr);
-\draw[->] (tl) to node [right,xshift=-2,yshift=-2]{$\hat{\alpha}_I \otimes \hat{\alpha}_A$} (bml);
-\draw[->] (tr) to node [left,xshift=2,yshift=-2]{$\hat{\alpha}_{I \otimes A}$} (bmr);
+\draw[->] (trr) to node [right]{$\hat{\beta}_A$} (brr);
+\draw[->] (tl) to node [right,xshift=-2,yshift=-2]{$\hat{\beta}_I \otimes \hat{\beta}_A$} (bml);
+\draw[->] (tr) to node [left,xshift=2,yshift=-2]{$\hat{\beta}_{I \otimes A}$} (bmr);
 \node at (1.5, 2.7) {$\Downarrow \kappa$};
 \node at (0.3, 1.6) {$\Downarrow$};
 \node at (0.3, 1.8) {$\iota \otimes \id$};
-\node at (2.7,1.8) {$\Downarrow \hat{\alpha}_{\hat{l}}$};
+\node at (2.7,1.8) {$\Downarrow \hat{\beta}_{\hat{l}}$};
 \node at (1.5, 1) {$\Downarrow \gamma$};
 \end{tikzpicture}
 \end{aligned}
@@ -2276,7 +2300,7 @@ All individual 2-cells are $\theta$-isomorphisms, by Lemmas ~\ref{thm:comp-ten} 
 \end{proof}
 
 \begin{lem}\label{lem:brtran}
-Let $\alpha: (F, \phi) \rightarrow (G,\psi)$ be a {\bf braided monoidal vertical transformation}. The image of $\alpha$ under $\mathcal{H}$, $\hat{\alpha}: (F, \phi) \rightarrow (G,\psi)$ is a braided monoidal pseudonatural adjoint equivalence.
+Let $\beta: (F, \phi) \rightarrow (G,\psi)$ be a {\bf braided monoidal vertical transformation}. The image of $\beta$ under $\mathcal{H}$, $\hat{\beta}: (F, \phi) \rightarrow (G,\psi)$ is a braided monoidal pseudonatural adjoint equivalence.
 \end{lem}
 
 \begin{proof}
@@ -2296,14 +2320,14 @@ We need to verify that axiom (BTA1) of ~\cite{mccrudden:bal-coalgb} holds, which
 \draw[->] (ml) to node [left] {$\hat{\rho}_{FA,FB}$} (tl);
 \draw[->] (ml) to node [above] {$\hat{\phi}_{A,B}$} (mm);
 \draw[->] (mm) to node [left] {$F\hat{\rho}_{A,B}$} (tr);
-\draw[->] (tr) to node [right] {$\hat{\alpha}_{B\otimes A}$} (mr);
-\draw[->] (mm) to node [left] {$\hat{\alpha}_{A\otimes B}$} (br);
+\draw[->] (tr) to node [right] {$\hat{\beta}_{B\otimes A}$} (mr);
+\draw[->] (mm) to node [left] {$\hat{\beta}_{A\otimes B}$} (br);
 \draw[->] (br) to node [right] {$G\hat{\rho}_{A,B}$} (mr);
 \draw[->] (bl) to node [below] {$\hat{\phi}_{A,B}$} (br);
-\draw[->] (ml) to node [left] {$\hat{\alpha}_A \otimes \hat{\alpha}_B$} (bl);
+\draw[->] (ml) to node [left] {$\hat{\beta}_A \otimes \hat{\beta}_B$} (bl);
 \node at (1.2,3) {$\Rightarrow \mu$};
 \node at (1.2,1) {$\Rightarrow \kappa$};
-\node at (3,2.5) {$\hat{\alpha}_{\hat{\rho}_{A,B}}\Uparrow$};
+\node at (3,2.5) {$\hat{\beta}_{\hat{\beta}_{A,B}}\Uparrow$};
 \end{tikzpicture}
 \end{aligned}
 \hspace{0.25cm}
@@ -2320,14 +2344,14 @@ We need to verify that axiom (BTA1) of ~\cite{mccrudden:bal-coalgb} holds, which
 \node (br) at (3,0) {$G(A \otimes B)$};
 \draw[->] (tl) to node [above] {$\hat{\phi}_{B,A}$} (tr);
 \draw[->] (ml) to node [left] {$\hat{\rho}_{FA,FB}$} (tl);
-\draw[->] (tl) to node [right] {$\hat{\alpha}_B \otimes \hat{\alpha}_A$} (mm);
+\draw[->] (tl) to node [right] {$\hat{\beta}_B \otimes \hat{\beta}_A$} (mm);
 \draw[->] (mm) to node [above] {$\hat{\phi}_{A,B}$} (mr);
-\draw[->] (tr) to node [right] {$\hat{\alpha}_{B\otimes A}$} (mr);
+\draw[->] (tr) to node [right] {$\hat{\beta}_{B\otimes A}$} (mr);
 \draw[->] (bl) to node [right] {$\hat{\rho}_{GA,GB}$} (mm);
 \draw[->] (br) to node [right] {$G\hat{\rho}_{A,B}$} (mr);
 \draw[->] (bl) to node [below] {$\hat{\phi}_{A,B}$} (br);
-\draw[->] (ml) to node [left] {$\hat{\alpha}_A \otimes \hat{\alpha}_B$} (bl);
-\node at (1,2.5) {$\hat{\rho}_{\hat{\alpha}_A,\hat{\alpha}_B} \Uparrow $};
+\draw[->] (ml) to node [left] {$\hat{\beta}_A \otimes \hat{\beta}_B$} (bl);
+\node at (1,2.5) {$\hat{\rho}_{\hat{\beta}_A,\hat{\beta}_B} \Uparrow $};
 \node at (2.5,3.2) {$\Rightarrow \kappa$};
 \node at (2.5,1.2) {$\Rightarrow \mu$};
 \end{tikzpicture}
@@ -2338,7 +2362,7 @@ All individual 2-cells are $\theta$-isomorphisms, either by Lemma \ref{thm:theta
 \end{proof}
 
 \begin{cor}\label{cor:symtran}
-Let $\alpha: (F, \phi) \rightarrow (G,\psi)$ be a {\bf symmetric monoidal vertical transformation}. The image of $\alpha$ under $\mathcal{H}$, $\hat{\alpha}: (F, \phi) \rightarrow (G,\psi)$ is a symmetric monoidal pseudonatural adjoint equivalence.
+Let $\beta: (F, \phi) \rightarrow (G,\psi)$ be a {\bf symmetric monoidal vertical transformation}. The image of $\beta$ under $\mathcal{H}$, $\hat{\beta}: (F, \phi) \rightarrow (G,\psi)$, is a symmetric monoidal pseudonatural adjoint equivalence.
 \end{cor}
 
 \begin{proof}

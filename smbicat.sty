@@ -852,3 +852,9 @@
 
 \newcommand{\prodmult}[2]{\dotmult{#1}\!\!\!\!\dotmult{#2}}
 
+\makeatletter
+\newcommand{\fixed@sra}{$\vrule height 2\fontdimen22\textfont2 width 0pt\Rightarrow$}
+\newcommand{\Arrow}[1]{%
+  \mathrel{\text{\rotatebox[origin=c]{\numexpr#1*45}{\fixed@sra}}}
+}
+\makeatother
