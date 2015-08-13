@@ -452,8 +452,8 @@ category with the following additional structure.
 \item $\lD_0$ and $\lD_1$ are braided monoidal categories.
 \item The functors $S$ and $T$ are strict braided monoidal (i.e.\ they
   preserve the braidings).
-\item The following diagrams commute, expressing that the braiding is
-  a transformation of double categories.
+\item \label{eq:braid1} The following diagrams commute, expressing that the braiding is
+  a transformation of double categories. 
   \[\xymatrix{(M_1\odot M_2)\ten (N_1\odot N_2) \ar[r]^\fs\ar[d]_\fx &
     (N_1\odot N_2)\ten (M_1 \odot M_2)\ar[d]^\fx\\
     (M_1\ten N_1)\odot (M_2\ten N_2) \ar[r]_{\fs\odot \fs} &
@@ -490,7 +490,7 @@ Unfolding definitions gives us:
 
 \begin{enumerate}
 \item $F_0$ and $F_1$ are (braided/symmetric) monoidal functors
-\item \label{eq:braid1}The following diagrams, expressing that $\phi$ is a transformation of double categories,
+\item The following diagrams, expressing that $\phi$ is a transformation of double categories,
  commute:
 
 \begin{tikzpicture}[xscale=2, yscale=2]
@@ -2425,7 +2425,7 @@ We will consider the abstract notion of an {\bf algebra} $(A, \tinymult[white do
   \end{pic}
 \end{calign}
 
-An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ is a morphism $f:A \rightarrow B$ in ${\bf C}$ that respects the multiplication, $f \circ \tinymult[white dot] = \tinymult[gray dot] \circ (f \otimes f)$, and the unit, $\tinyunit[gray dot] = f \circ \tinyunit[white dot]$. Algebras and algebra homomorphisms form a symmetric monoidal category with the usual tensorproduct for morphisms, the usual structure natural isomorphisms, and for objects, the tensor product $(A, \tinymult[white dot], \tinyunit[white dot]) \otimes (B, \tinymult[gray dot], \tinyunit[gray dot]) := (A \otimes B, \prodmult{white dot}{gray dot}, \whiteunit \grayunit)$. The unit is the trivial algebra $(I, \lambda_I, \mathid_I)$. 
+An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ is a morphism $f:A \rightarrow B$ in ${\bf C}$ that respects the multiplication, $f \circ \tinymult[white dot] = \tinymult[gray dot] \circ (f \otimes f)$, and the unit, $\tinyunit[gray dot] = f \circ \tinyunit[white dot]$. Algebras and algebra homomorphisms form a symmetric monoidal category with the usual tensor product for morphisms, the usual structure natural isomorphisms, and for objects, the tensor product $(A, \tinymult[white dot], \tinyunit[white dot]) \otimes (B, \tinymult[gray dot], \tinyunit[gray dot]) := (A \otimes B, \prodmult{white dot}{gray dot}, \whiteunit \grayunit)$. The unit is the trivial algebra $(I, \lambda_I, \mathid_I)$. 
 An A,B-{\bf bimodule} on an object $M$ is a morphism ${\bf M}: A \otimes M \otimes B \rightarrow M$, satisfying the composition and unit law below.
 
 \begin{equation}\label{eq:bimodule}
@@ -2467,8 +2467,8 @@ An A,B-{\bf bimodule} on an object $M$ is a morphism ${\bf M}: A \otimes M \otim
       \draw (m.-45) to[out=-90,in=90] +(0,-0.75) node[black dot] {};
     \end{pic}
   \end{equation}
-For readability, we sometimes write A-B-bimodules ${\bf M}$ as $_A{\bf M}_B$ and we abreviate the following compositions: ${}_{\tinydot[white dot]}{\bf M} := {\bf M} \circ (\tinyunit[white dot] \otimes \mathid)$, ${\bf M}_{\tinydot[gray dot]}:= {\bf M} \circ (\mathid \otimes \tinyunit[gray dot])$, and $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}:= {\bf M} \circ (\tinyunit[white dot] \otimes \tinyunit[gray dot])$. An {\bf extended module homomorphism} ${\bf f}: {\bf M} \rightarrow {\bf N}$ is a triple of morphisms $(A \xrightarrow{f_l} C, M \xrightarrow{f} N, B \xrightarrow{f_r} D)$ such that $f \circ M = N \circ (f_l \otimes f \otimes f_r)$. When $f_l$ and $f_r$ are both identities, this corresponds to the standard definition of a {\bf bimodule homomorphism}.
-Bimodules and extended bimodule homomorphisms form a symmetric monoidal category, where the tensor product is defined on morphisms componentwise. The unit object and the tensor product for objects are defined below:
+For readability, we sometimes write A-B-bimodules ${\bf M}$ as $_A{\bf M}_B$ and we abbreviate the following compositions: ${}_{\tinydot[white dot]}{\bf M} := {\bf M} \circ (\tinyunit[white dot] \otimes \mathid)$, ${\bf M}_{\tinydot[gray dot]}:= {\bf M} \circ (\mathid \otimes \tinyunit[gray dot])$, and $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}:= {\bf M} \circ (\tinyunit[white dot] \otimes \tinyunit[gray dot])$. An {\bf extended module homomorphism} ${\bf f}: {\bf M} \rightarrow {\bf N}$ is a triple of morphisms $(A \xrightarrow{f_l} C, M \xrightarrow{f} N, B \xrightarrow{f_r} D)$ such that $f \circ M = N \circ (f_l \otimes f \otimes f_r)$. When $f_l$ and $f_r$ are both identities, this corresponds to the standard definition of a {\bf bimodule homomorphism}.
+Bimodules and extended bimodule homomorphisms form a symmetric monoidal category, where the tensor product is defined on morphisms component wise. The unit object and the tensor product for objects are defined below:
 \begin{equation}
 {\bf I}:=
 \smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=1.2,string,yscale=-1]
@@ -2547,7 +2547,7 @@ The functor $\ominus: {\lD_1} \times_{\lD_0} {\lD_1} \rightarrow {\lD_1}$, maps 
   \end{pic}
  \end{equation}
 
-By commutativily of the left square, $c \circ (f \otimes g)$ is another coequaliser of the upper two parallel maps, hence $f \tinydot[gray dot] g$ exists and is unique. 
+By commutativity of the left square, $c \circ (f \otimes g)$ is another coequaliser of the upper two parallel maps, hence $f \tinydot[gray dot] g$ exists and is unique. 
   The module ${\bf M} \tinydot[gray dot] {\bf N}$ is given by the map that makes the diagram below commute. It exists and is unique by uniqueness of coequalisers, taking commutativity of the left square into account, and the fact that $\otimes$ preserves coequalisers. 
 
 \begin{equation}\label{eq:coequaliser2}
@@ -2936,7 +2936,7 @@ The last step for showing that $\pi_1$ is a coequaliser, is to prove that if we 
 
 %By the identity rule for modules, we deduce that $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}  \otimes {\bf M_3}_{\tinydot[gray dot]}$ and of $_{\tinydot [gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes { \bf M_2}_{\tinydot [gray dot]} \otimes \mathid_{M_3}$
 
-The first statement implies that $f$ factorises through $c_C$; Therefore, there exists a morphism $f'$, such that $f = f' \circ c_C$. From the second statement we decude that $f'$ factorises through $\tilde{c}_B$, which finishes our proof. This follows from the equations below, and the fact that $\mathid \otimes c_C$ is epic, since $\otimes$ preserves coequalizers. 
+The first statement implies that $f$ factorises through $c_C$; Therefore, there exists a morphism $f'$, such that $f = f' \circ c_C$. From the second statement we deduce that $f'$ factorises through $\tilde{c}_B$, which finishes our proof. This follows from the equations below, and the fact that $\mathid \otimes c_C$ is epic, since $\otimes$ preserves coequalisers. 
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[yscale=0.78, xscale=0.7]
@@ -3129,9 +3129,9 @@ In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({M_1} \o
  \end{equation}
 
 
-What is left to prove is that that diagrams of \ref{eq:braid1}-\ref{eq:mon1} of Definition ~\ref{def:symmondoub} commute. Because $\upsilon$ and $\xi$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
+What is left to prove is that the diagrams given in points \ref{eq:mon1}, \ref{eq:mon2}, \ref{eq:mon3}, and \ref{eq:braid1} in Definition ~\ref{def:symmondoub} commute. Because $\upsilon$ and $\xi$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
 
-The first equation of \ref{eq:mon1} corresponds to the front square of the diagram below. The unlabeled arrows represent the coequalisers defining their target object.
+The first equation of \ref{eq:mon1} corresponds to the front square of the diagram below. The unlabelled arrows represent the coequalisers defining their target object.
 The bottom square and the upper right square commute by the definition of $\hat{\xi}$. The square at the back commutes by coherence of ${\cat C}$. The upper left and lower right square commute by definition of $a$. The lower left and the top square commute by definition of $\xi$ and $\tinydot[gray dot]$.
 It follows that the front square must commute as well.
 \begin{equation}
@@ -3240,7 +3240,7 @@ This simultaneously proves that $f$ has a conjoint, because $\Alg({\bf C}^{h* op
 \end{proof}
 
 \begin{eg}
-When we take the category $AB$ of abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{thm:sym11-symbi}, ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
+When we take the category $AB$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{thm:sym11-symbi}, ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
 \end{eg}
  
 \bibliographystyle{alpha}
