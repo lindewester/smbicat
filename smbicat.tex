@@ -4,6 +4,7 @@
 \UseAllTwocells
 \title{Constructing symmetric monoidal bicategories}
 \author{Michael A.\ Shulman}
+\author{Linde Wester}
 \mdef\cMod{\mathcal{M}\mathit{od}}
 \mdef\cCat{\mathcal{C}\mathit{at}}
 \mdef\cTwocat{2\text{-}\mathcal{C}\mathit{at}}
@@ -1817,24 +1818,9 @@ Let $\D$ be a double category, and let $M,N$ be objects in the category $\D_1$ o
 \end{lem}
 
 \begin{proof}
-Repeatedly applying Lemma ~\ref{thm:theta-compose-horiz} tells us that $\hat{s}_1 \odot ... \odot \hat{s}_n$ and $\hat{t}_1 \odot ... \odot \hat{t}_m$ are two companions of $s$ and $t$, respectively. As $s$ and $t$ form a commuting diagram, they are in fact the same morphism. It follows from Lemma ~\ref{thm:theta} that there exists a canonical globular isomorphism $\theta_{\hat{s},\hat{t}}: \hat{s} \rightarrow \hat{t}$. This isomorphism is a modification by Lemma ~\ref{thm:h-locfr-uniq}.
-%It is not really clear from lemma 4.8 that $\theta$ is a modification...
-%And why is this even part of the proof anyway?
+Repeatedly applying Lemma ~\ref{thm:comp-compose} tells us that $\hat{s}_1 \odot ... \odot \hat{s}_n$ and $\hat{t}_1 \odot ... \odot \hat{t}_m$ are two companions of $s$ and $t$, respectively. As $s$ and $t$ form a commuting diagram, they are in fact the same morphism. It follows from Lemma ~\ref{thm:theta} that there exists a canonical globular isomorphism $\theta_{\hat{s},\hat{t}}: \hat{s} \rightarrow \hat{t}$. This isomorphism is a modification by Lemma ~\ref{thm:h-locfr-uniq}.
 \end{proof}
-   
-
-%One of the results central to our proof is the coherence of monoidal functors. A detailed proof can be found in chapter 2 of ~\cite{gur2}. This amounts to the fact that for every bicategory $B$ there exists a strict 2-category $stB$, and a biequivalence $f_B : B \rightarrow stB$; and for every pseudo functor of bicategories $F: B \rightarrow C$ corresponds to a strict 2-functor $stF: stB \rightarrow stC$ such that the square below commutes:
-
-%\begin{tikzpicture}[scale=2]
-%\node (tl) at (0,1) {$B$};
-%\node (tr) at (1,1) {$C$};
-%\node (bl) at (0,0) {$stB$};
-%\node (br) at (1,0) {$stC$};
-%\draw[->] (tl) to node [above] {$F$} (tr);
-%\draw[->] (bl) to node [above] {$stF$} (br);
-%\draw[->] (tl) to node [left] {$f_B$} (bl);
-%\draw[->] (tr) to node [right] {$f_C$} (br);
-%\end{tikzpicture}
+  
 
 \subsection{Lifting Symmetric Monoidal Structures}
 We are now ready to lift monoidal structures from double categories to
