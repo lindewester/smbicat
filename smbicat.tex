@@ -2494,9 +2494,9 @@ The associator, unitor, and swap natural isomorphisms are given by the maps with
 \\{\bf \sigma}_{\bf {}_AM_B,{}_CN_D}&: = (\sigma_{A,C}, \sigma_{M,N}, \sigma_{B,D})
 \end{align}
 
-\begin{lem}\label{lem:algdouble}
+\begin{prop}\label{lem:algdouble}
 Let ${\cat C}$ be a symmetric monoidal category where all colimits exist, and where the tensor product $\otimes$ preserves all colimits. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf C}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf C}$ form a double category, which we call $\Alg$
-\end{lem}
+\end{prop}
 
 \begin{proof}
 The {\bf unit functor} $\lD_0 \xrightarrow{U} \lD_1$ is defined on objects as $U(A,\tinymult[gray dot],\tinyunit[gray dot]) := 
@@ -2922,7 +2922,7 @@ The last step for showing that $\pi_1$ is a coequaliser, is to prove that if we 
 
 %By the identity rule for modules, we deduce that $f$ is a cocone of $\mathid_{M_1} \otimes {}_{\tinydot[gray dot]}{\bf M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes \mathid_{M_2}  \otimes {\bf M_3}_{\tinydot[gray dot]}$ and of $_{\tinydot [gray dot]}{\bf M_1} \otimes \mathid_{M_2} \otimes \mathid_{M_3}$ and $\mathid_{M_1} \otimes { \bf M_2}_{\tinydot [gray dot]} \otimes \mathid_{M_3}$
 
-The first statement implies that $f$ factorises through $c_C$; Therefore, there exists a morphism $f'$, such that $f = f' \circ c_C$. From the second statement we deduce that $f'$ factorises through $\tilde{c}_B$, which finishes our proof. This follows from the equations below, and the fact that $\mathid \otimes c_C$ is epic, since $\otimes$ preserves coequalisers. 
+The first statement implies that $f$ factorises through $c_C$; therefore, there exists a morphism $f'$, such that $f = f' \circ c_C$. From the second statement we deduce that $f'$ factorises through $\tilde{c}_B$, which finishes our proof. This follows from the equations below, and the fact that $\mathid \otimes c_C$ is epic, since $\otimes$ preserves coequalisers. 
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[yscale=0.78, xscale=0.7]
@@ -3080,9 +3080,9 @@ The components of the {\bf left unitor} $l_{\bf M}: U_A \ominus {\bf M} \rightar
 It was shown in ~\cite{heunenvicarywester} that under the same conditions, dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms form a bicategory. This bicategory is a subcategory of $\mathcal{M}od$ and the methods we used above are extensions of the methods used in ~\cite{heunenvicarywester}. 
 \end{rmk}
 
-\begin{lem}\label{lem:algsymmon}
+\begin{thm}\label{lem:algsymmon}
 The double category $\Alg({\cat C})$ is symmetric monoidal
-\end{lem}
+\end{thm}
 
 \begin{proof}
 
@@ -3166,9 +3166,9 @@ These remaining equations are the second equation of \ref{eq:mon2}, the second a
 
 Finally, we will prove that $\Alg(\cat C$) is fibrant. this is the last step we need to take to show that we can lift the symmetric monoidal structure of $\Alg({\cat C})$ to the bicategory ${\cA}lg({\cat C})$. 
 
-\begin{lem}\label{lem:algfib}
+\begin{prop}\label{lem:algfib}
 The double category $\Alg({\cat C})$ is fibrant.
-\end{lem}
+\end{prop}
 
 \begin{proof}
 Let $f$ be a morphism of ${\lD_1}$. The companion of $f$ is defined by the following data: 
@@ -3225,8 +3225,30 @@ It is easy to check that $\hat{f}_{\tinydot[gray dot]}$ and $_{\tinydot[white do
 This simultaneously proves that $f$ has a conjoint, because $\Alg({\bf C}^{h* op}) \cong$ $\Alg({\cat C})$.
 \end{proof}
 
+
+ \begin{thm}
+Let {\bf C} be a symmetric monoidal bicategory. The bicategory $\mathcal{A}lg$ of algebras, bimodules, and bimodule homomorphisms in {\cat C} is symmetric monoidal. 
+\end{thm}
+
+\begin{proof}
+This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem \ref{thm:trifunctor2}
+\end{proof}
+
+\begin{rmk}\label{comspecfrob}
+The sub bicategory of (commutative/special) Frobenius algebras, bimodules and bimodule homomorphisms is symmetric monoidal.
+We can take the category of commutative or special Frobenius algebras and algebra homomorphisms as our new category of objects $\D_0$. Since this is a full subcategory, all structure functors, natural isomorphisms and companions and conjoints are still well-defined. It follows immediately that this defines a fibrant symmetric monoidal double category.
+\end{rmk}
+
+
+\begin{rmk}
+The bicategory of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms is also symmetric monoidal.
+To see this, we consider the double category where $\D_0$ is the category of dagger Frobenius algebras and self conjugate algebra homomorphisms. For $\D_1$ we take the category of dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$, of which $f_1$ and $f_2$ are self conjugate. These categories are symmetric monoidal subcategories of our original $\D_0$ and $\D_1$, since all structure natural isomorphisms for monoidal categoties are self-conjugate. 
+Similarly, all structure functors and natural isomorphisms of symmetric monoidal double categories are well-defined.
+Self conjugate algebra homomorphisms are exactly those morphisms of which the companion and conjoint are dagger bimodules; therefore, the double category is fibrant. 
+\end{rmk}
+
 \begin{eg}
-When we take the category $AB$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{thm:sym11-symbi}, ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
+When we take the category $Ab$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemmas ~\ref{thm:sym11-symbi}, ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
 \end{eg}
  
 \bibliographystyle{alpha}
