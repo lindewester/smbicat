@@ -5,6 +5,7 @@
 \title{Constructing symmetric monoidal bicategories}
 \author{Michael A.\ Shulman}
 \author{Linde Wester}
+\thanks{This material is based on research sponsored by The United States Air Force Research Laboratory under agreement number FA9550-15-1-0053.  The U.S.~Government is authorized to reproduce and distribute reprints for Governmental purposes notwithstanding any copyright notation thereon.  The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of the United States Air Force Research Laboratory, the U.S.~Government, or Carnegie Mellon University.}
 \mdef\cMod{\mathcal{M}\mathit{od}}
 \mdef\cCat{\mathcal{C}\mathit{at}}
 \mdef\cTwocat{2\text{-}\mathcal{C}\mathit{at}}
@@ -39,6 +40,7 @@ However, the definition of even a monoidal bicategory
 (see~\cite{gps:tricats,nick:tricats}), let alone a symmetric monoidal
 one
 (see~\cite{kv:2cat-zam,kv:bm2cat,bn:hda-i,ds:monbi-hopfagbd,crans:centers,mccrudden:bal-coalgb,gurski:brmonbicat}),
+% TODO: update references
 is quite imposing, and time-consuming to verify in any example.  In
 this paper we describe a method for constructing symmetric monoidal
 bicategories which is hardly more difficult than constructing a pair
@@ -57,11 +59,8 @@ of~\cite{shulman:frbi}.
   basically the same content and results, although the authors
   of~\cite{gg:ldstr-tricat} work with ``locally-double bicategories''
   rather than monoidal double categories or 2x1-categories (see
-  below).  They also don't treat the symmetric case, but as we will
-  see, that is a fairly easy extension once the theory is in place.
-  Thus, this note really presents nothing very new, only a
-  self-contained and (hopefully) convenient treatment of the
-  particular case of interest.
+  below).  They also don't consider symmetries or the functoriality of
+  the construction.
 \end{rmk}
 
 The method relies on the fact that in many bicategories, the 1-cells
@@ -81,7 +80,7 @@ prove the following theorem:
 \begin{thm}\label{thm:mondbl-monbi-intro}
   If \lD\ is a fibrant monoidal double category, then its underlying
   bicategory $\cH(\lD)$ is a monoidal bicategory.  If \lD\ is braided
-  or symmetric, so is $\cH(\lD)$. Furthermore, the assignment $\cH$ extends to a trifunctor.
+  or symmetric, so is $\cH(\lD)$. Furthermore, the assignment $\cH$ extends to a trifunctor, so we can use it to construct functors and transformations between monoidal bicategories as well.
 \end{thm}
 
 There is a good case to be made, however (see~\cite{shulman:frbi})
@@ -101,7 +100,8 @@ $k$-categories, a structure which has $(n+1)(k+1)$ different types of
 cells or morphisms arranged in an $(n+1)$ by $(k+1)$ grid.  Thus
 double categories may be called \textbf{1x1-categories}, while in
 place of tricategories we may consider 2x1-categories and
-1x2-categories.  Any $(n\times k)$-category which satisfies a suitable
+1x2-categories --- or even 1x1x1-categories, i.e.\ triple categories, as in~\cite{gp:intercategories-i,gp:intercategories-ii}.
+Any $(n\times k)$-category which satisfies a suitable
 lifting property should have an underlying $(n+k)$-category, but
 clearly as $n$ and $k$ grow an increasing amount of structure is
 discarded in this process.
@@ -136,7 +136,7 @@ Douglas, Nick Gurski, and Jamie Vicary for helpful discussions and comments.
 \section{Symmetric monoidal double categories}
 \label{sec:symm-mono-double}
 
-In this section, we introduce basic notions of double categories.
+In this section, we recall basic notions of double categories, mainly to fix our terminology and notation.
 Double categories go back originally to Ehresmann
 in~\cite{ehresmann:cat-str}; a brief introduction can be found
 in~\cite{ks:r2cats}.  Other references
@@ -154,13 +154,13 @@ include~\cite{multi_funct_i,gp:double-limits,gp:double-adjoints}.
   \end{align*}
   (where the pullback is over
   $\lD_1\too[T]\lD_0\overset{S}{\longleftarrow} \lD_1$) such that
-  \begin{align*}
-    S(U_A) &= A\\
-    T(U_A) &= A\\
+  \begin{alignat*}{2}
+    S(U_A) &= A &\qquad
     S(M\odot N) &= SN\\
+    T(U_A) &= A &\qquad
     T(M\odot N) &= TM
-  \end{align*}
-  equipped with natural isomorphisms
+  \end{alignat*}
+  naturally, and equipped with natural isomorphisms
   \begin{align*}
     \fa &: (M\odot N) \odot P \too[\iso] M \odot (N \odot P)\\
     \fl &: U_B \odot M \too[\iso] M\\
@@ -389,7 +389,10 @@ structure.
   monoidal unit of $\lD_1$.\footnote{Actually, all the above
     definition requires is that $U_I$ is coherently \emph{isomorphic
       to} the monoidal unit of $\lD_1$, but we can always choose them
-    to be equal without changing the rest of the structure.}
+    to be equal without changing the rest of the structure.
+    More precisely, we may choose the unit isomorphism
+    $I_U : U_{I_{\lD_0}} \to I_{\lD_1}$ of the functor $I:* \to \lD$
+    to be an identity.}
 \item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
   = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
   preserve the associativity and unit constraints.
