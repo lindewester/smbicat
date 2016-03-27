@@ -3,9 +3,10 @@
 \input{decls}
 
 \UseAllTwocells
-\title{Constructing symmetric monoidal bicategories}
+\title{Constructing symmetric monoidal bicategories functorially}
 \author{Michael A.\ Shulman}
 \author{Linde Wester}
+\thanks{This material is based on research sponsored by The United States Air Force Research Laboratory under agreement number FA9550-15-1-0053.  The U.S.~Government is authorized to reproduce and distribute reprints for Governmental purposes notwithstanding any copyright notation thereon.  The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of the United States Air Force Research Laboratory, the U.S.~Government, or Carnegie Mellon University.}
 \mdef\cMod{\mathcal{M}\mathit{od}}
 \mdef\cCat{\mathcal{C}\mathit{at}}
 \mdef\cTwocat{2\text{-}\mathcal{C}\mathit{at}}
@@ -44,30 +45,22 @@ However, the definition of even a monoidal bicategory
 (see~\cite{gps:tricats,nick:tricats}), let alone a symmetric monoidal
 one
 (see~\cite{kv:2cat-zam,kv:bm2cat,bn:hda-i,ds:monbi-hopfagbd,crans:centers,mccrudden:bal-coalgb,gurski:brmonbicat}),
+% TODO: update references
 is quite imposing, and time-consuming to verify in any example.  In
 this paper we describe a method for constructing symmetric monoidal
 bicategories which is hardly more difficult than constructing a pair
 of ordinary symmetric monoidal categories.  While not universally
 applicable, this method applies in many cases of interest.  This idea
 has often been implicitly used in particular cases, such as
-bicategories of enriched profunctors, but to my knowledge the first
+bicategories of enriched profunctors, but to our knowledge the first
 general statement was claimed in~\cite[Appendix B]{shulman:frbi}.  Our
 purpose here is to work out the details, independently
-of~\cite{shulman:frbi}.
-
-\begin{rmk}
-  Another approach to working out the details of this statement, from
-  a different perspective, can be found
-  in~\cite[\S5]{gg:ldstr-tricat}.  The two approaches contain
-  basically the same content and results, although the authors
-  of~\cite{gg:ldstr-tricat} work with ``locally-double bicategories''
-  rather than monoidal double categories or 2x1-categories (see
-  below).  They also don't treat the symmetric case, but as we will
-  see, that is a fairly easy extension once the theory is in place.
-  Thus, this note really presents nothing very new, only a
-  self-contained and (hopefully) convenient treatment of the
-  particular case of interest.
-\end{rmk}
+of~\cite{shulman:frbi}.\footnote{These details have also been worked out
+in~\cite[\S5]{gg:ldstr-tricat} from a different perspective, using
+``locally-double bicategories''.  Our goal is to be more
+comprehensive, considering also the case of symmetric monoidal
+structure and the construction of monoidal functors and
+transformations.}
 
 The method relies on the fact that in many bicategories, the 1-cells
 are not the most fundamental notion of `morphism' between the objects.
@@ -86,18 +79,16 @@ prove the following theorem:
 \begin{thm}\label{thm:mondbl-monbi-intro}
   If \lD\ is a fibrant monoidal double category, then its underlying
   bicategory $\cH(\lD)$ is a monoidal bicategory.  If \lD\ is braided
-  or symmetric, so is $\cH(\lD)$. Furthermore, the assignment $\cH$ extends to a trifunctor.
+  or symmetric, so is $\cH(\lD)$. Furthermore, the assignment $\cH$
+  extends to a trifunctor, so we can use it to construct functors and
+  transformations between monoidal bicategories as well.
 \end{thm}
 
-There is a good case to be made, however (see~\cite{shulman:frbi})
-that often the extra morphisms should \emph{not} be discarded.  From
-this point of view, in many cases symmetric monoidal bicategories are
-a red herring, and really we should be studying symmetric monoidal
-double categories.  This is also true in higher dimensions; for
-instance, Chris Douglas~\cite{douglas:tfttalk} has suggested that
-instead of tricategories we are usually interested in bicategories
-internal to \cCat\ or categories internal to \cTwocat.  In most such
-cases arising in practice, we can again `lift' the coherence to give a
+We expect similar theorems to be true in higher dimensions.  For
+instance, Chris Douglas~\cite{douglas:tfttalk} has suggested that many
+apparent tricategories are more naturally bicategories internal to
+\cCat\ or categories internal to \cTwocat; and in most such cases
+arising in practice, we can again `lift' the coherence to give a
 tricategory after discarding the additional structure.
 
 We propose the generic term \textbf{$(n\times k)$-category}
@@ -106,22 +97,23 @@ $k$-categories, a structure which has $(n+1)(k+1)$ different types of
 cells or morphisms arranged in an $(n+1)$ by $(k+1)$ grid.  Thus
 double categories may be called \textbf{1x1-categories}, while in
 place of tricategories we may consider 2x1-categories and
-1x2-categories.  Any $(n\times k)$-category which satisfies a suitable
-lifting property should have an underlying $(n+k)$-category, but
-clearly as $n$ and $k$ grow an increasing amount of structure is
-discarded in this process.
+1x2-categories --- or even 1x1x1-categories, i.e.\ triple categories,
+as in~\cite{gp:intercategories-i,gp:intercategories-ii}.  Any
+$(n\times k)$-category which satisfies a suitable lifting property
+should have an underlying $(n+k)$-category, but clearly as $n$ and $k$
+grow an increasing amount of structure is discarded in this process.
 
 % , such as duality and
 % trace~\cite{ps:traces} or autonomous
 % structure~\cite{ds:monbi-hopfagbd,street:funct-calc,dms:antipodes},
 
-However, even for those of the opinion that $(n\times k)$-categories
-are fundamental (such as the author), sometimes it really is the
-underlying $(n+k)$-category that one cares about.  This is
-particularly the case in the study of topological field theory, since
-the Baez-Dolan cobordism hypothesis asserts a universal property of
-the $(n+1)$-category of cobordisms which is not shared by the
-$(n\times 1)$-category from which it is naturally constructed
+There is a good case to be made that often the extra morphisms should
+\emph{not} be discarded; indeed this is the perspective of much work
+on double categories.  However, even from this perspective, sometimes
+it really is the underlying $(n+k)$-category that one cares about; for
+instance, the Baez-Dolan cobordism hypothesis asserts a universal
+property of the $(n+1)$-category of cobordisms which is not shared by
+the $(n\times 1)$-category from which it is naturally constructed
 (see~\cite{lurie:tft}).  Thus, regardless of one's philosophical bent,
 results such as \autoref{thm:mondbl-monbi-intro} are of interest.
 
@@ -141,7 +133,7 @@ Douglas, Nick Gurski, and Jamie Vicary for helpful discussions and comments.
 \section{Symmetric monoidal double categories}
 \label{sec:symm-mono-double}
 
-In this section, we introduce basic notions of double categories.
+In this section, we recall basic notions of double categories, mainly to fix our terminology and notation.
 Double categories go back originally to Ehresmann
 in~\cite{ehresmann:cat-str}; a brief introduction can be found
 in~\cite{ks:r2cats}.  Other references
@@ -159,13 +151,13 @@ include~\cite{multi_funct_i,gp:double-limits,gp:double-adjoints}.
   \end{align*}
   (where the pullback is over
   $\lD_1\too[T]\lD_0\overset{S}{\longleftarrow} \lD_1$) such that
-  \begin{align*}
-    S(U_A) &= A\\
-    T(U_A) &= A\\
+  \begin{alignat*}{2}
+    S(U_A) &= A &\qquad
     S(M\odot N) &= SN\\
+    T(U_A) &= A &\qquad
     T(M\odot N) &= TM
-  \end{align*}
-  equipped with natural isomorphisms
+  \end{alignat*}
+  naturally, and equipped with natural isomorphisms
   \begin{align*}
     \fa &: (M\odot N) \odot P \too[\iso] M \odot (N \odot P)\\
     \fl &: U_B \odot M \too[\iso] M\\
@@ -394,7 +386,10 @@ structure.
   monoidal unit of $\lD_1$.\footnote{Actually, all the above
     definition requires is that $U_I$ is coherently \emph{isomorphic
       to} the monoidal unit of $\lD_1$, but we can always choose them
-    to be equal without changing the rest of the structure.}
+    to be equal without changing the rest of the structure.
+    More precisely, we may choose the unit isomorphism
+    $I_U : U_{I_{\lD_0}} \to I_{\lD_1}$ of the functor $I:* \to \lD$
+    to be an identity.}
 \item The functors $S$ and $T$ are strict monoidal, i.e.\ $S(M\ten N)
   = SM\ten SN$ and $T(M\ten N)=TM\ten TN$ and $S$ and $T$ also
   preserve the associativity and unit constraints.
@@ -487,103 +482,6 @@ fairly obvious.  Thus, verifying that a given double category is
   of manifolds, and cartesian product of categories, respectively.
 \end{eg}
 
-\begin{defn}\label{def:monfunc}
-Let $\D$, $\E$ be (braided/symmetric) monoidal double categories. \\A {\bf (braided/symmetric) lax monoidal double functor} $F: \D \rightarrow \E$ is a pseudo double functor $F$, together with additional structure maps. These consist of a natural vertical  transformation $\phi : \otimes \circ (F,F) \rightarrow F \circ \otimes$, whose components are globular.  Also it contains globular morphisms $\phi_{u_0} : I_{\E} \rightarrow F(I_{\D})$, $\phi_{u_1} : U_{I_{\E}} \rightarrow F(U_{I_{\D}})$, which form a vertical transformation $\phi_u$ from the functor $I_{\E}$ to the functor $F \circ I_{\D}$, where the natural transformations ${I_{\E}}_{\odot}, {I_{\E}}_{U}, (F \circ I_{\D})_{\odot}$ and $ (F \circ I_{\D})_{U}$ are all identities.
-The functors and structure maps satisfy the usual axioms for (braided/symmetric) monoidal functors with respect to $\odot$.
-\end{defn}
-
-Unfolding definitions gives us:
-
-\begin{enumerate}
-\item $F_0$ and $F_1$ are (braided/symmetric) monoidal functors
-\item The following diagrams, expressing that $\phi$ is a transformation of double categories,
- commute:
-
-\begin{tikzpicture}[xscale=2, yscale=2]
-\node (tl) at (0,2) {$(FN \otimes FL) \odot (FM \otimes FK)$};
-\node (tr) at (4,2) {$F(N\otimes L) \odot F(M \otimes K)$};
-\draw[->] (tl) to node[above] {$\phi \odot \phi$} (tr);
-\node (ml) at (0,1) {$(FN \odot FM) \otimes (FL \odot FK)$};
-\node (mr) at (4,1) {$F((N \otimes L) \odot (M \otimes K))$};
-\node (bl) at (0,0) {$F(N \odot M) \otimes F(L \odot K)$};
-\node (br) at (4,0) {$F((N \odot M)\otimes(L\odot K))$};
-\draw[->] (tl) to node[left]{$\xi$} (ml);
-\draw[->] (ml) to node[left]{$F_{\odot} \otimes F_{\odot}$} (bl);
-\draw[->] (tr) to node[left]{$F_{\odot}$} (mr);
-\draw[->] (mr) to node[left]{$F(\xi)$} (br);
-\draw[->] (bl) to node[above] {$\phi$} (br);
-\end{tikzpicture}
-
-\begin{tikzpicture}[yscale=2]
-\node (tl) at (0,2) {$U_{FA \otimes FB}$};
-\node (tr) at (4,2) {$U_{F(A \otimes B)} $};
-\draw[->] (tl) to node[above] {$U_{\phi}$} (tr);
-\node (ml) at (0,1) {$U_{FA} \otimes U_{FB}$};
-\node (mr) at (4,1) {$F(U_{A\otimes B}) $};
-\node (bl) at (0,0) {$F(U_A) \otimes F(U_B)$};
-\node (br) at (4,0) {$F(U_A \otimes U_B)$};
-\draw[->] (tl) to node[left]{$u$} (ml);
-\draw[->] (ml) to node[left]{$F_u \otimes F_u$} (bl);
-\draw[->] (tr) to node[left]{$F_U$} (mr);
-\draw[->] (mr) to node[left]{$F \circ u$} (br);
-\draw[->] (bl) to node[above] {$\phi$} (br);
-\end{tikzpicture}
-
-\end{enumerate}
-
-When the natural transformations are in the opposite direction, the functor is {\bf oplax monoidal}, and when they are globular isomorphisms, the functor is {\bf strong monoidal}.
-
-We will refer to monoidal double functors as pairs $(F, \phi)$ of a functor and its corresponding natural transformations. 
-
-\begin{defn}\label{Def:monverttrans}
-Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A monoidal vertical transformation $\alpha: F \rightarrow G$ is a vertical transformation such that the following equality holds:
-
-\begin{equation}
-\begin{aligned}
-\begin{tikzpicture}
-\node (tl) at (0,4) {$FA \otimes FB$};
-\node (tr) at (4,4) {$FAFC \otimes FD$};
-\node (ml) at (0,2) {$F(A\otimes B)$};
-\node (mr) at (4,2) {$F(C \otimes D)$};
-\node (bl) at (0,0) {$G(A \otimes B)$};
-\node (br) at (4,0) {$G(C \otimes D)$};
-\draw[style=tickarrow] (tl) to node [above] {$FM \otimes FN$} (tr);
-\draw[style=tickarrow] (ml) to node [above] {$F(M\otimes N)$} (mr);
-\draw[->] (tl) to node [left] {$\phi_{A,B}$} (ml);
-\draw[->] (tr) to node [right] {$\phi_{C,D}$}(mr);
-\draw[->] (ml) to node [left] {$\alpha_{A\otimes B}$} (bl);
-\draw[->] (mr) to node [right] {$\alpha_{C \otimes D}$} (br);
-\draw[style=tickarrow] (bl) to node [above] {$G(M \otimes N)$} (br);
-\node at (2,3) {$\Downarrow \phi_{M,N}$};
-\node at (2,1) {$\Downarrow \alpha_{M \otimes N}$};
-\end{tikzpicture}
-\end{aligned}
-=
-\begin{aligned}
-\begin{tikzpicture}
-\node (tl) at (0,4) {$FA \otimes FB$};
-\node (tr) at (4,4) {$FC \otimes FD$};
-\node (ml) at (0,2) {$GA \otimes GB$};
-\node (mr) at (4,2) {$GC \otimes GD$};
-\node (bl) at (0,0) {$G(A \otimes B)$};
-\node (br) at (4,0) {$G(C \otimes D)$};
-\draw[style=tickarrow] (tl) to node [above] {$FM \otimes FN$} (tr);
-\draw[style=tickarrow] (ml) to node [above] {$GM \otimes GN$} (mr);
-\draw[->] (tl) to node [left] {$\alpha_A \otimes \alpha_B$} (ml);
-\draw[->] (tr) to node [right] {$\alpha_C \otimes \alpha_D$} (mr);
-\draw[->] (ml) to node [left] {$\psi_{A,B}$} (bl);
-\draw[->] (mr) to node [right] {$\psi_{C,D}$} (br);
-\draw[style=tickarrow] (bl) to node [above] {$G(M \otimes N)$} (br);
-\node at (2,3) {$\Downarrow \alpha_M \otimes \alpha_N$};
-\node at (2,1) {$\Downarrow \psi_{M,N}$};
-\end{tikzpicture}
-\end{aligned}
-\end{equation}
-
-
-This is the case when $\alpha_0, \alpha_1$ are monoidal natural transformations. A {\bf braided/symmetric monoidal vertical transformation} is a monoidal vertical transformation between braided/symmetric monoidal functors.
-\end{defn}
-
 \begin{rmk}
   In a 2-category with finite products there is additionally the
   notion of a \emph{cartesian object}: one such that the diagonal
@@ -627,6 +525,113 @@ equivalently, implicitly strictify our double categories).  We
 \emph{will} continue to write the constraint isomorphisms for the
 monoidal structure $\ten$, since these are where the whole question
 lies.
+
+We now move on to define functors and transformations of monoidal double categories.
+
+\begin{defn}\label{def:monfunc}
+  Let $\D$, $\E$ be (braided/symmetric) monoidal double categories.  A {\bf (braided/symmetric) lax monoidal double functor} $F: \D \rightarrow \E$ is a pseudo double functor $F$, together with a vertical transformation $\phi : \otimes \circ (F,F) \rightarrow F \circ \otimes$ and also
+  a 1-morphism $\phi_{u_0} : I_{\E} \rightarrow F(I_{\D})$ and a 2-morphism $\phi_{u_1} : U_{I_{\E}} \rightarrow F(U_{I_{\D}})$, which together form a vertical transformation $\phi_u$ from the functor $I_{\E}$ to the functor $F \circ I_{\D}$.
+  % I don't understand the following.  To the extent that I understand it, it doesn't seem true.
+  where the natural transformations ${I_{\E}}_{\odot}, {I_{\E}}_{U}, (F \circ I_{\D})_{\odot}$ and $ (F \circ I_{\D})_{U}$ are all identities.
+  %
+  These functors and structure maps satisfy the usual axioms for (braided/symmetric) monoidal functors with respect to $\otimes$.
+\end{defn}
+
+Unfolding the definitions gives us:
+
+\begin{enumerate}
+\item $F_0$ and $F_1$ are (braided/symmetric) monoidal functors.
+\item The equalities $F_0 \circ S_\D = S_\E \circ F_1$ and $F_0 \circ T_\D = T_\E \circ F_1$ are strict equalities of monoidal functors.
+\item The following diagrams commute, expressing that $\phi$ is a transformation of double categories:
+
+\begin{tikzpicture}[xscale=2, yscale=2]
+\node (tl) at (0,2) {$(FN \otimes FL) \odot (FM \otimes FK)$};
+\node (tr) at (4,2) {$F(N\otimes L) \odot F(M \otimes K)$};
+\draw[->] (tl) to node[above] {$\phi \odot \phi$} (tr);
+\node (ml) at (0,1) {$(FN \odot FM) \otimes (FL \odot FK)$};
+\node (mr) at (4,1) {$F((N \otimes L) \odot (M \otimes K))$};
+\node (bl) at (0,0) {$F(N \odot M) \otimes F(L \odot K)$};
+\node (br) at (4,0) {$F((N \odot M)\otimes(L\odot K))$};
+\draw[->] (tl) to node[left]{$\xi$} (ml);
+\draw[->] (ml) to node[left]{$F_{\odot} \otimes F_{\odot}$} (bl);
+\draw[->] (tr) to node[left]{$F_{\odot}$} (mr);
+\draw[->] (mr) to node[left]{$F(\xi)$} (br);
+\draw[->] (bl) to node[above] {$\phi$} (br);
+\end{tikzpicture}
+
+\begin{tikzpicture}[yscale=2]
+\node (tl) at (0,2) {$U_{FA \otimes FB}$};
+\node (tr) at (4,2) {$U_{F(A \otimes B)} $};
+\draw[->] (tl) to node[above] {$U_{\phi}$} (tr);
+\node (ml) at (0,1) {$U_{FA} \otimes U_{FB}$};
+\node (mr) at (4,1) {$F(U_{A\otimes B}) $};
+\node (bl) at (0,0) {$F(U_A) \otimes F(U_B)$};
+\node (br) at (4,0) {$F(U_A \otimes U_B)$};
+\draw[->] (tl) to node[left]{$u$} (ml);
+\draw[->] (ml) to node[left]{$F_u \otimes F_u$} (bl);
+\draw[->] (tr) to node[left]{$F_U$} (mr);
+\draw[->] (mr) to node[left]{$F \circ u$} (br);
+\draw[->] (bl) to node[above] {$\phi$} (br);
+\end{tikzpicture}
+
+\end{enumerate}
+
+When the natural transformations are in the opposite direction, the functor is {\bf oplax monoidal}, and when they are isomorphisms, the functor is {\bf strong monoidal}.
+
+% I don't understand what this sentence means:
+%% We will refer to monoidal double functors as pairs $(F, \phi)$ of a functor and its corresponding natural transformations. 
+
+\begin{defn}\label{Def:monverttrans}
+  Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A monoidal vertical transformation $\alpha: F \rightarrow G$ is a vertical transformation such that $\alpha_0$ and $\alpha_1$ are monoidal natural transformations.
+  Explicitly, this means that the following equality holds:
+
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}
+\node (tl) at (0,4) {$FA \otimes FB$};
+\node (tr) at (4,4) {$FAFC \otimes FD$};
+\node (ml) at (0,2) {$F(A\otimes B)$};
+\node (mr) at (4,2) {$F(C \otimes D)$};
+\node (bl) at (0,0) {$G(A \otimes B)$};
+\node (br) at (4,0) {$G(C \otimes D)$};
+\draw[style=tickarrow] (tl) to node [above] {$FM \otimes FN$} (tr);
+\draw[style=tickarrow] (ml) to node [above] {$F(M\otimes N)$} (mr);
+\draw[->] (tl) to node [left] {$\phi_{A,B}$} (ml);
+\draw[->] (tr) to node [right] {$\phi_{C,D}$}(mr);
+\draw[->] (ml) to node [left] {$\alpha_{A\otimes B}$} (bl);
+\draw[->] (mr) to node [right] {$\alpha_{C \otimes D}$} (br);
+\draw[style=tickarrow] (bl) to node [above] {$G(M \otimes N)$} (br);
+\node at (2,3) {$\Downarrow \phi_{M,N}$};
+\node at (2,1) {$\Downarrow \alpha_{M \otimes N}$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}
+\node (tl) at (0,4) {$FA \otimes FB$};
+\node (tr) at (4,4) {$FC \otimes FD$};
+\node (ml) at (0,2) {$GA \otimes GB$};
+\node (mr) at (4,2) {$GC \otimes GD$};
+\node (bl) at (0,0) {$G(A \otimes B)$};
+\node (br) at (4,0) {$G(C \otimes D)$};
+\draw[style=tickarrow] (tl) to node [above] {$FM \otimes FN$} (tr);
+\draw[style=tickarrow] (ml) to node [above] {$GM \otimes GN$} (mr);
+\draw[->] (tl) to node [left] {$\alpha_A \otimes \alpha_B$} (ml);
+\draw[->] (tr) to node [right] {$\alpha_C \otimes \alpha_D$} (mr);
+\draw[->] (ml) to node [left] {$\psi_{A,B}$} (bl);
+\draw[->] (mr) to node [right] {$\psi_{C,D}$} (br);
+\draw[style=tickarrow] (bl) to node [above] {$G(M \otimes N)$} (br);
+\node at (2,3) {$\Downarrow \alpha_M \otimes \alpha_N$};
+\node at (2,1) {$\Downarrow \psi_{M,N}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+% Seems there should be a unit condition too.
+
+A {\bf braided/symmetric monoidal vertical transformation} is a monoidal vertical transformation between braided/symmetric monoidal functors.
+\end{defn}
+
 
 \section{Companions and conjoints}
 \label{sec:comp-conj}
