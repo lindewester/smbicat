@@ -1,3 +1,4 @@
+%
 \documentclass{amsart}
 \input{decls}
 
@@ -23,6 +24,7 @@
 \newcommand{\ver}{\cdot}
 \newcommand{\hor}{\circ}
 \begin{document}
+
 \maketitle
 
 \begin{abstract}
@@ -130,7 +132,7 @@ notions of `companion' and `conjoint' whose presence supplies the
 necessary lifting property, which we call being \emph{fibrant}.  Then
 in \S\ref{sec:1x1-to-bicat} we describe a functor from fibrant double
 categories to bicategories, and in \S\ref{sec:constr-symm-mono} we
-show that it preserves monoidal, braided, and symmetric structures. Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${clA}lg$ of algebras, bimodules and bimodule homomorphisms.
+show that it preserves monoidal, braided, and symmetric structures. Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${\cA}lg$ of algebras, bimodules and bimodule homomorphisms.
 
 We would like to thank Peter May, Tom Fiore, Stephan Stolz, Chris
 Douglas, Nick Gurski, and Jamie Vicary for helpful discussions and comments.
@@ -2365,21 +2367,35 @@ Combining Lemma's \ref{lem:monfun}, \ref{lem:brfun},  \ref{lem:symfun}, \ref{lem
 \end{proof}
 
 \section{An example}\label{sec:Alg} 
-We use Theorem ~\ref{thm:trifunctor2} to prove that the bicategory of algebras, bimodules and bimodule homomorphisms in a bicatehory ${\cat B}$ is monoidal , and symmetric or braided whenever this is true for ${\cat B}$. In addition we show that this result holds when we restrict to dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms. As a result, the equivariant completion of a bicategory introduced in ~\cite{carquevillerunkel} preserves braided and monoidal structure, and the bicategory $CP({\bf C})$ of mixed quantum states introduced in ~\cite{heunenvicarywester} is symmetric monoidal.
+As a demonstration of our method, we apply Theorem \ref{thm:trifunctor2} to prove that the bicategory of algebras, bimodules and bimodule homomorphisms in a bicategory ${\cat B}$ is monoidal and symmetric or braided, whenever this is true for ${\cat B}$. When ${\cat B}$ has only one object, more symmetry is preserved.
+ As a result, the equivariant completion of a bicategory introduced in ~\cite{carquevillerunkel} preserves any symmetric, braided and monoidal structure, and the bicategory $CP({\bf C})$ of mixed quantum states introduced in ~\cite{heunenvicarywester} is symmetric monoidal.
 
-The bicategory $\mathcal{A}lg({\cat B})$ is a new bicategory constructed from a bicategory ${\cat B}$ consisting of the following data:
+\subsection{Overview}
+Frobenius algebras and modules play an important role in quantum theory. Recently the bicategory of Frobenius algebras, bimodules and bimodule homomorphisms has been defined independently in ~\cite{carquevillerunkel} and ~\cite{heunenvicarywester}, in different contexts. In ~\cite{carquevillerunkel} it is introduced as the equivariant completion of a bicategory, which is a tool for generating interesting topological quantum field theories. In ~\cite{heunenvicarywester} it has been introduced as the bicategory $2(CP({\bf C}))$ of mixed quantum states, which serves as the mathematical foundation for a diagrammatic language of quantum protocols. 
+
+An essential question in either perspective is the existence of braided monoidal structures of these categories. We will explore this in generality for bicategory $\mathcal{A}lg({\cat B})$, defined below.
+
+\begin{defn}
+Let ${\bf B}$ be a bicategory. We can define a new bicategory $\mathcal{A}lg({\cat B})$ consisting of the elements listed below.
 
 \begin{itemize}
 \item 0-cells are pairs $(a,A)$ with $a \in {\cat B}$ and $A \in {\cat B}(a,a)$ an algebra
 \item 1-cells $(a,A) \rightarrow (b,B)$ are $X \in {\cat B}(a,b)$ with the structure of an $A-B-$bimodule
 \item 2-cells are 2-morphisms in ${\cat B}$ that are bimodule homomorphisms
 \end{itemize}
-Structural data regarding this construction such as horizontal composition is described in ~\cite{carquevillerunkel}. 
+Structural data regarding this construction, such as horizontal composition, is described in ~\cite{carquevillerunkel}. 
+\end{defn}
 
-This is the horizontal bicategory of the fibrant double category $\Alg({\cat B})$, which we define below. We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original bicateory ${\bf B}$ is not important.
-We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}, and its extended graphical calculus for monoidal bicategories described in ~\cite{bms}. In this diagrammatic language, we depict 0-cells as coloured surfaces, with the convention to use white for the unit 0-cell. We draw 1-cells (and identity 2-cells) as lines, and 2-cells generally as boxes between the source 1-cell in the bottom and the target 1-cell on top. We write horizontal composition $(\hor)$ and vertical composition $(\ver)$ in the horizontal and vertical direction, respectively. The tensor product $(\tens)$ as juxtaposition in the third direction, which is pointing into the paper. In our pictures this will be expressed as overlapping surfaces, as illustrated below. The reader who is not familiar with this graphical calculus may ignore the coloured surfaces and view the lines and boxes as string diagrams. This corresponds to the situation where the monoidal bicategory has only one object, which makes it a braided monoidal category. 
+In \ref{sec:Dalg} we define the double category $\mathbb{A}lg({\cat B})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat B})$.  In \ref{sec:brmonDalg} and \ref{sec:fibDalg} we show that $\mathbb{A}lg({\cat B})$ is fibrant and that is is monoidal and braided or symmetric whenever this is true for ${\cat B}$. 
+We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original bicateory ${\bf B}$ is not important.
 
-\[
+\subsection{Notation}
+We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}, and its extended graphical calculus for monoidal bicategories described in ~\cite{bms}. In this diagrammatic language, we depict 0-cells as coloured surfaces, with the convention to use white for the unit 0-cell. We draw 1-cells (and identity 2-cells) as lines, and 2-cells generally as boxes between the source 1-cell in the bottom and the target 1-cell on top. We write horizontal composition $(\hor)$ and vertical composition $(\ver)$ in the horizontal and vertical direction, respectively. We write the tensor product $(\tens)$ as juxtaposition in the third direction, which is pointing into the paper. In our pictures this will be expressed as overlapping surfaces, as illustrated below. The reader who is not familiar with this graphical calculus may ignore the coloured surfaces and view the lines and boxes as string diagrams. This corresponds to the situation where the monoidal bicategory has only one object, which makes it a braided monoidal category. 
+
+\begin{align}
+&\mbox{Horizontal composition} &\mbox{Vertical composition} \hspace{28pt}
+ &\mbox{Tensor product} \\
+&
 \begin{tikzpicture}[scale=1.75]
 \draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (-.4,-2) -- (-.4,0) -- (-1,0);  
 \draw[fill=blue, draw=black, opacity=0.5] (-.4,0) -- (-.4,-2) -- (.4,-2) -- (.4,0) -- (-.4,0); 
@@ -2391,8 +2407,8 @@ We use the language of string diagrams for braided monoidal categories, first in
       \draw (.4,0) to (r.north);
       \draw (r.south) to (.4,-2) node[below] {};
     \end{tikzpicture}
-\hspace{10pt}
-        \begin{tikzpicture}[scale=1.75]
+ \hspace{10pt}
+&       \begin{tikzpicture}[scale=1.75]
 \draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
 \draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0);      
       \node[morphism, minimum width=10mm] (g) at (0,-.6) {$g$};
@@ -2402,7 +2418,7 @@ We use the language of string diagrams for braided monoidal categories, first in
       \draw (f.south) to (0,-2) node[below] {};
     \end{tikzpicture}
     \hspace{10pt}
-        \begin{tikzpicture}[scale=1.5]
+&        \begin{tikzpicture}[scale=1.5]
 \draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
 \draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0);      
       \node[morphism, minimum width=10mm] (l) at (0,-.8) {$f$};
@@ -2415,9 +2431,9 @@ We use the language of string diagrams for braided monoidal categories, first in
       \draw (0.25,-.3) to (l.north);
       \draw (l.south) to (0.25,-2.3) node[below] {};
     \end{tikzpicture}
-\]
+\end{align}
 
-\subsection{The double category $\Alg$}
+\subsection{The double category $\Alg$}\label{sec:Dalg}
 We will consider the abstract notion of an {\bf algebra} $(A, \tinymult[white dot], \tinyunit[white dot])$ in a bicategory {\cat B}. This is a 0-cell $a$, together with a 1-cell $A \in {\cat B}(a,a)$ and a multiplication 2-cell $\tinymult[white dot]: A \hor \rightarrow A$, as well as a unit 2-cell, $\tinyunit[white dot]: I_a \rightarrow A$, satisfying the associativity and unit law below.
 
 \begin{calign}
@@ -2473,18 +2489,22 @@ An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]
 \tikzset{regionA/.style={region, fill=red!50}}
 \tikzset{regionB/.style={region, fill=blue!50}}
 \begin{calign}
-  \begin{pic}[scale=1.5]
-    \draw[regionA] (-.9,-.5) -- (-.9,1) -- (.9,1) -- (.9,-.5) -- (-.9,-.5);
-    \draw (0,0.5) to (0,1)node[above] {$A$};
-    \draw (.6,-.5) node[below]{$$} to[out=90,in=0] (0,0.5);
-    \draw (0,0.5) to[out=180,in=90] (-.6,-.5)node[below] {$$};
-    \node [white dot, node on layer=main] (m) at (0,.5) {};
+  \begin{pic}[xscale=3, yscale=2.25]
+    \draw[regionA] (-1,-.4) -- (.4,-.4) -- (.4,1) -- (-1,1) -- (-1,-.4);
+    \draw (-.5,0.5) to (-.5,1)node[above] {};
+    \draw (.2,-.4) node[below]{} to[out=90,in=-90] (-.3,0);
+    \draw (-.3,0) node[below]{} to[out=90,in=0] (-.5,0.5);
+    \draw (-.5,0.5) to[out=180,in=90] (-.75,.1)node[below] {};
+    \draw (-.75,.1) to[out=-90,in=90] (-.8,-.4)node[below] {};
+    \node [white dot, node on layer=main] (m) at (-.5,.5) {};
     %%%%
-    \draw[regionB] (-.7,-.7) -- (-.7,.8) -- (1.1,.8) -- (1.1,-.7) -- (-.7,-.7);
-    \node[white dot] (m) at (0.2,.3) {};
-    \draw (m.center) to (0.2,.8)node[above] {$B$};
-    \draw (.8,-.7) node[below]{$B$} to[out=90,in=0] (m.center);
-    \draw (m.center) to[out=180,in=90] (-.4,-.7)node[below] {$B$};
+    \draw[regionB] (-.9,-.5) -- (-.9,.9) -- (.5,.9) -- (.5,-.5) -- (-.9,-.5);
+    \node[white dot] (m) at (0,.5) {};
+    \draw (m.center) to (0,.9);
+    \draw (.3,-.5) node[below]{} to[out=90,in=-90, looseness=1] (.25,.2);
+    \draw (.25,.1) node[below]{} to[out=90,in=0, looseness=1] (m.center);
+    \draw (m.center) to[out=180,in=0, looseness=1] (-.4,-.2)node[below] {};
+    \draw (-.4,-.2) to[out=180,in=90, looseness=1] (-.7,-.5)node[below] {};
   \end{pic}
 \end{calign}
 
@@ -2548,23 +2568,28 @@ Bimodules and extended bimodule homomorphisms in a bicategory {\bf B} form a bra
       \draw (1.center) to (0,1)node[below]{$I$};
       \end{pic}}\hspace{-3pt}}}
 \hspace{30pt}
+\tikzset{region/.style={draw=black, fill opacity=0.75}}
+\tikzset{regionA/.style={region, fill=red!50}}
+\tikzset{regionB/.style={region, fill=blue!50}}
+\tikzset{regionC/.style={region, fill=purple!50}}
+\tikzset{regionD/.style={region, fill=green!50}}
 _A{\bf M}_B \tens {}_C{\bf N}_D :=
    \ensuremath{\begin{pic}[scale=1.5]
-\draw[fill=red, draw=black, opacity=0.25] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.25] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0);      
+\draw[regionA] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
+\draw[regionB] (0,0) -- (0,-2) -- (2,-2) -- (2,0) -- (0,0);      
       \node[morphism, minimum width=10mm] (l) at (0,-.8) {$\mathbf{M}$};
       \draw (0,0) to (l.north);
-      \draw (l.south) to (0,-2) node[below] {$M$};
-      \draw (l.-45) to[out=-90,in=90] (.6,-2) node[below] {$B$};
-      \draw (l.-135) to[out=-90,in=90] (-.6,-2) node[below] {$A$};
+      \draw (l.south) to (0,-2) node[below] {};
+      \draw (l.-45) to[out=-90,in=90] (1.5,-2) node[below] {};
+      \draw (l.-135) to[out=-90,in=90] (-.6,-2) node[below] {};
       %%%%%%%%%%%%%%%%%%%%%%%
-      \draw[fill=purple, draw=black, opacity=0.25] (-.75,-.3) -- (-.75,-2.3) -- (0.25,-2.3) -- (0.25,-.3) -- (-.75,-.3);  
-\draw[fill=green, draw=black, opacity=0.25] (0.25,-.3) -- (0.25,-2.3) -- (1.25,-2.3) -- (1.25,-.3) -- (0.25,-.3);      
-      \node[morphism, minimum width=10mm] (l) at (0.25,-1.1) {$\mathbf{N}$};
-      \draw (0.25,-.3) to (l.north);
-      \draw (l.south) to (0.25,-2.3) node[below] {$N$};
-      \draw (l.-45) to[out=-90,in=90] (.85,-2.3) node[below] {$D$};
-      \draw (l.-135) to[out=-90,in=90] (-.25,-2.3) node[below] {$C$};
+      \draw[regionC] (-.9,-.1) -- (-.9,-2.1) -- (1.1,-2.1) -- (1.1,-.1) -- (-.9,-.1);  
+\draw[regionD] (1.1,-.1) -- (1.1,-2.1) -- (2.1,-2.1) -- (2.1,-.1) -- (1.1,-.1);      
+      \node[morphism, minimum width=10mm] (l) at (1.1,-.8) {$\mathbf{N}$};
+      \draw (1.1,-.1) to (l.north);
+      \draw (l.south) to (1.1,-2.1) node[below] {};
+      \draw (l.-45) to[out=-90,in=90] (1.7,-2.1) node[below] {};
+      \draw (l.-135) to[out=-90,in=90] (-.4,-2.1) node[below] {};
     \end{pic}}
 \end{equation}
 By the notation for the unit object, we mean that we apply the multiplication map, $\tinymult[gray dot]$, on the unit $\id_I$ for horizontal composition twice. We draw it symmetrically because of the associativity condition. 
@@ -3162,7 +3187,7 @@ The components of the {\bf left unitor} $l_{\bf M}: U_A \ominus {\bf M} \rightar
 \end{proof}
 
 
-\subsection{The braided monoidal structure of $\Alg$}
+\subsection{The braided monoidal structure of $\Alg$}\label{sec:brmonDalg}
 
 In this section we will prove that $\Alg$ is a symmetric monoidal double category
 
@@ -3199,7 +3224,7 @@ In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({M_1} \h
  \end{equation}
 
 
-What is left to prove is that the diagrams given in points (iv),(v),(vi), and (ix) of Definition 2.9 of ~\cite{shulman} commute. Because $\fu$ and $\fx$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
+What is left to prove is that the diagrams given in points (iv),(v),(vi), and (ix) of Definition ~\ref{def:symmondoub} commute. Because $\fu$ and $\fx$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
 
 The first equation of (iv) corresponds to the front square of the diagram below. The unlabelled arrows represent the coequalisers defining their target object.
 The bottom square and the upper right square commute by the definition of $\xi$. The square at the back commutes  by coherence of the bicategory ${\cat B}$ and the pseudofunctor $\tens$. The upper left and lower right square commute by definition of ${\bf a}$. The lower left and the top square commute by definition of $\tinydot[gray dot]$ and $\xi$.
@@ -3248,7 +3273,7 @@ It is easy to see that equations concerning $\fu$ hold, keeping in mind that $\f
 These remaining equations are the second equation of (v), the second and the fourth equation of (vi), and the second equation of (ix).
 \end{proof}
 
-\subsection{Companions and conjoints in $\Alg$}
+\subsection{Companions and conjoints in $\Alg$}\label{sec:fibDalg}
 Finally, we will prove that $\Alg(\cat B$) is fibrant. this is the last step we need to take to show that we can lift $\Alg({\cat B})$ to obtain the bicategory ${\cA}lg({\cat B})$, which preserves any braided monoidal structure.
 
 \begin{lem}\label{lem:algfib}
@@ -3277,7 +3302,7 @@ Let $f$ be a morphism of ${\lD_1}$. The companion of $f$ is defined by the follo
 \quad \quad \epsilon_{\hat{f}} := (f, \mathid_B, \mathid_B)
 \end{equation}
 
-The first equation of (3.2) in ~\cite{shulman} holds because $\epsilon_{\hat{f}} \circ \eta_{\hat{f}} = (f,f,f) = U_f$. The left-hand-side of the second equation corresponds to $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}}= (id_A, f\tinydot[gray dot] \mathid_B, \mathid_B)$, where $f\tinydot[gray dot] \mathid_B: {U_A}_{\tinydot[gray dot]} \hat{f} \rightarrow \hat{f}_{\tinydot[gray dot]}U_B$ is the unique map that makes back of the diagram below commute.  We need to show that this equals $1_{\hat{f}} = (\mathid_A, \mathid_B, \mathid_B)$.
+The first equation of ~\ref{eq:compeqn} holds because $\epsilon_{\hat{f}} \circ \eta_{\hat{f}} = (f,f,f) = U_f$. The left-hand-side of the second equation corresponds to $\eta_{\hat{f}} \ominus \epsilon_{\hat{f}}= (id_A, f\tinydot[gray dot] \mathid_B, \mathid_B)$, where $f\tinydot[gray dot] \mathid_B: {U_A}_{\tinydot[gray dot]} \hat{f} \rightarrow \hat{f}_{\tinydot[gray dot]}U_B$ is the unique map that makes back of the diagram below commute.  We need to show that this equals $1_{\hat{f}} = (\mathid_A, \mathid_B, \mathid_B)$.
 
 \begin{tikzpicture}[xscale=4,yscale=2]
  \node (tl) at (0,1) {$A \hor A \hor B$};
@@ -3311,29 +3336,21 @@ This simultaneously proves that $f$ has a conjoint, because $\Alg({\bf C}^{h* op
 \end{proof}
 
 \begin{eg}
-When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Lemma 5.6 of ~\cite{shulman}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
+When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Theorem ~\ref{thm:trifunctor2}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
 \end{eg}
 
 \begin{thm}\label{thm:eqcomp}
-Let {\bf B} be a bicategory. The equivariant completion of {\cat B} is monoidal whenever {\bf B} is monoidal; it is braided whenever  {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
+Let {\bf B} be a bicategory. The bicategory $\mathcal{A}lg({\cat B})$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
 \end{thm}
 
 \begin{proof}
-This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem 5.1 of ~\cite{shulman}.
-\end{proof}
-
- \begin{cor}\label{cor:symmonbicat}
-Let {\bf C} be a braided monoidal category. The bicategory $\mathcal{A}lg$ of algebras, bimodules, and bimodule homomorphisms in {\cat C} is  monoidal. 
-\end{cor}
-
-\begin{proof}
-It follows from Theorem \ref{thm:eqcomp} and the fact we can regard a braided monoidal category as a monoidal bicategory with one object, that $\mathcal{A}lg$ is monoidal.
+This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem ~\ref{thm:trifunctor2}.
 \end{proof}
 
 When we consider bicategories with one object, more of the symmetry is preserved than one would expect from Theorem ~\ref{thm:eqcomp}
 
-\begin{prop}
-Let {\bf B} be a monoidal bicategory with one object. The bicategory $\mathcal{A}lg$ of algebras, bimodules, and bimodule homomorphisms in {\cat B} is braided monoidal. When ${\bf B}$ is braided, then $\mathcal{A}lg$ is symmetric.
+\begin{prop}\label{prop:oneobject}
+Let {\bf B} be a monoidal bicategory with one object. The bicategory $\mathcal{A}lg({\cat B})$ of algebras, bimodules, and bimodule homomorphisms in {\cat B} is braided monoidal. When ${\bf B}$ is braided, then $\mathcal{A}lg({\cat B})$ is symmetric.
 \end{prop}
 
 \begin{proof}
@@ -3378,23 +3395,34 @@ A monoidal bicategory with one object corresponds to a braided monoidal category
 {\it how to get the crossing?}
 \end{proof}
 
-
-\subsection{Commutative special dagger Frobenius algebras}
-
-We will demonstrate that the statement still holds when we restrict to the subbicategory of (commutative/special/dagger) Frobenius algebras, (dagger) bimodules, and bimodule homomorphisms. 
-
 \begin{rmk}\label{comspecfrob}
-The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is symmetric monoidal. This follows from Theorem ~\ref{thm:eqcomp} since Frobenius algebras and algebra homomorphisms form a full symmetric monoidal subcategory of the category of algebras and algebra homomorphisms. The same statement holds for special and commutative Frobenius algebras.
+The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is symmetric monoidal. This follows from Theorem ~\ref{thm:eqcomp} since Frobenius algebras and algebra homomorphisms form a full symmetric monoidal subcategory of the category of algebras and algebra homomorphisms. The same statement holds for special and commutative Frobenius algebras. 
 \end{rmk}
+
+\begin{cor}
+The equivariant completion of a bicategory introduced in ~\cite{carquevillerunkel} preserves symmetric, braided, and monoidal structure.
+\end{cor}
+
+\begin{proof}
+The equivariant completion of a bicategory ${\bf B}$ is the subbicategory of $\mathcal{A}lg({\cat B})$ consisting of special Frobenius algebras, bimodules and bimodule homomorphisms. The result follows from remark \ref{comspecfrob} and Theorem \ref{thm:eqcomp}
+\end{proof}
 
 When we restrict to dagger Frobenius algebras and dagger bimodules, we do not obtain a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
 
-\begin{prop}
-Let ${\cat C}$ be a symmetric monoidal dagger category. The bicategory of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat C}$ is symmetric monoidal.
+\begin{prop}\label{prop:dagger}
+Let ${\cat B}$ be a bicategory. The bicategory of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat B}$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
 \end{prop}
 
 \begin{proof}
-We take the category of dagger Frobenius algebras and self conjugate algebra homomorphisms of {\cat C} as $\D_0$. For $\D_1$ we take the category of dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ {\cat C}, of which $f_1$ and $f_2$ are self conjugate. This ensures that ~\ref{eq:companion} is a dagger bimodule.  These categories are symmetric monoidal subcategories of our original $\D_0$ and $\D_1$, since self-conjugate morphisms are closed under the tensor product and all structure isomorphisms of the monoidal categories are self conjugate. All other steps of the construction hold in the same way as in the general case.  
+We take the category of dagger Frobenius algebras and self conjugate algebra homomorphisms of {\cat B} as $\D_0$. For $\D_1$ we take the category of dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ {\cat B}, of which $f_1$ and $f_2$ are self conjugate. This ensures that ~\ref{eq:companion} is a dagger bimodule.  These categories are symmetric monoidal subcategories of our original $\D_0$ and $\D_1$, since self-conjugate morphisms are closed under the tensor product and all structure isomorphisms of the monoidal categories are self conjugate. All other steps of the construction hold in the same way as in the general case.  
+\end{proof}
+
+\begin{cor}
+Let ${\bf C}$ be a symmetric monoidal category. The bicategory $2(CP({\bf C}))$ of ~\cite{heunenvicarywester} is symmetric monoidal.
+\end{cor}
+
+\begin{proof}
+This follows directly from proposition \ref{prop:dagger} and \ref{prop:oneobject}.
 \end{proof}
 
 \begin{rmk}
