@@ -529,12 +529,8 @@ lies.
 We now move on to define functors and transformations of monoidal double categories.
 
 \begin{defn}\label{def:monfunc}
-  Let $\D$, $\E$ be (braided/symmetric) monoidal double categories.  A {\bf (braided/symmetric) lax monoidal double functor} $F: \D \rightarrow \E$ is a pseudo double functor $F$, together with a vertical transformation $\phi : \otimes \circ (F,F) \rightarrow F \circ \otimes$ and also
-  a 1-morphism $\phi_{u_0} : I_{\E} \rightarrow F(I_{\D})$ and a 2-morphism $\phi_{u_1} : U_{I_{\E}} \rightarrow F(U_{I_{\D}})$, which together form a vertical transformation $\phi_u$ from the functor $I_{\E}$ to the functor $F \circ I_{\D}$.
-  % I don't understand the following.  To the extent that I understand it, it doesn't seem true.
-  where the natural transformations ${I_{\E}}_{\odot}, {I_{\E}}_{U}, (F \circ I_{\D})_{\odot}$ and $ (F \circ I_{\D})_{U}$ are all identities.
-  %
-  These functors and structure maps satisfy the usual axioms for (braided/symmetric) monoidal functors with respect to $\otimes$.
+  Let $\D$, $\E$ be (braided/symmetric) monoidal double categories.  A {\bf (braided/symmetric) lax monoidal double functor} $F: \D \rightarrow \E$ is a pseudo double functor $F$, together with a vertical transformation $\phi : \otimes \circ (F,F) \rightarrow F \circ \otimes$ and
+ a vertical transformation $\phi_u:I_{\E}\rightarrow F \circ I_{\D}$. These functors and structure maps satisfy the usual axioms for (braided/symmetric) monoidal functors with respect to $\otimes$.
 \end{defn}
 
 Unfolding the definitions gives us:
@@ -583,13 +579,13 @@ When the natural transformations are in the opposite direction, the functor is {
 
 \begin{defn}\label{Def:monverttrans}
   Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A monoidal vertical transformation $\alpha: F \rightarrow G$ is a vertical transformation such that $\alpha_0$ and $\alpha_1$ are monoidal natural transformations.
-  Explicitly, this means that the following equality holds:
+  Explicitly, this means that the following equalities hold:
 
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}
 \node (tl) at (0,4) {$FA \otimes FB$};
-\node (tr) at (4,4) {$FAFC \otimes FD$};
+\node (tr) at (4,4) {$FC \otimes FD$};
 \node (ml) at (0,2) {$F(A\otimes B)$};
 \node (mr) at (4,2) {$F(C \otimes D)$};
 \node (bl) at (0,0) {$G(A \otimes B)$};
@@ -627,7 +623,42 @@ When the natural transformations are in the opposite direction, the functor is {
 \end{aligned}
 \end{equation}
 
-% Seems there should be a unit condition too.
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}
+\node (tl) at (0,4) {$I_{\mathbb{E}}$};
+\node (tr) at (4,4) {$I_{\mathbb{E}}$};
+\node (ml) at (0,2) {$F(I_{\mathbb{D}})$};
+\node (mr) at (4,2) {$F(I_{\mathbb{D}})$};
+\node (bl) at (0,0) {$G(I_{\mathbb{D}})$};
+\node (br) at (4,0) {$G(I_{\mathbb{D}})$};
+\draw[style=tickarrow] (tl) to node [above] {$U_{I_{\mathbb{E}}}$} (tr);
+\draw[style=tickarrow] (ml) to node [above] {$F(U_{I_{\mathbb{D}}})$} (mr);
+\draw[->] (tl) to node [left] {$\phi_{u_0}$} (ml);
+\draw[->] (tr) to node [right] {$\phi_{u_1}$}(mr);
+\draw[->] (ml) to node [left] {$\alpha_{I_{\mathbb{D}}}$} (bl);
+\draw[->] (mr) to node [right] {$\alpha_{I_{\mathbb{D}}}$} (br);
+\draw[style=tickarrow] (bl) to node [below] {$G(U_{I_{\mathbb{D}}})$} (br);
+\node at (2,3) {$\Downarrow \phi_{u_1}$};
+\node at (2,1) {$\Downarrow \alpha_{U_{I_{\mathbb{D}}}}$};
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}
+\node (tl) at (0,4) {$I_{\mathbb{E}}$};
+\node (tr) at (4,4) {$I_{\mathbb{E}}$};
+\node (ml) at (0,2) {$G(I_{\mathbb{D}})$};
+\node (mr) at (4,2) {$G(I_{\mathbb{D}})$};
+\draw[style=tickarrow] (tl) to node [above] {$U_{I_{\mathbb{E}}}$} (tr);
+\draw[style=tickarrow] (ml) to node [below] {$G(U_{I_{\mathbb{D}}})$} (mr);
+\draw[->] (tl) to node [left] {$\psi_{u}$} (ml);
+\draw[->] (tr) to node [right] {$\psi_{u}$}(mr);
+\node at (2,3) {$\Downarrow \psi_{u_1}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
 
 A {\bf braided/symmetric monoidal vertical transformation} is a monoidal vertical transformation between braided/symmetric monoidal functors.
 \end{defn}
