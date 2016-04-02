@@ -762,7 +762,7 @@ a strictly functorial choice of a companion for each vertical arrow.
 
 \begin{defn}
   We say that a double category is \textbf{fibrant} if every vertical
-  1-morphism has both a companion and a conjoint. We will write $\mathcal{D}bl_{\bf F}$ for the tricategory of fibrant double categories, pseudo double functors, and vertical transformations.
+  1-morphism has both a companion and a conjoint. We will write $\mathcal{D}bl^f_g$ for the tricategory of fibrant double categories, pseudo double functors, and vertical transformations.
 \end{defn}
 
 
@@ -1342,6 +1342,15 @@ Any two compositions of $\theta$-isomorphisms that have the same source and targ
 By Lemma's ~\ref{thm:theta-compose-vert} and ~\ref{thm:theta-compose-horiz}, $\theta$-isomorphisms are closed under composition. By uniqueness of $\theta$-isomorphisms, any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells must be equal.
 \end{proof}
 
+\begin{lem}\label{lem:FUtheta}
+Suppose $F:\lD \rightarrow \lE$ is a functor of double categories. The 2-cell $F_U$ is equal to $\theta_{id_{FA}, Fid_A}$
+\end{lem}
+
+\begin{proof}
+We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{FA}, Fid_A}$ by $\hat{F}_U$.  Unfolding the definitions of $\eta_{U_{FA}}$, $\epsilon_{FU_A}$, and $\hat{F}_U$, and applying functoriality of $F$, we obtain an expression that can be rewritten to $U_{id_{FA}}$. It follows that $F_U$ is a $\theta$-isomorphism, by the uniqueness of $\theta s$ in this expression.
+\end{proof}
+
+
 \begin{rmk}
   In the following section we actually only require our double
   categories to have companions and conjoints for vertical
@@ -1717,7 +1726,7 @@ bicategories, functors, pseudo natural transformations, and
 modifications.
 
 \begin{thm}\label{thm:h-functor}
-  There is a functor of tricategories $\cH\maps \cDbl_{\bf F}\to \cBicat$.
+  There is a functor of tricategories $\cH\maps \cDbl^f_g\to \cBicat$.
 \end{thm}
 \begin{proof}
   The definition of functors between tricategories can be found
@@ -1821,26 +1830,24 @@ We end this section with two final lemma's.
   satisfies~\eqref{eq:comp-iso} and hence must be equal to $\theta$.
 \end{proof}
 
-\begin{lem}\label{lem:FUtheta}
-Suppose $F:\lD \rightarrow \lE$ is a functor of double categories. The lifted oplax 2-cell $\hat{F}_U$ is equal to $\theta_{id_{FA}, Fid_A}$
-\end{lem}
-
-\begin{proof}
-We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{FA}, Fid_A}$ by $\hat{F}_U$.  Unfolding the definitions of $\eta_{U_{FA}}$, $\epsilon_{FU_A}$, and $\hat{F}_U$, and applying functoriality of $F$, we obtain an expression that can be rewritten to $U_{id_{FA}}$. It follows that $F_U$ is a $\theta$-isomorphism, by the uniqueness of $\theta s$ in this expression.
-\end{proof}
 
 
 
 
 \section{Symmetric Monoidal Bicategories}
 \label{sec:constr-symm-mono}
-In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with $\mathcal{D}bl_{\bf F}^{\bf M}$, $\mathcal{D}bl_{\bf F}^{\bf B}$, and $\mathcal{D}bl_{\bf F}^{\bf S}$, respectively. Their images are the tricategories  of monoidal bicategories, braided monoidal bicategories, and symmetric monoidal bicategories, $\mathcal{B}icat^{\bf M}$, $\mathcal{B}icat^{\bf B}$, and $\mathcal{B}icat^{\bf S}$, respectively.
+In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with $\mathcal{M}on\mathcal{D}bl^f_g$, $\mathcal{B}r\mathcal{M}on\mathcal{D}bl^f_g$, and $\mathcal{S}ym\mathcal{M}on\mathcal{D}bl^f_g$, respectively. Their images are the tricategories  of monoidal bicategories, braided monoidal bicategories, and symmetric monoidal bicategories, $\mathcal{M}on\mathcal{B}icat$, $\mathcal{B}r\mathcal{M}on\mathcal{B}icat$, and $\mathcal{S}ym\mathcal{M}on\mathcal{B}icat$, respectively.
 
 Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal, or strong monoidal. No matter what choice we make, $\mathcal{H}$ preserves the monoidal structure. However, as we have observed before, there are no tricategories containing conjuntional transformations. Hence, $\mathcal{H}$ can only be a trifunctor of monoidal double categories, if we restrict to transformations that are horizontally strong; which means that they lift to pseudo transformations. Under this condition, we will prove the main theorem of this section, stated below. We leave a further generalization to future work.
 %[{\it is there a better definition? or examples where this works/ some justification}]     
 
 \begin{thm}\label{thm:trifunctor2}
-The functor $\mathcal{H}: \mathcal{D}bl_{\bf F} \rightarrow \mathcal{B}icat$ extends to functors $\mathcal{H}^{\bf M}: \mathcal{D}bl_{\bf F}^{\bf M} \rightarrow \mathcal{B}icat^{\bf M}$, $\mathcal{H}^{\bf B}: \mathcal{D}bl_{\bf F}^{\bf B} \rightarrow \mathcal{B}icat^{\bf B}$, and $\mathcal{H}^{\bf S}: \mathcal{D}bl_{\bf F}^{\bf S} \rightarrow \mathcal{B}icat^{\bf S}$ 
+The functor $\mathcal{H}: \mathcal{D}bl^f_g \rightarrow \mathcal{B}icat$ extends to functors 
+\begin{align}
+\mathcal{H}^M: \hspace{1cm} &\mathcal{M}on\mathcal{D}bl^f_g &\rightarrow \hspace{1cm} &\mathcal{M}on\mathcal{B}icat\\
+\mathcal{H}^{B}: \hspace{1cm} &\mathcal{B}r\mathcal{M}on \mathcal{D}bl^f_g &\rightarrow \hspace{1cm} &\mathcal{B}r\mathcal{M}on\mathcal{B}icat\\ 
+ \mathcal{H}^{S}: \hspace{1cm} &\mathcal{S}ym\mathcal{M}on\mathcal{D}bl^f_g &\rightarrow \hspace{1cm} &\mathcal{S}ym \mathcal{M}on\mathcal{B}icat
+\end{align} 
 \end{thm}
 
 \subsection{Strategy}
@@ -2220,7 +2227,7 @@ we need to show that the equality between the compositions of 2-cells below hold
 \end{equation} 
 
 Each individual 2-cell is a $\theta$-isomorphism. For $U_{\hat{\phi}}$ and $\hat{F}_{\odot}$, 
-this follows from Lemma ~\ref{thm:theta-nat}, for $\hat{F}_{U}$ this follows from Lemma ~\ref{lem:FUtheta}, and for $F \nu$ this follows from Lemma ~\ref{thm:theta-func}. The other 2-cells are $\theta$-isomorphisms by definition.
+this follows from Lemma ~\ref{thm:theta-nat}, for $\hat{F}_{U}$ this follows from Lemma ~\ref{lem:FUtheta}, since $\hat{F}_{U}$ equals $F_U$ and for $F \nu$ this follows from Lemma ~\ref{thm:theta-func}. The other 2-cells are $\theta$-isomorphisms by definition.
 As a result, we can apply Lemma \ref{lem:equal} to obtain the equality.  
 
 \begin{lem}\label{lem:montran}
