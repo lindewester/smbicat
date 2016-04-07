@@ -2414,22 +2414,22 @@ As a demonstration of our method, we apply Theorem \ref{thm:trifunctor2} to prov
  As a result, the equivariant completion of a bicategory introduced in ~\cite{carquevillerunkel} preserves any symmetric, braided and monoidal structure, and the bicategory $CP({\bf C})$ of mixed quantum states introduced in ~\cite{heunenvicarywester} is symmetric monoidal.
 
 \subsection{Overview}
-Frobenius algebras and modules play an important role in quantum theory. Recently the bicategory of Frobenius algebras, bimodules and bimodule homomorphisms has been defined independently in ~\cite{carquevillerunkel} and ~\cite{heunenvicarywester}, in different contexts. In ~\cite{carquevillerunkel} it is introduced as the equivariant completion of a bicategory, which is a tool for generating interesting topological quantum field theories. In ~\cite{heunenvicarywester} it has been introduced as the bicategory $2(CP({\bf C}))$ of mixed quantum states, which serves as the mathematical foundation for a diagrammatic language of quantum protocols. 
+Frobenius algebras and modules play an important role in quantum theory. Recently, the bicategory of Frobenius algebras, bimodules and bimodule homomorphisms has been defined independently in ~\cite{carquevillerunkel} and ~\cite{heunenvicarywester}, in different contexts. In ~\cite{carquevillerunkel} it is introduced as the equivariant completion of a bicategory, which is a tool for generating interesting topological quantum field theories. In ~\cite{heunenvicarywester} it has been introduced as the bicategory $2(CP({\bf C}))$ of mixed quantum states, which serves as the mathematical foundation for a diagrammatic language of quantum protocols. 
 
-An essential question in either perspective is the existence of braided monoidal structures of these categories. We will explore this in generality for bicategory $\mathcal{A}lg({\cat B})$, defined below.
+An essential question in either perspective is the existence of monoidal structures, which are braided or symmetric, for these categories. We will explore this question in generality for the bicategory $\mathcal{A}lg({\cat B})$, defined below.
 
 \begin{defn}
 Let ${\bf B}$ be a bicategory. We can define a new bicategory $\mathcal{A}lg({\cat B})$ consisting of the elements listed below.
 
 \begin{itemize}
-\item 0-cells are pairs $(a,A)$ with $a \in {\cat B}$ and $A \in {\cat B}(a,a)$ an algebra
-\item 1-cells $(a,A) \rightarrow (b,B)$ are $X \in {\cat B}(a,b)$ with the structure of an $A-B-$bimodule
-\item 2-cells are 2-morphisms in ${\cat B}$ that are bimodule homomorphisms
+\item 0-cells are monads in ${\bf B}$: pairs $(a,A)$ of a 0-cell $a \in {\cat B}$ and an algebra $A \in {\cat B}(a,a)$.
+\item 1-cells $(a,A) \rightarrow (b,B)$ are 1-cells $X \in {\cat B}(a,b)$ with the structure of an $A-B-$bimodule.
+\item 2-cells are 2-morphisms in ${\cat B}$ that are bimodule homomorphisms.
 \end{itemize}
 Structural data regarding this construction, such as horizontal composition, is described in ~\cite{carquevillerunkel}. 
 \end{defn}
 
-In \ref{sec:Dalg} we define the double category $\mathbb{A}lg({\cat B})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat B})$.  In \ref{sec:brmonDalg} and \ref{sec:fibDalg} we show that $\mathbb{A}lg({\cat B})$ is fibrant and that is is monoidal and braided or symmetric whenever this is true for ${\cat B}$. 
+In \ref{sec:Dalg} we define the double category $\mathbb{A}lg({\cat B})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat B})$.  In \ref{sec:brmonDalg} and \ref{sec:fibDalg} we show that $\mathbb{A}lg({\cat B})$ is fibrant and that it is monoidal and braided or symmetric whenever this is true for ${\cat B}$. 
 We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original bicateory ${\bf B}$ is not important.
 
 \subsection{Notation}
@@ -2527,7 +2527,7 @@ We will consider the abstract notion of an {\bf algebra} $(A, \tinymult[white do
   \end{pic}
 \end{calign}
 
-An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ between two algebras from the same hom-category ${\cat B}(a,a)$ is a 2-cell $f:A \rightarrow B$ in ${\cat B}(a,a)$ that respects the multiplication, $f \ver \tinymult[white dot] = \tinymult[gray dot] \ver (f \tens f)$, and the unit, $\tinyunit[gray dot] = f \ver \tinyunit[white dot]$. If ${\bf B}$ is braided monoidal, then the category of algebras and algebra homomorphisms is also braided monoidal. The tensor product for algebras in inherited from the original 2-category. This is depicted below. The unit object is the trivial algebra on the unit for the original monoidal structure with multiplication given by $\lambda_I = \rho_I$. The original structure isomorphisms are all algebra homomorphisms. In principle this can be shown directly, but in the diagrammatic calculus this holds trivially.  
+An {\bf algebra homomorphism} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ between two algebras from the same hom-category ${\cat B}(a,a)$ is a 2-cell $f:A \rightarrow B$ in ${\cat B}(a,a)$ that respects the multiplication, $f \ver \tinymult[white dot] = \tinymult[gray dot] \ver (f \tens f)$, and the unit, $\tinyunit[gray dot] = f \ver \tinyunit[white dot]$. If ${\bf B}$ is braided monoidal, then the {\bf category of algebras and algebra homomorphisms} is also braided monoidal. The tensor product for algebras in inherited from the original 2-category. This is depicted below. The unit object is the trivial algebra on the unit for the original monoidal structure with multiplication given by $\lambda_I = \rho_I$. The original structure isomorphisms are all algebra homomorphisms. In principle this can be shown directly, but in the diagrammatic calculus this holds trivially.  
 \tikzset{region/.style={draw=black, fill opacity=0.75}}
 \tikzset{regionA/.style={region, fill=red!50}}
 \tikzset{regionB/.style={region, fill=blue!50}}
@@ -2648,7 +2648,7 @@ The associator, unitor, and swap natural isomorphisms are given by the maps with
 For clarity we write algebras and algebra homomorphisms in normal font and we write bimodules and (extended) bimodule homomorphisms in bold. This will help distinguishing between the two categories, which together form a double category.
 
 \begin{lem}\label{lem:algdouble}
-Let ${\cat B}$ be a bicategory where all colimits exist, and where horizontal composition $\hor$ preserves all colimits. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf B}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf B}$ form a double category, which we call $\Alg$
+Let ${\cat B}$ be a bicategory such that in the hom-categories all colimits exist, and where horizontal composition $\hor$ preserves these colimits. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf B}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf B}$ form a double category, which we call $\Alg$
 \end{lem}
 
 \begin{proof}
@@ -3438,6 +3438,63 @@ A monoidal bicategory with one object corresponds to a braided monoidal category
 {\it how to get the crossing?}
 \end{proof}
 
+\begin{defn}
+A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfies the equations below.
+\begin{align}
+  \begin{pic}[]
+    \draw[fill=red, draw=black, opacity=.5] (-1.2,-.5) -- (-1.2,1) -- (1.2,1) -- (1.2,-.5) -- (-1.2,-.5);
+    \node[white dot] (t) at (.5,.5) {};
+    \node[white dot] (b) at (-.5,0) {};
+    \draw (b.center) to[out=0,in=180] (t.center);
+    \draw (-.5,-.5) to (b.center);
+    \draw (t.center) to (.5,1);
+    \draw (t.center) to[out=0,in=90] (1,-.5);
+    \draw (-1,1) to[out=-90,in=180] (b.center);
+  \end{pic}
+\,=\,
+  \begin{pic}[]
+     \draw[fill=red, draw=black, opacity=.5] (-1,-.5) -- (-1,1) -- (1,1) -- (1,-.5) -- (-1,-.5);
+    \node[white dot] (t) at (0,.5) {};
+    \node[white dot] (b) at (0,0) {};
+    \draw (b.center) to (t.center);
+    \draw (t.center) to[out=180,in=-90] (-.5,1);
+    \draw (t.center) to[out=0,in=-90] (.5,1);
+    \draw (b.center) to[out=180,in=90] (-.5,-.5);
+    \draw (b.center) to[out=0,in=90] (.5,-.5);
+  \end{pic}
+ \, =\,
+  \begin{pic}[]
+   \draw[fill=red, draw=black, opacity=.5] (-1.2,-.5) -- (-1.2,1) -- (1.2,1) -- (1.2,-.5) -- (-1.2,-.5);
+    \node[white dot] (t) at (-.5,.5) {};
+    \node[white dot] (b) at (.5,0) {};
+    \draw (b.center) to[out=180,in=0] (t.center);
+    \draw (.5,-.5) to (b.center);
+    \draw (t.center) to (-.5,1);
+    \draw (t.center) to[out=180,in=90] (-1,-.5);
+    \draw (1,1) to[out=-90,in=0] (b.center);
+  \end{pic}
+\end{align}
+We call a Frobenius algebra {\bf special} whenever the following equation holds.
+ \begin{align}
+  \begin{pic}[]
+   \draw[fill=red, draw=black, opacity=.5] (-.7,-.5) -- (-.7,1) -- (.7,1) -- (.7,-.5) -- (-.7,-.5);
+        \node (0) at (0,-0.5) {};
+        \node[white dot] (1) at (0,-.1) {};
+        \node[white dot] (2) at (0,0.6) {};
+        \node (3) at (0,1) {};
+        \draw (0.center) to (1.center);
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=180, looseness=2] (1.center) to (2.center);
+        \draw[in=0, out=0, looseness=2] (1.center) to (2.center);
+\end{pic}
+\,=\,
+  \begin{pic}[]
+   \draw[fill=red, draw=black, opacity=.5] (-.7,-.5) -- (-.7,1) -- (.7,1) -- (.7,-.5) -- (.7,-.5);
+    \draw (0,-.5) to (0,1);
+  \end{pic}
+\end{align}
+\end{defn}
+
 \begin{rmk}\label{comspecfrob}
 The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is symmetric monoidal. This follows from Theorem ~\ref{thm:eqcomp} since Frobenius algebras and algebra homomorphisms form a full symmetric monoidal subcategory of the category of algebras and algebra homomorphisms. The same statement holds for special and commutative Frobenius algebras. 
 \end{rmk}
@@ -3450,10 +3507,37 @@ The equivariant completion of a bicategory introduced in ~\cite{carquevillerunke
 The equivariant completion of a bicategory ${\bf B}$ is the subbicategory of $\mathcal{A}lg({\cat B})$ consisting of special Frobenius algebras, bimodules and bimodule homomorphisms. The result follows from remark \ref{comspecfrob} and Theorem \ref{thm:eqcomp}
 \end{proof}
 
-When we restrict to dagger Frobenius algebras and dagger bimodules, we do not obtain a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
+\begin{defn}
+Let {\bf B} be a bicategory equiped with a dagger functor. A Frobenius algebra in a hom-category of {\bf B} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger of the algebra. 
+A bimodule is called a {\bf dagger bimodule} when the equation below holds.
+\begin{align}
+    \begin{pic}[yscale=.85]
+      \node[morphism, minimum width=10mm] (m) at (0,-.7) {$\textbf{M}^\dag$};
+      \draw (m.south) to (0,-2) node[right]{$M$};
+      \draw (m.north) to  (0,.6) node[right]{$M$};
+      \draw (m.45) to[out=90,in=-90] (.5,.6) node[right]{$D$};
+      \draw (m.135) to[out=90,in=-90] (-.5,.6) node[right]{$C$};
+    \end{pic}
+    \!\!\!=\,\,\,
+    \begin{pic}[yscale=.85]
+      \node[morphism, minimum width=10mm] (m) at (0,-.7) {$\textbf{M}$};
+      \draw (m.south) to (0,-2) node[right]{$M$};
+      \draw (m.north) to (0,.6) node[right]{$M$};
+      \node[white dot] (l) at (-.6,-1.3) {};
+      \node[black dot] (r) at (.6,-1.3) {};
+      \draw (m.-45) to[out=-90,in=150] (r);
+      \draw (m.-135) to[out=-90,in=30] (l);
+      \draw (r) to (.6,-1.6) node[black dot] {};
+      \draw (l) to (-.6,-1.6) node[white dot] {};
+      \draw (l) to[out=150, in=-90, looseness=.5] (-1,.6) node[right] {$C$};
+      \draw (r) to[out=30, in=-90, looseness=.5] (1,.6) node[right] {$D$};
+    \end{pic}
+    \end{align}
+\end{defn}
+When the bicategory {\bf B} is equiped with a dagger functor, and we restrict to dagger Frobenius algebras and dagger bimodules, we do not obtain a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
 
 \begin{prop}\label{prop:dagger}
-Let ${\cat B}$ be a bicategory. The bicategory of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat B}$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
+Let ${\cat B}$ be a dagger bicategory. The bicategory of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat B}$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
 \end{prop}
 
 \begin{proof}
