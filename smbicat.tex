@@ -3390,14 +3390,14 @@ Let {\bf B} be a bicategory. The bicategory $\mathcal{A}lg({\cat B})$ is monoida
 This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem ~\ref{thm:trifunctor2}.
 \end{proof}
 
-When we consider bicategories with one object, more of the symmetry is preserved than one would expect from Theorem ~\ref{thm:eqcomp}
+When we consider braided bicategories with one object, more of the symmetry is preserved than one would expect from Theorem ~\ref{thm:eqcomp}
 
 \begin{prop}\label{prop:oneobject}
-Let {\bf B} be a monoidal bicategory with one object. The bicategory $\mathcal{A}lg({\cat B})$ of algebras, bimodules, and bimodule homomorphisms in {\cat B} is braided monoidal. When ${\bf B}$ is braided, then $\mathcal{A}lg({\cat B})$ is symmetric.
+Let {\bf B} be a braided monoidal bicategory with one object. The bicategory $\mathcal{A}lg({\cat B})$ of algebras, bimodules, and bimodule homomorphisms in {\cat B} is symmetric monoidal. 
 \end{prop}
 
 \begin{proof}
-A monoidal bicategory with one object corresponds to a braided monoidal category. A braided monoidal bicategory with one object corresponds to a symmetric monoidal category. We can lift this braiding $\sigma$ to a braiding on the double category, illustrated by the picture below. The rest proof is analogous of that of Theorem \ref{thm:eqcomp}, with the only difference that in the diagrams the tensor product is no longer distinguishable from horizontal composition.
+A braided monoidal bicategory with one object corresponds to a symmetric monoidal category. We can lift this symmetry $\sigma$ to a symmetry on the double category, illustrated by the picture below. The rest proof is analogous of that of Theorem \ref{thm:eqcomp}, with the only difference that in the diagrams the tensor product is no longer distinguishable from horizontal composition.
 
 \begin{equation}
 \begin{tikzpicture} 
@@ -3434,8 +3434,6 @@ A monoidal bicategory with one object corresponds to a braided monoidal category
     \draw (m.center) to[out=180,in=90] (0.2,-.5)node[below] {};
   \end{tikzpicture}
 \end{equation}
-
-{\it how to get the crossing?}
 \end{proof}
 
 \begin{defn}
