@@ -1370,8 +1370,11 @@ We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{F
 
 We are now equipped to lift structures on fibrant double categories to
 their horizontal bicategories.  In this section we show that passage
-from fibrant double categories to bicategories is functorial; in the
-next section we show that it preserves monoidal structure.
+from fibrant double categories to bicategories is given by an iconic trifunctor.
+
+Note that the tricategory $\mathcal{B}icat$ of Bicategories, Pseudo functors, adjoint equivalences and modifications is an iconic tricategory (reference?); one where all composition constraints are icons. It is easy to see that $\mathcal{D}bl$ is an iconic tricategory as well, since all 3-cells in $\mathcal{D}bl$ are identities.
+Iconic tricategories can alternatively be described as bicategories enriched over the cartesian category Icon, the category of bicategories, pseudofunctors and icons, \cite{shulman:psalg}.
+We will show that the functor $\cH$ is a pseudofunctor enriched over Icon, that preserves products. This result will be useful in the next section where we show that $\mathcal{H}$ preserves monoidal structures.
 
 As a point of notation, we write $\odot$ for the composition of
 1-cells in a bicategory, since our bicategories are generally of the
@@ -1380,20 +1383,21 @@ to mean a morphism between bicategories that preserves composition up
 to isomorphism; equivalent terms include \emph{weak 2-functor},
 \emph{pseudofunctor}, and \emph{homomorphism}.
 
-Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globural 2-morphisms of $\lD$.
+
+Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globular 2-morphisms of $\lD$.  Note that functors of double categories and functors of bicategories compose strictly associatively; hence, we can talk about 1-categories of double categories and bicategories.  
 
 \begin{thm}\label{thm:1-func}
-  If \lD\ is a double category, then $\cH(\lD)$ is a bicategory, and
+ If \lD\ is a double category, then $\cH(\lD)$ is a bicategory, and
   any functor $F\maps \lD\to\lE$ induces a functor $\cH(F)\maps
   \cH(\lD)\to\cH(\lE)$.  In this way $\cH$ defines a functor of
   1-categories $\mathbf{Dbl}\to \mathbf{Bicat}$.
 \end{thm}
 \begin{proof}
-  The constraints of $F$ are all globular, hence give constraints for
+ The constraints of $F$ are all globular, hence give constraints for
   $\cH(F)$.  Functoriality is evident.
 \end{proof}
 
-The action of \cH\ on transformations, however, is less obvious. It
+Note that this is a stronger condition than we need for our main result. The action of \cH\ on transformations is less obvious. It
 requires the presence of companions or conjoints, to lift the part of the data given by vertical morphisms to horizontal 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations of bifunctors. 
 
 If $F,G\maps \cA\to\cB$ are functors between bicategories, then an
@@ -1508,7 +1512,7 @@ adjoints, and whose 2-cells are mate-pairs of modifications.
 
 \begin{thm}\label{thm:h-locfr}
   If \lD\ is a double category and \lE\ is a fibrant double category
-  with chosen companions and conjoints, we have a functor
+  with chosen companions and conjoints, we have a functor of bicategories
   \begin{align}
     \cDbl(\lD,\lE) &\too \Conj(\cH(\lD),\cH(\lE))\\
     F &\mapsto \cH(F)\\
@@ -1603,7 +1607,7 @@ bicategory with only identity 2-cells.
 
   It is left to check the axioms for functors of bicategories. Suppose we are given $\al\maps F\to G$ and $\be\maps G\to H$.  Then by
   \autoref{thm:comp-compose}, $\behat_A\odot\alhat_A$ is a companion
-  of $\be_A\circ \al_A$, so we have a canonical isomorphism
+  of $\be_A\circ \al_A$, so we have a canonical isomorphism given by the icon
   \[\theta_{\widehat{\be\al}_A, \,\behat_A\odot\alhat_A}\maps
   \widehat{\be\al}_A \too[\iso] \behat_A\odot\alhat_A.
   \]
@@ -1665,7 +1669,7 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
   rise to two different functors
   \[\cH,\cH'\maps \cDbl(\lD,\lE)\too \Conj(\cH(\lD),\cH(\lE)).\]
   Then the isomorphisms $\theta$ from \autoref{thm:theta} fit together
-  into a pseudo natural adjoint equivalence $\cH\eqv \cH'$ which is the
+  into an iconic pseudo natural adjoint equivalence $\cH\eqv \cH'$ which is the
   identity on objects.
 \end{lem}
 \begin{proof}
@@ -1720,30 +1724,45 @@ transformations, and modifications, but there is no tricategory
 containing conjunctional transformations since the interchange law
 only holds laxly.  However, we can say the following.  Let $\cDbl_{\bf F}$
 denote the sub-2-category of \cDbl\ containing the fibrant double
-categories, all functors between them, and only the transformations
-that are isomorphisms, and let \cBicat\ denote the tricategory of
+categories, all functors between them, and only horizontally-strong transformations; ones that lift to pseudo transformations. Let \cBicat\ denote the tricategory of
 bicategories, functors, pseudo natural transformations, and
 modifications.
 
 \begin{thm}\label{thm:h-functor}
-  There is a functor of tricategories $\cH\maps \cDbl^f_g\to \cBicat$.
+  There is a functor of iconic tricategories $\cH\maps \cDbl^f_g\to \cBicat$.
 \end{thm}
 \begin{proof}
-  The definition of functors between tricategories can be found
-  in~\cite{gps:tricats} or~\cite{nick:tricats}.  In addition to
-  \autoref{thm:h-locfr}, we require pseudo natural (adjoint)
-  equivalences $\chi$ and $\iota$ relating composition and units in
-  $\cDbl_{\bf F}$ and \cBicat, and modifications relating composites of
-  these, which satisfy various axioms.  %However, since composition of
-  %1-cells in $\cDbl_{\bf F}$ and \cBicat\ is strictly associative and
-  %unital, \cH\ strictly preserves this composition, and $\cDbl_{\bf F}$
-  %has no nonidentity 3-cells, this merely amounts to the following.
+We show that $\cH$ is an Icon-enriched pseudofunctor, which is defined as follows:
 
-For $\chi$ this means that for every pair of transformations
-  \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
-      & \lE}}\]
-  between fibrant double categories, we require an invertible
-  modification
+\begin{itemize}
+\item An assignment on objects that sends each double category $\mathbb{D}$ to its horizontal bicategory $\cH(\mathbb{D})$.
+\item For each two double categories $\mathbb{D}, \mathbb{E}$, a pseudo functor (1-cell in Icon) $\mathcal{D}bl(\mathbb{D}, \mathbb{E}) \rightarrow \mathcal{B}icat(\cH(\mathbb{D}),\cH(\mathbb{E}))$
+\item For every triple of double categories $\mathbb{C}, \mathbb{D}, \mathbb{E}$ an icon (2-cell in Icon) 
+\begin{align} 
+\begin{tikzpicture}
+\node(1) at (0,0) {$\mathcal{D}bl(\mathbb{C},\mathbb{D}) \times \mathcal{D}bl(\mathbb{D},\mathbb{E})$};
+\node(2) at (5,0) {$\mathcal{B}icat(\cH(\mathbb{C}),\cH(\mathbb{E}))$};
+\draw[->] (1) to[in=155, out=25] node[above]{$\cH \circ \odot$} (2); 
+\draw[->] (1) to[in=-155, out=-25] node[below]{$\odot \circ (\cH,\cH)$} (2); 
+\node at (2.5,0) {$\Downarrow \chi$};
+\end{tikzpicture}
+\end{align}
+\item For every double category $\mathbb{D}$ an icon
+\begin{align}
+\begin{tikzpicture}[xscale=.5, yscale=.3]
+\node(1) at (0,0) {$I$};
+\node(2) at (5,0) {$\mathcal{D}bl(\mathbb{D},\mathbb{D})$};
+\node(3) at (5,-5) {$\mathcal{B}icat(\cH(\mathbb{D}),\cH(\mathbb{D}))$};
+\draw[->] (1) to node[above]{$i_{\mathbb{D}}$} (2); 
+\draw[->] (1) to node[below]{$\j_{\cH(\mathbb{D})}$} (3);
+\draw[->] (2) to node[right]{$\cH$} (3); 
+\node at (3.5,-1.5) {$\Downarrow \iota$};
+\end{tikzpicture}
+\end{align}
+\end{itemize}
+
+The first two requirements are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}. The third requirement amounts to the existence of an invertible modification
+
 \begin{equation}
 \begin{tikzpicture}[xscale=0.75, yscale=1.3]
 \node (tl) at (0,2) {${\cH}(H) \circ {\cH}(F)$};
@@ -1757,6 +1776,10 @@ For $\chi$ this means that for every pair of transformations
 \node at (2,1.5) {$\Arrow{5} \chi_{\alpha,\beta} $};
 \end{tikzpicture}
 \end{equation}
+
+for every pair of transformations between fibrant double categories
+  \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
+      & \lE}}\]
 satisfying the naturality and composition constraints ~\ref{eq:laxtransf-ax} and ~\ref{thm:1-func}.
 
 However, since composition of
@@ -1792,19 +1815,39 @@ Note that condition ~\ref{eq:laxtransf-nat} is satisfied because $\cDbl_{\bf F}$
   For $\iota$, we require for every $F\maps \lD\to\lE$ an isomorphism  $\iota\maps \widehat{1_F} \iso 1_{\cH(F)}$ satisfying a couple of
   axioms which simply require it to be equal to the unit constraint of
   the local functor \cH\ from \autoref{thm:h-locfr}; these are the
-  2-cell components of the unit constraint.  Finally, the required
-  modifications merely amount to the \emph{assertions} that
-  \[\vcenter{\xymatrix@-.5pc{\gmhat*\behat*\alhat \ar[r]^\chi\ar[d]_\chi &
-      \widehat{\gm*\be}*\alhat \ar[d]^\chi\\
-      \gmhat*\widehat{\be*\al}\ar[r]_\chi & \widehat{\gm*\be*\al}}},\qquad
-  \vcenter{\xymatrix@-.5pc{ \alhat \ar[r]^-\iota \ar@{=}[dr] &
-      \widehat{1_F}*\alhat \ar[d]^\chi \\ & \alhat }}, \;\text{and}\qquad
-  \vcenter{\xymatrix@-.5pc{ \alhat \ar[r]^-\iota \ar@{=}[dr] &
-      \alhat*\widehat{1_F} \ar[d]^\chi \\ & \alhat }}\]
-  commute; again this follows from \autoref{thm:theta-compose-vert}.
+  2-cell components of the unit constraint.  %Finally, the required
+  %modifications merely amount to the \emph{assertions} that
+  %\[\vcenter{\xymatrix@-.5pc{\gmhat*\behat*\alhat \ar[r]^\chi\ar[d]_\chi &
+   %   \widehat{\gm*\be}*\alhat \ar[d]^\chi\\
+   %   \gmhat*\widehat{\be*\al}\ar[r]_\chi & \widehat{\gm*\be*\al}}},\qquad
+  %\vcenter{\xymatrix@-.5pc{ \alhat \ar[r]^-\iota \ar@{=}[dr] &
+   %   \widehat{1_F}*\alhat \ar[d]^\chi \\ & \alhat }}, \;\text{and}\qquad
+  %\vcenter{\xymatrix@-.5pc{ \alhat \ar[r]^-\iota \ar@{=}[dr] &
+   %   \alhat*\widehat{1_F} \ar[d]^\chi \\ & \alhat }}\]
+  %commute; again this follows from \autoref{thm:theta-compose-vert}.
 \end{proof}
 
-We end this section with two final lemma's.
+Finally, we show that the enriched functor $\cH$ preserves products. A $\mathcal{V}$-enriched category ${\bf B}$ has products when for each two objects $C,D \in {\bf B}$ composition with the projections of their categorical product defines an isomorphism in $\mathcal{V}$.
+
+\begin{align}
+{\bf B}(A, C \times D) \xrightarrow{\cong} {\bf B}(A,C) \times {\bf B}(A,D)
+\end{align}
+
+This clearly holds for $\mathcal{B}icat$ and $\mathcal{D}bl$. 
+
+\begin{thm}
+The iconic functor of tricategories $\cH: \mathcal{B}icat \rightarrow \mathcal{D}bl$ preserves products.
+\end{thm}
+
+\begin{proof}
+We show that there is an isomorphism $\cH \circ (- \times -) \rightarrow (- \times -) \circ (\cH,\cH)$ for each pair of double categories $(\mathbb{D}, \mathbb{E})$.
+Since $\cH$ merely forgets a part of the double categories and double functors, we have identities 
+$\cH(\mathbb{D} \times \mathbb{E}) = \cH(\mathbb{D}) \times \cH(\mathbb{E})$ and  $\cH(F \times G) = \cH(F) \times \cH(G)$ for all $F,G: \mathbb{D} \rightarrow \mathbb{E}$. As a result, we only need an invertible modification $\widehat{\alpha \times \beta} \rightarrow \hat{\alpha} \times \hat{\beta}$ for all 2-cells $\alpha, \beta$ in $\mathcal{D}bl$. This modification is given by  an argument analogous to Lemma \ref{thm:h-locfr-uniq}. 
+ 
+Composing with this isomorphism and the projections an isomorphism $\mathcal{B}icat({\bf A}, \cH(\mathbb{D} \times \mathbb{E})) \xrightarrow{\cong} \mathcal{B}icat({\bf A}, \cH(\mathbb{D})) \times \mathcal{B}icat({\bf A}, \cH(\mathbb{E}))$, since $\mathcal{B}icat$ has enriched products.
+\end{proof}
+
+We end this section with one final Lemma.
 
 \begin{lem}\label{thm:theta-nat}
   Suppose $F,G\maps \lD\to\lE$ are functors of double categories, $\al\maps F\to G$ is a
@@ -1838,7 +1881,7 @@ We end this section with two final lemma's.
 \label{sec:constr-symm-mono}
 In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with $\mathcal{M}on\mathcal{D}bl^f_g$, $\mathcal{B}r\mathcal{M}on\mathcal{D}bl^f_g$, and $\mathcal{S}ym\mathcal{M}on\mathcal{D}bl^f_g$, respectively. Their images are the tricategories  of monoidal bicategories, braided monoidal bicategories, and symmetric monoidal bicategories, $\mathcal{M}on\mathcal{B}icat$, $\mathcal{B}r\mathcal{M}on\mathcal{B}icat$, and $\mathcal{S}ym\mathcal{M}on\mathcal{B}icat$, respectively.
 
-Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal, or strong monoidal. No matter what choice we make, $\mathcal{H}$ preserves the monoidal structure. However, as we have observed before, there are no tricategories containing conjuntional transformations. Hence, $\mathcal{H}$ can only be a trifunctor of monoidal double categories, if we restrict to transformations that are horizontally strong; which means that they lift to pseudo transformations. Under this condition, we will prove the main theorem of this section, stated below. We leave a further generalization to future work.
+Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal, or strong monoidal. No matter what choice we make, $\mathcal{H}$ preserves the monoidal structure. However, as we have observed before, we restrict to transformations that are horizontally strong. Under this condition, we will prove the main theorem of this section, stated below. We leave a further generalization to future work.
 %[{\it is there a better definition? or examples where this works/ some justification}]     
 
 \begin{thm}\label{thm:trifunctor2}
