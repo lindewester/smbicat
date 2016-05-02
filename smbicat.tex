@@ -1384,7 +1384,7 @@ to isomorphism; equivalent terms include \emph{weak 2-functor},
 \emph{pseudofunctor}, and \emph{homomorphism}.
 
 
-Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globular 2-morphisms of $\lD$.  Note that functors of double categories and functors of bicategories compose strictly associatively; hence, we can talk about 1-categories of double categories and bicategories.  
+Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globular 2-morphisms of $\lD$.  Note that functors of double categories and functors of bicategories compose strictly associatively; hence, we can talk about the 1-category of double categories and bicategories, which we denote as ${\bf Dbl}$.  
 
 \begin{thm}\label{thm:1-func}
  If \lD\ is a double category, then $\cH(\lD)$ is a bicategory, and
@@ -1509,6 +1509,9 @@ $\cA,\cB$ we can define a bicategory $\Conj(\cA,\cB)$, whose objects
 are functors $\cA\to\cB$, whose 1-cells are conjunctional
 transformations considered as pointing in the direction of their left
 adjoints, and whose 2-cells are mate-pairs of modifications.
+
+% Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
+%$\al_A$, \emph{and} each $\al_M$, is invertible.
 
 \begin{thm}\label{thm:h-locfr}
   If \lD\ is a double category and \lE\ is a fibrant double category
@@ -1718,6 +1721,10 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
   also instances of \th.
 \end{proof}
 
+ 
+
+
+
 It seems that we should have a functor from fibrant double categories
 to a tricategory of bicategories, functors, conjunctional
 transformations, and modifications, but there is no tricategory
@@ -1726,41 +1733,46 @@ only holds laxly.  However, we can say the following.  Let $\cDbl_{\bf F}$
 denote the sub-2-category of \cDbl\ containing the fibrant double
 categories, all functors between them, and only horizontally-strong transformations; ones that lift to pseudo transformations. Let \cBicat\ denote the tricategory of
 bicategories, functors, pseudo natural transformations, and
-modifications.
+modifications.  There is a functor of iconic tricategories $\cH\maps \cDbl^f_g\to \cBicat$. Recall that an iconic trifunctor is the same thing as an Icon-enriched bifunctor.
+
+\begin{defn}\label{def:Iconfunc}
+Let ${\bf S,T}$ be Icon-enriched bicategories. An Icon-enriched bifunctor $\cT: {\bf T} \rightarrow {\bf S}$ consists of the following data:
+\begin{enumerate}
+\item An assignment on objects that sends each object $A$ of ${\bf T}$ to an object $\cT A$ of ${\bf S}$.
+\item For each two objects $A,B$, there exists a pseudo functor (1-cell in Icon) ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$
+\item For every triple of objects $A,B,C$ of ${\bf T}$ there exists an invertible icon (2-cell in Icon) 
+\begin{align} 
+\begin{tikzpicture}
+\node(1) at (0,0) {${\bf T}(A,B) \times {\bf T}(B,C)$};
+\node(2) at (5,0) {${\bf S}(\cT(A),\cT(C))$};
+\draw[->] (1) to[in=155, out=25] node[above]{$\cT \circ \odot$} (2); 
+\draw[->] (1) to[in=-155, out=-25] node[below]{$\odot \circ (\cT,\cT)$} (2); 
+\node at (2.5,0) {$\Downarrow \phi \iso$};
+\end{tikzpicture}
+\end{align}
+where $\odot$ denotes horizontal composition.
+\item For every object $A$ of {\bf T} an invertible icon
+\begin{align}
+\begin{tikzpicture}[xscale=.5, yscale=.3]
+\node(1) at (0,0) {$I$};
+\node(2) at (5,0) {${\bf T}(A,A)$};
+\node(3) at (5,-5) {${\bf S}(\cT(A),\cT(A))$};
+\draw[->] (1) to node[above]{$i_{A}$} (2); 
+\draw[->] (1) to node[below]{$\j_{\cT(B)}$} (3);
+\draw[->] (2) to node[right]{$\cT$} (3); 
+\node at (3.5,-1.5) {$\Downarrow \phi_u \iso$};
+\end{tikzpicture}
+\end{align}
+where $i$ and $j$ are the unitors of ${\bf S}$ and ${\bf T}$.
+\end{enumerate}
+Such that the usual coherence diagrams, Definition 10 of ~\cite{nick:tricatsbook} commute.
+\end{defn}
 
 \begin{thm}\label{thm:h-functor}
   There is a functor of iconic tricategories $\cH\maps \cDbl^f_g\to \cBicat$.
 \end{thm}
 \begin{proof}
-We show that $\cH$ is an Icon-enriched pseudofunctor, which is defined as follows:
-
-\begin{itemize}
-\item An assignment on objects that sends each double category $\mathbb{D}$ to its horizontal bicategory $\cH(\mathbb{D})$.
-\item For each two double categories $\mathbb{D}, \mathbb{E}$, a pseudo functor (1-cell in Icon) $\mathcal{D}bl(\mathbb{D}, \mathbb{E}) \rightarrow \mathcal{B}icat(\cH(\mathbb{D}),\cH(\mathbb{E}))$
-\item For every triple of double categories $\mathbb{C}, \mathbb{D}, \mathbb{E}$ an icon (2-cell in Icon) 
-\begin{align} 
-\begin{tikzpicture}
-\node(1) at (0,0) {$\mathcal{D}bl(\mathbb{C},\mathbb{D}) \times \mathcal{D}bl(\mathbb{D},\mathbb{E})$};
-\node(2) at (5,0) {$\mathcal{B}icat(\cH(\mathbb{C}),\cH(\mathbb{E}))$};
-\draw[->] (1) to[in=155, out=25] node[above]{$\cH \circ \odot$} (2); 
-\draw[->] (1) to[in=-155, out=-25] node[below]{$\odot \circ (\cH,\cH)$} (2); 
-\node at (2.5,0) {$\Downarrow \chi$};
-\end{tikzpicture}
-\end{align}
-\item For every double category $\mathbb{D}$ an icon
-\begin{align}
-\begin{tikzpicture}[xscale=.5, yscale=.3]
-\node(1) at (0,0) {$I$};
-\node(2) at (5,0) {$\mathcal{D}bl(\mathbb{D},\mathbb{D})$};
-\node(3) at (5,-5) {$\mathcal{B}icat(\cH(\mathbb{D}),\cH(\mathbb{D}))$};
-\draw[->] (1) to node[above]{$i_{\mathbb{D}}$} (2); 
-\draw[->] (1) to node[below]{$\j_{\cH(\mathbb{D})}$} (3);
-\draw[->] (2) to node[right]{$\cH$} (3); 
-\node at (3.5,-1.5) {$\Downarrow \iota$};
-\end{tikzpicture}
-\end{align}
-\end{itemize}
-
+We show that $\cH$ is an Icon-enriched pseudofunctor.
 The first two requirements are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}. The third requirement amounts to the existence of an invertible modification
 
 \begin{equation}
@@ -1770,10 +1782,10 @@ The first two requirements are satisfied by Theorems \ref{thm:1-func} and \ref{t
 \node (tr) at (4,2) {${\cH}(K) \circ {\cH}(G)$};
 \node (br) at (4,1) {${\cH}(K \circ G)$};
 \draw[->] (tl) to node [above] {$\hat{\beta} * \hat{\alpha}$} (tr);
-\draw[->] (tr) to node [right] {$\chi_{K,G}$} (br);
-\draw[->] (tl) to node [right] {$\chi_{H,F}$} (bl);
+\draw[->] (tr) to node [right] {$\phi_{K,G}$} (br);
+\draw[->] (tl) to node [right] {$\phi_{H,F}$} (bl);
 \draw[->] (bl) to node [below] {$\widehat{\be*\al}$} (br);
-\node at (2,1.5) {$\Arrow{5} \chi_{\alpha,\beta} $};
+\node at (2,1.5) {$\Arrow{5} \phi_{\alpha,\beta} $};
 \end{tikzpicture}
 \end{equation}
 
@@ -1785,17 +1797,17 @@ satisfying the naturality and composition constraints ~\ref{eq:laxtransf-ax} and
 However, since composition of
   1-cells in $\cDbl_{\bf F}$ and \cBicat\ is strictly associative and
   unital, and \cH\ strictly preserves this composition (Theorem \ref{thm:1-func}),
-  the 1-cell components are identities. Consequently, it is merely  a modificaton $\chi\maps \behat * \alhat \iso \widehat{\be*\al}$, such that 
+  the 1-cell components are identities. Consequently, it is merely  a modificaton $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$, such that 
  
  \begin{equation}
         \vcenter{\xymatrix@-.5pc{
         1_{{\cH}H \circ {\cH}F} \ar[r]\ar[d]_{=} &
-        \hat{1}_{K}*\hat{1}_{H}\ar[d]^{\chi}\\
+        \hat{1}_{K}*\hat{1}_{H}\ar[d]^{\phi}\\
         1_{{\cH}(H \circ F)}\ar[r] &
         \widehat{1_{K} *1_{H}}}} \quad\text{and}\quad       
     \vcenter{\xymatrix@-.5pc{
-        \widehat{\gm\al}*\widehat{\de\be} \ar[r]\ar[d]_\chi &
-        (\gmhat*\dehat)\odot(\alhat*\behat)\ar[d]^{\chi \odot \chi}\\
+        \widehat{\gm\al}*\widehat{\de\be} \ar[r]\ar[d]_\phi &
+        (\gmhat*\dehat)\odot(\alhat*\behat)\ar[d]^{\phi \odot \phi}\\
         \widehat{\gm\al*\de\be}\ar[r] &
         (\widehat{\gm*\de})\odot(\widehat{\al*\be})}}
   \end{equation}
@@ -1843,7 +1855,6 @@ The iconic functor of tricategories $\cH: \mathcal{B}icat \rightarrow \mathcal{D
 We show that there is an isomorphism $\cH \circ (- \times -) \rightarrow (- \times -) \circ (\cH,\cH)$ for each pair of double categories $(\mathbb{D}, \mathbb{E})$.
 Since $\cH$ merely forgets a part of the double categories and double functors, we have identities 
 $\cH(\mathbb{D} \times \mathbb{E}) = \cH(\mathbb{D}) \times \cH(\mathbb{E})$ and  $\cH(F \times G) = \cH(F) \times \cH(G)$ for all $F,G: \mathbb{D} \rightarrow \mathbb{E}$. As a result, we only need an invertible modification $\widehat{\alpha \times \beta} \rightarrow \hat{\alpha} \times \hat{\beta}$ for all 2-cells $\alpha, \beta$ in $\mathcal{D}bl$. This modification is given by  an argument analogous to Lemma \ref{thm:h-locfr-uniq}. 
- 
 Composing with this isomorphism and the projections an isomorphism $\mathcal{B}icat({\bf A}, \cH(\mathbb{D} \times \mathbb{E})) \xrightarrow{\cong} \mathcal{B}icat({\bf A}, \cH(\mathbb{D})) \times \mathcal{B}icat({\bf A}, \cH(\mathbb{E}))$, since $\mathcal{B}icat$ has enriched products.
 \end{proof}
 
@@ -1879,39 +1890,89 @@ We end this section with one final Lemma.
 
 \section{Symmetric Monoidal Bicategories}
 \label{sec:constr-symm-mono}
-In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with $\mathcal{M}on\mathcal{D}bl^f_g$, $\mathcal{B}r\mathcal{M}on\mathcal{D}bl^f_g$, and $\mathcal{S}ym\mathcal{M}on\mathcal{D}bl^f_g$, respectively. Their images are the tricategories  of monoidal bicategories, braided monoidal bicategories, and symmetric monoidal bicategories, $\mathcal{M}on\mathcal{B}icat$, $\mathcal{B}r\mathcal{M}on\mathcal{B}icat$, and $\mathcal{S}ym\mathcal{M}on\mathcal{B}icat$, respectively.
+In this section we will discuss how the functor $\mathcal{H}$ from the previous section extends to a functor from the iconic tricategories of monoidal double categories, braided monoidal double categories, and symmetric monoidal double categories, which we will denote with ${\mathcal{M}on\mathcal{D}bl^f_g}$, ${\mathcal{B}r\mathcal{M}on\mathcal{D}bl^f_g}$, and ${\mathcal{S}ym\mathcal{M}on\mathcal{D}bl^f_g}$, respectively. Their images are the iconic tricategories  of monoidal bicategories, braided monoidal bicategories, and symmetric monoidal bicategories, $\mathcal{M}on\mathcal{B}icat$, $\mathcal{B}r\mathcal{M}on\mathcal{B}icat$, and $\mathcal{S}ym\mathcal{M}on\mathcal{B}icat$, respectively.
 
-Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal, or strong monoidal. No matter what choice we make, $\mathcal{H}$ preserves the monoidal structure. However, as we have observed before, we restrict to transformations that are horizontally strong. Under this condition, we will prove the main theorem of this section, stated below. We leave a further generalization to future work.
-%[{\it is there a better definition? or examples where this works/ some justification}]     
+Note that there are several related notions of each of these tricategories, depending on whether we want the functors within these tricategories to be lax monoidal, oplax monoidal, or strongly monoidal. We represent these versions with a subscript $ l,p,$ or $c$, respectively. 
+As we have observed before, we restrict to transformations in $\mathcal{D}bl$ that are horizontally strong. Under this condition, we will prove the main theorem of this section, stated below. %We leave a further generalization to future work.    
+%[{\it this seems out of context now..}]
 
 \begin{thm}\label{thm:trifunctor2}
-The functor $\mathcal{H}: \mathcal{D}bl^f_g \rightarrow \mathcal{B}icat$ extends to functors 
+For $w=l,p,$ or $c$, the functor $\mathcal{H}: \mathcal{D}bl^f_g \rightarrow \mathcal{B}icat$ extends to functors 
 \begin{align}
-\mathcal{H}^M: \hspace{1cm} &\mathcal{M}on\mathcal{D}bl^f_g &\rightarrow \hspace{1cm} &\mathcal{M}on\mathcal{B}icat\\
-\mathcal{H}^{B}: \hspace{1cm} &\mathcal{B}r\mathcal{M}on \mathcal{D}bl^f_g &\rightarrow \hspace{1cm} &\mathcal{B}r\mathcal{M}on\mathcal{B}icat\\ 
- \mathcal{H}^{S}: \hspace{1cm} &\mathcal{S}ym\mathcal{M}on\mathcal{D}bl^f_g &\rightarrow \hspace{1cm} &\mathcal{S}ym \mathcal{M}on\mathcal{B}icat
+\mathcal{H}^M_w: \hspace{1cm} &{\mathcal{M}on\mathcal{D}bl^f_g}_w &\rightarrow \hspace{1cm} &{\mathcal{M}on\mathcal{B}icat}_w\\
+\mathcal{H}^{B}_w: \hspace{1cm} &{\mathcal{B}r\mathcal{M}on \mathcal{D}bl^f_g}_w &\rightarrow \hspace{1cm} &{\mathcal{B}r\mathcal{M}on\mathcal{B}icat}_w\\ 
+ \mathcal{H}^{S}_w: \hspace{1cm} &{\mathcal{S}ym\mathcal{M}on\mathcal{D}bl^f_g}_w &\rightarrow \hspace{1cm} &{\mathcal{S}ym \mathcal{M}on\mathcal{B}icat}_w
 \end{align} 
 \end{thm}
 
-\subsection{Strategy}
-We need to show that $\mathcal{H}$ preserves all of the relevant (braided/symmetric) monoidal structure.
-This lifting of monoidal structure is done in three steps:
-\begin{enumerate}
-\item Structural vertical isomorphisms are mapped by $\cH$ to structural pseudo natural adjoint equivalences, as discussed in Theorem ~\ref{thm:h-locfr}.
-\item The characteristic commuting diagrams between structural vertical isomorphisms induce canonical $\theta$-isomorphism between their companions. These give us the required structure modifications for bicategories.
-\item The characteristic equalities between compositions of structure modifications are satisfied due to the fact that $\theta$-isomorphisms are unique and closed under composition (Lemma ~\ref{lem:equal}).
-\end{enumerate}
 
-To make step 2 precise, we will prove the following Lemma.
-
-\begin{lem}\label{lem:modification}
-Let $\D$ be a double category, and let $M,N$ be objects in the category $\D_1$ of morphisms of $\D$. Any two composites of morphisms $s_1 \circ ... \circ s_n:A \rightarrow B$ and $t_1 \circ ... \circ t_m: A \rightarrow B$ in $\D_1$, that form a commuting polygon, induce a canonical modification $\theta_{\hat{s},\hat{t}} : \hat{s} = \hat{s1} \odot ... \odot \hat{s_n} \rightarrow \hat{t} = \hat{t_1} \odot ... \odot \hat{t_m}$. 
-\end{lem}
-
-\begin{proof}
-Repeatedly applying Lemma ~\ref{thm:comp-compose} tells us that $\hat{s}_1 \odot ... \odot \hat{s}_n$ and $\hat{t}_1 \odot ... \odot \hat{t}_m$ are two companions of $s$ and $t$, respectively. As $s$ and $t$ form a commuting diagram, they are in fact the same morphism. It follows from Lemma ~\ref{thm:theta} that there exists a canonical globular isomorphism $\theta_{\hat{s},\hat{t}}: \hat{s} \rightarrow \hat{t}$. This isomorphism is a modification by Lemma ~\ref{thm:h-locfr-uniq}.
-\end{proof}
   
+ \begin{lem}
+  Let ${\bf S,T}$ be iconic tricategories with products. Any iconic trifunctor $\mathcal{T}: T \rightarrow S$ that preserves products, preserves  monoidal objects, 1-cells and 2-cell as well as any braided or symmetric structure of these objects, 1-cells and 2-cells.
+ \end{lem}
+ 
+ \begin{proof}
+Let $A$ be a monoidal object. The functor $\mathcal{T}$ preserves products, so we have a product $\cT(A) \times_{\cT} \cT(A) = \cT(A \times A)$. As a consequence $\ten\maps
+  A\times A\to A$ induces a 1-cell $\ten_{\mathcal{T}} \maps
+ \mathcal{T}A\times_{\cT} \mathcal{T} A\to\mathcal{T}A$ with a unit 1-cell $I_{\mathcal{T}}$, where $\cT(f) \ten_{\cT} \cT(g) := \cT(f \ten g)$ and $I_{\cT}:= \mathcal{T}(I)$. 
+ 
+ Note that conditions $(iii)$ and $(iv)$ of definition \ref{def:Iconfunc} imply that for all 1-cells $f,g$ we have the equality $\cT(f \odot g) = \cT(f) \odot \cT(g)$ and for the identity 1-cell $\id_A$, $\cT(\id_A) = \id_{\cT(A)}$. Hence, the associativity 2-cell of $A$ gives rise to a 2-cell
+  \[\vcenter{\xymatrix@C=6pc{\cT(A)\times\cT(A)\times\cT(A) \rtwocell^{\ten_{\cT}
+        (\Id\times\ten_{\cT})}_{\ten_{\cT}(\ten_{\cT}\times\Id)}{\hspace{.2cm}\fa_{\cT}\eqv} &\cT(A) }}\]
+  which simply equals $\cT(\alpha)$.
+  
+  Likewise, the unit constraints $l, r$ as well as the constraints for (braided) monoidal 1-cells $\sigma$ induce 1-cells $l_{\cT}, r_{\cT}$, and $\sigma_{\cT}$, respectively.
+  
+ Furthermore, the invertible 3-cell filling the Mac Lane pentagon lifts to the invertible 3-cell of the Mac Lane Pentagon for $\cT(A)$. Which is simply its image under $\cT$, composed with the isomorphic $3$-cells given by (iii) of definition \ref{def:Iconfunc}, ensuring that it has the right type.
+%   \[\xy
+%  (-10,0)*{\ten_{\cT}(\ten_{\cT},\Id)(\ten_{\cT}, \Id, %\Id)}="A";
+%  (20,10)*{\ten_{\cT}(\ten_{\cT},\Id)(\Id, \ten_{\cT},\Id)}="B";
+%  (50,0)*{\ten_{\cT}(\Id,\ten_{\cT})(\Id, \ten_{\cT},\Id)}="C";
+%  (0,-15)*{\ten_{\cT}(\Id, \ten_{\cT})(\ten, \Id, \Id)}="D";
+%  (40,-15)*{\ten_{\cT}(\Id, \ten_{\cT})(\Id, \Id, \ten, _{\cT})}="E";
+%  (20,-5)*{\scriptstyle\Downarrow \pi \iso};
+%  \ar "B";"A";^{\fa_{\cT} \ten_{\cT} \id}
+%  \ar "C";"B";^{\fa_{\cT}}
+%  \ar "D";"A";_{\fa_{\cT}}
+%  \ar "E";"D";_{\fa_{\cT}}
+%  \ar "E";"C";^{\id\ten_{\cT} \fa_{\cT}}
+%  \endxy
+%  \]
+  
+\begin{tikzpicture}[yscale=1.5, xscale=3]
+\node(tl) at (0,1) {$\ten (\ten \times \Id)(\ten \times \Id \times \Id)$};
+\node(t) at (1.5,2) {$\ten (\ten \times \Id)(\Id \times \ten \times \Id)$};
+\node(tr) at (3,1) {$\ten (\Id \times \ten )(\Id \times \ten \times \Id)$};
+\node(br) at (3,0) {$\ten (\Id \times \ten )(\Id \times \Id \times \ten )$};
+\node(b) at (1.5,-1) {$\ten (\ten \times \Id)(\Id \times \Id \times \ten )$};
+\node(bl) at (0,0) {$\ten (\Id \times \ten )(\ten \times \Id \times \Id)$};
+\draw[->] (tl) to node[left, yshift=1pt] {$\alpha \ten \id$} (t);
+\draw[->] (t) to node[right, yshift=1pt] {$\alpha$} (tr);
+\draw[->] (tr) to node[right] {$\id \ten \alpha$} (br);
+\draw[->] (tl) to node[left] {$\alpha$} (bl);
+\draw[->] (bl) to node[left,yshift=-1pt] {$\id$} (b);
+\draw[->] (b) to node[right,yshift=-1pt] {$\alpha$} (br);
+\draw[->] (tl) to [in=155, out=5] (br);
+\draw[->] (tl) to [in=180, out=-10] (br);
+\draw[->] (tl) to [in=180, out=10](tr);
+\draw[->] (bl) to [in=185, out=0](br);
+\node at (1.5,.6) {$\Downarrow \cT(\pi) \iso$};
+\node at (2.5,.6) {$\Downarrow \phi^{-1} \iso$};
+\node at (1.5,1.5) {$\Downarrow \phi^{-1} \iso$};
+\node at (.5,.4) {$\Downarrow \phi \iso$};
+\node at (1.5,-.5) {$\Downarrow \phi \iso $};
+\end{tikzpicture}  
+
+ Note that there may be several way to past these 3-cells, but by coherence of pseudofunctors, the result is the same. Likewise, the isomorphic 3-cells $\mu, \lambda,\rho$ and the isomorphic 3-cells $R,S$, and $v$ witnessing the braiding and syllepsis, lift to the appropriate 3-cell for $\cT(A)$. This is also the case for the isomorphic 3-cells $R,S$ that characterise the braiding. 
+   Finally, we need to show that the three equations between pasting composites of $\pi_{\cT}, \mu_{\cT}, \lambda_{\cT}, \rho_{\cT}$ hold ???
+
+The argument for 1-cells and 2-cells is similar. 
+Let $f,g:A \rightarrow B$ be monoidal 1-cells and let $\alpha: f \Rightarrow g$ be a monoidal 2-cell.
+The 2-cells $\chi: \otimes_B \odot (f,f) \Rightarrow f \odot \otimes_A$ and $\iota: I_B \Rightarrow f \odot I_A$ are mapped to $\cT(\chi): \otimes_{\cT(B)} \odot (\cT(f),\cT(f)) \Rightarrow \cT(f) \odot \otimes_{\cT(A)}$ and $\iota: I_{\cT(B)} \Rightarrow \cT(f) \odot I_{\cT(A)}$. Similarly, any 2-cell witnessing a braiding $u: \sigma_B \odot \chi  \Rightarrow \chi \odot f\sigma_A$  is mapped to $\cT(u): \sigma_{\cT(B)} \odot \cT(\chi)  \Rightarrow \cT(\chi) \odot \cT(f)\sigma_{\cT(A)}$.
+Analogously to $\alpha$, the invertible 3-cells $\omega, \gamma$, and $\delta$, and $\Pi$ and $M$ are lifted to their images under $\cT$, augmented with instances of $\phi$ to ensure that the 3-cells have the right type.
+ It is left to show that the equations pasting composites of these 3-cells together commute.
+ \end{proof}
+ 
 
 \subsection{Lifting Symmetric Monoidal Structures}
 We are now ready to lift monoidal structures from double categories to
