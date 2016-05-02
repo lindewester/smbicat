@@ -18,6 +18,7 @@
 \mdef\fchk{\check{f}}
 \mdef\conj{\Yleft}
 \mdef\Conj{\mathcal{C}\mathit{onj}}
+\mdef\Icon{\mathcal{I}\mathit{con}}
 \mdef\D{\mathbb{D}}
 \mdef\E{\mathbb{E}}
 \newcommand{\Alg}{\mathbb{A}\mathit{lg}}
@@ -1370,11 +1371,7 @@ We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{F
 
 We are now equipped to lift structures on fibrant double categories to
 their horizontal bicategories.  In this section we show that passage
-from fibrant double categories to bicategories is given by an iconic trifunctor.
-
-Note that the tricategory $\mathcal{B}icat$ of Bicategories, Pseudo functors, adjoint equivalences and modifications is an iconic tricategory (reference?); one where all composition constraints are icons. It is easy to see that $\mathcal{D}bl$ is an iconic tricategory as well, since all 3-cells in $\mathcal{D}bl$ are identities.
-Iconic tricategories can alternatively be described as bicategories enriched over the cartesian category Icon, the category of bicategories, pseudofunctors and icons, \cite{shulman:psalg}.
-We will show that the functor $\cH$ is a pseudofunctor enriched over Icon, that preserves products. This result will be useful in the next section where we show that $\mathcal{H}$ preserves monoidal structures.
+from fibrant double categories to bicategories is given by a functor of a suitable sort.
 
 As a point of notation, we write $\odot$ for the composition of
 1-cells in a bicategory, since our bicategories are generally of the
@@ -1382,7 +1379,6 @@ form $\cH(\lD)$.  As advocated by Max Kelly, we say \textbf{functor}
 to mean a morphism between bicategories that preserves composition up
 to isomorphism; equivalent terms include \emph{weak 2-functor},
 \emph{pseudofunctor}, and \emph{homomorphism}.
-
 
 Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globular 2-morphisms of $\lD$.  Note that functors of double categories and functors of bicategories compose strictly associatively; hence, we can talk about the 1-category of double categories and bicategories, which we denote as ${\bf Dbl}$.  
 
@@ -1398,7 +1394,7 @@ Recall that the assignment $\cH$ sends each double category $\lC$ to the horizon
 \end{proof}
 
 Note that this is a stronger condition than we need for our main result. The action of \cH\ on transformations is less obvious. It
-requires the presence of companions or conjoints, to lift the part of the data given by vertical morphisms to horizontal 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations of bifunctors. 
+requires the presence of companions or conjoints, to lift the part of the data given by vertical morphisms to horizontal 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations between functors of bicategories.
 
 If $F,G\maps \cA\to\cB$ are functors between bicategories, then an
 \textbf{oplax transformation} $\al\maps F\to G$ consists of 1-cells
@@ -1721,26 +1717,40 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
   also instances of \th.
 \end{proof}
 
- 
-
 
 
 It seems that we should have a functor from fibrant double categories
 to a tricategory of bicategories, functors, conjunctional
 transformations, and modifications, but there is no tricategory
 containing conjunctional transformations since the interchange law
-only holds laxly.  However, we can say the following.  Let $\cDbl_{\bf F}$
+only holds laxly.  Thus, we introduce the following definition.
+
+\begin{defn}
+  We will say that a transformation $\alpha$ in $\cDbl$ is \textbf{horizontally strong} if $\hat\alpha$ is pseudonatural, and \textbf{co-horizontally strong} if $\check \alpha$ is pseudonatural.
+\end{defn}
+
+Let $\cDbl_{\bf F}$
 denote the sub-2-category of \cDbl\ containing the fibrant double
-categories, all functors between them, and only horizontally-strong transformations; ones that lift to pseudo transformations. Let \cBicat\ denote the tricategory of
+categories, all functors between them, and only horizontally-strong transformations; we regard it as a tricategory with only identity 3-cells.
+Let \cBicat\ denote the tricategory of
 bicategories, functors, pseudo natural transformations, and
-modifications.  There is a functor of iconic tricategories $\cH\maps \cDbl^f_g\to \cBicat$. Recall that an iconic trifunctor is the same thing as an Icon-enriched bifunctor.
+modifications.  We aim to define a functor of tricategories $\cH\maps \cDbl^f_g\to \cBicat$.
+
+However, to avoid having to work with the full complicated definition of tricategory, we observe that both $\cDbl_{\bf F}$ and \cBicat are \textbf{iconic tricategories}, meaning that all of its associativity and unit constraints are given by icons (i.e.\ their 1-cell component are identities).
+As observed in~\cite{shulman:psalg}, an iconic tricategory can equivalently be viewed as a bicategory enriched over the bicategory \Icon\ of bicategories, functors, and icons (which has strict products).
+That is, it is a structure \bS with objects, hom-bicategories $\bS(A,B)$, composition functors $\bS(B,C)\times \bS(A,B)$, identities $1_A \in \bS(A,A)$, and associativity and unitality \emph{icons} that satisfy the usual pentagon and triangle identities.
+(There is no room for any higher coherence, since the data of an icon consists of 2-cells only.)
+In particular, composition of 1-cells (objects of $\bS(A,B)$) is strictly associative, though the associativity for horizonatl composition of 2-cells is mediated by an icon.
+
+Similarly, we have the notion of \textbf{iconic functor}, namely an \Icon-enriched functor of bicategories.
+We can write this explicitly as follows.
 
 \begin{defn}\label{def:Iconfunc}
-Let ${\bf S,T}$ be Icon-enriched bicategories. An Icon-enriched bifunctor $\cT: {\bf T} \rightarrow {\bf S}$ consists of the following data:
+Let ${\bf S,T}$ be \Icon-enriched bicategories. An \Icon-enriched functor $\cT: {\bf T} \rightarrow {\bf S}$ consists of the following data:
 \begin{enumerate}
 \item An assignment on objects that sends each object $A$ of ${\bf T}$ to an object $\cT A$ of ${\bf S}$.
-\item For each two objects $A,B$, there exists a pseudo functor (1-cell in Icon) ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$
-\item For every triple of objects $A,B,C$ of ${\bf T}$ there exists an invertible icon (2-cell in Icon) 
+\item For each two objects $A,B$, a functor (1-cell in \Icon) ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$
+\item For every triple of objects $A,B,C$ of ${\bf T}$, an invertible icon (2-cell in \Icon) 
 \begin{align} 
 \begin{tikzpicture}
 \node(1) at (0,0) {${\bf T}(A,B) \times {\bf T}(B,C)$};
@@ -1764,16 +1774,15 @@ where $\odot$ denotes horizontal composition.
 \end{tikzpicture}
 \end{align}
 where $i$ and $j$ are the unitors of ${\bf S}$ and ${\bf T}$.
+\item The usual coherence diagrams, Definition 10 of ~\cite{nick:tricatsbook} commute.
 \end{enumerate}
-Such that the usual coherence diagrams, Definition 10 of ~\cite{nick:tricatsbook} commute.
 \end{defn}
 
 \begin{thm}\label{thm:h-functor}
-  There is a functor of iconic tricategories $\cH\maps \cDbl^f_g\to \cBicat$.
+  There is an iconic functor $\cH\maps \cDbl^f_g\to \cBicat$.
 \end{thm}
 \begin{proof}
-We show that $\cH$ is an Icon-enriched pseudofunctor.
-The first two requirements are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}. The third requirement amounts to the existence of an invertible modification
+The first two requirements in \cref{def:Iconfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}. The third requirement amounts to the existence of an invertible modification
 
 \begin{equation}
 \begin{tikzpicture}[xscale=0.75, yscale=1.3]
@@ -1839,16 +1848,18 @@ Note that condition ~\ref{eq:laxtransf-nat} is satisfied because $\cDbl_{\bf F}$
   %commute; again this follows from \autoref{thm:theta-compose-vert}.
 \end{proof}
 
-Finally, we show that the enriched functor $\cH$ preserves products. A $\mathcal{V}$-enriched category ${\bf B}$ has products when for each two objects $C,D \in {\bf B}$ composition with the projections of their categorical product defines an isomorphism in $\mathcal{V}$.
+We observe that the enriched functor $\cH$ preserves products, in the following strict sense.
+If $\mathcal{V}$ is a monoidal 2-category with strict 2-categorical finite products (such as \Icon), we say that a $\mathcal{V}$-enriched bicategory ${\bf B}$ has \textbf{finite products} when for each two objects $C,D \in {\bf B}$ composition with the projections of their categorical product defines an \emph{isomorphism} in $\mathcal{V}$ (not merely an equivalence), and similarly there is a strict terminal object $1$ such that $\bB(A,1)$ is strictly terminal in \cV.
 
 \begin{align}
 {\bf B}(A, C \times D) \xrightarrow{\cong} {\bf B}(A,C) \times {\bf B}(A,D)
 \end{align}
 
-This clearly holds for $\mathcal{B}icat$ and $\mathcal{D}bl$. 
+This clearly holds for \cBicat\ and \cDbl.
+There is an evident notion of when a \cV-enriched functor of bicategories \textbf{preserves products} (up to isomorphism).
 
 \begin{thm}
-The iconic functor of tricategories $\cH: \mathcal{B}icat \rightarrow \mathcal{D}bl$ preserves products.
+The iconic functor $\cH: \cBicat \rightarrow \cDbl$ preserves products.
 \end{thm}
 
 \begin{proof}
