@@ -70,7 +70,7 @@ It is a \textbf{lax transformation} if the 2-cells $\al_f$ go the
 other direction, and a \textbf{pseudo transformation} if they are
 isomorphisms.
 
-It was argued by Nick Gurski in ~\cite{nick:tricats}, that often one would like to have a stronger notion of equivalence tranformations, than simply pseudo transformations. For practical purposes, it is useful to have a notion that provides canonical pseudoinverses for all of the appropriate structure constraints, as well as the necessary modifications to exhibit this pseudoinvertibility explicitly. It turns out that pseudo natural adjoint equivalences, which we discuss below, do the job.
+It was argued by Nick Gurski in~\cite{nick:tricats}, that often one would like to have a stronger notion of equivalence tranformations, than simply pseudo transformations. For practical purposes, it is useful to have a notion that provides canonical pseudoinverses for all of the appropriate structure constraints, as well as the necessary modifications to exhibit this pseudoinvertibility explicitly. It turns out that pseudo natural adjoint equivalences, which we discuss below, do the job.
 
 By doctrinal adjunction~\cite{kelly:doc-adjn}, given collections of
 1-cells $\al_A\maps FA\to GA$ and $\be_A\maps GA\to FA$ and
@@ -250,8 +250,8 @@ bicategory with only identity 2-cells.
   \[\widehat{\gm\be\al}_A \too[\iso] (\gmhat_A \odot \behat_A)\odot \alhat_A\]
   are equal.  However, both $\widehat{\gm\be\al}_A$ and $(\gmhat_A
   \odot \behat_A)\odot \alhat_A$ are companions of $\gm_A\be_A\al_A$,
-  and both of these isomorphisms are constructed from composites of $\theta$s; hence by
-  Lemma \ref{lem:equal}, they are both equal to
+  and both of these isomorphisms are constructed from composites of $\theta$s;
+  hence they are both equal to
   \[\theta_{\widehat{\gm\be\al}_A,\, (\gmhat_A \odot \behat_A)\odot
     \alhat_A}\] and thus equal to each other.  The same argument
   applies to the axioms for the unit constraint; thus we have a functor of bicategories.
@@ -300,8 +300,8 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
   rise to two different functors
   \[\cH,\cH'\maps \cDbl(\lD,\lE)\too \Conj(\cH(\lD),\cH(\lE)).\]
   Then the isomorphisms $\theta$ from \autoref{thm:theta} fit together
-  into an iconic pseudo natural adjoint equivalence $\cH\eqv \cH'$ which is the
-  identity on objects.
+  into a pseudo natural adjoint equivalence $\cH\eqv \cH'$ that is the
+  identity on objects (an ``invertible icon'').
 \end{lem}
 \begin{proof}
   We must first show that for a given transformation $\al\maps F\to
@@ -345,8 +345,7 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
   and~\eqref{eq:laxtransf-ax} are satisfied.
   But~\eqref{eq:laxtransf-nat} is vacuous since $\cDbl(\lD,\lE)$ has
   no nonidentity 2-cells, and~\eqref{eq:laxtransf-ax} follows from uniqueness of $\theta$s,
-  Lemma \ref{lem:equal}, since all the constraints involved are
-  also instances of \th.
+  since all the constraints involved are also instances of \th.
 \end{proof}
 
 
@@ -358,17 +357,18 @@ containing conjunctional transformations since the interchange law
 only holds laxly.  Thus, we introduce the following definition.
 
 \begin{defn}
-  We will say that a transformation $\alpha$ in $\cDbl$ is \textbf{horizontally strong} if $\hat\alpha$ is pseudonatural, and \textbf{co-horizontally strong} if $\check \alpha$ is pseudonatural.
+  We will say that a transformation $\alpha$ in $\cDbl$ is \textbf{horizontally strong} if $\hat\alpha$ is pseudonatural.
+  % and \textbf{co-horizontally strong} if $\check \alpha$ is pseudonatural.
 \end{defn}
 
-Let $\cDbl_{\bf F}$
+Let $\cDblf$
 denote the sub-2-category of \cDbl\ containing the fibrant double
 categories, all functors between them, and only horizontally-strong transformations; we regard it as a tricategory with only identity 3-cells.
 Let \cBicat\ denote the tricategory of
 bicategories, functors, pseudo natural transformations, and
-modifications.  We aim to define a functor of tricategories $\cH\maps \cDbl^f_g\to \cBicat$.
+modifications.  We aim to define a functor of tricategories $\cH\maps \cDblf\to \cBicat$.
 
-However, to avoid having to work with the full complicated definition of tricategory, we observe that both $\cDbl_{\bf F}$ and \cBicat are \textbf{iconic tricategories}, meaning that all of its associativity and unit constraints are given by icons (i.e.\ their 1-cell component are identities).
+However, to avoid having to work with the full complicated definition of tricategory, we observe that both $\cDblf$ and $\cBicat$ are \textbf{iconic tricategories}, meaning that all of its associativity and unit constraints are given by icons (i.e.\ their 1-cell component are identities).
 As observed in~\cite{shulman:psalg}, an iconic tricategory can equivalently be viewed as a bicategory enriched over the bicategory \Icon\ of bicategories, functors, and icons (which has strict products).
 That is, it is a structure \bS with objects, hom-bicategories $\bS(A,B)$, composition functors $\bS(B,C)\times \bS(A,B)$, identities $1_A \in \bS(A,A)$, and associativity and unitality \emph{icons} that satisfy the usual pentagon and triangle identities.
 (There is no room for any higher coherence, since the data of an icon consists of 2-cells only.)
@@ -406,16 +406,17 @@ where $\odot$ denotes horizontal composition.
 \end{tikzpicture}
 \end{align}
 where $i$ and $j$ are the unitors of ${\bf S}$ and ${\bf T}$.
-\item The usual coherence diagrams, Definition 10 of ~\cite{nick:tricatsbook} commute.
+\item The usual coherence diagrams, Definition 10 of~\cite{nick:tricatsbook} commute.
 \end{enumerate}
 \end{defn}
 
 \begin{thm}\label{thm:h-functor}
-  There is an iconic functor $\cH\maps \cDbl^f_g\to \cBicat$.
+  There is an iconic functor $\cH\maps \cDblf\to \cBicat$.
 \end{thm}
 \begin{proof}
-The first two requirements in \autoref{def:Iconfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}. The third requirement amounts to the existence of an invertible modification
-
+The first two requirements in \autoref{def:Iconfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr} (ignoring the right adjoint parts of the conjunctional transformations).
+The third requirement amounts to the existence of an invertible modification
+%
 \begin{equation}
 \begin{tikzpicture}[xscale=0.75, yscale=1.3]
 \node (tl) at (0,2) {${\cH}(H) \circ {\cH}(F)$};
@@ -429,17 +430,17 @@ The first two requirements in \autoref{def:Iconfunc} are satisfied by Theorems \
 \node at (2,1.5) {$\Arrow{5} \phi_{\alpha,\beta} $};
 \end{tikzpicture}
 \end{equation}
-
+%
 for every pair of transformations between fibrant double categories
   \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
       & \lE}}\]
-satisfying the naturality and composition constraints ~\ref{eq:laxtransf-ax} and ~\ref{thm:1-func}.
+satisfying the naturality and composition constraints~\ref{eq:laxtransf-ax} and~\ref{thm:1-func}.
 
 However, since composition of
-  1-cells in $\cDbl_{\bf F}$ and \cBicat\ is strictly associative and
+  1-cells in $\cDblf$ and \cBicat\ is strictly associative and
   unital, and \cH\ strictly preserves this composition (Theorem \ref{thm:1-func}),
   the 1-cell components are identities. Consequently, it is merely  a modificaton $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$, such that 
- 
+%
  \begin{equation}
         \vcenter{\xymatrix@-.5pc{
         1_{{\cH}H \circ {\cH}F} \ar[r]\ar[d]_{=} &
@@ -453,7 +454,7 @@ However, since composition of
         (\widehat{\gm*\de})\odot(\widehat{\al*\be})}}
   \end{equation}
 commute. (Here we are writing $*$ for the `Godement product' of 2-cells in $\cDbl$ and $\cBicat$.)    
-Note that condition ~\ref{eq:laxtransf-nat} is satisfied because $\cDbl_{\bf F}$ has no nonidentity 3-cells.
+Note that condition~\ref{eq:laxtransf-nat} is satisfied because $\cDblf$ has no nonidentity 3-cells.
   
   Now by Lemmas \ref{thm:comp-compose} and
   \ref{thm:comp-func}, $(\behat *\alhat)_A = \behat_{GA} \circ
@@ -463,7 +464,7 @@ Note that condition ~\ref{eq:laxtransf-nat} is satisfied because $\cDbl_{\bf F}$
   The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
    Equation~\eqref{eq:modif-ax}, saying that these form a modification,
   becomes the equality of two large composites of 2-cells in \lD,
-  which as usual follows from~\eqref{eq:compeqn}. The equations above are satisfied by uniqueness of $\theta$-isomorphisms, Lemma ~\ref{lem:equal}.
+  which as usual follows from~\eqref{eq:compeqn}. The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
 
   For $\iota$, we require for every $F\maps \lD\to\lE$ an isomorphism  $\iota\maps \widehat{1_F} \iso 1_{\cH(F)}$ satisfying a couple of
   axioms which simply require it to be equal to the unit constraint of
@@ -480,25 +481,27 @@ Note that condition ~\ref{eq:laxtransf-nat} is satisfied because $\cDbl_{\bf F}$
   %commute; again this follows from \autoref{thm:theta-compose-vert}.
 \end{proof}
 
-We observe that the enriched functor $\cH$ preserves products, in the following strict sense.
-If $\mathcal{V}$ is a monoidal 2-category with strict 2-categorical finite products (such as \Icon), we say that a $\mathcal{V}$-enriched bicategory ${\bf B}$ has \textbf{finite products} when for each two objects $C,D \in {\bf B}$ composition with the projections of their categorical product defines an \emph{isomorphism} in $\mathcal{V}$ (not merely an equivalence), and similarly there is a strict terminal object $1$ such that $\bB(A,1)$ is strictly terminal in \cV.
+Our goal is to enhance this functor to act on ``monoidal objects''.
+It is well-known that ``monoidal functors preserve monoid objects'', so our approach will be to categorify this: we will show that $\cH$ is monoidal, in an appropriate sense, and that monoidal functors of this sort preserve monoidal objects of the appropriate sort.
 
+In fact, the monoidality of $\cH$ is easy to describe, because the monoidal structures of $\cDblf$ and $\cBicat$ are cartesian and very strict.
+In general, if $\mathcal{V}$ is a monoidal 2-category with strict 2-categorical finite products (such as \Icon), we say that a $\mathcal{V}$-enriched bicategory ${\bf B}$ has \textbf{finite products} when for each two objects $C,D \in {\bf B}$ composition with the projections of their categorical product defines an \emph{isomorphism} in $\mathcal{V}$ (not merely an equivalence), and similarly there is a strict terminal object $1$ such that $\bB(A,1)$ is strictly terminal in \cV:
+%
 \begin{align}
 {\bf B}(A, C \times D) \xrightarrow{\cong} {\bf B}(A,C) \times {\bf B}(A,D)
 \end{align}
 
-This clearly holds for \cBicat\ and \cDbl.
-There is an evident notion of when a \cV-enriched functor of bicategories \textbf{preserves products} (up to isomorphism).
+This holds for \cBicat\ and \cDblf, because cartesian products of bicategories and double categories are simply componentwise, and all the morphisms in \cBicat\ and \cDblf\ (no matter how weak) are defined in terms of data in their targets.
+
+Similarly, we say that a functor $F$ of \cV-enriched bicategories \textbf{preserves products} if it takes the terminal object to a terminal object and pairs of product projections $A \leftarrow A\times B \to B$ to pairs of product projections (in the above strict sense).
 
 \begin{thm}
-The iconic functor $\cH: \cBicat \rightarrow \cDbl$ preserves products.
+The iconic functor $\cH: \cDblf \rightarrow \cBicat$ preserves products.
 \end{thm}
-
 \begin{proof}
-We show that there is an isomorphism $\cH \circ (- \times -) \rightarrow (- \times -) \circ (\cH,\cH)$ for each pair of double categories $(\mathbb{D}, \mathbb{E})$.
-Since $\cH$ merely forgets a part of the double categories and double functors, we have identities 
-$\cH(\mathbb{D} \times \mathbb{E}) = \cH(\mathbb{D}) \times \cH(\mathbb{E})$ and  $\cH(F \times G) = \cH(F) \times \cH(G)$ for all $F,G: \mathbb{D} \rightarrow \mathbb{E}$. As a result, we only need an invertible modification $\widehat{\alpha \times \beta} \rightarrow \hat{\alpha} \times \hat{\beta}$ for all 2-cells $\alpha, \beta$ in $\mathcal{D}bl$. This modification is given by  an argument analogous to Lemma \ref{thm:h-locfr-uniq}. 
-Composing with this isomorphism and the projections an isomorphism $\mathcal{B}icat({\bf A}, \cH(\mathbb{D} \times \mathbb{E})) \xrightarrow{\cong} \mathcal{B}icat({\bf A}, \cH(\mathbb{D})) \times \mathcal{B}icat({\bf A}, \cH(\mathbb{E}))$, since $\mathcal{B}icat$ has enriched products.
+Since $\cH$ merely forgets a part of the double categories and double functors, we have simple equalities
+$\cH(\mathbb{D} \times \mathbb{E}) = \cH(\mathbb{D}) \times \cH(\mathbb{E})$, and the product projections are likewise preserved.
+The case of the terminal object is likewise easy.
 \end{proof}
 
 We end this section with one final Lemma.
