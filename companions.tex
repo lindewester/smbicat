@@ -96,7 +96,7 @@ a strictly functorial choice of a companion for each vertical arrow.
 
 \begin{defn}
   We say that a double category is \textbf{fibrant} if every vertical
-  1-morphism has both a companion and a conjoint. We will write $\mathcal{D}bl^f_g$ for the tricategory of fibrant double categories, pseudo double functors, and vertical transformations.
+  1-morphism has both a companion and a conjoint. We will write $\cDblf$ for the 2-category of fibrant double categories, pseudo double functors, and transformations.
 \end{defn}
 
 
@@ -107,6 +107,8 @@ a strictly functorial choice of a companion for each vertical arrow.
   to generalize better to $(n\times k)$-categories, as well as
   avoiding a conflict with the \emph{framed bordisms} in topological
   field theory.
+  It is shown in~\cite{shulman:frbi} that $\lD$ is fibrant if and only if the (source, target) functor $\lD_1 \to \lD_0\times\lD_0$ is a Grothendieck fibration, and if and only if it is a Grothendieck opfibration; this partially justifies the name.
+  In~\cite{gg:ldstr-tricat}, the term ``fibrant double category'' was used for one in which only vertical \emph{isomorphisms} have companions (hence also, as we will see, conjoints); we prefer to call a double category with this property \emph{isofibrant}.
 \end{rmk}
 
 % a horizontal 1-cell $\fchk\maps B\hto
@@ -463,28 +465,28 @@ only for companions, but all have dual versions for conjoints. Later we will use
   The axioms~\eqref{eq:compeqn} follow directly from those for \fhat.
 \end{proof}
 
-\begin{lem}\label{thm:comp-ten}
-  Suppose that \lD\ is a monoidal double category and that $f\maps
-  A\to B$ and $g\maps C\to D$ have companions \fhat\ and \ghat\
-  respectively.  Then $\fhat\ten\ghat$ is a companion of $f\ten g$.
-\end{lem}
-\begin{proof}
-  This follows from \autoref{thm:comp-func}, since $\ten\maps
-  \lD\times\lD\to\lD$ is a functor, and a companion in $\lD\times\lD$
-  is simply a pair of companions in \lD.
-%   We take the defining 2-morphisms to be
-%   \[\vcenter{\xymatrix@R=1.5pc@C=3pc{
-%       \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]_{f\ten g}
-%       \ar@{}[dr]|{\Downarrow\ten\Downarrow} &  \ar@{=}[d]\\
-%       \ar[r]|-{U_B\ten U_D} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
-%       \ar[r]|-@{|}_-{U_{B\ten D}} & }}
-%   \quad\text{and}\quad
-%   \vcenter{\xymatrix@R=1.5pc@C=3pc{
-%       \ar[r]|-@{|}^-{U_{A\ten C}} \ar@{=}[d] \ar@{}[dr]|\iso & \ar@{=}[d]\\
-%       \ar[r]|-{U_{A}\ten U_C} \ar@{=}[d] \ar@{}[dr]|{\Downarrow\ten\Downarrow} & 
-%       \ar[d]^{f\ten g}\\
-%       \ar[r]|-@{|}_-{\fhat\ten\ghat} & .}}\]
-\end{proof}
+% \begin{lem}\label{thm:comp-ten}
+%   Suppose that \lD\ is a monoidal double category and that $f\maps
+%   A\to B$ and $g\maps C\to D$ have companions \fhat\ and \ghat\
+%   respectively.  Then $\fhat\ten\ghat$ is a companion of $f\ten g$.
+% \end{lem}
+% \begin{proof}
+%   This follows from \autoref{thm:comp-func}, since $\ten\maps
+%   \lD\times\lD\to\lD$ is a functor, and a companion in $\lD\times\lD$
+%   is simply a pair of companions in \lD.
+% %   We take the defining 2-morphisms to be
+% %   \[\vcenter{\xymatrix@R=1.5pc@C=3pc{
+% %       \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]_{f\ten g}
+% %       \ar@{}[dr]|{\Downarrow\ten\Downarrow} &  \ar@{=}[d]\\
+% %       \ar[r]|-{U_B\ten U_D} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
+% %       \ar[r]|-@{|}_-{U_{B\ten D}} & }}
+% %   \quad\text{and}\quad
+% %   \vcenter{\xymatrix@R=1.5pc@C=3pc{
+% %       \ar[r]|-@{|}^-{U_{A\ten C}} \ar@{=}[d] \ar@{}[dr]|\iso & \ar@{=}[d]\\
+% %       \ar[r]|-{U_{A}\ten U_C} \ar@{=}[d] \ar@{}[dr]|{\Downarrow\ten\Downarrow} & 
+% %       \ar[d]^{f\ten g}\\
+% %       \ar[r]|-@{|}_-{\fhat\ten\ghat} & .}}\]
+% \end{proof}
 
 \begin{lem}\label{thm:theta-func}
   Suppose that $F\maps \lD\to\lE$ is a functor and that $f\maps A\to
@@ -531,62 +533,62 @@ only for companions, but all have dual versions for conjoints. Later we will use
   as desired.
 \end{proof}
 
-\begin{lem}\label{thm:theta-ten}
-  Suppose that \lD\ is a monoidal double category, that $f\maps A\to
-  B$ has companions \fhat\ and $\fhat'$, and that $g\maps C\to D$ has
-  companions \ghat\ and $\ghat'$.  Then $\theta_{\fhat,\fhat'} \ten
-  \theta_{\ghat,\ghat'} = \theta_{\fhat\ten \ghat, \fhat'\ten\ghat'}.$
-\end{lem}
-\begin{proof}
-  This follows from \autoref{thm:theta-func} in the same way that
-  \autoref{thm:comp-ten} follows from \autoref{thm:comp-func}.
-%   Using the naturality and functoriality axioms spelled out in
-%   \S\ref{sec:symm-mono-double}, we have
-%   \begin{equation}
-%     \theta_{\fhat,\fhat'} \ten \theta_{\ghat,\ghat'}
-%     =\;
-%     \vcenter{\xymatrix@C=4.5pc{
-%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
-%         \ar[r]|-@{|}^-{(U_A\odot \fhat)\ten(U_C\odot \ghat)}
-%         \ar[d] \ar@{}[dr]|{(\Downarrow\odot\Downarrow)\ten(\Downarrow\odot\Downarrow)} &  \ar[d]\\
-%         \ar[r]|-@{|}_-{(\fhat'\odot U_C) \ten (\ghat'\odot U_D)} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
-%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} & }}
-%     \;=\;
-%     \vcenter{\xymatrix@C=2pc{
-%         \ar[rr]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
-%         \ar[rr]|-@{|}^-{(U_A\odot \fhat)\ten(U_C\odot \ghat)}
-%         \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
-%         \ar[r]|-@{|}^-{U_{A}\ten U_C} \ar@{=}[d]
-%         \ar@{}[dr]|{\Downarrow\ten \Downarrow} &
-%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]|{f\ten g}
-%         \ar@{}[dr]|{\Downarrow\ten\Downarrow}
-%         & \ar@{=}[d]\\
-%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} \ar@{}[drr]|\iso\ar@{=}[d] &
-%         \ar[r]|-@{|}_-{U_{B\ten D}} & \ar@{=}[d]\\
-%         \ar[rr]|-@{|}_-{(\fhat'\odot U_C) \ten (\ghat'\odot U_D)}
-%         \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
-%         \ar[rr]|-@{|}_-{\fhat'\ten\ghat'} && }}
-%     \;=\;
-%     \vcenter{\xymatrix@R=1.5pc@C=2.5pc{
-%         \ar[rr]|-@{|}^-{\fhat\ten\ghat} \ar@{}[drr]|\iso \ar@{=}[d] &&
-%         \ar@{=}[d] \\
-%         \ar[r]|-@{|}^-{U_{A\ten C}} \ar@{=}[d] \ar@{}[dr]|\iso &
-%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[dr]|=
-%         & \ar@{=}[d]\\
-%         \ar[r]|-@{|}^-{U_{A}\ten U_C} \ar@{=}[d] \ar@{}[dr]|{\Downarrow\ten\Downarrow} &
-%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]|{f\ten g} \ar@{}[dr]|{\Downarrow\ten\Downarrow}
-%         & \ar@{=}[d]\\
-%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'}  \ar@{=}[d] \ar@{}[dr]|= &
-%         \ar[r]|-@{|}_-{U_{B}\ten U_D} \ar@{}[dr]|\iso  \ar@{=}[d] & \ar@{=}[d]\\
-%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} &
-%         \ar[r]|-@{|}_-{U_{B\ten D}} &\\
-%         \ar[rr]|-@{|}_-{\fhat'\ten\ghat'} \ar@{}[urr]|\iso \ar@{=}[u] &&
-%         \ar@{=}[u]}}
-%     \;=
-%     \theta_{\fhat\ten\ghat}
-%   \end{equation}
-%   as desired.
-\end{proof}
+% \begin{lem}\label{thm:theta-ten}
+%   Suppose that \lD\ is a monoidal double category, that $f\maps A\to
+%   B$ has companions \fhat\ and $\fhat'$, and that $g\maps C\to D$ has
+%   companions \ghat\ and $\ghat'$.  Then $\theta_{\fhat,\fhat'} \ten
+%   \theta_{\ghat,\ghat'} = \theta_{\fhat\ten \ghat, \fhat'\ten\ghat'}.$
+% \end{lem}
+% \begin{proof}
+%   This follows from \autoref{thm:theta-func} in the same way that
+%   \autoref{thm:comp-ten} follows from \autoref{thm:comp-func}.
+% %   Using the naturality and functoriality axioms spelled out in
+% %   \S\ref{sec:symm-mono-double}, we have
+% %   \begin{equation}
+% %     \theta_{\fhat,\fhat'} \ten \theta_{\ghat,\ghat'}
+% %     =\;
+% %     \vcenter{\xymatrix@C=4.5pc{
+% %         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
+% %         \ar[r]|-@{|}^-{(U_A\odot \fhat)\ten(U_C\odot \ghat)}
+% %         \ar[d] \ar@{}[dr]|{(\Downarrow\odot\Downarrow)\ten(\Downarrow\odot\Downarrow)} &  \ar[d]\\
+% %         \ar[r]|-@{|}_-{(\fhat'\odot U_C) \ten (\ghat'\odot U_D)} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
+% %         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} & }}
+% %     \;=\;
+% %     \vcenter{\xymatrix@C=2pc{
+% %         \ar[rr]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
+% %         \ar[rr]|-@{|}^-{(U_A\odot \fhat)\ten(U_C\odot \ghat)}
+% %         \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
+% %         \ar[r]|-@{|}^-{U_{A}\ten U_C} \ar@{=}[d]
+% %         \ar@{}[dr]|{\Downarrow\ten \Downarrow} &
+% %         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]|{f\ten g}
+% %         \ar@{}[dr]|{\Downarrow\ten\Downarrow}
+% %         & \ar@{=}[d]\\
+% %         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} \ar@{}[drr]|\iso\ar@{=}[d] &
+% %         \ar[r]|-@{|}_-{U_{B\ten D}} & \ar@{=}[d]\\
+% %         \ar[rr]|-@{|}_-{(\fhat'\odot U_C) \ten (\ghat'\odot U_D)}
+% %         \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
+% %         \ar[rr]|-@{|}_-{\fhat'\ten\ghat'} && }}
+% %     \;=\;
+% %     \vcenter{\xymatrix@R=1.5pc@C=2.5pc{
+% %         \ar[rr]|-@{|}^-{\fhat\ten\ghat} \ar@{}[drr]|\iso \ar@{=}[d] &&
+% %         \ar@{=}[d] \\
+% %         \ar[r]|-@{|}^-{U_{A\ten C}} \ar@{=}[d] \ar@{}[dr]|\iso &
+% %         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[dr]|=
+% %         & \ar@{=}[d]\\
+% %         \ar[r]|-@{|}^-{U_{A}\ten U_C} \ar@{=}[d] \ar@{}[dr]|{\Downarrow\ten\Downarrow} &
+% %         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]|{f\ten g} \ar@{}[dr]|{\Downarrow\ten\Downarrow}
+% %         & \ar@{=}[d]\\
+% %         \ar[r]|-@{|}_-{\fhat'\ten\ghat'}  \ar@{=}[d] \ar@{}[dr]|= &
+% %         \ar[r]|-@{|}_-{U_{B}\ten U_D} \ar@{}[dr]|\iso  \ar@{=}[d] & \ar@{=}[d]\\
+% %         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} &
+% %         \ar[r]|-@{|}_-{U_{B\ten D}} &\\
+% %         \ar[rr]|-@{|}_-{\fhat'\ten\ghat'} \ar@{}[urr]|\iso \ar@{=}[u] &&
+% %         \ar@{=}[u]}}
+% %     \;=
+% %     \theta_{\fhat\ten\ghat}
+% %   \end{equation}
+% %   as desired.
+% \end{proof}
 
 
 \begin{lem}\label{thm:comp-iso}
@@ -666,30 +668,34 @@ only for companions, but all have dual versions for conjoints. Later we will use
   involving an equivalence is an adjoint equivalence.
 \end{proof}
 
-To conclude this section, we combine some of the Lemma's above to derive a more general statement which will play a central role in section ~\ref{sec:constr-symm-mono}.
-
-\begin{lem}\label{lem:equal}
-Any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells are equal.
-\end{lem}
-
-\begin{proof}
-By Lemma's ~\ref{thm:theta-compose-vert} and ~\ref{thm:theta-compose-horiz}, $\theta$-isomorphisms are closed under composition. By uniqueness of $\theta$-isomorphisms, any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells must be equal.
-\end{proof}
+% To conclude this section, we combine some of the Lemmas above to derive a more general statement which will play a central role in section~\ref{sec:constr-symm-mono}.
+% \begin{lem}\label{lem:equal}  % FALSE as stated
+% Any two composites of $\theta$-isomorphisms that have the same source and target horizontal 1-cells are equal.
+% \end{lem}
+% \begin{proof}
+% By Lemmas~\ref{thm:theta-compose-vert} and~\ref{thm:theta-compose-horiz}, $\theta$-isomorphisms are closed under composition. By uniqueness of $\theta$-isomorphisms, any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells must be equal.
+% \end{proof}
 
 \begin{lem}\label{lem:FUtheta}
-Suppose $F:\lD \rightarrow \lE$ is a functor of double categories. The 2-cell $F_U$ is equal to $\theta_{id_{FA}, Fid_A}$
+Suppose $F:\lD \rightarrow \lE$ is a functor of double categories. The 2-cell $F_U$ is equal to $\theta_{\id_{FA}, F\id_A}$.
 \end{lem}
 
 \begin{proof}
-We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{FA}, Fid_A}$ by $\hat{F}_U$.  Unfolding the definitions of $\eta_{U_{FA}}$, $\epsilon_{FU_A}$, and $\hat{F}_U$, and applying functoriality of $F$, we obtain an expression that can be rewritten to $U_{id_{FA}}$. It follows that $F_U$ is a $\theta$-isomorphism, by the uniqueness of $\theta s$ in this expression.
+We show that equation~\eqref{eq:comp-iso} holds when we substitute $\theta_{\id_{FA}, F\id_A}$ by $\hat{F}_U$.  Unfolding the definitions of $\eta_{U_{FA}}$, $\epsilon_{FU_A}$, and $\hat{F}_U$, and applying functoriality of $F$, we obtain an expression that can be rewritten to $U_{\id_{FA}}$. It follows that $F_U$ is a $\theta$-isomorphism, by the uniqueness of $\theta s$ in this expression.
 \end{proof}
 
+\begin{rmk}
+  It is tempting to want to state a general coherence theorem along the lines of ``any two composites of $\theta$-isomorphisms having the same source and target are equal.''
+  However, like statements such as ``any two composites of constraints in a monoidal category are equal'', this statement is actually literally false, because to determine a $\theta$-isomorphism requires not only a source and target but also the choice of companion data.
+  If the same 1-cell is a companion of the same 1-morphism in more than one way (which is the case as soon as it has any nontrivial automorphisms), then there will be different $\theta$-isomorphisms with the same source and target.
+  This is analogous to how in a particular monoidal category there can be ``accidental'' composites of constraints that are not covered by the coherence theorem.
+  It is probably possible to state a general coherence theorem for $\theta$-isomorphisms that is sufficiently careful to be true, but we will not need this.
+\end{rmk}
 
 \begin{rmk}
   In the following section we actually only require our double
   categories to have companions and conjoints for vertical
-  \emph{isomorphisms}; we may call a double category with this
-  property \textbf{isofibrant}.  Note that by \autoref{thm:comp-iso},
+  \emph{isomorphisms}, i.e.\ to be \emph{isofibrant}.  Note that by \autoref{thm:comp-iso},
   having companions for all isomorphisms implies having conjoints for
   all isomorphisms.  However, most examples we are interested in have
   all companions and conjoints. We will need these to lift monoidal structures in section ~\ref{sec:constr-symm-mono}. Besides that, these are useful for other
