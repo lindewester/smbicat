@@ -1,7 +1,7 @@
 \section{Symmetric monoidal double categories}
 \label{sec:symm-mono-double}
 
-In this section, we recall basic notions of double categories, mainly to fix our terminology and notation.
+In this section, we recall basic notions of double categories to fix our terminology and notation, and define monoidal double categories and functors between them.
 Double categories go back originally to Ehresmann
 in~\cite{ehresmann:cat-str}; a brief introduction can be found
 in~\cite{ks:r2cats}.  Other references
@@ -220,7 +220,7 @@ $\al_A$, \emph{and} each $\al_M$, is invertible.
 
 The 2-category \cDbl\ gives us an easy way to define what we mean by a
 \emph{symmetric monoidal double category}.  In any 2-category with
-finite products there is a notion of a \emph{pseudomonoid}, which
+finite products there is a notion of a \emph{pseudomonoid} (perhaps braided or symmetric), which
 generalizes the notion of monoidal category in \cCat.  Specializing
 this to \cDbl, we obtain the following.
 
@@ -395,10 +395,10 @@ monoidal structure $\ten$, since these are where the whole question
 lies.
 
 We now move on to define functors and transformations of monoidal double categories.
+Like monoidal double categories themselves, these are also special cases of a notion that makes sense internal to any 2-category with products.
 
 \begin{defn}\label{def:monfunc}
-  Let $\D$, $\E$ be (braided/symmetric) monoidal double categories.  A {\bf (braided/symmetric) lax monoidal double functor} $F: \D \rightarrow \E$ is a pseudo double functor $F$, together with a vertical transformation $\phi : \otimes \circ (F,F) \rightarrow F \circ \otimes$ and
- a vertical transformation $\phi_u:I_{\E}\rightarrow F \circ I_{\D}$. These functors and structure maps satisfy the usual axioms for (braided/symmetric) monoidal functors with respect to $\otimes$.
+  Let $\D$, $\E$ be (braided/symmetric) monoidal double categories.  A {\bf (braided or symmetric) lax monoidal double functor} $F: \D \rightarrow \E$ is a pseudo double functor $F$, together with transformations $\phi : \otimes \circ (F,F) \rightarrow F \circ \otimes$ and $\phi_u:I_{\E}\rightarrow F \circ I_{\D}$ satisfying the usual axioms for (braided/symmetric) monoidal functors with respect to $\otimes$.
 \end{defn}
 
 Unfolding the definitions gives us:
@@ -442,12 +442,9 @@ Unfolding the definitions gives us:
 
 When the natural transformations are in the opposite direction, the functor is {\bf oplax monoidal}, and when they are isomorphisms, the functor is {\bf strong monoidal}.
 
-% I don't understand what this sentence means:
-%% We will refer to monoidal double functors as pairs $(F, \phi)$ of a functor and its corresponding natural transformations. 
-
 \begin{defn}\label{Def:monverttrans}
-  Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A monoidal vertical transformation $\alpha: F \rightarrow G$ is a vertical transformation such that $\alpha_0$ and $\alpha_1$ are monoidal natural transformations.
-  Explicitly, this means that the following equalities hold:
+  Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A \textbf{monoidal transformation} $\alpha: F \rightarrow G$ is a vertical transformation such that $\alpha_0$ and $\alpha_1$ are monoidal natural transformations.
+  Explicitly, this means (in the lax case) that the following equalities hold:
 
 \begin{equation}
 \begin{aligned}
@@ -528,8 +525,11 @@ When the natural transformations are in the opposite direction, the functor is {
 \end{equation}
 
 
-A {\bf braided/symmetric monoidal vertical transformation} is a monoidal vertical transformation between braided/symmetric monoidal functors.
+A {\bf braided or symmetric monoidal vertical transformation} is a monoidal transformation between braided/symmetric monoidal functors.
 \end{defn}
+
+It is straightforward to verify that we have various 2-categories of monoidal double categories, depending on whether we take the objects to be braided, symmetric, or neither, and whether the morphisms are lax, oplax, or strong.
+
 
 % Local Variables:
 % TeX-master: "smbicat"
