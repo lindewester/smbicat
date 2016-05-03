@@ -1,0 +1,91 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Symmetric monoidal bicategories are important in many contexts.
+However, the definition of even a monoidal bicategory
+(see~\cite{gps:tricats,nick:tricats}), let alone a symmetric monoidal
+one
+(see~\cite{kv:2cat-zam,kv:bm2cat,bn:hda-i,ds:monbi-hopfagbd,crans:centers,mccrudden:bal-coalgb,gurski:brmonbicat}),
+% TODO: update references
+is quite imposing, and time-consuming to verify in any example.  In
+this paper we describe a method for constructing symmetric monoidal
+bicategories which is hardly more difficult than constructing a pair
+of ordinary symmetric monoidal categories.  While not universally
+applicable, this method applies in many cases of interest.  This idea
+has often been implicitly used in particular cases, such as
+bicategories of enriched profunctors, but to our knowledge the first
+general statement was claimed in~\cite[Appendix B]{shulman:frbi}.  Our
+purpose here is to work out the details, independently
+of~\cite{shulman:frbi}.\footnote{These details have also been worked out
+in~\cite[\S5]{gg:ldstr-tricat} from a different perspective, using
+``locally-double bicategories''.  Our goal is to be more
+comprehensive, considering also the case of symmetric monoidal
+structure and the construction of monoidal functors and
+transformations.}
+
+The method relies on the fact that in many bicategories, the 1-cells
+are not the most fundamental notion of `morphism' between the objects.
+For instance, in the bicategory \cMod\ of rings, bimodules, and
+bimodule maps, the more fundamental notion of morphism between objects
+is a ring homomorphism. The addition of these extra morphisms promotes
+a bicategory to a \emph{double category}, or a category internal to
+\cCat.  The extra morphisms are usually stricter than the 1-cells in
+the bicategory and easier to deal with for coherence questions; in
+many cases it is quite easy to show that we have a \emph{symmetric
+  monoidal double category}.  The central observation is that in most
+cases (when the double category is `fibrant') we can then `lift' this
+symmetric monoidal structure to the original bicategory.  That is, we
+prove the following theorem:
+
+\begin{thm}\label{thm:mondbl-monbi-intro}
+  If \lD\ is a fibrant monoidal double category, then its underlying
+  bicategory $\cH(\lD)$ is a monoidal bicategory.  If \lD\ is braided
+  or symmetric, so is $\cH(\lD)$. Furthermore, the assignment $\cH$
+  extends to a trifunctor, so we can use it to construct functors and
+  transformations between monoidal bicategories as well.
+\end{thm}
+
+We expect similar theorems to be true in higher dimensions.  For
+instance, Chris Douglas~\cite{douglas:tfttalk} has suggested that many
+apparent tricategories are more naturally bicategories internal to
+\cCat\ or categories internal to \cTwocat; and in most such cases
+arising in practice, we can again `lift' the coherence to give a
+tricategory after discarding the additional structure.
+
+We propose the generic term \textbf{$(n\times k)$-category}
+(pronounced ``$n$-by-$k$-category'') for an $n$-category internal to
+$k$-categories, a structure which has $(n+1)(k+1)$ different types of
+cells or morphisms arranged in an $(n+1)$ by $(k+1)$ grid.  Thus
+double categories may be called \textbf{1x1-categories}, while in
+place of tricategories we may consider 2x1-categories and
+1x2-categories --- or even 1x1x1-categories, i.e.\ triple categories,
+as in~\cite{gp:intercategories-i,gp:intercategories-ii}.  Any
+$(n\times k)$-category which satisfies a suitable lifting property
+should have an underlying $(n+k)$-category, but clearly as $n$ and $k$
+grow an increasing amount of structure is discarded in this process.
+
+% , such as duality and
+% trace~\cite{ps:traces} or autonomous
+% structure~\cite{ds:monbi-hopfagbd,street:funct-calc,dms:antipodes},
+
+There is a good case to be made that often the extra morphisms should
+\emph{not} be discarded; indeed this is the perspective of much work
+on double categories.  However, even from this perspective, sometimes
+it really is the underlying $(n+k)$-category that one cares about; for
+instance, the Baez-Dolan cobordism hypothesis asserts a universal
+property of the $(n+1)$-category of cobordisms which is not shared by
+the $(n\times 1)$-category from which it is naturally constructed
+(see~\cite{lurie:tft}).  Thus, regardless of one's philosophical bent,
+results such as \autoref{thm:mondbl-monbi-intro} are of interest.
+
+Proceeding to the contents of this paper, in
+\S\ref{sec:symm-mono-double} we review the definition of symmetric
+monoidal double categories, and in \S\ref{sec:comp-conj} we recall the
+notions of `companion' and `conjoint' whose presence supplies the
+necessary lifting property, which we call being \emph{fibrant}.  Then
+in \S\ref{sec:1x1-to-bicat} we describe a functor from fibrant double
+categories to bicategories, and in \S\ref{sec:constr-symm-mono} we
+show that it preserves monoidal, braided, and symmetric structures. Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${\cA}lg$ of algebras, bimodules and bimodule homomorphisms.
+
+We would like to thank Peter May, Tom Fiore, Stephan Stolz, Chris
+Douglas, Nick Gurski, and Jamie Vicary for helpful discussions and comments.

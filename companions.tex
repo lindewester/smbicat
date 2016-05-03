@@ -1,0 +1,700 @@
+\section{Companions and conjoints}
+\label{sec:comp-conj}
+
+Suppose that \lD\ is a symmetric monoidal double category; when does
+$\cH(\lD)$ become a symmetric monoidal bicategory?  It clearly has a
+unit object $I$, and the pseudo double functor $\ten\maps
+\lD\times\lD\to\lD$ clearly induces a functor $\ten\maps
+\cH(\lD)\times\cH(\lD)\to\cH(\lD)$.  However, the problem is that the
+constraint isomorphisms such as $A\ten (B\ten C)\iso (A\ten B)\ten C$
+are \emph{vertical} 1-morphisms, which get discarded when we pass to
+$\cH(\lD)$.  Thus, in order for $\cH(\lD)$ to inherit a symmetric
+monoidal structure, we must have a way to make vertical 1-morphisms
+into horizontal 1-cells.  Thus is the purpose of the following
+definition.
+
+
+\begin{defn}\label{def:companion}
+  Let \lD\ be a double category and $f\maps A\to B$ a vertical
+  1-morphism.  A \textbf{companion} of $f$ is a horizontal 1-cell
+  $\fhat\maps A\hto B$ together with 2-morphisms
+  \begin{equation*}
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{\fhat} \ar[d]_f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}} }
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{U_B} & }
+    \end{array}\quad\text{and}\quad
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}}
+        & \ar[d]^f\\
+        \ar[r]|-@{|}_-{\fhat} & }
+    \end{array}
+  \end{equation*}
+  such that the following equations hold.
+  \begin{align}\label{eq:compeqn}
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}}
+        & \ar[d]^f\\
+        \ar[r]|-{\fhat} \ar[d]_f \ar@{}[dr]|
+        {\Downarrow  \epsilon_{\hat{f}} }
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{U_B} & }
+    \end{array} &= 
+    \begin{array}{c}
+      \xymatrix@-.5pc{ \ar[r]|-@{|}^-{U_A} \ar[d]_f
+        \ar@{}[dr]|{\Downarrow U_f} &  \ar[d]^f\\
+        \ar[r]|-@{|}_-{U_B} & }
+    \end{array}
+    &
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{ \Downarrow \eta_{\hat{f}}}&
+        \ar[r]|-@{|}^{\fhat}\ar[d]|f \ar@{}[dr]|{\Downarrow  \epsilon_{\hat{f}} }
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat} &
+        \ar[r]|-@{|}_-{U_B} &}
+%       \xymatrix@-.5pc{
+%         \ar[rr]|-@{|}^-{\fhat} \ar@{}[drr]|\iso \ar@{=}[d] &&
+%         \ar@{=}[d] \\
+%         \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|\Downarrow &
+%         \ar[r]|-@{|}^-{\fhat} \ar[d]_f \ar@{}[dr]|\Downarrow
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fhat} &
+%         \ar[r]|-@{|}_-{U_B} &\\
+%         \ar[rr]|-@{|}_-{\fhat} \ar@{}[urr]|\iso \ar@{=}[u] &&
+%         \ar@{=}[u]}
+    \end{array} &=
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{\fhat} \ar@{=}[d] \ar@{}[dr]|{\Downarrow 1_{\fhat}}
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat} & }
+    \end{array}
+  \end{align}
+  A \textbf{conjoint} of $f$, denoted $\fchk\maps B\hto A$, is a
+  companion of $f$ in the double category $\lD^{h\cdot\mathrm{op}}$
+  obtained by reversing the horizontal 1-cells, but not the vertical
+  1-morphisms, of \lD.
+\end{defn}
+
+\begin{rmk}
+  We momentarily suspend our convention of pretending that our double
+  categories are strict to mention that the second
+  equation in~\eqref{eq:compeqn} actually requires an insertion of unit
+  isomorphisms to make sense.
+\end{rmk}
+
+The form of this definition is due
+to~\cite{gp:double-adjoints,dpp:spans}, but the ideas date back
+to~\cite{bs:dblgpd-xedmod}; see
+also~\cite{bm:dbl-thin-conn,fiore:pscat}.  In the terminology of these
+references, a \emph{connection} on a double category is equivalent to
+a strictly functorial choice of a companion for each vertical arrow.
+
+\begin{defn}
+  We say that a double category is \textbf{fibrant} if every vertical
+  1-morphism has both a companion and a conjoint. We will write $\mathcal{D}bl^f_g$ for the tricategory of fibrant double categories, pseudo double functors, and vertical transformations.
+\end{defn}
+
+
+
+\begin{rmk}
+  In~\cite{shulman:frbi} fibrant double categories were called
+  \emph{framed bicategories}.  However, the present terminology seems
+  to generalize better to $(n\times k)$-categories, as well as
+  avoiding a conflict with the \emph{framed bordisms} in topological
+  field theory.
+\end{rmk}
+
+% a horizontal 1-cell $\fchk\maps B\hto
+%   A$ together with 2-morphisms
+%   \[\begin{array}{c}
+%     \xymatrix@-.5pc{
+%       \ar[r]|-@{|}^-{\fchk} \ar@{=}[d] \ar@{}[dr]|\Downarrow
+%       & \ar[d]^f\\
+%       \ar[r]|-@{|}_-{U_B} & }
+%   \end{array}\quad\text{and}\quad
+%   \begin{array}{c}
+%     \xymatrix@-.5pc{
+%       \ar[r]|-@{|}^-{U_A} \ar[d]_f \ar@{}[dr]|\Downarrow
+%       & \ar@{=}[d]\\
+%       \ar[r]|-@{|}_-{\fchk} & }
+%   \end{array}\]
+%   such that the following equations hold.
+%   \begin{align*}
+%     \begin{array}{c}
+%       \xymatrix@-.5pc{
+%         \ar[r]|-@{|}^-{U_A} \ar[d]_f \ar@{}[dr]|\Downarrow
+%         & \ar@{=}[d]\\
+%         \ar[r]|-{\fchk} \ar@{=}[d] \ar@{}[dr]|\Downarrow
+%         & \ar[d]^f\\
+%         \ar[r]|-@{|}_-{U_B} & }
+%     \end{array} &= 
+%     \begin{array}{c}
+%       \xymatrix@-.5pc{ \ar[r]|-@{|}^-{U_A} \ar[d]_f
+%         \ar@{}[dr]|{\Downarrow U_f} &  \ar[d]^f\\
+%         \ar[r]|-@{|}_-{U_B} & }
+%     \end{array}
+%     &
+%     \begin{array}{c}
+%       \xymatrix@-.5pc{
+%         \ar[rr]|-@{|}^-{\fchk} \ar@{}[drr]|\iso \ar@{=}[d] &&
+%         \ar@{=}[d] \\
+%         \ar[r]|-@{|}^-{\fchk} \ar@{=}[d] \ar@{}[dr]|\Downarrow &
+%         \ar[r]|-@{|}^-{U_A} \ar[d]_f \ar@{}[dr]|\Downarrow
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{U_B} &
+%         \ar[r]|-@{|}_-{\fchk} &\\
+%         \ar[rr]|-@{|}_-{\fchk} \ar@{}[urr]|\iso \ar@{=}[u] &&
+%         \ar@{=}[u]}
+%     \end{array} &=
+%     \begin{array}{c}
+%       \xymatrix@-.5pc{
+%         \ar[r]|-@{|}^-{\fchk} \ar@{=}[d]
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fchk} & }
+%     \end{array}
+%   \end{align*}
+
+\begin{egs}
+  \lMod, \lnCob, and \lProf\ are all fibrant.  In \lMod, the companion
+  of a ring homomorphism $f\maps A\to B$ is $B$ regarded as an
+  $A$-$B$-bimodule via $f$ on the left, and dually for its conjoint.
+  In \lnCob, companions and conjoints are obtained by regarding a
+  diffeomorphism as a cobordism.  And in \lProf, companions and
+  conjoints are obtained by regarding a functor $f\maps A\to B$ as a
+  `representable' profunctor $B(f-,-)$ or $B(-,f-)$.
+\end{egs}
+
+\begin{rmk}
+  For an $(n\times 1)$-category (recall \autoref{rmk:monglob}), the
+  lifting condition we should require is simply that each double
+  category $\lD_{i+1} \toto \lD_i$, for $0\le i < n$, is fibrant.
+\end{rmk}
+
+The existence of companions and conjoints gives us a way to `lift'
+vertical 1-morphisms to horizontal 1-cells.  What is even more crucial
+for our applications, however, is that these liftings are unique up to
+isomorphism, and that these isomorphisms are canonical and coherent.
+This is the content of the following lemmas.  We state most of them
+only for companions, but all have dual versions for conjoints. Later we will use them to prove the existence of structure isomorphisms and the commutativity of diagrams needed for $\cH$ to preserve monoidal structures.
+
+\begin{lem}\label{thm:theta}
+  Let $\fhat\maps A\hto B$ and $\fhat'\maps A\hto B$ be companions of
+  $f$ (that is, each comes \emph{equipped with} 2-morphisms as in
+  \autoref{def:companion}).  Then there is a unique globular isomorphism
+  $\theta_{\fhat,\fhat'}\maps \fhat\too[\iso]\fhat'$ such that
+  \begin{equation}\label{eq:comp-iso}
+    \vcenter{\xymatrix@R=1.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}} &  \ar[d]^f\\
+        \ar[r]|-{\fhat} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \theta_{\fhat,\fhat'}} &  \ar@{=}[d]\\
+        \ar[r]|-{\fhat'} \ar[d]_f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}'}} & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{U_B} & }} \quad = \quad
+    \vcenter{\xymatrix@-.5pc{ \ar[r]|-@{|}^-{U_A} \ar[d]_f
+        \ar@{}[dr]|{\Downarrow U_f} &  \ar[d]^f\\
+        \ar[r]|-@{|}_-{U_B} & .}}
+  \end{equation}
+\end{lem}
+\begin{proof}
+  Composing~\eqref{eq:comp-iso} on the left with
+  $\vcenter{\xymatrix@-.5pc{ \ar[r]|-@{|}^-{U_A} \ar@{=}[d]
+      \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}} & \ar[d]^f\\ \ar[r]|-@{|}_-{\fhat'} & }}$
+  and on the right with $\vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{\fhat} \ar[d]_f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}&
+      \ar@{=}[d]\\ \ar[r]|-@{|}_-{U_B} & }}$, and using the second
+  equation~\eqref{eq:compeqn}, we see that if~\eqref{eq:comp-iso} is
+  satisfied then $\theta_{\fhat,\fhat'}$ must be the composite
+  \begin{equation}
+    \vcenter{\xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}'}}&
+        \ar[r]|-@{|}^-{\fhat} \ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat'} &
+        \ar[r]|-@{|}_-{U_B} &}}\label{eq:theta}
+%     \vcenter{\xymatrix@-.5pc{
+%         \ar[rr]|-@{|}^-{\fhat} \ar@{}[drr]|\iso \ar@{=}[d] &&
+%         \ar@{=}[d] \\
+%         \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|\Downarrow &
+%         \ar[r]|-@{|}^-{\fhat} \ar[d]_f \ar@{}[dr]|\Downarrow
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fhat'} &
+%         \ar[r]|-@{|}_-{U_B} &\\
+%         \ar[rr]|-@{|}_-{\fhat'} \ar@{}[urr]|\iso \ar@{=}[u] &&
+%         \ar@{=}[u]}}\label{eq:theta}
+  \end{equation}
+  Two applications of the first equation~\eqref{eq:compeqn} shows that
+  this indeed satisfies~\eqref{eq:comp-iso}.  As for its being an
+  isomorphism, we have the dual composite $\theta_{\fhat',\fhat}$:
+  \[\vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}} &
+      \ar[r]|-@{|}^{\fhat'}\ar[d]|f \ar@{}[dr]|
+{\Downarrow \epsilon_{\hat{f}'}}
+      & \ar@{=}[d]\\
+      \ar[r]|-@{|}_-{\fhat} &
+      \ar[r]|-@{|}_-{U_B} &}}\]
+  which we verify is an inverse using~\eqref{eq:compeqn}:
+  \[\vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^{U_A}\ar@{=}[d] \ar@{}[dr]|{=} &
+      \ar[r]|-@{|}^{U_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}'}} &
+      \ar[r]|-@{|}^{\fhat}\ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}} &
+      \ar@{=}[d]\\
+      \ar[r]|{U_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}} &
+      \ar[r]|{\fhat'}\ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}'}} &
+      \ar[r]|{U_B}\ar@{=}[d] \ar@{}[dr]|{=} &
+      \ar@{=}[d]\\
+      \ar[r]|-@{|}_{\fhat} &
+      \ar[r]|-@{|}_{U_B} &
+      \ar[r]|-@{|}_{U_B} &
+    }} \;=\;
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow  \eta_{\hat{f}}}&
+      \ar[r]|-@{|}^{\fhat}\ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}
+      & \ar@{=}[d]\\
+      \ar[r]|-@{|}_-{\fhat} &
+      \ar[r]|-@{|}_-{U_B} &}} \;=\;
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{\fhat} \ar@{=}[d] \ar@{}[dr]|{\Downarrow 1_{\fhat}}
+      & \ar@{=}[d]\\
+      \ar[r]|-@{|}_-{\fhat} & }}\]
+  (and dually).
+\end{proof}
+
+\begin{lem}\label{thm:theta-id}
+  For any companion \fhat\ of $f$ we have $\theta_{\fhat,\fhat}=1_{\fhat}$.
+\end{lem}
+\begin{proof}
+  This is the second equation~\eqref{eq:compeqn}.
+\end{proof}
+
+\begin{lem}\label{thm:theta-compose-vert}
+  Suppose that $f$ has three companions $\fhat$, $\fhat'$, and
+  $\fhat''$.  Then $\theta_{\fhat,\fhat''} = \theta_{\fhat',\fhat''}
+  \circ\theta_{\fhat,\fhat'}$.
+\end{lem}
+\begin{proof}
+  By definition, we have
+  \[\theta_{\fhat',\fhat''} \circ\theta_{\fhat,\fhat'} =\;
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^{U_A}\ar@{=}[d] \ar@{}[dr]|{=} &
+      \ar[r]|-@{|}^{U_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}'}} &
+      \ar[r]|-@{|}^{\fhat}\ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}} &
+      \ar@{=}[d]\\
+      \ar[r]|{U_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}''}} &
+      \ar[r]|{\fhat'}\ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}'}} &
+      \ar[r]|{U_B}\ar@{=}[d] \ar@{}[dr]|{=} &
+      \ar@{=}[d]\\
+      \ar[r]|-@{|}_{\fhat''} &
+      \ar[r]|-@{|}_{U_B} &
+      \ar[r]|-@{|}_{U_B} &
+    }} \;=\;
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}''}}&
+      \ar[r]|-@{|}^{\fhat}\ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}
+      & \ar@{=}[d]\\
+      \ar[r]|-@{|}_-{\fhat''} &
+      \ar[r]|-@{|}_-{U_B} &}} \;=
+  \theta_{\fhat,\fhat''}\]
+  as desired.
+\end{proof}
+
+\begin{lem}\label{thm:comp-unit}
+  $U_A\maps A\hto A$ is always a companion of $1_A\maps A\to A$ in a
+  canonical way.
+\end{lem}
+\begin{proof}
+  We take both defining 2-morphisms to be
+  $1_{U_A}$; the truth of~\eqref{eq:compeqn} is evident.
+\end{proof}
+
+\begin{lem}\label{thm:comp-compose}
+  Suppose that $f\maps A\to B$ has a companion \fhat\ and $g\maps B\to
+  C$ has a companion \ghat.  Then $\ghat\odot\fhat$ is a companion of
+  $gf$.
+\end{lem}
+\begin{proof}
+  We take the defining 2-morphisms to be the composites
+  \[\vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{\fhat} \ar[d]_f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}&
+      \ar[r]|-@{|}^-{\ghat} \ar@{=}[d] \ar@{}[dr]|{1_{\ghat}} &
+      \ar@{=}[d]\\
+      \ar[r]|-{U_B} \ar[d]_g \ar@{}[dr]|{U_g} &
+      \ar[r]|-{\ghat} \ar[d]|g \ar@{}[dr]|{\Downarrow \epsilon_{\hat{g}}}&
+      \ar@{=}[d]\\
+      \ar[r]|-@{|}_-{U_C} &
+      \ar[r]|-@{|}_-{U_C} &
+    }}\quad\text{and}\quad
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}} &
+      \ar[r]|-@{|}^-{U_A} \ar[d]|f \ar@{}[dr]|{U_f} &
+      \ar[d]^f\\
+      \ar[r]|-{\fhat} \ar@{=}[d] \ar@{}[dr]|{1_{\fhat}} &
+      \ar[r]|-{U_B} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{g}}}&
+      \ar[d]^g\\
+      \ar[r]|-@{|}_-{\fhat} &
+      \ar[r]|-@{|}_-{\ghat} &
+    }}
+  \]
+  It is easy to verify that these satisfy~\eqref{eq:compeqn}, using
+  the interchange law for $\odot$ and $\circ$ in a double category.
+\end{proof}
+
+\begin{lem}\label{thm:theta-compose-horiz}
+  Suppose that $f\maps A\to B$ has companions $\fhat$ and $\fhat'$,
+  and that $g\maps B\to C$ has companions $\ghat$ and $\ghat'$.  Then
+  $\theta_{\ghat,\ghat'}\odot \theta_{\fhat,\fhat'}  =
+    \theta_{\ghat\odot\fhat, \ghat'\odot\fhat'}$.
+\end{lem}
+\begin{proof}
+  Using the interchange law for $\odot$ and $\circ$, we have:
+  \begin{align}
+    \theta_{\ghat\odot\fhat, \ghat'\odot\fhat'} &=\;
+    \vcenter{\xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}'}}&
+        \ar[r]|-@{|}^-{U_A} \ar[d]|f \ar@{}[dr]|{U_f} &
+        \ar[r]|-@{|}^-{\fhat} \ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}&
+        \ar[r]|-@{|}^-{\ghat} \ar@{=}[d] \ar@{}[dr]|{1_{\fhat}} &
+        \ar@{=}[d]\\
+        \ar[r]|-{\fhat'} \ar@{=}[d] \ar@{}[dr]|{1_{\ghat}} &
+        \ar[r]|-{U_B} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{g}'}} &
+        \ar[r]|-{U_B} \ar[d]|g \ar@{}[dr]|{U_g} &
+        \ar[r]|-{\ghat} \ar[d]|g \ar@{}[dr]|{\Downarrow \epsilon_{\hat{g}}} &
+        \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat'} &
+        \ar[r]|-@{|}_-{\ghat'} &
+        \ar[r]|-@{|}_-{U_C} &
+        \ar[r]|-@{|}_-{U_C} &
+      }}
+    \;=\;
+    \vcenter{\xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}'}}&
+        \ar[r]|-@{|}^-{\fhat} \ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}&
+        \ar[r]|-@{|}^-{\ghat} \ar@{=}[d] \ar@{}[dr]|{1_{\fhat}} &
+        \ar@{=}[d]\\
+        \ar[r]|-{\fhat'} \ar@{=}[d] \ar@{}[dr]|{1_{\ghat}} &
+        \ar[r]|-{U_B} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{g}'}} &
+        \ar[r]|-{\ghat} \ar[d]|g \ar@{}[dr]|{\Downarrow \epsilon_{\hat{g}}} &
+        \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat'} &
+        \ar[r]|-@{|}_-{\ghat'} &
+        \ar[r]|-@{|}_-{U_C} &
+      }}\\
+    &=\;
+    \vcenter{\xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}'}}&
+        \ar[r]|-@{|}^-{\fhat} \ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}&
+        \ar[r]|-@{|}^-{U_B} \ar@{=}[d] \ar@{}[dr]|{1_{U_B}} &
+        \ar[r]|-@{|}^-{\ghat} \ar@{=}[d] \ar@{}[dr]|{1_{\fhat}} &
+        \ar@{=}[d]\\
+        \ar[r]|-{\fhat'} \ar@{=}[d] \ar@{}[dr]|{1_{\ghat}} &
+        \ar[r]|-{U_B} \ar@{=}[d] \ar@{}[dr]|{1_{U_B}} &
+        \ar[r]|-{U_B} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{g}'}} &
+        \ar[r]|-{\ghat} \ar[d]|g \ar@{}[dr]|{\Downarrow \epsilon_{\hat{g}}} &
+        \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat'} &
+        \ar[r]|-@{|}_-{U_B} &
+        \ar[r]|-@{|}_-{\ghat'} &
+        \ar[r]|-@{|}_-{U_C} &
+      }}\;=\;
+    \vcenter{\xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}'}}&
+        \ar[r]|-@{|}^-{\fhat} \ar[d]|f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}}&
+        \ar[r]|-@{|}^-{U_B} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{g}'}}&
+        \ar[r]|-@{|}^-{\ghat} \ar[d]|g \ar@{}[dr]|{\Downarrow \epsilon_{\hat{g}}}& \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat'} &
+        \ar[r]|-@{|}_-{U_B} &
+        \ar[r]|-@{|}_-{\ghat'} &
+        \ar[r]|-@{|}_-{U_C} &
+      }}\\
+    &=\;
+    \theta_{\ghat,\ghat'}\odot \theta_{\fhat,\fhat'} 
+  \end{align}
+  as desired.
+\end{proof}
+
+\begin{lem}\label{thm:theta-unit}
+  If $f\maps A\to B$ has a companion \fhat, then
+  $\theta_{\fhat,\fhat\odot U_A}$ and $\theta_{\fhat,U_B\odot \fhat}$
+  are equal to the unit constraints $\fhat \iso \fhat\odot U_A$ and
+  $\fhat\iso U_B\odot \fhat$.
+\end{lem}
+\begin{proof}
+  By definition, we have
+  \[\theta_{\fhat,\fhat\odot U_A} =\;
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow 1_{U_A}} &
+      \ar[r]|-@{|}^-{U_A} \ar@{=}[d] \ar@{}[dr]|{1_{U_A}} &
+      \ar@{=}[d] \ar[rr]|-@{|}^-{\fhat} \ar@{}[ddrr]|{\Downarrow \epsilon_{\hat{f}}}&& \ar@{=}[dd]\\
+      \ar[r]|-{U_A} \ar@{=}[d] \ar@{}[dr]|{1_{U_A}} &
+      \ar[r]|-{U_A} \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}}&
+      \ar[d]^f\\
+      \ar[r]|-@{|}_-{U_A} &
+      \ar[r]|-@{|}_-{\fhat} & \ar[rr]|-@{|}^-{U_B} &&
+    }}\;=\;
+  \vcenter{\xymatrix{ \ar[r]|-@{|}^-{U_A} \ar@{=}[d]
+      \ar@{}[dr]|{\Downarrow 1_{U_A}} &  \ar@{=}[d]\\
+      \ar[r]|-@{|}_-{U_A} & }}
+  \]
+  which, bearing in mind our suppression of unit and associativity
+  constraints, means that in actuality it is the unit constraint
+  $\fhat \iso \fhat\odot U_A$.  The other case is dual.
+\end{proof}
+
+\begin{lem}\label{thm:comp-func}
+  Let $F\maps \lD\to\lE$ be a functor between double categories and
+  let $f\maps A\to B$ have a companion \fhat\ in \lD.  Then $F(\fhat)$
+  is a companion of $F(f)$ in \lE.
+\end{lem}
+\begin{proof}
+  We take the defining 2-morphisms to be
+  \[\vcenter{\xymatrix@R=1.5pc@C=3pc{
+      \ar[r]|-@{|}^-{F(\fhat)} \ar[d]_{F(f)}
+      \ar@{}[dr]|{F(\Downarrow \epsilon_{\hat{f}})} &  \ar@{=}[d]\\
+      \ar[r]|-{F(U_B)} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
+      \ar[r]|-@{|}_-{U_{F(B)}} & }}
+  \quad\text{and}\quad
+  \vcenter{\xymatrix@R=1.5pc@C=3pc{
+      \ar[r]|-@{|}^-{U_{FA}} \ar@{=}[d] \ar@{}[dr]|\iso & \ar@{=}[d]\\
+      \ar[r]|-{F(U_{A})} \ar@{=}[d] \ar@{}[dr]|{F(\Downarrow \eta_{\hat{f}})} & 
+      \ar[d]^{F(f)}\\
+      \ar[r]|-@{|}_-{F(\fhat)} & .}}\]
+  The axioms~\eqref{eq:compeqn} follow directly from those for \fhat.
+\end{proof}
+
+\begin{lem}\label{thm:comp-ten}
+  Suppose that \lD\ is a monoidal double category and that $f\maps
+  A\to B$ and $g\maps C\to D$ have companions \fhat\ and \ghat\
+  respectively.  Then $\fhat\ten\ghat$ is a companion of $f\ten g$.
+\end{lem}
+\begin{proof}
+  This follows from \autoref{thm:comp-func}, since $\ten\maps
+  \lD\times\lD\to\lD$ is a functor, and a companion in $\lD\times\lD$
+  is simply a pair of companions in \lD.
+%   We take the defining 2-morphisms to be
+%   \[\vcenter{\xymatrix@R=1.5pc@C=3pc{
+%       \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]_{f\ten g}
+%       \ar@{}[dr]|{\Downarrow\ten\Downarrow} &  \ar@{=}[d]\\
+%       \ar[r]|-{U_B\ten U_D} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
+%       \ar[r]|-@{|}_-{U_{B\ten D}} & }}
+%   \quad\text{and}\quad
+%   \vcenter{\xymatrix@R=1.5pc@C=3pc{
+%       \ar[r]|-@{|}^-{U_{A\ten C}} \ar@{=}[d] \ar@{}[dr]|\iso & \ar@{=}[d]\\
+%       \ar[r]|-{U_{A}\ten U_C} \ar@{=}[d] \ar@{}[dr]|{\Downarrow\ten\Downarrow} & 
+%       \ar[d]^{f\ten g}\\
+%       \ar[r]|-@{|}_-{\fhat\ten\ghat} & .}}\]
+\end{proof}
+
+\begin{lem}\label{thm:theta-func}
+  Suppose that $F\maps \lD\to\lE$ is a functor and that $f\maps A\to
+  B$ has companions \fhat\ and $\fhat'$ in \lD.  Then
+  $\theta_{F(\fhat),F(\fhat')} = F(\theta_{\fhat,\fhat'})$.
+\end{lem}
+\begin{proof}
+  Using the axioms of a pseudo double functor and the definition of
+  the 2-morphisms in \autoref{thm:comp-func}, we have
+  \begin{equation}
+    F(\theta_{\fhat,\fhat'})
+    =\;
+    \vcenter{\xymatrix@C=3pc{
+        \ar[r]|-@{|}^-{F(\fhat)}
+        \ar[d] \ar@{}[dr]|{\Downarrow F(\eta_{\hat{f}'} \odot\epsilon_{\hat{f}})} &  \ar[d]\\
+        \ar[r]|-@{|}_-{F(\fhat')} &}}
+    \;=\;
+    \vcenter{\xymatrix@C=3pc{
+        \ar[rr]|-@{|}^-{F(\fhat)}
+        \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
+        \ar[r]|-@{|}^-{F(U_{A})} \ar@{=}[d]
+        \ar@{}[dr]|{\Downarrow F(\eta_{\hat{f}'})} &
+        \ar[r]|-@{|}^-{F(\fhat)} \ar[d]|{F(f)}
+        \ar@{}[dr]|{\Downarrow F(\epsilon_{\hat{f}})}
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{F(\fhat')} \ar@{}[drr]|\iso\ar@{=}[d] &
+        \ar[r]|-@{|}_-{U_{F(B)}} & \ar@{=}[d]\\
+        \ar[rr]|-@{|}_-{F(\fhat')} && }}
+    \;=\;
+    \vcenter{\xymatrix@R=1.5pc@C=3pc{
+        \ar[r]|-@{|}^-{U_{F(A)}} \ar@{=}[d] \ar@{}[dr]|\iso &
+        \ar[r]|-@{|}^-{F(\fhat)} \ar@{=}[d] \ar@{}[dr]|=
+        & \ar@{=}[d]\\
+        \ar[r]|-{F(U_{A})} \ar@{=}[d] \ar@{}[dr]|{\Downarrow F(\eta_{\hat{f}'})} &
+        \ar[r]|-{F(\fhat)} \ar[d]|{F(f)} \ar@{}[dr]|{\Downarrow F(\epsilon_{\hat{f}})}
+        & \ar@{=}[d]\\
+        \ar[r]|-{F(\fhat')}  \ar@{=}[d] \ar@{}[dr]|= &
+        \ar[r]|-{F(U_{B})} \ar@{}[dr]|\iso  \ar@{=}[d] & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{F(\fhat')} &
+        \ar[r]|-@{|}_-{U_{F(B)}} &}}
+    \;=
+    \theta_{F(\fhat),\,F(\fhat')}
+  \end{equation}
+  as desired.
+\end{proof}
+
+\begin{lem}\label{thm:theta-ten}
+  Suppose that \lD\ is a monoidal double category, that $f\maps A\to
+  B$ has companions \fhat\ and $\fhat'$, and that $g\maps C\to D$ has
+  companions \ghat\ and $\ghat'$.  Then $\theta_{\fhat,\fhat'} \ten
+  \theta_{\ghat,\ghat'} = \theta_{\fhat\ten \ghat, \fhat'\ten\ghat'}.$
+\end{lem}
+\begin{proof}
+  This follows from \autoref{thm:theta-func} in the same way that
+  \autoref{thm:comp-ten} follows from \autoref{thm:comp-func}.
+%   Using the naturality and functoriality axioms spelled out in
+%   \S\ref{sec:symm-mono-double}, we have
+%   \begin{equation}
+%     \theta_{\fhat,\fhat'} \ten \theta_{\ghat,\ghat'}
+%     =\;
+%     \vcenter{\xymatrix@C=4.5pc{
+%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
+%         \ar[r]|-@{|}^-{(U_A\odot \fhat)\ten(U_C\odot \ghat)}
+%         \ar[d] \ar@{}[dr]|{(\Downarrow\odot\Downarrow)\ten(\Downarrow\odot\Downarrow)} &  \ar[d]\\
+%         \ar[r]|-@{|}_-{(\fhat'\odot U_C) \ten (\ghat'\odot U_D)} \ar@{=}[d] \ar@{}[dr]|\iso &  \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} & }}
+%     \;=\;
+%     \vcenter{\xymatrix@C=2pc{
+%         \ar[rr]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
+%         \ar[rr]|-@{|}^-{(U_A\odot \fhat)\ten(U_C\odot \ghat)}
+%         \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
+%         \ar[r]|-@{|}^-{U_{A}\ten U_C} \ar@{=}[d]
+%         \ar@{}[dr]|{\Downarrow\ten \Downarrow} &
+%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]|{f\ten g}
+%         \ar@{}[dr]|{\Downarrow\ten\Downarrow}
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} \ar@{}[drr]|\iso\ar@{=}[d] &
+%         \ar[r]|-@{|}_-{U_{B\ten D}} & \ar@{=}[d]\\
+%         \ar[rr]|-@{|}_-{(\fhat'\odot U_C) \ten (\ghat'\odot U_D)}
+%         \ar@{=}[d] \ar@{}[drr]|\iso &&  \ar@{=}[d]\\
+%         \ar[rr]|-@{|}_-{\fhat'\ten\ghat'} && }}
+%     \;=\;
+%     \vcenter{\xymatrix@R=1.5pc@C=2.5pc{
+%         \ar[rr]|-@{|}^-{\fhat\ten\ghat} \ar@{}[drr]|\iso \ar@{=}[d] &&
+%         \ar@{=}[d] \\
+%         \ar[r]|-@{|}^-{U_{A\ten C}} \ar@{=}[d] \ar@{}[dr]|\iso &
+%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar@{=}[d] \ar@{}[dr]|=
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}^-{U_{A}\ten U_C} \ar@{=}[d] \ar@{}[dr]|{\Downarrow\ten\Downarrow} &
+%         \ar[r]|-@{|}^-{\fhat\ten\ghat} \ar[d]|{f\ten g} \ar@{}[dr]|{\Downarrow\ten\Downarrow}
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'}  \ar@{=}[d] \ar@{}[dr]|= &
+%         \ar[r]|-@{|}_-{U_{B}\ten U_D} \ar@{}[dr]|\iso  \ar@{=}[d] & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fhat'\ten\ghat'} &
+%         \ar[r]|-@{|}_-{U_{B\ten D}} &\\
+%         \ar[rr]|-@{|}_-{\fhat'\ten\ghat'} \ar@{}[urr]|\iso \ar@{=}[u] &&
+%         \ar@{=}[u]}}
+%     \;=
+%     \theta_{\fhat\ten\ghat}
+%   \end{equation}
+%   as desired.
+\end{proof}
+
+
+\begin{lem}\label{thm:comp-iso}
+  If $f\maps A\to B$ is a vertical isomorphism with a companion \fhat,
+  then \fhat\ is a conjoint of its inverse $f\inv$.
+\end{lem}
+\begin{proof}
+  The composites
+  \[\vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^{\fhat}\ar[d]_f \ar@{}[dr]|{\Downarrow} &
+      \ar@{=}[d]\\
+      \ar[r]|{U_B}\ar[d]_{f\inv} \ar@{}[dr]|{\Downarrow U_{f\inv}} &
+      \ar[d]^{f\inv}\\
+      \ar[r]|-@{|}_{U_A} &
+    }}\quad\text{and}\quad
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^{U_B}\ar[d]_{f\inv} \ar@{}[dr]|{\Downarrow U_{f\inv}} &
+      \ar[d]^{f\inv}\\
+      \ar[r]|{U_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow} &
+      \ar[d]^f\\
+      \ar[r]|-@{|}_{\fhat} &
+    }}
+  \]
+  exhibit \fhat\ as a conjoint of $f\inv$.
+\end{proof}
+
+\begin{lem}\label{thm:compconj-adj}
+  If $f\maps A\to B$ has both a companion \fhat\ and a conjoint \fchk,
+  then we have an adjunction $\fhat\adj\fchk$ in $\cH\lD$.  If $f$ is
+  an isomorphism, then this is an adjoint equivalence.
+\end{lem}
+\begin{proof}
+  The unit and counit of the adjunction $\fhat\adj\fchk$ are the
+  composites
+  \[\vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^{U_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}} &
+      \ar[r]|-@{|}^{U_A}\ar[d]|{f} \ar@{}[dr]|{\Downarrow \eta_{\check{f}}} &
+      \ar@{=}[d]\\
+      \ar[r]|-@{|}_{\fhat} &
+      \ar[r]|-@{|}_{\fchk} &
+    }}\quad\text{and}\quad
+  \vcenter{\xymatrix@-.5pc{
+      \ar[r]|-@{|}^{\fchk}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \epsilon_{\check{f}}} &
+      \ar[r]|-@{|}^{\fhat}\ar[d]|{f} \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}}} &
+      \ar@{=}[d]\\
+      \ar[r]|-@{|}_{U_B} &
+      \ar[r]|-@{|}_{U_B} &
+    }}
+  \]
+%   \[\vcenter{\xymatrix@-.5pc{
+%       \ar[rr]|-@{|}^{U_A}\ar@{=}[d] \ar@{}[drr]|{\iso} &&
+%       \ar@{=}[d]\\
+%       \ar[r]|-@{|}^{U_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow} &
+%       \ar[r]|-@{|}^{U_A}\ar[d]|{f} \ar@{}[dr]|{\Downarrow} &
+%       \ar@{=}[d]\\
+%       \ar[r]|-@{|}_{\fhat} &
+%       \ar[r]|-@{|}_{\fchk} &
+%     }}\quad\text{and}\quad
+%   \vcenter{\xymatrix@-.5pc{
+%       \ar[r]|-@{|}^{\fchk}\ar@{=}[d] \ar@{}[dr]|{\Downarrow} &
+%       \ar[r]|-@{|}^{\fhat}\ar[d]|{f} \ar@{}[dr]|{\Downarrow} &
+%       \ar@{=}[d]\\
+%       \ar[r]|-@{|}_{U_B}\ar@{=}[d] \ar@{}[drr]|{\iso} &
+%       \ar[r]|-@{|}_{U_B} &
+%       \ar@{=}[d]\\
+%       \ar[rr]|-@{|}_{U_B} &&.
+%     }}
+%   \]
+  The triangle identities follow from~\eqref{eq:compeqn}.  If $f$ is
+  an isomorphism, then by the dual of \autoref{thm:comp-iso}, \fchk\
+  is a companion of $f\inv$.  But then by \autoref{thm:comp-compose}
+  $\fchk\odot \fhat$ is a companion of $1_A=f\inv \circ f$ and
+  $\fhat\odot\fchk$ is a companion of $1_B = f\circ f\inv$, and hence
+  \fhat\ and \fchk\ are equivalences.  We can then check that in this
+  case the above unit and counit actually are the isomorphisms
+  $\theta$, or appeal to the general fact that any adjunction
+  involving an equivalence is an adjoint equivalence.
+\end{proof}
+
+To conclude this section, we combine some of the Lemma's above to derive a more general statement which will play a central role in section ~\ref{sec:constr-symm-mono}.
+
+\begin{lem}\label{lem:equal}
+Any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells are equal.
+\end{lem}
+
+\begin{proof}
+By Lemma's ~\ref{thm:theta-compose-vert} and ~\ref{thm:theta-compose-horiz}, $\theta$-isomorphisms are closed under composition. By uniqueness of $\theta$-isomorphisms, any two compositions of $\theta$-isomorphisms that have the same source and target horizontal 1-cells must be equal.
+\end{proof}
+
+\begin{lem}\label{lem:FUtheta}
+Suppose $F:\lD \rightarrow \lE$ is a functor of double categories. The 2-cell $F_U$ is equal to $\theta_{id_{FA}, Fid_A}$
+\end{lem}
+
+\begin{proof}
+We show that equation ~\ref{eq:comp-iso} holds when we substitute $\theta_{id_{FA}, Fid_A}$ by $\hat{F}_U$.  Unfolding the definitions of $\eta_{U_{FA}}$, $\epsilon_{FU_A}$, and $\hat{F}_U$, and applying functoriality of $F$, we obtain an expression that can be rewritten to $U_{id_{FA}}$. It follows that $F_U$ is a $\theta$-isomorphism, by the uniqueness of $\theta s$ in this expression.
+\end{proof}
+
+
+\begin{rmk}
+  In the following section we actually only require our double
+  categories to have companions and conjoints for vertical
+  \emph{isomorphisms}; we may call a double category with this
+  property \textbf{isofibrant}.  Note that by \autoref{thm:comp-iso},
+  having companions for all isomorphisms implies having conjoints for
+  all isomorphisms.  However, most examples we are interested in have
+  all companions and conjoints. We will need these to lift monoidal structures in section ~\ref{sec:constr-symm-mono}. Besides that, these are useful for other
+  purposes as well; see~\cite{shulman:frbi}.  Moreover, if we are
+  given a double category in which only vertical isomorphisms have
+  companions, we can still apply our theorems to it as written, simply
+  by first discarding all noninvertible vertical 1-morphisms.
+\end{rmk}
