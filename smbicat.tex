@@ -1,5 +1,6 @@
 %
 \documentclass{amsart}
+\usepackage{tikz}
 \input{decls}
 
 \UseAllTwocells
@@ -25,16 +26,30 @@
 \mdef\D{\mathbb{D}}
 \mdef\E{\mathbb{E}}
 \newcommand{\Alg}{\mathbb{A}\mathit{lg}}
-\newcommand{\tens}{\boxtimes}
+\newcommand{\tens}{\otimes}
 \newcommand{\ver}{\cdot}
 \newcommand{\hor}{\circ}
+\newcommand{\verc}{\circ}
+\newcommand{\horc}{\odot}
+\newcommand{\comp}{\cdot}
+
+\newcommand{\hora}{a^{\horc}}
+\newcommand{\horr}{r^{\horc}}
+\newcommand{\horl}{l^{\horc}}
+\newcommand{\compa}{a^{\comp}}
+\newcommand{\compr}{r^{\comp}}
+\newcommand{\compl}{l^{\comp}}
+\newcommand{\compI}{I_{\comp}}
+
 
 \newcounter{mondbl}             % For restarting enums manually
 
 %\includeonly{}
 
-\begin{document}
 
+
+\begin{document}
+\pgfversion
 \begin{abstract}
   We present a method of constructing symmetric monoidal bicategories
   from symmetric monoidal double categories that satisfy a lifting

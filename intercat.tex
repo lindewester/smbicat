@@ -7,6 +7,82 @@ We now show that this menagerie can be reduced to only \emph{four} functors (acc
 One dimension down, the relevant structure is a \emph{strict} double category, with lax and colax morphisms as its horizontal and vertical arrows; see e.g.~\cite{gp:double-adjoints,shulman:dblderived}.
 In our categorified case, we will use the \emph{intercategories} of~\cite{gp:intercategories-i,gp:intercategories-ii}.
 
+[Give definition of intergategories]
+
+[Insert picture]
+
+Any locally cubical bicategory $\cB$ forms an intercategory, as shown in [reference]. The horizontal and vertical arrows are the 1-cells of $\cB$, transversal arrows are identities; horizontal and vertical cells are the vertical 2-cells of $\cB$, basic cells are the horizontal 2-cells of $\cB$ and the 3-dimensional cubes are the 3-cells of $\cB$, between the compositions of a vertical and horizontal arrow and between the compositions of a vertical and horizontal cell. [example from picture]
+
+We will show that we can construct a new intercategory with the monoidal objects and cells defined in section \ref{sec:mono-objects}, that captures lax and colax monoidal cells. In order for this to work, we need to define (horizontal) 2-cells between composites of lax and colax 2-cells.
+
+\begin{defn}
+Let $A,B,C,D$ be monoidal objects in a locally cubical bicategory $\cB$; let $A \xrightarrow{f} B$, $C \xrightarrow{k}$ be lax monoidal 1-cells; and let $A \xrightarrow{g} C$, $B \xrightarrow{h} D$ be oplax monoidal 1-cells.
+We define a {\bf quintet monoidal 2-cel} to be a monoidal 2-cell $\alpha: f \odot h \Rightarrow g \odot k$, together with invertible coherence  3-cells $H, K$
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[scale=2]
+\node (t) at (0,3){$h \odot \otimes \odot (f,f)$};
+\node (tl) at (-1,2){$f \odot f \odot \otimes$};
+\node (bl) at (-1,1){$k \odot g \odot \otimes$};
+\node (b) at (0,0){$k \odot \otimes \odot (g,g)$};
+\node (br) at (1,1){$\otimes \odot (k,k) \odot (g,g)$};
+\node (tr) at (1,2){$\otimes \odot (h,h) \odot (f,f)$};
+\draw[darrow] (t) to node[left]{$\id_h \odot \chi_f$} (tl);
+\draw[darrow] (tl) to node[left]{$\alpha$} (bl);
+\draw[darrow] (bl) to node[left]{$\id_k \odot \chi_g$} (b);
+\draw[darrow] (t) to node[right]{$\chi_h \odot \id_{(f,f)}$} (tr);
+\draw[darrow] (tr) to node[right]{$\alpha \otimes \alpha$} (br);
+\draw[darrow] (br) to node [right]{$\chi_k \odot \id_{(g,g)}$}(b);
+\node at (0,1.5){$\Downarrow H^{\alpha}$};
+\end{tikzpicture}
+\end{aligned}
+\hspace{0.5cm}
+\begin{aligned}
+\begin{tikzpicture}[scale=2]
+\node (t) at (0,3){$h \odot I$};
+\node (tl) at (-1,2){$h \odot f \odot I$};
+\node (bl) at (-1,1){$k \odot g \odot I$};
+\node (b) at (0,0){$k \odot I$};
+\node (br) at (1,1){$I$};
+\node (tr) at (1,2){$I$};
+\draw[darrow] (t) to node[left]{$\id_h \odot \iota_f$} (tl);
+\draw[darrow] (tl) to node[left]{$\alpha \odot \id_I$} (bl);
+\draw[darrow] (bl) to node[left]{$\id_k \odot \iota_g^{-1}$} (b);
+\draw[darrow] (t) to node[right]{$\iota_h^{-1}$} (tr);
+\draw[doubleeq] (tr) to (br);
+\draw[darrow] (br) to node [right]{$\iota_k$}(b);
+\node at (0,1.5){$\Downarrow K^{\alpha}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+The 3-cells $H,K$ need to satisfy the following three equations:
+
+[I will add these later, when I am sure they are not wrong]
+
+\end{defn} 
+\begin{thm}
+Let $\cB$ be a locally cubical bicategory with products. There exist intercategories $\cM on\cI$, $\cB r\cI$, and $\cS ym\cI$ of the monoidal, braided and symmetric objects and cells of $\cB$. The intercategory $Mon\cI$ has the following structure:
+\begin{itemize}
+\item objects are the monoidal objects 
+\item horizontal arrows are the lax 1-cells
+\item vertical arrows are the oplax 1-cells
+\item transversal arrows are identities
+\item horizontal cells are the lax icons
+\item vertical cells are the oplax icons
+\item basic cells are the quintet monoidal 2-cells
+\item 3-dimensional cubes are the monoidal 3-cells
+\end{itemize}
+The intercategories $\cB r\cI$ and $\cS ym\cI$ are defined analogously, for braided and symmetric monoidal objects and cells of $\cB$
+\end{thm}
+
+[Do we need conditions on the monoidal 3-cells?]
+\begin{proof}
+By Theorem {thm:lcbc} we know that the arrows in the horizontal and transversal direction between two given objects form a week bicategory, and so do the arrows in the vertical and transversal direction.
+What we need to prove is that the arrows in the lax and oplax cells are related by interchangers.
+\end{proof}
+
+
 
 % Local Variables:
 % TeX-master: "smbicat"
