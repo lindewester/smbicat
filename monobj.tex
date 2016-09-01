@@ -2,7 +2,7 @@
 \label{sec:mono-objects}
 
 We now move on to define an appropriate abstract sort of ``monoidal object'' that will be preserved by the product-preserving functor $\cH$, and that specializes to monoidal double categories and to monoidal bicategories.
-It would be nice if we could stay entirely in the world of iconic tricategories (that is, \Icon-enriched bicategories); but unfortunately the usual composition of monoidal functors between monoidal bicategories is not strictly associative, so they do not form an iconic tricategory.
+It would be nice if we could stay entirely in the world of iconic tricategorixes (that is, \Icon-enriched bicategories); but unfortunately the usual composition of monoidal functors between monoidal bicategories is not strictly associative, so they do not form an iconic tricategory.
 
 However, they do form a more general structure, namely a bicategory enriched over \cDbl; in~\cite{gg:ldstr-tricat} this is called a \textbf{locally cubical bicategory}.
 Since any bicategory can be regarded as a double category with only identity 1-morphisms, any iconic tricategory can be regarded as a locally cubical bicategory, but the latter are more general.
@@ -111,14 +111,21 @@ When the natural transformations are in the opposite direction, the functor is {
 Let $f, g:A \rightarrow B$ be lax monoidal 1-cells in \fB. A {\bf lax monoidal 2-cell} $\alpha: f \xslashedRightarrow{} g$ is a horizontal 2-cell in \fB\ that is equipped with globular 3-cells
 \begin{itemize}
 \item $\Pi: \chi_f \horc (\alpha \comp U_{\ten}) \xslashedRightarrow{} U_{\ten}(\alpha \times \alpha) \horc \chi_g$
-\item $M: \iota_f \horc (\alpha \comp U_{\ten}) \xslashedRightarrow{} \iota_g$
+\item $M: \iota_f \horc (\alpha \comp U_{\ten}) \xslashedRightarrow{} U_{I_A} \horc \iota_g$
 \end{itemize}
 
-Such that coherence equations analogous to (IA1)-(IA3) of~\cite{gg:ldstr-tricat} hold.
-An {\bf oplax monoidal 2-cell} between oplax monoidal 1-cells, is a 2-cell with the same data, but with the arrows in the opposite direction. If $g,f$ are strong monoidal and $\Pi, M$ are isomorphisms, we call $\alpha$ a {\bf strong monoidal 2-cell}.
-such that the three coherence axioms in definition 3 of~\cite{gg:ldstr-tricat} hold.
-A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or symmetric, and in addition the coherence axiom analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} holds. Note that here the author writes $\rho$ for our braiding 1-cell $\sigma$.
+Let $f, g:A \rightarrow B$ be oplax monoidal 1-cells in \fB. An {\bf oplax monoidal 2-cell} $\alpha: f \xslashedRightarrow{} g$ is a horizontal 2-cell in \fB\ that is equipped with globular 3-cells
+\begin{itemize}
+\item $\Pi': \chi_f \horc U_{\ten}(\alpha \times \alpha)  \xslashedRightarrow{} (\alpha \comp U_{\ten}) \horc \chi_g $
+\item $M':   U_{f I_A} \horc \iota_g \xslashedRightarrow{} (\alpha \comp U_{\ten}) \horc \iota_g $
+\end{itemize}
 \end{defn}
+
+Such that coherence equations analogous to (IA1)-(IA3) of~\cite{gg:ldstr-tricat} hold.
+If $g,f$ are strong monoidal, we call $\alpha$ a {\bf strong monoidal 2-cell} when it is equiped with $M, \Pi, M '$ and $\Pi '$. 
+
+A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or symmetric, and in addition the coherence axiom analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} holds. Note that here the author writes $\rho$ for our braiding 1-cell $\sigma$.
+
 
 As remarked above, we will actually construct a locally cubical bicategory of monoidal objects.
 The monoidal 2-cells will be the horizontal 2-cells therein; we now define the vertical 2-morphisms.
@@ -137,7 +144,7 @@ The monoidal 2-cells will be the horizontal 2-cells therein; we now define the v
  \draw[doubleeq] (tl) to (bl);
  \draw[doubletick] (bl) to node[below] {$\iota_g$}(br);
   \draw[darrow] (tr) to node[right] {$\alpha \comp \id_I$}(br);
- \node at (0.5,0.5) {\footnotesize $\DDownarrow M^{\alpha}$}; 
+ \node at (0.5,0.5) {\footnotesize $\DDownarrow N^{\alpha}$}; 
  \end{tikzpicture}
  \end{aligned}
  \hspace{.5cm}
@@ -151,13 +158,13 @@ The monoidal 2-cells will be the horizontal 2-cells therein; we now define the v
  \draw[darrow] (tl) to node[left]{$\id_{\ten} (\alpha \times \alpha)$} (bl);
  \draw[doubletick] (bl) to node[below] {$\chi_g$}(br);
   \draw[darrow] (tr) to node[right] {$\alpha \comp \id_{\ten}$}(br);
- \node at (0.5,0.5) {\footnotesize $\DDownarrow \Pi^{\alpha}$}; 
+ \node at (0.5,0.5) {\footnotesize $\DDownarrow \Sigma^{\alpha}$}; 
  \end{tikzpicture}
 \end{aligned}
 \end{equation}
 
 such that the coherence axioms (TA2), (TA3), and (TA4) analogous to definition 2 of~\cite{gg:ldstr-tricat} hold.
-An {\bf oplax monoidal icon} between oplax monoidal 1-cells, is a 2-cell with the same data. If $g,f$ are strong monoidal and $\Pi, M$ are isomorphisms, we call $\alpha$ a {\bf strong monoidal icon}.
+An {\bf oplax monoidal icon} between oplax monoidal 1-cells, is a 2-cell with the same data. If $g,f$ are strong monoidal and $\Sigma, N$ are isomorphisms, the two notions are the same (?) and we call $\alpha$ a {\bf strong monoidal icon}(?).
 A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or symmetric, and in addition the coherence axiom analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} holds. Note that here the author writes $\rho$ for our braiding 1-cell $\sigma$.
 \end{defn}
 
@@ -197,10 +204,10 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
  \draw[doubletick] (tl)  to node[above]{$\iota_f$} (tm);
  \draw[doubleeq] (tl) to (bl);
  \draw[doubletick] (bl) to node[above]{$\iota_{f'}$}(bm);
- \node at (-0.5,.5) {\footnotesize $\DDownarrow M^{\gamma}$};
+ \node at (-0.5,.5) {\footnotesize $\DDownarrow N^{\gamma}$};
 \node (bl1) at (-1,-.7){$I_B$};  
  \node (bm1) at (0,-.7) {$I_B$};
-  \node (br1) at (1,-.7) {$I_B$}; 
+  \node (br1) at (1,-.7) {$g' I_A$}; 
  \draw[doubletick] (bl1)  to node[above]{$U_{I}$} (bm1);
  \draw[doubletick] (bm1) to  node[above]{$\iota_{g'}$}(br1);
   \draw[doubleeq] (bl)  to (bl1);
@@ -233,7 +240,7 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
  \draw[darrow] (mr) to  node[right]{$\delta \comp \id_I$}(br);
  \draw[doubleeq] (tr) to (mr);
   \draw[doubleeq] (tl) to (ml);
- \node at (1.5,.5) {\footnotesize $\DDownarrow M^{\delta}$}; 
+ \node at (1.5,.5) {\footnotesize $\DDownarrow N^{\delta}$}; 
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
@@ -255,7 +262,7 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
  \draw[doubletick] (tl)  to node[above]{$\chi^f$} (tm);
  \draw[darrow] (tl) to node[left]{$\id_{\ten} (\gamma \times \gamma)$} (ml);
  \draw[doubletick] (ml) to node[above]{$\chi^{f'}$}(mm);
- \node at (-0.5,0.5) {\footnotesize $\DDownarrow \Pi^{\gamma}$};
+ \node at (-0.5,0.5) {\footnotesize $\DDownarrow \Sigma^{\gamma}$};
  \node (bl) at (-1,-.7) {$\ten (f'\times f')$};
   \node (bm) at (0,-.7) {$\ten (g'\times g')$};
   \node (br) at (1,-.7) {$g' \ten$};
@@ -291,11 +298,10 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
  \draw[darrow] (mr) to  node[right]{$\delta \comp \id_{\ten}$}(br);
  \draw[doubleeq] (tr) to (mr);
   \draw[doubleeq] (tl) to (ml);
- \node at (1.5,.5) {\footnotesize $\DDownarrow \Pi^{\delta}$}; 
+ \node at (1.5,.5) {\footnotesize $\DDownarrow \Sigma^{\delta}$}; 
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
- 
 \end{defn}
 
 \begin{prop}\label{prop:dc}
@@ -304,12 +310,56 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
 
 \begin{proof}
 The first step of this proof is to show that lax monoidal 1-cells and icons form a category. 
-For each monoidal 1-cell $f:A \rightarrow B$, the identity on $f$ is given by the identity 2-cell $\id_f$, together with the following 3-cells $M^{\id_f} := \id_{\iota_f}$ and $\Pi^{\id_f} := \id_{\chi_f}$. This is well-defined, because the functor "$\comp$" preserves identities. The conditions for monoidal 3-cells are trivially satisfied.  For each two monoidal 1-cells $f,g$ and monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite vertical 2-cell $\beta \circ \alpha$ can be equiped with the monoidal structure given by the composites $M^{\beta \circ \alpha} := M^{\beta} \circ M^{\alpha}$ and $\Pi^{\beta\circ \alpha} : = \Pi^{\beta} \circ \Pi^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, so these 3-cells are well-defined. The coherence conditions (TA1)-(TA4) hold by componentwise application of the coherence equalities for $M^{\beta \verc \alpha}$ and $\Pi^{\beta \verc \alpha}$. The same argument holds for oplax and strong monoidal 1-cells and icons.
+For each monoidal 1-cell $f:A \rightarrow B$, the identity vertical 2-cell $\id_f$ is a monoidal icon with the 3-cells $N^{\id_f} := \id_{\iota_f}$ and $\Sigma^{\id_f} := \id_{\chi_f}$. This is well-defined, because the functor "$\comp$" preserves identities. The conditions for monoidal 3-cells are trivially satisfied.  For each two monoidal 1-cells $f,g$ and monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite vertical 2-cell $\beta \circ \alpha$ can be equiped with the monoidal structure given by the composites $N^{\beta \circ \alpha} := N^{\beta} \circ N^{\alpha}$ and $\Sigma^{\beta\circ \alpha} : = \Sigma^{\beta} \circ \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions (TA1)-(TA4) hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for oplax monoidal 1-cells and icons.
 
-In addition, we need that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \xslashedRightarrow{} g$, the identity 3-cell $\id_{\alpha}$ in $\cB$  is monoidal, since the required two equations are again trivially satisfied.
-For any two monoidal 3-cells $N: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \circ N$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $N$ and $K$. The same is true for oplax and strong monoidal 2-cells.
+In addition, we need to show that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \xslashedRightarrow{} g$, the identity 3-cell $\id_{\alpha}$ in $\cB$  is monoidal, since the required two equations are trivially satisfied.
+For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \circ L$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $L$ and $K$. The same is true for oplax monoidal 2-cells, and hence for strong monoidal 2-cells.
 
 Now we describe the horizontal structure.
+Let $f$ be a lax monoidal 1-cell. The horizontal identity 2-cell $U_f$ is a monoidal 2-cell with monoidal structure given below. 
+
+\begin{equation}
+M^{U_f}:=
+\begin{aligned}
+ \begin{tikzpicture}[yscale=1.5, xscale=3]
+ \node (tl) at (0,1) {$I_B$};
+\node (tr) at (1,1) {$f   I_A$};
+ \node (tm) at (.5,1) {$f  I_A$};
+ \node (bl) at (0,0) {$I_B$};
+ \node (bm) at (.5,0) {$I_B$};
+ \node (br) at (1,0) {$f I_A$}; 
+ \draw[doubletick] (tl)  to node[above]{$\iota_f$} (tm);
+  \draw[doubletick] (tm)  to node[above]{$U_f$} (tr);
+ \draw[doubleeq] (tl) to (bl);
+  \draw[doubletick] (bl) to node[below] {$U_I$}(bm);
+ \draw[doubletick] (bm) to node[below] {$\iota_f$}(br);
+  \draw[darrow] (tr) to node[right] {$\id_f \comp \id_{I}$}(br);
+ \node at (0.5,0.5) {\footnotesize ${\horl_{\iota_f}}^{-1}\horr_{\iota_f} \DDownarrow \iso $}; 
+ \end{tikzpicture}
+ \end{aligned}
+ \hspace{.5cm}
+ \Pi^{U_f}:=
+ \begin{aligned}
+  \begin{tikzpicture}[yscale=1.5, xscale=5]
+ \node (tl) at (0,1) {$\ten  (f \times f)$};
+ \node (tr) at (1,1) {$f  \ten$};
+ \node (bl) at (0,0) {$\ten  (f \times f)$};
+ \node (br) at (01,0) {$f \ten$}; 
+ \node(tm) at (.5,1) {$f \ten$};
+ \node (bm) at (.5,0) {$\ten (f\times f)$};
+ \draw[doubletick] (tl)  to node[above]{$\chi_f $} (tm);
+  \draw[doubletick] (tm)  to node[above]{$U_{f \comp \ten}$} (tr);
+ \draw[darrow] (tl) to node[left]{$\id_{\ten} (\id_f \times \id_f)$} (bl);
+  \draw[doubletick] (bl) to node[below] {$U_{\ten(f \times f)}$}(bm);
+ \draw[doubletick] (bm) to node[below] {$\chi_f$}(br);
+  \draw[darrow] (tr) to node[right] {$\alpha \comp U_{\ten}$}(br);
+ \node at (0.5,0.5) {\footnotesize ${\horl}^{-1}_{\chi_f} \verc \horr_{\chi_f}\DDownarrow \iso$}; 
+ \end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+For every monoidal icon $\gamma$, the horizontal identity 3-cell $U_f$ is a monoidal 3-cell. The conditions for monoidal 3-cells follow from the naturality conditions of $\horl$ and $\horr$. 
+
 Let $\alpha:f \xslashedRightarrow{} g$ and $\beta: g \xslashedRightarrow{} h$ be two monoidal 2-cells. Their composition $\alpha \horc \beta$ is monoidal with the following structure 3-cells.
 
 \begin{equation}
@@ -320,26 +370,36 @@ M^{\alpha \horc \beta} :=
 \node (tr) at (1,1) {$g   I_A$};
  \node (tm) at (.5,1) {$f  I_A$};
  \node (bl) at (0,0) {$I_B$};
+ \node (bm) at (0.5,0) {$I_B$};
  \node (br) at (1,0) {$g I_A$}; 
  \node (trr) at (1.5,1) {$h I_A$};
  \node (brr) at (1.5,0) {$h I_A$};
  \node (bbr) at (1.5,-1) {$hI_A$};
+  \node (bbm1) at (.5,-1) {$I_B$};
+ \node (bbm) at (1,-1) {$I_B$};
  \node(bbl) at (0,-1) {$I_B$};
-    \draw[darrow] (tm) to[in=120, out=60] node[above]{$(\alpha \horc \beta)\comp U_{I}$} (trr);
+    \draw[doubletick] (tm) to[in=120, out=60] node[above]{$(\alpha \horc \beta)\comp U_{I}$} (trr);
  \draw[darrow] (brr) to node[right] {} (bbr);
  \draw[doubleeq] (bl) to (bbl);
- \draw[darrow] (bbl) to node [above]{$\iota^{h}$} (bbr);
- \draw[darrow] (tr) to node[above]{$\beta \comp U_I$} (trr);
-  \draw[darrow] (br) to node[above]{$\beta \comp U_I$}(brr);
+  \draw[doubletick] (bbl) to node [above]{$U_{I}$} (bbm1);
+    \draw[doubletick] (bbm1) to node [above]{$U_{I}$} (bbm);
+ \draw[doubletick] (bbm) to node [above]{$\iota_{h}$} (bbr);
+ \draw[doubletick] (tr) to node[above]{$\beta \comp U_I$} (trr);
+  \draw[doubletick] (br) to node[above]{$\beta \comp U_I$}(brr);
   \draw[doubleeq] (trr) to (brr);
  \draw[doubletick] (tl)  to node[above]{$\iota_f$} (tm);
   \draw[doubletick] (tm)  to node[above]{$\alpha \comp U_I$} (tr);
  \draw[doubleeq] (tl) to (bl);
- \draw[doubletick] (bl) to node[below] {$\iota_g$}(br);
+  \draw[doubletick] (bl) to node[below] {$U_I$}(bm);
+ \draw[doubletick] (bm) to node[below] {$\iota_g$}(br);
+ \draw[doubletick] (bbl) to[in=220, out=-60] node[below]{$U_I$} (bbm);
   \draw[doubleeq] (tr) to (br);
+   \draw[doubleeq] (bm) to (bbm1);
  \node at (0.5,0.5) {\footnotesize $M^{\alpha} \DDownarrow \iso $}; 
-  \node at (0.75,-.5) {\footnotesize $M^{\beta} \DDownarrow \iso $}; 
-   \node at (1.25,.5) {\footnotesize $=$}; 
+  \node at (1,-.5) {\footnotesize $M^{\beta} \DDownarrow \iso $}; 
+ \node at (1.25,.5) {\footnotesize $=$}; 
+ \node at (1,1.25) {$\iso$};
+ \node at (0.5,-1.25) {$\iso$};
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
@@ -366,16 +426,16 @@ M^{\alpha \horc \beta} :=
  \draw[doubletick] (bm) to node[below] {$\chi_g$}(br);
   \draw[doubleeq] (tr) to (br); 
  \draw[doubleeq] (trr) to (brr);
- \draw (tr) to node[above]{$\beta \comp U_{\ten}$} (trr);
- \draw (br) to node[above]{$\beta \comp U_{\ten}$} (brr);
- \draw (bbr) to node[above]{$\chi_h$} (bbrr);
+ \draw[doubletick] (tr) to node[above]{$\beta \comp U_{\ten}$} (trr);
+ \draw[doubletick] (br) to node[above]{$\beta \comp U_{\ten}$} (brr);
+ \draw[doubletick] (bbr) to node[above]{$\chi_h$} (bbrr);
  \draw[doubleeq] (bl) to (bbl);
  \draw[doubleeq] (bm) to (bbm);
  \draw[doubleeq] (brr) to (bbrr);
- \draw (bbl) to node[above]{$U_{\ten}\comp (\alpha \times \alpha)$} (bbm);
-  \draw (bbm) to node[above]{$U_{\ten}\comp (\beta \times \beta)$} (bbr);
-   \draw[darrow] (tm) to[in=120, out=60] node[above]{$(\alpha \horc \beta)\comp U_{\ten}$} (trr);
-   \draw[darrow] (bbl) to[in=220, out=-60] node[below]{$U_{\ten} \comp (\alpha \horc \beta)\times (\alpha \horc \beta)$} (bbr);
+ \draw[doubletick] (bbl) to node[above]{$U_{\ten}\comp (\alpha \times \alpha)$} (bbm);
+  \draw[doubletick] (bbm) to node[above]{$U_{\ten}\comp (\beta \times \beta)$} (bbr);
+   \draw[doubletick] (tm) to[in=120, out=60] node[above]{$(\alpha \horc \beta)\comp U_{\ten}$} (trr);
+   \draw[doubletick] (bbl) to[in=220, out=-60] node[below]{$U_{\ten} \comp (\alpha \horc \beta)\times (\alpha \horc \beta)$} (bbr);
     \node at (0.5,0.5) {\footnotesize $\DDownarrow \iso \Pi^{\alpha}$};
   \node at (1.25,0.5) {\footnotesize $=$};
   \node at (0.25,-.5) {\footnotesize $=$};
@@ -386,59 +446,15 @@ M^{\alpha \horc \beta} :=
 \end{aligned}
 \end{equation}
 
-The first condition of monoidal 3-cells is trivial for $M^{\alpha \horc \beta}$ and the second is obtained by applying the second condition for $M^{\alpha}$, after applying the second condition for $M^{\beta}$. The conditions for monoidal 3-cells are obtained by applying the interchange law between $\horc$ and $\comp$, followed by sequential application of the corresponding condition for $\Pi^{\beta}$ and $\Pi^{\alpha}$. 
-The coherence equations are satisfied by sequential application of the respective equation for $\alpha$ and $\beta$.
 
-Let $\Gamma$ and $\Delta$ be 3 monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again monoidal. The conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$. 
+The coherence equations are satisfied by sequential application of the respective equation for $\alpha$ and $\beta$, applications ofthe exchange law between horizontal and vertical composition, together with simple manipulations with coherence cells.
 
+Let $\Gamma$ and $\Delta$ be 3 monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again monoidal. The conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$, and applications of the exchange law between horizontal and vertical composition. 
 
-For each lax monoidal 1-cell $f$ the horizontal identity 2-cell $U_f$ is a monoidal 2-cell with monoidal structure given below. The first condition for the monoidal structure of these 3-cells holds as the right-hand-side corresponds to $M^{\iota_f \horc U_f}$, and $M^{\iota_f \horc U_f}$, respectively, and the left-hand-side is the composition of $M^{\iota}$ and $M^{U_f}$, $\Pi^{\iota}$ and $\Pi^{U_f}$  that define these cells.  The second condition for $M^{U_f}$ and  $\Pi^{U_f}$ assert that $\Pi^{\iota_f}$ and $\Pi^{\chi_f}$ pasted together with coherence 3-cells $\horl$ and $\horr$ is equal to itself. (????)
-The coherence diagrams hold naturally, as they all assert some 3-cell pasted together with coherence cells to be equal to itself.
-
-\begin{equation}
-M^{U_f}:=
-\begin{aligned}
- \begin{tikzpicture}[yscale=1.5, xscale=3]
- \node (tl) at (0,1) {$I_B$};
-\node (tr) at (1,1) {$f   I_A$};
- \node (tm) at (.5,1) {$f  I_A$};
- \node (bl) at (0,0) {$I_B$};
- \node (br) at (01,0) {$f I_A$}; 
- \draw[doubletick] (tl)  to node[above]{$\iota_f$} (tm);
-  \draw[doubletick] (tm)  to node[above]{$U_f$} (tr);
- \draw[doubleeq] (tl) to (bl);
- \draw[doubletick] (bl) to node[below] {$\iota_f$}(br);
-  \draw[darrow] (tr) to node[right] {$\id_f \comp \id_{I}$}(br);
- \node at (0.5,0.5) {\footnotesize $\horr_{\iota_f} \DDownarrow \iso $}; 
- \end{tikzpicture}
- \end{aligned}
- \hspace{.5cm}
- \Pi^{U_f}:=
- \begin{aligned}
-  \begin{tikzpicture}[yscale=1.5, xscale=5]
- \node (tl) at (0,1) {$\ten  (f \times f)$};
- \node (tr) at (1,1) {$f  \ten$};
- \node (bl) at (0,0) {$\ten  (f \times f)$};
- \node (br) at (01,0) {$f \ten$}; 
- \node(tm) at (.5,1) {$f \ten$};
- \node (bm) at (.5,0) {$\ten (f\times f)$};
- \draw[doubletick] (tl)  to node[above]{$\chi_f $} (tm);
-  \draw[doubletick] (tm)  to node[above]{$U_{f \comp \ten}$} (tr);
- \draw[darrow] (tl) to node[left]{$\id_{\ten} (\id_f \times \id_f)$} (bl);
-  \draw[doubletick] (bl) to node[below] {$U_{\ten(f \times f)}$}(bm);
- \draw[doubletick] (bm) to node[below] {$\chi_f$}(br);
-  \draw[darrow] (tr) to node[right] {$\alpha \comp U_{\ten}$}(br);
- \node at (0.5,0.5) {\footnotesize ${\horl}^{-1}_{\chi_f} \verc \horr_{\chi_f}\DDownarrow \iso$}; 
- \end{tikzpicture}
-\end{aligned}
-\end{equation}
-
-For every monoidal icon $\gamma$, the horizontal identity 3-cell $U_f$ is a monoidal 3-cell. The conditions for monoidal 3-cells follow from the naturality conditions or $\horl$ and $\horr$. 
-
-Functoriality of the horizontal composition functor $\horc$ holds, as it holds in $\cB$.
 To finish the first part of this proof, we need to verify that the unitality and associativity constraints $\hora$, $\horl$, and $\horr$ are monoidal 3-cells.
-For $r$ this is exactly the same argument as we gave for $M^{U_f}$, for $\horl$ the proof is similar, but also makes use of the triangle equation. For $\hora$, there are more steps, but essentially it follows from coherence of the functor $\horc$.
 
+The conditions for monoidal 3-cells amount to 3-cells pasted together with coherence cells are equal to themselves, they follow from coherence of the functor $\horc$.
+[TO DO: oplax/ strong/ braiding/ symmetry]
 \end{proof}
 
 \begin{thm}\label{thm:lcbc}
@@ -477,7 +493,8 @@ M^{\beta \comp \alpha} :=
 \node (mrm) at (1,0) {$i I_B$};
 \node (mr) at (1.5,0) {$i h I_A$};
  \node(bl) at (0,-1) {$I_C$};
-  \node(bm) at (1,-1) {$i I_B$};
+   \node(blm) at (.5,-1) {$I_C$};
+  \node(brm) at (1,-1) {$i I_B$};
  \node (br) at (1.5,-1) {$i h I_A$};
  \draw[doubletick] (tl)  to node[above]{$\iota_g$} (tlm);
   \draw[doubletick] (tlm)  to node[above]{$U_g \iota_f$} (trm);
@@ -485,9 +502,9 @@ M^{\beta \comp \alpha} :=
   \draw[doubletick] (ml) to node[above]{$\iota_g$}(mlm);
   \draw[doubletick] (mlm) to node[above]{$\beta \comp U_I$}(mrm);
   \draw[doubletick] (mrm) to node[above]{$U_i \iota_h$}(mr);
-   \draw[doubletick] (bl) to node[above]{$\iota_i$}(bm);
-      \draw[doubletick] (bl) to node [above]{$\iota_{i}$} (bm);
-  \draw[doubletick] (bm) to node[above]{$U_i \iota_h$}(br);
+   \draw[doubletick] (bl) to node[above]{$U_I$}(blm);  
+   \draw[doubletick] (blm) to node[above]{$\iota_i$}(brm);
+  \draw[doubletick] (brm) to node[above]{$U_i \iota_h$}(br);
   \draw[doubleeq] (tl) to (ml);
     \draw[doubleeq] (tlm) to (mlm);
   \draw[doubleeq] (ml) to (bl);
@@ -545,7 +562,7 @@ M^{\beta \comp \alpha} :=
 Let $f,h: A \rightarrow B $ and $g,i: B \rightarrow C$ be lax monoidal 1-cells and let $\alpha: f \rightarrow h$, $\beta: g \rightarrow i$ be lax monoidal icons, the composite $\beta \comp \alpha$ is lax monoidal with the following structure 3-cells
 
 \begin{equation}
-M^{\beta \comp \alpha} := 
+N^{\beta \comp \alpha} := 
 \begin{aligned}
  \begin{tikzpicture}[yscale=1.5, xscale=6]
  \node (tl) at (0,1) {$I_C$};
@@ -569,7 +586,7 @@ M^{\beta \comp \alpha} :=
 
 
 \begin{equation}
-\Pi^{\beta \comp \alpha} := 
+\Sigma^{\beta \comp \alpha} := 
 \begin{aligned}
  \begin{tikzpicture}[yscale=1.5, xscale=8]
  \node (tl) at (0,1) {$\ten (g \times g) (f \times f)$};
@@ -590,9 +607,10 @@ M^{\beta \comp \alpha} :=
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
-\end{proof}
 
-Let $\Gamma$ and $\Delta$ be two composable monoidal 3-cells. IT is easy to see that the composition $\Gamma \comp \Delta$ satisfies the two equations for monoidal 3-cells. This is a matter of applying the equations for $\Gamma$ and $\Delta$ sequentially.
+Let $\Gamma$ and $\Delta$ be two composable monoidal 3-cells. It is easy to see that the composition $\Gamma \comp \Delta$ satisfies the two equations for monoidal 3-cells. This is a matter of applying the equations for $\Gamma$ and $\Delta$ sequentially.
+
+\end{proof}
 
 % Local Variables:
 % TeX-master: "smbicat"
