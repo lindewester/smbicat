@@ -483,14 +483,42 @@
 \def\hToo{\xslashedRightarrow{\quad}}
 \let\xhTo\xslashedRightarrow
 
+\def\Rightslashedarrowfill@{%
+  \slashedarrowfill@\Relbar\Relbar\Mapstochar\Rightarrow}
+\newcommand\xlooseRightarrow[2][]{%
+  \ext@arrow 0055{\Rightslashedarrowfill@}{#1}{#2}}
+\def\hTo{\xslashedRightarrow{}}
+\def\hToo{\xslashedRightarrow{\quad}}
+\let\xhTo\xslashedRightarrow
+
 \pagestyle{empty}
 
 \newcommand{\Rightthreecell}{\RRightarrow}
 \newcommand{\Rtwocell}{\Rightarrow}
 
-\tikzstyle{doubletick}=[-implies, double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\draw[-] (0,-0.1) -- (0,0.1);}}]
 
-\tikzstyle{darrow}=[-implies, double equal sign distance]
+\tikzstyle{doubletick}=[-implies, double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,0) {$\bullet$};}}]
+
+\tikzstyle{doubletick}=[-implies, double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,0) {$\bullet$};}}]
+
+\tikzstyle{doubleloose}=[-implies, double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,-0.0) {$\bullet$};}}]
+
+\tikzstyle{threecell}=[-implies, double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,-0.0) {$\bullet$};}}]
+
+
+
+
+\tikzstyle{doubleloose2}=[double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,-0.01) {$\bullet$};}, , mark=at position .93 with {\node at (0,-0.012) {$>$};}}]
+
+\tikzstyle{onecell}=[-implies, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,-0.01) {$\circ$};}, mark=at position .90 with {\node at (0,-0.01) {$>$};}}]
+
+\tikzstyle{darrow}=[-implies, double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,0) {$\circ$};}}]
+
+\tikzstyle{doubletight}=[-implies, double equal sign distance]
+
+\tikzstyle{doubleeq}=[-implies, double equal sign distance, postaction={decorate},decoration={markings,mark=at position .5 with {\node at (0,0) {\large $\circ$};}}]
+
+\tikzstyle{doubletighteq}=[double equal sign distance]
 
 \tikzstyle{doubleeq}=[double equal sign distance]
 
@@ -531,6 +559,13 @@ sign distance] (0,.1) -- (0,-.1); \draw (0,.1) -- (0,-.1);}}
 sign distance] (-.1,0) -- (.1,0); \draw (-.1,0) -- (.1,0);}}
 \newcommand{\RRightarrow}{\mathrel{\raisebox{.2em}{\usebox{\RRightarrowbox}}}}
 
+\newsavebox{\looseRightarrowbox}
+\savebox{\looseRightarrowbox}{\tikz[scale=1.5]{\draw[doubleloose2] (-.15,0) -- (.15,0);}}
+\newcommand{\looseRightarrow}{\mathrel{\raisebox{-.25em}{\usebox{\looseRightarrowbox}}}}
+
+\newsavebox{\onecellbox}
+\savebox{\onecellbox}{\tikz[scale=1.5]{\draw[onecell] (-.15,0) -- (.15,0);}}
+\newcommand{\onecell}{\mathrel{\raisebox{-.25em}{\usebox{\onecellbox}}}}
 %\newsavebox{\Rightslashedarrowbox}
 %\savebox{\Rightslashedarrowbox}{\tikz[scale=1.5]{\draw[Rightslashedarrow{}] (-.1,0) -- (1,0);}}
 %\newcommand{\Rightslashedarrow}{\mathrel{\raisebox{-.2em}%{\usebox{\Rightslashedarrowbox}}}}

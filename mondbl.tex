@@ -44,9 +44,9 @@ kind of double categories of most interest to us, we will usually drop
 the adjective ``pseudo.''
 
 We call the objects of $\lD_0$ \textbf{objects} or \textbf{0-cells},
-and we call the morphisms of $\lD_0$ \textbf{(vertical) 1-morphisms}
+and we call the morphisms of $\lD_0$ \textbf{(tight) 1-morphisms}
 and write them as $f\maps A\to B$.  We call the objects of $\lD_1$
-\textbf{(horizontal) 1-cells}; if $M$ is a 1-cell with $S(M)=A$ and
+\textbf{(loose) 1-cells}; if $M$ is a 1-cell with $S(M)=A$ and
 $T(M)=B$, we write $M\maps A\hto B$.  We call a morphism $\alpha\maps
 M\to N$ of $\lD_1$ with $S(\alpha)=f$ and $T(\alpha)=g$ a
 \textbf{2-morphism} and draw it as follows:
@@ -62,15 +62,15 @@ vertically, and \emph{1-cells}, which we draw horizontally.  In
 traditional double-category terminology these are both referred to
 with the same word (be it ``cell'' or ``morphism'' or ``arrow''), the
 distinction being made only by the adjectives ``vertical'' and
-``horizontal.''  Our terminology is more concise, and allows for
+``horizontal.'' As the composition that we draw in the vertical direction is strict, and composition in the horizontal direction is weak, we refer to composition in these directions as 'tight' and 'loose' composition, respectively. This terminology is more concise, and allows for
 flexibility in the drawing of pictures without a corresponding change
 in names (some authors prefer to draw their double categories
 transposed from ours).
 
-We write the composition of vertical 1-morphisms $A\too[f] B\too[g] C$
-and the vertical composition of 2-morphisms $M\too[\alpha]
+We write the composition of tight 1-morphisms $A\too[f] B\too[g] C$
+and the tight composition of 2-morphisms $M\too[\alpha]
 N\too[\beta] P$ as $g\circ f$ and $\beta\circ\alpha$, or sometimes
-just $gf$ and $\beta\alpha$.  We write the horizontal composition of
+just $gf$ and $\beta\alpha$.  We write the loose composition of
 1-cells $A\xhto{M} B \xhto{N} C$ as $A\xhto{N\odot M} C$ and that of
 2-morphisms
 \[\vcenter{\xymatrix{ \ar[r]|-@{|}^-{} \ar[d] \ar@{}[dr]|{\Downarrow\alpha} &
@@ -83,13 +83,13 @@ The two different compositions of 2-morphisms obey an interchange law,
 by the functoriality of $\odot$:
 \[(M_1\odot M_2) \circ (N_1\odot N_2) = (M_1\circ N_1)\odot (M_2\circ N_2).
 \]
-Every object $A$ has a vertical identity $1_A$ and a horizontal unit
+Every object $A$ has a tight identity $1_A$ and a loose unit
 $U_A$, every 1-cell $M$ has an identity 2-morphism $1_M$, every
-vertical 1-morphism $f$ has a horizontal unit 2-morphism $U_f$, and we
+tight 1-morphism $f$ has a loose unit 2-morphism $U_f$, and we
 have $1_{U_A} = U_{1_A}$ (by the functoriality of $U$).
 
-Note that the vertical composition $\circ$ is strictly associative and
-unital, while the horizontal one $\odot$ is only weakly so.  This is
+Note that the tight composition $\circ$ is strictly associative and
+unital, while the loose one $\odot$ is only weakly so.  This is
 the case in most of the examples we have in mind.  It is possible to
 define double categories that are weak in both directions (see, for
 instance,~\cite{verity:base-change}), but this introduces much more
@@ -100,7 +100,7 @@ complication and is usually unnecessary.
   $\lD_i$ for $0\le i\le n$, together with source, target, unit, and
   composition functors and coherence isomorphisms.  We refer to the
   objects of $\lD_i$ as \textbf{$i$-cells} and to the morphisms of
-  $\lD_i$ as \textbf{morphisms of $i$-cells} or \textbf{(vertical)
+  $\lD_i$ as \textbf{morphisms of $i$-cells} or \textbf{(tight)
     $(i+1)$-morphisms}.  A formal definition can be found
   in~\cite{batanin:monglob} under the name \emph{monoidal $n$-globular
     category}.
@@ -114,15 +114,15 @@ complication and is usually unnecessary.
 A 2-morphism~\eqref{eq:square} where $f$ and $g$ are identities (such
 as the constraint isomorphisms $\fa,\fl,\fr$) is called
 \textbf{globular}.  Every double category \lD\ has a
-\textbf{horizontal bicategory} $\cH(\lD)$ consisting of the objects,
-1-cells, and globular 2-morphisms.  Conversely, many naturally
-occurring bicategories are actually the horizontal bicategory of some
+\textbf{loose bicategory} $\cH(\lD)$ consisting of the objects,
+1-cells, and globular 2-morphisms.  In the literature, this is often called the horizontal bicategory of a double category. Conversely, many naturally
+occurring bicategories are actually the loose bicategory of some
 naturally ocurring double category.  Here are just a few examples.
 
 \begin{eg}
   The double category \lMod\ has as objects rings, as 1-morphisms ring
   homomorphisms, as 1-cells bimodules, and as 2-morphisms equivariant
-  bimodule maps.  Its horizontal bicategory $\cMod = \cH(\lMod)$ is
+  bimodule maps.  Its loose bicategory $\cMod = \cH(\lMod)$ is
   the usual bicategory of rings and bimodules. In Section ~\ref{sec:Alg} we prove that this bicategory is symmetric monoidal.
 \end{eg}
 
@@ -168,7 +168,7 @@ categories naturally form a \emph{2-category}, a much simpler object.
 \end{defn}
 
 \begin{defn}\label{thm:dbl-transf}
-  A \textbf{(vertical) transformation} between two functors $\alpha:
+  A \textbf{(tight) transformation} between two functors $\alpha:
   F\to G:\lD\to\lE$ consists of natural transformations $\alpha_0\maps
   F_0\to G_0$ and $\alpha_1\maps F_1\to G_1$ (both usually written as
   $\alpha$), such that $S(\alpha_{M}) = \alpha_{SM}$ and
@@ -357,7 +357,7 @@ fairly obvious.  Thus, verifying that a given double category is
   just as any category with finite products is a monoidal category
   with its cartesian product.  Many of the ``cartesian bicategories''
   considered in~\cite{cw:cart-bicats-i,ckww:cartbicats-ii} are in
-  fact the horizontal bicategory of some cartesian object in \cDbl,
+  fact the loose bicategory of some cartesian object in \cDbl,
   and inherit their monoidal structure in this way.
 \end{rmk}
 
@@ -442,7 +442,7 @@ Unfolding the definitions gives us:
 When the natural transformations are in the opposite direction, the functor is {\bf oplax monoidal}, and when they are isomorphisms, the functor is {\bf strong monoidal}.
 
 \begin{defn}\label{Def:monverttrans}
-  Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A \textbf{monoidal transformation} $\alpha: F \rightarrow G$ is a vertical transformation such that $\alpha_0$ and $\alpha_1$ are monoidal natural transformations.
+  Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A \textbf{monoidal transformation} $\alpha: F \rightarrow G$ is a tight transformation such that $\alpha_0$ and $\alpha_1$ are monoidal natural transformations.
   Explicitly, this means (in the lax case) that the following equalities hold:
 
 \begin{equation}
@@ -524,7 +524,7 @@ When the natural transformations are in the opposite direction, the functor is {
 \end{equation}
 
 
-A {\bf braided or symmetric monoidal vertical transformation} is a monoidal transformation between braided/symmetric monoidal functors.
+A {\bf braided or symmetric monoidal tight transformation} is a monoidal transformation between braided/symmetric monoidal functors.
 \end{defn}
 
 It is straightforward to verify that we have various 2-categories of monoidal double categories, depending on whether we take the objects to be braided, symmetric, or neither, and whether the morphisms are lax, oplax, or strong.
