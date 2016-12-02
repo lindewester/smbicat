@@ -103,7 +103,7 @@ As well as globular invertible 3-cells
 
 \begin{align*}
 & \omega: \looseid_f \alpha_A \horc \chi(\looseid_{\tens \times \tightid} \horc \looseid_{\tens}(\chi \times \looseid_f) \RRightarrow \chi \looseid_{\tightid \times \tens} \horc \looseid_{\tens}(\looseid \times \chi) \horc \alpha_B\looseid_{f \times f \times f} \\
- &\gamma:  \looseid_f l \horc \chi \looseid_{I \times \tightid} \horc \looseid_{\tens}(\iota_f \times \looseid_f)\RRightarrow l_f \\
+ &\gamma: \looseid_{\tens}(\iota_f \times \looseid_f) \looseid_{i_2} \horc \chi \looseid_{I \times \transid} \looseid_{i_2} \horc \looseid_f l\RRightarrow l \looseid_f \\
  &\delta: \looseid_f r \horc \chi \looseid_{\tightid \times I} \horc \looseid_{\tens} (\looseid_{f}\times \iota) \RRightarrow r \looseid_f
 \end{align*}
 
@@ -145,20 +145,20 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (t2) at (2,2) {\small $f \tens(I_A \times \transid)i_2$};
 \node (t3) at (3,2) {\small $f$};
 \node (t4) at (4,2) {\small $g$};
-\node (m0) at (0,1) {\small $\tens(I_B \times f)i_2$};
+\node (m0) at (0,1) {\small $\tens(I_B \times \transid)i_2f$};
 \node (m3) at (3,1) {\small $f$};
 \node (m4) at (4,1) {\small $g$};
-\node (b0) at (0,0) {\small $\tens(I_B \times f)i_2$};
-\node (b3) at (3,0) {\small $\tens (I_B \times g)i_2$};
+\node (b0) at (0,0) {\small $\tens(I_B \times \transid)i_2f$};
+\node (b3) at (3,0) {\small $\tens (I_B \times \transid)i_2g$};
 \node (b4) at (4,0) {\small $g$};
 \draw[doubleloose] (t0) to node[above]{\small $\looseid_{\tens}(\iota_f \times \looseid_f)\looseid_{i_2}$} (t1);
 \draw[doubleloose] (t1) to node[above]{\small $\chi (\looseid_{I \times \transid})\looseid_{i_2}$} (t2);
 \draw[doubleloose] (t2) to node[above]{\small $\looseid_f l$} (t3);
 \draw[doubleloose] (t3) to node[above]{\small $\beta$} (t4);
-\draw[doubleloose] (m0) to node[above]{\small $l_f$} (m3);
+\draw[doubleloose] (m0) to node[above]{\small $l \looseid_f$} (m3);
 \draw[doubleloose] (m3) to node[above]{\small $\beta$} (m4);
 \draw[doubleloose] (b0) to node[above]{\small $\looseid_{\tens}(\beta \times \looseid_I)\looseid_{i_2}$} (b3);
-\draw[doubleloose] (b3) to node[above]{\small $l_g$} (b4);
+\draw[doubleloose] (b3) to node[above]{\small $l \looseid_g$} (b4);
 \draw[doubletighteq] (t0) to (m0);
 \draw[doubletighteq] (m0) to (b0);
 \draw[doubletighteq] (t3) to (m3);
@@ -200,8 +200,8 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (31) at (3,1) {\small $g \tens (I_A \times \transid_A)i_2$};
 \node (41) at (4,1) {\small $g$};
 %%%%%%%
-\node (00) at (0,0) {\small $\tens(I_B \times f)i_2$};
-\node (10) at (1,0) {\small $\tens(I_B \times g)i_2$};
+\node (00) at (0,0) {\small $\tens(I_B \times \transid)i_2 f$};
+\node (10) at (1,0) {\small $\tens(I_B \times \transid)i_2 g$};
 \node (40) at (4,0) {\small $g$};
 %%%%%%%
 \draw[doubleloose] (04) to node[above]{\small $\looseid_{\tens}(\iota_f \times \looseid_f)\looseid_{i_2}$} (14);
@@ -223,8 +223,8 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (21) to node[above]{\small $\chi \looseid_{I_A \times \transid}\looseid_{i_2}$} (31);
 \draw[doubleloose] (31) to node[above]{\small $\looseid_g l$} (41);
 %%%%%%
-\draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\looseid_I  \times \beta)\looseid_{i_2}$} (10);
-\draw[doubleloose] (10) to node[above]{\small $l_g $} (40);
+\draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\looseid_I  \times \looseid)\looseid_{i_2} \beta$} (10);
+\draw[doubleloose] (10) to node[above]{\small $l \looseid_g $} (40);
 %%%%%%
 \draw[doubletighteq] (04) to (03);
 \draw[doubletighteq] (14) to (13);
@@ -267,11 +267,11 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (t2) at (2,2) {\small $\tens(\id \times I_A)i_1$};
 \node (t3) at (3,2) {\small $f$};
 \node (t4) at (4,2) {\small $g$};
-\node (m0) at (0,1) {\small $\tens(f\times I_B)i_1$};
+\node (m0) at (0,1) {\small $\tens(\transid \times I_B)i_1f$};
 \node (m3) at (3,1) {\small $f$};
 \node (m4) at (4,1) {\small $g$};
-\node (b0) at (0,0) {\small $\tens(f\times I_B)i_1$};
-\node (b3) at (3,0) {\small $\tens (g \times I_B)i_1$};
+\node (b0) at (0,0) {\small $\tens(\transid \times I_B)i_1f$};
+\node (b3) at (3,0) {\small $\tens (\transid \times I_B)i_1g$};
 \node (b4) at (4,0) {\small $g$};
 \draw[doubleloose] (t0) to node[above]{$\small \looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (t1);
 \draw[doubleloose] (t1) to node[above]{\small $\chi (\id \times \looseid_I)\looseid_{i_1}$} (t2);
@@ -280,7 +280,7 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (m0) to node[above]{\small $r \looseid_f$} (m3);
 \draw[doubleloose] (m3) to node[above]{\small $\beta$} (m4);
 \draw[doubleloose] (b0) to node[above]{\small $\looseid_{\tens}(\beta \times \looseid_I)\looseid_{i_1}$} (b3);
-\draw[doubleloose] (b3) to node[above]{\small $r_g$} (b4);
+\draw[doubleloose] (b3) to node[above]{\small $r \looseid_g$} (b4);
 \draw[doubletighteq] (t0) to (m0);
 \draw[doubletighteq] (m0) to (b0);
 \draw[doubletighteq] (t3) to (m3);
@@ -322,8 +322,8 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (31) at (3,1) {\small $g \tens (\transid \times I_A)i_1$};
 \node (41) at (4,1) {\small $g$};
 %%%%%%%
-\node (00) at (0,0) {\small $\tens(f\times I_B)i_1$};
-\node (10) at (1,0) {\small $\tens(g\times  I_B)i_1$};
+\node (00) at (0,0) {\small $\tens(\transid \times I_B)i_1f$};
+\node (10) at (1,0) {\small $\tens(\transid \times  I_B)i_1g$};
 \node (40) at (4,0) {\small $g$};
 %%%%%%%
 \draw[doubleloose] (04) to node[above]{\small $\looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (14);
@@ -345,7 +345,7 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (21) to node[above]{\small $\chi \looseid_{\transid \times I}\looseid_{i_1}$} (31);
 \draw[doubleloose] (31) to node[above]{\small $\looseid_g r$} (41);
 %%%%%%
-\draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\beta  \times \looseid_I)\looseid_{i_1}$} (10);
+\draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\transid  \times \looseid_I)\looseid_{i_1} \beta$} (10);
 \draw[doubleloose] (10) to node[above]{\small $r \looseid_g $} (40);
 %%%%%%
 \draw[doubletighteq] (04) to (03);
@@ -1052,11 +1052,11 @@ The structure 3-cell $\gamma$ is defined as
  \node (t3) at (1.5,2) {\small $g \tens (fI_A \times f)i_2$};
   \node (t4) at (2,2) {\small $gf \tens (I_A \times \transid)i_2$};
  \node (t5) at (2.5,2) {\small $gf$};
-  \node (m0) at (0,1) {\small $\tens(I_C \times gf)i_2$};
- \node (m1) at (.5,1) {\small $\tens(gI_B \times gf)i_2$};
-\node (m2) at (1,1) {\small $g \tens (I_B \times f)i_2$};
+  \node (m0) at (0,1) {\small $\tens(I_C \times g)i_2f$};
+ \node (m1) at (.5,1) {\small $\tens(gI_B \times g)i_2f$};
+\node (m2) at (1,1) {\small $g \tens (I_B \times \transid)i_2f$};
  \node (m5) at (2.5,1) {\small $gf$};
-  \node (b0) at (0,0) {\small $\tens(I_C \times gf)i_2$};
+  \node (b0) at (0,0) {\small $\tens(I_C \times \transid)i_2 gf$};
  \node (b5) at (2.5,0) {\small $gf$};
  %%%%%%%%%%%%%%%%
   \draw[doubleloose] (t0) to[in=120, out=60] node[above]{$\looseid_{\tens} (\iota_{gf} \times \looseid_{gf})\looseid_{i_2} \horc \chi_{gf}\looseid_{i_2}$} (t4);
@@ -1065,13 +1065,14 @@ The structure 3-cell $\gamma$ is defined as
   \draw[doubleloose] (t1)  to node[above]{\small $\chi_g\looseid_{I_A \times f}\looseid_{i_2}$} (t2);
 \draw[doubleloose] (t2) to node[above]{\small $\looseid_{\tens g}(\iota_f \times \looseid_{f})\looseid_{i_2}$} (t3);
   \draw[doubleloose] (t3) to node[above]{\small $\looseid_g \chi_f \looseid_{I_A \times \transid}\looseid_{i_2}$}(t4);
-  \draw[doubleloose] (t4) to node[above]{\small $\looseid{gf}l_I$}(t5);
+  \draw[doubleloose] (t4) to node[above]{\small $\looseid_{gf}l_I$}(t5);
   %%%%%%%%%%%%%%%%%%
-  \draw[doubleloose] (m0)  to node[above]{\small $\looseid_{\tens}(\iota_g \times \looseid_{gf})$} (m1);
-  \draw[doubleloose] (m1)  to node[above]{\small $\chi_g\looseid_{I_A \times f}\looseid_{i_2}$} (m2);
-   \draw[doubleloose] (m2) to node[below]{\small $\looseid{g}l_f = \looseid_g l_I \looseid_f$}(m5); 
+  \draw[doubleloose] (m0)  to node[above]{\small $\looseid_{\tens}(\iota_g \times \looseid_{g})\looseid_f$} (m1);
+  \draw[doubleloose] (m1)  to node[above]{\small $\chi_g\looseid_{i_2 f}$} (m2);
+   \draw[doubleloose] (m2) to node[below]{\small $ \looseid_g l \looseid_f$}(m5); 
    %%%%%%%%%%%%%%%%%
-    \draw[doubleloose] (b0) to node[above]{\small $ l_{g} l_{f} = l_{gf}$}(b5); 
+    \draw[doubleloose] (b0) to node[above]{\small $ l \looseid_g \looseid_f$}(b5); 
+       \draw[doubleloose] (b0) to[in=220, out=-60] node[above]{\small $l \looseid_{gf}$}(b5); 
     %%%%%%%%
   \draw[doubleeq] (t0) to (m0);
     \draw[doubleeq] (t2) to (m2);
@@ -1080,13 +1081,14 @@ The structure 3-cell $\gamma$ is defined as
     \draw[doubleeq] (m5) to (b5);
     \node at (.5,1.5) {\footnotesize $=$}; 
    \node at (1.75,1.5) {\footnotesize $\overline{ \tightid_g \gamma^f}$}; 
-   \node at (1.25,.5) {\footnotesize $\overline{  \gamma^g \tightid_{l_f}}$}; 
+   \node at (1.25,.5) {\footnotesize $\overline{  \gamma^g \tightid_{\looseid}}$}; 
       \node at (1,2.35) {\footnotesize $\overline{ \iso}$}; 
+  \node at (1.25,-.35) {\footnotesize $\overline{ \iso}$}; 
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
 
-The 3-cells $\delta^{g \comp f}$ and $\omega^{g \comp f}$ are defined similarly, so is $u^{g \comp f}$ when $g, f$ are braided monoidal 1-cells. [{\it For this to be well-defined, we need to assume that coherence equations for monoidal objects hold with respect to transversal composition.}]
+The 3-cells $\delta^{g \comp f}$ and $\omega^{g \comp f}$ are defined similarly, so is $u^{g \comp f}$ when $g, f$ are braided monoidal 1-cells. 
 
 For oplax monoidal 1-cells, the the above gives the monoidal structure if the arrows are reversed.
 
