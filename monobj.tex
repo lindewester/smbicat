@@ -726,7 +726,7 @@ The monoidal 2-cells will be the loose 2-cells therein; we now define the tight 
 
 such that the coherence axioms (TA2), (TA3), and (TA4) analogous to definition 2 of~\cite{gg:ldstr-tricat} hold.
 An {\bf oplax monoidal icon} between oplax monoidal 1-cells, is a 2-cell with the same data. 
-If $g,f$ are strong monoidal, by a \textbf{strong monoidal icon} we mean a lax and a colax one whose structure morphisms are inverse to each other in the loosel direction (modulated by the up-to-isomorphism invertibility of $\chi$ and $\iota$).
+If $g,f$ are strong monoidal, by a \textbf{strong monoidal icon} we mean a lax and a colax one whose structure morphisms are inverse to each other in the loose direction (modulated by the up-to-isomorphism invertibility of $\chi$ and $\iota$).
 
 A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or symmetric, and in addition the coherence axiom analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} holds. Note that here the author writes $\rho$ for our braiding 1-cell $\sigma$.
 \end{defn}
@@ -875,13 +875,13 @@ Let $A,B$ be monoidal objects in a locally cubical bicategory. The lax monoidal 
 
 \begin{proof}
 The first step of this proof is to show that lax monoidal 1-cells and icons form a category. 
-For each monoidal 1-cell $f:A \rightarrow B$, the identity tight 2-cell $\tightid_f$ is a monoidal icon with the 3-cells $N^{\tightid_f} := \tightid_{\iota_f}$ and $\Sigma^{\tightid_f} := \tightid_{\chi_f}$. This is well-defined, because the functor "$\comp$" preserves identities. The coherence equations are trivially satisfied.  For each two monoidal 1-cells $f,g$ and monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite tight 2-cell $\beta \circ \alpha$ can be equiped with the monoidal structure given by the composites $N^{\beta \circ \alpha} := N^{\beta} \circ N^{\alpha}$ and $\Sigma^{\beta\circ \alpha} : = \Sigma^{\beta} \circ \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions (TA1)-(TA4) hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for oplax and strong monoidal 1-cells and icons.
+For each monoidal 1-cell $f:A \rightarrow B$, the identity tight 2-cell $\tightid_f$ is a monoidal icon with the 3-cells $N^{\tightid_f} := \tightid_{\iota_f}$ and $\Sigma^{\tightid_f} := \tightid_{\chi_f}$. This is well-defined, because the functor "$\comp$" preserves identities. The coherence equations are trivially satisfied.  For each two monoidal 1-cells $f,g$ and monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite tight 2-cell $\beta \circ \alpha$ can be equiped with the monoidal structure given by the composites $N^{\beta \verc \alpha} := N^{\beta} \verc N^{\alpha}$ and $\Sigma^{\beta \verc \alpha} : = \Sigma^{\beta} \verc \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions (TA1)-(TA4) hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for oplax and strong monoidal 1-cells and icons.
 When $f$ and $g$ are braided, the same data satisfies the coherence equation for braided monoidal icons. Hence, braided monoidal 1-cells and braided monoidal icons form a category, and the same is true for sylleptic or symmetric monoidal 1-cells and icons.
 
 In addition, we need to show that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \looseRightarrow{} g$, the identity 3-cell $\tightid_{\alpha}$ in $\cB$  is monoidal, since the required two equations are trivially satisfied.
 For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \circ L$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $L$ and $K$. The same is true for oplax monoidal 2-cells, and hence for strong monoidal 2-cells. As braided, sylleptic, and symmetric monoidal 3-cells are not required to satisfy additional data, it follows that braided, sylleptic, or symmetric monoidal 2-cells and 3-cells form a category.
 
-Now we describe the loose structure.
+Now we describe the loose structure; we need to show that $\horc$ and $\looseid$ are well-defined as functors to the new category.
 Let $f$ be a lax monoidal 1-cell. The loose identity 2-cell $\looseid_f$ is a monoidal 2-cell with monoidal structure given below. 
 
 \begin{equation}
@@ -1015,7 +1015,7 @@ M^{\alpha \horc \beta} :=
 
 The coherence equations are satisfied by sequential application of the respective equation for $\alpha$ and $\beta$, applications of the exchange law between loose and tight composition, together with simple manipulations of coherence cells.
 
-Let $\Gamma$ and $\Delta$ be 3 monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again monoidal. Again, the conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$, applications of the exchange law between loose and tight composition, and simple manipulations of coherence cells. 
+Let $\Gamma$ and $\Delta$ be 3 monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again monoidal. Again, the conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$, applications of the exchange law between loose and tight composition, and simple manipulations of coherence cells. Functoriality of $\horc$ and $\looseid$ in $\cM on \cB(A,B)$ follow from their functoriality in $\cB(A,B)$.
 
 The unitality and associativity constraints $\hora$, $\horl$, and $\horr$ are monoidal 3-cells. The conditions for monoidal 3-cells amount to 3-cells pasted together with coherence cells being equal to themselves, which follows from coherence of the functor $\horc$. It follows that lax monoida 1-cells, 2-cells, icons and 3-cells in the hom-categories $\cM on\cB(A,B)$ form a double category.
 The oplax and strong case hold by a similar proof with arrows in the opposite directions.
