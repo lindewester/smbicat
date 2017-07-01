@@ -7,58 +7,1056 @@ We now show that this menagerie can be reduced to only \emph{four} functors (acc
 One dimension down, the relevant structure is a \emph{strict} double category, with lax and colax morphisms as its horizontal and vertical arrows; see e.g.~\cite{gp:double-adjoints,shulman:dblderived}.
 In our categorified case, we will use the \emph{intercategories} of~\cite{gp:intercategories-i,gp:intercategories-ii}.
 
-[Give definition of intergategories]
+\begin{defn}
+An intercategory is a structure consisting of
 
-[Insert picture]
+\begin{itemize}
+\item Objects (A,B,..)
+\item Three kinds of arrows: transversal (f,g,..) , horizontal (h,h',..) , vertical (v,v',..)
+\item Three kinds of (2-dimensional) cells: horizontal ($\phi,..$), vertical ($\psi,..$), basic ($\alpha,..$)
+\item 3-dimensional cubes
+\end{itemize}
 
-Any locally cubical bicategory $\cB$ forms an intercategory, as shown in [reference]. The horizontal and vertical arrows are the 1-cells of $\cB$, transversal arrows are identities; horizontal and vertical cells are the vertical 2-cells of $\cB$, basic cells are the horizontal 2-cells of $\cB$ and the 3-dimensional cubes are the 3-cells of $\cB$, between the compositions of a vertical and horizontal arrow and between the compositions of a vertical and horizontal cell. [example from picture]
+It has three kinds of composition:
+\begin{itemize}
+\item Transversal composition for transversal arrows, horizontal and vertical cells, and cubes. It is denoted by $\cdot$ or juxtaposition, which is strictly associative and unitary. The identities are denoted $1$
+\item Horizontal composition for horizontal arrows, horizontal and basic cells, and cubes. It is denoted by $\circ$ or $|$, and is associative and unitary up to coherent transversal isomorphism. The identities are denoted $\Id$
+\item Vertical composition for vertical arrows, vertical and basic cells, and cubes. It is denoted by $\bullet$ or $-$, and is associative up to coherent transversal isomorphism. The identities are denoted $\id$
+\end{itemize}
+
+These structures interact as follows: 
+\begin{itemize}
+\item transversal and horizontal form a weak double category
+\item transversal and vertical form a weak double category
+\item horizontal and vertical are related by interchangers 
+\begin{align*}&\chi: (\alpha \circ \beta) \bullet (\bar{\alpha} \circ \bar{\beta}) \rightarrow (\alpha \bullet \bar{\alpha}) \circ (\beta \bullet \bar{\beta}) \\
+& \mu: \id_v \bullet \id_{\bar{v}} \rightarrow \id_{v \bullet \bar{v}}\\
+&\delta: \Id_{h \circ \bar{h}} \rightarrow \Id_h \circ \Id_{\bar{h}}\\
+&\tau: \Id_{\id_A} \rightarrow \id_{\Id_A}
+\end{align*}
+These need to satisfy the obvious coherence conditions given in \emph{intercategories}.
+\end{itemize}
+\end{defn}
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\node (1) at (1,0){$\bar{A}'$};
+\node (2) at (3,0){$\bar{B}'$};
+\node (3) at (1,2){$A'$};
+\node (4) at (3,2){$B'$};
+\node (5) at (0,1){$\bar{A}$};
+\node (6) at (0,3){$A$};
+\node (7) at (2,3){$B$};
+\draw[horarrow] (1) to node[above]{$\bar{h}'$} (2);
+\draw[horarrow] (3) to node[above]{$h'$}(4);
+\draw[horarrow] (6) to node[above]{$h$} (7);
+\draw[vertarrow] (3) to node[right]{$v'$} (1);
+\draw[vertarrow] (4) to node[right]{$w'$} (2);
+\draw[vertarrow](6) to node[left]{$v$} (5);
+\draw[->](6) to node[left, yshift=-5pt, xshift=2pt]{$f$} (3);
+\draw[->] (7) to node[right]{$g$} (4);
+\draw[->] (5) to node[left, yshift=-5pt, xshift=2pt]{$\bar{f}$} (1);
+\node at (2,1){$\Diagarrow \alpha'$};
+\node at (.5,1.5){$\Diagarrow \psi$};
+\node at (1.5,2.5){$\Diagarrow \phi$};
+\end{tikzpicture}
+\end{center}
+
+Any locally cubical bicategory $\cB$ forms an intercategory, as shown in~\cite{gp:intercategories-i}. The horizontal and vertical arrows are the 1-cells of $\cB$, transversal arrows are identities; horizontal and vertical cells are the vertical 2-cells of $\cB$, basic cells are the horizontal 2-cells of $\cB$ and the 3-dimensional cubes are the 3-cells of $\cB$, between the compositions of a vertical and horizontal arrow and between the compositions of a vertical and horizontal cell.
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\node (1) at (1,0){$\bar{A}'$};
+\node (2) at (3,0){$\bar{B}'$};
+\node (3) at (1,2){$A'$};
+\node (4) at (3,2){$B'$};
+\node (5) at (0,1){$\bar{A}$};
+\node (6) at (0,3){$A$};
+\node (7) at (2,3){$B$};
+\draw[horarrow] (1) to node[above]{$\bar{h}'$} (2);
+\draw[horarrow] (3) to node[above]{$h'$}(4);
+\draw[horarrow] (6) to node[above]{$h$} (7);
+\draw[doubleeq](3) to node[right]{} (1);
+\draw[doubleeq] (4) to node[right]{} (2);
+\draw[doubleeq](6) to node[left]{} (5);
+\draw[doubleeq](6) to node[left, yshift=-5pt, xshift=2pt]{} (3);
+\draw[doubleeq] (7) to node[right]{} (4);
+\draw[doubleeq] (5) to node[left, yshift=-5pt, xshift=2pt]{} (1);
+\node at (2,1){$\Diagarrow \alpha'$};
+\node at (.5,1.5){$=$};
+\node at (1.5,2.5){$\Diagloosearrow \phi$};
+\end{tikzpicture}
+\end{center}
 
 We will show that we can construct a new intercategory with the monoidal objects and cells defined in section \ref{sec:mono-objects}, that captures lax and colax monoidal cells. In order for this to work, we need to define (horizontal) 2-cells between composites of lax and colax 2-cells.
 
 \begin{defn}
 Let $A,B,C,D$ be monoidal objects in a locally cubical bicategory $\cB$; let $A \xrightarrow{f} B$, $C \xrightarrow{k}$ be lax monoidal 1-cells; and let $A \xrightarrow{g} C$, $B \xrightarrow{h} D$ be oplax monoidal 1-cells.
-We define a {\bf quintet monoidal 2-cel} to be a monoidal 2-cell $\alpha: f \odot h \Rightarrow g \odot k$, together with invertible coherence  3-cells $H, K$
+We define a {\bf quintet monoidal 2-cel} to be a monoidal 2-cell $\alpha: f \comp h \Rightarrow g \comp k$, together with invertible coherence  3-cells $H, K$
 \begin{equation}
 \begin{aligned}
-\begin{tikzpicture}[scale=2]
-\node (t) at (0,3){$h \odot \otimes \odot (f,f)$};
-\node (tl) at (-1,2){$f \odot f \odot \otimes$};
-\node (bl) at (-1,1){$k \odot g \odot \otimes$};
-\node (b) at (0,0){$k \odot \otimes \odot (g,g)$};
-\node (br) at (1,1){$\otimes \odot (k,k) \odot (g,g)$};
-\node (tr) at (1,2){$\otimes \odot (h,h) \odot (f,f)$};
-\draw[darrow] (t) to node[left]{$\id_h \odot \chi_f$} (tl);
-\draw[darrow] (tl) to node[left]{$\alpha$} (bl);
-\draw[darrow] (bl) to node[left]{$\id_k \odot \chi_g$} (b);
-\draw[darrow] (t) to node[right]{$\chi_h \odot \id_{(f,f)}$} (tr);
-\draw[darrow] (tr) to node[right]{$\alpha \otimes \alpha$} (br);
-\draw[darrow] (br) to node [right]{$\chi_k \odot \id_{(g,g)}$}(b);
-\node at (0,1.5){$\Downarrow H^{\alpha}$};
+\begin{tikzpicture}[yscale=2, xscale=2.5]
+\node (t0) at (0,1) {$h \tens (f \times f)$};
+\node (t1) at (1,1) {$hf \tens $};
+\node (t2) at (2,1) {$kg \tens $};
+\node (t3) at (3,1) {$k \tens (g \times g)$};
+%%%%%%%%%%%
+\node (b0) at (0,0) {$h \tens (f \times f)$};
+\node (b1) at (1,0) {$ \tens (hf \times hf)$};
+\node (b2) at (2,0) {$ \tens (kg \times kg)$};
+\node (b3) at (3,0) {$k \tens (g \times g)$};
+%%%%%%%%%%%%
+\draw[doubleloose] (t0) to node[above]{$\looseid_h \chi_f$} (t1);
+\draw[doubleloose] (t1) to node[above]{$\beta \looseid_{\tens}$} (t2);
+\draw[doubleloose] (t2) to node[above]{$\looseid_k \chi_g$} (t3);
+\draw[doubleloose] (b0) to node[above]{$\chi_h \looseid_f $} (b1);
+\draw[doubleloose] (b1) to node[above]{$\looseid_{\tens} \beta \times \beta$} (b2);
+\draw[doubleloose] (b2) to node[above]{$\chi_k \looseid_g$} (b3);
+%%%%%%%%%%%%
+\draw[doubleeq] (t0) to (b0);
+\draw[doubleeq] (t3) to (b3);
+%%%%%%%%%
+\node at (1.5,0.5){$\DDownarrow H^{\beta}$};
 \end{tikzpicture}
 \end{aligned}
-\hspace{0.5cm}
+\end{equation}
+
+\begin{equation}
 \begin{aligned}
-\begin{tikzpicture}[scale=2]
-\node (t) at (0,3){$h \odot I$};
-\node (tl) at (-1,2){$h \odot f \odot I$};
-\node (bl) at (-1,1){$k \odot g \odot I$};
-\node (b) at (0,0){$k \odot I$};
-\node (br) at (1,1){$I$};
-\node (tr) at (1,2){$I$};
-\draw[darrow] (t) to node[left]{$\id_h \odot \iota_f$} (tl);
-\draw[darrow] (tl) to node[left]{$\alpha \odot \id_I$} (bl);
-\draw[darrow] (bl) to node[left]{$\id_k \odot \iota_g^{-1}$} (b);
-\draw[darrow] (t) to node[right]{$\iota_h^{-1}$} (tr);
-\draw[doubleeq] (tr) to (br);
-\draw[darrow] (br) to node [right]{$\iota_k$}(b);
-\node at (0,1.5){$\Downarrow K^{\alpha}$};
+\begin{tikzpicture}[yscale=2, xscale=2.5]
+\node (t0) at (0,1) {$h I$};
+\node (t1) at (1,1) {$$};
+\node (t2) at (2,1) {$ I $};
+\node (t3) at (3,1) {$k I$};
+%%%%%%%%%%%
+\node (b0) at (0,0) {$h I$};
+\node (b1) at (1,0) {$hf I$};
+\node (b2) at (2,0) {$kg I$};
+\node (b3) at (3,0) {$k I$};
+%%%%%%%%%%%%
+\draw[doubleloose] (t0) to node[above]{$\iota_h$} (t1);
+\draw[doubleloose] (t1) to node[above]{$\looseid_I$} (t2);
+\draw[doubleloose] (t2) to node[above]{$\iota_k$} (t3);
+\draw[doubleloose] (b0) to node[above]{$\looseid_h \iota_f $} (b1);
+\draw[doubleloose] (b1) to node[above]{$\beta \looseid_I$} (b2);
+\draw[doubleloose] (b2) to node[above]{$\looseid_k \iota_g$} (b3);
+%%%%%%%%%%%%
+\draw[doubleeq] (t0) to (b0);
+\draw[doubleeq] (t3) to (b3);
+%%%%%%%%%
+\node at (1.5,0.5){$\DDownarrow K^{\beta}$};
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
 
 The 3-cells $H,K$ need to satisfy the following three equations:
 
-[I will add these later, when I am sure they are not wrong]
+\begin{equation}\label{eq:monquintet1}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.25, yscale=1.5]
+\node (06) at (0,6) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (16) at (1,6) {\scriptsize $h \tens(f I_A  \times f)i_1$};
+\node (26) at (2,6) {\scriptsize $hf \tens(I_A \times \transid)i_1$};
+\node (36) at (3,6) {\scriptsize $kg \tens (I_A \times \transid)i_1$};
+\node (66) at (6,6) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (15) at (1,5) {\scriptsize $h \tens(f I_A  \times f)i_1$};
+\node (25) at (2,5) {\scriptsize $hf \tens(I_A \times \transid)i_1$};
+\node (35) at (3,5) {\scriptsize $kg \tens (I_A \times \transid)i_1$};
+\node (45) at (4,5) {\scriptsize $k \tens (g I_A \times g)i_1$};
+\node (55) at (5,5) {\scriptsize $k \tens (I_C \times g)i_1$};
+\node (65) at (6,5) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (04) at (0,4) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (14) at (1,4) {\scriptsize $h \tens(f I_A  \times f)i_1$};
+\node (24) at (2,4) {\scriptsize $\tens(hf I_A \times hf)i_1$};
+\node (34) at (3,4) {\scriptsize $\tens (kg I_A \times kg)i_1$};
+\node (44) at (4,4) {\scriptsize $k \tens (g I_A \times g)i_1$};
+\node (54) at (5,4) {\scriptsize $k \tens (I_C \times g)i_1$};
+\node (64) at (6,4) {\scriptsize $kg $};
+%%%%%%%%%%%%
+\node (03) at (0,3) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (13) at (1,3) {\scriptsize $ \tens(hf I_A  \times h)i_1$};
+\node (23) at (2,3) {\scriptsize $\tens(hf I_A \times hf)i_1$};
+\node (33) at (3,3) {\scriptsize $\tens (kg I_A \times kg)i_1$};
+\node (43) at (4,3) {\scriptsize $\tens (kg I_A \times k)i_1$};
+\node (53) at (5,3) {\scriptsize $k \tens (I_C \times g)i_1$};
+\node (63) at (6,3) {\scriptsize $kg$};
+%%%%%%%%%%%%
+\node (12) at (1,2) {\scriptsize $ \tens(h I_B  \times h f)i_1$};
+\node (22) at (2,2) {\scriptsize $\tens(I_D \times hf)i_1$};
+\node (32) at (3,2) {\scriptsize $\tens (I_D \times  kg)i_1$};
+\node (42) at (4,2) {\scriptsize $\tens (k I_C \times k g)i_1$};
+\node (52) at (5,2) {\scriptsize $k \tens (I_C \times g)i_1$};
+\node (62) at (6,2) {\scriptsize $kg$};
+%%%%%%%%%%%%
+\node (01) at (0,1) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (11) at (1,1) {\scriptsize $ \tens(hI_B  \times hf)i_1$};
+\node (21) at (2,1) {\scriptsize $\tens(I_D \times hf)i_1$};
+\node (31) at (3,1) {\scriptsize $\tens (I_D \times  kg)i_1$};
+\node (61) at (6,1) {\scriptsize $kg$};
+%%%%%%%%%%
+\draw[doubleloose] (06) to node[above]{\scriptsize} (16);
+\draw[doubleloose] (16) to node[above]{\scriptsize} (26);
+\draw[doubleloose] (26) to node[above]{} (36);
+\draw[doubleloose] (36) to node[above]{} (66);
+%%%%%%%
+\draw[doubleloose] (15) to node[above]{\scriptsize} (25);
+\draw[doubleloose] (25) to node[above]{} (35);
+\draw[doubleloose] (35) to node[above]{} (45);
+\draw[doubleloose] (45) to node[above]{} (55);
+\draw[doubleloose] (55) to node[above]{} (65);
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (14);
+\draw[doubleloose] (14) to node[above]{} (24);
+\draw[doubleloose] (24) to node[above]{} (34);
+\draw[doubleloose] (34) to node[above]{} (44);
+\draw[doubleloose] (44) to node[above]{} (54);
+\draw[doubleloose] (54) to node[above]{} (64);
+%%%%%%%%
+\draw[doubleloose] (03) to node[above]{} (13);
+\draw[doubleloose] (13) to node[above]{} (23);
+\draw[doubleloose] (23) to node[above]{} (33);
+\draw[doubleloose] (33) to node[above]{} (43);
+\draw[doubleloose] (43) to node[above]{} (53);
+\draw[doubleloose] (53) to node[above]{} (63);
+%%%%%%%%
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (32);
+\draw[doubleloose] (32) to node[above]{} (42);
+\draw[doubleloose] (42) to node[above]{} (52);
+\draw[doubleloose] (52) to node[above]{} (62);
+%%%%%%%%
+\draw[doubleloose] (01) to node[above]{} (11);
+\draw[doubleloose] (11) to node[above]{} (21);
+\draw[doubleloose] (21) to node[above]{} (31);
+\draw[doubleloose] (31) to node[above]{} (61);
+%%%%%%%%
+\draw[doubletighteq] (06) to (04);
+\draw[doubletighteq] (16) to (15);
+\draw[doubletighteq] (36) to (35);
+\draw[doubletighteq] (66) to (65);
+%%%%%%%%%
+\draw[doubletighteq] (15) to (14);
+\draw[doubletighteq] (45) to (44);
+\draw[doubletighteq] (65) to (64);
+%%%%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (24) to (23);
+\draw[doubletighteq] (34) to (33);
+\draw[doubletighteq] (54) to (53);
+\draw[doubletighteq] (64) to (63);
+%%%%%%%%%
+\draw[doubletighteq] (03) to (01);
+\draw[doubletighteq] (13) to (12);
+\draw[doubletighteq] (43) to (42);
+\draw[doubletighteq] (63) to (62);
+%%%%%%%%%
+\draw[doubletighteq] (12) to (11);
+\draw[doubletighteq] (32) to (31);
+\draw[doubletighteq] (62) to (61);
+%%%%%%%%%
+\node at (0.5,5) {\small $=$};
+\node at (2,5.5) {\small $=$};
+\node at (4.5,5.5) {\small $\DDownarrow \overline{\tightid_{\looseid} \gamma^g}$};
+\node at (2.5,4.5) {\small $\DDownarrow \overline{H \tightid_{\looseid}}$};
+\node at (5,4.5) {\small $=$};
+\node at (1,3.5) {\small $\iso$};
+\node at (2.5,3.5) {\small $=$};
+\node at (4,3.5) {\small $\iso$};
+\node at (5.5,3.5) {\small $=$};
+\node at (0.5,2) {\small $=$};
+\node at (2.5,2.5) {\small $\DDownarrow \overline{\tightid_{\looseid} (K \times \tightid_{\looseid})}$};
+\node at (5,2.5) {\small $=$};
+\node at (2,1.5) {\small $=$};
+\node at (4.5,1.5) {\small $\DDownarrow \overline{\gamma^k \tightid_{\looseid}}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[
+=
+\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.25, yscale=1.5]
+\node (06) at (0,6) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (16) at (1,6) {\scriptsize $h \tens(f I_A  \times f)i_1$};
+\node (26) at (2,6) {\scriptsize $hf \tens(I_A \times I\transid)i_1$};
+\node (36) at (3,6) {\scriptsize $kg \tens (I_A \times \transid)i_1$};
+\node (66) at (6,6) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (05) at (0,5) {\scriptsize $h \tens (I_B \times f)i_1$};
+\node (15) at (1,5) {\scriptsize $h \tens(f  I_A \times f)i_1$};
+\node (25) at (2,5) {\scriptsize $hf \tens(I_A \times \transid)i_1$};
+\node (55) at (5,5) {\scriptsize $hf$};
+\node (65) at (6,5) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (04) at (0,4) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (54) at (5,4) {\scriptsize $hf$};
+\node (64) at (6,4) {\scriptsize $kg $};
+%%%%%%%%%%%%
+\node (03) at (0,3) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (13) at (1,3) {\scriptsize $ \tens(h I_B  \times hf)i_1$};
+\node (23) at (2,3) {\scriptsize $\tens(I_D \times hf)i_1$};
+\node (53) at (5,3) {\scriptsize $hf$};
+\node (63) at (6,3) {\scriptsize $kg$};
+%%%%%%%%%%%%
+\node (02) at (0,2) {\scriptsize$ h \tens (I_B \times f)i_1$};
+\node (12) at (1,2) {\scriptsize $ \tens(hI_B  \times hf)i_1$};
+\node (22) at (2,2) {\scriptsize $\tens(I_D \times hf)i_1$};
+\node (52) at (5,2) {\scriptsize $ \tens (I_D \times kg)i_1$};
+\node (62) at (6,2) {\scriptsize $kg$};
+%%%%%%%
+\draw[doubleloose] (06) to node[above]{\scriptsize} (16);
+\draw[doubleloose] (16) to node[above]{\scriptsize} (26);
+\draw[doubleloose] (26) to node[above]{} (36);
+\draw[doubleloose] (36) to node[above]{} (66);
+%%%%%%%
+\draw[doubleloose] (05) to node[above]{\scriptsize} (15);
+\draw[doubleloose] (15) to node[above]{\scriptsize} (25);
+\draw[doubleloose] (25) to node[above]{} (55);
+\draw[doubleloose] (55) to node[above]{} (65);
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (54);
+%%%%%%%%
+\draw[doubleloose] (03) to node[above]{} (13);
+\draw[doubleloose] (13) to node[above]{} (23);
+\draw[doubleloose] (23) to node[above]{} (53);
+\draw[doubleloose] (53) to node[above]{} (63);
+%%%%%%%%
+\draw[doubleloose] (02) to node[above]{} (12);
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (52);
+\draw[doubleloose] (52) to node[above]{} (62);
+%%%%%%%%
+\draw[doubletighteq] (06) to (05);
+\draw[doubletighteq] (26) to (25);
+\draw[doubletighteq] (66) to (65);
+%%%%%%%%%
+\draw[doubletighteq] (05) to (04);
+\draw[doubletighteq] (55) to (54);
+\draw[doubletighteq] (65) to (64);
+%%%%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (54) to (53);
+\draw[doubletighteq] (64) to (63);
+%%%%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (23) to (22);
+\draw[doubletighteq] (63) to (62);
+%%%%%%%%%
+\node at (1,5.5) {\small $=$};
+\node at (4,5.5) {\small $\iso$};
+\node at (2.5,4.5) {\small $\DDownarrow \overline{\tightid_{\looseid} \gamma^f}$};
+\node at (5.5,4) {\small $=$};
+\node at (2.5,3.5) {\small $\DDownarrow \overline{\gamma^h \tightid_{\looseid}}$};
+\node at (1,2.5) {\small $=$};
+\node at (4,2.5) {\small $=$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+\begin{equation}\label{eq:monquintet2}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.25, yscale=1.5]
+\node (06) at (0,6) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (16) at (1,6) {\scriptsize $h \tens(f  \times f I_A)i_1$};
+\node (26) at (2,6) {\scriptsize $hf \tens(\transid \times I_A)i_1$};
+\node (36) at (3,6) {\scriptsize $kg \tens (\transid \times I_A)i_1$};
+\node (66) at (6,6) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (15) at (1,5) {\scriptsize $h \tens(f  \times f I_A)i_1$};
+\node (25) at (2,5) {\scriptsize $hf \tens(\transid \times I_A)i_1$};
+\node (35) at (3,5) {\scriptsize $kg \tens (\transid \times I_A)i_1$};
+\node (45) at (4,5) {\scriptsize $k \tens (g \times g I_A)i_1$};
+\node (55) at (5,5) {\scriptsize $k \tens (g \times I_C)i_1$};
+\node (65) at (6,5) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (04) at (0,4) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (14) at (1,4) {\scriptsize $h \tens(f  \times f I_A)i_1$};
+\node (24) at (2,4) {\scriptsize $\tens(hf \times hf I_A)i_1$};
+\node (34) at (3,4) {\scriptsize $\tens (kg \times kg I_A)i_1$};
+\node (44) at (4,4) {\scriptsize $k \tens (g \times g I_A)i_1$};
+\node (54) at (5,4) {\scriptsize $k \tens (g \times I_C)i_1$};
+\node (64) at (6,4) {\scriptsize $kg $};
+%%%%%%%%%%%%
+\node (03) at (0,3) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (13) at (1,3) {\scriptsize $ \tens(hf  \times h I_B)i_1$};
+\node (23) at (2,3) {\scriptsize $\tens(hf \times hf I_A)i_1$};
+\node (33) at (3,3) {\scriptsize $\tens (kg \times kg I_A)i_1$};
+\node (43) at (4,3) {\scriptsize $\tens (kg \times k I_C)i_1$};
+\node (53) at (5,3) {\scriptsize $k \tens (g \times I_C)i_1$};
+\node (63) at (6,3) {\scriptsize $kg$};
+%%%%%%%%%%%%
+\node (12) at (1,2) {\scriptsize $ \tens(hf  \times h I_B)i_1$};
+\node (22) at (2,2) {\scriptsize $\tens(hf \times I_D)i_1$};
+\node (32) at (3,2) {\scriptsize $\tens (kg \times  I_D)i_1$};
+\node (42) at (4,2) {\scriptsize $\tens (kg \times k I_C)i_1$};
+\node (52) at (5,2) {\scriptsize $k \tens (g \times I_C)i_1$};
+\node (62) at (6,2) {\scriptsize $kg$};
+%%%%%%%%%%%%
+\node (01) at (0,1) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (11) at (1,1) {\scriptsize $ \tens(hf  \times h I_B)i_1$};
+\node (21) at (2,1) {\scriptsize $\tens(hf \times I_D)i_1$};
+\node (31) at (3,1) {\scriptsize $\tens (kg \times  I_D)i_1$};
+\node (61) at (6,1) {\scriptsize $kg$};
+%%%%%%%%%%
+\draw[doubleloose] (06) to node[above]{\scriptsize} (16);
+\draw[doubleloose] (16) to node[above]{\scriptsize} (26);
+\draw[doubleloose] (26) to node[above]{} (36);
+\draw[doubleloose] (36) to node[above]{} (66);
+%%%%%%%
+\draw[doubleloose] (15) to node[above]{\scriptsize} (25);
+\draw[doubleloose] (25) to node[above]{} (35);
+\draw[doubleloose] (35) to node[above]{} (45);
+\draw[doubleloose] (45) to node[above]{} (55);
+\draw[doubleloose] (55) to node[above]{} (65);
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (14);
+\draw[doubleloose] (14) to node[above]{} (24);
+\draw[doubleloose] (24) to node[above]{} (34);
+\draw[doubleloose] (34) to node[above]{} (44);
+\draw[doubleloose] (44) to node[above]{} (54);
+\draw[doubleloose] (54) to node[above]{} (64);
+%%%%%%%%
+\draw[doubleloose] (03) to node[above]{} (13);
+\draw[doubleloose] (13) to node[above]{} (23);
+\draw[doubleloose] (23) to node[above]{} (33);
+\draw[doubleloose] (33) to node[above]{} (43);
+\draw[doubleloose] (43) to node[above]{} (53);
+\draw[doubleloose] (53) to node[above]{} (63);
+%%%%%%%%
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (32);
+\draw[doubleloose] (32) to node[above]{} (42);
+\draw[doubleloose] (42) to node[above]{} (52);
+\draw[doubleloose] (52) to node[above]{} (62);
+%%%%%%%%
+\draw[doubleloose] (01) to node[above]{} (11);
+\draw[doubleloose] (11) to node[above]{} (21);
+\draw[doubleloose] (21) to node[above]{} (31);
+\draw[doubleloose] (31) to node[above]{} (61);
+%%%%%%%%
+\draw[doubletighteq] (06) to (04);
+\draw[doubletighteq] (16) to (15);
+\draw[doubletighteq] (36) to (35);
+\draw[doubletighteq] (66) to (65);
+%%%%%%%%%
+\draw[doubletighteq] (15) to (14);
+\draw[doubletighteq] (45) to (44);
+\draw[doubletighteq] (65) to (64);
+%%%%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (24) to (23);
+\draw[doubletighteq] (34) to (33);
+\draw[doubletighteq] (54) to (53);
+\draw[doubletighteq] (64) to (63);
+%%%%%%%%%
+\draw[doubletighteq] (03) to (01);
+\draw[doubletighteq] (13) to (12);
+\draw[doubletighteq] (43) to (42);
+\draw[doubletighteq] (63) to (62);
+%%%%%%%%%
+\draw[doubletighteq] (12) to (11);
+\draw[doubletighteq] (32) to (31);
+\draw[doubletighteq] (62) to (61);
+%%%%%%%%%
+\node at (0.5,5) {\small $=$};
+\node at (2,5.5) {\small $=$};
+\node at (4.5,5.5) {\small $\DDownarrow \overline{\tightid_{\looseid} \delta^g}$};
+\node at (2.5,4.5) {\small $\DDownarrow \overline{H \tightid_{\looseid}}$};
+\node at (5,4.5) {\small $=$};
+\node at (1,3.5) {\small $\iso$};
+\node at (2.5,3.5) {\small $=$};
+\node at (4,3.5) {\small $\iso$};
+\node at (5.5,3.5) {\small $=$};
+\node at (0.5,2) {\small $=$};
+\node at (2.5,2.5) {\small $\DDownarrow \overline{\tightid_{\looseid} (\tightid_{\looseid} \times K)}$};
+\node at (5,2.5) {\small $=$};
+\node at (2,1.5) {\small $=$};
+\node at (4.5,1.5) {\small $\DDownarrow \overline{\delta^k \tightid_{\looseid}}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[
+=
+\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.25, yscale=1.5]
+\node (06) at (0,6) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (16) at (1,6) {\scriptsize $h \tens(f  \times f I_A)i_1$};
+\node (26) at (2,6) {\scriptsize $hf \tens(\transid \times I_A)i_1$};
+\node (36) at (3,6) {\scriptsize $kg \tens (\transid \times I_A)i_1$};
+\node (66) at (6,6) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (05) at (0,5) {\scriptsize $h \tens (f \times I_B)i_1$};
+\node (15) at (1,5) {\scriptsize $h \tens(f  \times f I_A)i_1$};
+\node (25) at (2,5) {\scriptsize $hf \tens(\transid \times I_A)i_1$};
+\node (55) at (5,5) {\scriptsize $hf$};
+\node (65) at (6,5) {\scriptsize $kg $};
+%%%%%%%%%%%
+\node (04) at (0,4) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (54) at (5,4) {\scriptsize $hf$};
+\node (64) at (6,4) {\scriptsize $kg $};
+%%%%%%%%%%%%
+\node (03) at (0,3) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (13) at (1,3) {\scriptsize $ \tens(hf  \times h I_B)i_1$};
+\node (23) at (2,3) {\scriptsize $\tens(hf \times I_D I_A)i_1$};
+\node (53) at (5,3) {\scriptsize $hf$};
+\node (63) at (6,3) {\scriptsize $kg$};
+%%%%%%%%%%%%
+\node (02) at (0,2) {\scriptsize$ h \tens (f \times I_B)i_1$};
+\node (12) at (1,2) {\scriptsize $ \tens(hf  \times h I_B)i_1$};
+\node (22) at (2,2) {\scriptsize $\tens(hf \times I_D)i_1$};
+\node (52) at (5,2) {\scriptsize $ \tens (kg \times I_D)i_1$};
+\node (62) at (6,2) {\scriptsize $kg$};
+%%%%%%%
+\draw[doubleloose] (06) to node[above]{\scriptsize} (16);
+\draw[doubleloose] (16) to node[above]{\scriptsize} (26);
+\draw[doubleloose] (26) to node[above]{} (36);
+\draw[doubleloose] (36) to node[above]{} (66);
+%%%%%%%
+\draw[doubleloose] (05) to node[above]{\scriptsize} (15);
+\draw[doubleloose] (15) to node[above]{\scriptsize} (25);
+\draw[doubleloose] (25) to node[above]{} (55);
+\draw[doubleloose] (55) to node[above]{} (65);
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (54);
+%%%%%%%%
+\draw[doubleloose] (03) to node[above]{} (13);
+\draw[doubleloose] (13) to node[above]{} (23);
+\draw[doubleloose] (23) to node[above]{} (53);
+\draw[doubleloose] (53) to node[above]{} (63);
+%%%%%%%%
+\draw[doubleloose] (02) to node[above]{} (12);
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (52);
+\draw[doubleloose] (52) to node[above]{} (62);
+%%%%%%%%
+\draw[doubletighteq] (06) to (05);
+\draw[doubletighteq] (26) to (25);
+\draw[doubletighteq] (66) to (65);
+%%%%%%%%%
+\draw[doubletighteq] (05) to (04);
+\draw[doubletighteq] (55) to (54);
+\draw[doubletighteq] (65) to (64);
+%%%%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (54) to (53);
+\draw[doubletighteq] (64) to (63);
+%%%%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (23) to (22);
+\draw[doubletighteq] (63) to (62);
+%%%%%%%%%
+\node at (1,5.5) {\small $=$};
+\node at (4,5.5) {\small $\iso$};
+\node at (2.5,4.5) {\small $\DDownarrow \overline{\tightid_{\looseid} \delta^f}$};
+\node at (5.5,4) {\small $=$};
+\node at (2.5,3.5) {\small $\DDownarrow \overline{\delta^h \tightid_{\looseid}}$};
+\node at (1,2.5) {\small $=$};
+\node at (4,2.5) {\small $=$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+\begin{equation}\label{eq:monquintet3}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.4, yscale=1.5]
+\node (06) at (0,6) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (16) at (1,6) {\scriptsize $h \tens(f  \times f \tens)$};
+\node (26) at (2,6) {\scriptsize $hf \tens(\transid \times \tens)$};
+\node (36) at (3,6) {\scriptsize $hf \tens (\tens \times \transid)$};
+\node (46) at (4,6) {\scriptsize $kg \tens (\tens \times \transid)$};
+\node (56) at (5,6) {\scriptsize $k \tens (g\tens \times g)$};
+\node (66) at (6,6) {\scriptsize \begin{tabular}{c} $k\tens (\transid \times\tens)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%
+\node (05) at (0,5) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (15) at (1,5) {\scriptsize \begin{tabular}{c} $h\tens (\tens \times \transid)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (25) at (2,5) {\scriptsize $h \tens(f \tens \times f)$};
+\node (35) at (3,5) {\scriptsize $hf \tens (\tens \times \transid)$};
+\node (45) at (4,5) {\scriptsize $kg \tens (\tens \times \transid)$};
+\node (55) at (5,5) {\scriptsize $k \tens (g\tens \times g)$};
+\node (65) at (6,5) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%
+\node (04) at (0,4) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (14) at (1,4) {\scriptsize \begin{tabular}{c} $h\tens (\tens \times \transid)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (24) at (2,4) {\scriptsize $h \tens(f \tens \times f)$};
+\node (34) at (3,4) {\scriptsize $ \tens (hf \tens \times hf)$};
+\node (44) at (4,4) {\scriptsize $\tens (kg\tens \times kg)$};
+\node (54) at (5,4) {\scriptsize $k \tens (g\tens \times g)$};
+\node (64) at (6,4) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%
+\node (03) at (0,3) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (13) at (1,3) {\scriptsize \begin{tabular}{c} $h\tens (\tens \times \transid)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (23) at (2,3) {\scriptsize \begin{tabular}{c} $\tens (h\tens \times h)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (33) at (3,3) {\scriptsize $\tens (hf \tens \times hf)$};
+\node (43) at (4,3) {\scriptsize $\tens (kg\tens \times kg)$};
+\node (53) at (5,3) {\scriptsize \begin{tabular}{c} $\tens (k\tens \times k)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (63) at (6,3) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\node (02) at (0,2) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (12) at (1,2) {\scriptsize \begin{tabular}{c} $h\tens (\tens \times \transid)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (22) at (2,2) {\scriptsize \begin{tabular}{c} $\tens (h\tens \times h)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (32) at (3,2) {\scriptsize \begin{tabular}{c} $\tens (\tens \times \transid)$ \\ $(hf \times hf \times hf)$ \end{tabular}};
+\node (42) at (4,2) {\scriptsize \begin{tabular}{c} $\tens (\tens \times \transid)$ \\ $(kg \times kg \times kg)$ \end{tabular}};
+\node (52) at (5,2) {\scriptsize \begin{tabular}{c} $\tens (k\tens \times k)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (62) at (6,2) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\node (01) at (0,1) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (11) at (1,1) {\scriptsize \begin{tabular}{c} $\tens (h \times h \tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (21) at (2,1) {\scriptsize \begin{tabular}{c} $\tens (\transid \times \tens)$ \\ $(hf \times hf \times hf)$ \end{tabular}};
+\node (31) at (3,1) {\scriptsize \begin{tabular}{c} $\tens (\tens \times \transid)$ \\ $(hf \times hf \times hf)$ \end{tabular}};
+\node (41) at (4,1) {\scriptsize \begin{tabular}{c} $\tens (\tens \times \transid)$ \\ $(kg \times kg \times kg)$ \end{tabular}};
+\node (51) at (5,1) {\scriptsize \begin{tabular}{c} $\tens (k\tens \times k)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (61) at (6,1) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\node (00) at (0,0) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (10) at (1,0) {\scriptsize \begin{tabular}{c} $\tens (h \times h \tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (20) at (2,0) {\scriptsize \begin{tabular}{c} $\tens (\transid \times \tens)$ \\ $(hf \times hf \times hf)$ \end{tabular}};
+\node (30) at (3,0) {\scriptsize \begin{tabular}{c} $\tens (\transid \times \tens)$ \\ $(kg \times kg \times kg)$ \end{tabular}};
+\node (40) at (4,0) {\scriptsize \begin{tabular}{c} $\tens (\tens \times \transid)$ \\ $(kg \times kg \times kg)$ \end{tabular}};
+\node (50) at (5,0) {\scriptsize \begin{tabular}{c} $\tens (k\tens \times k)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (60) at (6,0) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\draw[doubleloose] (06) to node[above]{\scriptsize} (16);
+\draw[doubleloose] (16) to node[above]{\scriptsize} (26);
+\draw[doubleloose] (26) to node[above]{} (36);
+\draw[doubleloose] (36) to node[above]{} (46);
+\draw[doubleloose] (46) to node[above]{} (56);
+\draw[doubleloose] (56) to node[above]{} (66);
+%%%%%%%
+\draw[doubleloose] (05) to node[above]{} (15);\draw[doubleloose] (15) to node[above]{\scriptsize} (25);
+\draw[doubleloose] (25) to node[above]{} (35);
+\draw[doubleloose] (35) to node[above]{} (45);
+\draw[doubleloose] (45) to node[above]{} (55);
+\draw[doubleloose] (55) to node[above]{} (65);
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (14);
+\draw[doubleloose] (14) to node[above]{} (24);
+\draw[doubleloose] (24) to node[above]{} (34);
+\draw[doubleloose] (34) to node[above]{} (44);
+\draw[doubleloose] (44) to node[above]{} (54);
+\draw[doubleloose] (54) to node[above]{} (64);
+%%%%%%%%
+\draw[doubleloose] (03) to node[above]{} (13);
+\draw[doubleloose] (13) to node[above]{} (23);
+\draw[doubleloose] (23) to node[above]{} (33);
+\draw[doubleloose] (33) to node[above]{} (43);
+\draw[doubleloose] (43) to node[above]{} (53);
+\draw[doubleloose] (53) to node[above]{} (63);
+%%%%%%%%
+\draw[doubleloose] (02) to node[above]{} (12);
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (32);
+\draw[doubleloose] (32) to node[above]{} (42);
+\draw[doubleloose] (42) to node[above]{} (52);
+\draw[doubleloose] (52) to node[above]{} (62);
+%%%%%%%%
+\draw[doubleloose] (01) to node[above]{} (11);
+\draw[doubleloose] (11) to node[above]{} (21);
+\draw[doubleloose] (21) to node[above]{} (31);
+\draw[doubleloose] (31) to node[above]{} (41);
+\draw[doubleloose] (41) to node[above]{} (51);
+\draw[doubleloose] (51) to node[above]{} (61);
+%%%%%%%%
+\draw[doubleloose] (00) to node[above]{} (10);
+\draw[doubleloose] (10) to node[above]{} (20);
+\draw[doubleloose] (20) to node[above]{} (30);
+\draw[doubleloose] (30) to node[above]{} (40);
+\draw[doubleloose] (40) to node[above]{} (50);
+\draw[doubleloose] (50) to node[above]{} (60);
+%%%%%%%%
+\draw[doubletighteq] (06) to (05);
+\draw[doubletighteq] (36) to (35);
+\draw[doubletighteq] (66) to (65);
+%%%%%%%%%
+\draw[doubletighteq] (05) to (04);
+\draw[doubletighteq] (25) to (24);
+\draw[doubletighteq] (55) to (54);
+\draw[doubletighteq] (65) to (64);
+%%%%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (14) to (13);
+\draw[doubletighteq] (34) to (33);
+\draw[doubletighteq] (44) to (43);
+\draw[doubletighteq] (64) to (63);
+%%%%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (13) to (12);
+\draw[doubletighteq] (23) to (22);
+\draw[doubletighteq] (53) to (52);
+\draw[doubletighteq] (63) to (62);
+%%%%%%%%%
+\draw[doubletighteq] (02) to (01);
+\draw[doubletighteq] (12) to (11);
+\draw[doubletighteq] (32) to (31);
+\draw[doubletighteq] (62) to (61);
+%%%%%%%%%
+\draw[doubletighteq] (01) to (00);
+\draw[doubletighteq] (21) to (20);
+\draw[doubletighteq] (41) to (40);
+\draw[doubletighteq] (61) to (60);
+%%%%%%%%%
+\node at (1.5,5.5) {\small $\omega^f$};
+\node at (4.5,5.5) {\small $=$};
+\node at (1,4.5) {\small $=$};
+\node at (3.5,4.5) {\small $\DDownarrow \tightid_{\looseid} \overline{K^{\beta}}$};
+\node at (5.5,4.5) {\small $=$};
+\node at (2,3.5) {\small $\iso$};
+\node at (3.5,3.5) {\small $=$};
+\node at (5,3.5) {\small $\iso$};
+\node at (0.5,3) {\small $=$};
+\node at (1.5,2.5) {\small $=$};
+\node at (3.5,2.5) {\small $\DDownarrow \overline{\tightid_{\tens} (K^{\beta} \times \tightid_{\looseid})}$};
+\node at (5.5,2.5) {\small $=$};
+\node at (2,1.5) {\small $\DDownarrow \overline{ \omega^{h} \tightid_{\looseid}}$};
+\node at (4.5,1.5) {\small $=$};
+\node at (1,0.5) {\small $=$};
+\node at (3,0.5) {\small $\iso \alpha_{\beta}$};
+\node at (5,.5) {\small $=$};
+%%%%%%%%%%
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[
+=
+\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.4, yscale=1.5]
+\node (06) at (0,6) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (16) at (1,6) {\scriptsize $h \tens(f  \times f \tens)$};
+\node (26) at (2,6) {\scriptsize $hf \tens(\transid \times \tens)$};
+\node (36) at (3,6) {\scriptsize $hf \tens (\tens \times \transid)$};
+\node (46) at (4,6) {\scriptsize $kg \tens (\tens \times \transid)$};
+\node (56) at (5,6) {\scriptsize $k \tens (g\tens \times g)$};
+\node (66) at (6,6) {\scriptsize \begin{tabular}{c} $k\tens (\transid \times\tens)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%
+\node (05) at (0,5) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (15) at (1,5) {\scriptsize $h \tens(f  \times f \tens)$};
+\node (25) at (2,5) {\scriptsize $hf \tens(\transid \times \tens)$};
+\node (35) at (3,5) {\scriptsize $kg \tens (\transid \times \tens)$};
+\node (45) at (4,5) {\scriptsize $kg \tens (\tens \times \transid)$};
+\node (55) at (5,5) {\scriptsize $k \tens (g \tens \times g)$};
+\node (65) at (6,5) {\scriptsize \begin{tabular}{c} $k\tens (\transid \times\tens)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%
+\node (04) at (0,4) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (14) at (1,4) {\scriptsize $h \tens(f  \times f \tens)$};
+\node (24) at (2,4) {\scriptsize $hf \tens(\transid \times \tens)$};
+\node (34) at (3,4) {\scriptsize $kg \tens (\transid \times \tens)$};
+\node (44) at (4,4) {\scriptsize $k \tens (g \times g \tens)$};
+\node (54) at (5,4) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (64) at (6,4) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%
+\node (03) at (0,3) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times \tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (13) at (1,3) {\scriptsize $h\tens (f \times f \tens)$ };
+\node (23) at (2,3) {\scriptsize $\tens (hf  \times hf\tens)$ };
+\node (33) at (3,3) {\scriptsize $\tens (kg  \times kg \tens)$};
+\node (43) at (4,3) {\scriptsize $k\tens (g \times g \tens)$};
+\node (53) at (5,3) {\scriptsize \begin{tabular}{c} $k\tens (\transid \times \tens)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (63) at (6,3) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\node (02) at (0,2) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (12) at (1,2) {\scriptsize \begin{tabular}{c} $\tens (h \times h \tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (22) at (2,2) {\scriptsize $\tens (hf  \times hf\tens)$};
+\node (32) at (3,2) {\scriptsize $\tens (kg  \times kg \tens)$};
+\node (42) at (4,2) {\scriptsize \begin{tabular}{c} $\tens (k \times k \tens$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (52) at (5,2) {\scriptsize \begin{tabular}{c} $k\tens (\transid \times \tens)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (62) at (6,2) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\node (01) at (0,1) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (11) at (1,1) {\scriptsize \begin{tabular}{c} $\tens (h \times h \tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (21) at (2,1) {\scriptsize \begin{tabular}{c} $\tens (\transid \times \tens)$ \\ $(hf \times hf \times hf)$ \end{tabular}};
+\node (31) at (3,1) {\scriptsize \begin{tabular}{c} $\tens (\transid \times \tens)$ \\ $(kg \times kg \times kg)$ \end{tabular}};
+\node (41) at (4,1) {\scriptsize \begin{tabular}{c} $\tens (k  \times k \tens)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (51) at (5,1) {\scriptsize \begin{tabular}{c} $k\tens (\transid \times \tens)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (61) at (6,1) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\node (00) at (0,0) {\scriptsize \begin{tabular}{c} $h\tens (\transid \times\tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (10) at (1,0) {\scriptsize \begin{tabular}{c} $\tens (h \times h \tens)$ \\ $(f \times f \times f)$ \end{tabular}};
+\node (20) at (2,0) {\scriptsize \begin{tabular}{c} $\tens (\transid \times \tens)$ \\ $(hf \times hf \times hf)$ \end{tabular}};
+\node (30) at (3,0) {\scriptsize \begin{tabular}{c} $\tens (\transid \times \tens)$ \\ $(kg \times kg \times kg)$ \end{tabular}};
+\node (40) at (4,0) {\scriptsize \begin{tabular}{c} $\tens (\tens \times \transid)$ \\ $(kg \times kg \times kg)$ \end{tabular}};
+\node (50) at (5,0) {\scriptsize \begin{tabular}{c} $\tens (k\tens \times k)$ \\ $(g \times g \times g)$ \end{tabular}};
+\node (60) at (6,0) {\scriptsize \begin{tabular}{c} $k\tens (\tens \times \transid)$ \\ $(g \times g \times g)$ \end{tabular}};
+%%%%%%%%%%%%
+\draw[doubleloose] (06) to node[above]{\scriptsize} (16);
+\draw[doubleloose] (16) to node[above]{\scriptsize} (26);
+\draw[doubleloose] (26) to node[above]{} (36);
+\draw[doubleloose] (36) to node[above]{} (46);
+\draw[doubleloose] (46) to node[above]{} (56);
+\draw[doubleloose] (56) to node[above]{} (66);
+%%%%%%%
+\draw[doubleloose] (05) to node[above]{} (15);\draw[doubleloose] (15) to node[above]{\scriptsize} (25);
+\draw[doubleloose] (25) to node[above]{} (35);
+\draw[doubleloose] (35) to node[above]{} (45);
+\draw[doubleloose] (45) to node[above]{} (55);
+\draw[doubleloose] (55) to node[above]{} (65);
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (14);
+\draw[doubleloose] (14) to node[above]{} (24);
+\draw[doubleloose] (24) to node[above]{} (34);
+\draw[doubleloose] (34) to node[above]{} (44);
+\draw[doubleloose] (44) to node[above]{} (54);
+\draw[doubleloose] (54) to node[above]{} (64);
+%%%%%%%%
+\draw[doubleloose] (13) to node[above]{} (23);
+\draw[doubleloose] (23) to node[above]{} (33);
+\draw[doubleloose] (33) to node[above]{} (43);
+\draw[doubleloose] (43) to node[above]{} (53);
+\draw[doubleloose] (53) to node[above]{} (63);
+%%%%%%%%
+\draw[doubleloose] (02) to node[above]{} (12);
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (32);
+\draw[doubleloose] (32) to node[above]{} (42);
+\draw[doubleloose] (42) to node[above]{} (52);
+\draw[doubleloose] (52) to node[above]{} (62);
+%%%%%%%%
+\draw[doubleloose] (01) to node[above]{} (11);
+\draw[doubleloose] (11) to node[above]{} (21);
+\draw[doubleloose] (21) to node[above]{} (31);
+\draw[doubleloose] (31) to node[above]{} (41);
+\draw[doubleloose] (41) to node[above]{} (51);
+\draw[doubleloose] (51) to node[above]{} (61);
+%%%%%%%%
+\draw[doubleloose] (00) to node[above]{} (10);
+\draw[doubleloose] (10) to node[above]{} (20);
+\draw[doubleloose] (20) to node[above]{} (30);
+\draw[doubleloose] (30) to node[above]{} (40);
+\draw[doubleloose] (40) to node[above]{} (50);
+\draw[doubleloose] (50) to node[above]{} (60);
+%%%%%%%%
+\draw[doubletighteq] (06) to (05);
+\draw[doubletighteq] (36) to (35);
+\draw[doubletighteq] (66) to (65);
+%%%%%%%%%
+\draw[doubletighteq] (05) to (04);
+\draw[doubletighteq] (25) to (24);
+\draw[doubletighteq] (55) to (54);
+\draw[doubletighteq] (65) to (64);
+%%%%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (14) to (13);
+\draw[doubletighteq] (34) to (33);
+\draw[doubletighteq] (44) to (43);
+\draw[doubletighteq] (64) to (63);
+%%%%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (13) to (12);
+\draw[doubletighteq] (23) to (22);
+\draw[doubletighteq] (53) to (52);
+\draw[doubletighteq] (63) to (62);
+%%%%%%%%%
+\draw[doubletighteq] (02) to (01);
+\draw[doubletighteq] (32) to (31);
+\draw[doubletighteq] (62) to (61);
+%%%%%%%%%
+\draw[doubletighteq] (01) to (00);
+\draw[doubletighteq] (21) to (20);
+\draw[doubletighteq] (41) to (40);
+\draw[doubletighteq] (61) to (60);
+%%%%%%%%%
+\node at (1.5,5.5) {\small $\overline{\tightid_{\looseid} \omega^f}$};
+\node at (4.5,5.5) {\small $=$};
+\node at (1,4.5) {\small $=$};
+\node at (3.5,4.5) {\small $\DDownarrow K^\beta$};
+\node at (5.5,4.5) {\small $=$};
+\node at (2,3.5) {\small $\iso$};
+\node at (3.5,3.5) {\small $=$};
+\node at (5,3.5) {\small $=$};
+\node at (0.5,3) {\small $=$};
+\node at (1.5,2.5) {\small $=$};
+\node at (3.5,2.5) {\small $ \DDownarrow \overline{\tightid_{\tens}(K^{\beta} \times \tightid_{\looseid})} $};
+\node at (5.5,2.5) {\small $=$};
+\node at (1.5,1.5) {\small $\DDownarrow \overline{\omega^k \tightid_{\looseid}}$};
+\node at (4.5,1.5) {\small $=$};
+\node at (1,0.5) {\small $=$};
+\node at (3,0.5) {\small $\iso$};
+\node at (5,0.5) {\small $=$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+A monoidal quintet 2-cell is braided if the underlying 2-cell is is braided and in addition, the equality below holds.
+
+\begin{equation}\label{eq:bricon}
+\begin{aligned}
+\begin{tikzpicture}[xscale=3, yscale=1.5]
+\node (04) at (0,4) {\small $h\tens(f \times f)$};
+\node (14) at (1,4) {\small $h\tens \tau (f \times f)$};
+\node (24) at (2,4) {\small $hf \tens \tau$};
+\node (34) at (3,4) {\small $kg \tens \tau$};
+\node (44) at (4,4) {\small $k \tens (g \times g) \tau$};
+%%%%%%
+\node (03) at (0,3) {\small $h\tens(f \times f)$};
+\node (13) at (1,3) {\small $h \tens (f \times f) \tau$};
+\node (23) at (2,3) {\small $ \tens (hf \times hf) \tau$};
+\node (33) at (3,3) {\small $ \tens (kg \times kg) \tau$};
+\node (43) at (4,3) {\small $ k\tens (g \times g) \tau$};
+%%%%%% 
+\node (02) at (0,2) {\small $h\tens(f \times f)$};
+\node (12) at (1,2) {\small $ \tens (hf \times hf)$};
+\node (22) at (2,2) {\small $ \tens \tau (hf \times hf)$};
+\node (32) at (3,2) {\small $ \tens \tau (kg \times kg)$};
+\node (42) at (4,2) {\small $k \tens (g \times g) \tau$};
+%%%%%%%
+\node (01) at (0,1) {\small $h \tens(f \times f)$};
+\node (11) at (1,1) {\small $\tens(hf \times hf)$};
+\node (21) at (2,1) {\small $\tens(kg \times kg)$};
+\node (31) at (3,1) {\small $\tens(kg \times kg) \tau$};
+\node (41) at (4,1) {\small $k \tens (g \times g) \tau$};
+%%%%%%%
+\node (00) at (0,0) {\small $h \tens(f \times f)$};
+\node (10) at (1,0) {\small $\tens(hf \times hf)$};
+\node (20) at (2,0) {\small $\tens(kg \times kg)$};
+\node (30) at (3,0) {\small $k\tens(g \times g)$};
+\node (40) at (4,0) {\small $k \tens (g \times g) \tau$};
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (14);
+\draw[doubleloose] (14) to (24);
+\draw[doubleloose] (24) to node[above]{} (34);
+\draw[doubleloose] (34) to node[above]{} (44);
+%%%%
+\draw[doubleloose] (03) to node[above]{} (13);
+\draw[doubleloose] (13) to (23);
+\draw[doubleloose] (23) to node[above]{} (33);
+\draw[doubleloose] (33) to node[above]{} (43);
+%%%%
+\draw[doubleloose] (02) to node[above]{} (12);
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (32);
+\draw[doubleloose] (32) to node[above]{} (42);
+%%%%%%
+\draw[doubleloose] (01) to node[above]{} (11);
+\draw[doubleloose] (11) to node[above]{} (21);
+\draw[doubleloose] (21) to node[above]{} (31);
+\draw[doubleloose] (31) to node[above]{} (41);
+%%%%%%
+\draw[doubleloose] (00) to node[above]{} (10);
+\draw[doubleloose] (10) to node[above]{} (20);
+\draw[doubleloose] (20) to node[above]{} (30);
+\draw[doubleloose] (30) to node[above]{} (40);
+%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (14) to (13);
+\draw[doubletighteq] (44) to (43);
+%%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (23) to (22);
+\draw[doubletighteq] (43) to (42);
+%%%%%%
+\draw[doubletighteq] (02) to (01);
+\draw[doubletighteq] (12) to (11);
+\draw[doubletighteq] (32) to (31);
+\draw[doubletighteq] (42) to (41);
+%%%%%%
+\draw[doubletighteq] (01) to (00);
+\draw[doubletighteq] (21) to (20);
+\draw[doubletighteq] (41) to (40);
+%%%%%%%%
+\node at (.5,3.5) {\small $=$};
+\node at (2.5,3.5) {\small $\DDownarrow H^{\beta}$};
+\node at (1,2.5) {$\overline{ u^h \tightid_{\looseid}}$};
+\node at (3,2.5) {\small $=$};
+\node at (.5,1.5) {\small $=$};
+\node at (2,1.5) {\small $\iso$};
+\node at (3.5,1.5) {\small $=$};
+\node at (1,.5) {\small $=$};
+\node at (3,.5) {\small $\DDownarrow \overline{u^k \tightid_{\looseid}}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=3, yscale=1.5]
+\node (04) at (0,4) {\small $h\tens(f \times f)$};
+\node (14) at (1,4) {\small $h\tens \tau (f \times f)$};
+\node (24) at (2,4) {\small $hf \tens \tau$};
+\node (34) at (3,4) {\small $kg \tens \tau$};
+\node (44) at (4,4) {\small $k \tens (g \times g) \tau$};
+%%%%%%
+\node (03) at (0,3) {\small $h\tens(f \times f)$};
+\node (13) at (1,3) {\small $h f \tens $};
+\node (23) at (2,3) {\small $hf \tens \tau$};
+\node (33) at (3,3) {\small $kg  \tens  \tau$};
+\node (43) at (4,3) {\small $ k\tens (g \times g) \tau$};
+%%%%%% 
+\node (02) at (0,2) {\small $h\tens(f \times f)$};
+\node (12) at (1,2) {\small $hf \tens $};
+\node (22) at (2,2) {\small $kg \tens $};
+\node (32) at (3,2) {\small $kg \tens \tau $};
+\node (42) at (4,2) {\small $k \tens (g \times g) \tau$};
+%%%%%%%
+\node (01) at (0,1) {\small $h \tens(f \times f)$};
+\node (11) at (1,1) {\small $hf \tens$};
+\node (21) at (2,1) {\small $kg \tens$};
+\node (31) at (3,1) {\small $k \tens(g \times g)$};
+\node (41) at (4,1) {\small $k \tens (g \times g) \tau$};
+%%%%%%%
+\node (00) at (0,0) {\small $h \tens(f \times f)$};
+\node (10) at (1,0) {\small $\tens(hf \times hf)$};
+\node (20) at (2,0) {\small $\tens(kg \times kg)$};
+\node (30) at (3,0) {\small $k\tens(g \times g)$};
+\node (40) at (4,0) {\small $k \tens (g \times g) \tau$};
+%%%%%%%
+\draw[doubleloose] (04) to node[above]{} (14);
+\draw[doubleloose] (14) to (24);
+\draw[doubleloose] (24) to node[above]{} (34);
+\draw[doubleloose] (34) to node[above]{} (44);
+%%%%
+\draw[doubleloose] (03) to node[above]{} (13);
+\draw[doubleloose] (13) to (23);
+\draw[doubleloose] (23) to node[above]{} (33);
+\draw[doubleloose] (33) to node[above]{} (43);
+%%%%
+\draw[doubleloose] (02) to node[above]{} (12);
+\draw[doubleloose] (12) to node[above]{} (22);
+\draw[doubleloose] (22) to node[above]{} (32);
+\draw[doubleloose] (32) to node[above]{} (42);
+%%%%%%
+\draw[doubleloose] (01) to node[above]{} (11);
+\draw[doubleloose] (11) to node[above]{} (21);
+\draw[doubleloose] (21) to node[above]{} (31);
+\draw[doubleloose] (31) to node[above]{} (41);
+%%%%%%
+\draw[doubleloose] (00) to node[above]{} (10);
+\draw[doubleloose] (10) to node[above]{} (20);
+\draw[doubleloose] (20) to node[above]{} (30);
+\draw[doubleloose] (30) to node[above]{} (40);
+%%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (24) to (23);
+\draw[doubletighteq] (44) to (43);
+%%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (13) to (12);
+\draw[doubletighteq] (33) to (32);
+\draw[doubletighteq] (43) to (42);
+%%%%%%
+\draw[doubletighteq] (02) to (01);
+\draw[doubletighteq] (22) to (21);
+\draw[doubletighteq] (42) to (41);
+%%%%%%
+\draw[doubletighteq] (01) to (00);
+\draw[doubletighteq] (31) to (30);
+\draw[doubletighteq] (41) to (40);
+%%%%%%%%
+\node at (1,3.5) {\small $\DDownarrow \overline{\tightid_{\looseid} u^f}$};
+\node at (3,3.5) {\small $=$};
+\node at (.5,2.5) {$=$};
+\node at (2,2.5) {\small $\iso$};
+\node at (3.5,2.5) {\small $=$};
+\node at (1,1.5) {\small $=$};
+\node at (3,1.5) {\small $\DDownarrow \overline{ \tightid_{\looseid} u^g}$};
+\node at (1.5,.5) {\small $\DDownarrow H^{\beta}$};
+\node at (3.5,.5) {\small $=$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
 
 \end{defn} 
 \begin{thm}
@@ -76,9 +1074,34 @@ Let $\cB$ be a locally cubical bicategory with products. There exist intercatego
 The intercategories $\cB r\cI$ and $\cS ym\cI$ are defined analogously, for braided and symmetric monoidal objects and cells of $\cB$
 \end{thm}
 
+\begin{center}
+\begin{tikzpicture}[yscale=1.5, xscale=2]
+\node (1) at (1,0){$\bar{A}'$};
+\node (2) at (3,0){$\bar{B}'$};
+\node (3) at (1,2){$A'$};
+\node (4) at (3,2){$B'$};
+\node (5) at (0,1){$\bar{A}$};
+\node (6) at (0,3){$A$};
+\node (7) at (2,3){$B$};
+\draw[->] (1) to node[above]{} (2);
+\draw[->] (3) to node[above]{$\substack{lax \hspace{.1cm} 1-cell}$}(4);
+\draw[->] (6) to node[above]{} (7);
+\draw[->] (3) to node[left]{$\substack{oplax \\ 1-cell}$} (1);
+\draw[->] (4) to node[right]{} (2);
+\draw[->] (6) to node[left]{} (5);
+\draw[doubleeq] (6) to node[left]{} (3);
+\draw[doubleeq] (7) to node[right]{} (4);
+\draw[doubleeq] (5) to node[left]{} (1);
+\node at (2,1){$\substack{Quintet \\ mon. \hspace{.1cm}2-cell}$};
+\node at (.5,1.5){$\substack{Oplax \hspace{.1cm} icon}$};
+\node at (1.5,2.5){$\substack{Lax \hspace{.1cm} icon}$};
+\end{tikzpicture}
+\end{center}
+
+
 [Do we need conditions on the monoidal 3-cells?]
 \begin{proof}
-By Theorem {thm:lcbc} we know that the arrows in the horizontal and transversal direction between two given objects form a week bicategory, and so do the arrows in the vertical and transversal direction.
+By Theorem~\ref{thm:lcbc} we know that the arrows in the horizontal and transversal direction between two given objects form a weak double category, and so do the arrows in the vertical and transversal direction.
 What we need to prove is that the arrows in the lax and oplax cells are related by interchangers.
 \end{proof}
 
