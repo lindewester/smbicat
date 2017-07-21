@@ -18,10 +18,14 @@ We now define symmetric, braided and monoidal structures on objects, 1-cells, 2-
 Note that under this translation pseudonatural transformations become \emph{loose} 2-cells and modifications become globular 3-cells.
 The loose 2-cells in \cDblf\ (which has no nonidentity tight 2-morphisms) are the (tight) transformations, while those in \fBicat\ are exactly the pseudonatural transformations (its tight 2-morphisms are icons).
 
-Before we give the definitions of monoidal cells, we recall the structure of a locally cubical bicategory. Locally cubical bicategories have three types of composition. As a locally cubical category is a specific kind of intercategory, we will adopt the notation introduced for intercategories in~\cite{gp:intercategories-i}. Firstly, we have loose composition "$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell bounday. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning "$\beta$ after $\alpha$". The identity for loose composition is written as $\looseid$. Loose composition is weakly associative and loose identities hold up to isomorphism. We write $U_{f}$ and $U_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. 
-Secondly, we have tight composition "$\verc$" in the hom-double categories. This gives us composition of tight 2-cells along a 1-cell boundary and tight composition of 3-cells along a loose 2-cell boundary, written in the conventional order: $f \verc g$ denoting "$f$ after $g$". The identity for tight composition is given by $\tightid$. Tight composition is strictly associative and has strict identities.
-Thirdly, there is composition "$\comp$" of 1-cells, 2-cells, and 3-cells along a 0-cell boundary, given by the enriched structure. We write this composition in the conventional order: $f \comp g$ meaning "$f$ after $g$". When it is clear from the context, we omit the composition symbol "$\comp$",  and write the juxtaposition of 1-cells instead. The identity for this composition is given by $\transid$. This composition is weak with weak identities. We write $\compI$ for the unit double functor. Note that by functoriality, the image of $\compI_A$ is given by some 1-cell $\compI_A$, the identity tight 2-cell $\tightid_{\compI_A}$, some loose 2-cell $\compI_{\compI_A}$ which is naturally isomorphic to the identity for loose composition $\looseid_{\compI_A}$, and the identity 3-cell  $\id_{\compI_{\compI_A}}$.
-As two of the compositions, "$\horc$", and "$\comp$" are weak, we sometimes use special notation to distinguish between their associators and unitors, given by the composition symbol in superscript: $\hora, \horr$, $\horl$, and $\compa, \compr$, $\compl$, respectively.
+Before we give the definitions of monoidal cells, we recall the structure of a locally cubical bicategory. Locally cubical bicategories have three types of composition. As a locally cubical category is a specific kind of intercategory, we will adopt the notation introduced for intercategories in~\cite{gp:intercategories-i}. Firstly, we have loose composition "$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell bounday. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning "$\beta$ after $\alpha$". We write $\looseid_{f}$ and $\looseid_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. Loose composition is weakly associative and loose identities hold up to isomorphism. 
+Secondly, we have tight composition "$\verc$" in the hom-double categories. This gives us composition of tight 2-cells along a 1-cell boundary and tight composition of 3-cells along a loose 2-cell boundary, written in the conventional order: $f \verc g$ denoting "$f$ after $g$". We write $\tightid_f$ and $\tightid_{\alpha}$ for the tight identity on a 1-cell $f$ and a loose 2-cell $\alpha$, respectively. Tight composition is strictly associative and has strict identities. 
+Thirdly, there is composition "$\comp$" of 1-cells, 2-cells, and 3-cells along a 0-cell boundary, given by the enriched structure. We write this composition in the conventional order: $f \comp g$ meaning "$f$ after $g$". When it is clear from the context, we omit the composition symbol "$\comp$",  and write the juxtaposition of 1-cells instead. The identities for this composition is given by "$\transid$" with the respective object, 1-cell, loose 2-cell or tight 2-cell in subscript. This composition is weak with weak identities. We write $\compI$ for the unit double functor and $\compI_A$ for the image $\compI(A)$ of an object $A$, and likewise for 1-cells and 2-cells.  
+%%%%%%rewrite this
+By functoriality... the identity tight 2-cell $\tightid_{\compI_A}$, some loose 2-cell $\compI_{\compI_A}$ which is naturally isomorphic to the identity for loose composition $\looseid_{\compI_A}$, and the identity 3-cell  $\id_{\compI_{\compI_A}}$.
+We write "$\onecell$" to denote 1-cells, "$\looseRightarrow$" to denote the loose 2-cells, "$\Rightarrow$" to denote the tight 2-cells and "$\RRightarrow$" to denote $3-cells$. 
+
+For readability, we will strictify the hom-double categories, as we did  with the double categories in Section~\ref{sec:symm-mono-double}. As a consequence, we may omit the associativity and unit constraints for $\comp$. To distinguish the associator and unitor for  "$\horc$" from those of the monoidal structure, we use special notation, given by the composition symbol in superscript: $\hora, \horr$, $\horl$, respectively. 
 
 Let \fB\ be a locally cubical bicategory with products.
 
@@ -96,21 +100,36 @@ In \cDblf, where there are no nonidentity 3-cells, they reduce to the definition
 \begin{defn}
 Let $A,B$ be monoidal objects in \fB. A 1-cell $f:A \onecell B$ is {\bf lax monoidal} when it is equipped with the following loose 2-cells:
 \begin{itemize}
-\item $\chi: \ten (f \times f) \looseRightarrow{} f  \otimes$
-\item $\iota: I_B \looseRightarrow{} f I_A$
+\item $\chi: \ten (f \times f) \looseRightarrow{} f  \otimes  $
+\item $\iota: I_B \looseRightarrow{} fI_A $
 \end{itemize}
 As well as globular invertible 3-cells 
 
+%remember that we write the horizontal composition \horc in diagrammatic order!
+ 
 \begin{align*}
-& \omega: \looseid_f \alpha_A \horc \chi(\looseid_{\tens \times \tightid} \horc \looseid_{\tens}(\chi \times \looseid_f) \RRightarrow \chi \looseid_{\tightid \times \tens} \horc \looseid_{\tens}(\looseid \times \chi) \horc \alpha_B\looseid_{f \times f \times f} \\
+& \omega:  \looseid_{\tens}(\chi \times \looseid_f)  \horc  \chi\looseid_{\tens \times \transid} \horc  \looseid_f \alpha \RRightarrow \alpha\looseid_{f \times f \times f}  \horc \looseid_{\tens}(\looseid \times \chi)  \horc \chi \looseid_{\transid \times \tens}  \\
  &\gamma: \looseid_{\tens}(\iota_f \times \looseid_f) \looseid_{i_2} \horc \chi \looseid_{I \times \transid} \looseid_{i_2} \horc \looseid_f l\RRightarrow l \looseid_f \\
- &\delta: \looseid_f r \horc \chi \looseid_{\tightid \times I} \horc \looseid_{\tens} (\looseid_{f}\times \iota) \RRightarrow r \looseid_f
+ &\delta:  \looseid_f r^{-1} \RRightarrow r^{-1} \looseid_f \horc \looseid_{\tens} (\looseid \times \iota) \looseid_{i_1 f} \horc \chi \looseid_{(\transid \times I)i_1}
 \end{align*}
 
- given in Definition 4.10 of~\cite{nick:tricatsbook}, expressing the usual associativity and unitality conditions, which satisfy the three given commutativity axioms.
+given in Definition 4.10 of~\cite{nick:tricatsbook}, expressing the usual associativity and unitality conditions, which satisfy the three given commutativity axioms.
 A monoidal 1-cell is called {\bf braided}, when $A$ and $B$ are braided and there is a globular 3-cell $u: \sigma_B \looseid_{f \times f} \verc \chi  \looseid_{\tau} \looseRightarrow \chi \horc (\looseid_f \sigma_A)$, satisfying the braiding axioms analogous to (BHA1) and (BHA2) given in  \cite[p141-142]{mccrudden:bal-coalgb}. It is {\bf symmetric} when $A$ and $B$ are symmetric and the 3-cells defining the braided monoidal structure of $f$ satisfy the additional axiom analogous to  (SHA1) given in   \cite[p145]{mccrudden:bal-coalgb}.
 
-When the 2-cells go in the opposite direction, the morphism $f$ is {\bf oplax monoidal}, and when they are adjoint equivalences, it is {\bf strong monoidal}.
+The morphism $f$ is {\bf oplax monoidal} when it is equipped with 2-cells and 3cells below 
+
+\begin{itemize}
+\item $\bar{\chi}: f  \otimes\looseRightarrow{} \ten (f \times f)    $
+\item $\bar{\iota}: fI_A\looseRightarrow{} I_B $
+\end{itemize}
+
+\begin{align*}
+& \bar{\omega}: \bar{\chi} \looseid_{\transid \times \tens}  \horc  \looseid_{\tens}(\looseid_f \times \bar{\chi})   \horc  \alpha^{-1}\looseid_{f \times f \times f} \RRightarrow  \looseid_f \alpha^{-1}  \horc  \bar{\chi} \looseid_{\tens \times \transid} \horc  \looseid_{\tens}(\bar{\chi} \times \looseid_f)\\ 
+ &\bar{\gamma}: l^{-1} \looseid_f \RRightarrow  \looseid_f l^{-1}   \horc \bar{\chi} \looseid_{I \times \transid} \looseid_{i_2} \horc \looseid_{\tens}(\bar{\iota}_f \times \looseid_f) \looseid_{i_2}\\
+ &\bar{\delta}:  \bar{\chi} \looseid_{\transid \times I} \horc \looseid_{\tens} (\looseid_{f}\times \bar{\iota}) \looseid_{i1} \horc r^{-1} \looseid_f \RRightarrow  \looseid_f r^{-1}
+\end{align*}
+
+If $f$ is lax and oplax monoidal, the associated loose 2-cells $\chi$ and $\iota$ form adjoint equivalences with their oplax counterparts, and the 3-cells correspond to their oplax counterparts as mates under the adjoint equivalence structure, it is {\bf strong monoidal}.
 \end{defn}
 
 
@@ -118,33 +137,28 @@ When the 2-cells go in the opposite direction, the morphism $f$ is {\bf oplax mo
 \begin{defn}\label{Def:monverttrans}
 Let $f, g:A \onecell B$ be lax monoidal 1-cells in \fB. A {\bf lax monoidal 2-cell} $\beta: f \looseRightarrow g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
 \begin{itemize}
-\item $\Pi: \chi_f \horc (\beta \comp \looseid_{\ten}) \RRightarrow{} \looseid_{\ten}(\beta \times \beta) \horc \chi_g$
-\item $M: \iota_f \horc (\beta \comp \looseid_{\ten}) \RRightarrow{} \looseid_{I_A} \horc \iota_g$
+\item $\Pi: \chi_f \horc(\beta  \looseid_{\ten} \RRightarrow{} \looseid_{\ten}(\beta \times \beta) \horc \chi_g$
+\item $M: \iota_f \horc \beta  \looseid_{I_A} \RRightarrow{} \looseid_{I_B} \horc \iota_g$
 \end{itemize}
 
-Such that coherence equations \ref{eq:monicon1}, \ref{eq:monicon2}, and \ref{eq:monicon3} below hold.
+Such that coherence equations \ref{eq:mon2cell1}, \ref{eq:mon2cell2}, and \ref{eq:mon2cell3} below hold. These axioms are analogous to (TA2), (TA3) and (TA4) of~\cite{gg:ldstr-tricat}.
 
 Let $f, g:A \onecell B$ be oplax monoidal 1-cells in \fB. An {\bf oplax monoidal 2-cell} $\beta: f \looseRightarrow{} g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
 \begin{itemize}
-\item $\Pi': \chi_f \horc \looseid_{\ten}(\beta \times \beta)  \RRightarrow{} (\beta \comp \looseid_{\ten}) \horc \chi_g $
-\item $M':   \iota_f \horc \looseid_{I} \RRightarrow{} (\beta \comp \looseid_{\ten}) \horc \iota_g $
+\item $\bar{\Pi}: \beta \looseid_{\ten} \horc \bar{\chi}_g \RRightarrow{} \bar{\chi}_f \horc \looseid_{\ten}(\beta \times \beta)  $
+\item $\bar{M}: \beta \looseid_{I_A} \horc \bar{\iota}_g  \RRightarrow{} \bar{\iota}_f \horc \looseid_{I} $
 \end{itemize}
 \end{defn}
 
- Such that coherence equations analogous to \ref{eq:monicon1}, \ref{eq:monicon2}, and \ref{eq:monicon3} hold.
+ Such that coherence equations analogous to \ref{eq:mon2cell1}, \ref{eq:mon2cell2}, and \ref{eq:mon2cell3} hold.
 
-If $g,f$ are strong monoidal, we call $\beta$ a {\bf strong monoidal 2-cell} when it is equipped with $M, \Pi, M '$ and $\Pi '$, which correspond to each other in pairs as mates under the adjoint equivalence structure on $\chi$ and $\iota$.
+If $g,f$ are strong monoidal, we call $\beta$ a {\bf strong monoidal 2-cell} when it is equipped with $M, \Pi, \bar{M}$ and $\bar{\Pi}$, which correspond to each other in pairs as mates under the adjoint equivalence structure on $\chi$ and $\iota$.
 
-A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or symmetric, and in addition the coherence axiom~\ref{eq:bricon} holds. 
+A monoidal 2-cell is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, and in addition the coherence axiom~\ref{eq:br2cell} holds. This axiom is analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb}. 
 
-\begin{equation}\label{eq:monicon1}
+\begin{equation}\label{eq:mon2cell1}
 \begin{aligned}
 \begin{tikzpicture}[xscale=3, yscale=1.5]
-\node (tt0) at (0,3) {\small $\tens(I_B \times f)i_2$};
-\node (tt1) at (1,3) {\small $\tens(f I_A \times f)i_2$};
-\node (tt2) at (2,3) {\small $f \tens(I_A \times \transid)i_2$};
-\node (tt3) at (3,3) {\small $g \tens(I_A \times \transid)i_2$};
-\node (tt4) at (4,3) {\small $g$};
 \node (t0) at (0,2) {\small $\tens(I_B \times f)i_2$};
 \node (t1) at (1,2) {\small $\tens(f I_A \times f)i_2$};
 \node (t2) at (2,2) {\small $f \tens(I_A \times \transid)i_2$};
@@ -156,10 +170,6 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (b0) at (0,0) {\small $\tens(I_B \times \transid)i_2f$};
 \node (b3) at (3,0) {\small $\tens (I_B \times \transid)i_2g$};
 \node (b4) at (4,0) {\small $g$};
-\draw[doubleloose] (tt0) to node[above]{\small $\looseid_{\tens}(\iota_f \times \looseid_f)\looseid_{i_2}$} (tt1);
-\draw[doubleloose] (tt1) to node[above]{\small $\chi (\looseid_{I \times \transid})\looseid_{i_2}$} (tt2);
-\draw[doubleloose] (tt2) to node[above]{\small $\beta \looseid $} (tt3);
-\draw[doubleloose] (tt3) to node[above]{\small $\looseid l$} (tt4);
 \draw[doubleloose] (t0) to node[above]{\small $\looseid_{\tens}(\iota_f \times \looseid_f)\looseid_{i_2}$} (t1);
 \draw[doubleloose] (t1) to node[above]{\small $\chi (\looseid_{I \times \transid})\looseid_{i_2}$} (t2);
 \draw[doubleloose] (t2) to node[above]{\small $\looseid_f l$} (t3);
@@ -168,16 +178,11 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (m3) to node[above]{\small $\beta$} (m4);
 \draw[doubleloose] (b0) to node[above]{\small $\looseid_{\tens}(\beta \times \looseid_I)\looseid_{i_2}$} (b3);
 \draw[doubleloose] (b3) to node[above]{\small $l \looseid_g$} (b4);
-\draw[doubletighteq] (tt0) to (t0);
-\draw[doubletighteq] (tt2) to (t2);
-\draw[doubletighteq] (tt4) to (t4);
 \draw[doubletighteq] (t0) to (m0);
 \draw[doubletighteq] (m0) to (b0);
 \draw[doubletighteq] (t3) to (m3);
 \draw[doubletighteq] (t4) to (m4);
 \draw[doubletighteq] (m4) to (b4);
-\node at (3,2.5) {\small $\iso l_{\beta}$};
-\node at (1,2.5) {\small $=$};
 \node at (1.5,1.5) {\small $\DDownarrow \gamma^f$};
 \node at (3.5,1.5) {\small $\DDownarrow \tightid_{\beta}$};
 \node at (2,0.5) {\small $\iso$};
@@ -190,6 +195,12 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \begin{equation*}
 \begin{aligned}
 \begin{tikzpicture}[xscale=3, yscale=1.5]
+\node (04) at (0,4) {\small $\tens(I_B \times f)i_2$};
+\node (14) at (1,4) {\small $\tens(f I_A\times f)i_2$};
+\node (24) at (2,4) {\small $f \tens(I_A \times \transid_A)i_2$};
+\node (34) at (3,4) {\small $f$};
+\node (44) at (4,4) {\small $g$};
+%%%%%%
 \node (03) at (0,3) {\small $\tens(I_B \times f)i_2$};
 \node (13) at (1,3) {\small $\tens(f I_A\times f)i_2$};
 \node (23) at (2,3) {\small $f \tens(I_A \times \transid_A)i_2$};
@@ -212,6 +223,11 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (10) at (1,0) {\small $\tens(I_B \times \transid)i_2 g$};
 \node (40) at (4,0) {\small $g$};
 %%%%%%%
+\draw[doubleloose] (04) to node[above]{\small $\looseid_{\tens}(\looseid_f \times \iota_f) \looseid_{i_2}$} (14);
+\draw[doubleloose] (14) to node[above]{\small $\chi (\looseid_{I \times \transid})\looseid_{i_2}$} (24);
+\draw[doubleloose] (24) to node[above]{\small $\looseid_f l$} (34);
+\draw[doubleloose] (34) to node[above]{\small$\beta$} (44);
+%%%%%%%
 \draw[doubleloose] (03) to node[above]{\small $\looseid_{\tens}(\looseid_f \times \iota_f) \looseid_{i_2}$} (13);
 \draw[doubleloose] (13) to node[above]{\small $\chi (\looseid_{I \times \transid})\looseid_{i_2}$} (23);
 \draw[doubleloose] (23) to node[above]{\small $\beta \looseid_{\tens}(\looseid_{I\times \transid})\looseid_{i_2}$} (33);
@@ -230,6 +246,10 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\looseid_I  \times \looseid)\looseid_{i_2} \beta$} (10);
 \draw[doubleloose] (10) to node[above]{\small $l \looseid_g $} (40);
 %%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[=] (24) to (23);
+\draw[doubletighteq] (44) to (43);
+%%%%%%
 \draw[doubletighteq] (03) to (02);
 \draw[doubletighteq] (13) to (12);
 \draw[doubletighteq] (33) to (32);
@@ -243,6 +263,8 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubletighteq] (11) to (10);
 \draw[doubletighteq] (41) to (40);
 %%%%%%%%
+\node at (1,3.5) {\small $=$};
+\node at (3,3.5) {\small $\DDownarrow \cong l_{\beta}$};
 \node at (.5,2.5) {\small $=$};
 \node at (2,2.5) {\small $\DDownarrow \overline{\Pi^{\beta}\tightid_{\looseid}}$};
 \node at (3.5,2.5) {\small $=$};
@@ -256,15 +278,9 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{equation}\label{eq:monicon2}
+\begin{equation}\label{eq:mon2cell2}
 \begin{aligned}
 \begin{tikzpicture}[xscale=3, yscale=1.5]
-\node (tt0) at (0,3) {\small $\tens(f\times I_B)i_1$};
-\node (tt1) at (1,3) {\small $\tens(f\times fI_A)i_1$};
-\node (tt2) at (2,3) {\small $f \tens(\id \times I_A)i_1$};
-\node (tt3) at (3,3) {\small $g \tens(\id \times I_A)i_1$};
-\node (tt4) at (4,3) {\small $g$};
-%%%%%%%%%%%
 \node (t0) at (0,2) {\small $\tens(f\times I_B)i_1$};
 \node (t1) at (1,2) {\small $\tens(f\times fI_A)i_1$};
 \node (t2) at (2,2) {\small $f\tens(\id \times I_A)i_1$};
@@ -277,11 +293,6 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (b3) at (3,0) {\small $\tens (\transid \times I_B)i_1g$};
 \node (b4) at (4,0) {\small $g$};
 %%%%%%%%%%%%%
-\draw[doubleloose] (tt0) to node[above]{$\small \looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (tt1);
-\draw[doubleloose] (tt1) to node[above]{\small $\chi (\looseid \times \looseid_I)\looseid_{i_1}$} (tt2);
-\draw[doubleloose] (tt2) to node[above]{\small $\beta \looseid$} (tt3);
-\draw[doubleloose] (tt3) to node[above]{\small $\looseid_g r$} (tt4);
-%%%%%%%%%%
 \draw[doubleloose] (t0) to node[above]{$\small \looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (t1);
 \draw[doubleloose] (t1) to node[above]{\small $\chi (\looseid \times \looseid_I)\looseid_{i_1}$} (t2);
 \draw[doubleloose] (t2) to node[above]{\small $\looseid_{f}r$} (t3);
@@ -290,16 +301,11 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (m3) to node[above]{\small $\beta$} (m4);
 \draw[doubleloose] (b0) to node[above]{\small $\looseid_{\tens}(\beta \times \looseid_I)\looseid_{i_1}$} (b3);
 \draw[doubleloose] (b3) to node[above]{\small $r \looseid_g$} (b4);
-\draw[doubletighteq] (tt0) to (t0);
-\draw[doubletighteq] (tt2) to (t2);
-\draw[doubletighteq] (tt4) to (t4);
 \draw[doubletighteq] (t0) to (m0);
 \draw[doubletighteq] (m0) to (b0);
 \draw[doubletighteq] (t3) to (m3);
 \draw[doubletighteq] (t4) to (m4);
 \draw[doubletighteq] (m4) to (b4);
-\node at (1,2.5) {\small $=$};
-\node at (3,2.5) {\small $\iso r_{\beta}$};
 \node at (1.5,1.5) {\small $\DDownarrow \delta^f$};
 \node at (3.5,1.5) {\small $\DDownarrow \tightid_{\beta}$};
 \node at (2,0.5) {\small $\iso$};
@@ -312,6 +318,12 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \begin{equation*}
 \begin{aligned}
 \begin{tikzpicture}[xscale=3, yscale=1.5]
+\node (04) at (0,4) {\small $\tens(f\times I_B)i_1$};
+\node (14) at (1,4) {\small $\tens(f\times f I_A)i_1$};
+\node (24) at (2,4) {\small $f \tens(\transid \times I_A)i_1$};
+\node (34) at (3,4) {\small $f$};
+\node (44) at (4,4) {\small $g$};
+%%%%%%
 \node (03) at (0,3) {\small $\tens(f\times I_B)i_1$};
 \node (13) at (1,3) {\small $\tens(f\times f I_A)i_1$};
 \node (23) at (2,3) {\small $f \tens(\transid \times I_A)i_1$};
@@ -334,6 +346,11 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (10) at (1,0) {\small $\tens(\transid \times  I_B)i_1g$};
 \node (40) at (4,0) {\small $g$};
 %%%%%%%
+\draw[doubleloose] (04) to node[above]{\small $\looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (14);
+\draw[doubleloose] (14) to node[above]{\small $\chi (\looseid_{\transid \times I})\looseid_{i_1}$} (24);
+\draw[doubleloose] (24) to node[above]{\small $\looseid_f r$} (34);
+\draw[doubleloose] (34) to node[above]{\small $\beta$} (44);
+%%%%%%%
 \draw[doubleloose] (03) to node[above]{\small $\looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (13);
 \draw[doubleloose] (13) to node[above]{\small $\chi (\looseid_{\transid \times I})\looseid_{i_1}$} (23);
 \draw[doubleloose] (23) to node[above]{\small $\beta \looseid_{\tens}(\looseid_{\transid \times I})\looseid_{i_1}$} (33);
@@ -352,6 +369,10 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\transid  \times \looseid_I)\looseid_{i_1} \beta$} (10);
 \draw[doubleloose] (10) to node[above]{\small $r \looseid_g $} (40);
 %%%%%%
+\draw[doubletighteq] (04) to (03);
+\draw[doubletighteq] (24) to (23);
+\draw[doubletighteq] (44) to (43);
+%%%%%%
 \draw[doubletighteq] (03) to (02);
 \draw[doubletighteq] (13) to (12);
 \draw[doubletighteq] (33) to (32);
@@ -365,6 +386,10 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubletighteq] (11) to (10);
 \draw[doubletighteq] (41) to (40);
 %%%%%%%%
+\node at (1,3.5) {\small $=$};
+\node at (3,3.5) {\small $\iso r_{\beta}$};
+\node at (1,2.5) {\small $=$};
+\node at (3,2.5) {\small $\iso r_{\beta}$};
 \node at (.5,3) {\small $=$};
 \node at (2,2.5) {\small $\DDownarrow \overline{\Pi^{\beta}\tightid_{\looseid}}$};
 \node at (3.5,2.5) {\small $=$};
@@ -377,7 +402,7 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \end{equation*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{equation*}\label{eq:monicon3}
+\begin{equation*}\label{eq:mon2cell3}
 \begin{aligned}
 \begin{tikzpicture}[xscale=3.5, yscale=1.5]
 \node (04) at (0,4) {\small$ \tens( \tens \times \transid)(f \times f \times f)$};
@@ -409,7 +434,7 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \node (40) at (4,0) {\small $g \tens (\transid \times  \tens)$};
 %%%%%%%
 \draw[doubleloose] (04) to node[above]{\small $\looseid_{\tens}(\chi_f \times \looseid_f)$} (14);
-\draw[doubleloose] (14) to node[above]{\small $\chi_f (\looseid_{\tens \times \transid})$} (24);
+\draw[doubleloose] (14) to node[above]{\small $\chi_f \looseid_{\tens \times \transid}$} (24);
 \draw[doubleloose] (24) to node[above]{\small $\looseid_{f}\alpha$} (34);
 \draw[doubleloose] (34) to node[above]{\small $\beta \looseid_{\tens} \looseid_{\transid \times \tens}$} (44);
 %%%%%%%%
@@ -502,7 +527,7 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \draw[doubleloose] (24) to node[above]{\small $\looseid_{f}\alpha$} (34);
 \draw[doubleloose] (34) to node[above]{\small $\beta \looseid_{\tens} \looseid_{\transid \times \tens}$} (44);
 %%%%%%%%
-\draw[doubleloose] (13) to node[above]{\small $\chi_f \looseid_{\tens \times \transid})$} (23);
+\draw[doubleloose] (13) to node[above]{\small $\chi_f \looseid_{\tens \times \transid}$} (23);
 \draw[doubleloose] (23) to node[above]{\small $\beta \looseid_{\tens} \looseid_{\tens \times \transid}$} (33);
 \draw[doubleloose] (33) to node[above]{\small $ \looseid_{g} \alpha$} (43);
 %%%%%%%%
@@ -552,9 +577,7 @@ A monoidal 2-cell is {\bf braided} or {\bf symmetric} when $f,g$ are braided or 
 \end{aligned}
 \end{equation*}
 
-For simplicity of notation, we have omited the identities $\looseid_{i_1}$ and $\looseid_{i_2}$.
-
-\begin{equation}\label{eq:bricon}
+\begin{equation}\label{eq:br2cell}
 \begin{aligned}
 \begin{tikzpicture}[xscale=3, yscale=1.5]
 \node (03) at (0,3) {\small $\tens(f \times f)$};
@@ -721,15 +744,310 @@ The monoidal 2-cells will be the loose 2-cells therein; we now define the tight 
 \end{aligned}
 \end{equation}
 
-such that the coherence axioms (TA2), (TA3), and (TA4) analogous to definition 2 of~\cite{gg:ldstr-tricat} hold.
-An {\bf oplax monoidal icon} between oplax monoidal 1-cells, is a 2-cell with the same data. 
-If $g,f$ are strong monoidal, by a \textbf{strong monoidal icon} we mean a lax and a colax one whose structure morphisms are inverse to each other in the loose direction (modulated by the up-to-isomorphism invertibility of $\chi$ and $\iota$).
+such that the coherence axioms~\ref{eq:monicon1},~\ref{eq:monicon2},~\ref{eq:monicon3} below hold. These axioms are analogous to (TA2), (TA3) and (TA4) of~\cite{gg:ldstr-tricat}.
 
-A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or symmetric, and in addition the coherence axiom analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} holds. Note that here the author writes $\rho$ for our braiding 1-cell $\sigma$.
+If $f, g:A \rightarrow B$ are oplax monoidal 1-cells an \textbf{oplax monoidal icon} $\beta: f \Rightarrow g$ is a (tight) 2-morphism \fB\ equipped with the 3-cells, 
+
+\begin{equation}
+\begin{aligned}
+ \begin{tikzpicture}[xscale=-2, yscale=2]
+ \node (tl) at (0,1) {$I_B$};
+ \node (tr) at (1,1) {$f I_A$};
+ \node (bl) at (0,0) {$I_B$};
+ \node (br) at (01,0) {$g I_A$}; 
+ \draw[doubleloose] (tr)  to node[above]{$\bar{\iota}_f$} (tl);
+ \draw[doubleeq] (tl) to (bl);
+ \draw[doubleloose] (br) to node[below] {$\bar{\iota}_g$}(bl);
+  \draw[doubletight] (tr) to node[left] {$\beta \tightid_I$}(br);
+ \node at (0.5,0.5) {\footnotesize $\DDownarrow \bar{N}^{\beta}$}; 
+ \end{tikzpicture}
+ \end{aligned}
+ \hspace{.5cm}
+ \begin{aligned}
+  \begin{tikzpicture}[xscale=-2, yscale=2]
+ \node (tl) at (0,1) {$\ten (f \times f)$};
+ \node (tr) at (1,1) {$f \ten$};
+ \node (bl) at (0,0) {$\ten(g \times g)$};
+ \node (br) at (01,0) {$g  \ten$}; 
+ \draw[doubleloose] (tr)  to node[above]{$\bar{\chi}_f$} (tl);
+ \draw[doubletight] (tl) to node[right]{$\tightid_{\ten} (\beta \times \beta)$} (bl);
+ \draw[doubleloose] (br) to node[below] {$\bar{\chi}_g$}(bl);
+  \draw[doubletight] (tr) to node[left] {$\beta \tightid_{\ten}$}(br);
+ \node at (0.5,0.5) {\footnotesize $\DDownarrow \bar{\Sigma}^{\beta}$}; 
+ \end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+such that coherence equations analogous to~\ref{eq:monicon1},~\ref{eq:monicon2}, and~\ref{eq:monicon3} hold.
+If $g,f$ are strong monoidal, by a \textbf{strong monoidal icon} we mean a lax and an oplax one whose structure morphisms are inverse to each other in the loose direction (modulated by the up-to-isomorphism invertibility of $\chi$ and $\iota$).
+
+A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, respectively, and in addition, the coherence axiom~\ref{eq:bricon} below holds. This axiom is analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb}. 
+
+\begin{equation}\label{eq:monicon1}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(I \times f )i_2 $};
+\node (12) at (1,2){$\tens(fI_A \times f)i_2 $};
+\node (22) at (2,2){$f\tens(I_A \times \transid)i_2 $};
+\node (32) at (3,2){$f$};
+\node (01) at (0,1){$\tens(I_B \times \transid )i_2 f$};
+\node (31) at (3,1){$f$};
+\node (00) at (0,0){$\tens(I_B \times \transid )i_2 g$};
+\node (30) at (3,0){$g$};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\iota_f \times \looseid_f) \looseid_{i_2}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_f l$} (32);
+\draw[doubleloose] (01) to node[above]{$l \looseid_f $} (31);
+\draw[doubleloose] (00) to node[above]{$l \looseid_g $} (30);
+\draw[=] (02) to node[left]{} (01);
+\draw[=] (32) to node[left]{} (31);
+\draw[doubletight] (01) to node[left]{$\tightid_{\tens} (\tightid_I\times \beta)\tightid_{i_2}$} (00);
+\draw[doubletight] (31) to node[left]{$\beta$} (30);
+\node at (1.5,1.5){$\DDownarrow \gamma^f$};
+\node at (1.5,0.5){$\DDownarrow \looseid_{l}\tightid_{\beta}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(I_B \times f )i_2 $};
+\node (12) at (1,2){$\tens(fI_A \times f)i_2 $};
+\node (22) at (2,2){$f\tens(I_A \times \transid)i_2 $};
+\node (32) at (3,2){$f$};
+\node (01) at (0,1){$\tens(I_B \times g )i_2 $};
+\node (11) at (1,1){$\tens(gI_A \times g)i_2 $};
+\node (21) at (2,1){$g\tens(I_A \times \transid)i_2 $};
+\node (31) at (3,1){$g$};
+\node (00) at (0,0){$\tens(I_B \times \transid )i_2 g$};
+\node (30) at (3,0){$g$};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\iota_f \times \looseid_f) \looseid_{i_2}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_f l$} (32);
+\draw[doubleloose] (01) to node[above]{$\looseid_{\tens} (\iota_g \times \looseid_g \looseid_{i_2}$} (11);
+\draw[doubleloose] (11) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (21);
+\draw[doubleloose] (21) to node[above]{$\looseid_g l$} (31);
+\draw[doubleloose] (00) to node[above]{$l \looseid_g $} (30);
+\draw[doubletight] (02) to node[left]{$\tightid_{\tens(I\times \transid)}\beta$} (01);
+\draw[doubletight] (12) to node[right]{$\tightid (\beta \times \beta) \tightid$} (11);
+\draw[doubletight] (22) to node[left]{$\beta \tightid$} (21);
+\draw[doubletight] (32) to node[left]{$\beta$} (31);
+\draw[doubletight] (01) to node[left]{$\tightid_{\tens} (\tightid_I\times \beta)\tightid_{i_2}$} (00);
+\draw[doubletight] (31) to node[left]{$\beta$} (30);
+\node at (0.5,1.5){$\DDownarrow \tightid (N^{\beta} \times \tightid_{\looseid}) \tightid$};
+\node at (1.5,1.5){$\DDownarrow \Sigma^{\beta} \tightid$};
+\node at (2.5,1.5){$\DDownarrow \looseid_{\beta} \tightid_{l}$};
+\node at (1.5,0.5){$\DDownarrow \gamma^g$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+\begin{equation}\label{eq:monicon2}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(f \times I_B )i_1 $};
+\node (12) at (1,2){$\tens(f \times fI_A)i_1 $};
+\node (22) at (2,2){$f\tens(\transid \times I_A)i_1 $};
+\node (32) at (3,2){$f$};
+\node (01) at (0,1){$\tens(\transid \times I_B)i_1 f$};
+\node (31) at (3,1){$f$};
+\node (00) at (0,0){$\tens(\transid \times I_B )i_1 g$};
+\node (30) at (3,0){$g$};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\looseid_f \times \iota_f) \looseid_{i_1}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_f r$} (32);
+\draw[doubleloose] (01) to node[above]{$r \looseid_f $} (31);
+\draw[doubleloose] (00) to node[above]{$r \looseid_g $} (30);
+\draw[=] (02) to node[left]{} (01);
+\draw[=] (32) to node[left]{} (31);
+\draw[doubletight] (01) to node[left]{$\tightid_{\tens (\transid \times I)i_1} \beta$} (00);
+\draw[doubletight] (31) to node[left]{$\beta$} (30);
+\node at (1.5,1.5){$\DDownarrow \delta^f$};
+\node at (1.5,0.5){$\DDownarrow \looseid_{r}\tightid_{\beta}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(f \times I_B )i_1 $};
+\node (12) at (1,2){$\tens(f \times fI_A)i_1 $};
+\node (22) at (2,2){$f\tens(\transid \times I_A)i_1 $};
+\node (32) at (3,2){$f$};
+\node (01) at (0,1){$\tens(g \times I_B)i_1 $};
+\node (11) at (1,1){$\tens(g\times gI_A )i_1 $};
+\node (21) at (2,1){$g\tens(\transid \times I_A) i_1 $};
+\node (31) at (3,1){$g$};
+\node (00) at (0,0){$\tens(\transid \times I_B )i_1 g$};
+\node (30) at (3,0){$g$};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\looseid \times\iota_f) \looseid_{i_1}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_f r$} (32);
+\draw[doubleloose] (01) to node[above]{$\looseid_{\tens} (\looseid_g \times \iota_g) \looseid_{i_1}$} (11);
+\draw[doubleloose] (11) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (21);
+\draw[doubleloose] (21) to node[above]{$\looseid_g r$} (31);
+\draw[doubleloose] (00) to node[above]{$r \looseid_g $} (30);
+\draw[doubletight] (02) to node[left]{$\tightid_{\tens(\transid\times I)}\beta$} (01);
+\draw[doubletight] (12) to node[right]{$\tightid (\beta \times \beta) \tightid$} (11);
+\draw[doubletight] (22) to node[left]{$\beta \tightid$} (21);
+\draw[doubletight] (32) to node[left]{$\beta$} (31);
+\draw[doubletight] (01) to node[left]{$\tightid_{\tens} (\beta\times \tightid_I)\tightid_{i_1}$} (00);
+\draw[doubletight] (31) to node[left]{$\beta$} (30);
+\node at (0.5,1.5){$\DDownarrow \tightid (\tightid \times N^{\beta}) \tightid$};
+\node at (1.5,1.5){$\DDownarrow \Sigma^{\beta} \tightid$};
+\node at (2.5,1.5){$\DDownarrow \looseid_{\beta} \tightid_{r}$};
+\node at (1.5,0.5){$\DDownarrow \delta^g$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+\begin{equation}\label{eq:monicon3}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(\tens \times \transid)(f \times f\times f)$};
+\node (12) at (1,2){$\tens(f\tens \times f) $};
+\node (22) at (2,2){$f\tens(\tens \times \transid)$};
+\node (32) at (3,2){$f\tens(\transid \times \tens)$};
+\node (01) at (0,1){$\tens(\tens \times \transid)(f \times f\times f)$};
+\node (11) at (1,1){$\tens(\transid \times \tens)(f \times f\times f)$};
+\node (21) at (2,1){$\tens(f \times f\tens) $};
+\node (31) at (3,1){$f \tens ( \transid \times \tens)$};
+\node (00) at (0,0){$\tens(\tens \times \transid)(g \times g \times g \times g$};
+\node (10) at (1,0){$\tens(\transid \times \tens)(g \times g\times g)$};
+\node (20) at (2,0){$\tens(g \times g\tens) $};
+\node (30) at (3,0){$g \tens ( \transid \times \tens)$};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\chi \times \looseid_f)$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\tens \times \transid)}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_{f} \alpha$} (32);
+\draw[doubleloose] (01) to node[above]{$\alpha \looseid_{f\times f \times f}$} (11);
+\draw[doubleloose] (11) to node[above]{$\looseid_{\tens} (\transid_f \times \chi)$} (21);
+\draw[doubleloose] (21) to node[above]{$\chi \looseid_{\transid \times \tens}$} (31);
+\draw[doubleloose] (00) to node[above]{$\alpha \looseid_{g\times g \times g} $} (10);
+\draw[doubleloose] (10) to node[above]{$\looseid_{\tens} (\transid_g \times \chi)$} (20);
+\draw[doubleloose] (20) to node[above]{$\chi \looseid_{\transid \times \tens}$} (30);
+\draw[=] (02) to node[left]{} (01);
+\draw[=] (32) to node[left]{} (31);
+\draw[doubletight] (01) to node[left]{$\tightid (\beta\times \beta \times \beta)$} (00);
+\draw[doubletight] (11) to node {$\tightid (\beta\times \beta \times \beta)$} (10);
+\draw[doubletight] (21) to node {$\tightid (\beta\times \beta \tightid)$} (20);
+\draw[doubletight] (31) to node[left]{$\beta \tightid$} (30);
+\node at (1.5,1.5){$\DDownarrow \omega^f$};
+\node at (0.5,0.5){$\DDownarrow \tightid_{\alpha} \looseid_{\beta \times \beta \times \beta}$};
+\node at (1.5,0.5){$\DDownarrow \tightid (\tightid \times \Sigma^{\beta})$};
+\node at (2.5,0.5){$\DDownarrow \Sigma^{\beta} \tightid$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(\tens \times \transid)(f \times f\times f)$};
+\node (12) at (1,2){$\tens(f\tens \times f) $};
+\node (22) at (2,2){$f\tens(\tens \times \transid)$};
+\node (32) at (3,2){$f\tens(\transid \times \tens)$};
+\node (01) at (0,1){$\tens(\tens \times \transid)(g \times g\times g)$};
+\node (11) at (1,1){$\tens(g\tens \times g)$};
+\node (21) at (2,1){$g\tens(\tens \times \transid) $};
+\node (31) at (3,1){$g \tens ( \transid \times \tens)$};
+\node (00) at (0,0){$\tens(\tens \times \transid)(g \times g \times g \times g$};
+\node (10) at (1,0){$\tens(\transid \times \tens)(g \times g\times g)$};
+\node (20) at (2,0){$\tens(g \times g\tens) $};
+\node (30) at (3,0){$g \tens ( \transid \times \tens)$};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\chi \times \looseid_f)$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\tens \times \transid)}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_{f} \alpha$} (32);
+\draw[doubleloose] (01) to node[above]{$\looseid_{\tens} (\chi \times \looseid_g)$} (11);
+\draw[doubleloose] (11) to node[above]{$\chi \looseid_{(\tens \times \transid)}$} (21);
+\draw[doubleloose] (21) to node[above]{$\looseid_{g} \alpha$} (31);
+\draw[doubleloose] (00) to node[above]{$\alpha \looseid_{g\times g \times g} $} (10);
+\draw[doubleloose] (10) to node[above]{$\looseid_{\tens} (\transid_g \times \chi)$} (20);
+\draw[doubleloose] (20) to node[above]{$\chi \looseid_{\transid \times \tens}$} (30);
+\draw[=] (01) to node[left]{} (00);
+\draw[doubletight] (12) to node {$\tightid (\beta \tightid \times \beta)$} (11);
+\draw[doubletight] (22) to node[left] {$\beta \tightid $} (21);
+\draw[=] (31) to node[left]{} (30);
+\draw[doubletight] (02) to node[left]{$\tightid (\beta\times \beta \times \beta)$} (01);
+\draw[doubletight] (32) to node[left]{$\beta \tightid$} (31);
+\node at (1.5,0.5){$\DDownarrow \omega^g$};
+\node at (0.5,1.5){$\DDownarrow \tightid (\Sigma^{\beta} \times \tightid)$};
+\node at (1.5,1.5){$\DDownarrow \Sigma^{\beta} \tightid$};
+\node at (2.5,1.5){$\DDownarrow \looseid_{\beta} \tightid_{\alpha}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+\begin{equation}\label{eq:bricon}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4, yscale=2]
+\node (02) at (0,2){$\tens(f \times f)$};
+\node (12) at (1,2){$\tens \tau (f \times f)$};
+\node (22) at (2,2){$f \tens \tau$};
+\node (01) at (0,1){$\tens(f \times f)$};
+\node (11) at (1,1){$f \tens $};
+\node (21) at (2,1){$f \tens \tau$};
+\node (00) at (0,0){$\tens (g \times g)$};
+\node (10) at (1,0){$g\tens $};
+\node (20) at (2,0){$g \tens \tau$};
+%%%%%%%%%%
+\draw[doubleloose] (02) to node[above]{$\sigma \looseid_{f\times f}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{\tau}$} (22);
+\draw[doubleloose] (01) to node[above]{$\chi$} (11);
+\draw[doubleloose] (11) to node[above]{$\looseid_f \sigma$} (21);
+\draw[doubleloose] (00) to node[above]{$\chi$} (10);
+\draw[doubleloose] (10) to node[above]{$\looseid_g \sigma$} (20);
+%%%%%%%%%%%%
+\draw[=] (02) to (01);
+\draw[doubletight] (01) to node[left]{$\looseid_{\tens} (\beta \times \beta)$}(00);
+\draw[doubletight] (11) to node[left]{$\beta \looseid_{\tens}$}(10);
+\draw[=] (22) to (21);
+\draw[doubletight] (21) to node[left]{$\beta \looseid_{\tens \tau}$}(20);
+%%%%%%%%%%%%%
+\node at (1,1.5){$\DDownarrow u$};
+\node at (.5,.5){$\DDownarrow\Pi^{\beta}$};
+\node at (1.5,.5) {$\DDownarrow \looseid_{\beta} \tightid_{\sigma}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4, yscale=2]
+\node (02) at (0,2){$\tens(f \times f)$};
+\node (12) at (1,2){$\tens \tau (f \times f)$};
+\node (22) at (2,2){$f \tens \tau$};
+\node (01) at (0,1){$\tens(g \times g)$};
+\node (11) at (1,1){$ \tens \tau (g\times g)$};
+\node (21) at (2,1){$g \tens \tau$};
+\node (00) at (0,0){$\tens (g \times g)$};
+\node (10) at (1,0){$g\tens $};
+\node (20) at (2,0){$g \tens \tau$};
+%%%%%%%%%%
+\draw[doubleloose] (02) to node[above]{$\sigma \looseid_{f\times f}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{\tau}$} (22);
+\draw[doubleloose] (01) to node[above]{$\sigma \looseid_{g \times g}$} (11);
+\draw[doubleloose] (11) to node[above]{$\chi \looseid_{\tau}$} (21);
+\draw[doubleloose] (00) to node[above]{$\chi$} (10);
+\draw[doubleloose] (10) to node[above]{$\looseid_g \sigma$} (20);
+%%%%%%%%%%%%%
+\draw[doubletight] (02) to node[left]{$\looseid_{\tens} (\beta \times \beta)$}(01);
+\draw[=] (01) to (00);
+\draw[doubletight] (12) to node[xshift=5pt]{$\looseid_{\tens \tau} \hspace{.1cm} (\beta \times \beta) $}(11);
+\draw[doubletight] (22) to node[left]{$\beta \looseid_{\tens \tau}$}(21);
+\draw[=] (21) to (20);
+%%%%%%%%%%%%%
+\node at (1,0.5){$\DDownarrow u$};
+\node at (.5,1.5){$\DDownarrow \tightid_{\sigma} \looseid_{\beta \times \beta} $};
+\node at (1.5,1.5) {$\DDownarrow \Pi^{\beta}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
 \end{defn}
 
 \begin{defn}
-  Let $f,g,f',g' A \rightarrow B$ be monoidal 1-cells, let $\alpha: f \looseRightarrow{} g$, $\beta: f' \looseRightarrow{} g'$ be monoidal 2-cells, and let $\gamma: f \Rightarrow f'$, $\delta: g \Rightarrow g'$ be monoidal icons. A \textbf{monoidal 3-cell} is a 3-cell 
+  Let $f,g,f',g': A \rightarrow B$ be lax monoidal 1-cells, let $\alpha: f \looseRightarrow{} g$, $\beta: f' \looseRightarrow{} g'$ be lax monoidal 2-cells, and let $\gamma: f \Rightarrow f'$, $\delta: g \Rightarrow g'$ be lax monoidal icons. A \textbf{lax monoidal 3-cell} is a 3-cell 
   
    \[
  \begin{tikzpicture}[scale=2]
@@ -747,7 +1065,7 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
  
  Such that the two equalities below hold.
  
- \begin{equation}
+ \begin{equation}\label{eq:mon3cell1}
 \begin{aligned}
  \begin{tikzpicture}[scale=2]
  \node (tm) at (0,1) {$f  I_A$};
@@ -805,7 +1123,7 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
  \end{aligned}
 \end{equation}
 
- \begin{equation}
+ \begin{equation}\label{eq:mon3cell2}
 \begin{aligned}
  \begin{tikzpicture}[yscale=2, xscale=2.5]
  \node (tm) at (0,1) {$f\ten$};
@@ -863,23 +1181,25 @@ A monoidal icon is {\bf braided} or {\bf symmetric} when $f,g$ are braided or sy
  \end{aligned}
 \end{equation}
 
-Let $f,g,f',g' A \rightarrow B$ be braided, sylleptic or symmetric monoidal 1-cells, let $\alpha: f \looseRightarrow{} g$, $\beta: f' \looseRightarrow{} g'$ be braided, sylleptic, or symmetric monoidal 2-cells, and let $\gamma: f \Rightarrow f'$, $\delta: g \Rightarrow g'$ be braided, sylleptic, or symmetric monoidal icons. A \textbf{braided, sylleptic, or symmetric monoidal 3-cell} $\Gamma$ as depicted above, is simply a monoidal 3-cell. 
+  Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be oplax monoidal 1-cells, 2-cells, and icons, respectively. An \textbf{oplax monoidal 3-cell} is a 3-cell  $\Gamma$ as depicted above, such that two equalities analogous to~\ref{eq:mon3cell1} and~\ref{eq"mon3cell2} hold. $\Gamma$ is {\bf strong monoidal} if it is lax monoidal and oplax monoidal.
+Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be braided, sylleptic, or symmetric monoidal 1-cells, 2-cells, and icons, respectively. A \textbf{braided, sylleptic, or symmetric monoidal 3-cell} $\Gamma$ as depicted above, is simply a monoidal 3-cell. 
 \end{defn}
 
+We will show that monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, lax monoidal icons, and lax monoidal 3-cells in a locally cubical bicategory \fB\ form a locally cubical bicategory $\cM on_l\cB$. If we consider oplax or strong cells instead, we obtain the locally cubical bicategory $\cM on_o\cB$ or $\cM on_s\cB$, respectively. Braided, sylleptic and symmetric cells form  locally cubical bicategories $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$. Here, $w \in \{l,o,s\}$ denotes whether the cells are lax, oplax, or strong.
+
 \begin{prop}\label{prop:dc}
-Let $A,B$ be monoidal objects in a locally cubical bicategory. The lax monoidal 1-cells, monoidal 2-cells, monoidal icons, and monoidal 3-cells in $\fB (A,B)$ form a double category $\cM on\cB (A,B)$. The same statement holds for colax and strong monoidal objects and cells and if $A,B$ are braided, sylleptic or symmetric, it holds for braided, sylleptic, and symmetric cells, respectively.
+Let $A,B$ be monoidal objects in a locally cubical bicategory. The hom-spaces $\cM on_w\cB (A,B)$, $\cB r \cM on_w\cB(A,B)$, $\cS yl \cM on_w\cB(A,B)$, and $\cS ym \cM on_w\cB(A,B)$ are double categories.
 \end{prop}
 
 \begin{proof}
-The first step of this proof is to show that lax monoidal 1-cells and icons form a category. 
-For each monoidal 1-cell $f:A \rightarrow B$, the identity tight 2-cell $\tightid_f$ is a monoidal icon with the 3-cells $N^{\tightid_f} := \tightid_{\iota_f}$ and $\Sigma^{\tightid_f} := \tightid_{\chi_f}$. This is well-defined, because the functor "$\comp$" preserves identities. The coherence equations are trivially satisfied.  For each two monoidal 1-cells $f,g$ and monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite tight 2-cell $\beta \circ \alpha$ can be equiped with the monoidal structure given by the composites $N^{\beta \verc \alpha} := N^{\beta} \verc N^{\alpha}$ and $\Sigma^{\beta \verc \alpha} : = \Sigma^{\beta} \verc \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions (TA1)-(TA4) hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for oplax and strong monoidal 1-cells and icons.
-When $f$ and $g$ are braided, the same data satisfies the coherence equation for braided monoidal icons. Hence, braided monoidal 1-cells and braided monoidal icons form a category, and the same is true for sylleptic or symmetric monoidal 1-cells and icons.
+First we show that 1-cells and icons in the respective hom-spaces form a category. For each lax monoidal 1-cell $f:A \rightarrow B$, the identity icon $\tightid_f$ is a lax monoidal icon with the 3-cells $N^{\tightid_f} := \tightid_{\iota_f}$ and $\Sigma^{\tightid_f} := \tightid_{\chi_f}$. This is well-defined, because the functor "$\comp$" preserves identities. The coherence equations are trivially satisfied.  For each two lax monoidal 1-cells $f,g$ and lax monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite icon $\beta \circ \alpha$ can be equiped with the lax monoidal structure given by the composites $N^{\beta \verc \alpha} := N^{\beta} \verc N^{\alpha}$ and $\Sigma^{\beta \verc \alpha} : = \Sigma^{\beta} \verc \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions~\ref{eq:monicon1}~-~\ref{eq:monicon3} hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for oplax 1-cells and icons. For strong 1-cells and icons we need to verify that the lax structure cells $N^{\tightid_f}$, $N^{\beta \verc \alpha}, \Sigma^{\tightid_f}$, and $\Sigma^{\beta \verc \alpha} $ are inverse in the loose direction to their oplax counterparts. For $N^{\tightid_f}$ and $\Sigma^{\tightid_f}$, this follows from functoriality of "$\horc$". For $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$, this follows from the the fact that the statement is true for their components combined with the exchange law between "$\horc$" and "$\verc$" and strictness of "$\verc$".
+When $f$ and $g$ are braided, sylleptic or symmetric, the same data satisfies the coherence equation for braided monoidal icons.
 
-In addition, we need to show that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \looseRightarrow{} g$, the identity 3-cell $\tightid_{\alpha}$ in $\cB$  is monoidal, since the required two equations are trivially satisfied.
-For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \circ L$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $L$ and $K$. The same is true for oplax monoidal 2-cells, and hence for strong monoidal 2-cells. As braided, sylleptic, and symmetric monoidal 3-cells are not required to satisfy additional data, it follows that braided, sylleptic, or symmetric monoidal 2-cells and 3-cells form a category.
+In addition, we need to show that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \looseRightarrow{} g$, the identity 3-cell $\tightid_{\alpha}$ in $\cB$  is lax monoidal. The required two equations~\ref{eq:mon3cell1},~\ref{eq:mon3cell2} are trivially satisfied.
+For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \circ L$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $L$ and $K$. The same is true for oplax monoidal 2-cells and 3-cells, and hence for strong monoidal 2-cells and 3-cells. As braided, sylleptic, and symmetric monoidal 3-cells are not required to satisfy additional data, it follows that braided, sylleptic, or symmetric monoidal 2-cells and 3-cells form a category.
 
-Now we describe the loose structure; we need to show that $\horc$ and $\looseid$ are well-defined as functors to the new category.
-Let $f$ be a lax monoidal 1-cell. The loose identity 2-cell $\looseid_f$ is a monoidal 2-cell with monoidal structure given below. 
+Now we describe the loose structure; we need to show that $\horc$ and $\looseid$ are well-defined as the functors which give the loose structure in the new double category. To see this, recall that $\horc$ and $\looseid$ correspond to the functors $\odot$ and $U$, respectively, given  in Definition~\ref{defn:dblcat}.
+Let $f$ be a lax monoidal 1-cell. The loose identity 2-cell $\looseid_f$ is a lax monoidal 2-cell with monoidal structure given by the composition of coherence cells $\horl$, $\horr$.
 
 \begin{equation}
 M^{\looseid_f}:=
@@ -896,8 +1216,8 @@ M^{\looseid_f}:=
  \draw[doubleeq] (tl) to (bl);
   \draw[doubleloose] (bl) to node[below] {$\looseid_I$}(bm);
  \draw[doubleloose] (bm) to node[below] {$\iota_f$}(br);
-  \draw[doubletight] (tr) to node[right] {$\tightid_f \comp \tightid_{I}$}(br);
- \node at (0.5,0.5) {\footnotesize ${\horl_{\iota_f}}^{-1}\verc \horr_{\iota_f} \DDownarrow \iso $}; 
+  \draw[=] (tr) to (br);
+ \node at (0.5,0.5) {\footnotesize $\DDownarrow$ $\iso $}; 
  \end{tikzpicture}
  \end{aligned}
  \hspace{.5cm}
@@ -911,19 +1231,20 @@ M^{\looseid_f}:=
  \node(tm) at (.5,1) {$f \ten$};
  \node (bm) at (.5,0) {$\ten (f\times f)$};
  \draw[doubleloose] (tl)  to node[above]{$\chi_f $} (tm);
-  \draw[doubleloose] (tm)  to node[above]{$\looseid_{f \ten}$} (tr);
- \draw[doubletight] (tl) to node[left]{$\tightid_{\ten} (\tightid_f \times \tightid_f)$} (bl);
-  \draw[doubleloose] (bl) to node[below] {$\looseid_{\ten(f \times f)}$}(bm);
+  \draw[doubleloose] (tm)  to node[above]{$\looseid_f \looseid{\ten}$} (tr);
+ \draw[=] (tl) to (bl);
+  \draw[doubleloose] (bl) to node[below] {$\looseid_{\ten}(\looseid_f \times \looseid_f)$}(bm);
  \draw[doubleloose] (bm) to node[below] {$\chi_f$}(br);
-  \draw[doubletight] (tr) to node[right] {$\alpha \tightid_{\ten}$}(br);
- \node at (0.5,0.5) {\footnotesize ${\horl}^{-1}_{\chi_f} \verc \horr_{\chi_f}\DDownarrow \iso$}; 
+  \draw[=] (tr) to (br);
+ \node at (0.5,0.5) {\footnotesize $ \DDownarrow$ $\iso$}; 
  \end{tikzpicture}
 \end{aligned}
 \end{equation}
 
-For every monoidal icon $\gamma$, the loose identity 3-cell $\looseid_{\gamma}$ is a monoidal 3-cell. The conditions for monoidal 3-cells follow from the naturality conditions of $\horl$ and $\horr$. 
+The conditions for monoidal 3-cells follow from the naturality conditions of the coherence cells $\horl$ and $\horr$. 
+For every monoidal icon $\gamma$, the loose identity 3-cell $\looseid_{\gamma}$ is a monoidal 3-cell. The loose source and target 2-cells of $\Gamma$, $\alpha$ and $\beta$, are loose identities, hence $M^{\alpha}$ and $M^{\beta}$ are the coherence cells defined above. Therefore, the coherence condition holds by naturality of $\horl$ and $\horr$.
 
-Let $\alpha:f \looseRightarrow{} g$ and $\beta: g \looseRightarrow{} h$ be two monoidal 2-cells. Their composition $\alpha \horc \beta$ is monoidal with the following structure 3-cells.
+Let $\alpha:f \looseRightarrow{} g$ and $\beta: g \looseRightarrow{} h$ be two lax monoidal 2-cells. Their composition $\alpha \horc \beta$ is lax monoidal with the following structure 3-cells.
 
 \begin{equation}
 M^{\alpha \horc \beta} := 
@@ -1012,29 +1333,33 @@ M^{\alpha \horc \beta} :=
 
 The coherence equations are satisfied by sequential application of the respective equation for $\alpha$ and $\beta$, applications of the exchange law between loose and tight composition, together with simple manipulations of coherence cells.
 
-Let $\Gamma$ and $\Delta$ be 3 monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again monoidal. Again, the conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$, applications of the exchange law between loose and tight composition, and simple manipulations of coherence cells. Functoriality of $\horc$ and $\looseid$ in $\cM on \cB(A,B)$ follow from their functoriality in $\cB(A,B)$.
+Let $\Gamma$ and $\Delta$ be lax monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again lax monoidal. Again, the conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$, applications of the exchange law between loose and tight composition, and simple manipulations of coherence cells.
+By analogous arguments, one can show that the images of $\horc$ and $\looseid$ on oplax cells are again well-defined as oplax monoidal cells. For  the strong monoidal cells, we need to prove that $M^{\looseid_f}, \Pi^{\looseid_f}, M^{\alpha \horc \beta}$, and $\Pi^{\alpha \horc \beta}$ correspond as mates to their respective oplax counterparts under the adjoint equivalence structure on $\chi$ and $\iota$. For $M^{\looseid_f}$ and$ \Pi^{\looseid_f}$, this follows from manipulation of coherence cells, together with the adjoint equivalences $\iota \dashv \bar{\iota}$ and $\chi \dashv \bar{\chi}$. For $M^{\alpha \horc \beta}$, and $\Pi^{\alpha \horc \beta}$ one needs to insert an extra instance of $(\epsilon \horc \looseid) \verc (\looseid \horc \eta) = \verc$ in between $M_{\alpha}$ and $M^{\beta}$, and in between $\Pi^{\alpha}$ and $\Pi^{\beta}$, respectively. The result then follows from manipulations with coherence cells, $\epsilon$ and $\eta$.
 
-The unitality and associativity constraints $\hora$, $\horl$, and $\horr$ are monoidal 3-cells. The conditions for monoidal 3-cells amount to 3-cells pasted together with coherence cells being equal to themselves, which follows from coherence of the functor $\horc$. It follows that lax monoida 1-cells, 2-cells, icons and 3-cells in the hom-categories $\cM on\cB(A,B)$ form a double category.
-The oplax and strong case hold by a similar proof with arrows in the opposite directions.
+Let $f$ be a braided, sylleptic or symmetric monoidal 1-cell. The loose identity $\looseid_f$ is a braided, sylleptic or symmetric monoidal 2-cell, respectively, as the coherence equation~\ref{eq:br2cell} merely states that the 3-cell $u$ pasted with coherence 3-cells equals itself. Let $\alpha, \beta$ be braided, sylleptic, or symmetric monoidal 2-cells, the loose composition $\alpha \horc \beta$ is braided, sylleptic, or symmetric monoidal, respectively. One can verify that~\ref{eq:br2cell} holds by applying the exchange law between loose and tight composition, manipulation of coherence cells, and sequential application of the respective equations for $\alpha$ and $\beta$.  Braided, sylleptic and symmetric monoidal 3-cells are simply monoidal 3-cells; therefore, it follows that the images of $\horc$ and $\looseid$ of braided, sylleptic, or symmetric monoidal cells are well-defined in $\cB r \cM on_w\cB(A,B)$, $\cS yl \cM on_w\cB(A,B)$, and $\cS ym \cM on_w\cB(A,B)$, respectively.
 
-Let $f$ be a braided monoidal 1-cell. The loose identity $\looseid_f$ is a braided monoidal 2-cell, as the coherence equation merely states that the 3-cell $u$ pasted with coherence and naturality 3-cells equals itself. Let $\alpha, \beta$ be braided monoidal 2-cells, the loose composition $\alpha \horc \beta$ is braided monoidal. It is easy to verify that~\ref{eq:bricon} holds by applying the exchange law between loose and tight composition, manipulation of coherence cells, and sequential application of the respective equations for $\alpha$ and $\beta$.  As braided monoidal 3-cells are simply monoidal 3-cells, it follows from the arguments above that braided, sylleptic and symmetric monoidal 1-cells, 2-cells, icons, and 3-cells form a double category.
+Functoriality of $\horc$ and $\looseid$ in $\cM on \cB(A,B)$ follow from their functoriality in $\cB(A,B)$. 
+The unitality and associativity constraints $\hora$, $\horl$, and $\horr$ are lax and oplax monoidal 3-cells, depending on their source and target cells. The conditions for lax and oplax monoidal 3-cells in this case amount to 3-cells pasted together with coherence cells being equal to themselves. This follows directly from coherence of the functor $\horc$. It follows that $\cM on_l\cB(A,B)$ and $\cM on_o\cB(A,B)$ are double categories. As a direct consequence, $\cM on_s\cB(A,B)$ is also a double category.
+Since braided, symmetric, or sylleptic monoidal 3-cells require no extra data, it follows that $\cB r \cM on_w\cB(A,B)$, $\cS yl \cM on_w\cB(A,B)$, and $\cS ym \cM on_w\cB(A,B)$ are double categories for $w \in \{l,o,s\}$.
 \end{proof}
 
+
+
 \begin{thm}\label{thm:lcbc}
-  Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, lax monoidal icons, and lax monoidal 3-cells in a locally cubical bicategory \fB\ form a locally cubical bicategory $\cM on\cB$. The same statement holds for colax and strong monoidal objects and cells, and for braided, sylleptic, and symmetric objects and cells.
+Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, lax monoidal icons, and lax monoidal 3-cells in a locally cubical bicategory \fB\ form a locally cubical bicategory $\cM on_l\cB$. If we consider oplax or strong cells instead, we obtain the locally cubical bicategory $\cM on_o\cB$ or $\cM on_s\cB$, respectively. When the objects and cells are braided, sylleptic or symmetric,  we obtain the locally cubical bicategories $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$, where $w \in \{l,o,s\}$ denotes whether the cells are lax, oplax, or strong.
 \end{thm}
 
 \begin{proof}
-We have established that the respective homsets $\cM onB(A,B)$, $\cB r \cM onB(A,B)$, $\cS yl \cM onB(A,B)$, and $\cS ym \cM onB(A,B)$ form double categories in Proposition \ref{prop:dc}. It is left to show that monoidal objects and cells have the enriched structure of a locally cubical bicategory, and that the same is true for braided, sylleptic, and symmetric monoidal cells.
+We have established that the respective homsets $\cM on_wB(A,B)$, $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$ for $w \in \{l,o,s\}$ form double categories in Proposition \ref{prop:dc}. 
 
 We need to check that the unit $I^{\comp}_A$ is a well-defined functor from the trivial double category $1$ to the respective hom-categories of lax, oplax and strong monoidal cells, as well as braided, sylleptic and symmetric ones. 
 First of all, {\it we need to assume that the image of $I^{\comp}$ on the object and the loose 1-cell of the trivial double category is a lax monoidal 1-cell and lax monoidal loose 2-cell, respectively, and that the natural transformations $I^{\comp}_U$ and $I^{\comp}_{\odot}$ are lax monoidal 3-cells}. The image of $I^{\comp}$ on the other cells is lax, since by functoriality of $I^{\comp}_0$ and $I^{\comp}_1$, they are mapped to the identities. This also holds for oplax and strong cells, as well as braided, sylleptic, and symmetric cells under analogous assumptions. 
 
 Next, we need to show that monoidal structure is preserved by the composition along a 0-cell boundary.
-For any two lax monoidal 1-cells $f:A \rightarrow B$, $g:B \rightarrow C$, the composite $g \comp f$ is monoidal with 
+For any two lax monoidal 1-cells $f:A \rightarrow B$, $g:B \rightarrow C$, the composite $g \comp f$ is monoidal with $\chi^{g \comp f}$ and $\iota^{g \comp f}$ defined below. 
 \begin{align}
-\chi_{g \comp f} &:= &(\chi_g \comp \looseid_{fI \times f}) \horc (\looseid_g \comp \chi_f \comp \looseid_{I \times \tightid}) \\
-\iota_{g \comp f} & := & (\looseid_{\tens} \comp (\iota_f \times \looseid_{gf})) \horc (\looseid_{\tens} \comp (\iota_g \times \looseid_{gf}))
+\chi_{g \comp f} &: \hspace{.5cm} &\otimes (gf \times gf) \looseRightarrow{\chi_g \looseid_{f\times f}} g \otimes (f \times f) \looseRightarrow{\looseid_g \chi_f} gf \tens \\
+\iota_{g \comp f} & : \hspace{.5cm} &I_C \looseRightarrow{\iota_g} g I_B \looseRightarrow{\looseid_g \iota_f} gfI_A
 \end{align}
 
 The structure 3-cell $\gamma$ is defined as
@@ -1056,16 +1381,16 @@ The structure 3-cell $\gamma$ is defined as
   \node (b0) at (0,0) {\small $\tens(I_C \times \transid)i_2 gf$};
  \node (b5) at (2.5,0) {\small $gf$};
  %%%%%%%%%%%%%%%%
-  \draw[doubleloose] (t0) to[in=120, out=60] node[above]{$\looseid_{\tens} (\iota_{gf} \times \looseid_{gf})\looseid_{i_2} \horc \chi_{gf}\looseid_{i_2}$} (t4);
+  \draw[doubleloose] (t0) to[in=120, out=60] node[above]{$\looseid_{\tens} (\iota_{gf} \times \looseid_{gf})\looseid_{(I_A \times \transid)i_2} \horc \chi_{gf}\looseid_{i_2}$} (t4);
   %%%%%%%%%%%%%%%%
  \draw[doubleloose] (t0)  to node[above]{\small $\looseid_{\tens}(\iota_g \times \looseid_{gf})\looseid_{i_2}$} (t1);
   \draw[doubleloose] (t1)  to node[above]{\small $\chi_g\looseid_{I_A \times f}\looseid_{i_2}$} (t2);
-\draw[doubleloose] (t2) to node[above]{\small $\looseid_{\tens g}(\iota_f \times \looseid_{f})\looseid_{i_2}$} (t3);
-  \draw[doubleloose] (t3) to node[above]{\small $\looseid_g \chi_f \looseid_{I_A \times \transid}\looseid_{i_2}$}(t4);
+\draw[doubleloose] (t2) to node[above]{\small $\looseid_{g\tens }(\iota_f \times \looseid_{f})\looseid_{i_2}$} (t3);
+  \draw[doubleloose] (t3) to node[above]{\small $\looseid_g \chi_f \looseid_{(I_A \times \transid)i_2}$}(t4);
   \draw[doubleloose] (t4) to node[above]{\small $\looseid_{gf}l_I$}(t5);
   %%%%%%%%%%%%%%%%%%
   \draw[doubleloose] (m0)  to node[above]{\small $\looseid_{\tens}(\iota_g \times \looseid_{g})\looseid_f$} (m1);
-  \draw[doubleloose] (m1)  to node[above]{\small $\chi_g\looseid_{i_2 f}$} (m2);
+  \draw[doubleloose] (m1)  to node[above]{\small $\chi_g\looseid_{(I_B \times \transid)i_2 f}$} (m2);
    \draw[doubleloose] (m2) to node[below]{\small $ \looseid_g l \looseid_f$}(m5); 
    %%%%%%%%%%%%%%%%%
     \draw[doubleloose] (b0) to node[above]{\small $ l \looseid_g \looseid_f$}(b5); 
@@ -1079,17 +1404,16 @@ The structure 3-cell $\gamma$ is defined as
     \node at (.5,1.5) {\footnotesize $=$}; 
    \node at (1.75,1.5) {\footnotesize $\overline{ \tightid_g \gamma^f}$}; 
    \node at (1.25,.5) {\footnotesize $\overline{  \gamma^g \tightid_{\looseid}}$}; 
-      \node at (1,2.35) {\footnotesize $\overline{ \iso}$}; 
-  \node at (1.25,-.35) {\footnotesize $\overline{ \iso}$}; 
+      \node at (1,2.35) {\footnotesize $\iso$}; 
+  \node at (1.25,-.35) {\footnotesize $\iso$}; 
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
 
 The 3-cells $\delta^{g \comp f}$ and $\omega^{g \comp f}$ are defined similarly, so is $u^{g \comp f}$ when $g, f$ are braided monoidal 1-cells. 
+For oplax monoidal 1-cells, the structure 2-cells are obtained in a similar way.
 
-For oplax monoidal 1-cells, the the above gives the monoidal structure if the arrows are reversed.
-
-
+[coherence equalities!]
 
 Let $f,h: A \rightarrow B $ and $g,i: B \rightarrow C$ be lax monoidal 1-cells and let $\alpha: f \rightarrow h$, $\beta: g \rightarrow i$ be lax monoidal 2-cells, the composite $\beta \comp \alpha$ is lax monoidal with the following structure 3-cells
 
@@ -1106,23 +1430,23 @@ M^{\beta \comp \alpha} :=
 \node (m3) at (1.5,0) {$h f I_A$};
 \node (m4) at (2,0) {$h k I_A$};
  \node (b0) at (0,-1) {$I_C$};
- \node (b1) at (.5,-1) {$h I_B$}; 
+ \node (b1) at (.5,-1) {$I_C$}; 
 \node (b2) at (1,-1) {$h I_B$};
-\node (b3) at (1.5,-1) {$h k I_A$};
+\node (b3) at (1.5,-1) {$h I_B$};
 \node (b4) at (2,-1) {$h k I_A$};
 \node (bb0) at (0,-2) {$I_C$};
  \node(bb2) at (1,-2) {$I_C$};
    \node(bb4) at (2,-2) {$hk I_A$};
  \draw[doubleloose] (t0)  to node[above]{$\iota_{g \comp f}$} (t2);
   \draw[doubleloose] (t2)  to node[above]{$\beta \comp \alpha$} (t4);
-\draw[doubleloose] (m0) to node[above]{$\iota_g \looseid_{fI \times f}I$} (m1);
+\draw[doubleloose] (m0) to node[above]{$\iota_g $} (m1);
   \draw[doubleloose] (m1) to node[above]{$\beta \looseid_{I}$}(m2);
-  \draw[doubleloose] (m2) to node[above]{$\looseid_h \iota_f \looseid_{I \times \transid}$}(m3);
+  \draw[doubleloose] (m2) to node[above]{$\looseid_h \iota_f $}(m3);
   \draw[doubleloose] (m3) to node[above]{$\looseid_h \alpha \looseid_{I}$}(m4);
   %%%%%%%%%%%%
   \draw[doubleloose] (b0) to node[above]{$\looseid$} (b1);
   \draw[doubleloose] (b1) to node[above]{$\iota_h$} (b2);
-  \draw[doubleloose] (b2) to node[above]{$\looseid$}(b3);
+  \draw[doubleloose] (b2) to node[above]{$\looseid_h \looseid_{I}$}(b3);
   \draw[doubleloose] (b3) to node[above]{$\looseid_h \iota_k$}(b4);
  %%%%%%%%%
   \draw[doubleloose] (bb0)  to node[above]{$\looseid_{I}$} (bb2);
@@ -1136,8 +1460,8 @@ M^{\beta \comp \alpha} :=
       \draw[doubleeq] (b4) to (bb4);
    \draw[doubleeq] (m2) to (b2);
  \node at (1,-1.5) {\footnotesize $\iso$}; 
-  \node at (.5,-.5) {\footnotesize $\DDownarrow \Pi^{\beta} \tightid_{f \times f}$}; 
-    \node at (1.5,-.5) {\footnotesize $\DDownarrow \tightid_{h} \Pi^{\alpha} $}; 
+  \node at (.5,-.5) {\footnotesize $\DDownarrow \Pi^{\beta} $}; 
+    \node at (1.5,-.5) {\footnotesize $\DDownarrow \overline{\tightid_{I} \Pi^{\alpha}} $}; 
    \node at (1,.5) {\footnotesize $\iso$}; 
  \end{tikzpicture}
  \end{aligned}
@@ -1148,36 +1472,36 @@ M^{\beta \comp \alpha} :=
 \Pi^{\beta \comp \alpha} := 
 \begin{aligned}
   \begin{tikzpicture}[yscale=1.5, xscale=5]
- \node (t0) at (0,1) {$\tens (gf I_A \times gf)$};
-\node (t2) at (1,1) {$gf \tens (I_A \times \transid)$};
- \node (t4) at (2,1) {$hk \tens (I_A \times \transid)$};
- \node (m0) at (0,0) {$\tens (gf I_A \times gf)$};
- \node (m1) at (.5,0) {$g \tens (f I_A \times f)$}; 
-\node (m2) at (1,0) {$h \tens (f I_A \times f)$};
-\node (m3) at (1.5,0) {$hf \tens ( I_A \times \transid)$};
-\node (m4) at (2,0) {$hk \tens ( I_A \times \transid)$};
- \node (b0) at (0,-1) {$\tens (gf I_A \times gf)$};
- \node (b1) at (.5,-1) {$\tens (hf I_A \times hf)$}; 
-\node (b2) at (1,-1) {$h \tens (f I_A \times f)$};
-\node (b3) at (1.5,-1) {$h \tens (k I_A \times k)$};
-\node (b4) at (2,-1) {$hk \tens ( I_A \times \transid)$};
-\node (bb0) at (0,-2) {$\tens (gf I_A \times gf)$};
- \node(bb2) at (1,-2) {$\tens (hk I_A \times hk)$};
-   \node(bb4) at (2,-2) {$hk \tens (I_A \times \transid)$};
- \draw[doubleloose] (t0)  to node[above]{$\chi_{gf} \looseid_{I \times \transid}$} (t2);
-  \draw[doubleloose] (t2)  to node[above]{$\beta \alpha \looseid_{\tens(I\times \transid)}$} (t4);
-\draw[doubleloose] (m0) to node[above]{$\chi_g \looseid_{fI \times f}$} (m1);
-  \draw[doubleloose] (m1) to node[above]{$\beta \looseid_{\tens (fI \times f)}$}(m2);
-  \draw[doubleloose] (m2) to node[above]{$\looseid_{h \tens} \chi_f \looseid_{I \times \transid}$}(m3);
-  \draw[doubleloose] (m3) to node[above]{$\looseid_h \alpha \looseid_{\tens(I \times \transid)}$}(m4);
+ \node (t0) at (0,1) {$\tens (gf \times gf)$};
+\node (t2) at (1,1) {$gf \tens $};
+ \node (t4) at (2,1) {$hk \tens $};
+ \node (m0) at (0,0) {$\tens (gf \times gf)$};
+ \node (m1) at (.5,0) {$g \tens (f\times f)$}; 
+\node (m2) at (1,0) {$h \tens (f \times f)$};
+\node (m3) at (1.5,0) {$hf \tens $};
+\node (m4) at (2,0) {$hk \tens $};
+ \node (b0) at (0,-1) {$\tens (gf  \times gf)$};
+ \node (b1) at (.5,-1) {$\tens (hf \times hf)$}; 
+\node (b2) at (1,-1) {$h \tens (f \times f)$};
+\node (b3) at (1.5,-1) {$h \tens (k \times k)$};
+\node (b4) at (2,-1) {$hk \tens $};
+\node (bb0) at (0,-2) {$\tens (gf \times gf)$};
+ \node(bb2) at (1,-2) {$\tens (hk \times hk)$};
+   \node(bb4) at (2,-2) {$hk \tens $};
+ \draw[doubleloose] (t0)  to node[above]{$\chi_{gf} $} (t2);
+  \draw[doubleloose] (t2)  to node[above]{$\beta \alpha \looseid_{\tens}$} (t4);
+\draw[doubleloose] (m0) to node[above]{$\chi_g \looseid_{f \times f}$} (m1);
+  \draw[doubleloose] (m1) to node[above]{$\beta \looseid_{\tens (f \times f)}$}(m2);
+  \draw[doubleloose] (m2) to node[above]{$\looseid_{h} \chi_f$}(m3);
+  \draw[doubleloose] (m3) to node[above]{$\looseid_h \alpha \looseid_{\tens}$}(m4);
   %%%%%%%%%%%%
-  \draw[doubleloose] (b0) to node[above]{$\looseid_{\tens} (\beta \times \beta) \looseid_{fI \times f}$} (b1);
-  \draw[doubleloose] (b1) to node[above]{$\chi_h \looseid_{fI \times f}$} (b2);
-  \draw[doubleloose] (b2) to node[above]{$\looseid_{h \tens} (\alpha \times \alpha) \looseid_{I \times \transid}$}(b3);
-  \draw[doubleloose] (b3) to node[above]{$\looseid_h \chi_k \looseid_{I \times \transid}$}(b4);
+  \draw[doubleloose] (b0) to node[above]{$\looseid_{\tens} (\beta \times \beta) \looseid_{f \times f}$} (b1);
+  \draw[doubleloose] (b1) to node[above]{$\chi_h \looseid_{f \times f}$} (b2);
+  \draw[doubleloose] (b2) to node[above]{$\looseid_{h \tens} (\alpha \times \alpha) $}(b3);
+  \draw[doubleloose] (b3) to node[above]{$\looseid_h \chi_k $}(b4);
  %%%%%%%%%
-  \draw[doubleloose] (bb0)  to node[above]{$\looseid_{\tens} (\beta \alpha \times \beta \alpha) \looseid_{I \times \transid}$} (bb2);
-  \draw[doubleloose] (bb2)  to node[above]{$\chi_{hk} \looseid_{I \times \transid}$} (bb4); 
+  \draw[doubleloose] (bb0)  to node[above]{$\looseid_{\tens} (\beta \alpha \times \beta \alpha) $} (bb2);
+  \draw[doubleloose] (bb2)  to node[above]{$\chi_{hk} $} (bb4); 
    %%%%%%%%%% 
   \draw[doubleeq] (t0) to (m0);  
    \draw[doubleeq] (m0) to (b0);
@@ -1187,66 +1511,21 @@ M^{\beta \comp \alpha} :=
       \draw[doubleeq] (b4) to (bb4);
    \draw[doubleeq] (m2) to (b2);
  \node at (1,-1.5) {\footnotesize $\iso$}; 
-  \node at (.5,-.5) {\footnotesize $\DDownarrow \Pi^{\beta} \tightid_{f \times f}$}; 
-    \node at (1.5,-.5) {\footnotesize $\DDownarrow \tightid_{h} \Pi^{\alpha} $}; 
+  \node at (.5,-.5) {\footnotesize $\DDownarrow \overline{\Pi^{\beta} \tightid_{\looseid_{f \times f}}}$}; 
+    \node at (1.5,-.5) {\footnotesize $\DDownarrow \overline{\tightid_{\looseid_{h}} \Pi^{\alpha} }$}; 
    \node at (1,.5) {\footnotesize $\iso$}; 
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
 
-Let $f,h: A \rightarrow B $ and $g,i: B \rightarrow C$ be lax monoidal 1-cells and let $\alpha: f \rightarrow h$, $\beta: g \rightarrow i$ be lax monoidal icons, the composite $\beta \comp \alpha$ is lax monoidal with the following structure 3-cells.
-
-\begin{equation}
-N^{\beta \comp \alpha} := 
-\begin{aligned}
- \begin{tikzpicture}[yscale=1.5, xscale=6]
- \node (tl) at (0,1) {$I_C$};
- \node (tm) at (.5,1) {$g I_B$};
-\node (tr) at (1,1) {$g f  I_A$};
- \node (bl) at (0,0) {$I_C$};
-\node (bm) at (.5,0) {$i I_B$};
-\node (br) at (1,0) {$i h I_A$};
- \draw[doubleloose] (tl)  to node[above]{$\iota_g$} (tm);
-  \draw[doubleloose] (tm)  to node[above]{$\looseid_g \iota_f$} (tr);
-\draw[darrow] (tr) to node[right]{$\beta \alpha  \tightid_I$} (br);
-   \draw[doubleloose] (bl) to node[above]{$\iota_i$}(bm);
-  \draw[doubleloose] (bm) to node[above]{$\looseid_i \iota_h$}(br);
-  \draw[doubletight] (tm) to node[left] {$\beta \tightid_I$} (bm);
-    \draw[doubleeq] (tl) to (bl);
-  \node at (.75,0.5) {$\looseid_{\beta} \comp N^{\alpha} \DDownarrow $}; 
-    \node at (.25,.5) {$ N^{\beta} \DDownarrow $}; 
- \end{tikzpicture}
- \end{aligned}
-\end{equation}
+Let $f,h: A \rightarrow B $ and $g,i: B \rightarrow C$ be lax monoidal 1-cells and let $\alpha: f \rightarrow h$, $\beta: g \rightarrow i$ be lax monoidal icons, the composite $\beta \comp \alpha$ is lax monoidal with $N^{\beta \comp \alpha}:= N^{\beta} \ horc \looseid_{\beta} N^{\alpha}$ and $\Sigma^{\beta \comp \alpha}:= \Sigma^{\beta}\looseid_{\alpha \times \alpha} \horc \looseid_{\beta} \Sigma^{\alpha}$.
 
 
-\begin{equation}
-\Sigma^{\beta \comp \alpha} := 
-\begin{aligned}
- \begin{tikzpicture}[yscale=1.5, xscale=8]
- \node (tl) at (0,1) {$\ten (g \times g) (f \times f)$};
- \node (tm) at (.5,1) {$g \ten (f \times f)$};
-\node (tr) at (1,1) {$g f  \ten$};
-  \node(bl) at (0,-1) {$\ten (g \times g) (f \times f)$};
-  \node(bm) at (.5,-1) {$\ten (i \times i) (h \times h)$};
-  \node (br) at (1,-1) {$i h \ten$};
- \draw[doubleloose] (tl)  to node[above]{$\chi_g \looseid_{f \times f}$} (tm);
-  \draw[doubleloose] (tm)  to node[above]{$\looseid_g \chi_f$} (tr);
-\draw[doubletight] (tr) to node[above]{$\beta \alpha  \tightid_{\ten}$} (br);
-  \draw[doubletight] (tm) to node[above]{$\beta  \tightid_{\ten} (\alpha \times \alpha)$}(bm);
-   \draw[doubletight] (tl) to node[above]{$\tightid_{\ten}(\beta \times \beta)(\alpha \times \alpha)$}(bl);
-    \draw[doubleloose] (bl) to node[above]{$\chi_i \looseid_{h \times h}$}(bm);
-  \draw[doubleloose] (bm) to node[above]{$\looseid_i \chi_h$}(br);
-  \node at (.25,0.5) {$ \Sigma^{\beta} \looseid_{\alpha \times \alpha} \DDownarrow $}; 
-    \node at (.75,.5) {$ \looseid_{\beta} \comp\Sigma^{\alpha} \DDownarrow $}; 
- \end{tikzpicture}
- \end{aligned}
-\end{equation}
 
 
 Let $\Gamma$ and $\Delta$ be two composable monoidal 3-cells. It is easy to see that the composition $\Gamma \comp \Delta$ satisfies the two equations for monoidal 3-cells. This is a matter of applying the equations for $\Gamma$ and $\Delta$ sequentially.
 
-In all coherence equations between 3-cells for the monoidal structure of transversal compositionof monoidal above, each 3-cell consists of a conponent for the first composite  composed with the identity on the second composite, and a component for the second composite composed with the identity on the product of the first composite with itself. This means that the coherence equations for $g \comp f$  can be established by componentwise application of the equations for $g$ and $f$. Some 3-cells also contain coherence cells, but these equally break up in a part concerning the first, and a part concerning the second component. Manipulation of these coherence cells results in the required equalities. Note that rewriting of the 1-cells and composites of loose 2-cells is necessary in several of the steps. A similar argument holds for coherence equations for braided, syllectic and sylleptic cells.
+In all coherence equations between 3-cells for the monoidal structure of transversal composition above, each 3-cell consists of a conponent for the first composite  composed with the identity on the second composite, and a component for the second composite composed with the identity on the product of the first composite with itself. This means that the coherence equations for $g \comp f$  can be established by componentwise application of the equations for $g$ and $f$. Some 3-cells also contain coherence cells, but these equally break up in a part concerning the first, and a part concerning the second component. Manipulation of these coherence cells results in the required equalities. Note that rewriting the 1-cells and composites of loose 2-cells is necessary in several of the steps. A similar argument holds for coherence equations for braided, syllectic and sylleptic cells.
 
 \end{proof}
 
