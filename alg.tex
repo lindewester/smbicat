@@ -855,7 +855,7 @@ Let ${\bf C}$ be a braided monoidal category. The double category $\Alg({\cat C}
 Let $f$ be a morphism of ${\lD_0}$. The companion of $f$ is defined by the following data: 
 
 \begin{equation}\label{eq:companion}
-\hat{f}:= 
+\hat{\bf f}:= 
 \begin{aligned}
  \begin{tikzpicture}[scale=0.6] 
 \draw (0.5,-0.5)node[below]{$A$} -- (0.5, -0.2);
@@ -869,11 +869,11 @@ Let $f$ be a morphism of ${\lD_0}$. The companion of $f$ is defined by the follo
 \node at (1.2,2.1)[]{$B$};
 \end{tikzpicture}
 \end{aligned}
-\quad \quad \eta_{\hat{f}} := (id_A, f, f)
-\quad \quad \epsilon_{\hat{f}} := (f, \mathid_B, \mathid_B)
+\quad \quad {\bf \eta_{\hat{f}}} := (id_A, f, f)
+\quad \quad {\bf \epsilon_{\hat{f}}} := (f, \mathid_B, \mathid_B)
 \end{equation}
 
-The first equation of ~\ref{eq:compeqn} holds because $\epsilon_{\hat{f}} \circ \eta_{\hat{f}} = (f,f,f) = U_f$. The left-hand-side of the second equation corresponds to $\eta_{\hat{f}} \odot \epsilon_{\hat{f}}= (id_A, f\tinydot[gray dot] \mathid_B, \mathid_B)$, where $f\tinydot[gray dot] \mathid_B: {U_A}_{\tinydot[gray dot]} \hat{f} \rightarrow \hat{f}_{\tinydot[gray dot]}U_B$ is the unique map that makes back of the diagram below commute.  
+The first equation of ~\ref{eq:compeqn} holds because ${\bf \epsilon_{\hat{f}} \circ \eta_{\hat{f}}} = (f,f,f) = {\bf U}_f$. The left-hand-side of the second equation corresponds to ${\bf \eta_{\hat{f}} \odot \epsilon_{\hat{f}}}= (id_A, f\tinydot[gray dot] \mathid_B, \mathid_B): {{\bf U}_A}_{\tinydot[gray dot]} \hat{\bf f} \rightarrow \hat{\bf f}_{\tinydot[gray dot]}{\bf U}_B$, where $f \tinydot[gray dot] \mathid_B$: is the unique map that makes back of the diagram below commute.  
 
 \begin{tikzpicture}[xscale=4,yscale=2]
  \node (tl) at (0,1) {$A \ten A \ten B$};
@@ -900,77 +900,33 @@ The first equation of ~\ref{eq:compeqn} holds because $\epsilon_{\hat{f}} \circ 
  \draw[->] (tm) to node[left] {$f \ten \mathid_B$} (bm);
 \end{tikzpicture}
 
-We need to show that $f\tinydot[gray dot] \id_B =  \mathid_B$. In this diagram, $c_A$ and $c_B$ are the coequalisers defining ${U_A}_{\tinydot[gray dot]} \hat{f}$ and $\hat{f}_{\tinydot[gray dot]}U_B$, respectively.
-It is easy to check that $\hat{f}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\hat{f}}$ are coequalisers as well. The morphisms $\id_B$, $l_{\hat{f}}$ and $r_{\hat{f}}$ are the unique morphisms that make all diagrams commute. If we assume the double category to be strict, it follows that $f \tinydot[gray dot] \mathid_B = \mathid_B$, and thus $\eta_{\hat{f}} \odot \epsilon_{\hat{f}} = 1_{\hat{f}}$.
+We need to show that $f\tinydot[gray dot] \id_B \iso  \mathid_B$. In this diagram, $c_A$ and $c_B$ are the coequalisers defining ${{\bf U}_A}_{\tinydot[gray dot]} \hat{\bf f}$ and $\hat{\bf f}_{\tinydot[gray dot]}{\bf U}_B$, respectively.
+It is easy to check that $\hat{f}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\hat{f}}$ are coequalisers as well. The morphisms $\id_B$, $l_{\hat{f}}$ and $r_{\hat{f}}$ are the unique morphisms that make all diagrams commute. It follows from coherence of double categories that $f \tinydot[gray dot] \mathid_B \iso \mathid_B$, and thus $\eta_{\hat{f}} \odot \epsilon_{\hat{f}} \iso 1_{\hat{f}}$.
 
 This simultaneously proves that $f$ has a conjoint, because $\Alg({\bf C}^{h* op}) \cong$ $\Alg({\cat C})$.
 \end{proof}
 
 \begin{eg}
-When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Theorem ~\ref{thm:trifunctor2}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
+When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Theorem ~\ref{thm:lcbcfunctor}, the horizontal bicategory $\cMod$ of $\lMod$ is symmetric monoidal.
 \end{eg}
 
 \begin{thm}\label{thm:eqcomp}
-Let {\bf B} be a bicategory. The bicategory $\mathcal{A}lg({\cat B})$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
+Let {\bf C} be a braided monoidal category. The horizontal bicategory $\mathcal{A}lg({\cat C})$ is braided monoidal; it is symmetric whenever {\bf C} is symmetric.
 \end{thm}
 
 \begin{proof}
-This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem ~\ref{thm:trifunctor2}.
+This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem ~\ref{thm:lcbcfunctor}.
 \end{proof}
 
-When we consider braided bicategories with one object, more of the symmetry is preserved than one would expect from Theorem ~\ref{thm:eqcomp}
-
-\begin{prop}\label{prop:oneobject}
-Let {\bf B} be a braided monoidal bicategory with one object. The bicategory $\mathcal{A}lg({\cat B})$ of algebras, bimodules, and bimodule homomorphisms in {\cat B} is symmetric monoidal. 
-\end{prop}
-
-\begin{proof}
-A braided monoidal bicategory with one object corresponds to a symmetric monoidal category. We can lift this symmetry $\sigma$ to a symmetry on the double category, illustrated by the picture below. The rest proof is analogous of that of Theorem \ref{thm:eqcomp}, with the only difference that in the diagrams the tensor product is no longer distinguishable from horizontal composition.
-
-\begin{equation}
-\begin{tikzpicture} 
-\draw (1.5,0) -- (1.5,0.5) -- (2.5,0.5) -- (2.5,0) -- (1.5,0);
-\draw (0,0) -- (0,0.5) -- (1,0.5) -- (1,0) -- (0,0);
-\node at (0.5,0.25) [] {${\bf M}$};
-\node at (2,0.25) [] {${\bf N}$};
-\draw (0.2,0) to[out=-90, in=90] (-1,-1);
-\draw (0.5,0) to[out=-90, in=90] (0.5,-1);
-\draw[cross] (0.8,0) to[out=-90, in=90] (3,-1);
-\draw (1.7,0) to[out=-90, in=90] (-0.5,-1);
-\draw (2,0) to[out=-90, in=90] (2,-1);
-\draw (2.2,0) to[out=-90, in=90] (3.5,-1);
-\draw (0.5,1) to (0.5,0.5);
-\draw (2, 1) to (2, 0.5);
-\node at (-1,-1.2) [] {A};
-\node at (0.5,-1.2) [] {M};
-\node at (3,-1.2) [] {B};
-\node at (-0.5,-1.2) [] {C};
-\node at (2,-1.2) [] {N};
-\node at (3.5,-1.2) [] {D};
-\node at (0.5,1.2) [] {N};
-\node at (2,1.2) [] {M};
-\end{tikzpicture}
-\hspace{10pt}
-  \begin{tikzpicture}[scale=1.5]
-    \draw (0,0.5) to (0,1)node[above] {};
-    \draw[cross] (.6,-.5) node[below]{} to[out=90,in=0] (0,0.5);
-    \draw[cross] (0,0.5) to[out=180,in=90] (-.6,-.5)node[below] {};
-    \node [white dot, node on layer=main] (m) at (0,.5) {};
-    \node[black dot] (m) at (.8,.5) {};
-    \draw (m.center) to (.8,1)node[above] {};
-    \draw (1.4,-.5) node[below]{} to[out=90,in=0] (m.center);
-    \draw (m.center) to[out=180,in=90] (0.2,-.5)node[below] {};
-  \end{tikzpicture}
-\end{equation}
-\end{proof}
-
+\subsection{$\cat 2(CP(C))$}
+We will extend the proof to the bicategory $2(CP({\cat C}))$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms in a braided monoidal category and demonstrate that it is braided monoidal and symmetric whenever ${\bf C}$ is symmetric.
 \begin{defn}
-A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfies the equations below.
+A {\bf Frobenius algebra} is a monoidal category ${\cat C}$ is a monoid $(A, \tinymult, \tinyunit)$ together with a comonoid 
+$(A, \tinycomult, \tinycounit)$ that satisfies the equations below.
 \begin{align}
   \begin{pic}[]
-    \draw[fill=red, draw=black, opacity=.5] (-1.2,-.5) -- (-1.2,1) -- (1.2,1) -- (1.2,-.5) -- (-1.2,-.5);
-    \node[white dot] (t) at (.5,.5) {};
-    \node[white dot] (b) at (-.5,0) {};
+    \node[gray dot] (t) at (.5,.5) {};
+    \node[gray dot] (b) at (-.5,0) {};
     \draw (b.center) to[out=0,in=180] (t.center);
     \draw (-.5,-.5) to (b.center);
     \draw (t.center) to (.5,1);
@@ -979,9 +935,8 @@ A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfie
   \end{pic}
 \,=\,
   \begin{pic}[]
-     \draw[fill=red, draw=black, opacity=.5] (-1,-.5) -- (-1,1) -- (1,1) -- (1,-.5) -- (-1,-.5);
-    \node[white dot] (t) at (0,.5) {};
-    \node[white dot] (b) at (0,0) {};
+    \node[gray dot] (t) at (0,.5) {};
+    \node[gray dot] (b) at (0,0) {};
     \draw (b.center) to (t.center);
     \draw (t.center) to[out=180,in=-90] (-.5,1);
     \draw (t.center) to[out=0,in=-90] (.5,1);
@@ -990,9 +945,8 @@ A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfie
   \end{pic}
  \, =\,
   \begin{pic}[]
-   \draw[fill=red, draw=black, opacity=.5] (-1.2,-.5) -- (-1.2,1) -- (1.2,1) -- (1.2,-.5) -- (-1.2,-.5);
-    \node[white dot] (t) at (-.5,.5) {};
-    \node[white dot] (b) at (.5,0) {};
+    \node[gray dot] (t) at (-.5,.5) {};
+    \node[gray dot] (b) at (.5,0) {};
     \draw (b.center) to[out=180,in=0] (t.center);
     \draw (.5,-.5) to (b.center);
     \draw (t.center) to (-.5,1);
@@ -1003,10 +957,9 @@ A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfie
 We call a Frobenius algebra {\bf special} whenever the following equation holds.
  \begin{align}
   \begin{pic}[]
-   \draw[fill=red, draw=black, opacity=.5] (-.7,-.5) -- (-.7,1) -- (.7,1) -- (.7,-.5) -- (-.7,-.5);
         \node (0) at (0,-0.5) {};
-        \node[white dot] (1) at (0,-.1) {};
-        \node[white dot] (2) at (0,0.6) {};
+        \node[gray dot] (1) at (0,-.1) {};
+        \node[gray dot] (2) at (0,0.6) {};
         \node (3) at (0,1) {};
         \draw (0.center) to (1.center);
         \draw (2.center) to (3.center);
@@ -1015,7 +968,6 @@ We call a Frobenius algebra {\bf special} whenever the following equation holds.
 \end{pic}
 \,=\,
   \begin{pic}[]
-   \draw[fill=red, draw=black, opacity=.5] (-.7,-.5) -- (-.7,1) -- (.7,1) -- (.7,-.5) -- (.7,-.5);
     \draw (0,-.5) to (0,1);
   \end{pic}
 \end{align}
@@ -1025,16 +977,8 @@ We call a Frobenius algebra {\bf special} whenever the following equation holds.
 The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is symmetric monoidal. This follows from Theorem ~\ref{thm:eqcomp} since Frobenius algebras and algebra homomorphisms form a full symmetric monoidal subcategory of the category of algebras and algebra homomorphisms. The same statement holds for special and commutative Frobenius algebras. 
 \end{rmk}
 
-\begin{cor}
-The equivariant completion of a bicategory introduced in ~\cite{carquevillerunkel} preserves symmetric, braided, and monoidal structure.
-\end{cor}
-
-\begin{proof}
-The equivariant completion of a bicategory ${\bf B}$ is the subbicategory of $\mathcal{A}lg({\cat B})$ consisting of special Frobenius algebras, bimodules and bimodule homomorphisms. The result follows from remark \ref{comspecfrob} and Theorem \ref{thm:eqcomp}
-\end{proof}
-
 \begin{defn}
-Let {\bf B} be a bicategory equiped with a dagger functor. A Frobenius algebra in a hom-category of {\bf B} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger of the algebra. 
+Let {\bf C} be a braided monoidal category equiped with a dagger functor. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger of the algebra. 
 A bimodule is called a {\bf dagger bimodule} when the equation below holds.
 \begin{align}
     \begin{pic}[yscale=.85]
@@ -1060,14 +1004,14 @@ A bimodule is called a {\bf dagger bimodule} when the equation below holds.
     \end{pic}
     \end{align}
 \end{defn}
-When the bicategory {\bf B} is equiped with a dagger functor, and we restrict to dagger Frobenius algebras and dagger bimodules, we do not obtain a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
+When a braided monoidal category {\bf C} is equiped with a dagger functor, dagger Frobenius algebras and dagger bimodules and bimodule homomorphisms do not form a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
 
 \begin{prop}\label{prop:dagger}
-Let ${\cat B}$ be a dagger bicategory. The bicategory of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat B}$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
+Let ${\cat C}$ be a braided monoidal dagger category. The bicategory $2(CP({\cat C}))$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat C}$ is braided monoidal; it is symmetric whenever {\bf C} is symmetric.
 \end{prop}
 
 \begin{proof}
-We take the category of dagger Frobenius algebras and self conjugate algebra homomorphisms of {\cat B} as $\D_0$. For $\D_1$ we take the category of dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ {\cat B}, of which $f_1$ and $f_2$ are self conjugate. This ensures that ~\ref{eq:companion} is a dagger bimodule.  These categories are symmetric monoidal subcategories of our original $\D_0$ and $\D_1$, since self-conjugate morphisms are closed under the tensor product and all structure isomorphisms of the monoidal categories are self conjugate. All other steps of the construction hold in the same way as in the general case.  
+The bicategory is the horizontal bicategory of the double category of dagger Frobenius algebras and self-conjugate algebra homomorphisms, dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ in {\cat C}, of which $f_1$ and $f_2$ are self-conjugate. This ensures that ~\ref{eq:companion} is a dagger bimodule.  This is a symmetric monoidal subcategories of our original double category, since self-conjugate morphisms are closed under the tensor product and all structure isomorphisms of the monoidal double category are self-conjugate. Applying Theorem~\ref{thm:lcbcfunctor} on this double category give the required result.
 \end{proof}
 
 \begin{cor}
@@ -1075,64 +1019,11 @@ Let ${\bf C}$ be a symmetric monoidal category. The bicategory $2(CP({\bf C}))$ 
 \end{cor}
 
 \begin{proof}
-This follows directly from proposition \ref{prop:dagger} and \ref{prop:oneobject}.
+This follows directly from proposition \ref{prop:dagger}.
 \end{proof}
 
-\begin{rmk}
-If ${\bf C}$ is idempotent complete and we restrict to special Frobenius algebras, we can give an explicit definition for the functor $\odot$, as was observed in ~\cite{heunenvicarywester} and ~\cite{carquevillerunkel}. As a result, part of the structure data becomes trivial.
 
-Let $_A{\bf M}_B$ and $_B{\bf N}_C$ be dagger modules on special Frobenius algebras. The coequaliser which defines their horizontal composition %(definition\ref{def:horcom}), 
-is given by the dagger splitting of the dagger idempotent $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}{\bf N}_{\tinydot[black dot]}$: \begin{equation}\label{eq:frobeniusimage}
-    \begin{tikzpicture}[yscale=0.875]
-      \draw [use as bounding box, draw=none] (-1.5,-1) rectangle +(3,2);
-      \node[morphism, minimum width=10mm] (m) at (-.75,.2) {$\mathbf{M}$};
-      \node[morphism, minimum width=10mm] (n) at (.75,.2) {$\mathbf{N}$};
-      \draw (m.north) to (-.75,1) node[right] {$M$};
-      \draw (n.north) to (.75,1) node[right] {$N$};
-      \draw (m.south) to (-.75,-1) node[right] {$M$};
-      \draw (n.south) to (.75,-1) node[right] {$N$};
-      \draw (m.-135) to[out=-90,in=90] (-1.1,-.6) node[white dot] {};
-      \draw (n.-45) to[out=-90,in=90] (1.1,-.6) node[black dot] {};
-      \draw (m.-45) to[out=-90,in=150] (0,-.4) node[gray dot] {} to[out=30,in=-90] (n.-135);
-      \draw (0,-.5) to (0,-.75) node[gray dot] {};
-    \end{tikzpicture}
-  \end{equation},
   
-  The module ${\bf M_{\tinydot[gray dot]}N}$ can be given explicitly as the dagger module below, where $c$ is the dagger splitting of the coequaliser.
-  
-  \begin{equation}\label{eq:bimodule-tensor}
-  \begin{pic}[yscale=0.875]
-    \node[morphism, minimum width=10mm] (mn) at (0,0) {$\mathbf{M} \;\;\; \mathbf{N}$};
-    \node[gray dot] at (0.05,0) {};
-    \draw (mn.north) to (0,1.8) node[right] {$M_{\tinydot[gray dot]} N$};
-    \draw (mn.south) to (0,-2) node[right] {$M_{\tinydot[gray dot]}N$};
-    \draw (mn.-45) to[out=-90,in=90] (1,-2) node[right] {$E$};
-    \draw (mn.-135) to[out=-90,in=90] (-1,-2) node[right] {$C$};
-  \end{pic}
-  \qquad := \qquad
-  \begin{pic}[yscale=0.875]
-      \node[morphism] (i) at (0,-1.3) {$c^\dag$};
-      \node[morphism] (id) at (0,1.2) {$c$};
-      \node[morphism, minimum width=10mm] (m) at (-.75,.2) {$\mathbf{M}$};
-      \node[morphism, minimum width=10mm] (n) at (.75,.2) {$\mathbf{N}$};
-      \draw (m.north) to[out=90,in=-90] (id.-135); 
-      \draw (n.north) to[out=90,in=-90] (id.-45);
-      \draw (m.south) to[out=-90,in=90] (i.135);
-      \draw (n.south) to[out=-90,in=90] (i.45);
-      \draw (m.-45) to[out=-90,in=150] (0,-.4) node[gray dot] {} to[out=30,in=-90] (n.-135);
-      \draw (0,-.5) to (0,-.75) node[gray dot] {};
-      \draw (m.-135) to[out=-90,in=90] (-1.25,-2) node[right] {$C$};
-      \draw (n.-45) to[out=-90,in=90] (1.25,-2) node[right] {$E$};
-      \draw (id.north) to (0,1.8) node[right] {$M_{\tinydot[gray dot]}N$};
-      \draw (i.south) to (0,-2) node[right] {$M_{\tinydot[gray dot]}N$};
-  \end{pic}
-\end{equation}
-
- The natural isomorphisms $l: U_A \odot {\bf M} \rightarrow {\bf M}$ and $r: {\bf M} \odot U_B \rightarrow {\bf M}$, are given by the identity morphisms. This is because ${\bf M}_{\tinydot[gray dot]}^{\dagger}$ and $_{\tinydot[white dot]}{\bf M}^{\dagger}$ are the dagger splittings of $_{\tinydot[white dot]}{U_A}_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}{U_B}_{\tinydot[gray dot]}$, respectively. It follows that these are the coequalisers defining $A_{\tinydot[white dot]}M$ and $M_{ \tinydot[gray dot]}B$.
-  But $M$ is the image of both $_{\tinydot[white dot]}{\bf M}$ and ${\bf M}_{\tinydot[gray dot]}$. 
-  It follows by definition that $A_{\tinydot[white dot]}M = M$, and ${U_A} \odot {\bf M} = {\bf M}$, as well as $M_{\tinydot[gray dot]}B = M$, and ${\bf M} \odot {\bf U_B} = {\bf M}$.
-  \end{rmk} 
-
 
 % Local Variables:
 % TeX-master: "smbicat"
