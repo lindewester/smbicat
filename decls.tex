@@ -485,13 +485,13 @@
 \def\hToo{\xslashedRightarrow{\quad}}
 \let\xhTo\xslashedRightarrow
 
-\def\Rightslashedarrowfill@{%
-  \slashedarrowfill@\Relbar\Relbar\Mapstochar\Rightarrow}
+\def\looseRightarrowfill@{%
+  \looseRightarrowfill@\Relbar\Relbar\Mapstochar\Rightarrow}
 \newcommand\xlooseRightarrow[2][]{%
-  \ext@arrow 0055{\Rightslashedarrowfill@}{#1}{#2}}
-\def\hTo{\xslashedRightarrow{}}
-\def\hToo{\xslashedRightarrow{\quad}}
-\let\xhTo\xslashedRightarrow
+  \ext@arrow 0055{\looseRightarrowfill@}{#1}{#2}}
+\def\hTo{\xlooseRightarrow{}}
+\def\hToo{\xlooseRightarrow{\quad}}
+\let\xhTo\xlooseRightarrow
 
 \pagestyle{empty}
 

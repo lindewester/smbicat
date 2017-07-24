@@ -1,9 +1,9 @@
 \section{Symmetric Monoidal Bicategories}
 \label{sec:constr-symm-mono}
 
-In this section we will discuss how the iconic functor $\mathcal{H}$ from the previous section extends to a functor of locally cubical bicategories. Furthermore, we will show that it preserves the monoidal structure functorially. We will do this by proving that the functor preserves products, and that every product preserving functor defines a functor between the respective locally cubical bicategories of monoidal cells. 
+In this section we will discuss how the iconic functor $\mathcal{H}$ from section~\ref{sec:1x1-to-bicat} extends to a functor of locally cubical bicategories. Furthermore, we will show that it preserves the monoidal structure functorially. We will do this by proving that the functor preserves products, and that every product preserving functor defines a functor between the respective locally cubical bicategories of monoidal cells. 
 
-Note that there are several related notions of these locally cubical bicategories, depending on whether we want the functors to be lax monoidal, oplax monoidal, or strongly monoidal. We will discuss the lax case in this section. In the next section we will generalise this result. 
+%Note that there are several related notions of these locally cubical bicategories, depending on whether we want the functors to be lax monoidal, oplax monoidal, or strongly monoidal. We will discuss the lax case in this section. In the next section we will generalise this result. 
 %t was shown in~\cite{gg:ldstr-tricat} that tricategories, lax homomorphisms, ico-icons and pseudo-icons form a locally cubical bicategory. As a monoidal bicategory is a tricategory with one object, it follows that monoidal bicategories, lax monoidal functors, lax icons and lax transformations form a locally cubical bicategory as well. 
 Double categories, pseudo double functors and tight transformations form a locally cubical bicategory with identity tight 2-morphisms and identity 3-cells. The functor $\comp$ is defined on tight transformations as the Godement product. The pseudo functor $\compI_A: * \rightarrow \cD bl(A,A)$ maps the cells in the trivial double category $*$ to the identity cells and morphisms in $\cD bl(A,A)$. 
 
@@ -210,7 +210,7 @@ Let $A$ be a monoidal object. As the functor $\mathcal{T}$ preserves products, w
   A\times A\to A$ induces 1-cells $\ten_{\mathcal{T}} \maps
  \mathcal{T}A\times_{\cT} \mathcal{T} A\to\mathcal{T}A$ and $I_{\cT}:= \mathcal{T}(I_A)$. 
  
-Sinde $\phi$ and $\phi_u$ are globular, we have an equality $\cT(f \comp g) = \cT(f) \comp \cT(g)$ for all $f$ and $g$ and for the identity 1-cell we have an equality $\cT(\transid_A) = \transid_{\cT(A)}$. The loose associativity 2-cell of $A$ gives rise to a loose 2-cell
+Since $\phi$ and $\phi_u$ are globular, we have an equality $\cT(f \comp g) = \cT(f) \comp \cT(g)$ for all $f$ and $g$ and for the identity 1-cell we have an equality $\cT(\transid_A) = \transid_{\cT(A)}$. The loose associativity 2-cell of $A$ gives rise to a loose 2-cell
   \[\vcenter{\xymatrix@C=6pc{\cT(A)\times\cT(A)\times\cT(A) \rtwocell^{\ten_{\cT}
         (\Id\times\ten_{\cT})}_{\ten_{\cT}(\ten_{\cT}\times\Id)}{\hspace{.2cm}\fa_{\cT}\eqv} &\cT(A) }}\]
   which simply equals $\cT(\alpha)$ together with the invertible 2-cells.
@@ -274,13 +274,20 @@ Similarly, one can show that for a monoidal transformation $f$, $\cT(f)$ is mono
 
 
 \begin{thm}\label{thm:lcbcfunctor}
-Let $F: \cC  \rightarrow \cD$ be a functor of locally cubical bicategories, such that the tight transformations $\phi$, $\phi_u$ are globular. If $F$ preserves products, then it lifts to a functor between the locally cubical bicategories of monoidal objects and lax monoidal cells $\cM onF: \cM on \cC  \rightarrow \cM on\cD$.
+Let $F: \cC  \rightarrow \cD$ be a functor of locally cubical bicategories, such that the tight transformations $\phi$, $\phi_u$ are globular. If $F$ preserves products, then it lifts to the functors below between locally cubical bicategories, for $w \in \{l,o,s\}$.
+\begin{align*}
+&\cM on_wF: \cM on_w \cC  \rightarrow \cM on_w\cD\\ 
+&\cBr \cM on_wF: \cBr \cM on_w \cC  \rightarrow \cBr \cM on_w\cD\\
+& \cSyl \cM on_wF: \cSyl \cM on_w \cC  \rightarrow \cSyl \cM on_w\cD\\
+&\cSym \cM on_wF: \cSym \cM on_w \cC  \rightarrow \cSym \cM on_w\cD
+\end{align*}
 \end{thm}
 
 \begin{proof}
-By Lemma~\ref{lem:funcmonob}, the functor $F$ defines an assignment on ojects of $\cM on\cC$. To prove that $F$ defines a pseudo double functor $\cM onF: \cM on \cC(A, B)  \rightarrow \cM on\cD(\cM onF(A), \cM onF(B))$, we need to verify that $F(N^{\alpha \verc \beta}) = F(N^{\alpha}) \verc F(N^{\beta})$ and $F(N^{\tightid_f}) = N^{\tightid_{Ff}}$ and likewise for $\Sigma$. This follows from functoriality of $F$, the fact that $N^{\alpha \verc \beta} = N^{\alpha \verc \beta}$ and $N^{\tightid_f} = \tightid_{\iota_f}$, $F(\iota_f) = \iota_{Ff}$.
+By Lemma~\ref{lem:funcmonob}, the assignment of $F$ on objects and higher cells is well-defined in the respective categories.
+We wil show that functor $F$ gives rise to a pseudo double functor $\cM on_lF: \cM on_l \cC(A, B)  \rightarrow \cM on_l\cD(\cM on_lF(A), \cM on_lF(B))$. The other functors are derived in a similar way. We need to verify that $F(N^{\alpha \verc \beta}) = F(N^{\alpha}) \verc F(N^{\beta})$ and $F(N^{\tightid_f}) = N^{\tightid_{Ff}}$ in $\cM on_l\cD$ and likewise for $\Sigma$. This follows from functoriality of $F$, the fact that $N^{\alpha \verc \beta} = N^{\alpha \verc \beta}$ and $N^{\tightid_f} = \tightid_{\iota_f}$, $F(\iota_f) = \iota_{Ff}$.
 The natural transformations $F_{\odot}$ and $F_U$ are well-defined 3-cells in $\cM onD$; the respective equations hold by coherence of the pseudo double functor $F$.
-Finally, we need to prove that $\phi$ and $\phi_u$ are well-defined tight transformations in $\cM on(\cT A, \cT B)$. Since their components are globular 3-cells, we only need to check that these are monoidal. The equations hold by coherence of enriched funcors after expanding the definitions of $M^{\cT\alpha \comp \cT \beta}, M^{\cT(\alpha \comp \beta)}, M^{\cT(\looseid_f)}$, and $M^{\looseid_{\cT f}}$ and similarly for $\Pi$.
+Finally, we need to prove that $\phi$ and $\phi_u$ are well-defined tight transformations in $\cM on(\cT A, \cT B)$. Since their components are globular 3-cells, we only need to check that these are monoidal. The equations hold by coherence of enriched functors after expanding the definitions of $M^{\cT\alpha \comp \cT \beta}, M^{\cT(\alpha \comp \beta)}, M^{\cT(\looseid_f)}$, and $M^{\looseid_{\cT f}}$ and similarly for $\Pi$.
 \end{proof}
 
-Note that in the case of $\cH$, $\phi$ and $\phi_u$ have globular components. It follows that the functor $\fH: \fDbl_f \rightarrow \fBicat$ lifts to the functors $\cM on \fH: \cMon\fDbl_f \rightarrow \cMon \fBicat$, $\cBr \fH: \cBr\fDbl_f \rightarrow \cBr \fBicat$,  $\cSyl\cH: \cSyl\fDbl_f \rightarrow \cSyl\fBicat$, and $\cSym \fH: \cSym\fDbl_f \rightarrow \cSym \fBicat$.
+Note that in the case of $\cH$, $\phi$ and $\phi_u$ have globular components. It follows that the functor $\fH: \fDbl_f \rightarrow \fBicat$ lifts to the functors $\cM on_w \fH: \cMon_w\fDbl_f \rightarrow \cMon_w \fBicat$, $\cBr_w \fH: \cBr_w\fDbl_f \rightarrow \cBr_w \fBicat$,  $\cSyl_w\cH: \cSyl_w\fDbl_f \rightarrow \cSyl_w\fBicat$, and $\cSym_w \fH: \cSym_w\fDbl_f \rightarrow \cSym_w \fBicat$.
