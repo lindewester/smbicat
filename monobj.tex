@@ -20,12 +20,12 @@ The loose 2-cells in \cDblf\ (which has no nonidentity tight 2-morphisms) are th
 
 Before we give the definitions of monoidal cells, we recall the structure of a locally cubical bicategory. Locally cubical bicategories have three types of composition. As a locally cubical category is a specific kind of intercategory, we will adopt the notation introduced for intercategories in~\cite{gp:intercategories-i}. Firstly, we have loose composition "$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell bounday. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning "$\beta$ after $\alpha$". We write $\looseid_{f}$ and $\looseid_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. Loose composition is weakly associative and loose identities hold up to isomorphism. 
 Secondly, we have tight composition "$\verc$" in the hom-double categories. This gives us composition of tight 2-cells along a 1-cell boundary and tight composition of 3-cells along a loose 2-cell boundary, written in the conventional order: $f \verc g$ denoting "$f$ after $g$". We write $\tightid_f$ and $\tightid_{\alpha}$ for the tight identity on a 1-cell $f$ and a loose 2-cell $\alpha$, respectively. Tight composition is strictly associative and has strict identities. 
-Thirdly, there is composition "$\comp$" of 1-cells, 2-cells, and 3-cells along a 0-cell boundary, given by the enriched structure. We write this composition in the conventional order: $f \comp g$ meaning "$f$ after $g$". When it is clear from the context, we omit the composition symbol "$\comp$",  and write the juxtaposition of 1-cells instead. The identities for this composition is given by "$\transid$" with the respective object, 1-cell, loose 2-cell or tight 2-cell in subscript. This composition is weak with weak identities. We write $\compI$ for the unit double functor and $\compI_A$ for the image $\compI(A)$ of an object $A$, and likewise for 1-cells and 2-cells.  
+Thirdly, there is composition "$\comp$" of 1-cells, 2-cells, and 3-cells along a 0-cell boundary, given by the enriched structure. We write this composition in the conventional order: $f \comp g$ meaning "$f$ after $g$". When it is clear from the context, we omit the composition symbol "$\comp$",  and write the juxtaposition of 1-cells instead. The identities for this composition is given by "$\transid$" with the respective object, 1-cell, loose 2-cell or tight 2-cell in subscript. This composition is weak with weak identities. We write $\compI$ for the unit double functor and $\compI_A$ for the image $\compI(A)$ of an object $A$, and likewise for 1-cells, 2-cells and 3-cells.  
 %%%%%%rewrite this
-By functoriality... the identity tight 2-cell $\tightid_{\compI_A}$, some loose 2-cell $\compI_{\compI_A}$ which is naturally isomorphic to the identity for loose composition $\looseid_{\compI_A}$, and the identity 3-cell  $\id_{\compI_{\compI_A}}$.
+By functoriality, the unit loose 2-cell $\compI_{\compI_A}$ is isomorphic to the loose identity $\looseid_{\compI_A}$, the unit tight 2-cells and the unit 3-cells equal the identities $\tightid_{\compI_A}$ and $\id_{\compI_{\compI_A}}$, respectively.
 We write "$\onecell$" to denote 1-cells, "$\looseRightarrow$" to denote the loose 2-cells, "$\Rightarrow$" to denote the tight 2-cells and "$\RRightarrow$" to denote $3-cells$. 
 
-For readability, we will strictify the hom-double categories, as we did  with the double categories in Section~\ref{sec:symm-mono-double}. As a consequence, we may omit the associativity and unit constraints for $\comp$. To distinguish the associator and unitor for  "$\horc$" from those of the monoidal structure, we use special notation, given by the composition symbol in superscript: $\hora, \horr$, $\horl$, respectively. 
+For readability, we will strictify the bicategory and the hom-double categories, as we did  with the double categories in Section~\ref{sec:symm-mono-double}, except where we prove that this structure is preserved by monoidal cells. As a consequence, we omit the associativity and unit constraints for $\comp$ and $\verc$ in various places.
 
 Let \fB\ be a locally cubical bicategory with products.
 
@@ -138,7 +138,7 @@ If $f$ is lax and oplax monoidal, the associated loose 2-cells $\chi$ and $\iota
 \begin{defn}\label{Def:monverttrans}
 Let $f, g:A \onecell B$ be lax monoidal 1-cells in \fB. A {\bf lax monoidal 2-cell} $\beta: f \looseRightarrow g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
 \begin{itemize}
-\item $\Pi: \chi_f \horc(\beta  \looseid_{\ten} \RRightarrow{} \looseid_{\ten}(\beta \times \beta) \horc \chi_g$
+\item $\Pi: \chi_f \horc \beta  \looseid_{\ten} \RRightarrow{} \looseid_{\ten}(\beta \times \beta) \horc \chi_g$
 \item $M: \iota_f \horc \beta  \looseid_{I_A} \RRightarrow{} \looseid_{I_B} \horc \iota_g$
 \end{itemize}
 
@@ -163,14 +163,14 @@ A monoidal 2-cell is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g
 \node (t0) at (0,2) {\small $\tens(I_B \times f)i_2$};
 \node (t1) at (1,2) {\small $\tens(f I_A \times f)i_2$};
 \node (t2) at (2,2) {\small $f \tens(I_A \times \transid)i_2$};
-\node (t3) at (3,2) {\small $f \transid$};
-\node (t4) at (4,2) {\small $g \transid$};
+\node (t3) at (3,2) {\small $f $};
+\node (t4) at (4,2) {\small $g $};
 \node (m0) at (0,1) {\small $\tens(I_B \times \transid)i_2f$};
-\node (m3) at (3,1) {\small $f \transid$};
-\node (m4) at (4,1) {\small $g \transid$};
+\node (m3) at (3,1) {\small $f $};
+\node (m4) at (4,1) {\small $g $};
 \node (b0) at (0,0) {\small $\tens(I_B \times \transid)i_2f$};
 \node (b3) at (3,0) {\small $\tens (I_B \times \transid)i_2g$};
-\node (b4) at (4,0) {\small $g \transid$};
+\node (b4) at (4,0) {\small $g $};
 \draw[doubleloose] (t0) to node[above]{\small $\looseid_{\tens}(\iota_f \times \looseid_f)\looseid_{i_2}$} (t1);
 \draw[doubleloose] (t1) to node[above]{\small $\chi (\looseid_{I \times \transid})\looseid_{i_2}$} (t2);
 \draw[doubleloose] (t2) to node[above]{\small $\looseid_f l$} (t3);
@@ -199,30 +199,30 @@ A monoidal 2-cell is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g
 \node (04) at (0,4) {\small $\tens(I_B \times f)i_2$};
 \node (14) at (1,4) {\small $\tens(f I_A\times f)i_2$};
 \node (24) at (2,4) {\small $f \tens(I_A \times \transid_A)i_2$};
-\node (34) at (3,4) {\small $f \transid$};
-\node (44) at (4,4) {\small $g \transid$};
+\node (34) at (3,4) {\small $f $};
+\node (44) at (4,4) {\small $g $};
 %%%%%%
 \node (03) at (0,3) {\small $\tens(I_B \times f)i_2$};
 \node (13) at (1,3) {\small $\tens(f I_A\times f)i_2$};
 \node (23) at (2,3) {\small $f \tens(I_A \times \transid_A)i_2$};
 \node (33) at (3,3) {\small $g \tens(I_A \times \transid_A)i_2$};
-\node (43) at (4,3) {\small $g \transid$};
+\node (43) at (4,3) {\small $g $};
 %%%%%%
 \node (02) at (0,2) {\small $\tens(I_B \times f)i_2$};
 \node (12) at (1,2) {\small $\tens(f I_A \times f)i_2$};
 \node (22) at (2,2) {\small $\tens(g I_A \times g)i_2$};
 \node (32) at (3,2) {\small $g \tens (I_A\times \transid_A)i_2$};
-\node (42) at (4,2) {\small $g \transid$};
+\node (42) at (4,2) {\small $g $};
 %%%%%% 
 \node (01) at (0,1) {\small $\tens(I_B \times f)i_2$};
 \node (11) at (1,1) {\small $\tens(I_B \times g)i_2$};
 \node (21) at (2,1) {\small $\tens(g I_A \times g)i_2$};
 \node (31) at (3,1) {\small $g \tens (I_A \times \transid_A)i_2$};
-\node (41) at (4,1) {\small $g \transid$};
+\node (41) at (4,1) {\small $g $};
 %%%%%%%
 \node (00) at (0,0) {\small $\tens(I_B \times \transid)i_2 f$};
 \node (10) at (1,0) {\small $\tens(I_B \times \transid)i_2 g$};
-\node (40) at (4,0) {\small $g \transid$};
+\node (40) at (4,0) {\small $g $};
 %%%%%%%
 \draw[doubleloose] (04) to node[above]{\small $\looseid_{\tens}(\looseid_f \times \iota_f) \looseid_{i_2}$} (14);
 \draw[doubleloose] (14) to node[above]{\small $\chi (\looseid_{I \times \transid})\looseid_{i_2}$} (24);
@@ -285,14 +285,14 @@ A monoidal 2-cell is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g
 \node (t0) at (0,2) {\small $\tens(f\times I_B)i_1$};
 \node (t1) at (1,2) {\small $\tens(f\times fI_A)i_1$};
 \node (t2) at (2,2) {\small $f\tens(\id \times I_A)i_1$};
-\node (t3) at (3,2) {\small $f \transid$};
-\node (t4) at (4,2) {\small $g \transid$};
+\node (t3) at (3,2) {\small $f $};
+\node (t4) at (4,2) {\small $g $};
 \node (m0) at (0,1) {\small $\tens(\transid \times I_B)i_1f$};
-\node (m3) at (3,1) {\small $f \transid$};
-\node (m4) at (4,1) {\small $g \transid$};
+\node (m3) at (3,1) {\small $f $};
+\node (m4) at (4,1) {\small $g $};
 \node (b0) at (0,0) {\small $\tens(\transid \times I_B)i_1f$};
 \node (b3) at (3,0) {\small $\tens (\transid \times I_B)i_1g$};
-\node (b4) at (4,0) {\small $g \transid$};
+\node (b4) at (4,0) {\small $g $};
 %%%%%%%%%%%%%
 \draw[doubleloose] (t0) to node[above]{$\small \looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (t1);
 \draw[doubleloose] (t1) to node[above]{\small $\chi (\looseid \times \looseid_I)\looseid_{i_1}$} (t2);
@@ -322,30 +322,30 @@ A monoidal 2-cell is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g
 \node (04) at (0,4) {\small $\tens(f\times I_B)i_1$};
 \node (14) at (1,4) {\small $\tens(f\times f I_A)i_1$};
 \node (24) at (2,4) {\small $f \tens(\transid \times I_A)i_1$};
-\node (34) at (3,4) {\small $f \transid$};
-\node (44) at (4,4) {\small $g \transid$};
+\node (34) at (3,4) {\small $f $};
+\node (44) at (4,4) {\small $g $};
 %%%%%%
 \node (03) at (0,3) {\small $\tens(f\times I_B)i_1$};
 \node (13) at (1,3) {\small $\tens(f\times f I_A)i_1$};
 \node (23) at (2,3) {\small $f \tens(\transid \times I_A)i_1$};
 \node (33) at (3,3) {\small $g \tens(\transid \times I_A)i_1$};
-\node (43) at (4,3) {\small $g \transid$};
+\node (43) at (4,3) {\small $g $};
 %%%%%%
 \node (02) at (0,2) {\small $\tens(f\times I_B)i_1$};
 \node (12) at (1,2) {\small $\tens(f\times f I_A)i_1$};
 \node (22) at (2,2) {\small $\tens(g\times g I_A)i_1$};
 \node (32) at (3,2) {\small $g\tens(\transid \times I_A)i_1$};
-\node (42) at (4,2) {\small $g \transid$};
+\node (42) at (4,2) {\small $g $};
 %%%%%%
 \node (01) at (0,1) {\small $\tens(f\times I_B)i_1$};
 \node (11) at (1,1) {\small $\tens(g\times  I_B)i_1$};
 \node (21) at (2,1) {\small $\tens(g\times g I_A)i_1$};
 \node (31) at (3,1) {\small $g \tens (\transid \times I_A)i_1$};
-\node (41) at (4,1) {\small $g \transid$};
+\node (41) at (4,1) {\small $g $};
 %%%%%%%
 \node (00) at (0,0) {\small $\tens(\transid \times I_B)i_1f$};
 \node (10) at (1,0) {\small $\tens(\transid \times  I_B)i_1g$};
-\node (40) at (4,0) {\small $g \transid$};
+\node (40) at (4,0) {\small $g $};
 %%%%%%%
 \draw[doubleloose] (04) to node[above]{\small $\looseid_{\tens}(\looseid_f \times \iota_f)\looseid_{i_1}$} (14);
 \draw[doubleloose] (14) to node[above]{\small $\chi (\looseid_{\transid \times I})\looseid_{i_1}$} (24);
@@ -790,11 +790,11 @@ A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ 
 \node (02) at (0,2){$\tens(I \times f )i_2 $};
 \node (12) at (1,2){$\tens(fI_A \times f)i_2 $};
 \node (22) at (2,2){$f\tens(I_A \times \transid)i_2 $};
-\node (32) at (3,2){$f \transid$};
+\node (32) at (3,2){$f $};
 \node (01) at (0,1){$\tens(I_B \times \transid )i_2 f$};
-\node (31) at (3,1){$f \transid$};
+\node (31) at (3,1){$f $};
 \node (00) at (0,0){$\tens(I_B \times \transid )i_2 g$};
-\node (30) at (3,0){$g \transid$};
+\node (30) at (3,0){$g$};
 \draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\iota_f \times \looseid_f) \looseid_{i_2}$} (12);
 \draw[doubleloose] (12) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (22);
 \draw[doubleloose] (22) to node[above]{$\looseid_f l$} (32);
@@ -816,13 +816,13 @@ A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ 
 \node (02) at (0,2){$\tens(I_B \times f )i_2 $};
 \node (12) at (1,2){$\tens(fI_A \times f)i_2 $};
 \node (22) at (2,2){$f\tens(I_A \times \transid)i_2 $};
-\node (32) at (3,2){$f \transid$};
+\node (32) at (3,2){$f $};
 \node (01) at (0,1){$\tens(I_B \times g )i_2 $};
 \node (11) at (1,1){$\tens(gI_A \times g)i_2 $};
 \node (21) at (2,1){$g\tens(I_A \times \transid)i_2 $};
-\node (31) at (3,1){$g \transid$};
+\node (31) at (3,1){$g $};
 \node (00) at (0,0){$\tens(I_B \times \transid )i_2 g$};
-\node (30) at (3,0){$g \transid$};
+\node (30) at (3,0){$g $};
 \draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\iota_f \times \looseid_f) \looseid_{i_2}$} (12);
 \draw[doubleloose] (12) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (22);
 \draw[doubleloose] (22) to node[above]{$\looseid_f l$} (32);
@@ -850,11 +850,11 @@ A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ 
 \node (02) at (0,2){$\tens(f \times I_B )i_1 $};
 \node (12) at (1,2){$\tens(f \times fI_A)i_1 $};
 \node (22) at (2,2){$f\tens(\transid \times I_A)i_1 $};
-\node (32) at (3,2){$f \transid$};
+\node (32) at (3,2){$f $};
 \node (01) at (0,1){$\tens(\transid \times I_B)i_1 f$};
-\node (31) at (3,1){$f \transid$};
+\node (31) at (3,1){$f $};
 \node (00) at (0,0){$\tens(\transid \times I_B )i_1 g$};
-\node (30) at (3,0){$g \transid$};
+\node (30) at (3,0){$g $};
 \draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\looseid_f \times \iota_f) \looseid_{i_1}$} (12);
 \draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (22);
 \draw[doubleloose] (22) to node[above]{$\looseid_f r$} (32);
@@ -876,13 +876,13 @@ A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ 
 \node (02) at (0,2){$\tens(f \times I_B )i_1 $};
 \node (12) at (1,2){$\tens(f \times fI_A)i_1 $};
 \node (22) at (2,2){$f\tens(\transid \times I_A)i_1 $};
-\node (32) at (3,2){$f \transid$};
+\node (32) at (3,2){$f$};
 \node (01) at (0,1){$\tens(g \times I_B)i_1 $};
 \node (11) at (1,1){$\tens(g\times gI_A )i_1 $};
 \node (21) at (2,1){$g\tens(\transid \times I_A) i_1 $};
-\node (31) at (3,1){$g \transid$};
+\node (31) at (3,1){$g $};
 \node (00) at (0,0){$\tens(\transid \times I_B )i_1 g$};
-\node (30) at (3,0){$g \transid$};
+\node (30) at (3,0){$g $};
 \draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\looseid \times\iota_f) \looseid_{i_1}$} (12);
 \draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (22);
 \draw[doubleloose] (22) to node[above]{$\looseid_f r$} (32);
