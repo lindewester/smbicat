@@ -485,13 +485,13 @@
 \def\hToo{\xslashedRightarrow{\quad}}
 \let\xhTo\xslashedRightarrow
 
-\def\looseRightarrowfill@{%
-  \looseRightarrowfill@\Relbar\Relbar\Mapstochar\Rightarrow}
-\newcommand\xlooseRightarrow[2][]{%
-  \ext@arrow 0055{\looseRightarrowfill@}{#1}{#2}}
-\def\hTo{\xlooseRightarrow{}}
-\def\hToo{\xlooseRightarrow{\quad}}
-\let\xhTo\xlooseRightarrow
+% \def\looseRightarrowfill@{%
+%   \looseRightarrowfill@\Relbar\Relbar\Mapstochar\Rightarrow}
+% \newcommand\xlooseRightarrow[2][]{%
+%   \ext@arrow 0055{\looseRightarrowfill@}{#1}{#2}}
+% \def\hTo{\xlooseRightarrow{}}
+% \def\hToo{\xlooseRightarrow{\quad}}
+% \let\xhTo\xlooseRightarrow
 
 \pagestyle{empty}
 
@@ -575,6 +575,7 @@ sign distance] (-.1,0) -- (.1,0); \draw (-.1,0) -- (.1,0);}}
 \newsavebox{\looseRightarrowbox}
 \savebox{\looseRightarrowbox}{\tikz[scale=1.5]{\draw[doubleloose2] (-.15,0) -- (.15,0);}}
 \newcommand{\looseRightarrow}{\mathrel{\raisebox{-.25em}{\usebox{\looseRightarrowbox}}}}
+\newcommand{\xlooseRightarrow}[1]{\mathrel{\overset{#1}{\raisebox{-.25em}{\usebox{\looseRightarrowbox}}}}}
 
 \newsavebox{\onecellbox}
 \savebox{\onecellbox}{\tikz[scale=1.5]{\draw[onecell] (-.15,0) -- (.15,0);}}
