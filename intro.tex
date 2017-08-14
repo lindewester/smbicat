@@ -5,18 +5,21 @@ Symmetric monoidal bicategories are important in many contexts.
 However, the definition of even a monoidal bicategory
 (see~\cite{gps:tricats,nick:tricats}), let alone a symmetric monoidal
 one
-(see~\cite{kv:2cat-zam,kv:bm2cat,bn:hda-i,ds:monbi-hopfagbd,crans:centers,mccrudden:bal-coalgb,gurski:brmonbicat}),
+(see~\cite{kv:2cat-zam,kv:bm2cat,bn:hda-i,ds:monbi-hopfagbd,crans:centers,mccrudden:bal-coalgb,gurski:brmonbicat}) 
+or a monoidal functor between such~\cite{nick:tricatsbook,mccrudden:bal-coalgb}
 % TODO: update references
-is quite imposing, and time-consuming to verify in any example.  In
-this paper we describe a method for constructing symmetric monoidal
+is quite imposing, and time-consuming to verify in any example.
+
+In this paper we describe a method for constructing (symmetric) monoidal
 bicategories which is hardly more difficult than constructing a pair
-of ordinary symmetric monoidal categories.  While not universally
-applicable, this method applies in many cases of interest.  This idea
-has often been implicitly used in particular cases, such as
+of ordinary (symmetric) monoidal categories.
+While not universally applicable, this method applies in many cases of interest.
+The underlying idea has often been implicitly used in particular cases, such as
 bicategories of enriched profunctors, but to our knowledge the first
-general statement was claimed in~\cite[Appendix B]{shulman:frbi}.  Our
-purpose here is to work out the details, independently
-of~\cite{shulman:frbi}.\footnote{These details have also been worked out
+general statement was claimed in~\cite[Appendix B]{shulman:frbi}.
+In the unpublished~\cite{shulman:smbicat}, the first author worked out the details for the construction of monoidal bicategories themselves.
+Here we include that work and build on it further to construct monoidal functors, transformations, and so on between monoidal bicategories as well, making the entire construction into a functor.
+\footnote{These details have also been worked out
 in~\cite[\S5]{gg:ldstr-tricat} from a different perspective, using
 ``locally-double bicategories''.  Our goal is to be more
 comprehensive, considering also the case of symmetric monoidal
@@ -82,10 +85,16 @@ Proceeding to the contents of this paper, in
 \S\ref{sec:symm-mono-double} we review the definition of symmetric
 monoidal double categories, and in \S\ref{sec:comp-conj} we recall the
 notions of `companion' and `conjoint' whose presence supplies the
-necessary lifting property, which we call being \emph{fibrant}.  Then
-in \S\ref{sec:1x1-to-bicat} we describe a functor from fibrant double
-categories to bicategories, and in \S\ref{sec:constr-symm-mono} we
-show that it preserves monoidal, braided, and symmetric structures. Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${\cA}lg$ of algebras, bimodules and bimodule homomorphisms.
+necessary lifting property, which we call being \emph{fibrant}.  
+(Fibrant double categories have also been called ``framed bicategories''~\cite{shulman:frbi}, and are roughly equivalent to ``proarrow equipments''~\cite{wood:proarrows-i}).
+
+Then in \S\ref{sec:1x1-to-bicat} we describe a functor from fibrant double
+categories to bicategories.  This functor evidently preserves products, which intuitively means that it should preserve ``monoidal objects''; but since monoidal bicategories are such weak objects, to deduce our main theorem we need to enhance this functor to act on some higher-categorical structure that contains higher data such as pseudonatural transformations and modifications.
+The obvious choice is a tricategory~\cite{gps:tricats}, but we can make do with a simpler structure, namely a \emph{locally cubical bicategory}~\cite{gg:ldstr-tricat}, i.e.\ a bicategory enriched over double categories.
+In \S\ref{sec:mono-objects} we show that any product-preserving functor between locally cubical bicategories preserves monoidal objects of all sorts, and indeed induces another functor of locally cubical bicategories.
+There is a lot to check here, but the hardest part is writing down all the definitions in the appropriate generality!
+Then in \S\ref{sec:constr-symm-mono} we specialize this to the functor from fibrant double categories to bicategories, yielding functorial constructions of monoidal, braided, and symmetric monoidal bicategories.
+Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${\cA}lg(\bC)$ of algebras, bimodules and bimodule homomorphisms, as well as that of dagger algebras, dagger bimodules, and dagger bimodule homomorphisms, in a monoidal category \bC, varying functorially in \bC.
 
 We would like to thank Peter May, Tom Fiore, Stephan Stolz, Chris
 Douglas, Nick Gurski, and Jamie Vicary for helpful discussions and comments.

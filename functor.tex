@@ -9,9 +9,15 @@ Double categories, pseudo double functors and tight transformations form a local
 
 As described in~\cite{gg:ldstr-tricat}, bicategories, pseudo functors, pseudo transformations, icons and cubical modifications also form a locally cubical bicategory. We will recall the definition of icons and cubical modifications and describe the enriched structure of this category.
 
+\begin{anfxnote}[author=MS]{icons}
+  What context is this definition in?
+  Is it just the usual notion  of icon between functors of bicategories?
+  If so, why are $\D$ and $\E$ written in double-category font and some of the arrows are marked with the ``loose'' bullet?
+\end{anfxnote}
+
 \begin{defn}
 Let $F,G: \D \rightarrow \E$ be pseudo functors. an {\bf icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\D$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following diagrams commute:
-
+\[
 \begin{tikzpicture}[xscale=1.5]
 \node (tl) at (0,1) {$\id_{FA}$};
 \node (tr) at (1,1) {$F \id_A$};
@@ -21,8 +27,8 @@ Let $F,G: \D \rightarrow \E$ be pseudo functors. an {\bf icon} $\alpha: F \Right
 \draw[doubleloose] (bl) to node[below]{$\iso$} (br);
 \draw[doubleeq] (tl) to (bl);
 \draw[doubletight] (tr) to node[right]{$\alpha_{\id_A}$} (br);
-\end{tikzpicture}
-\begin{tikzpicture}
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[xscale=2]
 \node (tl) at (0,1) {$Fg  Ff$};
 \node (tr) at (1,1) {$F(gf)$};
 \node (bl) at (0,0) {$Gg Gf$};
@@ -32,13 +38,13 @@ Let $F,G: \D \rightarrow \E$ be pseudo functors. an {\bf icon} $\alpha: F \Right
 \draw[doubletight] (tl) to node[left]{$\alpha_g \alpha_f$}(bl);
 \draw[doubletight] (tr) to node[right]{$\alpha_{gf}$} (br);
 \end{tikzpicture}
-
+\]
 \end{defn}
 % By globular tight transformations, we  mean tight transformations $\alpha: F \rightarrow G$ between two functors that agree on objects, such that the family $\{\alpha_f\}$ consists of globular 2-cells. A cubical double modification is defined analogously to a cubical modification~\cite{gg:ldstr-tricat}.
 
 \begin{defn}
 Let $F,G,H,K: \D \rightarrow \E$ be pseudo functors; let $\alpha: F \looseRightarrow G$, $\beta: H \looseRightarrow K$ be pseudo transformations; let $\gamma: F \looseRightarrow H$, $\delta: G \looseRightarrow K$ be icons. A cubical modification
-
+\[
 \begin{tikzpicture}
 \node (tl) at (0,1) {$F$};
 \node (tr) at (1,1) {$G$};
@@ -50,7 +56,7 @@ Let $F,G,H,K: \D \rightarrow \E$ be pseudo functors; let $\alpha: F \looseRighta
 \draw[doubletight] (tr) to node[right]{$\delta$} (br);
 \node at (.5,.5) {$\DDownarrow \Gamma$};
 \end{tikzpicture}
-
+\]
 is given by a family of 2-cells $\Gamma_A: \alpha_A \RRightarrow \beta_A$ such that for every 1-cell $f:A \rightarrow B$ of $\D$, the following equality holds.
 
  \begin{equation}
@@ -154,6 +160,7 @@ The pseudofunctor $\comp$ is defined on functors as composition in the iconic tr
 
 Functoriality follows from naturality of the icons. Note that there are several canonical ways to define this composition on cubical modifications, by choosing different versions of the Godement product.  
 
+\fxnote[author=MS]{See earlier comment about this condition.}
 For $\cB icat$ and $\cD bl$, all identity cells are lax monoidal. In fact, all identity cells are strong monoidal braided, sylleptic and symmetric. This means that the requirements from the previous section is satisfied; hence, the locally cubical bicategories $\cMon \cDbl$ and $\cMon \cBicat$ of monoidal cells and morphisms of $\cDbl$ and $\cBicat$, respectively, are well-defined.
 
 We upgrade the functor from theorem 4.11 to a functor of locally cubical bicategories.
@@ -291,3 +298,9 @@ Finally, we need to prove that $\phi$ and $\phi_u$ are well-defined tight transf
 \end{proof}
 
 Note that in the case of $\cH$, $\phi$ and $\phi_u$ have globular components. It follows that the functor $\fH: \fDbl_f \rightarrow \fBicat$ lifts to the functors $\cM on_w \fH: \cMon_w\fDbl_f \rightarrow \cMon_w \fBicat$, $\cBr_w \fH: \cBr_w\fDbl_f \rightarrow \cBr_w \fBicat$,  $\cSyl_w\cH: \cSyl_w\fDbl_f \rightarrow \cSyl_w\fBicat$, and $\cSym_w \fH: \cSym_w\fDbl_f \rightarrow \cSym_w \fBicat$.
+\fxnote{Let's state a precise ``theorem'' here as a conclusion.}
+
+
+% Local Variables:
+% TeX-master: "smbicat"
+% End:

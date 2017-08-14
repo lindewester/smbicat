@@ -2,7 +2,7 @@
 \label{sec:1x1-to-bicat}
 
 We are now equipped to lift structures on fibrant double categories to
-their horizontal bicategories.  In this section we show that passage
+their loose bicategories.  In this section we show that passage
 from fibrant double categories to bicategories is given by a functor of a suitable sort.
 
 As a point of notation, we write $\odot$ for the composition of
@@ -12,7 +12,7 @@ to mean a morphism between bicategories that preserves composition up
 to isomorphism; equivalent terms include \emph{weak 2-functor},
 \emph{pseudofunctor}, and \emph{homomorphism}.
 
-Recall that the assignment $\cH$ sends each double category $\lC$ to the horizontal bicategory  $\cH(\lD)$ of objects, 1-cells, and globular 2-morphisms of $\lD$.  Note that functors of double categories and functors of bicategories compose strictly associatively; hence, we can talk about the 1-category of double categories and bicategories, which we denote as ${\bf Dbl}$.  
+Recall that the assignment $\cH$ sends each double category $\lC$ to the loose bicategory  $\cH(\lD)$ of objects, 1-cells, and globular 2-morphisms of $\lD$.  Note that functors of double categories and bicategories compose strictly associatively; hence, we can talk about the 1-categories of double categories and bicategories, which we denote ${\bf Dbl}$ and ${\bf Bicat}$ respectively.
 
 \begin{thm}\label{thm:1-func}
  If \lD\ is a double category, then $\cH(\lD)$ is a bicategory, and
@@ -25,8 +25,10 @@ Recall that the assignment $\cH$ sends each double category $\lC$ to the horizon
   $\cH(F)$.  Functoriality is evident.
 \end{proof}
 
-Note that this is a stronger condition than we need for our main result. The action of \cH\ on transformations is less obvious. It
-requires the presence of companions or conjoints, to lift the part of the data given by vertical morphisms to horizontal 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations between functors of bicategories.
+% MS: This doesn't really make precise sense, and I'm not sure it's necessary.
+%Note that this is a stronger condition than we need for our main result.
+The action of \cH\ on transformations is less obvious. It
+requires the presence of companions or conjoints, to lift the part of the data given by vertical morphisms to loose 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations between functors of bicategories.
 
 If $F,G\maps \cA\to\cB$ are functors between bicategories, then an
 \textbf{oplax transformation} $\al\maps F\to G$ consists of 1-cells
@@ -70,8 +72,11 @@ It is a \textbf{lax transformation} if the 2-cells $\al_f$ go the
 other direction, and a \textbf{pseudo transformation} if they are
 isomorphisms.
 
-It was argued by Nick Gurski in~\cite{nick:tricats}, that often one would like to have a stronger notion of equivalence tranformations, than simply pseudo transformations. For practical purposes, it is useful to have a notion that provides canonical pseudoinverses for all of the appropriate structure constraints, as well as the necessary modifications to exhibit this pseudoinvertibility explicitly. It turns out that pseudo natural adjoint equivalences, which we discuss below, do the job.
+Inverses of morphisms in a category are unique when they exist, so for a morphism (and in particular a natural transformation) to be an isomorphism is only a property rather than a structure.
+But since inverse equivalences of morphisms in a bicategory are unique only up to isomorphism, if we only know that a morphism has the property of being an equivalence, we have to make choices to find an inverse equivalence.
+For many purposes (see e.g.~\cite{nick:tricats}) it is more useful to include a ``coherent'' inverse equivalence as specified data so that such choices are no longer necessary; in the case of transformations the result is called a pseudo natural adjoint equivalence.
 
+Before defining these, we first consider a more general notion of ``conjunctonal transformation.''
 By doctrinal adjunction~\cite{kelly:doc-adjn}, given collections of
 1-cells $\al_A\maps FA\to GA$ and $\be_A\maps GA\to FA$ and
 adjunctions $\al_A\adj \be_A$ in \cB, there is a bijection between
@@ -98,14 +103,14 @@ commute.  If we have a pointwise adjunction between an oplax and a lax
 transformation, whose 2-cell structures correspond under this
 bijection, we call it a \textbf{conjunctional transformation}
 $(\al\conj \be)\maps F\to G$.  (These are the conjoint pairs in a
-double category whose horizontal arrows are lax transformations and
+double category whose loose arrows are lax transformations and
 whose vertical arrows are oplax transformations.)
 
 Of particular importance is the case when both $\al$ and \be\ are
 pseudo natural and each adjunction $\al_A\adj \be_A$ is an adjoint
 equivalence.  In this case we call $\al\conj \be$ a \textbf{pseudo
   natural adjoint equivalence}.  A pseudo natural adjoint equivalence
-can equivalently be defined as an internal equivalence in the
+can equivalently be defined as an internal adjoint equivalence in the
 bicategory $\cBicat(\cA,\cB)$ of functors, pseudo natural
 transformations, and modifications $\cA\to\cB$. 
 
@@ -236,7 +241,7 @@ bicategory with only identity 2-cells.
   and the second is dual.  Thus $(\alhat\conj\alchk)$ is a
   conjunctional transformation.
 
-  It is left to check the axioms for functors of bicategories. Suppose we are given $\al\maps F\to G$ and $\be\maps G\to H$.  Then by
+  It is left to construct the constraints and check the axioms for functors of bicategories. Suppose we are given $\al\maps F\to G$ and $\be\maps G\to H$.  Then by
   \autoref{thm:comp-compose}, $\behat_A\odot\alhat_A$ is a companion
   of $\be_A\circ \al_A$, so we have a canonical isomorphism given by the icon
   \[\theta_{\widehat{\be\al}_A, \,\behat_A\odot\alhat_A}\maps
@@ -357,20 +362,23 @@ containing conjunctional transformations since the interchange law
 only holds laxly.  Thus, we introduce the following definition.
 
 \begin{defn}
-  We will say that a transformation $\alpha$ in $\cDbl$ is \textbf{horizontally strong} if $\hat\alpha$ is pseudonatural.
-  % and \textbf{co-horizontally strong} if $\check \alpha$ is pseudonatural.
+  We will say that a transformation $\alpha$ in $\cDbl$ is \textbf{loosely strong} if $\hat\alpha$ is pseudonatural.
+  % and \textbf{co-loosely strong} if $\check \alpha$ is pseudonatural.
 \end{defn}
 
 Let $\cDblf$
 denote the sub-2-category of \cDbl\ containing the fibrant double
-categories, all functors between them, and only horizontally-strong transformations; we regard it as a tricategory with only identity 3-cells.
+categories, all functors between them, and only loosely-strong transformations; we regard it as a tricategory with only identity 3-cells.
 Let \cBicat\ denote the tricategory of
 bicategories, functors, pseudo natural transformations, and
 modifications.  We aim to define a functor of tricategories $\cH\maps \cDblf\to \cBicat$.
 
-However, to avoid having to work with the full complicated definition of tricategory, we observe that both $\cDblf$ and $\cBicat$ are \textbf{iconic tricategories}, meaning that all of its associativity and unit constraints are given by icons (i.e.\ their 1-cell component are identities).
+However, to avoid having to work with the full complicated definition of tricategory, we observe that both $\cDblf$ and $\cBicat$ are \textbf{iconic tricategories}, meaning that all of their associativity and unit constraints are given by \emph{icons}.
+An icon is, morally speaking, an oplax transformation whose 1-cell components are all identities; but as noted by~\cite{lack:icons} this can be reexpressed without referring to these identity morphisms at all, yielding a definition that is easier to work with (because identity 1-cells in a bicategory are not strict).
+\fxnote[author=MS]{Include the definition of icon here?}
+
 As observed in~\cite{shulman:psalg}, an iconic tricategory can equivalently be viewed as a bicategory enriched over the bicategory \Icon\ of bicategories, functors, and icons (which has strict products).
-That is, it is a structure \bS with objects, hom-bicategories $\bS(A,B)$, composition functors $\bS(B,C)\times \bS(A,B)$, identities $1_A \in \bS(A,A)$, and associativity and unitality \emph{icons} that satisfy the usual pentagon and triangle identities.
+That is, it is a structure \bS\ with objects, hom-bicategories $\bS(A,B)$, composition functors $\bS(B,C)\times \bS(A,B)$, identities $1_A \in \bS(A,A)$, and associativity and unitality \emph{icons} that satisfy the usual pentagon and triangle identities.
 (There is no room for any higher coherence, since the data of an icon consists of 2-cells only.)
 In particular, composition of 1-cells (objects of $\bS(A,B)$) is strictly associative, though the associativity for horizonatl composition of 2-cells is mediated by an icon.
 
@@ -392,7 +400,7 @@ Let ${\bf S,T}$ be \Icon-enriched bicategories. An \Icon-enriched functor $\cT: 
 \node at (2.5,0) {$\Downarrow \phi \iso$};
 \end{tikzpicture}
 \end{align}
-where $\odot$ denotes horizontal composition.
+where $\odot$ denotes loose composition.
 \item For every object $A$ of {\bf T} an invertible icon
 \begin{align}
 \begin{tikzpicture}[xscale=.5, yscale=.3]
@@ -400,7 +408,7 @@ where $\odot$ denotes horizontal composition.
 \node(2) at (5,0) {${\bf T}(A,A)$};
 \node(3) at (5,-5) {${\bf S}(\cT(A),\cT(A))$};
 \draw[->] (1) to node[above]{$i_{A}$} (2); 
-\draw[->] (1) to node[below]{$\j_{\cT(B)}$} (3);
+\draw[->] (1) to node[below]{$j_{\cT(B)}$} (3);
 \draw[->] (2) to node[right]{$\cT$} (3); 
 \node at (3.5,-1.5) {$\Downarrow \phi_u \iso$};
 \end{tikzpicture}
@@ -434,12 +442,12 @@ The third requirement amounts to the existence of an invertible modification
 for every pair of transformations between fibrant double categories
   \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
       & \lE}}\]
-satisfying the naturality and composition constraints~\ref{eq:laxtransf-ax} and~\ref{thm:1-func}.
+satisfying the naturality and composition constraints~\eqref{eq:laxtransf-ax} and~\eqref{thm:1-func}.
 
 However, since composition of
   1-cells in $\cDblf$ and \cBicat\ is strictly associative and
   unital, and \cH\ strictly preserves this composition (Theorem \ref{thm:1-func}),
-  the 1-cell components are identities. Consequently, it is merely  a modificaton $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$, such that 
+  the composition constraints $\phi_{H,F}$ and $\phi_{K,G}$ are identities. Consequently, $\phi$ is merely  a modificaton $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$ such that 
 %
  \begin{equation}
         \vcenter{\xymatrix@-.5pc{
@@ -454,12 +462,12 @@ However, since composition of
         (\widehat{\gm*\de})\odot(\widehat{\al*\be})}}
   \end{equation}
 commute. (Here we are writing $*$ for the `Godement product' of 2-cells in $\cDbl$ and $\cBicat$.)    
-Note that condition~\ref{eq:laxtransf-nat} is satisfied because $\cDblf$ has no nonidentity 3-cells.
+Note that condition~\eqref{eq:laxtransf-nat} is satisfied because $\cDblf$ has no nonidentity 3-cells.
   
   Now by Lemmas \ref{thm:comp-compose} and
   \ref{thm:comp-func}, $(\behat *\alhat)_A = \behat_{GA} \circ
   H(\alhat_A)$ is a companion of $(\be*\al)_A = \be_{GA} \circ
-  H(\al_A)$.  Therefore, we take the component $\chi_A$ to be
+  H(\al_A)$.  Therefore, we take the component $(\phi_{\alpha,\beta})_A$ to be
   \[\theta_{\behat_{GA} \circ H(\alhat_A),\, \widehat{\be*\al}_A}.\]
   The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
    Equation~\eqref{eq:modif-ax}, saying that these form a modification,
@@ -467,6 +475,7 @@ Note that condition~\ref{eq:laxtransf-nat} is satisfied because $\cDblf$ has no 
   which as usual follows from~\eqref{eq:compeqn}. The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
 
   For $\iota$, we require for every $F\maps \lD\to\lE$ an isomorphism  $\iota\maps \widehat{1_F} \iso 1_{\cH(F)}$ satisfying a couple of
+  \fxnote[author=MS]{I don't understand this paragraph.  Isn't $\cH$ strictly unital?}
   axioms which simply require it to be equal to the unit constraint of
   the local functor \cH\ from \autoref{thm:h-locfr}; these are the
   2-cell components of the unit constraint.  %Finally, the required
@@ -485,12 +494,12 @@ Our goal is to enhance this functor to act on ``monoidal objects''.
 It is well-known that ``monoidal functors preserve monoid objects'', so our approach will be to categorify this: we will show that $\cH$ is monoidal, in an appropriate sense, and that monoidal functors of this sort preserve monoidal objects of the appropriate sort.
 
 In fact, the monoidality of $\cH$ is easy to describe, because the monoidal structures of $\cDblf$ and $\cBicat$ are cartesian and very strict.
-In general, if $\mathcal{V}$ is a monoidal 2-category with strict 2-categorical finite products (such as \Icon), we say that a $\mathcal{V}$-enriched bicategory ${\bf B}$ has \textbf{finite products} when for each two objects $C,D \in {\bf B}$ composition with the projections of their categorical product defines an \emph{isomorphism} in $\mathcal{V}$ (not merely an equivalence), and similarly there is a strict terminal object $1$ such that $\bB(A,1)$ is strictly terminal in \cV:
+In general, if $\mathcal{V}$ is a monoidal 2-category with strict 2-categorical finite products (such as \Icon), we say that a $\mathcal{V}$-enriched bicategory ${\bf B}$ has \textbf{finite products} when for each two objects $C,D \in {\bf B}$ there is an object $C\times D$ with projections $C\times D\to C$ and $C\times D\to D$ (i.e.\ morphisms $I\to \mathbf{B}(C\times D,C)$ and $I\to \mathbf{B}(C\times D,D)$ in \cV) inducing an \emph{isomorphism} in $\mathcal{V}$ (not merely an equivalence):
 %
 \begin{align}
 {\bf B}(A, C \times D) \xrightarrow{\cong} {\bf B}(A,C) \times {\bf B}(A,D)
 \end{align}
-
+and similarly there is a strict terminal object $\ast$ such that $\bB(A,\ast)$ is strictly terminal in \cV\ for all $A$.
 This holds for \cBicat\ and \cDblf, because cartesian products of bicategories and double categories are simply componentwise, and all the morphisms in \cBicat\ and \cDblf\ (no matter how weak) are defined in terms of data in their targets.
 
 Similarly, we say that a functor $F$ of \cV-enriched bicategories \textbf{preserves products} if it takes the terminal object to a terminal object and pairs of product projections $A \leftarrow A\times B \to B$ to pairs of product projections (in the above strict sense).
@@ -504,7 +513,7 @@ $\cH(\mathbb{D} \times \mathbb{E}) = \cH(\mathbb{D}) \times \cH(\mathbb{E})$, an
 The case of the terminal object is likewise easy.
 \end{proof}
 
-We end this section with one final Lemma.
+We end this section with one final lemma.
 
 \begin{lem}\label{thm:theta-nat}
   Suppose $F,G\maps \lD\to\lE$ are functors of double categories, $\al\maps F\to G$ is a

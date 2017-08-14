@@ -1,10 +1,16 @@
 \section{An example}\label{sec:Alg} 
+
+\begin{anfxnote}{frbi}
+  What exactly does the long detailed discussion in this section achieve that goes beyond simply applying our theorems to~\cite[Theorem 11.5]{shulman:frbi}?
+  Is it that the proofs in~\cite{shulman:frbi} are not sufficiently explicit?
+\end{anfxnote}
+
 As a demonstration of our method, we apply Theorem~\ref{thm:lcbcfunctor} to prove that the bicategory of algebras, bimodules and bimodule homomorphisms in a braided monoidal category ${\cat C}$ is braided monoidal. It is symmetric when ${\bf C}$ is symmetric. 
 Frobenius algebras and modules play an important role in quantum theory. Recently, the bicategory $2(CP({\bf C}))$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms has been defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. The existence of monoidal structures is an essential feature which allows for the spatial composition of information flows. We will explore this in generality for the bicategory $\mathcal{A}lg({\cat C})$, defined below.
 
 \begin{defn}
 Let ${\bf C}$ be a monoidal category. We can define a  bicategory $\mathcal{A}lg({\cat C})$ consisting of the elements listed below.
-
+\fxnote[author=MS]{This definition reads as if {\cat C} is a bicategory rather than a monoidal category, does it need fixing?}
 \begin{itemize}
 \item 0-cells are monoids in {\cat C}: pairs $(a,A)$ of a 0-cell $a \in {\cat C}$ and an algebra $A \in {\cat C}(a,a)$.
 \item 1-cells $(a,A) \rightarrow (b,B)$ are 1-cells $X \in {\cat C}(a,b)$ with the structure of an $A-B-$bimodule.
@@ -13,11 +19,11 @@ Let ${\bf C}$ be a monoidal category. We can define a  bicategory $\mathcal{A}lg
 Structural data regarding this construction, such as horizontal composition, is described in ~\cite{heunenvicarywester}. 
 \end{defn}
 
-To obtain the result, we define the double category $\mathbb{A}lg({\cat C})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat C})$and we show that $\mathbb{A}lg({\cat B})$ is fibrant and symmetric monoidal.
+To obtain the result, we define the double category $\mathbb{A}lg({\cat C})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat C})$, and we show that $\mathbb{A}lg({\cat C})$ is fibrant and symmetric monoidal.
 We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original monoidal category ${\bf C}$ is not important.
 
 \subsection{Notation}
-We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}. In this diagrammatic language, we depict objects (and identity morphisms) as lines, and morphisms as boxes between the source object in the bottom and the target objectl on top. We write composition $(\ver)$ in the vertical direction and the tensor product $(\ten)$ as juxtaposition in the horizontal direction. 
+We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}. In this diagrammatic language, we depict objects (and identity morphisms) as lines, and morphisms as boxes between the source object in the bottom and the target object on top. We write composition $(\ver)$ in the vertical direction and the tensor product $(\ten)$ as juxtaposition in the horizontal direction. 
 
 \begin{align}
  \mbox{Composition}  \hspace{60pt}
@@ -193,7 +199,7 @@ The associator, unitor, and swap natural isomorphisms are given by the maps with
 For clarity, we write algebras and algebra homomorphisms in normal font and we write bimodules and (extended) bimodule homomorphisms in bold. This will help distinguishing between the two categories, which together form a double category.
 
 \begin{lem}\label{lem:algdouble}
-Let ${\cat C}$ be a monoidal category where all colimits exist, and where the tensor product preserves all colimits. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf C}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf C}$ form a double category, which we call $\Alg$
+Let ${\cat C}$ be a monoidal category where all colimits exist, and where the tensor product preserves colimits in each variable separately. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf C}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf C}$ form a double category, which we call $\Alg$
 \end{lem}
 
 \begin{proof}
@@ -845,7 +851,7 @@ It is easy to see that the other equations, which concern $\fu$ hold, keeping in
 \end{proof}
 
 \subsection{Companions and conjoints in $\Alg$}\label{sec:fibDalg}
-Finally, we will prove that $\Alg(\cat C$) is fibrant. this is the last step we need to take to show that we can lift $\Alg({\cat C})$ to obtain the bicategory ${\cA}lg({\cat C})$, which preserves any braided monoidal structure.
+Finally, we will prove that $\Alg(\cat C$) is fibrant.  This is the last step we need to take to show that we can lift $\Alg({\cat C})$ to obtain the bicategory ${\cA}lg({\cat C})$, which preserves any braided monoidal structure.
 
 \begin{lem}\label{lem:algfib}
 Let ${\bf C}$ be a braided monoidal category. The double category $\Alg({\cat C})$ is fibrant.
@@ -978,7 +984,7 @@ The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is sy
 \end{rmk}
 
 \begin{defn}
-Let {\bf C} be a braided monoidal category equiped with a dagger functor. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger of the algebra. 
+Let {\bf C} be a braided monoidal category equiped with a \fxnote*{We should define `dagger functor'}{dagger functor}. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger of the algebra. 
 A bimodule is called a {\bf dagger bimodule} when the equation below holds.
 \begin{align}
     \begin{pic}[yscale=.85]
@@ -1022,7 +1028,10 @@ Let ${\bf C}$ be a symmetric monoidal category. The bicategory $2(CP({\bf C}))$ 
 This follows directly from proposition \ref{prop:dagger}.
 \end{proof}
 
-
+\begin{anfxnote}{functorial}
+  We should say something about functoriality here too!
+  The whole point of writing this long paper was to get functoriality, so it should appear in the example.
+\end{anfxnote}
   
 
 % Local Variables:
