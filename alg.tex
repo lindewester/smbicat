@@ -1,26 +1,29 @@
 \section{An example}\label{sec:Alg} 
 
-\begin{anfxnote}{frbi}
+\begin{anfxnote}{}
   What exactly does the long detailed discussion in this section achieve that goes beyond simply applying our theorems to~\cite[Theorem 11.5]{shulman:frbi}?
   Is it that the proofs in~\cite{shulman:frbi} are not sufficiently explicit?
 \end{anfxnote}
+\begin{anfxnote}[author=LW]
+This is an example of how ~\cite{shulman:frbi} can be applied to a specific category, in this case the category of algebras. The hard part is to show that the double category of algebras is symmetric monoidal and fibrant. It then follows directly from Theorem~\cite{shulman:frbi} that the bicategory of algebras is symmetric monoidal. The theorem itself is not discussed in this section. Instead, it shows that the theorem can be used to formalise important properties of categories used for quantum information. 
+My initial plan was to apply this to functors as well, but I got interested in other things and never got back to that. I will think about a way to bring higher cells in.
+\end{anfxnote}
 
-As a demonstration of our method, we apply Theorem~\ref{thm:lcbcfunctor} to prove that the bicategory of algebras, bimodules and bimodule homomorphisms in a braided monoidal category ${\cat C}$ is braided monoidal. It is symmetric when ${\bf C}$ is symmetric. 
-Frobenius algebras and modules play an important role in quantum theory. Recently, the bicategory $2(CP({\bf C}))$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms has been defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. The existence of monoidal structures is an essential feature which allows for the spatial composition of information flows. We will explore this in generality for the bicategory $\mathcal{A}lg({\cat C})$, defined below.
+As a demonstration of our method, we apply Theorem~\ref{thm:lcbcfunctor} to prove that the bicategory $\mathcal{A}lg({\cat C})$ of algebras, bimodules and bimodule homomorphisms in a braided monoidal category ${\cat C}$ is braided monoidal. It is sylleptic or symmetric when ${\bf C}$ is sylleptic or symmetric, respectively. 
+Frobenius algebras and modules play an important role in quantum theory. Recently, the bicategory $2(CP({\bf C}))$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms has been defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. The existence of monoidal structures is an essential feature which allows for the spatial composition of information flows. We will demonstrate the existence of monoidal structures in the general bicategory $\mathcal{A}lg({\cat C})$, defined below and then specialise this result to the bicategory $2(CP({\bf C}))$.
+
+To obtain the result, we define the double category $\mathbb{A}lg({\cat C})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat C})$, and we show that $\mathbb{A}lg({\cat C})$ is fibrant and symmetric monoidal. As a direct result of Theorem~\ref{thm:lcbcfunctor},
+We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original monoidal category ${\bf C}$ is not important.
 
 \begin{defn}
 Let ${\bf C}$ be a monoidal category. We can define a  bicategory $\mathcal{A}lg({\cat C})$ consisting of the elements listed below.
-\fxnote[author=MS]{This definition reads as if {\cat C} is a bicategory rather than a monoidal category, does it need fixing?}
 \begin{itemize}
-\item 0-cells are monoids in {\cat C}: pairs $(a,A)$ of a 0-cell $a \in {\cat C}$ and an algebra $A \in {\cat C}(a,a)$.
-\item 1-cells $(a,A) \rightarrow (b,B)$ are 1-cells $X \in {\cat C}(a,b)$ with the structure of an $A-B-$bimodule.
+\item 0-cells are algebras $(A, \tinycomult[white dot], \tinyunit[white dot])$ on objects $A$ of {\cat C}.
+\item 1-cells $(A, \tinycomult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinycomult[black dot], \tinyunit[black dot])$ are morphisms $a \xrightarrow{f} b$ in {\cat C} with the structure of an $A-B-$bimodule.
 \item 2-cells are 2-morphisms in ${\cat C}$ that are bimodule homomorphisms.
 \end{itemize}
 Structural data regarding this construction, such as horizontal composition, is described in ~\cite{heunenvicarywester}. 
 \end{defn}
-
-To obtain the result, we define the double category $\mathbb{A}lg({\cat C})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat C})$, and we show that $\mathbb{A}lg({\cat C})$ is fibrant and symmetric monoidal.
-We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original monoidal category ${\bf C}$ is not important.
 
 \subsection{Notation}
 We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}. In this diagrammatic language, we depict objects (and identity morphisms) as lines, and morphisms as boxes between the source object in the bottom and the target object on top. We write composition $(\ver)$ in the vertical direction and the tensor product $(\ten)$ as juxtaposition in the horizontal direction. 
@@ -984,8 +987,9 @@ The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is sy
 \end{rmk}
 
 \begin{defn}
-Let {\bf C} be a braided monoidal category equiped with a \fxnote*{We should define `dagger functor'}{dagger functor}. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger of the algebra. 
-A bimodule is called a {\bf dagger bimodule} when the equation below holds.
+Let {\bf C} be a braided monoidal category equiped with a dagger functor $\dagger: {\cat C} \rightarrow {\cat C}$, a contravariant functor which is the identity on objects. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger image of the algebra. 
+A bimodule is called a {\bf dagger bimodule} when the equation below holds, where we denote $\dagger({\bf M})$ by ${\bf M}^{\dagger}$.
+
 \begin{align}
     \begin{pic}[yscale=.85]
       \node[morphism, minimum width=10mm] (m) at (0,-.7) {$\textbf{M}^\dag$};
@@ -1031,6 +1035,9 @@ This follows directly from proposition \ref{prop:dagger}.
 \begin{anfxnote}{functorial}
   We should say something about functoriality here too!
   The whole point of writing this long paper was to get functoriality, so it should appear in the example.
+\end{anfxnote}
+\begin{anfxnote}{functorial}
+Ok! I'll think about it!
 \end{anfxnote}
   
 

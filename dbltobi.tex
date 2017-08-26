@@ -375,7 +375,33 @@ modifications.  We aim to define a functor of tricategories $\cH\maps \cDblf\to 
 
 However, to avoid having to work with the full complicated definition of tricategory, we observe that both $\cDblf$ and $\cBicat$ are \textbf{iconic tricategories}, meaning that all of their associativity and unit constraints are given by \emph{icons}.
 An icon is, morally speaking, an oplax transformation whose 1-cell components are all identities; but as noted by~\cite{lack:icons} this can be reexpressed without referring to these identity morphisms at all, yielding a definition that is easier to work with (because identity 1-cells in a bicategory are not strict).
-\fxnote[author=MS]{Include the definition of icon here?}
+
+\begin{defn}
+Let $\cD, \cE$ be bicategories, and let $F,G: \cD \rightarrow \cE$ be pseudo functors. An {\bf icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\cD$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following diagrams commute:
+\[
+\begin{tikzpicture}[xscale=1.5]
+\node (tl) at (0,1) {$\id_{FA}$};
+\node (tr) at (1,1) {$F \id_A$};
+\node (bl) at (0,0) {$\id_{GA}$};
+\node (br) at (1,0) {$G\id_A$};
+\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
+\draw[doubletight] (bl) to node[below]{$\iso$} (br);
+\draw[doubleeq] (tl) to (bl);
+\draw[doubletight] (tr) to node[right]{$\alpha_{\id_A}$} (br);
+\end{tikzpicture}\qquad
+\begin{tikzpicture}[xscale=2]
+\node (tl) at (0,1) {$Fg  Ff$};
+\node (tr) at (1,1) {$F(gf)$};
+\node (bl) at (0,0) {$Gg Gf$};
+\node (br) at (1,0) {$G(gf)$};
+\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
+\draw[doubletight] (bl) to node[below]{$\iso$} (br);
+\draw[doubletight] (tl) to node[left]{$\alpha_g \alpha_f$}(bl);
+\draw[doubletight] (tr) to node[right]{$\alpha_{gf}$} (br);
+\end{tikzpicture}
+\]
+\end{defn}
+
 
 As observed in~\cite{shulman:psalg}, an iconic tricategory can equivalently be viewed as a bicategory enriched over the bicategory \Icon\ of bicategories, functors, and icons (which has strict products).
 That is, it is a structure \bS\ with objects, hom-bicategories $\bS(A,B)$, composition functors $\bS(B,C)\times \bS(A,B)$, identities $1_A \in \bS(A,A)$, and associativity and unitality \emph{icons} that satisfy the usual pentagon and triangle identities.
@@ -474,11 +500,8 @@ Note that condition~\eqref{eq:laxtransf-nat} is satisfied because $\cDblf$ has n
   becomes the equality of two large composites of 2-cells in \lD,
   which as usual follows from~\eqref{eq:compeqn}. The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
 
-  For $\iota$, we require for every $F\maps \lD\to\lE$ an isomorphism  $\iota\maps \widehat{1_F} \iso 1_{\cH(F)}$ satisfying a couple of
-  \fxnote[author=MS]{I don't understand this paragraph.  Isn't $\cH$ strictly unital?}
-  axioms which simply require it to be equal to the unit constraint of
-  the local functor \cH\ from \autoref{thm:h-locfr}; these are the
-  2-cell components of the unit constraint.  %Finally, the required
+The icon  $\phi_u$ is simply the identity, since $\cH$ is strictly unital.
+    %Finally, the required
   %modifications merely amount to the \emph{assertions} that
   %\[\vcenter{\xymatrix@-.5pc{\gmhat*\behat*\alhat \ar[r]^\chi\ar[d]_\chi &
    %   \widehat{\gm*\be}*\alhat \ar[d]^\chi\\
