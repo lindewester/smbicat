@@ -57,7 +57,7 @@ We use the language of string diagrams for braided monoidal categories, first in
     \end{tikzpicture}
 \end{align}
 
-\subsection{The double category $\Alg$}\label{sec:Dalg}
+\subsection{The double category $\bAlg$}\label{sec:Dalg}
 We will consider the abstract notion of an {\bf algebra} $(A, \tinymult[white dot], \tinyunit[white dot])$ in a monoidal category {\cat C}. This is an object $a$, together with a multiplication morphism $\tinymult[white dot]: A \ten A \rightarrow A$, as well as a unit morphism, $\tinyunit[white dot]: I \rightarrow A$, satisfying the associativity and unit law below.
 
 \begin{calign}
@@ -208,7 +208,7 @@ The associator, unitor, and swap natural isomorphisms are given by the maps with
 For clarity, we write algebras and algebra homomorphisms in normal font and we write bimodules and (extended) bimodule homomorphisms in bold. This will help distinguishing between the two categories, which together form a double category.
 
 \begin{lem}\label{lem:algdouble}
-Let ${\cat C}$ be a monoidal category where all colimits exist, and where the tensor product preserves colimits in each variable separately. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf C}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf C}$ form a double category, which we call $\Alg$
+Let ${\cat C}$ be a monoidal category where all colimits exist, and where the tensor product preserves colimits in each variable separately. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf C}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf C}$ form a double category, which we call $\bAlg$
 \end{lem}
 
 \begin{proof}
@@ -776,12 +776,12 @@ The components of the {\bf left unitor} $l_{\bf M}: U_A \odot {\bf M} \rightarro
 \end{proof}
 
 
-\subsection{The braided monoidal structure of $\Alg$}\label{sec:brmonDalg}
+\subsection{The braided monoidal structure of $\bAlg$}\label{sec:brmonDalg}
 
-In this section we will prove that $\Alg({\bf C})$ is a braided monoidal double category and that it is symmetric whenever ${\bf C}$ is symmetric.
+In this section we will prove that $\bAlg({\bf C})$ is a braided monoidal double category and that it is symmetric whenever ${\bf C}$ is symmetric.
 
 \begin{prop}\label{lem:algsymmon}
-Let ${\bf C}$ be a braided or symmetric monoidal category, the double category $\Alg({\cat C})$ of algebras, bimodules and bimodule homomorphisms in {\bf C} is braided or symmetric monoidal, respectively.
+Let ${\bf C}$ be a braided or symmetric monoidal category, the double category $\bAlg({\cat C})$ of algebras, bimodules and bimodule homomorphisms in {\bf C} is braided or symmetric monoidal, respectively.
 \end{prop}
 
 \begin{proof}
@@ -859,11 +859,11 @@ All other equations concerning $\xi$ are proven in the same way. These are the s
 It is easy to see that the other equations, which concern $\fu$ hold, keeping in mind that $\fu$ is the identity, and $U_{\alpha_{A,B,C}} = \alpha_{U_A,U_B,U_C}$, $U(\rho_A) = \rho_{U_A}$, $U(\lambda_A) = \lambda_{U_A}$, and $\sigma_{U_A,U_B} = U(\sigma_{A,B})$.
 \end{proof}
 
-\subsection{Companions and conjoints in $\Alg$}\label{sec:fibDalg}
-Finally, we will prove that $\Alg(\cat C$) is fibrant.  This is the last step we need to take to show that we can lift $\Alg({\cat C})$ to obtain the bicategory ${\cA}lg({\cat C})$, which preserves any braided monoidal structure.
+\subsection{Companions and conjoints in $\bAlg$}\label{sec:fibDalg}
+Finally, we will prove that $\bAlg(\cat C$) is fibrant.  This is the last step we need to take to show that we can lift $\bAlg({\cat C})$ to obtain the bicategory ${\cA}lg({\cat C})$, which preserves any braided monoidal structure.
 
 \begin{lem}\label{lem:algfib}
-Let ${\bf C}$ be a braided monoidal category. The double category $\Alg({\cat C})$ is fibrant.
+Let ${\bf C}$ be a braided monoidal category. The double category $\bAlg({\cat C})$ is fibrant.
 \end{lem}
 
 \begin{proof}
@@ -918,7 +918,7 @@ The first equation of ~\ref{eq:compeqn} holds because ${\bf \epsilon_{\hat{f}} \
 We need to show that $f\tinydot[gray dot] \id_B \iso  \mathid_B$. In this diagram, $c_A$ and $c_B$ are the coequalisers defining ${{\bf U}_A}_{\tinydot[gray dot]} \hat{\bf f}$ and $\hat{\bf f}_{\tinydot[gray dot]}{\bf U}_B$, respectively.
 It is easy to check that $\hat{f}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\hat{f}}$ are coequalisers as well. The morphisms $\id_B$, $l_{\hat{f}}$ and $r_{\hat{f}}$ are the unique morphisms that make all diagrams commute. It follows from coherence of double categories that $f \tinydot[gray dot] \mathid_B \iso \mathid_B$, and thus $\eta_{\hat{f}} \odot \epsilon_{\hat{f}} \iso 1_{\hat{f}}$.
 
-This simultaneously proves that $f$ has a conjoint, because $\Alg({\bf C}^{h* op}) \cong$ $\Alg({\cat C})$.
+This simultaneously proves that $f$ has a conjoint, because $\bAlg({\bf C}^{h* op}) \cong$ $\bAlg({\cat C})$.
 \end{proof}
 
 \begin{eg}
@@ -935,11 +935,11 @@ This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref
 
 \subsection*{Monoidal Double Functors}
 \begin{prop}\label{prop:mfunctor}
-Any braided monoidal strong functor $F: {\bf C} \rightarrow {\bf D}$ which preserves coequalisers lifts to a braided monoidal strong double functor $\Alg{F}:  \Alg{\bf C} \rightarrow \Alg{ \bf D}$, respectively.
+Any braided monoidal strong functor $F: {\bf C} \rightarrow {\bf D}$ which preserves coequalisers lifts to a braided monoidal strong double functor $\bAlg{F}:  \bAlg{\bf C} \rightarrow \bAlg{ \bf D}$, respectively.
 \end{prop}
 
 \begin{proof}
-The functor $\Alg(F)_0$ maps an algebra $(A, \tinymult[gray dot], \tinyunit[gray dot])$ to the algebra $(FA, F(\tinymult[gray dot])\circ \chi, F(\tinyunit[gray dot])\iota)$. It follows from functoriality that $F$ preserves algebra homomorphisms. The functor $\Alg(F)_1$ maps an A-B-bimodule ${\bf M}$ to $F({\bf M})\circ \chi_{A, M\otimes B} \circ (\id_A \otimes \chi_{M,B})$. On extended module homomorphisms, $\Alg(F)$ is defined componentwise: $\Alg(F)(f_l, f, f_r):=(Ff_l, Ff, Ff_r)$. This is well-defined by functoriality of $F$.
+The functor $\bAlg(F)_0$ maps an algebra $(A, \tinymult[gray dot], \tinyunit[gray dot])$ to the algebra $(FA, F(\tinymult[gray dot])\circ \chi, F(\tinyunit[gray dot])\iota)$. It follows from functoriality that $F$ preserves algebra homomorphisms. The functor $\bAlg(F)_1$ maps an A-B-bimodule ${\bf M}$ to $F({\bf M})\circ \chi_{A, M\otimes B} \circ (\id_A \otimes \chi_{M,B})$. On extended module homomorphisms, $\bAlg(F)$ is defined componentwise: $\bAlg(F)(f_l, f, f_r):=(Ff_l, Ff, Ff_r)$. This is well-defined by functoriality of $F$.
 The pseudo double transformation $F_{\odot}$ is the unique morphism defined by the coequalisers below.
 
 \begin{equation}\label{def:xi}
@@ -964,7 +964,7 @@ The pseudo double transformation $F_{\odot}$ is the unique morphism defined by t
  \end{equation}
 
 
-By the commuting diagram below, $F_{\odot}$ is a module homomorphism.
+The two commuting diagrams below show that $F_{\odot}$ is a module homomorphism and that $F_{\odot}$ is natural in $\mathbb{A}lg{\bf D}_1$.
 
 \begin{equation}
 \begin{tikzpicture}[xscale=2.5, yscale=2]
@@ -992,8 +992,8 @@ By the commuting diagram below, $F_{\odot}$ is a module homomorphism.
 \draw[->, dashed] (m4) to node[] {$F_{\odot}$} (m2);
 \draw[->] (m3) to node[above, xshift=8pt] {} (m4); 
 \draw[->] (m1) to node[above] {} (m2);
-\node (m-1) at (-1,1.5) [] {$F(A\otimes M \otimes B \ten N \otimes C)$};
-\node (m-3) at (-2,1) [] {$FA \ten FM \otimes FB \ten FN \ten FC$};
+\node (m-1) at (-1,1.5) [] {$F( M \ten B \ten N)$};
+\node (m-3) at (-2,1) [] {$FM \ten  FB \ten FN $};
 %leftlowersquare
 \draw[->] ([yshift=1.5pt]m-1.east) to node[above] {} ([yshift=1.5pt]m1.west);
     \draw[->] ([yshift=-1.5pt]m-1.east) to node[below] {} ([yshift=-1.5pt]m1.west);
@@ -1007,6 +1007,54 @@ By the commuting diagram below, $F_{\odot}$ is a module homomorphism.
 \draw[->, cross, dashed] (u4) to node[] {$F{\bf M }\tinydot[gray dot] F{\bf N}$} (m4);
 \draw[->] (u-1) to node[] {$F({\bf M}_{\tinydot[gray dot]} \ten \mathid_B \ten {}_{\tinydot[gray dot]}{\bf N})$} (m-1);
 \draw[->] (u-3) to node[above] {$F({\bf M})_{\tinydot[gray dot]} \ten \mathid_{FB} \ten {}_{\tinydot[gray dot]}F({\bf N})$} (m-3);
+%%%% cross
+\draw[->, cross] ([yshift=1.5pt]u-3.east) to node[above] {} ([yshift=1.5pt]u3.west);
+    \draw[->, cross] ([yshift=-1.5pt]u-3.east) to node[below] {} ([yshift=-1.5pt]u3.west);
+    \draw[->, cross] (u3) to node[above, xshift=8pt] {} (u4); 
+\end{tikzpicture}
+\end{equation}
+
+\begin{equation}
+\begin{tikzpicture}[xscale=2.5, yscale=2]
+%uppersquare
+\node (u1) at (1,3) [] {$F(M \otimes N)$};
+\node (u2) at (3,3) [] {$F(M \tinydot[gray dot] N )$};
+\node (u3) at (0,2.5) [] {$ FM \otimes FN $};
+\node (u4) at (2,2.5) [] {$FM \tinydot[gray dot] FM$};
+\node (u-1) at (-1,3) [] {$F(M \otimes B \ten N)$};
+\node (u-3) at (-2,2.5) [] {$FM \otimes FB \ten FN$};
+%leftuppersquare
+\draw[->] ([yshift=1.5pt]u-1.east) to node[above] {} ([yshift=1.5pt]u1.west);
+    \draw[->] ([yshift=-1.5pt]u-1.east) to node[below] {} ([yshift=-1.5pt]u1.west);
+        \draw[->] (u-3) to (u-1); 
+ %%%   
+\draw[->] (u1) to node[above] {} (u2);
+\draw[->] (u3) to node[below] {} (u1); 
+\draw[->, dashed ] (u4) to node[] {$ F_{\odot}$} (u2);
+%lowersquare
+\node (m1) at (1,1.5) [] {$F(M' \otimes N' )$};
+\node (m2) at (3,1.5) [] {$F(M' \tinydot[gray dot] N') $};
+\node (m3) at (0,1) [] {$FM' \ten FN'$};
+\node (m4) at (2,1) [] {$FM' \tinydot[gray dot] FN'$};
+\draw[->] (m3) to node[above] {} (m1); 
+\draw[->, dashed] (m4) to node[] {$F_{\odot}$} (m2);
+\draw[->] (m3) to node[above, xshift=8pt] {} (m4); 
+\draw[->] (m1) to node[above] {} (m2);
+\node (m-1) at (-1,1.5) [] {$F(M' \ten B \ten N')$};
+\node (m-3) at (-2,1) [] {$FM' \ten  FB \ten FN' $};
+%leftlowersquare
+\draw[->] ([yshift=1.5pt]m-1.east) to node[above] {} ([yshift=1.5pt]m1.west);
+    \draw[->] ([yshift=-1.5pt]m-1.east) to node[below] {} ([yshift=-1.5pt]m1.west);
+ \draw[->] ([yshift=1.5pt]m-3.east) to node[above] {} ([yshift=1.5pt]m3.west);
+    \draw[->] ([yshift=-1.5pt]m-3.east) to node[below] {} ([yshift=-1.5pt]m3.west);
+    \draw[->] (m-3) to (m-1);
+%vertical
+\draw[->] (u1) to node[] {$F(f \ten g)$} (m1); 
+\draw[->, dashed] (u2) to node[] {$F(f \tinydot[gray dot] g)$} (m2);
+\draw[->, cross] (u3) to node[] {$F(f) \ten F(g)$} (m3); 
+\draw[->, cross, dashed] (u4) to node[] {$F(f) \tinydot[gray dot] F(g)$} (m4);
+\draw[->] (u-1) to node[] {$F(f \ten \mathid \ten g)$} (m-1);
+\draw[->] (u-3) to node[above] {$F(f) \ten \mathid \ten F(g)$} (m-3);
 %%%% cross
 \draw[->, cross] ([yshift=1.5pt]u-3.east) to node[above] {} ([yshift=1.5pt]u3.west);
     \draw[->, cross] ([yshift=-1.5pt]u-3.east) to node[below] {} ([yshift=-1.5pt]u3.west);
@@ -1065,16 +1113,83 @@ The unlabelled arrows represent the coequalisers defining their target object. T
 \end{proof}  
 
 \begin{thm}
-Let $F:{\bf C} \rightarrow {\bf D}$ be a braided monoidal strong functor. The pseudofunctor of horizontal bicategories $\Alg (F): \Alg ({\bf C}) \rightarrow \Alg ({\bf D})$ is braided monoidal strong. When $F$ is sylleptic, or symmetric, then $\Alg (F)$ is sylleptic, or symmetric, respectively.
+Let $F:{\bf C} \rightarrow {\bf D}$ be a braided monoidal strong functor. The pseudofunctor of horizontal bicategories $\cAlg (F): \cAlg ({\bf C}) \rightarrow \cAlg ({\bf D})$ is braided monoidal strong. When $F$ is sylleptic, or symmetric, then $\cAlg (F)$ is sylleptic, or symmetric, respectively.
 \end{thm}
 
 \begin{proof}
-Since $F$ is monoidal strong, the transformations $\chi$ and $\chi_u$ of $\mathbb{A}lg(F)$ are horizontally strong. The result follows from Proposition~\ref{prop:mfunctor} and Theorem~\ref{thm:lcbcfunctor}.
+Since $F$ is monoidal strong, the transformations $\chi$ and $\iota$ of $\mathbb{A}lg(F)$ are horizontally strong. The result follows from Proposition~\ref{prop:mfunctor} and Theorem~\ref{thm:lcbcfunctor}.
 \end{proof}
 
 Note that a similar result does not hold for braided monoidal lax or oplax functors, as the transformation $F_{\odot}$ will not be an isomorphism.
 
+\begin{prop}\label{prop:mtrans}
+Let $F,G: {\bf C} \rightarrow {\bf D}$ be braided monoidal functors. A monoidal transformation $\alpha: F \Rightarrow G$ lifts to a monoidal transformation $\bAlg \alpha: \bAlg F \Rightarrow \bAlg G$
+\end{prop}
 
+\begin{proof}
+The components of any monoidal transformation $\alpha$ are algebra homomorphisms by the two coherence equations and by naturality of $\alpha$; hence, $\alpha$ gives rise to a natural transformation $\bAlg \alpha_0: \bAlg F_0 \Rightarrow \bAlg G_0$.
+It gives rise to a natural transformation $\bAlg \alpha_1: \bAlg F_1 \Rightarrow \bAlg  G_1$, where the component $\alpha_{\bf M}$ of an $A-B-$Bimodule ${\bf M}$ is defined as $(\alpha_A, \alpha_M, \alpha_B)$. This is well-defined by naturality of $\alpha$ and the coherence equations for monoidal transformations.
+
+The first equality for tight transformation follows from the first coherence condition for monoidal transformations, as shown below. Similarly, the second equality follows from the second coherence condition for monoidal tranformations.
+
+\begin{equation}
+\begin{tikzpicture}[xscale=2.5, yscale=2]
+%uppersquare
+\node (u1) at (1,3) [] {$F(M \otimes N)$};
+\node (u2) at (3,3) [] {$F(M \tinydot[gray dot] N )$};
+\node (u3) at (0,2.5) [] {$ FM \otimes FN $};
+\node (u4) at (2,2.5) [] {$FM \tinydot[gray dot] FM$};
+\node (u-1) at (-1,3) [] {$F(M \otimes B \ten N)$};
+\node (u-3) at (-2,2.5) [] {$FM \otimes FB \ten FN$};
+%leftuppersquare
+\draw[->] ([yshift=1.5pt]u-1.east) to node[above] {} ([yshift=1.5pt]u1.west);
+    \draw[->] ([yshift=-1.5pt]u-1.east) to node[below] {} ([yshift=-1.5pt]u1.west);
+        \draw[->] (u-3) to (u-1); 
+ %%%   
+\draw[->] (u1) to node[above] {} (u2);
+\draw[->] (u3) to node[below] {} (u1); 
+\draw[->, dashed ] (u4) to node[] {$ F_{\odot}$} (u2);
+%lowersquare
+\node (m1) at (1,1.5) [] {$G(M \otimes N)$};
+\node (m2) at (3,1.5) [] {$G(M \tinydot[gray dot] N) $};
+\node (m3) at (0,1) [] {$GM \ten GN$};
+\node (m4) at (2,1) [] {$GM \tinydot[gray dot] GN$};
+\draw[->] (m3) to node[above] {} (m1); 
+\draw[->, dashed] (m4) to node[] {$F_{\odot}$} (m2);
+\draw[->] (m3) to node[above, xshift=8pt] {} (m4); 
+\draw[->] (m1) to node[above] {} (m2);
+\node (m-1) at (-1,1.5) [] {$G(M \ten B \ten N)$};
+\node (m-3) at (-2,1) [] {$GM \ten  GB \ten GN $};
+%leftlowersquare
+\draw[->] ([yshift=1.5pt]m-1.east) to node[above] {} ([yshift=1.5pt]m1.west);
+    \draw[->] ([yshift=-1.5pt]m-1.east) to node[below] {} ([yshift=-1.5pt]m1.west);
+ \draw[->] ([yshift=1.5pt]m-3.east) to node[above] {} ([yshift=1.5pt]m3.west);
+    \draw[->] ([yshift=-1.5pt]m-3.east) to node[below] {} ([yshift=-1.5pt]m3.west);
+    \draw[->] (m-3) to (m-1);
+%vertical
+\draw[->] (u1) to node[] {$\alpha_{M \ten N}$} (m1); 
+\draw[->, dashed] (u2) to node[] {$\alpha_{M \tinydot[gray dot] N}$} (m2);
+\draw[->, cross] (u3) to node[] {$\alpha_M \ten \alpha_N$} (m3); 
+\draw[->, cross, dashed] (u4) to node[] {$\alpha_M \tinydot[gray dot] \alpha_N$} (m4);
+\draw[->] (u-1) to node[] {$\alpha_{M \ten B \ten N}$} (m-1);
+\draw[->] (u-3) to node[above] {$\alpha_M \ten \alpha_B \ten \alpha_N$} (m-3);
+%%%% cross
+\draw[->, cross] ([yshift=1.5pt]u-3.east) to node[above] {} ([yshift=1.5pt]u3.west);
+    \draw[->, cross] ([yshift=-1.5pt]u-3.east) to node[below] {} ([yshift=-1.5pt]u3.west);
+    \draw[->, cross] (u3) to node[above, xshift=8pt] {} (u4); 
+\end{tikzpicture}
+\end{equation}
+
+The coherence diagrams for monoidal transformations of double categories follow directly from the original coherence diagrams of $\alpha$.
+\end{proof}
+
+\begin{thm}
+Let $\alpha: F \Rightarrow G$ be a braided monoidal natural isomorphism. The induced monoidal transformation of double categories $\bAlg \alpha: \bAlg F \Rightarrow \bAlg G$ lifts to a braided monoidal pseudo transformation $\cAlg \alpha: \cAlg F \Rightarrow \cAlg G$.
+\end{thm}
+
+\begin{proof}
+As natural isomorphisms are loosely strong, the result follows from Proposition~\ref{prop:mtrans} and Theorem~\ref{thm:lcbcfunctor}.
+\end{proof}
 
 \subsection{$\cat 2()$}
 We will extend the proof to the bicategory $2({\cat C})$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms in a braided monoidal category and demonstrate that it is braided monoidal and symmetric whenever ${\bf C}$ is symmetric.
@@ -1216,15 +1331,20 @@ This follows directly from proposition \ref{prop:dagger}.
 \end{proof}
 
 \begin{prop}
-Let ${\bf C, D}$ be braided monoidal dagger categories and let $F:{\bf C} \rightarrow {\bf D}$ be a braided monoidal strong dagger functor that preserves coequalisers. The functor $F$ lifts to a braided monoidal strong pseudofunctor $2(F): 2({\bf C}) \rightarrow 2({\bf D})$.
+Let ${\bf C, D}$ be braided monoidal dagger categories, let $F:{\bf C} \rightarrow {\bf D}$ be a braided monoidal strong dagger functor that preserves coequalisers. The functor $F$ lifts to a braided monoidal strong pseudofunctor $2(F): 2({\bf C}) \rightarrow 2({\bf D})$.
 \end{prop}
   
 \begin{proof}
 The braided monoidal dagger functor $F$ preserves special dagger Frobenius algebras, self-conjugate algebra homomorphisms and dagger bimodules. As a result, the braided monoidal functor $\mathbb{A}lgF: \mathbb{A}lg{\bf C} \rightarrow \mathbb{A}lg{\bf D}$ restricts to a braided monoidal functor between the full monoidal subcategories $\mathbbm{2}(F): \mathbbm{2}({\bf C}) \rightarrow \mathbbm{2}({\bf D})$. As the structure transformations $\chi, \iota$ are horizontally strong, $\mathbbm{2}(F)$ lifts to a braided monoidal strong pseudofunctor $2(F): 2({\bf C}) \rightarrow 2({\bf D})$ by Theorem~\ref{thm:H}.
 \end{proof}
 
+\begin{thm}
+Let $F,G: {\bf C} \rightarrow {\bf D}$ be braided monoidal strong functors that preserve coequalisers. Any braided monoidal natural isomorphism $\alpha: F \Rightarrow G$ lifts to a braided monoidal pseudo natural adjoint equivalence $2(\alpha):  2(F) \Rightarrow 2(G)$.  
+\end{thm}
 
-
+\begin{proof}
+We obtain the result by restricting the braided monoidal isomorphism of double functors $\bAlg \alpha$ to its components in $\mathbbm{2}({\bf C})$ to obtain a braided monoidal double isomorphism $\mathbbm{2}(\alpha): \mathbbm{2}(F) \rightarrow \mathbbm{2}(G)$. This isomorphism lifts to a braided monoidal pseudo adjoint equivalence $2(\alpha); 2(F) \rightarrow 2(G)$ by Theorem~\ref{thm:h-locfr}.
+\end{proof}
 % Local Variables:
 % TeX-master: "smbicat"
 % End:
