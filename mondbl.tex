@@ -57,6 +57,8 @@ M\to N$ of $\lD_1$ with $S(\alpha)=f$ and $T(\alpha)=g$ a
     C \ar[r]|{|}_N & D
   }.
 \end{equation}
+
+
 Note that composition of tight 1-morphisms is strictly associative and unitaly, while that of loose 1-cells is only weakly so.
 The words ``tight'' and ``loose'', borrowed from~\cite{ls:limlax} are intended to suggest one kind of morphism that is ``stricter'' than another.
 Traditionally the two kinds of 1-arrow in a double category are called ``vertical'' and ``horizontal'' with reference to how they are drawn, but this creates confusion because some authors draw the tight morphisms (those with strictly associative composition) vertically and others draw them horizontally.
@@ -75,6 +77,44 @@ just $gf$ and $\beta\alpha$.  We write the loose composition of
 as
 \[\vcenter{\xymatrix@C=4pc{ \ar[r]|-@{|}^-{} \ar[d] \ar@{}[dr]|{\Downarrow\;\be\odot\al} &  \ar[d]\\
   \ar[r]|-@{|}_-{} & }}\]
+
+
+Alternatively, we can draw the poincar\'{e} dual of the diagram ~\cite{myers2016string}. In these diagrams, the regions are objects, the vertical lines are 1-cells, the horizontal lines are 1-morphisms and the box is a 2-morphism. Below we depict loose and tight composition of 2-cells.
+
+\begin{align}
+&\mbox{Loose composition} &\mbox{Tight composition} \hspace{28pt}\\
+&
+\begin{tikzpicture}[scale=1.75]
+\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-1) -- (-.4,-1) -- (-.4,0) -- (-1,0);  
+\draw[fill=white!50!red, draw=black, opacity=0.5] (-1,-1) -- (-1,-2) -- (-.4,-2) -- (-.4,-1) -- (-1,-1);  
+\draw[fill=blue, draw=black, opacity=0.5] (-.4,0) -- (-.4,-1) -- (.4,-1) -- (.4,0) -- (-.4,0); 
+\draw[fill=white!50!blue, draw=black, opacity=0.5] (-.4,-1) -- (-.4,-2) -- (.4,-2) -- (.4,-1) -- (-.4,-1); 
+\draw[fill=green, draw=black, opacity=0.5] (.4,0) -- (.4,-1) -- (1,-1) -- (1,0) -- (.4,0);  
+\draw[fill=white!50!green, draw=black, opacity=0.5] (.4,-1) -- (.4,-2) -- (1,-2) -- (1,-1) -- (.4,-1);    
+      \node[morphism, minimum width=10mm] (l) at (-.4,-1) {$\alpha$};
+      \draw (-.4,0) to (l.north);
+      \draw (l.south) to (-.4,-2) node[below] {};
+            \node[morphism, minimum width=10mm] (r) at (.4,-1) {$\beta$};
+      \draw (.4,0) to (r.north);
+      \draw (r.south) to (.4,-2) node[below] {};
+    \end{tikzpicture}
+ \hspace{10pt}
+&       \begin{tikzpicture}[scale=1.75]
+\draw[fill=black!50!red, draw=black, opacity=0.5] (-1,0) -- (-1,-.6) -- (0,-.6) -- (0,0) -- (-1,0); 
+\draw[fill=red, draw=black, opacity=0.5] (-1,-.6) -- (-1,-1.4) -- (0,-1.4) -- (0,-.6) -- (-1,-.6);  
+\draw[fill=white!50!red, draw=black, opacity=0.5] (-1,-1.4) -- (-1,-2) -- (0,-2) -- (0,-1.4) -- (-1,-1.4);   
+\draw[fill=black!50!blue, draw=black, opacity=0.5] (0,0) -- (0,-.6) -- (1,-.6) -- (1,0) -- (0,0);  
+\draw[fill=blue, draw=black, opacity=0.5] (0,-.6) -- (0,-1.4) -- (1,-1.4) -- (1,-.6) -- (0,-.6); 
+\draw[fill=white!50!blue, draw=black, opacity=0.5] (0,-1.4) -- (0,-2) -- (1,-2) -- (1,-1.4) -- (0,-1.4);     
+      \node[morphism, minimum width=10mm] (g) at (0,-.6) {$\gamma$};
+       \node[morphism, minimum width=10mm] (f) at (0,-1.4) {$\delta$};
+       \draw (0,0) to (g.north);
+      \draw (f.north) to (g.south);
+      \draw (f.south) to (0,-2) node[below] {};
+    \end{tikzpicture}
+    \hspace{10pt}
+\end{align}
+
 The two different compositions of 2-morphisms obey an interchange law,
 by the functoriality of $\odot$:
 \[(M_1\odot M_2) \circ (N_1\odot N_2) = (M_1\circ N_1)\odot (M_2\circ N_2).
@@ -142,6 +182,35 @@ naturally ocurring double category.  Here are just a few examples.
 % $B$.  It is standard in bicategory theory to say that something holds
 % \textbf{locally} when it is true of all hom-categories $\calD(A,B)$, and
 % we will extend this usage to double categories.
+
+The diagrams corresponding to the loose bicategories have all the elements of the diagrams for double categories, without the horizontal lines. This is the calculus for monoidal bicategories described in ~\cite{bms}, which is an extention of the string diagrams for braided monoidal categories by M. Kelly and M.L. Laplaza ~\cite{kellylaplaza}.
+
+\begin{align}
+&\mbox{Horizontal composition} &\mbox{Vertical composition}  \hspace{28pt} \\
+&
+\begin{tikzpicture}[scale=1.75]
+\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (-.4,-2) -- (-.4,0) -- (-1,0);  
+\draw[fill=blue, draw=black, opacity=0.5] (-.4,0) -- (-.4,-2) -- (.4,-2) -- (.4,0) -- (-.4,0); 
+\draw[fill=green, draw=black, opacity=0.5] (.4,0) -- (.4,-2) -- (1,-2) -- (1,0) -- (.4,0);     
+      \node[morphism, minimum width=10mm] (l) at (-.4,-1) {$f$};
+      \draw (-.4,0) to (l.north);
+      \draw (l.south) to (-.4,-2) node[below] {};
+            \node[morphism, minimum width=10mm] (r) at (.4,-1) {$h$};
+      \draw (.4,0) to (r.north);
+      \draw (r.south) to (.4,-2) node[below] {};
+    \end{tikzpicture}
+ \hspace{10pt}
+&       \begin{tikzpicture}[scale=1.75]
+\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
+\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0);      
+      \node[morphism, minimum width=10mm] (g) at (0,-.6) {$g$};
+       \node[morphism, minimum width=10mm] (f) at (0,-1.4) {$f$};
+       \draw (0,0) to (g.north);
+      \draw (f.north) to (g.south);
+      \draw (f.south) to (0,-2) node[below] {};
+    \end{tikzpicture}
+    \hspace{10pt}
+\end{align}
 
 As opposed to bicategories, which naturally form a tricategory, double
 categories naturally form a \emph{2-category}, a much simpler object.

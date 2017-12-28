@@ -694,14 +694,12 @@ We show that equation~\eqref{eq:comp-iso} holds when we substitute $\theta_{\id_
 
 \begin{rmk}
   For the construction of (braided or symmetric) monoidal bicategories from double categories, we only require our double
-  categories to have companions and conjoints for tight
-  \emph{isomorphisms}, i.e.\ to be \emph{isofibrant}, because all the constraints of a monoidal structure are invertible.
-  Note that by \autoref{thm:comp-iso},
+  categories to have companions and conjoints for their monoidal constraints.
+  However, as we are interested in lifting transformations, we will state our theorems for the tricategory of double categories, double functors, double transformations with companions and conjoints, and identity modifications. Any monoidal double category or functor that is well-defined within this tricategory has sufficient companions and conjoints to be lifted to a monoidal bicategory or pseudofunctor, respectively.
+When a double category is fibrant or when it has companions and conjoints for all tight {\it isomorphisms}, i.e. it is {\bf isofibrant}, this condition is automatically satisfied. 
+  Note, that an isofibrant double category has an underlying fibrant one, obtained by simply discarding all noninvertible tight 1-morphisms, and to which our theorems can be applied directly as written. Furthermore, note that by \autoref{thm:comp-iso},
   having companions for all isomorphisms implies having conjoints for
-  all isomorphisms.  However, most examples we are interested in have
-  companions and conjoints for \emph{all} tight 1-morphisms, and these are necessary in order to construct monoidal \emph{functors} of monoidal bicategories, since the constraints of a (lax or oplax) monoidal functor are not generally invertible.
-  To simplify things, therefore, we will state our theorems only for fibrant rather than isofibrant double categories.
-  Note, though, that an isofibrant double category has an underlying fibrant one, obtained by simply discarding all noninvertible tight 1-morphisms, and to which our theorems can be applied directly as written.
+  all isomorphisms.  
 \end{rmk}
 
 % Local Variables:

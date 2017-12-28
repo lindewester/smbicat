@@ -1,9 +1,9 @@
 \section{From double categories to bicategories}
 \label{sec:1x1-to-bicat}
 
-We are now equipped to lift structures on fibrant double categories to
+We are now equipped to lift structures on double categories to
 their loose bicategories.  In this section we show that passage
-from fibrant double categories to bicategories is given by a functor of a suitable sort.
+from double categories to bicategories is given by a functor of a suitable sort.
 
 As a point of notation, we write $\odot$ for the composition of
 1-cells in a bicategory, since our bicategories are generally of the
@@ -99,6 +99,26 @@ Two such transformations correspond under this bijection if and only if
       \al_B \odot \be_B \odot G(f)\ar[d]^{\ep \odot \mbox{\tiny id}_{G(f)}}\\
       G(f)\odot \al_A\odot \be_A \ar[r]_-{\mbox{\tiny id}_{G(f)} \odot \ep} & G(f)}}\label{eq:conjtrans}
 \end{equation}
+
+%In planar diagrams, this looks like
+%\begin{align}
+%\begin{tikzpicture}[scale=1.75]
+%\draw[fill=blue, draw=blue] (-1,0) -- (-1,-1.4) -- (-.6,-1.4) -- (-.6,0) -- (-1,0);
+%\draw[fill=red, draw=red] (-.6,0) -- (-.6,-1.4) -- (0,-1.4) -- (0,0) -- (-.6,0);  
+%\draw[fill=blue, draw=blue] (-1,-1.4) -- (-1,-2) -- (.6,-2) -- (.6,-1.4) -- (-1,-1.4);  
+%\draw[fill=green, draw=green] (.6,-.6) -- (0,-.6) -- (0,0) -- (.6,0) -- (.6,-.6); 
+%\draw[fill=blue, draw=blue] (.6,-.6) -- (1,-.6) -- (1,0) -- (.6,0) -- (.6,-.6); 
+%\draw[fill=blue, draw=blue] (0,-.6) -- (.6,-.6) -- (.6,-2) -- (0,-2) -- (0,-.6); 
+%\draw[fill=yellow, draw=yellow] (.6,-2) -- (1,-2) -- (1,0) -- (.6,0) -- (.6,-2); 
+ %    \draw (.6,-.6) to (.6,0);
+  %   \draw (0,-1.4) to (0,0);
+   %   \draw (-.6,-1.4) to (-.6,0);
+  %     \node[morphism, minimum width=20mm] (l) at (-.3,-1.4) {$\eta$};
+   %    \node[morphism, minimum width=20mm] (r) at (.3,-.6) {$\beta_f$};
+%\draw (-.3, -2) to (l.south);
+  %  \end{tikzpicture}
+%\end{align}
+
 commute.  If we have a pointwise adjunction between an oplax and a lax
 transformation, whose 2-cell structures correspond under this
 bijection, we call it a \textbf{conjunctional transformation}
@@ -147,8 +167,8 @@ adjoints, and whose 2-cells are mate-pairs of modifications.
 %$\al_A$, \emph{and} each $\al_M$, is invertible.
 
 \begin{thm}\label{thm:h-locfr}
-  If \lD\ is a double category and \lE\ is a fibrant double category
-  with chosen companions and conjoints, we have a functor of bicategories
+  If \lD\ is a double category and \lE\ is a  double category
+  with chosen companions and conjoints for all transformations, we have a functor of bicategories
   \begin{align}
     \cDbl(\lD,\lE) &\too \Conj(\cH(\lD),\cH(\lE))\\
     F &\mapsto \cH(F)\\
@@ -299,9 +319,9 @@ bicategory with only identity 2-cells.
 We can also promote \autoref{thm:theta} to a functorial uniqueness.
 
 \begin{lem}\label{thm:h-locfr-uniq}
-  Let \lD\ be a double category and \lE\ a fibrant double category
+  Let \lD\ be a double category and \lE\ a double category
   with two different sets of choices $\fhat,\fchk$ and $\fhat',\fchk'$
-  of companions and conjoints for each vertical 1-morphism $f$, giving
+  of companions and conjoints for each vertical 1-morphism $f$ that is part of a double transformation, giving
   rise to two different functors
   \[\cH,\cH'\maps \cDbl(\lD,\lE)\too \Conj(\cH(\lD),\cH(\lE)).\]
   Then the isomorphisms $\theta$ from \autoref{thm:theta} fit together
@@ -355,20 +375,20 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
 
 
 
-It seems that we should have a functor from fibrant double categories
+It seems that we should have a functor from double categories with sufficient companions and conjoints
 to a tricategory of bicategories, functors, conjunctional
 transformations, and modifications, but there is no tricategory
 containing conjunctional transformations since the interchange law
 only holds laxly.  Thus, we introduce the following definition.
 
 \begin{defn}
-  We will say that a transformation $\alpha$ in $\cDbl$ is \textbf{loosely strong} if $\hat\alpha$ is pseudonatural.
+  We will say that a transformation $\alpha$ in $\cDbl$ has \textbf{loosely strong companions} if $\hat\alpha$ is a pseudo natural adjoint equivalence.
   % and \textbf{co-loosely strong} if $\check \alpha$ is pseudonatural.
 \end{defn}
 
 Let $\cDblf$
-denote the sub-2-category of \cDbl\ containing the fibrant double
-categories, all functors between them, and only loosely-strong transformations; we regard it as a tricategory with only identity 3-cells.
+denote the sub-2-category of \cDbl\ containing the double
+categories, all functors between them, and only transformations with loosely-strong companions; we regard it as a tricategory with only identity 3-cells.
 Let \cBicat\ denote the tricategory of
 bicategories, functors, pseudo natural transformations, and
 modifications.  We aim to define a functor of tricategories $\cH\maps \cDblf\to \cBicat$.
@@ -465,7 +485,8 @@ The third requirement amounts to the existence of an invertible modification
 \end{tikzpicture}
 \end{equation}
 %
-for every pair of transformations between fibrant double categories
+for every pair of transformations with loosely strong companions 
+
   \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
       & \lE}}\]
 satisfying the naturality and composition constraints~\eqref{eq:laxtransf-ax} and~\eqref{thm:1-func}.

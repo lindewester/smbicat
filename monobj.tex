@@ -102,7 +102,7 @@ In \cDblf, where there are no nonidentity 3-cells, they reduce to the definition
 \begin{defn}
 Let $A,B$ be monoidal objects in \fB. A 1-cell $f:A \onecell B$ is {\bf lax monoidal} when it is equipped with the following loose 2-cells:
 \begin{itemize}
-\item $\chi: \mathord{\ten} (f \times f) \looseRightarrow{} f  \mathord{\otimes}  $
+\item $\chi: \mathord{\ten} (f \times f) \looseRightarrow{} f  \mathord{\otimes}$
 \item $\iota: I_B \looseRightarrow{} fI_A $
 \end{itemize}
 as well as globular invertible 3-cells 
@@ -114,7 +114,7 @@ as well as globular invertible 3-cells
 \end{align*}
 as in Definition 4.10 of~\cite{nick:tricatsbook}, expressing the usual associativity and unitality conditions, which satisfy the three given commutativity axioms.
 
-The 1-cell $f:A \onecell B$ is {\bf oplax monoidal} when it is equipped with loose 2-cells $\bar{\xi}$ and $\bar{\iota}$ which go in the opposite direction of $\chi$ and $\iota$, respectively, and with the following globular 3-cells: 
+The 1-cell $f:A \onecell B$ is {\bf oplax monoidal} when it is equipped with loose 2-cells $\bar{\xi}$ and $\bar{\iota}$ which go in the opposite direction of $\chi$ and $\iota$, respectively, and with the following globular invertible 3-cells: 
 \begin{align*}
  \bar{\omega}&: \bar{\chi} \looseid_{\transid \times \tens}  \horc  \looseid_{\tens}(\looseid_f \times \bar{\chi})   \horc  \alpha^{-1}\looseid_{f \times f \times f} \RRightarrow \looseid_f \alpha^{-1}  \horc  \bar{\chi} \looseid_{\tens \times \transid} \horc  \looseid_{\tens}(\bar{\chi} \times \looseid_f)   \\ 
  \bar{\gamma}&: l^{-1} \looseid_f  \RRightarrow  \looseid_f l^{-1}   \horc \bar{\chi} \looseid_{I \times \transid} \looseid_{i_2} \horc \looseid_{\tens}(\bar{\iota}_f \times \looseid_f) \looseid_{i_2} \\
@@ -124,6 +124,112 @@ satisfying analogous axioms with the cells pasted together in a different order,
 
 If $f$ is both lax and oplax monoidal, the associated loose 2-cells $\chi$ and $\iota$ form adjoint equivalences with their oplax counterparts, and the 3-cells correspond to their oplax counterparts as mates under the adjoint equivalence structure, it is {\bf strong monoidal}.
 
+Expressed in planar diagrams for the hom-double categories, this means that there exist globular 3-cells $\eta$ and $\epsilon$, such that the equations below hold. 
+
+\begin{equation}
+\begin{pic}[scale=1.75]
+\draw[fill=blue, opacity = 0.5, draw=blue] (-1,0) -- (-1,-2) -- (0.6,-2) -- (0.6, -.6) -- (0,-.6) -- (0,-1.4) --  (-.6,-1.4) -- (-.6, 0) -- (-1,0);
+\draw[fill=red, opacity = 0.5, draw=red] (-.6,0) -- (-.6,-1.4) -- (0,-1.4) -- (0,-.6) -- (.6,-.6) -- (.6,-2) -- (1,-2) -- (1,0) -- (-.6,0);   
+   %  \draw (.3,-.6) to (.3,0);
+     \draw (0,-1.4) to node[left]{$\bar{\chi}$} (0,-.6);
+     \draw (-.6,-1.4) to (-.6,0);
+       \node[morphism, minimum width=20mm] (l) at (-.3,-1.4) {$\eta$};
+       \node[morphism, minimum width=20mm] (r) at (.3,-.6) {$\epsilon$};
+%\draw (-.3, -2) to (l.south);
+\node at (-.6,.2) {$\chi$};
+\node at (-.3,-1.8) {$\otimes(f\times f)$};
+\node at (.3,-.2) {$f\otimes$};
+\node at (.6,-2.2) {$\chi$};
+    \end{pic}
+    =
+    \begin{pic}[scale=1.75]
+\draw[fill=red, opacity = 0.5, draw=red] (-1,0) -- (-1,-2) -- (-0.6,-2) -- (-.6, -.6) -- (0,-.6) -- (0,-1.4) --  (.6,-1.4) -- (.6, 0) -- (-1,0);
+\draw[fill=blue, opacity = 0.5, draw=blue] (-.6,-2) -- (-.6,-.6) -- (0,-.6) -- (0,-1.4) -- (.6,-1.4) -- (.6,0) -- (1,0) -- (1,-2) -- (-.6,-2);   
+ %    \draw (.3,-1.4) to (.3,-2);
+     \draw (0,-1.4) to node[left]{$\chi$} (0,-.6);
+     \draw (-.6,-.6) to (-.6,-2);
+       \node[morphism, minimum width=20mm] (l) at (-.3,-.6) {$\epsilon$};
+       \node[morphism, minimum width=20mm] (r) at (.3,-1.4) {$\eta $};
+%\draw (-.3, 0) to (l.north);
+\node at (-.6,-2.2) {$\bar{\chi}$};
+\node at (-.3,-.2) {$f\otimes $};
+\node at (.3,-1.8) {$\otimes(f\times f)$};
+\node at (.6,.2) {$\bar{\chi}$};
+    \end{pic}
+\end{equation}
+
+Furthermore, we have the equality below for $\omega$. Here, one needs to note that for two adjoint equivalences $\alpha \dashv \bar{\alpha}$ and $\beta \dashv \bar{\beta}$, where $\alpha: f \rightarrow g$ and $\beta: h \rightarrow k$, there is an adjoint equivalence $\alpha \beta \dashv \bar{\alpha}\bar{\beta}$ witnessed by $\eta_{\alpha \beta} := \eta_{\alpha} \eta_{\beta}$ and $\epsilon_{\alpha \beta} :=  \epsilon_{\alpha} \epsilon_{\beta}$.  %plus coherence constraints on $\id_f$, $\id_g$ etc.
+
+\begin{align}
+\begin{pic}[scale=.8]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (7,0) -- (7,5) -- (6,5) -- (6,1) -- (1,1) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,1) -- (6,1) -- (6,4) -- (5,4) -- (5,2) -- (2,2) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,2) -- (5,2) -- (5,4) -- (4,4) -- (4,3) -- (3,3) -- (3,8) -- (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,3) -- (4,3) -- (4,7) -- (9,7) -- (9,0) -- (10,0) -- (10,8) -- (3,8); 
+\draw[fill=yellow, opacity = 0.5, draw=black] (9,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (4,4) -- (4,7) -- (9,7) -- (9,0);
+\draw[fill=green, opacity = 0.5, draw=black] (7,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (6,4) -- (6,5) -- (7,5) -- (7,0) ;
+\node[morphism, minimum width=20mm] (l) at (5,4) {$\bar{\omega}$};
+\node[morphism, minimum width=10mm] (l) at (3.5,3) {$\eta_{\chi \looseid}$};
+\node[morphism, minimum width=28mm] (l) at (3.5,2) {$\eta_{\looseid (\looseid\times\chi)}$};
+\node[morphism, minimum width=42mm] (l) at (3.5,1) {$\eta_{\alpha\looseid}$};
+\node[morphism, minimum width=10mm] (l) at (6.5,5) {$\epsilon_{\looseid(\chi \times \looseid)}$};
+\node[morphism, minimum width=28mm] (l) at (6.5,6) {$\epsilon_{\chi\looseid}$};
+\node[morphism, minimum width=42mm] (l) at (6.5,7) {$\epsilon_{\looseid\alpha}$};
+    \end{pic}
+    =
+    \begin{pic}[scale=0.8]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (1,0) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,4) -- (2,4) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,4) -- (3,4) -- (3,8) --  (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,0) -- (4,0) -- (4,8) -- (3,8); 
+\draw[fill=green, opacity = 0.5, draw=black] (1,4) -- (2,4) -- (2,0) -- (1,0) -- (1,4);
+\draw[fill=yellow, opacity = 0.5, draw=black] (2,4) -- (3,4) -- (3,0) -- (2,0) -- (2,4);
+\node[morphism, minimum width=20mm] (l) at (2,4) {$\omega$};
+    \end{pic}
+\end{align}
+
+\begin{align}
+ \begin{pic}[yscale=.8, xscale=.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (7,0) -- (7,5) -- (6,5) -- (6,4) -- (5,4) -- (5,2) -- (2,2) -- (2,8) -- (0,8);
+\draw[fill=orange, opacity = 0.5, draw=black] (2,8) -- (2,2) -- (5,2) -- (5,4) -- (4,4) -- (4,7) -- (9,7) -- (9,0) -- (10,0) -- (10,8) -- (2,8); 
+\draw[fill=yellow, opacity = 0.5, draw=black] (9,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (4,4) -- (4,7) -- (9,7) -- (9,0);
+\draw[fill=green, opacity = 0.5, draw=black] (7,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (6,4) -- (6,5) -- (7,5) -- (7,0) ;
+\node[morphism, minimum width=15mm] (l) at (5,4) {$\bar{\gamma}$};
+\node[morphism, minimum width=20mm] (l) at (3.5,2) {$\eta_{l \looseid}$};
+\node[morphism, minimum width=10mm] (l) at (6.5,5) {$\epsilon_{\looseid(\iota \times \looseid)\looseid}$};
+\node[morphism, minimum width=20mm] (l) at (6.5,6) {$\epsilon_{\chi\looseid \looseid}$};
+\node[morphism, minimum width=32mm] (l) at (6.5,7) {$\epsilon_{\looseid l}$};
+    \end{pic}
+    =
+    \begin{pic}[yscale=0.8, xscale=.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (1,0) -- (1,4) -- (2,4) -- (2,8) -- (0,8);
+\draw[fill=orange, opacity = 0.5, draw=black] (2,8) -- (2,4) -- (3,4) -- (3,0) -- (4,0) -- (4,8) -- (2,8); 
+\draw[fill=green, opacity = 0.5, draw=black] (1,4) -- (2,4) -- (2,0) -- (1,0) -- (1,4);
+\draw[fill=yellow, opacity = 0.5, draw=black] (2,4) -- (3,4) -- (3,0) -- (2,0) -- (2,4);
+\node[morphism, minimum width=15mm] (l) at (2,4) {$\gamma$};
+    \end{pic}
+\hspace{10pt}
+\begin{pic}[yscale=.8,xscale=.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (6,4) -- (6,1) -- (1,1) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,1) -- (6,1) -- (6,4) -- (5,4) -- (5,2) -- (2,2) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,2) -- (5,2) -- (5,4) -- (4,4) -- (4,3) -- (3,3) -- (3,8) -- (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,3) -- (4,3) -- (4,4) -- (5,4) -- (5,6) -- (8,6) -- (8,0) -- (10,0) -- (10,8) -- (3,8); 
+\node[morphism, minimum width=15mm] (l) at (5,4) {$\bar{\delta}$};
+\node[morphism, minimum width=10mm] (l) at (3.5,3) {$\eta_{\chi \looseid}$};
+\node[morphism, minimum width=20mm] (l) at (3.5,2) {$\eta_{\looseid (\looseid\times\iota)\looseid}$};
+\node[morphism, minimum width=32mm] (l) at (3.5,1) {$\eta_{r \looseid}$};
+\node[morphism, minimum width=20mm] (l) at (6.5,6) {$\epsilon_{\looseid r}$};
+    \end{pic}
+    =
+   \begin{pic}[yscale=0.8, xscale=.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (2,0) --(2,4) -- (1,4) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,4) -- (2,4) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,4) -- (3,4) -- (3,8) --  (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,4) -- (2,4) -- (2,0) -- (4,0) -- (4,8) -- (3,8); 
+\node[morphism, minimum width=15mm] (l) at (2,4) {$\delta$};
+    \end{pic}
+\end{align}
+
 A monoidal 1-cell is called {\bf braided}, when $A$ and $B$ are braided and there is a globular 3-cell $u: \sigma_B \looseid_{f \times f} \verc \chi  \looseid_{\tau} \looseRightarrow \chi \horc (\looseid_f \sigma_A)$, satisfying the braiding axioms (BHA1) and (BHA2) given in  \cite[p141-142]{mccrudden:bal-coalgb}. It is {\bf sylleptic} when $A$ and $B$ are sylleptic and the 3-cells defining the braided monoidal structure of $f$ satisfy the additional axiom (SHA1) given in  \cite[p145]{mccrudden:bal-coalgb}, and \textbf{symmetric} if it is sylleptic and $A$ and $B$ are symmetric.
 \end{defn}
 
@@ -132,30 +238,89 @@ A monoidal 1-cell is called {\bf braided}, when $A$ and $B$ are braided and ther
 \begin{defn}\label{Def:monverttrans}
 Let $f, g:A \onecell B$ be lax monoidal 1-cells in \fB. A {\bf lax monoidal 2-cell} $\beta: f \looseRightarrow g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
 \begin{itemize}
-\item $\Pi: \chi_f \horc \beta  \looseid_{\ten} \RRightarrow{} \looseid_{\ten}(\beta \times \beta) \horc \chi_g$
-\item $M: \iota_f \horc \beta  \looseid_{I_A} \RRightarrow{} \looseid_{I_B} \horc \iota_g$
+\item $\Pi_{\mbox{lax}}: \chi_f \horc \beta  \looseid_{\ten} \RRightarrow{} \looseid_{\ten}(\beta \times \beta) \horc \chi_g$
+\item $M_{\mbox{lax}}: \iota_f \horc \beta  \looseid_{I_A} \RRightarrow{} \looseid_{I_B} \horc \iota_g$
 \end{itemize}
-such that coherence equations \eqref{eq:mon2cell1}, \eqref{eq:mon2cell2}, and \eqref{eq:mon2cell3} below hold. Applied to the special case of bicategories gives us equations (TA2), (TA3) and (TA4) of~\cite{gg:ldstr-tricat}. It is {\bf oplax monoidal} if it is equiped with morphisms $\bar{\Pi}, \bar{M}$ where the arrows go in the opposite direction of $\Pi$ and $M$, respectively. The coherence equations in this case consist of the same 3-cells, but pasted together such that all 3-cells point in the same direction.
+such that coherence equations \eqref{eq:mon2cell1}, \eqref{eq:mon2cell2}, and \eqref{eq:mon2cell3} below hold. Applied to the special case of bicategories gives us equations (TA2), (TA3) and (TA4) of~\cite{gg:ldstr-tricat}. It is {\bf oplax monoidal} if it is equiped with morphisms $\bar{\Pi}_{\mbox{lax}}, \bar{M}_{\mbox{lax}}$, which correspond to $\Pi_{\mbox{lax}}$ and $M_{\mbox{lax}}$ in the opposite direction, respectively.
+%\begin{itemize}
+%\item $\bar{\Pi}_{\mbox{lax}}: \chi_f \horc \beta  \looseid_{\ten} \RRightarrow{} \looseid_{\ten}(\beta \times \beta) \horc \chi_g$
+%\item $\bar{M}_{\mbox{lax}}: \iota_f \horc \beta  \looseid_{I_A} \RRightarrow{} \looseid_{I_B} \horc \iota_g$
+%The coherence equations in this case consist of the same 3-cells, but pasted together such that all 3-cells point in the same direction.(?)
 
 A monoidal 2-cell between lax monoidal 1-cells is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, and in addition the coherence axiom~\eqref{eq:br2cell} holds. This axiom corresponds to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} when applied to the locally cubical bicategory of bicategories.
 
-Let $f, g:A \onecell B$ be oplax monoidal 1-cells in \fB. A {\bf lax monoidal 2-cell} $\beta: f \looseRightarrow{} g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
+Let $f, g:A \onecell B$ be oplax monoidal 1-cells in \fB. %A {\bf lax monoidal 2-cell} $\beta: f \looseRightarrow{} g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
+%\begin{itemize}
+%\item $\Pi_{\mbox{oplax}}: \bar{\chi}_f \horc \looseid_{\ten}(\beta \times \beta)   \RRightarrow{} \beta \looseid_{\ten} \horc \bar{\chi}_g$
+%\item $M_{\mbox{oplax}}: \bar{\iota}_f \horc \looseid_{I} \RRightarrow{} \beta \looseid_{I_A} \horc \bar{\iota}_g$
+%\end{itemize}
+An {\bf oplax monoidal 2-cell} $\beta: f \looseRightarrow{} g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
 \begin{itemize}
-\item $\Pi: \chi_f \horc \looseid_{\ten}(\beta \times \beta)   \RRightarrow{} \beta \looseid_{\ten} \horc \bar{\chi}_g$
-\item $M: \iota_f \horc \looseid_{I} \RRightarrow{} \beta \looseid_{I_A} \horc \bar{\iota}_g$
+\item $\Pi_{\mbox{oplax}}:  \bar{\chi}_f \horc \looseid_{\ten}(\beta \times \beta) \RRightarrow{} \beta \looseid_{\ten} \hor \bar{\chi}_g    $
+\item $M_{\mbox{oplax}}: \bar{\iota}_f \horc \looseid_{I} \RRightarrow{} \beta \looseid_{I_A} \horc \bar{\iota}_g$
 \end{itemize}
-
 such that coherence equations analogous to \eqref{eq:mon2cell1}, \eqref{eq:mon2cell2}, and \eqref{eq:mon2cell3} hold, with the same cells pasted together according to the direction of $\bar{\gamma}, \bar{\delta},$ and $\bar{\omega}$. These are equations between the same cells, but pasted together in a different order such that all 3-cells point in the same direction.
 
-It is {\bf oplax monoidal} if it is equipped with 3-cells $\bar{\Pi}$ and $\bar{M}$ that point in the opposite direction of $\Pi$ and $M$, respectively such that analogous coherence equations hold with the 3-cells pasted together in a suitable order.
+It is {\bf oplax monoidal} if it is equipped with 3-cells $\bar{\Pi}_{\mbox{oplax}}$ and $\bar{M}_{\mbox{oplax}}$ that correspond to the 3-cells pointing in the opposite direction of $\Pi_{\mbox{oplax}}$ and $M_{\mbox{oplax}}$,  respectively, such that analogous coherence equations hold with the 3-cells pasted together in a suitable order.
 
 A monoidal 2-cell between oplax monoidal 1-cells is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, and in addition a coherence axiom analogous to~\eqref{eq:br2cell} holds. In the equation, the 3-cell $u$ is different and therefore the cells are pasted in a different order.
 
 
-We call a loose 2-cell $\beta$ a {\bf strong monoidal 2-cell} when it is equipped with $M, \Pi, \bar{M}$ and $\bar{\Pi}$, which correspond to each other in pairs as mates under the adjoint equivalence structure on $\chi$ and $\iota$, or $\bar{\chi}, \bar{\iota}$, respectively.
+We call a loose 2-cell $\beta$ a {\bf strong monoidal 2-cell} when it is equipped with $M_{\mbox{lax}}, \Pi_{\mbox{lax}}, \bar{M}_{\mbox{oplax}}$ and $\bar{\Pi}_{\mbox{oplax}}$, which correspond to each other in pairs as mates under the adjoint equivalence structure on $\chi $ and $\iota$, respectively. We have depicted the mate correspondence below.
 
-
-
+\begin{align}
+    \begin{pic}[yscale=0.8, xscale=.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,4) -- (0,0) -- (3,0) -- (3,2) -- (2,2) -- (2,1) -- (1,1) -- (1,4) -- (0,4);
+\draw[fill=orange, opacity = 0.5, draw=black] (1,4) -- (1,1) -- (2,1) -- (2,4) -- (1,4);
+\draw[fill=green, opacity = 0.5, draw=black] (2,4) -- (2,2) -- (3,2) -- (3,3) -- (4,3) -- (4,0) -- (5,0) -- (5,4) -- (0,4);
+\draw[fill=yellow, opacity = 0.5, draw=black] (3,0) -- (4,0) -- (4,3) -- (3,3) -- (3,0);
+\node[morphism, minimum width=10mm] at (2.5,2) {$\Pi_{oplax}$};
+\node[morphism, minimum width=10mm] at (1.5,1) {$\eta_{\chi}$};
+\node[morphism, minimum width=10mm] at (3.5,3) {$\epsilon_{\chi}$};
+\node at (2.6,-.2) {$\looseid(\beta \times \beta)  $};
+\node at (4.4,-.2) {$\bar{\chi}$};
+\node at (0.8,4.2) {$\bar{\chi} $};
+\node at (2.2,4.2) {$ \beta \looseid$};
+    \end{pic}
+=
+    \begin{pic}[yscale=0.8, xscale=.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,4) -- (0,0) -- (2,0) -- (2,4) -- (0,4);
+\draw[fill=orange, opacity = 0.5, draw=black] (2,4) -- (2,2) -- (3,2) -- (3,4) -- (2,4);
+\draw[fill=green, opacity = 0.5, draw=black] (3,4) -- (3,0) -- (5,0) -- (5,4) -- (3,4);
+\draw[fill=yellow, opacity = 0.5, draw=black] (2,0) -- (3,0) -- (3,2) -- (2,2) -- (2,0);
+\node[morphism, minimum width=10mm] at (2.5,2) {$\overline{\Pi_{lax}}$};
+\node at (1.6,-.2) {$\looseid(\beta \times \beta)$};
+\node at (3.4,-.2) {$\bar{\chi}$};
+\node at (1.8,4.2) {$\beta \looseid$};
+\node at (3.2,4.2) {$\bar{\chi}$};
+    \end{pic}
+ \hspace{20pt}   
+        \begin{pic}[yscale=0.8, xscale=.5]
+\draw[fill=yellow, opacity = 0.5, draw=black] (0,0) -- (1,0) -- (1,3) -- (2,3) -- (2,2) -- (3,2) -- (3,4) -- (0,4) -- (0,0);
+\draw[fill=blue, opacity = 0.5, draw=black] (1,0) -- (2,0) -- (2,3) -- (1,3) -- (1,0);
+\draw[fill=orange, opacity = 0.5, draw=black] (2,0) -- (5,0) -- (5,4) -- (4,4) -- (4,1) -- (3,1) -- (3,2) -- (2,2) -- (2,0);
+\draw[fill=green, opacity = 0.5, draw=black] (3,4) -- (4,4) -- (4,1) -- (3,1) -- (3,4);
+\node[morphism, minimum width=10mm] at (2.5,2) {$\overline{\Pi_{oplax}}$};
+\node[morphism, minimum width=10mm] at (3.5,1) {$\eta_{\chi}$};
+\node[morphism, minimum width=10mm] at (1.5,3) {$\epsilon_{\chi}$};
+\node at (0.8,-.2) {$\chi$};
+\node at (2.2,-.2) {$\beta \looseid $};
+\node at (2.6,4.2) {$\chi$};
+\node at (4.4,4.2) {$\looseid(\beta \times \beta)$};
+    \end{pic}
+=
+    \begin{pic}[yscale=0.8, xscale=.5]
+\draw[fill=yellow, opacity = 0.5, draw=black] (0,4) -- (0,0) -- (2,0) -- (2,4) -- (0,4);
+\draw[fill=green, opacity = 0.5, draw=black] (2,4) -- (2,2) -- (3,2) -- (3,4) -- (2,4);
+\draw[fill=orange, opacity = 0.5, draw=black] (3,4) -- (3,0) -- (5,0) -- (5,4) -- (3,4);
+\draw[fill=blue, opacity = 0.5, draw=black] (2,0) -- (3,0) -- (3,2) -- (2,2) -- (2,0);
+\node[morphism, minimum width=10mm] at (2.5,2) {$\Pi_{lax}$};
+\node at (1.8,-.2) {$\chi$};
+\node at (3.2,-.2) {$\beta \looseid $};
+\node at (1.6,4.2) {$\looseid(\beta \times \beta)$};
+\node at (3.4,4.2) {$\chi$};
+    \end{pic}
+    \end{align}
 \end{defn}
 
 
@@ -1183,7 +1348,7 @@ A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ 
  \end{aligned}
 \end{equation}
 
-  Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be oplax monoidal 1-cells, 2-cells, and icons, respectively. An \textbf{oplax monoidal 3-cell} is a 3-cell  $\Gamma$ as depicted above, such that two equalities analogous to~\ref{eq:mon3cell1} and~\ref{eq"mon3cell2} hold, where the 3-cells are pasted together according to the direction of $\bar{M}, \bar{N}, \bar{\Pi}$, and $\bar{\Sigma}$. The 3-cell $\Gamma$ is {\bf strong monoidal} if it is lax monoidal and oplax monoidal.
+  Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be oplax monoidal 1-cells, 2-cells, and icons, respectively. An \textbf{oplax monoidal 3-cell} is a 3-cell  $\Gamma$ as depicted above, such that two equalities analogous to~\eqref{eq:mon3cell1} and~\eqref{eq:mon3cell2} hold, where the 3-cells are pasted together according to the direction of $\bar{M}, \bar{N}, \bar{\Pi}$, and $\bar{\Sigma}$. The 3-cell $\Gamma$ is {\bf strong monoidal} if it is lax monoidal and oplax monoidal.
 Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be braided, sylleptic, or symmetric monoidal 1-cells, 2-cells, and icons, respectively. A \textbf{braided, sylleptic, or symmetric monoidal 3-cell} $\Gamma$ as depicted above, is simply a monoidal 3-cell. 
 \end{defn}
 
@@ -1194,17 +1359,17 @@ Let $A,B$ be monoidal objects in a locally cubical bicategory with strict compos
 \end{prop}
 
 \begin{proof}
-First we show that 1-cells and icons in the respective hom-spaces form a category. For each lax monoidal 1-cell $f:A \rightarrow B$, the identity icon $\tightid_f$ is a lax monoidal icon with the 3-cells $N^{\tightid_f} := \tightid_{\iota_f}$ and $\Sigma^{\tightid_f} := \tightid_{\chi_f}$. This is well-defined, because the functor ``$\comp$" preserves tight identities. The coherence equations are trivially satisfied.  For each two lax monoidal 1-cells $f,g$ and lax monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite icon $\beta \circ \alpha$ can be equiped with the lax monoidal structure given by the composites $N^{\beta \verc \alpha} := N^{\beta} \verc N^{\alpha}$ and $\Sigma^{\beta \verc \alpha} : = \Sigma^{\beta} \verc \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions~\eqref{eq:monicon1}--\eqref{eq:monicon3} hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for oplax 1-cells and icons. For strong 1-cells and icons we need to verify that the lax structure cells $N^{\tightid_f}$, $N^{\beta \verc \alpha}, \Sigma^{\tightid_f}$, and $\Sigma^{\beta \verc \alpha} $ are inverse in the loose direction to their oplax counterparts. For $N^{\tightid_f}$ and $\Sigma^{\tightid_f}$, this follows from functoriality of ``$\horc$". For $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$, this follows from the the fact that the statement is true for their components combined with the exchange law between ``$\horc$" and ``$\verc$" and strictness of ``$\verc$".
+First we show that 1-cells and icons in the respective hom-spaces form a category. For each lax monoidal 1-cell $f:A \rightarrow B$, the identity icon $\tightid_f$ is a lax monoidal icon with the 3-cells $N^{\tightid_f} := \tightid_{\iota_f}$ and $\Sigma^{\tightid_f} := \tightid_{\chi_f}$. This is well-defined, because the functor ``$\comp$" preserves tight identities. The coherence equations are trivially satisfied.  For each two lax monoidal 1-cells $f,g$ and lax monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite icon $\beta \verc \alpha$ can be equiped with the lax monoidal structure given by the composites $N^{\beta \verc \alpha} := N^{\beta} \verc N^{\alpha}$ and $\Sigma^{\beta \verc \alpha} : = \Sigma^{\beta} \verc \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions~\eqref{eq:monicon1}--\eqref{eq:monicon3} hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for oplax 1-cells and icons. For strong 1-cells and icons we need to verify that the lax structure cells $N^{\tightid_f}$, $N^{\beta \verc \alpha}, \Sigma^{\tightid_f}$, and $\Sigma^{\beta \verc \alpha} $ are inverse in the loose direction to their oplax counterparts. For $N^{\tightid_f}$ and $\Sigma^{\tightid_f}$, this follows from functoriality of ``$\horc$". For $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$, this follows from the the fact that the statement is true for their components combined with the exchange law between ``$\horc$" and ``$\verc$" and strictness of ``$\verc$".
 When $f$ and $g$ are braided, sylleptic or symmetric, the same data satisfies the coherence equation for braided monoidal icons.
 
 We also need to show that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \looseRightarrow{} g$, the identity 3-cell $\tightid_{\alpha}$ in $\cB$  is lax monoidal. The required two equations~\ref{eq:mon3cell1},~\ref{eq:mon3cell2} are trivially satisfied.
-For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \circ L$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $L$ and $K$. The same is true for oplax monoidal 2-cells and 3-cells, and hence for strong monoidal 2-cells and 3-cells. As braided, sylleptic, and symmetric monoidal 3-cells are not required to satisfy additional data, it follows that braided, sylleptic, or symmetric monoidal 2-cells and 3-cells form a category.
+For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \verc L$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $L$ and $K$. The same is true for oplax monoidal 2-cells and 3-cells, and hence for strong monoidal 2-cells and 3-cells. As braided, sylleptic, and symmetric monoidal 3-cells are not required to satisfy additional data, it follows that braided, sylleptic, or symmetric monoidal 2-cells and 3-cells form a category.
 
-Now we describe the loose structure; we need to show that $\horc$ and $\looseid$ are well-defined as the functors which give the loose structure in the new double category. To see this, recall that $\horc$ and $\looseid$ correspond to the functors $\odot$ and $U$, respectively, given  in Definition~\ref{defn:dblcat}.
+Now we describe the loose structure; we need to show that $\horc$ and $\looseid$ are well-defined as the functors which give the loose structure in the new double category. To see this, recall that $\horc$ and $\looseid$ correspond to the functors $\odot$ and $U$, respectively, given  in Definition~\ref{def:dblcat}.
 Let $f$ be a lax monoidal 1-cell. The loose identity 2-cell $\looseid_f$ is a lax monoidal 2-cell with monoidal structure given by the composition of coherence cells $\horl$, $\horr$.
 
 \begin{equation}
-M^{\looseid_f}:=
+M_{lax}^{\looseid_f}:=
 \begin{aligned}
  \begin{tikzpicture}[yscale=1.5, xscale=3]
  \node (tl) at (0,1) {$I_B$};
@@ -1223,7 +1388,7 @@ M^{\looseid_f}:=
  \end{tikzpicture}
  \end{aligned}
  \hspace{.5cm}
- \Pi^{\looseid_f}:=
+ \Pi_{lax}^{\looseid_f}:=
  \begin{aligned}
   \begin{tikzpicture}[yscale=1.5, xscale=5]
  \node (tl) at (0,1) {$\ten  (f \times f)$};
@@ -1243,13 +1408,55 @@ M^{\looseid_f}:=
 \end{aligned}
 \end{equation}
 
+\begin{equation}
+M_{oplax}^{\looseid_f}:=
+\begin{aligned}
+ \begin{tikzpicture}[yscale=1.5, xscale=3]
+ \node (tl) at (0,1) {$fI_A$};
+\node (tr) at (1,1) {$I_B$};
+ \node (tm) at (.5,1) {$I_B$};
+ \node (bl) at (0,0) {$fI_A$};
+ \node (bm) at (.5,0) {$fI_A$};
+ \node (br) at (1,0) {$I_B$}; 
+ \draw[doubleloose] (tl)  to node[above]{$\bar{\iota_f}$} (tm);
+  \draw[doubleloose] (tm)  to node[above]{$\looseid_I$} (tr);
+ \draw[doubleeq] (tl) to (bl);
+  \draw[doubleloose] (bl) to node[below] {$\looseid_f \looseid_I $}(bm);
+ \draw[doubleloose] (bm) to node[below] {$\bar{\iota_f}$}(br);
+  \draw[=] (tr) to (br);
+ \node at (0.5,0.5) {\footnotesize $\DDownarrow$ $\iso $}; 
+ \end{tikzpicture}
+ \end{aligned}
+ \hspace{.5cm}
+ \Pi_{oplax}^{\looseid_f}:=
+ \begin{aligned}
+  \begin{tikzpicture}[yscale=1.5, xscale=5]
+ \node (tl) at (0,1) {$f  \ten$};
+ \node (tr) at (1,1) {$\ten  (f \times f) $};
+ \node (bl) at (0,0) {$f  \ten$};
+ \node (br) at (01,0) {$\ten (f\times f)$}; 
+ \node(tm) at (.5,1) {$\ten (f\times f) $};
+ \node (bm) at (.5,0) {$f \ten$};
+ \draw[doubleloose] (tl)  to node[above]{$\bar{\chi}_f$} (tm);
+  \draw[doubleloose] (tm)  to node[above]{$\looseid{\ten}(\looseid_f\times \looseid_f) $} (tr);
+ \draw[=] (tl) to (bl);
+  \draw[doubleloose] (bl) to node[below] {$\looseid_f \looseid_{\ten}$}(bm);
+ \draw[doubleloose] (bm) to node[below] {$\bar{\chi}_f$}(br);
+  \draw[=] (tr) to (br);
+ \node at (0.5,0.5) {\footnotesize $ \DDownarrow$ $\iso$}; 
+ \end{tikzpicture}
+\end{aligned}
+\end{equation}
+
 The conditions for monoidal 3-cells follow from the naturality conditions of the coherence cells $\horl$ and $\horr$. 
-For every monoidal icon $\gamma$, the loose identity 3-cell $\looseid_{\gamma}$ is a monoidal 3-cell. The loose source and target 2-cells of $\Gamma$, $\alpha$ and $\beta$, are loose identities, hence $M^{\alpha}$ and $M^{\beta}$ are the coherence cells defined above. Therefore, the coherence condition holds by naturality of $\horl$ and $\horr$.
+For every monoidal icon $\gamma$, the loose identity 3-cell $\looseid_{\gamma}$ is a monoidal 3-cell. 
+
+The loose source and target 2-cells of $\looseid_{\gamma}$, are loose identities; hence, the coherence condition holds by naturality of $\horl$ and $\horr$.
 
 Let $\alpha:f \looseRightarrow{} g$ and $\beta: g \looseRightarrow{} h$ be two lax monoidal 2-cells. Their composition $\alpha \horc \beta$ is lax monoidal with the following structure 3-cells.
 
 \begin{equation}
-M^{\alpha \horc \beta} := 
+M_{lax}^{\alpha \horc \beta} := 
 \begin{aligned}
  \begin{tikzpicture}[yscale=1.5, xscale=3]
  \node (tl) at (0,1) {$I_B$};
@@ -1281,8 +1488,48 @@ M^{\alpha \horc \beta} :=
  \draw[doubleloose] (bbl) to[in=220, out=-60] node[below]{$\looseid_I$} (bbm);
   \draw[doubleeq] (tr) to (br);
    \draw[doubleeq] (bm) to (bbm1);
- \node at (0.5,0.5) {\footnotesize $M^{\alpha} \DDownarrow  $}; 
-  \node at (1,-.5) {\footnotesize $M^{\beta} \DDownarrow $}; 
+ \node at (0.5,0.5) {\footnotesize $M_{lax}^{\alpha} \DDownarrow  $}; 
+  \node at (1,-.5) {\footnotesize $M_{lax}^{\beta} \DDownarrow $}; 
+ \node at (1.25,.5) {\footnotesize $=$}; 
+ \node at (1,1.25) {$\iso$};
+ \node at (0.5,-1.25) {$\iso$};
+ \end{tikzpicture}
+ \end{aligned}
+ \hspace{20pt}
+ M_{oplax}^{\alpha \horc \beta} := 
+\begin{aligned}
+ \begin{tikzpicture}[yscale=1.5, xscale=3]
+ \node (tl) at (0,1) {$fI_A$};
+\node (tr) at (1,1) {$I_B$};
+ \node (tm) at (.5,1) {$I_B$};
+ \node (bl) at (0,0) {$f I_A$};
+ \node (bm) at (0.5,0) {$g I_A$};
+ \node (br) at (1,0) {$I_B$}; 
+ \node (trr) at (1.5,1) {$I_B$};
+ \node (brr) at (1.5,0) {$I_B$};
+ \node (bbr) at (1.5,-1) {$I_B$};
+  \node (bbm1) at (.5,-1) {$gI_A$};
+ \node (bbm) at (1,-1) {$I_B$};
+ \node(bbl) at (0,-1) {$f I_A$};
+    \draw[doubleloose] (tm) to[in=120, out=60] node[above]{$\looseid_I$} (trr);
+ \draw[doubletight] (brr) to node[right] {} (bbr);
+ \draw[doubleeq] (bl) to (bbl);
+  \draw[doubleloose] (bbl) to node [above]{$\alpha \looseid_{I}$} (bbm1);
+    \draw[doubleloose] (bbm1) to node [above]{$\beta \looseid_{I}$} (bbm);
+ \draw[doubleloose] (bbm) to node [above]{$\iota_{h}$} (bbr);
+ \draw[doubleloose] (tr) to node[above]{$ \looseid_I$} (trr);
+  \draw[doubleloose] (br) to node[above]{$ \looseid_I$}(brr);
+  \draw[doubleeq] (trr) to (brr);
+ \draw[doubleloose] (tl)  to node[above]{$\iota_f$} (tm);
+  \draw[doubleloose] (tm)  to node[above]{$\looseid_I$} (tr);
+ \draw[doubleeq] (tl) to (bl);
+  \draw[doubleloose] (bl) to node[below] {$\alpha \looseid_I$}(bm);
+ \draw[doubleloose] (bm) to node[below] {$\iota_g$}(br);
+ \draw[doubleloose] (bbl) to[in=220, out=-60] node[below]{$(\alpha \horc \beta)\looseid_{I}$} (bbm);
+  \draw[doubleeq] (tr) to (br);
+   \draw[doubleeq] (bm) to (bbm1);
+ \node at (0.5,0.5) {\footnotesize $M_{oplax}^{\alpha} \DDownarrow  $}; 
+  \node at (1,-.5) {\footnotesize $M_{oplax}^{\beta} \DDownarrow $}; 
  \node at (1.25,.5) {\footnotesize $=$}; 
  \node at (1,1.25) {$\iso$};
  \node at (0.5,-1.25) {$\iso$};
@@ -1290,7 +1537,7 @@ M^{\alpha \horc \beta} :=
  \end{aligned}
 \end{equation}
 \begin{equation}
- \Pi^{\alpha \horc \beta}:=
+ \Pi_{lax}^{\alpha \horc \beta}:=
  \begin{aligned}
   \begin{tikzpicture}[yscale=1.5, xscale=5]
  \node (tl) at (0,1) {$\ten  (f \times f)$};
@@ -1322,10 +1569,52 @@ M^{\alpha \horc \beta} :=
   \draw[doubleloose] (bbm) to node[above]{$\looseid_{\ten} (\beta \times \beta)$} (bbr);
    \draw[doubleloose] (tm) to[in=120, out=60] node[above]{$(\alpha \horc \beta)\looseid_{\ten}$} (trr);
    \draw[doubleloose] (bbl) to[in=220, out=-60] node[below]{$\looseid_{\ten} \comp (\alpha \horc \beta)\times (\alpha \horc \beta)$} (bbr);
-    \node at (0.5,0.5) {\footnotesize $\DDownarrow  \Pi^{\alpha}$};
+    \node at (0.5,0.5) {\footnotesize $\DDownarrow  \Pi_{lax}^{\alpha}$};
   \node at (1.25,0.5) {\footnotesize $=$};
   \node at (0.25,-.5) {\footnotesize $=$};
-  \node at (1,-.5) {\footnotesize $\DDownarrow  \Pi^{\beta}$};
+  \node at (1,-.5) {\footnotesize $\DDownarrow  \Pi_{lax}^{\beta}$};
+  \node at (1,1.2) {$\iso$};
+ \node at (.5,-1.2) {$\iso$};
+ \end{tikzpicture}
+\end{aligned}
+\end{equation}
+\begin{equation}
+ \Pi_{oplax}^{\alpha \horc \beta}:=
+ \begin{aligned}
+  \begin{tikzpicture}[yscale=1.5, xscale=5]
+ \node (tl) at (0,1) {$f\ten$};
+ \node (tr) at (1,1) {$\ten (g \times g)$};
+ \node (bl) at (0,0) {$f \ten  $};
+ \node (br) at (01,0) {$\ten (g \times g)$}; 
+ \node(tm) at (.5,1) {$\ten (f \times f)$};
+ \node (bm) at (.5,0) {$g \ten $};
+ \node (trr) at (1.5,1) {$\ten (h \times h)$};
+  \node (brr) at (1.5,0) {$\ten (h \times h)$};
+  \node (bbl) at (0,-1) {$f \ten$};
+  \node (bbm) at (.5,-1) {$g \ten$}; 
+  \node (bbr) at (1,-1) {$h \ten$};
+  \node (bbrr) at (1.5,-1) {$ \ten (h \times h)$};
+ \draw[doubleloose] (tl)  to node[above]{$\bar{\chi}_f $} (tm);
+  \draw[doubleloose] (tm)  to node[above]{$\looseid_{\ten} (\alpha \times \alpha)$} (tr);
+ \draw[doubleeq] (tl) to (bl);
+  \draw[doubleloose] (bl) to node[below] {$\alpha \looseid_{\ten}$}(bm);
+ \draw[doubleloose] (bm) to node[below] {$\bar{\chi}_g$}(br);
+  \draw[doubleeq] (tr) to (br); 
+ \draw[doubleeq] (trr) to (brr);
+ \draw[doubleloose] (tr) to node[above]{$\looseid_{\ten} (\beta \times \beta)$} (trr);
+ \draw[doubleloose] (br) to node[above]{$\looseid_{\ten} (\beta \times \beta)$} (brr);
+ \draw[doubleloose] (bbr) to node[above]{$\bar{\chi}_h$} (bbrr);
+ \draw[doubleeq] (bl) to (bbl);
+ \draw[doubleeq] (bm) to (bbm);
+ \draw[doubleeq] (brr) to (bbrr);
+ \draw[doubleloose] (bbl) to node[above]{$\alpha \looseid_{\ten}$} (bbm);
+  \draw[doubleloose] (bbm) to node[above]{$\beta \looseid_{\ten} $} (bbr);
+   \draw[doubleloose] (tm) to[in=120, out=60] node[above]{$\looseid_{\ten} \comp (\alpha \horc \beta)\times (\alpha \horc \beta)$} (trr);
+   \draw[doubleloose] (bbl) to[in=220, out=-60] node[below]{$(\alpha \horc \beta)\looseid_{\ten} $} (bbr);
+    \node at (0.5,0.5) {\footnotesize $\DDownarrow  \Pi_{oplax}^{\alpha}$};
+  \node at (1.25,0.5) {\footnotesize $=$};
+  \node at (0.25,-.5) {\footnotesize $=$};
+  \node at (1,-.5) {\footnotesize $\DDownarrow  \Pi_{oplax}^{\beta}$};
   \node at (1,1.2) {$\iso$};
  \node at (.5,-1.2) {$\iso$};
  \end{tikzpicture}
@@ -1336,7 +1625,53 @@ M^{\alpha \horc \beta} :=
 The coherence equations are satisfied by sequential application of the respective equation for $\alpha$ and $\beta$, applications of the exchange law between loose and tight composition, together with simple manipulations of coherence cells.
 
 Let $\Gamma$ and $\Delta$ be lax monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again lax monoidal. Again, the conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$, applications of the exchange law between loose and tight composition, and simple manipulations of coherence cells.
-By analogous arguments, one can show that the images of $\horc$ and $\looseid$ on oplax cells are again well-defined as oplax monoidal cells. For  the strong monoidal cells, we need to prove that $M^{\looseid_f}, \Pi^{\looseid_f}, M^{\alpha \horc \beta}$, and $\Pi^{\alpha \horc \beta}$ correspond as mates to their respective oplax counterparts under the adjoint equivalence structure on $\chi$ and $\iota$. For $M^{\looseid_f}$ and$ \Pi^{\looseid_f}$, this follows from manipulation of coherence cells, together with the adjoint equivalences $\iota \dashv \bar{\iota}$ and $\chi \dashv \bar{\chi}$. For $M^{\alpha \horc \beta}$, and $\Pi^{\alpha \horc \beta}$ one needs to insert an extra instance of $(\epsilon \horc \looseid) \verc (\looseid \horc \eta) = \verc$ in between $M_{\alpha}$ and $M^{\beta}$, and in between $\Pi^{\alpha}$ and $\Pi^{\beta}$, respectively. The result then follows from manipulations with coherence cells, $\epsilon$ and $\eta$.
+By analogous arguments, one can show that the images of $\horc$ and $\looseid$ on oplax cells are again well-defined as oplax monoidal cells. For  the strong monoidal cells, we need to prove that $M_{oplax}^{\looseid_f}, \overline{M_{lax}^{\looseid_f}}$,  correspond to eachother as mates; and similarly for the other pairs of structure 3-cells. This follows from manipulation of coherence cells, and the adjunctions $\iota \dashv \bar{\iota}$ and $\chi \dashv \bar{\chi}$.
+Furthermore, we need to show that $M_{oplax}^{\alpha \horc \beta}, \overline{M_{lax}^{\alpha \horc \beta}}$ correspond to eachother as mates; and likewise for the other structure 3-cells.
+This follows from the equations below, where the left-hand-side is equal to $M_{oplax}^{\alpha \horc \beta}$ and the right-hand-side equals $ \overline{M_{lax}^{\alpha \horc \beta}}$ . For the other pairs, the proof is analogous.
+
+
+\begin{equation}
+\begin{pic}[scale=.8]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,5) -- (0,0) -- (3,0) -- (3,2) -- (2,2) -- (2,1) -- (1,1) -- (1,5) -- (0,5);
+\draw[fill=red, opacity = 0.5, draw=black] (1,5) -- (1,1) -- (2,1) -- (2,5) -- (1,5);   
+\draw[fill=yellow, opacity = 0.5, draw=black] (2,5) -- (2,2) -- (3,2) -- (3,5) -- (2,5); 
+\draw[fill=green, opacity = 0.5, draw=black] (3,5) -- (3,3) -- (4,3) -- (4,4) -- (5,4) -- (5,0) -- (6,0) -- (6,5) -- (3,5); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,0) -- (4,0) -- (4,3) -- (3,3) -- (3,0);
+\draw[fill=purple, opacity = 0.5, draw=black] (4,0) -- (5,0) -- (5,4) -- (4,4) -- (4,0);
+       \node[morphism, minimum width=15mm] at (1.5,1) {$\eta_{\chi}$};
+       \node[morphism, minimum width=20mm]  at (2.5,2) {$M_{oplax}^{\alpha}$};
+              \node[morphism, minimum width=20mm] at (4.5,4) {$\epsilon_{\chi}$};
+       \node[morphism, minimum width=15mm]  at (3.5,3) {$M_{oplax}^{\beta}$};
+    \end{pic}
+    =
+    \begin{pic}[scale=.8]
+ \draw[fill=blue, opacity = 0.5, draw=black] (0,5) -- (0,0) -- (3,0) -- (3,3) --(2,3) -- (2,2) -- (1,2) -- (1,5) -- (0,5);
+\draw[fill=red, opacity = 0.5, draw=black] (1,5) -- (1,2) -- (2,2) -- (2,5) -- (1,5);   
+\draw[fill=yellow, opacity = 0.5, draw=black] (2,5) -- (2,3) -- (3,3) -- (3,4) -- (4,4) -- (4,1) -- (5,1) -- (5,5) -- (2,5);
+\draw[fill=green, opacity = 0.5, draw=black] (5,5) -- (5,2) -- (6,2) -- (6,3) -- (7,3) -- (7,0) -- (8,0) -- (8,5) -- (5,5);
+\draw[fill=purple, opacity = 0.5, draw=black] (6,0) -- (7,0) -- (7,3) -- (6,3) -- (6,0);
+\draw[fill=orange, opacity = 0.5, draw=black] (3,0) -- (6,0) -- (6,2) -- (5,2) -- (5,1) -- (4,1) -- (4,4) -- (3,4) -- (3,0);
+       \node[morphism, minimum width=15mm] at (1.5,2) {$\eta_{\chi}$};
+       \node[morphism, minimum width=20mm]  at (2.5,3) {$M_{oplax}^{\alpha}$};
+      \node[morphism, minimum width=15mm] at (4.5,1) {$\eta_{\chi}$};
+    \node[morphism, minimum width=15mm] at (3.5,4) {$\epsilon_{\chi}$};
+    \node[morphism, minimum width=15mm] at (6.5,3) {$\epsilon_{\chi}$};    \node[morphism, minimum width=15mm]  at (5.5,2) {$M_{oplax}^{\beta}$};
+    \end{pic}  
+=    
+        \begin{pic}[scale=.8]
+ \draw[fill=blue, opacity = 0.5, draw=black] (0,0) -- (1,0) -- (1,5) -- (0,5) --(0,0);
+\draw[fill=red, opacity = 0.5, draw=black] (1,5) -- (2,5) -- (2,3) -- (1,3) --(1,5);
+\draw[fill=yellow, opacity = 0.5, draw=black] (2,5) -- (3,5) -- (3,2) -- (2,2) -- (2,5);
+\draw[fill=green, opacity = 0.5, draw=black] (3,5) -- (4,5) -- (4,0) -- (3,0) -- (3,5); 
+\draw[fill=purple, opacity = 0.5, draw=black] (2,0) -- (3,0) -- (3,2) -- (2,2) -- (2,0);
+\draw[fill=orange, opacity = 0.5, draw=black] (1,0) -- (2,0) -- (2,3) -- (1,3) -- (1,0);
+       \node[morphism, minimum width=20mm]  at (1.5,3) {$\overline{M_{lax}^{\alpha}}$};
+       \node[morphism, minimum width=15mm]  at (2.5,2) {$\overline{M_{lax}^{\beta}}$};
+    \end{pic}  
+\end{equation}
+
+
+ For $M_{oplax}^{\alpha \horc \beta}$, and $\Pi^{\alpha \horc \beta}$ one needs to insert an extra instance of $(\epsilon \horc \looseid) \verc (\looseid \horc \eta) = \verc$ in between $M_{\alpha}$ and $M^{\beta}$, and in between $\Pi^{\alpha}$ and $\Pi^{\beta}$, respectively. The result then follows from manipulations with coherence cells, $\epsilon$ and $\eta$.
 
 Let $f$ be a braided, sylleptic or symmetric monoidal 1-cell. The loose identity $\looseid_f$ is a braided, sylleptic or symmetric monoidal 2-cell, respectively, as the coherence equation~\ref{eq:br2cell} merely states that the 3-cell $u$ pasted with coherence 3-cells equals itself. Let $\alpha, \beta$ be braided, sylleptic, or symmetric monoidal 2-cells, the loose composition $\alpha \horc \beta$ is braided, sylleptic, or symmetric monoidal, respectively. One can verify that~\ref{eq:br2cell} holds by applying the exchange law between loose and tight composition, manipulation of coherence cells, and sequential application of the respective equations for $\alpha$ and $\beta$.  Braided, sylleptic and symmetric monoidal 3-cells are simply monoidal 3-cells; therefore, it follows that the images of $\horc$ and $\looseid$ of braided, sylleptic, or symmetric monoidal cells are well-defined in $\cB r \cM on_w\cB(A,B)$, $\cS yl \cM on_w\cB(A,B)$, and $\cS ym \cM on_w\cB(A,B)$, respectively.
 
@@ -1354,10 +1689,10 @@ Let \fB\ be a locally cubical bicategory with strict composition of 1-cells alon
 We have established that the respective homsets $\cM on_wB(A,B)$, $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$ for $w \in \{l,o,s\}$ form double categories in Proposition \ref{prop:dc}. 
 
 We need to check that the unit $\transid_A$ is a well-defined pseudo double functor from the trivial double category to the respective hom-categories of lax, oplax and strong monoidal cells, as well as braided, sylleptic and symmetric cells. 
-The unit 1-cells $\transid_A$ are monoidal for all objects $A \in$ \fB,  with the monoidal structure $\xi, \iota$ given by the unitor 2-cells, and $\gamma, \delta$, and $\omega$ by coherence cells for the structure of the double categgory. The coherence equations hold by simple manipulations of coherence cells. By functoriality of $\transid$, its image on the loose 2-cell  is isomorphic to the loose identity $\looseid_{\transid_A}$. This isomorphism gives rise to the following lax monoidal structure on $\transid){\transid_A}$: 
+The unit 1-cells $\transid_A$ are monoidal for all objects $A \in$ \fB,  with the monoidal structure $\xi, \iota$ given by the unitor 2-cells, and $\gamma, \delta$, and $\omega$ by coherence cells for the structure of the double categgory. The coherence equations hold by simple manipulations of coherence cells. By functoriality of $\transid$, its image on the loose 2-cell  is isomorphic to the loose identity $\looseid_{\transid_A}$. This isomorphism gives rise to the following lax monoidal structure on $\transid_{\transid_A}$: 
 
 \begin{equation}
-M^{\transid_{\transid_A}}:=
+M_{lax}^{\transid_{\transid_A}}:=
 \begin{aligned}
  \begin{tikzpicture}[yscale=1.5, xscale=3]
  \node (tl) at (0,1) {$I_A$};
@@ -1378,7 +1713,7 @@ M^{\transid_{\transid_A}}:=
  \end{tikzpicture}
  \end{aligned}
 \hspace{.5cm}
- \Pi^{\transid_{\transid_A}}:=
+ \Pi_{lax}^{\transid_{\transid_A}}:=
  \begin{aligned}
   \begin{tikzpicture}[yscale=1.5, xscale=5]
  \node (tl) at (0,1) {$\ten  (\transid_A \times \transid_A)$};
@@ -1403,7 +1738,7 @@ M^{\transid_{\transid_A}}:=
 \end{equation}
 
 Coherence equations~\ref{eq:mon2cell1}, \ref{eq:mon2cell2}, \ref{eq:mon2cell3}, and \ref{eq:br2cell} hold by simple manipulations of the isomorphisms. Note that this makes $\transid_{\transid_A}$ a braided, sylleptic, or symmetric monoidal 2-cells if $\transid_A$ is braided, sylleptic, or symmetric, respectively.
-An analogous construction makes $\transid_{\transid_A}$ into an oplax monoidal 2-cell. It follows directly from the fact that $M^{\looseid_{\transid_A}}$ and $\overline{M^{\looseid_{\transid_A}}}$ are mates under the adjoint equivalence structure on $\iota$, that the same is true for $M^{\transid_{\transid_A}}$ and $\overline{M^{\transid_{\transid_A}}}$. Likewise, $\Pi^{\transid_{\transid_A}}$ and $\overline{\Pi^{\transid_{\transid_A}}}$ are mates under the adjoint equivalence structure on $\chi$.
+An analogous construction makes $\transid_{\transid_A}$ into an oplax monoidal 2-cell. It follows directly from the fact that $M_{lax}^{\looseid_{\transid_A}}$ and $\overline{M_{lax}^{\looseid_{\transid_A}}}$ are mates under the adjoint equivalence structure on $\iota$, that the same is true for $M_{lax}^{\transid_{\transid_A}}$ and $\overline{M_{lax}^{\transid_{\transid_A}}}$. Likewise, the other pairs of structure 3-cells are mates under the adjoint equivalence structure on $\chi$ and $\iota$.
 
 By functoriality, the image of $\transid$ on the  tight 2-cell and 3-cell equal $\tightid_{\transid_A}$ and $\looseid_{\tightid_{\transid_A}} = \tightid_{\looseid_{\transid_A}}$, respectively. These cells are braided, symmetric or sylleptic; lax, oplax, or strong monoidal, depending on $A$. It follows that $\transid_A$ is a well-defined functor from the trivial double category to the respective hom-categories of lax, oplax and strong monoidal cells, as well as braided, sylleptic and symmetric ones.  
 
@@ -1467,7 +1802,7 @@ The 3-cells $\delta^{g \comp f}$ and $\omega^{g \comp f}$ are defined similarly,
 Let $f,h: A \rightarrow B $ and $g,i: B \rightarrow C$ be lax monoidal 1-cells and let $\alpha: f \rightarrow h$, $\beta: g \rightarrow i$ be lax monoidal 2-cells, the composite $\beta \comp \alpha$ is lax monoidal with the following structure 3-cells
 
 \begin{equation}
-M^{\beta \comp \alpha} := 
+M_{lax}^{\beta \comp \alpha} := 
 \begin{aligned}
  \begin{tikzpicture}[yscale=1.5, xscale=4]
  \node (t0) at (0,1) {$I_C$};
@@ -1509,8 +1844,8 @@ M^{\beta \comp \alpha} :=
       \draw[doubleeq] (b4) to (bb4);
    \draw[doubleeq] (m2) to (b2);
  \node at (1,-1.5) {\footnotesize $\iso$}; 
-  \node at (.5,-.5) {\footnotesize $\DDownarrow \Pi^{\beta} $}; 
-    \node at (1.5,-.5) {\footnotesize $\DDownarrow \overline{\tightid_{I} \Pi^{\alpha}} $}; 
+  \node at (.5,-.5) {\footnotesize $\DDownarrow M_{lax}^{\beta} $}; 
+    \node at (1.5,-.5) {\footnotesize $\DDownarrow \overline{\tightid_{I} M_{lax}^{\alpha}} $}; 
    \node at (1,.5) {\footnotesize $\iso$}; 
  \end{tikzpicture}
  \end{aligned}
@@ -1518,7 +1853,7 @@ M^{\beta \comp \alpha} :=
 
 
 \begin{equation}
-\Pi^{\beta \comp \alpha} := 
+\Pi_{lax}i^{\beta \comp \alpha} := 
 \begin{aligned}
   \begin{tikzpicture}[yscale=1.5, xscale=5]
  \node (t0) at (0,1) {$\tens (gf \times gf)$};
@@ -1560,8 +1895,8 @@ M^{\beta \comp \alpha} :=
       \draw[doubleeq] (b4) to (bb4);
    \draw[doubleeq] (m2) to (b2);
  \node at (1,-1.5) {\footnotesize $\iso$}; 
-  \node at (.5,-.5) {\footnotesize $\DDownarrow \overline{\Pi^{\beta} \tightid_{\looseid_{f \times f}}}$}; 
-    \node at (1.5,-.5) {\footnotesize $\DDownarrow \overline{\tightid_{\looseid_{h}} \Pi^{\alpha} }$}; 
+  \node at (.5,-.5) {\footnotesize $\DDownarrow \overline{\Pi_{lax}^{\beta} \tightid_{\looseid_{f \times f}}}$}; 
+    \node at (1.5,-.5) {\footnotesize $\DDownarrow \overline{\tightid_{\looseid_{h}} \Pi_{lax}^{\alpha} }$}; 
    \node at (1,.5) {\footnotesize $\iso$}; 
  \end{tikzpicture}
  \end{aligned}
@@ -1569,9 +1904,9 @@ M^{\beta \comp \alpha} :=
 
 Let $f,h: A \rightarrow B $ and $g,i: B \rightarrow C$ be lax monoidal 1-cells and let $\alpha: f \rightarrow h$, $\beta: g \rightarrow i$ be lax monoidal icons, the composite $\beta \comp \alpha$ is lax monoidal with $N^{\beta \comp \alpha}:= N^{\beta} \horc \looseid_{\beta} N^{\alpha}$ and $\Sigma^{\beta \comp \alpha}:= \Sigma^{\beta}\looseid_{\alpha \times \alpha} \horc \looseid_{\beta} \Sigma^{\alpha}$.
 
-Oplax structure 2-cells and 3-cells are obtained in a similar way. When $g,f$ are strong monoidal, the maps $\chi_{g \comp f}$ and $\overline{\chi_{g \comp f}}$ are an adjoint equivalence, constructed from the adjoint equivalence of the pairs $\chi_g, \overline{\chi_g}$ and $\chi_f, \overline{\chi_f}$. Similarly, $\iota_{g \comp f}$ and $\overline{\iota_{g \comp f}}$ form an adjoint equivalence. One can check that the required pairs of 3-cells correspond to eachother as mates by componentwise application of the adjoint equivalences for the composites of $\iota_{g \comp f}$ and $\chi_{g \comp f}$.
+Oplax structure 2-cells and 3-cells are obtained in a similar way. When $g,f$ are strong monoidal, the maps $\chi_{g \comp f}$ and $\overline{\chi_{g \comp f}}$ are an adjoint equivalence, constructed by the enriched composition from the adjoint equivalence of the pairs $\chi_g, \overline{\chi_g}$ and $\chi_f, \overline{\chi_f}$. Similarly, $\iota_{g \comp f}$ and $\overline{\iota_{g \comp f}}$ form an adjoint equivalence. One can check that the required pairs of 3-cells correspond to eachother as mates by componentwise application of the adjoint equivalences for the composites of $\iota_{g \comp f}$ and $\chi_{g \comp f}$.
 
-In all coherence equations between 3-cells for the monoidal and braided, sylleptic and symmetric structure of transversal composition above, each 3-cell consists of a conponent for the first composite  composed with the identity on the second composite, and a component for the second composite composed with the identity on the product of the first composite with itself. This means that the coherence equations for $g \comp f$  can be established by componentwise application of the equations for $g$ and $f$. Some 3-cells also contain coherence cells, but these equally break up in a part concerning the first, and a part concerning the second component. Manipulation of these coherence cells results in the required equalities. Note that rewriting the 1-cells and composites of loose 2-cells is necessary in several of the steps. A similar argument holds for coherence equations for braided, sylleptic and symmetric cells.
+In all coherence equations between 3-cells for the monoidal and braided, sylleptic and symmetric structure of transversal composition above, each 3-cell consists of a component for the first composite  composed with the identity on the second composite, and a component for the second composite composed with the identity on the product of the first composite with itself. This means that the coherence equations for $g \comp f$  can be established by componentwise application of the equations for $g$ and $f$. Some 3-cells also contain coherence cells, but these equally break up in a part concerning the first, and a part concerning the second component. Manipulation of these coherence cells results in the required equalities. Note that rewriting the 1-cells and composites of loose 2-cells is necessary in several of the steps. A similar argument holds for coherence equations for braided, sylleptic and symmetric cells.
 
 Let $\Gamma$ and $\Delta$ be two composable monoidal 3-cells. It is easy to see that the composition $\Gamma \comp \Delta$ satisfies the two equations for monoidal 3-cells. This is a matter of applying the equations for $\Gamma$ and $\Delta$ sequentially.
 \end{proof}

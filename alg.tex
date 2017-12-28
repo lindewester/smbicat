@@ -7,32 +7,35 @@
   Is it that the proofs in~\cite{shulman:frbi} are not sufficiently explicit?
 \end{anfxnote}
 \begin{anfxnote}[author=LW]
-This is an example of how ~\cite{shulman:frbi} can be applied to a specific category, in this case the category of algebras. The hard part is to show that the double category of algebras is symmetric monoidal and fibrant. It then follows directly from Theorem~\cite{shulman:frbi} that the bicategory of algebras is symmetric monoidal. The theorem itself is not discussed in this section. Instead, it shows that the theorem can be used to formalise important properties of categories used for quantum information. 
+This section shows that Theorem~\cite{shulman:frbi} can be used to formalise important properties of different categories of algebras and bimodules used for quantum information. The results in this section show that suitable double categories of algebras are symmetric/braided monoidal and fibrant; hence, we can apply Theorem~\cite{shulman:frbi} to show that the respective bicategories of algebras and bimodules are symmetric/braided monoidal. 
 \end{anfxnote}
 
-As a demonstration of our method, we apply Theorem~\ref{thm:lcbcfunctor} to prove that several bicategories and pseudofunctors that play a role in quantum computing are (symmetric) monoidal. The most well-known examples that we will discuss are the bicategories $2Hilb$ introduced and conjectured to be monoidal in~\cite{Baez} and $2Vect$ introduced in..?. 
+As a demonstration of our method, we apply Theorem~\ref{thm:lcbcfunctor} to prove that the family of bicategories $\mathcal{A}lg({\cat C})$ is braided monoidal. This family contains various categories that are relevant in the field of categorical quantum mechanics and other branches of category theory, such as the bicategory $2Vect$ introduced in~\cite{kapranov562},~\cite{baez2004higher}.
 
-The bicategory $2Hilb$ is part of a larger family of bicategories which are constructed from a monoidal category ${\bf C}$ by considering certain algebras, bimodules and bimodule homomorphisms in ${\bf C}$.  [add details]
-Frobenius algebras and modules play an important role in quantum theory. Recently, the bicategory $2(CP({\bf C}))$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms has been defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. The existence of monoidal structures is an essential feature which allows for the spatial composition of information flows. We will demonstrate the existence of monoidal structures in the general bicategory $\mathcal{A}lg({\cat C})$, defined below and then specialise this result to the bicategory $2(CP({\bf C}))$.
- 
- We will prove in this section that the bicategory $\mathcal{A}lg({\cat C})$ of algebras, bimodules and bimodule homomorphisms in a braided monoidal category ${\cat C}$ is braided monoidal. It is sylleptic or symmetric when ${\bf C}$ is sylleptic or symmetric, respectively. 
-
-
-To obtain the result, we define the double category $\mathbb{A}lg({\cat C})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat C})$, and we show that $\mathbb{A}lg({\cat C})$ is fibrant and symmetric monoidal. As a direct result of Theorem~\ref{thm:lcbcfunctor},
-We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original monoidal category ${\bf C}$ is not important.
-
-\begin{defn}
-Let ${\bf C}$ be a monoidal category. We can define a  bicategory $\mathcal{A}lg({\cat C})$ consisting of the elements listed below.
+Let {\bf C} be a braided monoidal category. We consider the family of bicategories $\mathcal{A}lg({\cat C})$ consisting of the elements listed below.
 \begin{itemize}
 \item 0-cells are algebras $(A, \tinycomult[white dot], \tinyunit[white dot])$ on objects $A$ of {\cat C}.
 \item 1-cells $(A, \tinycomult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinycomult[black dot], \tinyunit[black dot])$ are morphisms $a \xrightarrow{f} b$ in {\cat C} with the structure of an $A-B-$bimodule.
 \item 2-cells are 2-morphisms in ${\cat C}$ that are bimodule homomorphisms.
 \end{itemize}
-Structural data regarding this construction, such as horizontal composition, is described in ~\cite{heunenvicarywester}. 
-\end{defn}
+Structural data regarding this construction, such as loose composition, is described in ~\cite{heunenvicarywester}.  When ${\bf C}$ is the braided monoidal category $Vect$ of vector spaces and linear maps, we obtain the category $2Vect$[citation].
+The bicategory $2(CP({\bf C}))$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms in the category $CP({\bf C})$ of objects and completely positive maps in ${\bf C}$ has been defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. The existence of monoidal structure in this category is an essential feature that allows for the spatial composition of information flows.  
+
+
+In this section we will prove that the construction $\mathcal{A}lg()$ that maps a braided monoidal category {\bf C} to the bicategory of algebras, bimodules and bimodule homomorphisms in {\bf C} gives rise to functors of locally cubical bicategories below. We then specialise the result to special, dagger, Frobenius, commutative, and symmetric algebras.
+
+\begin{align*}
+\mathcal{B}r\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on_s\mathcal{B}icat\\
+\mathcal{S}ym\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{S}ym\mathcal{M}on_s\mathcal{B}icat\\
+\mathcal{S}yl\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{S}yl\mathcal{M}on_s\mathcal{B}icat
+\end{align*}
+
+
+To obtain this result, we define the double category $\mathbb{A}lg({\cat C})$, whose loose bicategory corresponds to $\mathcal{A}lg({\cat C})$, and we show that $\mathbb{A}lg({\cat C})$ is fibrant and braided monoidal. This assignment gives rise to several pseudo functors between bicategories of monoidal categories and bicategories of fibrant monoidal double categories. Composing these functors with the functors from Theorem~\ref{thm:lcbcfunctor}, gives the required result.
+
 
 \subsection{Notation}
-We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}. In this diagrammatic language, we depict objects (and identity morphisms) as lines, and morphisms as boxes between the source object in the bottom and the target object on top. We write composition $(\ver)$ in the vertical direction and the tensor product $(\ten)$ as juxtaposition in the horizontal direction. 
+We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}. In this diagrammatic language, we depict objects (and identity morphisms) as lines, and morphisms as boxes between the source object in the bottom and the target object on top. We write tight composition $(\ver)$ in the vertical direction and the tensor product $(\ten)$ as juxtaposition in the horizontal direction. 
 
 \begin{align}
  \mbox{Composition}  \hspace{60pt}
@@ -207,9 +210,9 @@ The associator, unitor, and swap natural isomorphisms are given by the maps with
 
 For clarity, we write algebras and algebra homomorphisms in normal font and we write bimodules and (extended) bimodule homomorphisms in bold. This will help distinguishing between the two categories, which together form a double category.
 
-\begin{lem}\label{lem:algdouble}
+\begin{prop}\label{lem:algdouble}
 Let ${\cat C}$ be a monoidal category where all colimits exist, and where the tensor product preserves colimits in each variable separately. The category $\D_0$ of algebras and algebra homomorphisms of ${\bf C}$ and the category $\D_1$ of bimodules and bimodule homomorphisms of ${\bf C}$ form a double category, which we call $\bAlg$
-\end{lem}
+\end{prop}
 
 \begin{proof}
 The {\bf unit functor} $\lD_0 \xrightarrow{U} \lD_1$ is defined on objects as $U(A,\tinymult[gray dot],\tinyunit[gray dot]) := 
@@ -749,7 +752,7 @@ As a result, $f'$ factorises through  $\id_{M_1} \ten \tilde{c}_B$. Hence, there
 
 The components of the {\bf left unitor} $l_{\bf M}: U_A \odot {\bf M} \rightarrow {\bf M}$ are given by $(\mathid, l_{M}, \mathid)$, where $ l_{M}$ is defined as follows: By the module laws, ${\bf M}_{\tinydot[gray dot]}: A \ten M \rightarrow M$ is a coequaliser of the maps $_{\tinydot[gray dot]}{\bf A} \ten \mathid_{M}$ and $\mathid_{A} \ {\bf M}_{\tinydot[gray dot]}$. The canonical isomorphisms between ${\bf M}$ and ${\bf A}_{\tinydot[gray dot]}{\bf M}$ is the middle component of $l_{\bf M}$, and naturality of $l$ follows from commutativity of the diagram below. We can define $r$, and prove its naturality, in a similar way.
     
-\begin{tikzpicture}[xscale=4,yscale=2]
+\begin{tikzpicture}[xscale=4,yscale=2]\label{unitors}
  \node (tl) at (0,1) {$A \ten A \ten M$};
  \node (bl) at (0,0) {$B \ten B \ten N$};
   \node (tm) at (1,1) {$A \ten M$};
@@ -781,7 +784,7 @@ The components of the {\bf left unitor} $l_{\bf M}: U_A \odot {\bf M} \rightarro
 In this section we will prove that $\bAlg({\bf C})$ is a braided monoidal double category and that it is symmetric whenever ${\bf C}$ is symmetric.
 
 \begin{prop}\label{lem:algsymmon}
-Let ${\bf C}$ be a braided or symmetric monoidal category, the double category $\bAlg({\cat C})$ of algebras, bimodules and bimodule homomorphisms in {\bf C} is braided or symmetric monoidal, respectively.
+Let ${\bf C}$ be a braided monoidal category where all coequalisers exist and where the tensor product preserves coequalisers. The double category $\bAlg({\cat C})$ of algebras, bimodules and bimodule homomorphisms in {\bf C} is braided monoidal. It is sylleptic or symmetric, whenever ${\bf C}$ is sylleptic or symmetric, respectively.
 \end{prop}
 
 \begin{proof}
@@ -789,7 +792,7 @@ Let ${\bf C}$ be a braided or symmetric monoidal category, the double category $
 We have seen that $\D_0$ and $\D_1$ are braided or symmetric monoidal when ${\bf C}$ is braided or symmetric. Clearly, $S$ and $T$ are strict monoidal functors preserving the associativity and unit constraints, and $U_I$ is the monoidal unit of $D_1$, when $I$ is the monoidal unit of $D_0$.
 
 Unfolding definitions shows that the globular isomorphism $\fu$ from $U \circ \tens$ to $\tens \circ (U \times U)$ is the identity. We define the exchange law, ${\bf \fx}$, between the functors $\odot$ and $\tens$ as $(\mathid, \xi, \mathid)$, where $\xi$ is the unique morphism completing the commuting diagram below.
-In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({M_1} \ten {N_1})_{\tinydot[gray dot]}({M_2} \ten {N_2})$, ${M_1}_{\tinydot[gray dot]} M_2$, and ${N_1}_{\tinydot[gray dot]} N_2$, respectively. By a similar argument given while defining the associator ${\bf a}$ for the double category, one can show that $c_M \ten c_N$ is the coequaliser of the lower two parallel maps in the diagram. The two leftmost vertical morphisms are natural isomorphisms constructed from swam maps. For later use, we will denote the middle morphism by $\hat{\sigma}$.
+In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({M_1} \ten {N_1})_{\tinydot[gray dot]}({M_2} \ten {N_2})$, ${M_1}_{\tinydot[gray dot]} M_2$, and ${N_1}_{\tinydot[gray dot]} N_2$, respectively. By a similar argument given while defining the associator ${\bf a}$ for the double category, one can show that $c_M \ten c_N$ is the coequaliser of the lower two parallel maps in the diagram. The two leftmost tight morphisms are natural isomorphisms constructed from swam maps. For later use, we will denote the middle morphism by $\hat{\sigma}$.
 
 \begin{equation}\label{def:xi}
   \begin{tikzpicture}[xscale=5, yscale=2, thin]
@@ -922,24 +925,25 @@ This simultaneously proves that $f$ has a conjoint, because $\bAlg({\bf C}^{h* o
 \end{proof}
 
 \begin{eg}
-When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Theorem ~\ref{thm:lcbcfunctor}, the horizontal bicategory $\cMod$ of $\lMod$ is symmetric monoidal.
+When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Theorem ~\ref{thm:lcbcfunctor}, the loose bicategory $\cMod$ of $\lMod$ is symmetric monoidal.
 \end{eg}
 
 \begin{thm}\label{thm:eqcomp}
-Let {\bf C} be a braided monoidal category. The horizontal bicategory $\mathcal{A}lg({\cat C})$ is braided monoidal; it is symmetric whenever {\bf C} is symmetric.
+Let {\bf C} be a braided monoidal category where all coequalisers exist and where the tensor product preserves coequalisers. The loose bicategory $\mathcal{A}lg({\cat C})$ is braided monoidal; it is symmetric whenever {\bf C} is symmetric.
 \end{thm}
 
 \begin{proof}
-This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem ~\ref{thm:lcbcfunctor}.
+By $\ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}$, $\mathbb{Alg}({\bf C})$ is braided monoidal and Fibrant; and it is symmetric or sylleptic whenever {\bf C} is symmetric or sylleptic, respectively. As a result, all constraints have loosely strong companions.  Therefore we may apply Theorem ~\ref{thm:lcbcfunctor} to finish the proof.
 \end{proof}
 
-\subsection*{Monoidal Double Functors}
+\subsection{Monoidal Functors and Transformations}
+We extend $\bAlg$ to functors and transformations and show that it gives rise to a pseudo functor. 
 \begin{prop}\label{prop:mfunctor}
-Any braided monoidal strong functor $F: {\bf C} \rightarrow {\bf D}$ which preserves coequalisers lifts to a braided monoidal strong double functor $\bAlg{F}:  \bAlg{\bf C} \rightarrow \bAlg{ \bf D}$, respectively.
+Any braided monoidal strong functor $F: {\bf C} \rightarrow {\bf D}$ which preserves coequalisers lifts to a braided monoidal strong double functor $\bAlg{F}:  \bAlg{\bf C} \rightarrow \bAlg{ \bf D}$. The functor $\bAlg{F}$ is sylleptic or symmetric, whenever $F$ is sylleptic or symmetric, respectively.
 \end{prop}
 
 \begin{proof}
-The functor $\bAlg(F)_0$ maps an algebra $(A, \tinymult[gray dot], \tinyunit[gray dot])$ to the algebra $(FA, F(\tinymult[gray dot])\circ \chi, F(\tinyunit[gray dot])\iota)$. It follows from functoriality that $F$ preserves algebra homomorphisms. The functor $\bAlg(F)_1$ maps an A-B-bimodule ${\bf M}$ to $F({\bf M})\circ \chi_{A, M\otimes B} \circ (\id_A \otimes \chi_{M,B})$. On extended module homomorphisms, $\bAlg(F)$ is defined componentwise: $\bAlg(F)(f_l, f, f_r):=(Ff_l, Ff, Ff_r)$. This is well-defined by functoriality of $F$.
+Any braided monoidal functor preserves algebras and bimodules. The functor $\bAlg(F)_0$ maps an algebra $(A, \tinymult[gray dot], \tinyunit[gray dot])$ to the algebra $(FA, F(\tinymult[gray dot])\circ \chi, F(\tinyunit[gray dot])\circ \iota)$. The functor $\bAlg(F)_1$ maps an A-B-bimodule {\bf M} to $F({\bf M}) \circ \chi_{A, M \otimes B} \circ (\id \otimes \chi_{M,B)}$. On extended bimodule homomorphisms $\bAlg$ is defined componentwise. 
 The pseudo double transformation $F_{\odot}$ is the unique morphism defined by the coequalisers below.
 
 \begin{equation}\label{def:xi}
@@ -1063,14 +1067,13 @@ The two commuting diagrams below show that $F_{\odot}$ is a module homomorphism 
 \end{equation}
 
 One can show with a similar commuting diagram that $F_{\odot}$ is a natural isomorphism in $\mathbb{A}lg({\bf D})$.
-The natural isomorphism $F_U: U_{F_0(A)} \rightarrow F_1(U_A)$. is a strict identity, by the definition of $U, \mathbb{A}lgF_0$, and $\mathbb{A}lgF_1$. Finally, it is straightforward that $S \circ F_1 = F_0 \circ S$ and $T \circ F_1 = F_0 \circ T$.
+The natural isomorphism $F_U: U_{F_0(A)} \rightarrow F_1(U_A)$ is a strict identity, by the definition of $U, \mathbb{A}lgF_0$, and $\mathbb{A}lgF_1$. Finally, it is straightforward that $S \circ F_1 = F_0 \circ S$ and $T \circ F_1 = F_0 \circ T$.
 
-It remains to prove that the double functor $\mathbb{A}lgF$  is monoidal. The first condition i) is that $F_0$ and $F_1$ are strong monoidal functors, which comes down to showing that the natural transformations $\chi: \ten (F,F) \rightarrow  F\ten$ and $\iota: I_{\cD} \rightarrow F(I_{\cC})$ give rise to tight transformations of double categories, whose components are well-defined as algebra and module homomorphisms, respectively. This follows from naturality of $\chi$, and coherence and functoriality of $F$
-Coherence of $\mathbb{A}lgF_0$ and $\mathbb{A}lgF_1$ follow from coherence of $F$. For condition ii) we need to show that $F_0 \circ S$ equals $S \circ F_1$ as monoidal functors, and similarly, $F_0 \circ T = T \circ F_1$. The first equality amounts to  $\chi^{F_0 \circ S} = \chi^{S \circ F_1}$ and $\chi^{F_0 \circ S} = \chi^{S \circ F_1}$, where we have written the functor that $\phi$ belongs to in superscript. Unfolding definitions gives us $F_0(\chi^{S}) \circ \chi^{F_0} = S(\chi^{F_1}) \circ \chi^{S}$. This holds, since $\chi^S$ is the identity. The other equalities are shown to hold in a similar way.
+It remains to prove that the double functor $\mathbb{A}lgF$ is braided monoidal strong and sylleptic or symmetric whenever $F$ is sylleptic or symmetric. The first condition i) is that $F_0$ and $F_1$ are braided monoidal strong functors, which comes down to showing that the natural transformations $\chi: \ten (F,F) \rightarrow  F\ten$ and $`\iota: I_{\cD} \rightarrow F(I_{\cC})$ give rise to tight transformations of double categories, whose components are well-defined as algebra and module homomorphisms, respectively. This follows from naturality of $\chi$, and coherence and functoriality of $F$. Coherence of $\mathbb{A}lgF_0$ and $\mathbb{A}lgF_1$ follows from coherence of $F$. Similarly, the sylleptic or symmetric monoidal structure of $F$, gives rise to a sylleptic or symmetric monoidal structure for $F_0$, $F_1$. For condition ii) we need to show that $F_0 \circ S$ equals $S \circ F_1$ as monoidal functors, and similarly, $F_0 \circ T = T \circ F_1$. The first equality amounts to  $\chi^{F_0 \circ S} = \chi^{S \circ F_1}$ and $\chi^{F_0 \circ S} = \chi^{S \circ F_1}$, where we have written the functor that $\phi$ belongs to in superscript. Unfolding definitions gives us $F_0(\chi^{S}) \circ \chi^{F_0} = S(\chi^{F_1}) \circ \chi^{S}$. This holds, since $\chi^S$ is the identity. The constraints are shown to hold in a similar way.
 
-Finally, the first of the two additional diagrams given in condition (iii) of ~\ref{def:monfunc} corresponds to the front square of the commuting diagram below. The second can be shown to hold by a similar commuting diagram.
+Finally, the first of the two additional diagrams given in condition (iii) of ~\ref{def:monfunc} corresponds to the front square of the commuting diagram below. The unlabelled arrows represent the coequalisers defining their target object. The back square commutes by coherence of $F$. The squares on the sides commute by definition of $\xi$, $F_{\odot}$, and $\chi \tinydot[gray dot] \chi$ and by naturality of $\chi$. It follows that the fron square must commute.The second diagram can be shown to hold by a similar commuting diagram.
 
-The unlabelled arrows represent the coequalisers defining their target object. The back square commutes by coherence of $F$. The squares on the sides commute by definition of $\xi$, $F_{\odot}$, and $\chi \tinydot[gray dot] \chi$ and by naturality of $\chi$. It follows that the fron square must commute.
+
 
 \begin{equation}
 \begin{tikzpicture}[xscale=3.2, yscale=2]
@@ -1112,18 +1115,12 @@ The unlabelled arrows represent the coequalisers defining their target object. T
 \end{equation}
 \end{proof}  
 
-\begin{thm}
-Let $F:{\bf C} \rightarrow {\bf D}$ be a braided monoidal strong functor. The pseudofunctor of horizontal bicategories $\cAlg (F): \cAlg ({\bf C}) \rightarrow \cAlg ({\bf D})$ is braided monoidal strong. When $F$ is sylleptic, or symmetric, then $\cAlg (F)$ is sylleptic, or symmetric, respectively.
-\end{thm}
 
-\begin{proof}
-Since $F$ is monoidal strong, the transformations $\chi$ and $\iota$ of $\mathbb{A}lg(F)$ are horizontally strong. The result follows from Proposition~\ref{prop:mfunctor} and Theorem~\ref{thm:lcbcfunctor}.
-\end{proof}
 
-Note that a similar result does not hold for braided monoidal lax or oplax functors, as the transformation $F_{\odot}$ will not be an isomorphism.
+Note that a similar result does not hold for braided monoidal lax or oplax functors, as the transformations $\chi$ and $\iota$ of $\mathbb{A}lg(F)$ may not have loosely strong companions. 
 
 \begin{prop}\label{prop:mtrans}
-Let $F,G: {\bf C} \rightarrow {\bf D}$ be braided monoidal functors. A monoidal transformation $\alpha: F \Rightarrow G$ lifts to a monoidal transformation $\bAlg \alpha: \bAlg F \Rightarrow \bAlg G$
+Let $F,G: {\bf C} \rightarrow {\bf D}$ be braided monoidal functors that preserve coequalisers. A braided monoidal transformation $\alpha: F \Rightarrow G$ lifts to a braided monoidal double transformation $\bAlg \alpha: \bAlg F \Rightarrow \bAlg G$. Furthermore, $\bAlg \alpha$ is sylleptic or symmetric, whenever $\alpha$ is sylleptic or symmetric, respectively.
 \end{prop}
 
 \begin{proof}
@@ -1183,18 +1180,68 @@ The first equality for tight transformation follows from the first coherence con
 The coherence diagrams for monoidal transformations of double categories follow directly from the original coherence diagrams of $\alpha$.
 \end{proof}
 
-\begin{thm}
-Let $\alpha: F \Rightarrow G$ be a braided monoidal natural isomorphism. The induced monoidal transformation of double categories $\bAlg \alpha: \bAlg F \Rightarrow \bAlg G$ lifts to a braided monoidal pseudo transformation $\cAlg \alpha: \cAlg F \Rightarrow \cAlg G$.
-\end{thm}
+%\begin{thm}
+%Let $\alpha: F \Rightarrow G$ be a braided monoidal natural isomorphism. The monoidal pseudo transformation $\cAlg \alpha: \cAlg F \Rightarrow \cAlg G$ is braided monoidal. 
+%\end{thm}
+
+%\begin{proof}
+%As natural isomorphisms or fibrant double categories have loosely strong companions, the result follows from Proposition~\ref{prop:mtrans} and Theorem~\ref{thm:lcbcfunctor}.
+%\end{proof}
+
+\begin{prop}\label{prop:funcAlg}
+The $\bAlg$ construction gives rise to the following pseudo functors
+\begin{align*}
+\mathcal{B}r\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{D}bl_f\\
+\mathcal{S}ym\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{D}bl_f\\
+\mathcal{S}yl\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{S}yl\mathcal{M}on\mathcal{D}bl_f
+\end{align*}
+\end{prop}
 
 \begin{proof}
-As natural isomorphisms are loosely strong, the result follows from Proposition~\ref{prop:mtrans} and Theorem~\ref{thm:lcbcfunctor}.
+The assignment on categories, functors and transformations is given in propositions~\ref{lem:algdouble},~\ref{prop:mfunctor},~\ref{prop:mtrans}.
+By Propositions~\ref{prop:mfunctor},~\ref{lem:algfib}, $\bAlg(F)$ is braided monoidal strong and $\bAlg({\bf C}),\bAlg({\bf D})$ are fibrant. Therefore, the transformations $\chi$ and $\iota$ of $\mathbb{A}lg(F)$ have loosely strong companions. 
+The assignment $\bAlg$ on functors and transformations preserves horizontal composition and units strictly. It follows that the coherence equations are trivially satisfied.
 \end{proof}
 
-\subsection{$\cat 2()$}
-We will extend the proof to the bicategory $2({\cat C})$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms in a braided monoidal category and demonstrate that it is braided monoidal and symmetric whenever ${\bf C}$ is symmetric.
+
+\subsection{Commutative, symmetric, special, dagger and Frobenius algebras}
+In practice, we are often interested in algebras with specific properties. In this section we discuss a number of conditions on algebras which are preserved by the $\cAlg$ construction.
+
 \begin{defn}
-A {\bf Frobenius algebra} is a monoidal category ${\cat C}$ is a monoid $(A, \tinymult, \tinyunit)$ together with a comonoid 
+An algebra in a braided monoidal category {\bf C} is called {\bf commutative} whenever the following equation holds.
+ \begin{align}
+  \begin{pic}[]
+        \node (l) at (-.5,-.6) {};
+        \node (r) at (.5,-.6) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+\end{pic}
+\,=\,
+  \begin{pic}[]
+          \node (ld) at (-.5,-.6) {};
+        \node (rd) at (.5,-.6) {};
+        \node (l) at (-.5,.4) {};
+        \node (r) at (.5,.4) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+         \draw[in=-90, out=90] (ld.center) to (r.center);
+         \draw[in=-90, out=90] (rd.center) to (l.center);
+  \end{pic}
+\end{align}
+
+
+\end{defn}
+
+
+
+\begin{defn}
+A {\bf Frobenius algebra} in a monoidal category ${\cat C}$ is a monoid $(A, \tinymult, \tinyunit)$ together with a comonoid 
 $(A, \tinycomult, \tinycounit)$ that satisfies the equations below.
 \begin{align}
   \begin{pic}[]
@@ -1227,7 +1274,10 @@ $(A, \tinycomult, \tinycounit)$ that satisfies the equations below.
     \draw (1,1) to[out=-90,in=0] (b.center);
   \end{pic}
 \end{align}
-We call a Frobenius algebra {\bf special} whenever the following equation holds.
+\end{defn}
+
+\begin{defn}
+We call a pair of an algebra and a coalgebra {\bf special} whenever the following equation holds.
  \begin{align}
   \begin{pic}[]
         \node (0) at (0,-0.5) {};
@@ -1244,18 +1294,61 @@ We call a Frobenius algebra {\bf special} whenever the following equation holds.
     \draw (0,-.5) to (0,1);
   \end{pic}
 \end{align}
+It is called {\bf symmetric} when the weaker condition below holds.
+
+ \begin{align}
+  \begin{pic}[]
+        \node (l) at (-.5,-.6) {};
+        \node (r) at (.5,-.6) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node[gray dot] (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+\end{pic}
+\,=\,
+  \begin{pic}[]
+          \node (ld) at (-.5,-.6) {};
+        \node (rd) at (.5,-.6) {};
+        \node (l) at (-.5,.4) {};
+        \node (r) at (.5,.4) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node[gray dot] (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+         \draw[in=-90, out=90] (ld.center) to (r.center);
+         \draw[in=-90, out=90] (rd.center) to (l.center);
+  \end{pic}
+\end{align}
 \end{defn}
 
+    
+% A {\bf dagger monoidal category} is a monoidal category that is equiped with a dagger $\dagger$, such that the equalities below hold.
+ 
+% \begin{align*}
+% (f \otimes g)^{\dagger} &= g^{\dagger} \otimes f^{\dagger}\\
+% \alpha^{\dagger} &= \alpha^{-1} \\
+%  \rho^{\dagger} &= \rho^{-1} \\
+  % \lambda^{\dagger} &= \lambda^{-1} 
+ %\end{align*}
+ 
+% A {\bf dagger braided monoidal category} is a dagger monoidal category with a braiding, such that the equation below holds
+ 
+% \begin{equation*}
+ %   \sigma^{\dagger} = \sigma^{-1} \\
+% \end{equation*}
+ 
+ 
+% A {\bf monoidal dagger functor} $F:{\bf C} \rightarrow {\bf D}$ is a functor between monoidal dagger categories that preserves the dagger, which means that $F\circ \dagger = \dagger \circ F$. ?????
+%\end{defn}
 
+ We will write $\bAlg_{S}({\bf C})$ and $\cAlg_{S}({\bf C})$ for $S\subset\{spec, \mbox{Frob}, c, sym\}$ for the sub-double categories and sub-bicategories of $\bAlg({\bf C})$ and $\cAlg({\bf C})$, respectively where the objects are restricted to the type of algebras specified by $S$. We denote special by $spec$, Frobenius by $\mbox{Frob}$, commutative by $c$ and symmetric by $sym$. 
+The double category $\bAlg_S({\bf C})$ is a braided monoidal sub-category of $\bAlg({\bf C})$ for each $S$, since the monoidal unit is special, dagger, Frobenius, commutative and symmetric. It is sylleptic or symmetric whenever ${\bf C}$ is sylleptic or symmetric, respectively.
 
-\begin{rmk}\label{comspecfrob}
-The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is symmetric monoidal. This follows from Theorem ~\ref{thm:eqcomp} since Frobenius algebras and algebra homomorphisms form a full symmetric monoidal subcategory of the category of algebras and algebra homomorphisms. The same statement holds for special and commutative Frobenius algebras. 
-\end{rmk}
-
-
-\begin{defn}
-Let {\bf C} be a braided monoidal category. A dagger functor $\dagger: {\cat C} \rightarrow {\cat C}$, a contravariant functor which is the identity on objects. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger image of the algebra. 
-A bimodule is called a {\bf dagger bimodule} when the equation below holds, where we denote $\dagger({\bf M})$ by ${\bf M}^{\dagger}$.
+ \begin{defn}
+Let {\bf C} be a braided monoidal category. A dagger $\dagger: {\cat C} \rightarrow {\cat C}$, is a contravariant functor which is the identity on objects such that $\dagger(\dagger(f)) = f$. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger image of the algebra. 
+A bimodule is called a {\bf dagger bimodule} when the equation below holds, where the coalgebra is the dagger of the algebra and we denote $\dagger({\bf M})$ by ${\bf M}^{\dagger}$.
 
 \begin{align}
     \begin{pic}[yscale=.85]
@@ -1281,7 +1374,8 @@ A bimodule is called a {\bf dagger bimodule} when the equation below holds, wher
     \end{pic}
     \end{align}
 \end{defn}
-When a braided monoidal category {\bf C} is equiped with a dagger functor, dagger Frobenius algebras and dagger bimodules and bimodule homomorphisms do not form a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
+
+When a braided monoidal category {\bf C} is equiped with a dagger functor, dagger algebras and dagger bimodules and bimodule homomorphisms do not form a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
 
 \begin{defn}
 Let $f: A\rightarrow B$ be an algebra homomorphism in a dagger category. The {\bf conjugate} $f_*$ of $f$ is defined as 
@@ -1305,45 +1399,46 @@ f_* :=
 An algebra homomorphism $f$ is {\bf self-conjugate} if $f=f_*$.
 \end{defn}
 
-\begin{prop}\label{prop:dagger}
-Let ${\cat C}$ be a braided monoidal dagger category. The bicategory $2({\cat C})$ of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat C}$ is braided monoidal; it is symmetric whenever {\bf C} is symmetric.
-\end{prop}
-
-\begin{proof}
-The bicategory is the horizontal bicategory of the double category of dagger Frobenius algebras and self-conjugate algebra homomorphisms, dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ in {\cat C}, of which $f_1$ and $f_2$ are self-conjugate. This ensures that ~\ref{eq:companion} is a dagger bimodule.  This is a symmetric monoidal subcategory of our original double category, since self-conjugate morphisms are closed under the tensor product and all structure isomorphisms of the monoidal double category are self-conjugate. Applying Theorem~\ref{thm:H} on this double category give the required result.
-\end{proof}
-
-\begin{cor}
-The bicategory $2Hilb$ defined in ~\cite{baez} is symmetric monoidal.
-\end{cor}
-
-\begin{proof}
-$2Hilb$ is a full subcategory of 2(Hilb). [details needed]
-\end{proof}
-
-
-\begin{cor}
-Let ${\bf C}$ be a symmetric monoidal category. The bicategory $2(CP({\bf C}))$ of ~\cite{heunenvicarywester} is symmetric monoidal.
-\end{cor}
-
-\begin{proof}
-This follows directly from proposition \ref{prop:dagger}.
-\end{proof}
-
-\begin{prop}
-Let ${\bf C, D}$ be braided monoidal dagger categories, let $F:{\bf C} \rightarrow {\bf D}$ be a braided monoidal strong dagger functor that preserves coequalisers. The functor $F$ lifts to a braided monoidal strong pseudofunctor $2(F): 2({\bf C}) \rightarrow 2({\bf D})$.
-\end{prop}
-  
-\begin{proof}
-The braided monoidal dagger functor $F$ preserves special dagger Frobenius algebras, self-conjugate algebra homomorphisms and dagger bimodules. As a result, the braided monoidal functor $\mathbb{A}lgF: \mathbb{A}lg{\bf C} \rightarrow \mathbb{A}lg{\bf D}$ restricts to a braided monoidal functor between the full monoidal subcategories $\mathbbm{2}(F): \mathbbm{2}({\bf C}) \rightarrow \mathbbm{2}({\bf D})$. As the structure transformations $\chi, \iota$ are horizontally strong, $\mathbbm{2}(F)$ lifts to a braided monoidal strong pseudofunctor $2(F): 2({\bf C}) \rightarrow 2({\bf D})$ by Theorem~\ref{thm:H}.
-\end{proof}
+We denote the double category of algebras and self-conjugate algebra homomorphisms, dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ in {\cat C}, of which $f_1$ and $f_2$ are self-conjugate, by $\bAlg_{\dagger}({\bf C})$. Restricting to self-conjugate morphisms ensures that ~\ref{eq:companion} is a dagger bimodule.  The double category $\bAlg_{\dagger}({\bf C})$ is a fibrant braided monoidal sub-category of our original double category, since self-conjugate morphisms are closed under the tensor product as well as lose and tight composition; furthermore, all structure isomorphisms of the braided monoidal double category are self-conjugate. 
 
 \begin{thm}
-Let $F,G: {\bf C} \rightarrow {\bf D}$ be braided monoidal strong functors that preserve coequalisers. Any braided monoidal natural isomorphism $\alpha: F \Rightarrow G$ lifts to a braided monoidal pseudo natural adjoint equivalence $2(\alpha):  2(F) \Rightarrow 2(G)$.  
+The assignment $\cAlg_{S}$ gives rise to the functors of locally cubical bicategories below, for each subset $S \subset \{spec, \dagger, \mbox{Frob}, c, sym \}$
+\begin{align*}
+\cAlg_{S} : \mathcal{B}r\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{B}icat\\
+\mathcal{S}yl\cAlg_{S}:: \mathcal{S}yl\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{S}yl\mathcal{M}on\mathcal{B}icat\\
+\mathcal{S}ym\cAlg_{S}: \mathcal{S}ym\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{B}icat
+\end{align*}
 \end{thm}
 
 \begin{proof}
-We obtain the result by restricting the braided monoidal isomorphism of double functors $\bAlg \alpha$ to its components in $\mathbbm{2}({\bf C})$ to obtain a braided monoidal double isomorphism $\mathbbm{2}(\alpha): \mathbbm{2}(F) \rightarrow \mathbbm{2}(G)$. This isomorphism lifts to a braided monoidal pseudo adjoint equivalence $2(\alpha); 2(F) \rightarrow 2(G)$ by Theorem~\ref{thm:h-locfr}.
+We regard $\mathcal{B}r\mathcal{M}on\mathcal{C}at, 
+\mathcal{S}ym\mathcal{M}on\mathcal{C}at$ and $ 
+\mathcal{S}yl\mathcal{M}on\mathcal{C}at$ as locally cubical bicategories with only identity tight 2-cells and 3-cells. 
+Let ${\cat C}$ be a braided monoidal dagger category. For each set of conditions $S$, we obtain a the braided monoidal sub-double category $\bAlg_S({\bf C}) \subset \bAlg({\bf C})$.  
+This assignment gives rise to the pseudo functors $\mathcal{B}r\mathcal{M}on\bAlg_S, 
+\mathcal{S}ym\mathcal{M}on\bAlg_S$ and $ 
+\mathcal{S}yl\mathcal{M}on\bAlg_S$, which are defined on hom-categories as in Prop~\ref{prop:funcAlg}. Composition with the functors in Theorem~\ref{thm:H} gives us the required functors below.
+\begin{align*}
+ \cBr\cMon_s\cCat\xrightarrow{\cBr\cMon_s \bAlg_S} \cBr\cMon_s\fDbl_f \xrightarrow{\cBr\cMon_s \cH} \cBr\cMon_s \fBicat \\
+   \cSyl\cMon_s\cCat \xrightarrow{\cSyl\cMon_s\bAlg_S} \cSyl\cMon_s\fDbl_f \xrightarrow{\cSyl\cMon_s\cH} \cSyl\cMon_s\fBicat\\
+  \cSym\cMon_scCat \xrightarrow{\cSym\cMon_s\bAlg_S} \cSym\cMon_s\fDbl_f \xrightarrow{\cSym\cMon_s \cH} \cSym\cMon_s \fBicat 
+\end{align*}
+\end{proof}
+
+\begin{cor}
+The bicategory $2Vect$ is symmetric monoidal.
+\end{cor}
+
+\begin{proof}
+The category $Vect$ is symmetric monoidal, contains all coequalisers and has a tensor product that preserves coequalisers. 
+\end{proof}
+
+\begin{cor}
+Let ${\bf C}$ be a braided monoidal category that contains all coequalisers and where the tensor product preserves coequalisers. The bicategory $2(CP({\bf C}))$ of ~\cite{heunenvicarywester} is braided monoidal. It is sylleptic or symmetric monoidal whenever ${\bf C}$ is sylleptic or symmetric monoidal, respectively
+\end{cor}
+
+\begin{proof}
+The bicategory $2(CP({\bf C}))$ is equal to the bicategory $\cAlg_{s,\dagger, Frob}({\bf C})$.
 \end{proof}
 % Local Variables:
 % TeX-master: "smbicat"
