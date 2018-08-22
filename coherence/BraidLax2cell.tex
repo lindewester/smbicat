@@ -1,0 +1,138 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\newcommand{\id}{\mathrm{id}}
+\begin{document}
+
+
+\begin{equation}\label{eq:br2cell}
+\begin{aligned}
+\begin{tikzpicture}[xscale=3, yscale=1.5]
+\node (03) at (0,3) {\small $\tens(f \times f)$};
+\node (13) at (1,3) {\small $\tens \tau (f \times f)$};
+\node (23) at (2,3) {\small $\tens(f \times f) \tau$};
+\node (33) at (3,3) {\small $f \tens \tau$};
+\node (43) at (4,3) {\small $g \tens \tau$};
+%%%%%%
+\node (02) at (0,2) {\small $\tens(f \times f)$};
+\node (12) at (1,2) {\small $f \tens$};
+\node (32) at (3,2) {\small $f \tens \tau$};
+\node (42) at (4,2) {\small $g \tens \tau$};
+%%%%%% 
+\node (01) at (0,1) {\small $\tens(f \times f)$};
+\node (11) at (1,1) {\small $f \tens$};
+\node (31) at (3,1) {\small $g \tens $};
+\node (41) at (4,1) {\small $g \tens \tau$};
+%%%%%%%
+\node (00) at (0,0) {\small $\tens(f \times f)$};
+\node (10) at (1,0) {\small $\tens(g \times g)$};
+\node (30) at (3,0) {\small $g \tens$};
+\node (40) at (4,0) {\small $g \tens \tau$};
+%%%%%%%
+\draw[doubleloose] (03) to node[above]{\small $\sigma \looseid_{f \times f}$} (13);
+\draw[double] (13) to (23);
+\draw[doubleloose] (23) to node[above]{\small $\chi \looseid_{\tau}$} (33);
+\draw[doubleloose] (33) to node[above]{\small $\beta \looseid_{\tens \tau}$} (43);
+%%%%
+\draw[doubleloose] (02) to node[above]{\small $\chi$} (12);
+\draw[doubleloose] (12) to node[above]{\small $\looseid_f \sigma$} (32);
+\draw[doubleloose] (32) to node[above]{\small $\beta \looseid_{\tens \tau}$} (42);
+%%%%%%
+\draw[doubleloose] (01) to node[above]{\small $\chi$} (11);
+\draw[doubleloose] (11) to node[above]{\small $\beta \looseid_{\tens}$} (31);
+\draw[doubleloose] (31) to node[above]{\small $ \looseid_g \sigma$} (41);
+%%%%%%
+\draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\beta \times \beta)$} (10);
+\draw[doubleloose] (10) to node[above]{\small $\chi $} (30);
+\draw[doubleloose] (30) to node[above]{\small $\looseid_g \sigma $} (40);
+%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (33) to (32);
+\draw[doubletighteq] (43) to (42);
+%%%%%%
+\draw[doubletighteq] (02) to (01);
+\draw[doubletighteq] (12) to (11);
+\draw[doubletighteq] (42) to (41);
+%%%%%%
+\draw[doubletighteq] (01) to (00);
+\draw[doubletighteq] (31) to (30);
+\draw[doubletighteq] (41) to (40);
+%%%%%%%%
+\node at (1.5,2.5) {\small $\DDownarrow u$};
+\node at (3.5,2.5) {\small $=$};
+\node at (.5,1.5) {\small $=$};
+\node at (2.5,1.5) {\small $\iso$};
+\node at (1.5,.5) {\small $\DDownarrow \Pi^{\beta}$};
+\node at (3.5,.5) {\small $=$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=3, yscale=1.5]
+\node (03) at (0,3) {\small $\tens(f \times f)$};
+\node (13) at (1,3) {\small $\tens \tau (f \times f)$};
+\node (23) at (2,3) {\small $\tens(f \times f) \tau$};
+\node (33) at (3,3) {\small $f \tens \tau$};
+\node (43) at (4,3) {\small $g \tens \tau$};
+%%%%%%
+\node (02) at (0,2) {\small $\tens(f \times f)$};
+\node (12) at (1,2) {\small $\tens \tau (f \times f)$};
+\node (22) at (2,2) {\small $\tens (f \times f) \tau $};
+\node (32) at (3,2) {\small $\tens (g \times g) \tau$};
+\node (42) at (4,2) {\small $g \tens \tau$};
+%%%%%% 
+\node (01) at (0,1) {\small $\tens(f \times f)$};
+\node (11) at (1,1) {\small $\tens (g \times g)$};
+\node (21) at (2,1) {\small $\tens \tau (g \times g)$};
+\node (31) at (3,1) {\small $\tens (g \times g) \tau $};
+\node (41) at (4,1) {\small $g \tens \tau$};
+%%%%%%%
+\node (00) at (0,0) {\small $\tens(f \times f)$};
+\node (10) at (1,0) {\small $\tens(g \times g)$};
+\node (30) at (3,0) {\small $g \tens$};
+\node (40) at (4,0) {\small $g \tens \tau$};
+%%%%%%%
+\draw[doubleloose] (03) to node[above]{\small $\sigma \looseid_{f \times f}$} (13);
+\draw[double] (13) to (23);
+\draw[doubleloose] (23) to node[above]{\small $\chi \looseid_{\tau}$} (33);
+\draw[doubleloose] (33) to node[above]{\small $\beta \looseid_{\tens \tau}$} (43);
+%%%%
+\draw[doubleloose] (02) to node[above]{\small $\sigma \looseid_{f \times f}$} (12);
+\draw[double] (12) to  (22);
+\draw[doubleloose] (22) to node[above]{\small $\looseid_{\tens} (\beta \times \beta) \looseid_{\tau}$} (32);
+\draw[doubleloose] (32) to node[above]{\small $\chi \looseid_{\tau}$} (42);
+%%%%%%
+\draw[doubleloose] (01) to node[above]{\small $\looseid_{\tens} (\beta \times \beta)$} (11);
+\draw[doubleloose] (11) to node[above]{\small $\sigma \looseid_{g \times g}$} (21);
+\draw[double] (21) to (31);
+\draw[doubleloose] (31) to node[above]{\small $ \chi \looseid_{\tau}$} (41);
+%%%%%%
+\draw[doubleloose] (00) to node[above]{\small $\looseid_{\tens} (\beta \times \beta)$} (10);
+\draw[doubleloose] (10) to node[above]{\small $\chi $} (30);
+\draw[doubleloose] (30) to node[above]{\small $\looseid_g \sigma $} (40);
+%%%%%%
+\draw[doubletighteq] (03) to (02);
+\draw[doubletighteq] (13) to (12);
+\draw[doubletighteq] (43) to (42);
+%%%%%%
+\draw[doubletighteq] (02) to (01);
+\draw[doubletighteq] (32) to (31);
+\draw[doubletighteq] (42) to (41);
+%%%%%%
+\draw[doubletighteq] (01) to (00);
+\draw[doubletighteq] (11) to (10);
+\draw[doubletighteq] (41) to (40);
+%%%%%%%%
+\node at (.5,2.5) {\small $=$};
+\node at (2.5,2.5) {\small $\DDownarrow \overline{\Pi^{\beta} \looseid_{\tau}}$};
+\node at (1.5,1.5) {\small $\iso$};
+\node at (3.5,1.5) {\small $=$};
+\node at (.5,.5) {\small $=$};
+\node at (2.5,.5) {\small $\DDownarrow u$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+\end{document} 

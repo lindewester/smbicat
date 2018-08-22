@@ -1,0 +1,74 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\newcommand{\id}{\mathrm{id}}
+\begin{document}
+
+\begin{equation}\label{eq:bricon}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4, yscale=2]
+\node (02) at (0,2){$\tens(f \times f)$};
+\node (12) at (1,2){$\tens \tau (f \times f)$};
+\node (22) at (2,2){$f \tens \tau$};
+\node (01) at (0,1){$\tens(f \times f)$};
+\node (11) at (1,1){$f \tens $};
+\node (21) at (2,1){$f \tens \tau$};
+\node (00) at (0,0){$\tens (g \times g)$};
+\node (10) at (1,0){$g\tens $};
+\node (20) at (2,0){$g \tens \tau$};
+%%%%%%%%%%
+\draw[doubleloose] (02) to node[above]{$\sigma \looseid_{f\times f}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{\tau}$} (22);
+\draw[doubleloose] (01) to node[above]{$\chi$} (11);
+\draw[doubleloose] (11) to node[above]{$\looseid_f \sigma$} (21);
+\draw[doubleloose] (00) to node[above]{$\chi$} (10);
+\draw[doubleloose] (10) to node[above]{$\looseid_g \sigma$} (20);
+%%%%%%%%%%%%
+\draw[=] (02) to (01);
+\draw[doubletight] (01) to node[left]{$\looseid_{\tens} (\beta \times \beta)$}(00);
+\draw[doubletight] (11) to node[left]{$\beta \looseid_{\tens}$}(10);
+\draw[=] (22) to (21);
+\draw[doubletight] (21) to node[left]{$\beta \looseid_{\tens \tau}$}(20);
+%%%%%%%%%%%%%
+\node at (1,1.5){$\DDownarrow u$};
+\node at (.5,.5){$\DDownarrow\Pi^{\beta}$};
+\node at (1.5,.5) {$\DDownarrow \looseid_{\beta} \tightid_{\sigma}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4, yscale=2]
+\node (02) at (0,2){$\tens(f \times f)$};
+\node (12) at (1,2){$\tens \tau (f \times f)$};
+\node (22) at (2,2){$f \tens \tau$};
+\node (01) at (0,1){$\tens(g \times g)$};
+\node (11) at (1,1){$ \tens \tau (g\times g)$};
+\node (21) at (2,1){$g \tens \tau$};
+\node (00) at (0,0){$\tens (g \times g)$};
+\node (10) at (1,0){$g\tens $};
+\node (20) at (2,0){$g \tens \tau$};
+%%%%%%%%%%
+\draw[doubleloose] (02) to node[above]{$\sigma \looseid_{f\times f}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{\tau}$} (22);
+\draw[doubleloose] (01) to node[above]{$\sigma \looseid_{g \times g}$} (11);
+\draw[doubleloose] (11) to node[above]{$\chi \looseid_{\tau}$} (21);
+\draw[doubleloose] (00) to node[above]{$\chi$} (10);
+\draw[doubleloose] (10) to node[above]{$\looseid_g \sigma$} (20);
+%%%%%%%%%%%%%
+\draw[doubletight] (02) to node[left]{$\looseid_{\tens} (\beta \times \beta)$}(01);
+\draw[=] (01) to (00);
+\draw[doubletight] (12) to node[xshift=5pt]{$\looseid_{\tens \tau} \hspace{.1cm} (\beta \times \beta) $}(11);
+\draw[doubletight] (22) to node[left]{$\beta \looseid_{\tens \tau}$}(21);
+\draw[=] (21) to (20);
+%%%%%%%%%%%%%
+\node at (1,0.5){$\DDownarrow u$};
+\node at (.5,1.5){$\DDownarrow \tightid_{\sigma} \looseid_{\beta \times \beta} $};
+\node at (1.5,1.5) {$\DDownarrow \Pi^{\beta}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+
+\end{document} 

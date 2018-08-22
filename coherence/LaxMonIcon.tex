@@ -1,0 +1,68 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\newcommand{\id}{\mathrm{id}}
+\begin{document}
+
+\begin{equation}\label{eq:monicon1}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(I \times f )i_2 $};
+\node (12) at (1,2){$\tens(fI_A \times f)i_2 $};
+\node (22) at (2,2){$f\tens(I_A \times \transid)i_2 $};
+\node (32) at (3,2){$f $};
+\node (01) at (0,1){$\tens(I_B \times \transid )i_2 f$};
+\node (31) at (3,1){$f $};
+\node (00) at (0,0){$\tens(I_B \times \transid )i_2 g$};
+\node (30) at (3,0){$g$};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\iota_f \times \looseid_f) \looseid_{i_2}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_f l$} (32);
+\draw[doubleloose] (01) to node[above]{$l \looseid_f $} (31);
+\draw[doubleloose] (00) to node[above]{$l \looseid_g $} (30);
+\draw[=] (02) to node[left]{} (01);
+\draw[=] (32) to node[left]{} (31);
+\draw[doubletight] (01) to node[left]{$\tightid_{\tens} (\tightid_I\times \beta)\tightid_{i_2}$} (00);
+\draw[doubletight] (31) to node[left]{$\beta$} (30);
+\node at (1.5,1.5){$\DDownarrow \gamma^f$};
+\node at (1.5,0.5){$\DDownarrow \looseid_{l}\tightid_{\beta}$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\[=\]
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){$\tens(I_B \times f )i_2 $};
+\node (12) at (1,2){$\tens(fI_A \times f)i_2 $};
+\node (22) at (2,2){$f\tens(I_A \times \transid)i_2 $};
+\node (32) at (3,2){$f $};
+\node (01) at (0,1){$\tens(I_B \times g )i_2 $};
+\node (11) at (1,1){$\tens(gI_A \times g)i_2 $};
+\node (21) at (2,1){$g\tens(I_A \times \transid)i_2 $};
+\node (31) at (3,1){$g $};
+\node (00) at (0,0){$\tens(I_B \times \transid )i_2 g$};
+\node (30) at (3,0){$g $};
+\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\iota_f \times \looseid_f) \looseid_{i_2}$} (12);
+\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (22);
+\draw[doubleloose] (22) to node[above]{$\looseid_f l$} (32);
+\draw[doubleloose] (01) to node[above]{$\looseid_{\tens} (\iota_g \times \looseid_g \looseid_{i_2}$} (11);
+\draw[doubleloose] (11) to node[above]{$\chi \looseid_{(I_A \times \transid)i_2}$} (21);
+\draw[doubleloose] (21) to node[above]{$\looseid_g l$} (31);
+\draw[doubleloose] (00) to node[above]{$l \looseid_g $} (30);
+\draw[doubletight] (02) to node[left]{$\tightid_{\tens(I\times \transid)}\beta$} (01);
+\draw[doubletight] (12) to node[right]{$\tightid (\beta \times \beta) \tightid$} (11);
+\draw[doubletight] (22) to node[left]{$\beta \tightid$} (21);
+\draw[doubletight] (32) to node[left]{$\beta$} (31);
+\draw[doubletight] (01) to node[left]{$\tightid_{\tens} (\tightid_I\times \beta)\tightid_{i_2}$} (00);
+\draw[doubletight] (31) to node[left]{$\beta$} (30);
+\node at (0.5,1.5){$\DDownarrow \tightid (N^{\beta} \times \tightid_{\looseid}) \tightid$};
+\node at (1.5,1.5){$\DDownarrow \Sigma^{\beta} \tightid$};
+\node at (2.5,1.5){$\DDownarrow \looseid_{\beta} \tightid_{l}$};
+\node at (1.5,0.5){$\DDownarrow \gamma^g$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}
+
+
+\end{document} 

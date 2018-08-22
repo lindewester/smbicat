@@ -1,0 +1,29 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\newcommand{\id}{\mathrm{id}}
+\begin{document}
+
+\begin{align}\label{eq:strong2mates4}
+\begin{pic}[yscale=.8,xscale=-.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (6,4) -- (6,1) -- (1,1) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,1) -- (6,1) -- (6,4) -- (5,4) -- (5,2) -- (2,2) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,2) -- (5,2) -- (5,4) -- (4,4) -- (4,3) -- (3,3) -- (3,8) -- (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,3) -- (4,3) -- (4,4) -- (5,4) -- (5,6) -- (8,6) -- (8,0) -- (10,0) -- (10,8) -- (3,8); 
+\node[morphism, minimum width=15mm] (l) at (5,4) {$\bar{\delta}$};
+\node[morphism, minimum width=10mm] (l) at (3.5,3) {$\eta_{\chi \looseid}$};
+\node[morphism, minimum width=20mm] (l) at (3.5,2) {$\eta_{\looseid (\looseid\times\iota)\looseid}$};
+\node[morphism, minimum width=32mm] (l) at (3.5,1) {$\eta_{r \looseid}$};
+\node[morphism, minimum width=20mm] (l) at (6.5,6) {$\epsilon_{\looseid r}$};
+    \end{pic}
+    =
+   \begin{pic}[yscale=0.8, xscale=.5]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (2,0) --(2,4) -- (1,4) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,4) -- (2,4) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,4) -- (3,4) -- (3,8) --  (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,4) -- (2,4) -- (2,0) -- (4,0) -- (4,8) -- (3,8); 
+\node[morphism, minimum width=15mm] (l) at (2,4) {$\delta$};
+    \end{pic}
+\end{align}
+
+\end{document} 

@@ -1,0 +1,38 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\newcommand{\id}{\mathrm{id}}
+\begin{document}
+
+\begin{equation}\label{eq:strong2mates}
+\begin{pic}[scale=1.75]
+\draw[fill=blue, opacity = 0.5, draw=blue] (-1,0) -- (-1,-2) -- (0.6,-2) -- (0.6, -.6) -- (0,-.6) -- (0,-1.4) --  (-.6,-1.4) -- (-.6, 0) -- (-1,0);
+\draw[fill=red, opacity = 0.5, draw=red] (-.6,0) -- (-.6,-1.4) -- (0,-1.4) -- (0,-.6) -- (.6,-.6) -- (.6,-2) -- (1,-2) -- (1,0) -- (-.6,0);   
+   %  \draw (.3,-.6) to (.3,0);
+     \draw (0,-1.4) to node[left]{$\bar{\chi}$} (0,-.6);
+     \draw (-.6,-1.4) to (-.6,0);
+       \node[morphism, minimum width=20mm] (l) at (-.3,-1.4) {$\eta$};
+       \node[morphism, minimum width=20mm] (r) at (.3,-.6) {$\epsilon$};
+%\draw (-.3, -2) to (l.south);
+\node at (-.6,.2) {$\chi$};
+\node at (-.3,-1.8) {$\otimes(f\times f)$};
+\node at (.3,-.2) {$f\otimes$};
+\node at (.6,-2.2) {$\chi$};
+    \end{pic}
+    =
+    \begin{pic}[scale=1.75]
+\draw[fill=red, opacity = 0.5, draw=red] (-1,0) -- (-1,-2) -- (-0.6,-2) -- (-.6, -.6) -- (0,-.6) -- (0,-1.4) --  (.6,-1.4) -- (.6, 0) -- (-1,0);
+\draw[fill=blue, opacity = 0.5, draw=blue] (-.6,-2) -- (-.6,-.6) -- (0,-.6) -- (0,-1.4) -- (.6,-1.4) -- (.6,0) -- (1,0) -- (1,-2) -- (-.6,-2);   
+ %    \draw (.3,-1.4) to (.3,-2);
+     \draw (0,-1.4) to node[left]{$\chi$} (0,-.6);
+     \draw (-.6,-.6) to (-.6,-2);
+       \node[morphism, minimum width=20mm] (l) at (-.3,-.6) {$\epsilon$};
+       \node[morphism, minimum width=20mm] (r) at (.3,-1.4) {$\eta $};
+%\draw (-.3, 0) to (l.north);
+\node at (-.6,-2.2) {$\bar{\chi}$};
+\node at (-.3,-.2) {$f\otimes $};
+\node at (.3,-1.8) {$\otimes(f\times f)$};
+\node at (.6,.2) {$\bar{\chi}$};
+    \end{pic}
+\end{equation}
+\end{document} 

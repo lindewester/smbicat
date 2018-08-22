@@ -1,0 +1,34 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\newcommand{\id}{\mathrm{id}}
+\begin{document}
+
+\begin{align}\label{eq:strong2mates2}
+\begin{pic}[scale=-.8]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (7,0) -- (7,5) -- (6,5) -- (6,1) -- (1,1) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,1) -- (6,1) -- (6,4) -- (5,4) -- (5,2) -- (2,2) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,2) -- (5,2) -- (5,4) -- (4,4) -- (4,3) -- (3,3) -- (3,8) -- (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,3) -- (4,3) -- (4,7) -- (9,7) -- (9,0) -- (10,0) -- (10,8) -- (3,8); 
+\draw[fill=yellow, opacity = 0.5, draw=black] (9,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (4,4) -- (4,7) -- (9,7) -- (9,0);
+\draw[fill=green, opacity = 0.5, draw=black] (7,0) -- (8,0) -- (8,6) -- (5,6) -- (5,4) -- (6,4) -- (6,5) -- (7,5) -- (7,0) ;
+\node[morphism, minimum width=20mm] (l) at (5,4) {$\bar{\omega}$};
+\node[morphism, minimum width=10mm] (l) at (3.5,3) {$\eta_{\chi \looseid}$};
+\node[morphism, minimum width=28mm] (l) at (3.5,2) {$\eta_{\looseid (\looseid\times\chi)}$};
+\node[morphism, minimum width=42mm] (l) at (3.5,1) {$\eta_{\alpha\looseid}$};
+\node[morphism, minimum width=10mm] (l) at (6.5,5) {$\epsilon_{\looseid(\chi \times \looseid)}$};
+\node[morphism, minimum width=28mm] (l) at (6.5,6) {$\epsilon_{\chi\looseid}$};
+\node[morphism, minimum width=42mm] (l) at (6.5,7) {$\epsilon_{\looseid\alpha}$};
+    \end{pic}
+    =
+    \begin{pic}[scale=0.8]
+\draw[fill=blue, opacity = 0.5, draw=black] (0,8) -- (0,0) -- (1,0) -- (1,8) -- (0,8);
+\draw[fill=purple, opacity = 0.5, draw=black] (1,8) -- (1,4) -- (2,4) -- (2,8) -- (1,8); 
+\draw[fill=red, opacity = 0.5, draw=black] (2,8) -- (2,4) -- (3,4) -- (3,8) --  (2,8); 
+\draw[fill=orange, opacity = 0.5, draw=black] (3,8) -- (3,0) -- (4,0) -- (4,8) -- (3,8); 
+\draw[fill=green, opacity = 0.5, draw=black] (1,4) -- (2,4) -- (2,0) -- (1,0) -- (1,4);
+\draw[fill=yellow, opacity = 0.5, draw=black] (2,4) -- (3,4) -- (3,0) -- (2,0) -- (2,4);
+\node[morphism, minimum width=20mm] (l) at (2,4) {$\omega$};
+    \end{pic}
+\end{align}
+\end{document} 

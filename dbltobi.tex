@@ -468,70 +468,39 @@ where $i$ and $j$ are the unitors of ${\bf S}$ and ${\bf T}$.
   There is an iconic functor $\cH\maps \cDblf\to \cBicat$.
 \end{thm}
 \begin{proof}
-The first two requirements in \autoref{def:Iconfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr} (ignoring the right adjoint parts of the conjunctional transformations).
-The third requirement amounts to the existence of an invertible modification
-%
-\begin{equation}
-\begin{tikzpicture}[xscale=0.75, yscale=1.3]
-\node (tl) at (0,2) {${\cH}(H) \circ {\cH}(F)$};
-\node (bl) at (0,1) {${\cH}(H \circ F)$};
-\node (tr) at (4,2) {${\cH}(K) \circ {\cH}(G)$};
-\node (br) at (4,1) {${\cH}(K \circ G)$};
-\draw[->] (tl) to node [above] {$\hat{\beta} * \hat{\alpha}$} (tr);
-\draw[->] (tr) to node [right] {$\phi_{K,G}$} (br);
-\draw[->] (tl) to node [right] {$\phi_{H,F}$} (bl);
-\draw[->] (bl) to node [below] {$\widehat{\be*\al}$} (br);
-\node at (2,1.5) {$\Arrow{5} \phi_{\alpha,\beta} $};
-\end{tikzpicture}
-\end{equation}
-%
-for every pair of transformations with loosely strong companions 
+The first two requirements in \autoref{def:Iconfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}.
+The third requirement amounts to the existence of a 2-cell $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$ for every pair of transformations with loosely strong companions 
 
   \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
       & \lE}}\]
-satisfying the naturality and composition constraints~\eqref{eq:laxtransf-ax} and~\eqref{thm:1-func}.
-
-However, since composition of
-  1-cells in $\cDblf$ and \cBicat\ is strictly associative and
-  unital, and \cH\ strictly preserves this composition (Theorem \ref{thm:1-func}),
-  the composition constraints $\phi_{H,F}$ and $\phi_{K,G}$ are identities. Consequently, $\phi$ is merely  a modificaton $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$ such that 
+      
+      such that 
 %
  \begin{equation}
         \vcenter{\xymatrix@-.5pc{
-        1_{{\cH}H \circ {\cH}F} \ar[r]\ar[d]_{=} &
-        \hat{1}_{K}*\hat{1}_{H}\ar[d]^{\phi}\\
-        1_{{\cH}(H \circ F)}\ar[r] &
-        \widehat{1_{K} *1_{H}}}} \quad\text{and}\quad       
+        1_{{\cH}H \odot {\cH}F} \ar[r]\ar[d]_{=} &
+        \hat{1}_{H}* \hat{1}_{F}\ar[d]^{\phi}\\
+        1_{{\cH}(H \odot F)}\ar[r] &
+        \widehat{1_{H} * 1_{F}}}} \quad\text{and}\quad       
     \vcenter{\xymatrix@-.5pc{
-        \widehat{\gm\al}*\widehat{\de\be} \ar[r]\ar[d]_\phi &
-        (\gmhat*\dehat)\odot(\alhat*\behat)\ar[d]^{\phi \odot \phi}\\
-        \widehat{\gm\al*\de\be}\ar[r] &
-        (\widehat{\gm*\de})\odot(\widehat{\al*\be})}}
+        \widehat{\gm\al}* \widehat{\de\be} \ar[r]\ar[d]_\phi &
+        (\gmhat* \dehat)\circ(\alhat* \behat)\ar[d]^{\phi * \phi}\\
+        \widehat{\gm\al* \de\be}\ar[r] &
+        (\widehat{\gm* \de})\circ(\widehat{\al* \be})}}
   \end{equation}
-commute. (Here we are writing $*$ for the `Godement product' of 2-cells in $\cDbl$ and $\cBicat$.)    
-Note that condition~\eqref{eq:laxtransf-nat} is satisfied because $\cDblf$ has no nonidentity 3-cells.
-  
+commute. 
+Here, we use the 'Godement product' $*$ of 2-cells in $\cDbl$ and $\cBicat$.  
+
   Now by Lemmas \ref{thm:comp-compose} and
   \ref{thm:comp-func}, $(\behat *\alhat)_A = \behat_{GA} \circ
   H(\alhat_A)$ is a companion of $(\be*\al)_A = \be_{GA} \circ
   H(\al_A)$.  Therefore, we take the component $(\phi_{\alpha,\beta})_A$ to be
   \[\theta_{\behat_{GA} \circ H(\alhat_A),\, \widehat{\be*\al}_A}.\]
-  The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
-   Equation~\eqref{eq:modif-ax}, saying that these form a modification,
-  becomes the equality of two large composites of 2-cells in \lD,
-  which as usual follows from~\eqref{eq:compeqn}. The equations above are satisfied by uniqueness of $\theta$-isomorphisms.
+ As the other morphisms in the diagrams above are also $\theta$-isomorphisms, the equations hold by uniqueness of $\theta$-isomorphisms.
 
-The icon  $\phi_u$ is simply the identity, since $\cH$ is strictly unital.
-    %Finally, the required
-  %modifications merely amount to the \emph{assertions} that
-  %\[\vcenter{\xymatrix@-.5pc{\gmhat*\behat*\alhat \ar[r]^\chi\ar[d]_\chi &
-   %   \widehat{\gm*\be}*\alhat \ar[d]^\chi\\
-   %   \gmhat*\widehat{\be*\al}\ar[r]_\chi & \widehat{\gm*\be*\al}}},\qquad
-  %\vcenter{\xymatrix@-.5pc{ \alhat \ar[r]^-\iota \ar@{=}[dr] &
-   %   \widehat{1_F}*\alhat \ar[d]^\chi \\ & \alhat }}, \;\text{and}\qquad
-  %\vcenter{\xymatrix@-.5pc{ \alhat \ar[r]^-\iota \ar@{=}[dr] &
-   %   \alhat*\widehat{1_F} \ar[d]^\chi \\ & \alhat }}\]
-  %commute; again this follows from \autoref{thm:theta-compose-vert}.
+For the icon  $\phi_u$ we can simply take the identity, since $\cH$ is strictly unital.
+
+The coherence equations hold by uniqueness of $\theta$-isomorphisms.
 \end{proof}
 
 Our goal is to enhance this functor to act on ``monoidal objects''.
@@ -583,8 +552,3 @@ We end this section with one final lemma.
   satisfies~\eqref{eq:comp-iso} and hence must be equal to $\theta$.
 \end{proof}
 
-
-
-% Local Variables:
-% TeX-master: "smbicat"
-% End:
