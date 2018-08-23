@@ -94,23 +94,6 @@ also~\cite{bm:dbl-thin-conn,fiore:pscat}.  In the terminology of these
 references, a \emph{connection} on a double category is equivalent to
 a strictly functorial choice of a companion for each tight arrow.
 
-\begin{defn}
-  We say that a double category is \textbf{fibrant} if every tight
-  1-morphism has both a companion and a conjoint.
-\end{defn}
-
-
-
-\begin{rmk}
-  In~\cite{shulman:frbi} fibrant double categories were called
-  \emph{framed bicategories}.  However, the present terminology seems
-  to generalize better to $(n\times k)$-categories, as well as
-  avoiding a conflict with the \emph{framed bordisms} in topological
-  field theory.
-  It is shown in~\cite{shulman:frbi} that $\lD$ is fibrant if and only if the (source, target) functor $\lD_1 \to \lD_0\times\lD_0$ is a Grothendieck fibration, and if and only if it is a Grothendieck opfibration; this partially justifies the name.
-  In~\cite{gg:ldstr-tricat}, the term ``fibrant double category'' was used for one in which only tight \emph{isomorphisms} have companions (hence also, as we will see, conjoints); we prefer to call a double category with this property \emph{isofibrant}.
-\end{rmk}
-
 % a loose 1-cell $\fchk\maps B\hto
 %   A$ together with 2-morphisms
 %   \[\begin{array}{c}
@@ -162,7 +145,7 @@ a strictly functorial choice of a companion for each tight arrow.
 %   \end{align*}
 
 \begin{egs}
-  \lMod, \lnCob, and \lProf\ are all fibrant.  In \lMod, the companion
+  \lMod, \lnCob, and \lProf\ have companions and conjoints for all tight morphisms.  In \lMod, the companion
   of a ring homomorphism $f\maps A\to B$ is $B$ regarded as an
   $A$-$B$-bimodule via $f$ on the left, and dually for its conjoint.
   In \lnCob, companions and conjoints are obtained by regarding a
@@ -692,15 +675,19 @@ We show that equation~\eqref{eq:comp-iso} holds when we substitute $\theta_{\id_
   It is probably possible to state a general coherence theorem for $\theta$-isomorphisms that is sufficiently careful to be true, but we will not need this.
 \end{rmk}
 
+
 \begin{rmk}
-  For the construction of (braided or symmetric) monoidal bicategories from double categories, we only require our double
-  categories to have companions and conjoints for their monoidal constraints.
-  However, as we are interested in lifting transformations, we will state our theorems for the tricategory of double categories, double functors, double transformations with companions and conjoints, and identity modifications. Any monoidal double category or functor that is well-defined within this tricategory has sufficient companions and conjoints to be lifted to a monoidal bicategory or pseudofunctor, respectively.
-When a double category is fibrant or when it has companions and conjoints for all tight {\it isomorphisms}, i.e. it is {\bf isofibrant}, this condition is automatically satisfied. 
-  Note, that an isofibrant double category has an underlying fibrant one, obtained by simply discarding all noninvertible tight 1-morphisms, and to which our theorems can be applied directly as written. Furthermore, note that by \autoref{thm:comp-iso},
-  having companions for all isomorphisms implies having conjoints for
-  all isomorphisms.  
+  Since all the tight constraints of a monoidal double category are invertible, to construct its underlying monoidal bicategory we only need it to have companions (and hence, by \cref{thm:comp-iso}, conjoints) for all tight \emph{isomorphisms}.
+  In~\cite{gg:ldstr-tricat} double categories of this sort were called ``fibrant'', but we prefer to call them \textbf{isofibrant} to emphasize the restriction to isomorphisms.
+  
+  To lift lax or colax monoidal \emph{functors}, and noninvertible transformations between monoidal functors, to the bicategorical level, we require our double categories to have companions (or conjoints, depending on the directions) for noninvertible tight morphisms as well.
+  In~\cite{shulman:frbi} double categories with companions and conjoints for \emph{all} tight morphisms were called \emph{framed bicategories}; we might also call them \textbf{bifibrant} since in this case the (source, target) functor $\lD_1 \to \lD_0\times\lD_0$ is a bifibration (i.e.\ both a fibration and an opfibration; though in fact, it is sufficient to assume it to be one \emph{or} the other).
+
+  However, even this assumption is not enough to lift monoidal functors and transformations, since a ``componentwise'' companion of a tight transformation will in general only be an \emph{oplax} natural transformation on bicategories.
+  Pseudo-ness of this is really a condition on the particular transformation rather than on the double categories involved; in~\cite{cs:multicats} such transformations were called \emph{horizontally strong}, so we call them \textbf{loosely strong} instead.
+  We will incorporate this condition by restricting the domain of our functor $\cH$ to contain only loosely strong transformations.
 \end{rmk}
+
 
 % Local Variables:
 % TeX-master: "smbicat"
