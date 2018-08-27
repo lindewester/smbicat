@@ -1,7 +1,7 @@
 \section{Symmetric monoidal double categories}
 \label{sec:symm-mono-double}
 
-In this section, we recall basic notions of double categories to fix our terminology and notation, and define monoidal double categories and functors between them.
+In this section, we recall basic notions of double categories to fix our terminology and notation, and define monoidal double categories and functors between them in an explicit way.
 Double categories go back originally to Ehresmann
 in~\cite{ehresmann:cat-str}; a brief introduction can be found
 in~\cite{ks:r2cats}.  Other references
@@ -60,9 +60,9 @@ M\to N$ of $\lD_1$ with $S(\alpha)=f$ and $T(\alpha)=g$ a
 
 
 Note that composition of tight 1-morphisms is strictly associative and unitaly, while that of loose 1-cells is only weakly so.
-The words ``tight'' and ``loose'', borrowed from~\cite{ls:limlax} are intended to suggest one kind of morphism that is ``stricter'' than another.
+The words ``tight'' and ``loose'', borrowed from~\cite{ls:limlax}, are intended to suggest one kind of morphism that is ``stricter'' than another.
 Traditionally the two kinds of 1-arrow in a double category are called ``vertical'' and ``horizontal'' with reference to how they are drawn, but this creates confusion because some authors draw the tight morphisms (those with strictly associative composition) vertically and others draw them horizontally.
-We usually draw the tight 1-morphisms vertically and the loose 1-cells horizontally, but the terminology ``tight'' and ``loose'' has the advantage of unambiguously identifying which arrows we are talking about, independently of our conventions about how to draw pictures.%
+We usually draw the tight 1-morphisms vertically and the loose 1-cells horizontally, but the terminology ``tight'' and ``loose'' unambiguously identifies which arrows we are talking about, independently of our conventions about how to draw pictures.%
 \footnote{In~\cite{shulman:smbicat} a similar effect was intended by simply distinguishing between ``1-morphisms'' (the tight ones) and ``1-cells'' (the loose ones), but since ``morphism'' and ``cell'' (and ``arrow'') are generally used interchangeably in higher category theory this was not very successful.}
 
 We write the composition of tight 1-morphisms $A\too[f] B\too[g] C$
@@ -79,7 +79,7 @@ as
   \ar[r]|-@{|}_-{} & }}\]
 
 
-Alternatively, we can draw the poincar\'{e} dual of the diagram ~\cite{myers2016string}. In these diagrams, the regions are objects, the vertical lines are 1-cells, the horizontal lines are 1-morphisms and the box is a 2-morphism. Below we depict loose and tight composition of 2-cells.
+Alternatively, we can draw the poincar\'{e} dual of the diagram ~\cite{myers2016string}. In these ``string diagrams'', the regions are objects, the vertical lines are 1-cells, the horizontal lines are 1-morphisms and the box is a 2-morphism. Below we depict loose and tight composition of 2-cells.
 
 \begin{align}
 &\mbox{Loose composition} &\mbox{Tight composition} \hspace{28pt}\\
@@ -148,7 +148,7 @@ the case in the majority of examples, and is part of what makes monoidal double 
 A 2-morphism~\eqref{eq:square} where $f$ and $g$ are identities (such
 as the constraint isomorphisms $\fa,\fl,\fr$) is called
 \textbf{globular}.  Every double category \lD\ has a
-\textbf{loose bicategory}\fxnote[author=LW]{Do you like this notation better?} $\cH(\lD)$ consisting of the objects,
+\textbf{loose bicategory} $\cH(\lD)$ consisting of the objects,
 loose 1-cells, and globular 2-morphisms.  In the literature, this is often called the ``horizontal'' or ``vertical'' bicategory of a double category (depending on conventions). Conversely, many naturally
 occurring bicategories are actually the loose bicategory of some
 naturally ocurring double category.  Here are just a few examples.
@@ -183,7 +183,8 @@ naturally ocurring double category.  Here are just a few examples.
 % \textbf{locally} when it is true of all hom-categories $\calD(A,B)$, and
 % we will extend this usage to double categories.
 
-The diagrams corresponding to the loose bicategories have all the elements of the diagrams for double categories, without the horizontal lines. This is the calculus for monoidal bicategories described in ~\cite{bms}, which is an extention of the string diagrams for braided monoidal categories by M. Kelly and M.L. Laplaza ~\cite{kellylaplaza}.
+The string diagrams corresponding to the loose bicategories have all the elements of the diagrams for double categories, without the horizontal lines. This is the calculus for monoidal bicategories described in~\cite{bms}, which is an extention of the string diagrams for braided monoidal categories by M. Kelly and M.L. Laplaza~\cite{kellylaplaza}.
+\fxnote[author=MS]{At this point in the paper we haven't introduced monoidal structure, so this comment doesn't seem quite right here.}
 
 \begin{align}
 &\mbox{Horizontal composition} &\mbox{Vertical composition}  \hspace{28pt} \\
@@ -277,15 +278,16 @@ categories naturally form a \emph{2-category}, a much simpler object.
   for all objects $A$.
 \end{defn}
 
-We write \cDbl\ for the 2-category of double categories, functors, and
+We write \cDbl\ for the strict 2-category of double categories, functors, and
 transformations, and $\mathbf{Dbl}$ for its underlying 1-category. As pseudofunctors compose strictly associatively, this is well-defined. Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
 $\al_A$, \emph{and} each $\al_M$, is invertible.
 
 The 2-category \cDbl\ gives us an easy way to define what we mean by a
-\emph{symmetric monoidal double category}.  In any 2-category with
-finite products there is a notion of a \emph{pseudomonoid} (perhaps braided or symmetric), which
-generalizes the notion of monoidal category in \cCat.  Specializing
-this to \cDbl, we obtain the following.
+\emph{symmetric monoidal double category}.
+We say that a strict 2-category $\cK$ has \emph{finite products} if it has a strictly terminal object, i.e.\ an object $1$ such that each category $\cK(D,1)$ is \emph{isomorphic} to the terminal category, and any two objects $D,E$ have a strict product, i.e.\ a span $D \ot D\times E \to E$ such that the induced functors $\cK(X,D\times E) \to \cK(X,D) \times \cK(X,E)$ is an \emph{isomorphism} of categories.
+In any such 2-category with finite products there is a notion of a \emph{pseudomonoid} (perhaps braided or symmetric), which generalizes the notion of monoidal category in \cCat.
+We omit the general definition, since we will give a more general one in a later section;\fxnote[author=MS]{update reference}
+for now we just specialize it to \cDbl\ and obtain the following.
 
 \begin{defn}\label{def:symmondoub}
   A \textbf{monoidal double category} is a double category equipped
@@ -375,7 +377,7 @@ structure.
       & U_A}}\]
   \setcounter{mondbl}{\value{enumi}}
 \end{enumerate}
-Similarly, a braided monoidal double category is a monoidal double
+Similarly, a \textbf{braided monoidal double category} is a monoidal double
 category with the following additional structure.
 \begin{enumerate}\setcounter{enumi}{\value{mondbl}}
 \item $\lD_0$ and $\lD_1$ are braided monoidal categories.
@@ -395,11 +397,11 @@ category with the following additional structure.
   \]
   \setcounter{mondbl}{\value{enumi}}
 \end{enumerate}
-Finally, a symmetric monoidal double category is a braided one such that
+Finally, a \textbf{symmetric monoidal double category} is a braided one such that
 \begin{enumerate}\setcounter{enumi}{\value{mondbl}}
 \item $\lD_0$ and $\lD_1$ are in fact symmetric monoidal.
 \end{enumerate}
-While there are a fair number of coherence diagrams to verify, most of
+While there are a fair number of coherence diagrams in this definition, most of
 them are fairly small, and in any given case most or all of them are
 fairly obvious.  Thus, verifying that a given double category is
 (braided or symmetric) monoidal is not a great deal of work.
@@ -419,7 +421,7 @@ fairly obvious.  Thus, verifying that a given double category is
   with its cartesian product.  Many of the ``cartesian bicategories''
   considered in~\cite{cw:cart-bicats-i,ckww:cartbicats-ii} are in
   fact the loose bicategory of some cartesian object in \cDbl,
-  and inherit their monoidal structure in this way.\fxnote{There were some recent preprint(s) on the arxiv about this; cite them.}
+  and inherit their monoidal structure in this way.\fxnote{There were some recent preprint(s) on the arxiv about this; cite them.}\fxnote[author=MS]{I no longer know what I had in mind when I wrote that (I'm assuming I was the one who wrote it).}
 \end{rmk}
 
 Two further general methods for constructing symmetric monoidal double
@@ -500,7 +502,7 @@ Unfolding the definitions gives us:
 
 \end{enumerate}
 
-When the natural transformations are in the opposite direction, the functor is {\bf oplax monoidal}, and when they are isomorphisms, the functor is {\bf strong monoidal}.
+When the natural transformations are in the opposite direction, the functor is {\bf colax monoidal}, and when they are isomorphisms, the functor is {\bf strong monoidal}.
 
 \begin{defn}\label{Def:monverttrans}
   Let $\D$, $\E$ be monoidal double categories and let $(F, \phi) ,(G,\psi): \D \rightarrow \E$ be monoidal double functors. A \textbf{monoidal transformation} $\alpha: F \rightarrow G$ is a tight transformation such that $\alpha_0$ and $\alpha_1$ are monoidal natural transformations.
@@ -588,7 +590,8 @@ When the natural transformations are in the opposite direction, the functor is {
 A {\bf braided or symmetric monoidal tight transformation} is a monoidal transformation between braided/symmetric monoidal functors.
 \end{defn}
 
-It is straightforward to verify that we have various 2-categories of monoidal double categories, depending on whether we take the objects to be braided, symmetric, or neither, and whether the morphisms are lax, oplax, or strong.
+We have three strict 2-categories $\cMonDbll, \cMonDblc,\cMonDblp$ of monoidal double categories and lax, colax, or pseudo monoidal functors, respectively.
+(More generally, we have three such 2-categories of pseudomonoids internal to any 2-category with finite products.)
 
 
 % Local Variables:
