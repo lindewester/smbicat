@@ -1,0 +1,37 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\usepackage{amsmath}
+\input{decls}
+\begin{document}
+
+
+\begin{equation}\label{eq:pi}
+\begin{aligned}
+ \begin{tikzpicture}[xscale=3.4]
+\node (t0) at (0,2) {\scriptsize $\tens (\tens \times \transid)(\tens \times \transid \times \transid)$};
+\node (t1) at (1,2) {\scriptsize $\tens(\tens \times \transid)(\transid \times
+\tens \times \transid)$};
+\node (t2) at (2,2) {\scriptsize $\tens(\transid \times \tens)(\transid \times
+\tens \times \transid)$};
+\node (t3) at (3,2) {\scriptsize $\tens (\transid \times \tens)(\transid \times \transid \times \tens)$};
+\node (m0) at (0,1) {\scriptsize $\tens (\tens \times \transid)(\tens \times \transid \times \transid)$};
+\node (m1) at (1,1) {\scriptsize $\tens(\transid \times \tens )(\tens \times \transid \times \transid)$};
+\node (m2) at (2,1) {\scriptsize $\tens(\tens \times \transid)(\transid \times \transid \times
+\tens)$};
+\node (m3) at (3,1) {\scriptsize $\tens (\transid \times \tens)(\transid \times \transid \times \tens)$};
+\draw[doubletighteq] (t3) to (m3);
+\draw[doubletighteq] (t0) to (m0);
+\draw[doubleloose] (t0) to node[above]{\scriptsize $\looseid (\alpha \times \looseid)$} (t1);
+\draw[doubleloose] (t1) to node[above]{\scriptsize $\alpha \looseid$}
+(t2);
+\draw[doubleloose] (t2) to node[above]{\scriptsize $\looseid (\looseid \times \alpha)$} (t3);
+\draw[doubleloose] (m0) to node[above]{\scriptsize $\alpha \looseid$} (m1);
+\draw[doubletighteq] (m1) to (m2);
+\draw[doubleloose] (m2) to node[above]{\scriptsize $\alpha \looseid$} (m3);
+\node at (1.5,1.5) {\scriptsize $\DDownarrow \pi$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+\end{document} 

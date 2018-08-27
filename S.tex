@@ -1,0 +1,38 @@
+%
+\documentclass[12pt]{ociamthesis}
+\usepackage{tikz}
+\usepackage{amsmath}
+\input{decls}
+\begin{document}
+
+
+\begin{equation}\label{eq:R}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.7, yscale=1.5]
+\node (t0) at (0,2) {\scriptsize$\tens(\transid \times \tens) $};
+\node (t1) at (1,2) {\scriptsize$\tens (\tens \times \transid)$};
+\node (t2) at (2,2) {\scriptsize$ \tens \tau (\tens \times \transid)$};
+\node (t3) at (3,2) {\scriptsize\begin{tabular}{c} $\tens (\transid \times \tens) $\\$ \tau((\transid \times \transid) \times \transid))$\end{tabular}};
+\node (t4) at (4,2) {\scriptsize \begin{tabular}{c} $\tens (\tens \times \transid)$\\ $\tau((\transid \times \transid) \times \transid)$ \end{tabular}};
+\node (m0) at (0,1) {\scriptsize$ \tens(\transid \times \tens)$};
+\node (m1) at (1,1) {\scriptsize$\tens(\transid \times \tens \tau)$};
+\node (m2) at (2,1) {\scriptsize\begin{tabular}{c}$ \tens(\transid \times \tens)$\\$(\transid \times \tau(\transid \times \transid) )$ \end{tabular}};
+\node (m3) at (3,1) {\scriptsize\begin{tabular}{c}$ \tens (\tens \times \transid)$\\
+$(\transid \times \tau(\transid \times \transid) $\end{tabular}};
+\node (m4) at (4,1) {\scriptsize\begin{tabular}{c} $ \tens ( \tens \tau \times \transid)$\\$(\transid \times \tau(\transid \times \transid)$\end{tabular}};
+\draw[doubletighteq] (t4) to (m4);
+\draw[doubletighteq] (t0) to (m0);
+\draw[doubleloose] (t0) to node[above]{\scriptsize$ \alpha^{-1}$} (t1);
+\draw[doubleloose] (t1) to node[above]{\scriptsize$ \sigma \looseid$}
+(t2);
+\draw[doubletighteq] (t2) to (t3);
+\draw[doubleloose] (t3) to node[above]{\scriptsize$\alpha^{-1} \looseid$} (t4);
+\draw[doubleloose] (m0) to node[below]{\scriptsize$\looseid(\looseid \times \sigma)$} (m1);
+\draw[doubletighteq] (m1) to (m2);
+\draw[doubleloose] (m2) to node[below]{\scriptsize$\alpha^{-1} \looseid$} (m3);
+\draw[doubleloose] (m3) to node[below]{\scriptsize$ \looseid (\sigma \times \looseid )$} (m4);
+\node at (2,1.5) {\scriptsize$\DDownarrow S$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\end{document} 
