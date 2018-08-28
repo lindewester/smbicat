@@ -1,31 +1,32 @@
 \section{Appendix}
 \label{ap:coherence}
 
-We give the coherence diagrams for  monoidal objects, 1-cells, 2-cells, icons and 3-cells in a locally cubical bicategory, defined in Section~\ref{sec:mono-objects}. For readability, we sometimes write $\hat{\alpha}$ for the composition of a 3-cell ${\alpha}$ with coherence cells that ensure that the source and target 2-cells are of the right type.
+We give the coherence diagrams for  monoidal objects, 1-cells, 2-cells and icons in a locally cubical bicategory, defined in Section~\ref{sec:mono-objects}. For readability, we omit certain cells, arising as coherence constraints for double categories. Where we do so, we write $\hat{\alpha}$ for the composition of a 3-cell ${\alpha}$ with coherence cells that ensure that the source and target 2-cells are of the right type.
 
 \subsubsection*{Monoidal Object}
 
 \input{coherence/MonObjEq1} \newpage
 \input{coherence/MonObjEq2} \newpage
-\input{coherence/MonObjEq3}
+\input{coherence/MonObjEq3} \newpage
 
 
 \subsubsection*{Lax Monoidal 1-cell}
+
 [To be added]
 
 \subsubsection*{Strong Monoidal 1-cell}
-%The structure cells $\chi$ and $\bar{\chi}$ form an adjoint equivalence, if  there exist globular 3-cells $\eta$ and $\epsilon$, such that the equations below hold. 
 
-%\input{coherence/StrongMon1celladjoint.tex}
+The structure cells $\chi$ and $\bar{\chi}$ form an adjoint equivalence, if  there exist globular 3-cells $\eta$ and $\epsilon$, such that the equations below hold. 
 
-The 3-cells $\omega$ and $\bar{\omega}$ correspond to each other as mates, if the equation below holds. Here, one needs to note that for two adjoint equivalences $\alpha \dashv \bar{\alpha}$ and $\beta \dashv \bar{\beta}$, where $\alpha: f \rightarrow g$ and $\beta: h \rightarrow k$, there is an adjoint equivalence $\alpha \beta \dashv \bar{\alpha}\bar{\beta}$ witnessed by $\eta_{\alpha \beta} := \eta_{\alpha} \eta_{\beta}$ and $\epsilon_{\alpha \beta} :=  \epsilon_{\alpha} \epsilon_{\beta}$.  %plus coherence constraints on $\id_f$, $\id_g$ etc.
+\input{coherence/StrongMon1celladjoint.tex}
 
-%\input{coherence/StrongMon1cellMate}
+The 3-cells $\omega$ and $\bar{\omega}$ correspond to each other as mates, if the equation below holds. Here, one needs to note that for two adjoint equivalences $\alpha \dashv \bar{\alpha}$ and $\beta \dashv \bar{\beta}$, where $\alpha: f \rightarrow g$ and $\beta: h \rightarrow k$, there is an adjoint equivalence $\alpha \beta \dashv \bar{\alpha}\bar{\beta}$ witnessed by $\eta_{\alpha \beta} := \eta_{\alpha} \eta_{\beta}$ and $\epsilon_{\alpha \beta} :=  \epsilon_{\alpha} \epsilon_{\beta}$.  
 
-%\input{coherence/StrongMon1cellMate2}
+\input{coherence/StrongMon1cellMate}
 
-%\input{coherence/StrongMon1cellMate3}
+\input{coherence/StrongMon1cellMate2}
 
+\input{coherence/StrongMon1cellMate3}\newpage
 
 \subsubsection*{Lax Monoidal 2-cell}
 
@@ -36,7 +37,7 @@ The 3-cells $\omega$ and $\bar{\omega}$ correspond to each other as mates, if th
 \input{coherence/LaxMon2cell3} \newpage
 
 
-\input{coherence/BraidLax2cell} \newpage
+%\input{coherence/BraidLax2cell} \newpage
 
 
 %\subsubsection*{Strong Monoidal 2-cells}
@@ -53,11 +54,3 @@ The 3-cells $\omega$ and $\bar{\omega}$ correspond to each other as mates, if th
 
 \input{coherence/LaxMonIcon3}\newpage
 
-
-%\subsubsection*{Braided Lax Monoidal Icon}
-
-%\input{coherence/BraidLaxMonIcon}\newpage
-
-%\subsubsection*{Monoidal 3-cell}
-
-%\subsubsection*{Braided Lax Monoidal 3-cell}
