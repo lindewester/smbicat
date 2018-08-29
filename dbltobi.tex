@@ -197,7 +197,7 @@ Howver up to equivalence it does not depend on these choices:
 
 \begin{lem}\label{thm:h-locfr-uniq}
   Suppose we make two different sets of choices of companions for each component of a tight transformation in $\cDblcf(\lD,\lE)$, yielding by the proof of \cref{thm:h-locfr} two different functors
-  \[\cH,\cH'\maps \cDbl(\lD,\lE)\too \cBicat_c(\cH(\lD),\cH(\lE)).\]
+  \[\cH,\cH'\maps \cDblcf(\lD,\lE)\too \cBicat_c(\cH(\lD),\cH(\lE)).\]
   Then the isomorphisms $\theta$ from \autoref{thm:theta} fit together
   into an invertible icon $\cH\cong \cH'$.
 \end{lem}
@@ -241,7 +241,23 @@ Howver up to equivalence it does not depend on these choices:
   since all the constraints involved are also instances of \th.
 \end{proof}
 
-So far we have been able to deal with arbitrary tight transformations and their resulting colax transformations.
+\begin{rmk}
+  There is a similar result for conjoints instead of companions, but hedged about with duality.
+  Let $\lE\lop$ denote the \emph{loose opposite} of a double category, obtained by reversing the loose 1-cells but not the tight ones.
+  Then a conjoint in $\lE$ is the same as a companion in $\lE\lop$, and more generally $(-)\lop$ is a functor $\cDbl \to \cDbl$ that takes transformations with conjoints to transformations with companions.
+  Thus if we denote by $\cDbllf(\lD,\lE)$ the category of functors and transformations having componentwise companions, then $(-)\lop$ defines a functor $\cDbllf(\lD,lE) \to \cDblcf(\lD\lop,\lE\lop)$.
+
+  We also have $\cH(\lE\lop) = (\cH\lE)\op$, where $(-)\op$ denots the bicategory obtained by reversing 1-cells but not 2-cells.
+  This operation reverses the direction of transformations, and interchanges lax and colax transformations, so we have a functor $\cBicat_c(\cA,\cB) \to \cBicat_l(\cA\op,\cB\op)\op$.
+  Thus, composing all of this up, we obtain a functor
+  \begin{multline*}
+    \cDbllf(\lD,\lE) \to \cDblcf(\lD\lop,\lE\lop) \to \cBicat_c(\cH(\lD\lop),\cH(\lE\lop))\\ = \cBicat_c((\cH\lD)\op, (\cH\lE)\op) \to \cBicat_l(\cH\lD, \cH\lE)\op.
+  \end{multline*}
+  In other words, a transformation with componentwise conjoints induces a \emph{lax} transformation in the \emph{opposite} direction between loose bicategories.
+  If a transformation has both componentwise companions and conjoints (such as if $\lE$ has all companions and conjoints), then the resulting colax and lax transformations are doctrinally adjoint; in~\cite{shulman:smbicat} we called such a pair a ``conjunctional transformation''.
+\end{rmk}
+
+So far we have been able to deal with arbitrary tight transformations and their resulting colax (or lax) transformations.
 But when we come to talk about tricategories or locally cubical bicategories, we have to restrict to pseudo natural transformations on the side of bicategories, since there is no tricategory (or locally cubical bicategory) containing arbitrary colax transformations: the interchange law only holds laxly.
 (One could write down a notion of ``colax tricategory'', but we will not attempt this.)
 This restriction means we need a corresponding restriction on the double-categorical side.
