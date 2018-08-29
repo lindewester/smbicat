@@ -5,7 +5,7 @@ We are now equipped to lift structures on double categories to
 their loose bicategories.  In this section we show that passage
 from double categories to bicategories is given by a functor of locally cubical bicategories. In order to prove this, we first give an intermediate result that $\cH$ lifts to a functor of hom-bicategories
 \begin{align}
-    \cDbl(\lD,\lE) &\too \cBicat(\cH(\lD),\cH(\lE))\\
+    \cDbl(\lD,\lE) &\too \cBicat(\cH(\lD),\cH(\lE))
 \end{align}
 
 As a point of notation, we write $\odot$ for the composition of
@@ -14,6 +14,7 @@ form $\cH(\lD)$.  As advocated by Max Kelly, we say \textbf{functor}
 to mean a morphism between bicategories that preserves composition up
 to isomorphism; equivalent terms include \emph{weak 2-functor},
 \emph{pseudofunctor}, and \emph{homomorphism}.
+We will not discuss lax functors (a.k.a. ``morphisms'') between bicategories at all in this paper.
 
 Recall that the assignment $\cH$ sends each double category $\lC$ to the loose bicategory  $\cH(\lD)$ of objects, 1-cells, and globular 2-morphisms of $\lD$.  Note that functors of double categories and bicategories compose strictly associatively; hence, we can talk about the 1-categories of double categories and bicategories, which we denote ${\bf Dbl}$ and ${\bf Bicat}$ respectively.
 
@@ -75,67 +76,35 @@ It is a \textbf{lax transformation} if the 2-cells $\al_f$ go the
 other direction, and a \textbf{pseudo transformation} if they are
 isomorphisms.
 
-Inverses of morphisms in a category are unique when they exist, so for a morphism (and in particular a natural transformation) to be an isomorphism is only a property rather than a structure.
-But since inverse equivalences of morphisms in a bicategory are unique only up to isomorphism, if we only know that a morphism has the property of being an equivalence, we have to make choices to find an inverse equivalence.
-For many purposes (see e.g.~\cite{nick:tricats}) it is more useful to include a ``coherent'' inverse equivalence as specified data so that such choices are no longer necessary; in the case of transformations the result is called a pseudo natural adjoint equivalence.
+\fxnote{Should we recall the definition of icons somewhere?}
+%An icon is, morally speaking, an oplax transformation whose 1-cell components are all identities; but as noted by~\cite{lack:icons} this can be reexpressed without referring to these identity morphisms at all, yielding a definition that is easier to work with (because identity 1-cells in a bicategory are not strict).
 
-Before defining these, we first consider a more general notion of ``conjunctonal transformation.''
-By doctrinal adjunction~\cite{kelly:doc-adjn}, given collections of
-1-cells $\al_A\maps FA\to GA$ and $\be_A\maps GA\to FA$ and
-adjunctions $\al_A\adj \be_A$ in \cB, there is a bijection between
-\begin{inparaenum}
-\item collections of 2-cells $\al_f$ making $\al$ an oplax
-  transformation and
-\item collections of 2-cells $\be_f$ making $\be$ a lax
-  transformation.
-\end{inparaenum}
-Two such transformations correspond under this bijection if and only if
-\begin{equation}
-  \vcenter{\xymatrix@-.5pc{F(f) \ar[r]^-{\eta \odot \mbox{\tiny id}_{F(f)}}
-      \ar[d]_{\mbox{\tiny id}_{F(f)}\odot \eta} &
-      \be_B\odot \al_B \odot F(f) \ar[d]^{\mbox{\tiny id}_{\be_B} \odot \al_f}\\
-      F(f) \odot \be_A\odot \al_A\ar[r]_-{\be_f \odot \mbox{\tiny id}_{\al_A}} &
-      \be_B\odot G(f) \odot \al_A}}
-  \quad\text{and}\quad
-  \vcenter{\xymatrix@-.5pc{\al_B\odot F(f)\odot \be_A
-      \ar[r]^-{\mbox{\tiny id}_{\al_B}\odot \be_f}\ar[d]_{\al_f \odot \mbox{\tiny id}_{\be_A}}&
-      \al_B \odot \be_B \odot G(f)\ar[d]^{\ep \odot \mbox{\tiny id}_{G(f)}}\\
-      G(f)\odot \al_A\odot \be_A \ar[r]_-{\mbox{\tiny id}_{G(f)} \odot \ep} & G(f)}}\label{eq:conjtrans}
-\end{equation}
+%\begin{defn}
+%Let $\cD, \cE$ be bicategories, and let $F,G: \cD \rightarrow \cE$ be pseudo functors. An {\bf icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\cD$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following diagrams commute:
+%\[
+%\begin{tikzpicture}[xscale=1.5]
+%\node (tl) at (0,1) {$\id_{FA}$};
+%\node (tr) at (1,1) {$F \id_A$};
+%\node (bl) at (0,0) {$\id_{GA}$};
+%\node (br) at (1,0) {$G\id_A$};
+%\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
+%\draw[doubletight] (bl) to node[below]{$\iso$} (br);
+%\draw[doubleeq] (tl) to (bl);
+%\draw[doubletight] (tr) to node[right]{$\alpha_{\id_A}$} (br);
+%\end{tikzpicture}\qquad
+%\begin{tikzpicture}[xscale=2]
+%\node (tl) at (0,1) {$Fg  Ff$};
+%\node (tr) at (1,1) {$F(gf)$};
+%\node (bl) at (0,0) {$Gg Gf$};
+%\node (br) at (1,0) {$G(gf)$};
+%\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
+%\draw[doubletight] (bl) to node[below]{$\iso$} (br);
+%\draw[doubletight] (tl) to node[left]{$\alpha_g \alpha_f$}(bl);
+%\draw[doubletight] (tr) to node[right]{$\alpha_{gf}$} (br);
+%\end{tikzpicture}
+%\]
+%\end{defn}
 
-%In planar diagrams, this looks like
-%\begin{align}
-%\begin{tikzpicture}[scale=1.75]
-%\draw[fill=blue, draw=blue] (-1,0) -- (-1,-1.4) -- (-.6,-1.4) -- (-.6,0) -- (-1,0);
-%\draw[fill=red, draw=red] (-.6,0) -- (-.6,-1.4) -- (0,-1.4) -- (0,0) -- (-.6,0);  
-%\draw[fill=blue, draw=blue] (-1,-1.4) -- (-1,-2) -- (.6,-2) -- (.6,-1.4) -- (-1,-1.4);  
-%\draw[fill=green, draw=green] (.6,-.6) -- (0,-.6) -- (0,0) -- (.6,0) -- (.6,-.6); 
-%\draw[fill=blue, draw=blue] (.6,-.6) -- (1,-.6) -- (1,0) -- (.6,0) -- (.6,-.6); 
-%\draw[fill=blue, draw=blue] (0,-.6) -- (.6,-.6) -- (.6,-2) -- (0,-2) -- (0,-.6); 
-%\draw[fill=yellow, draw=yellow] (.6,-2) -- (1,-2) -- (1,0) -- (.6,0) -- (.6,-2); 
- %    \draw (.6,-.6) to (.6,0);
-  %   \draw (0,-1.4) to (0,0);
-   %   \draw (-.6,-1.4) to (-.6,0);
-  %     \node[morphism, minimum width=20mm] (l) at (-.3,-1.4) {$\eta$};
-   %    \node[morphism, minimum width=20mm] (r) at (.3,-.6) {$\beta_f$};
-%\draw (-.3, -2) to (l.south);
-  %  \end{tikzpicture}
-%\end{align}
-
-commute.  If we have a pointwise adjunction between an oplax and a lax
-transformation, whose 2-cell structures correspond under this
-bijection, we call it a \textbf{conjunctional transformation}
-$(\al\conj \be)\maps F\to G$.  (These are the conjoint pairs in a
-double category whose loose arrows are lax transformations and
-whose vertical arrows are oplax transformations.)
-
-Of particular importance is the case when both $\al$ and \be\ are
-pseudo natural and each adjunction $\al_A\adj \be_A$ is an adjoint
-equivalence.  In this case we call $\al\conj \be$ a \textbf{pseudo
-  natural adjoint equivalence}.  A pseudo natural adjoint equivalence
-can equivalently be defined as an internal adjoint equivalence in the
-bicategory $\cBicat(\cA,\cB)$ of functors, pseudo natural
-transformations, and modifications $\cA\to\cB$. 
 
 Recall also that if $\al,\al'\maps F\to G$ are oplax transformations,
 a \textbf{modification} $\mu\maps \al\to\al'$ consists of 2-cells
@@ -149,46 +118,32 @@ $\mu_A\maps \al_A\to\al'_A$ such that
       \ar[rr]_{Gf} && }}\label{eq:modif-ax}
 \end{equation}
 There is an evident notion of modification between lax transformations
-as well.  Finally, given conjunctional transformations $\al\conj\be$
-and $\al'\conj \be'$, there is a bijection between modifications
-$\al\to\al'$ and $\be'\to\be$, where $\mu\maps \al\to\al'$ corresponds
-to $\bar{\mu}\maps \be'\to\be$ with components $\bar{\mu}_A$ defined
-by:
-\[\vcenter{\xymatrix@-.5pc{
-    && FA \ar@{=}[drr] \ddtwocell<5>^{\al_A}_{\al'_A}{\mu_A}\\
-    GA \ar[urr]^{\be'_A} \ar@{=}[drr] & \Swarrow_\ep && \Swarrow_\eta & FA\\
-    &&GA\ar[urr]_{\be_A}
-  }}\]
-The modifications $\bar{\mu}$ and \mu\ are called \textbf{mates}, and
-are compatible with composition (see \cite{ks:r2cats}).  Thus, given
-$\cA,\cB$ we can define a bicategory $\Conj(\cA,\cB)$, whose objects
-are functors $\cA\to\cB$, whose 1-cells are conjunctional
-transformations considered as pointing in the direction of their left
-adjoints, and whose 2-cells are mate-pairs of modifications.
+as well.
+We have three bicategories
+\[ \cBicat_c(\cA,\cB) \qquad \cBicat_l(\cA,\cB) \qquad \cBicat_p(\cA,\cB) \]
+whose objects are the functors $\cA\to\cB$, whose morphisms are colax, lax, and pseudo transformations respectively, and whose 2-morphisms are modifications.
 
-% Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
-%$\al_A$, \emph{and} each $\al_M$, is invertible.
+A \textbf{pseudo natural adjoint equivalence} is, by definition, an internal adjoint equivalence in $\cBicat_p(\cA,\cB)$.
+However, by doctrinal adjunction~\cite{kelly:doc-adjn}, an internal adjoint equivalence in $\cBicat_c(\cA,\cB)$ or $\cBicat_l(\cA,\cB)$ is automatically pseudo natural as well.
+
+Let $\cDblcf$ denote the sub-2-category of $\cDbl$ containing all double categories and all functors between them, but only the tight transformations $\al:F\to G: \lD\to\lE$ such that each tight component $\al_A$ has a loose companion $\widehat{\al_A}$.
+Note that if \lE\ is isofibrant, every invertible $\al$ has this property, and if \lE\ has companions for all tight 1-morphisms then every transformation has this property.
 
 \begin{thm}\label{thm:h-locfr}
-  If \lD\ is a double category and \lE\ is a  double category
-  with chosen companions and conjoints for all transformations, we have a functor of bicategories
+  We have a functor of bicategories
   \begin{align}
-    \cDbl(\lD,\lE) &\too \Conj(\cH(\lD),\cH(\lE))\\
+    \cDblcf(\lD,\lE) &\too \cBicat_c(\cH(\lD),\cH(\lE))\\
     F &\mapsto \cH(F)\\
-    \al &\mapsto (\alhat\conj\alchk).
+    \al &\mapsto \alhat.
   \end{align}
-  Moreover, if \al\ is an isomorphism, then $\alhat\conj\alchk$ is a
-  pseudo natural adjoint equivalence.
 \end{thm}
 
-Note that we are here regarding the 1-category $\cDbl(\lD,\lE)$ as a
-bicategory with only identity 2-cells.
+Note that we are here regarding the 1-category $\cDbl(\lD,\lE)$ as a bicategory with only identity 2-cells.
+Since any functor of bicategories preserves adjoint equivalences, and an adjoint equivalence in a mere category is simply an isomorphism, it follows that if $\al$ is an isomorphism then $\alhat$ is (equipped with the structure of) a pseudo natural adjoint equivalence.
 
 \begin{proof}
-  We denote the chosen companion and conjoint of $f$ in \lE\ by \fhat\
-  and \fchk, as usual.  We define $\alhat$ as follows: its 1-cell
-  components are $\alhat_A = \widehat{\al_A}$, and its 2-cell
-  component $\alhat_f$ is the composite
+  We define the 1-cell components of $\alhat$ by choosing companions $\alhat_A = \widehat{\al_A}$ of each component of $\al$.
+  The 2-cell component $\alhat_f$ is the composite
   \begin{equation}
     \vcenter{\xymatrix@R=1.5pc@C=2.5pc{
         \ar[r]|-@{|}^{U_{FA}}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{\alpha}_A}} &
@@ -214,55 +169,7 @@ bicategory with only identity 2-cells.
 %       }}\label{eq:oplax-2cell}
   \end{equation}
   Equations~\eqref{eq:laxtransf-nat} and~\eqref{eq:laxtransf-ax}
-  follow directly from \autoref{thm:dbl-transf}.  The construction of
-  $\alchk$ is dual, using conjoints, and \autoref{thm:compconj-adj}
-  shows that $\alhat_A\adj \alchk_A$.  For the first equation
-  in~\eqref{eq:conjtrans}, we have
-  \begin{equation}
-    \vcenter{\xymatrix@-.5pc{
-        \ar[r]|-@{|}^{U_{FA}}\ar@{=}[d] \ar@{}[dr]|{=} &
-        \ar[r]|-@{|}^{Ff}\ar@{=}[d] \ar@{}[dr]|{=} &
-        \ar[r]|-@{|}^{U_{FB}}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{\alpha}_B}} &
-        \ar[r]|-@{|}^{U_{FB}}\ar[d]|{\al_B} \ar@{}[dr]|{\Downarrow \eta_{\check{\alpha}_B}} &
-        \ar@{=}[d]\\
-        \ar[r]|{U_{FA}}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{\alpha}_A}} &
-        \ar[r]|{Ff}\ar[d]|{\al_A} \ar@{}[dr]|{\Downarrow\al_f} &
-        \ar[r]|{\alhat_B}\ar[d]|{\al_B} \ar@{}[dr]|{\Downarrow \epsilon_{\hat{\alpha}_B}} &
-        \ar[r]|{\alchk_B}\ar@{=}[d] \ar@{}[dr]|{=} &
-        \ar@{=}[d]\\
-        \ar[r]|-@{|}_{\alhat_A} &
-        \ar[r]|-@{|}_{Gf} &
-        \ar[r]|-@{|}_{U_{GB}} &
-        \ar[r]|-@{|}_{\alchk_B} &
-      }}\;=\;
-    \vcenter{\xymatrix@-.5pc{
-        \ar[r]|-@{|}^{U_{FA}}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{\alpha}_A}} &
-        \ar[r]|-@{|}^{Ff}\ar[d]|{\al_A} \ar@{}[dr]|{\Downarrow \al_f} &
-        \ar[r]|-@{|}^{U_{FB}}\ar[d]|{\al_B} \ar@{}[dr]|{\Downarrow \eta_{\check{\alpha}_B}} &
-        \ar@{=}[d]\\
-        \ar[r]|-@{|}_{\alhat_A} &
-        \ar[r]|-@{|}_{Gf} &
-        \ar[r]|-@{|}_{\alchk_B} &
-      }}\;=\;
-    \vcenter{\xymatrix@-.5pc{
-        \ar[r]|-@{|}^{U_{FA}}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{\alpha}_A}} &
-        \ar[r]|-@{|}^{U_{FA}}\ar[d]|{\al_A} \ar@{}[dr]|{\Downarrow \eta_{\check{\alpha}_A}} &
-        \ar[r]|-@{|}^{Ff}\ar@{=}[d] \ar@{}[dr]|{=} &
-        \ar[r]|-@{|}^{U_{FB}}\ar@{=}[d] \ar@{}[dr]|{=} &
-        \ar@{=}[d]\\
-        \ar[r]|{\alhat_A}\ar@{=}[d] \ar@{}[dr]|{=} &
-        \ar[r]|{\alchk_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \epsilon_{\check{\alpha}_A}} &
-        \ar[r]|{Ff}\ar[d]|{\al_A} \ar@{}[dr]|{\Downarrow\al_f} &
-        \ar[r]|{U_{FB}}\ar[d]|{\al_B} \ar@{}[dr]|{\Downarrow \eta_{\check{\alpha}_B}} &
-        \ar@{=}[d]\\
-        \ar[r]|-@{|}_{\alhat_A} &
-        \ar[r]|-@{|}_{U_{GA}} &
-        \ar[r]|-@{|}_{Gf} &
-        \ar[r]|-@{|}_{\alchk_B} &
-        }},
-  \end{equation}
-  and the second is dual.  Thus $(\alhat\conj\alchk)$ is a
-  conjunctional transformation.
+  follow directly from \autoref{thm:dbl-transf}.
 
   It is left to construct the constraints and check the axioms for functors of bicategories. Suppose we are given $\al\maps F\to G$ and $\be\maps G\to H$.  Then by
   \autoref{thm:comp-compose}, $\behat_A\odot\alhat_A$ is a companion
@@ -283,57 +190,20 @@ bicategory with only identity 2-cells.
   \[\theta_{\widehat{\gm\be\al}_A,\, (\gmhat_A \odot \behat_A)\odot
     \alhat_A}\] and thus equal to each other.  The same argument
   applies to the axioms for the unit constraint; thus we have a functor of bicategories.
-
-  Finally, if $\al$ is an isomorphism, then in particular each $\al_A$
-  is an isomorphism, so by \autoref{thm:compconj-adj} each
-  $\alhat_A\adj \alchk_A$ is an adjoint equivalence.  But \al\ being
-  an isomorphism also implies that each 2-cell
-  \[\vcenter{\xymatrix@-.5pc{ \ar[r]|-@{|}^-{Ff} \ar[d]_{\al_A} \ar@{}[dr]|{\Downarrow\al_f} &  \ar[d]^{\al_B}\\
-      \ar[r]|-@{|}_-{Gf} & }}\]
-  is an isomorphism.  From its inverse we form the composite
-  \[\vcenter{\xymatrix@R=1.5pc@C=3pc{
-      \ar[r]|-@{|}^{\alhat_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{\alpha}_A^{-1}}} &
-      \ar[r]^{Gf}\ar[d]|{\al_A\inv} \ar@{}[dr]|{\Downarrow\al_f\inv} &
-      \ar[r]|-@{|}^{U_{GB}}\ar[d]|{\al_B\inv} \ar@{}[dr]|{\Downarrow \epsilon_{\hat{\alpha}_B^{-1}}} &
-      \ar@{=}[d]\\
-      \ar[r]|-@{|}_{U_{FA}}&
-      \ar[r]_{Ff} &
-      \ar[r]|-@{|}_{\alhat_B} &
-    }}\]
-%   \[\vcenter{\xymatrix@R=1.5pc@C=3pc{
-%       \ar[r]|-@{|}^{\alhat_A}\ar@{=}[d] \ar@{}[drrr]|{\iso} &
-%       \ar[rr]|-@{|}^{Gf} &&
-%       \ar@{=}[d]\\
-%       \ar[r]|-@{|}^{\alhat_A}\ar@{=}[d] \ar@{}[dr]|{\Downarrow} &
-%       \ar[r]|{Gf}\ar[d]|{\al_A\inv} \ar@{}[dr]|{\Downarrow\al_f\inv} &
-%       \ar[r]|-@{|}^{U_{GB}}\ar[d]|{\al_B\inv} \ar@{}[dr]|{\Downarrow} &
-%       \ar@{=}[d]\\
-%       \ar[r]|-@{|}_{U_{FA}} \ar@{=}[d] \ar@{}[drrr]|\iso &
-%       \ar[r]|{Ff} &
-%       \ar[r]|-@{|}_{\alchk_A} & \ar@{=}[d]\\
-%       \ar[r]|-@{|}_{Ff} &
-%       \ar[rr]|-@{|}_{\alchk_A} &&
-%     }}\]
-  which we can then verify to be an inverse of~\eqref{eq:oplax-2cell}.
-  Thus $\alhat$, and dually $\alchk$, is pseudo natural, and hence
-  $\alhat\conj\alchk$ is a pseudo natural adjoint equivalence.
 \end{proof}
 
-We can also promote \autoref{thm:theta} to a functorial uniqueness.
+Of course, the functor constructed in \cref{thm:h-locfr} depends on the choices of companions made in the proof.
+Howver up to equivalence it does not depend on these choices:
 
 \begin{lem}\label{thm:h-locfr-uniq}
-  Let \lD\ be a double category and \lE\ a double category
-  with two different sets of choices $\fhat,\fchk$ and $\fhat',\fchk'$
-  of companions and conjoints for each vertical 1-morphism $f$ that is part of a double transformation, giving
-  rise to two different functors
-  \[\cH,\cH'\maps \cDbl(\lD,\lE)\too \Conj(\cH(\lD),\cH(\lE)).\]
+  Suppose we make two different sets of choices of companions for each component of a tight transformation in $\cDblcf(\lD,\lE)$, yielding by the proof of \cref{thm:h-locfr} two different functors
+  \[\cH,\cH'\maps \cDbl(\lD,\lE)\too \cBicat_c(\cH(\lD),\cH(\lE)).\]
   Then the isomorphisms $\theta$ from \autoref{thm:theta} fit together
-  into a pseudo natural adjoint equivalence $\cH\eqv \cH'$ that is the
-  identity on objects (an ``invertible icon'').
+  into an invertible icon $\cH\cong \cH'$.
 \end{lem}
 \begin{proof}
   We must first show that for a given transformation $\al\maps F\to
-  G\maps \lD\to\lE$ in \cDbl, the isomorphisms \th\ correspond to 2-cells $\alhat \iso \alhat'$ of $\Conj(\cH(\lD),\cH(\lE))$; that is, they form invertible
+  G\maps \lD\to\lE$ in \cDbl, the isomorphisms \th\ correspond to 2-cells $\alhat \iso \alhat'$ of $\cBicat_c(\cH(\lD),\cH(\lE))$; that is, they form invertible
   modifications.
   Substituting~\eqref{eq:oplax-2cell} and the definition of \th\
   into~\eqref{eq:modif-ax}, this becomes the assertion that
@@ -365,66 +235,55 @@ We can also promote \autoref{thm:theta} to a functorial uniqueness.
       }}
   \end{equation}
   This follows from two applications of~\eqref{eq:compeqn}, one for
-  $\alhat_A$ and one for $\alhat_B'$.  (The mate of \th\ is, of
-  course, uniquely determined.)  Now, to show that these form a pseudo
-  natural adjoint equivalence, it remains only to check that they do,
-  in fact, form a pseudo natural transformation which is the identity
-  on objects, i.e.\ that~\eqref{eq:laxtransf-nat}
-  and~\eqref{eq:laxtransf-ax} are satisfied.
-  But~\eqref{eq:laxtransf-nat} is vacuous since $\cDbl(\lD,\lE)$ has
-  no nonidentity 2-cells, and~\eqref{eq:laxtransf-ax} follows from uniqueness of $\theta$s,
+  $\alhat_A$ and one for $\alhat_B'$.
+  Now to show that these form an invertible icon, the compatibility axiom with 2-cells in vacuous since $\cDblcf(\lD,\lE)$ has
+  no nonidentity 2-cells, while the functoriality requirement follows from uniqueness of $\theta$s,
   since all the constraints involved are also instances of \th.
 \end{proof}
 
-\textcolor{red}{
-However, there is no locally cubical bicategory containing conjunctional transformations, since the interchange law only holds laxly.  Instead, we need to restrict to pseudo natural adjoint equivalences. Thus, we introduce the following definition.
-}
+So far we have been able to deal with arbitrary tight transformations and their resulting colax transformations.
+But when we come to talk about tricategories or locally cubical bicategories, we have to restrict to pseudo natural transformations on the side of bicategories, since there is no tricategory (or locally cubical bicategory) containing arbitrary colax transformations: the interchange law only holds laxly.
+(One could write down a notion of ``colax tricategory'', but we will not attempt this.)
+This restriction means we need a corresponding restriction on the double-categorical side.
+
 \begin{defn}
-  We will say that a transformation $\alpha$ in $\cDbl$ has \textbf{loosely strong companions} if $\hat\alpha$ is a pseudo natural adjoint equivalence.
-   and \textbf{co-loosely strong} if $\check \alpha$ is pseudonatural.
-   \end{defn}
-
-We are now ready to prove that $\cH$ lifts to a functor of locally cubical bicategories. Such a functor is defined as a $\cDbl$-enriched functor. We give an explicit definition below.
-
-\begin{defn}\label{def:lcbcfunc}
-Let ${\bf S,T}$ be locally cubical bicategories. A functor $\cT: {\bf T} \rightarrow {\bf S}$ consists of the following data:
-\begin{enumerate}
-\item An assignment on objects that sends each object $A$ of ${\bf T}$ to an object $\cT A$ of ${\bf S}$.
-\item For each two objects $A,B$, a pseudo double functor (1-cell in \cDbl) ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$
-\item For every triple of objects $A,B,C$ of ${\bf T}$, a tight transformation (2-cell in $\cD bl$) 
-\begin{align} 
-\begin{tikzpicture}
-\node(1) at (0,0) {${\bf T}(A,B) \times {\bf T}(B,C)$};
-\node(2) at (5,0) {${\bf S}(\cT(A),\cT(C))$};
-\draw[->] (1) to[in=155, out=25] node[above]{$\cT \comp $} (2); 
-\draw[->] (1) to[in=-155, out=-25] node[below]{$ \comp (\cT,\cT)$} (2); 
-\node at (2.5,0) {$\Downarrow \phi \iso$};
-\end{tikzpicture}
-\end{align}
-\item For every object $A$ of {\bf T} a tight transformation
-\begin{align}
-\begin{tikzpicture}[xscale=.5, yscale=.3]
-\node(1) at (0,0) {$*$};
-\node(2) at (5,0) {${\bf S}(A,A)$};
-\node(3) at (5,-5) {${\bf T}(\cT(A),\cT(A))$};
-\draw[->] (1) to node[above]{$\looseid_{A}$} (2); 
-\draw[->] (1) to node[below]{$\looseid_{\cT(A)}$} (3);
-\draw[->] (2) to node[right]{$\cT$} (3); 
-\node at (3.5,-1.5) {$\Downarrow \phi_u \iso$};
-\end{tikzpicture}
-\end{align}
-\item The usual coherence diagrams, Definition 10 of~\cite{nick:tricatsbook} commute.
-\end{enumerate}
+  A transformation $\alpha$ in $\cDbl$ has \textbf{loosely strong companions} if each component $\alpha_A$ has a loose companion, and the resulting colax transformation $\hat\alpha$ is actually pseudo natural.
+  We write $\cDblf$ for the 2-category of double categories, functors, and transformations with loosely strong companions.
 \end{defn}
 
-%As any bicategory can be regarded as a double category with only identity tight 1-morphisms, any iconic tricategory can be regarded as a locally cubical bicategory and any iconic trifunctor can be regarded as a functor of locally cubical bicategories.
+We are now ready to prove that $\cH$ lifts to a functor of locally cubical bicategories.
+The definition of locally cubical bicategory can be found in~\cite{gg:ldstr-tricat}, but is also easy to write down: the 2-category $\cDbl$ has finite products, so we can write down the definition of bicategory in terms of hom-categories, with for instance composition functors $\bT(A,B) \times \bT(B,C) \to \bT(A,C)$, and then replace all the hom-categories with hom-double-categories.
+(In other words, we pass through a general notion of bicategory enriched over a cartesian monoidal strict 2-category.)
+\fxnote{Maybe we should formally define enriched bicategories in general?
+Later on when we discuss products we do it at that level of generality.}
+Thus, a locally cubical bicategory has objects, 1-morphisms, tight 2-morphisms, loose 2-cells, and 3-cells that fit in a square of tight and loose 2-cells.
 
-Let $\cDbl_f$ denote the sub-2-category of $\cDbl$ containing the double categories, all functors between them, and only transformations with loosely strong companions; we regard this as a locally cubical bicategory with only identity loose 2-morphisms and identity 3-cells.  The functor $\comp$ is defined on tight transformations as the Godement product. The pseudo double functor $\transid_A: * \rightarrow \cD bl(A,A)$ maps the cells in the trivial double category $*$ to the identity cells and morphisms in $\cD bl(A,A)$. 
+Note also that a locally cubical bicategory with one object is precisely a monoidal double category in the sense of \cref{sec:symm-mono-double}, and thus the explicit description of the coherences in \cref{sec:symm-mono-double} can also be applied here.
+We will primarily be concerned with the following two examples.
 
-As described in~\cite{gg:ldstr-tricat}, bicategories, pseudo functors, pseudo transformations, icons and cubical modifications also form a locally cubical bicategory. We will recall the definition of a cubical modification.
+\begin{eg}
+  Any category can be regarded as a double category in the \emph{loose} direction, with only identity tight morphisms and identity 2-cells.
+  (Note that this is a \emph{strict} double category, not a pseudo one.)
+  This operation preserves products, and thereby any strict 2-category can be regarded as a locally cubical bicategory.
+  In particular, we will regard the 2-category $\cDblf$ as a locally cubical bicategory in this way; thus it has only identity tight 2-cells and identity 3-cells.
+  % Let $\cDblf$ denote the sub-2-category of $\cDbl$ containing the double categories, all functors between them, and only transformations with loosely strong companions; we regard this as a locally cubical bicategory with only identity \fxnote*{The tight transformations between double categories are the \emph{loose} 2-morphisms in this locally double bicategory, right?}{tight} 2-morphisms and identity 3-cells.  The functor $\comp$ is defined on tight transformations as the Godement product. The pseudo double functor $\transid_A: * \rightarrow \cD bl(A,A)$ maps the cells in the trivial double category $*$ to the identity cells and morphisms in $\cD bl(A,A)$. 
+\end{eg}
+
+\begin{eg}
+  By~\cite[Corollary 12]{gg:ldstr-tricat}, there is a locally cubical bicategory $\fBicat$ defined by the following data:
+  \begin{itemize}
+  \item Its objects are bicategories.
+  \item Its morphisms are functors.
+  \item Its loose 2-cells are pseudo natural transformations.
+  \item Its tight 2-cells are icons~\cite{lack:icons}.
+  \item Its 3-cells are \emph{cubical modifications} as defined in~\cite[Definition 13]{gg:ldstr-tricat}.
+  \end{itemize}
+\end{eg}
+
+We recall the definition of a cubical modification.
 
 \begin{defn}
-Let $F,G,H,K: \cD \rightarrow \cE$ be pseudo functors; let $\alpha: F \Rightarrow G$, $\beta: H \Rightarrow K$ be pseudo transformations; let $\gamma: F \Rightarrow H$, $\delta: G \Rightarrow K$ be icons. A cubical modification
+Let $F,G,H,K: \cD \rightarrow \cE$ be pseudo functors; let $\alpha: F \Rightarrow G$, $\beta: H \Rightarrow K$ be pseudo transformations; let $\gamma: F \Rightarrow H$, $\delta: G \Rightarrow K$ be icons. A \textbf{cubical modification}
 \[
 \begin{tikzpicture}
 \node (tl) at (0,1) {$F$};
@@ -502,8 +361,8 @@ is given by a family of 2-cells $\Gamma_A: \alpha_A \RRightarrow \beta_A$ such t
 
 \end{defn}
 
-The pseudo functor $\transid_A: * \rightarrow \cB icat(A,A)$ maps the cells in the trivial bicategory $*$ to the identity cells and morphisms of $\cB icat(A,A)$. 
-The pseudofunctor $\comp$ is defined on functors as composition in the iconic tricategory $\cB icat$. On pseudo transformations and icons it is given by the Godement product. On cubical modifications it is defined below:
+The pseudo functor $\transid_A: * \rightarrow \fBicat(A,A)$ maps the cells in the trivial bicategory $*$ to the identity cells and morphisms of $\fBicat(A,A)$. 
+The pseudofunctor $\comp$ is defined on functors by composition. On pseudo transformations and icons it is given by the Godement product. On cubical modifications it is defined below:
 
 \begin{equation*}
 \begin{aligned}
@@ -541,43 +400,38 @@ The pseudofunctor $\comp$ is defined on functors as composition in the iconic tr
 
 Functoriality follows from naturality of the icons. Note that there are several canonical ways to define this composition on cubical modifications, by choosing different versions of the Godement product.  
 
+Now, we can similarly obtain the notion of \emph{functor} between locally cubical bicategories by writing down the definition of functor between bicategories and replacing all categories by double categories:
 
-%An icon is, morally speaking, an oplax transformation whose 1-cell components are all identities; but as noted by~\cite{lack:icons} this can be reexpressed without referring to these identity morphisms at all, yielding a definition that is easier to work with (because identity 1-cells in a bicategory are not strict).
-
-%\begin{defn}
-%Let $\cD, \cE$ be bicategories, and let $F,G: \cD \rightarrow \cE$ be pseudo functors. An {\bf icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\cD$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following diagrams commute:
-%\[
-%\begin{tikzpicture}[xscale=1.5]
-%\node (tl) at (0,1) {$\id_{FA}$};
-%\node (tr) at (1,1) {$F \id_A$};
-%\node (bl) at (0,0) {$\id_{GA}$};
-%\node (br) at (1,0) {$G\id_A$};
-%\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
-%\draw[doubletight] (bl) to node[below]{$\iso$} (br);
-%\draw[doubleeq] (tl) to (bl);
-%\draw[doubletight] (tr) to node[right]{$\alpha_{\id_A}$} (br);
-%\end{tikzpicture}\qquad
-%\begin{tikzpicture}[xscale=2]
-%\node (tl) at (0,1) {$Fg  Ff$};
-%\node (tr) at (1,1) {$F(gf)$};
-%\node (bl) at (0,0) {$Gg Gf$};
-%\node (br) at (1,0) {$G(gf)$};
-%\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
-%\draw[doubletight] (bl) to node[below]{$\iso$} (br);
-%\draw[doubletight] (tl) to node[left]{$\alpha_g \alpha_f$}(bl);
-%\draw[doubletight] (tr) to node[right]{$\alpha_{gf}$} (br);
-%\end{tikzpicture}
-%\]
-%\end{defn}
-
-
-
-%That is, it is a structure \bS\ with objects, hom-bicategories $\bS(A,B)$, composition functors $\bS(B,C)\times \bS(A,B)$, identities $1_A \in \bS(A,A)$, and associativity and unitality \emph{icons} that satisfy the usual pentagon and triangle identities.
-%(There is no room for any higher coherence, since the data of an icon consists of 2-cells only.)
-%In particular, composition of 1-cells (objects of $\bS(A,B)$) is strictly associative, though the associativity for horizonatl composition of 2-cells is mediated by an icon.
-
-%Similarly, we have the notion of \textbf{iconic functor}, namely an \Icon-enriched functor of bicategories.
-%We can write this explicitly as follows.
+\begin{defn}\label{def:lcbcfunc}
+Let ${\bf S,T}$ be locally cubical bicategories. A functor $\cT: {\bf T} \rightarrow {\bf S}$ consists of the following data:
+\begin{enumerate}
+\item An assignment on objects that sends each object $A$ of ${\bf T}$ to an object $\cT A$ of ${\bf S}$.
+\item For each two objects $A,B$, a pseudo double functor (1-cell in \cDbl) ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$
+\item For every triple of objects $A,B,C$ of ${\bf T}$, a tight transformation (2-cell in $\cD bl$) 
+\begin{align} 
+\begin{tikzpicture}
+\node(1) at (0,0) {${\bf T}(A,B) \times {\bf T}(B,C)$};
+\node(2) at (5,0) {${\bf S}(\cT(A),\cT(C))$};
+\draw[->] (1) to[in=155, out=25] node[above]{$\cT \comp $} (2); 
+\draw[->] (1) to[in=-155, out=-25] node[below]{$ \comp (\cT,\cT)$} (2); 
+\node at (2.5,0) {$\Downarrow \phi \iso$};
+\end{tikzpicture}
+\end{align}
+\item For every object $A$ of {\bf T} a tight transformation
+\begin{align}
+\begin{tikzpicture}[xscale=.5, yscale=.3]
+\node(1) at (0,0) {$*$};
+\node(2) at (5,0) {${\bf S}(A,A)$};
+\node(3) at (5,-5) {${\bf T}(\cT(A),\cT(A))$};
+\draw[->] (1) to node[above]{$\looseid_{A}$} (2); 
+\draw[->] (1) to node[below]{$\looseid_{\cT(A)}$} (3);
+\draw[->] (2) to node[right]{$\cT$} (3); 
+\node at (3.5,-1.5) {$\Downarrow \phi_u \iso$};
+\end{tikzpicture}
+\end{align}
+\item The usual coherence diagrams, Definition 10 of~\cite{nick:tricatsbook} commute.
+\end{enumerate}
+\end{defn}
 
 
 \begin{thm}\label{thm:h-functor}
@@ -641,3 +495,6 @@ $\cH(\mathbb{D} \times \mathbb{E}) = \cH(\mathbb{D}) \times \cH(\mathbb{E})$, an
 The case of the terminal object is likewise easy.
 \end{proof}
 
+% Local Variables:
+% TeX-master: "smbicat"
+% End:
