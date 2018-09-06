@@ -161,7 +161,7 @@ A monoidal 2-cell between colax monoidal 1-cells is {\bf braided}, {\bf syllepti
 We call a loose 2-cell $\beta$ a {\bf strong monoidal 2-cell} when $\Pi$ and $M$ are isomorphisms. 
 \end{defn}
 
-\textcolor{red}{When interpreted in $\cBicat$, monoidal 2-cells should correspond to monoidal pseudo transformations. Such transformations are less general than tritansformations between one-object tricategories. As there is only one fixed object, the constraints $\Pi$ and $M$ are given by icons instead of adjoint equivalences, which leads to the notion of a pseudo-icon~\cite[Definition 5]{gg:ldstr-tricat}, from which the definition above is derived. This notion equals that of a monoidal pseudo transformation given in~\cite{sp:thesis} up to isomorphisms $(\theta \times \looseid)(\looseid \times \theta) \iso (\theta \times \theta)$ and $\iota \iso \looseid \iota$ to ensure that the different instances of $\Pi$ and $M$ are of the same type.}
+When interpreted in $\cBicat$, monoidal 2-cells should correspond to monoidal pseudo transformations. Such transformations are less general than tritansformations between one-object tricategories. As there is only one fixed object, the constraints $\Pi$ and $M$ are given by icons instead of adjoint equivalences, which leads to the notion of a pseudo-icon~\cite[Definition 5]{gg:ldstr-tricat}, from which the definition above is derived. This notion equals that of a monoidal pseudo transformation given in~\cite{sp:thesis} up to canonical isomorphisms. In $\cDbl$, monoidal 2-cells correspond to pseudo double transformations.
 
 
 As remarked above, we will actually construct a locally cubical bicategory of monoidal objects.
@@ -207,7 +207,7 @@ If $f, g:A \rightarrow B$ are colax monoidal 1-cells the data for a monoidal ico
 A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symetric} when $f,g$ are braided, sylleptic or symmetric, respectively, and in addition, the coherence axiom~\eqref{eq:bricon} in Appendix~\ref{ap:coherence} holds. For bicategories, this axiom specifies to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb}. 
 \end{defn}
 
-Monoidal icons interpreted in $\cBicat$ correspond to ico-icons~\cite[Definition 2]{gg:ldstr-tricat}. These are doubly degenerate colax tritransformations between lax trihomomorphisms which agree on both 0- and 1-cells. In $\cDbl$, they correspond to pseudo double transformations.
+Monoidal icons interpreted in $\cBicat$ correspond to ico-icons~\cite[Definition 2]{gg:ldstr-tricat}. These are doubly degenerate colax tritransformations between lax trihomomorphisms which agree on both 0- and 1-cells.
 
 \begin{defn}
   Let $f,g,f',g': A \rightarrow B$ be lax monoidal 1-cells, let $\alpha: f \looseRightarrow{} g$, $\beta: f' \looseRightarrow{} g'$ be lax monoidal 2-cells, and let $\gamma: f \Rightarrow f'$, $\delta: g \Rightarrow g'$ be monoidal icons. A \textbf{monoidal 3-cell} is a 3-cell 
@@ -351,7 +351,7 @@ If the 1-cells or 2-cells are colax, the 3-cells in the coherence equations are 
 Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be braided, sylleptic, or symmetric monoidal 1-cells, 2-cells, and icons, respectively. A \textbf{braided, sylleptic, or symmetric monoidal 3-cell} $\Gamma$ as depicted above, is simply a monoidal 3-cell. 
 \end{defn}
 
-Monoidal 3-cells in $\cBicat$ correspond to cubical pseudo-icon modifications~\cite[Definition 16]{gg:ldstr-tricat}. When the icon components are identities, this reduces to a monoidal modification~\cite[Definition 2.8]{sp-thesis}. 
+Monoidal 3-cells in $\cBicat$ correspond to cubical pseudo-icon modifications~\cite[Definition 16]{gg:ldstr-tricat}. When the icon components are identities, this reduces to a monoidal modification~\cite[Definition 2.8]{sp:thesis}. 
 
 We will show that monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in a locally cubical bicategory \fB\ form a locally cubical bicategory $\cM on_l\cB$. If we consider colax or strong cells instead, we obtain the locally cubical bicategory $\cM on_o\cB$ or $\cM on_s\cB$, respectively. Braided, sylleptic and symmetric cells form  locally cubical bicategories $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$. Here, $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
 

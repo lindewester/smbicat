@@ -76,34 +76,56 @@ It is a \textbf{lax transformation} if the 2-cells $\al_f$ go the
 other direction, and a \textbf{pseudo transformation} if they are
 isomorphisms.
 
-\fxnote{Should we recall the definition of icons somewhere?}
-%An icon is, morally speaking, an oplax transformation whose 1-cell components are all identities; but as noted by~\cite{lack:icons} this can be reexpressed without referring to these identity morphisms at all, yielding a definition that is easier to work with (because identity 1-cells in a bicategory are not strict).
+When two pseudo functors agree on objects, there is a simpler notion of transformation between them, called an {\it icon}.
+An icon is, morally speaking, an oplax transformation whose 1-cell components are all identities; but as noted by~\cite{lack:icons} this can be reexpressed without referring to these identity morphisms at all, yielding a definition that is easier to work with (because identity 1-cells in a bicategory are not strict).
 
-%\begin{defn}
-%Let $\cD, \cE$ be bicategories, and let $F,G: \cD \rightarrow \cE$ be pseudo functors. An {\bf icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\cD$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following diagrams commute:
+\begin{defn}
+Let $\cD, \cE$ be bicategories, and let $F,G: \cD \rightarrow \cE$ be pseudo functors that agree on objects. An \textbf{icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\cD$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following equations hold:
 %\[
-%\begin{tikzpicture}[xscale=1.5]
-%\node (tl) at (0,1) {$\id_{FA}$};
-%\node (tr) at (1,1) {$F \id_A$};
-%\node (bl) at (0,0) {$\id_{GA}$};
-%\node (br) at (1,0) {$G\id_A$};
-%\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
-%\draw[doubletight] (bl) to node[below]{$\iso$} (br);
+%\begin{tikzpicture}[yscale=1,xscale=1.5]
+%\node (tl) at (0,1) {$I_{FA}$};
+%\node (tr) at (1,1) {$F I_A$};
+%\node (bl) at (0,0) {$I_{GA}$};
+%\node (br) at (1,0) {$GI_A$};
+%\draw[->] (tl) to node[above]{$\phi$} (tr);
+%\draw[->] (bl) to node[below]{$\phi$} (br);
 %\draw[doubleeq] (tl) to (bl);
-%\draw[doubletight] (tr) to node[right]{$\alpha_{\id_A}$} (br);
-%\end{tikzpicture}\qquad
-%\begin{tikzpicture}[xscale=2]
-%\node (tl) at (0,1) {$Fg  Ff$};
-%\node (tr) at (1,1) {$F(gf)$};
-%\node (bl) at (0,0) {$Gg Gf$};
-%\node (br) at (1,0) {$G(gf)$};
-%\draw[doubletight] (tl) to node[above]{$\iso$} (tr);
-%\draw[doubletight] (bl) to node[below]{$\iso$} (br);
-%\draw[doubletight] (tl) to node[left]{$\alpha_g \alpha_f$}(bl);
-%\draw[doubletight] (tr) to node[right]{$\alpha_{gf}$} (br);
+%\draw[->] (tr) to node[right]{$\alpha_{I_A}$} (br);
+%\end{tikzpicture}
+%\qquad
+%\begin{tikzpicture}[yscale=1, xscale=1.5]
+%\node (tl) at (0,1) {$F(g)  F(f)$};
+%\node (tr) at (1,1) {$F(g  f)$};
+%\node (bl) at (0,0) {$G(g)  G(f)$};
+%\node (br) at (1,0) {$G(g  f)$};
+%\draw[->] (tl) to node[above]{$\phi$} (tr);
+%\draw[->] (bl) to node[below]{$\phi$} (br);
+%\draw[->] (tl) to node[left]{$\alpha_g \tens \alpha_f$}(bl);
+%\draw[->] (tr) to node[right]{$\alpha_{g \tens f}$} (br);
 %\end{tikzpicture}
 %\]
-%\end{defn}
+
+\begin{equation}
+  \vcenter{\xymatrix@R=5pc{
+      \rtwocell^{1_{FA}}_{F(1_A)}{\iso} \ar[d]_{\id} \drtwocell\omit{\al_{1_A}} &  \ar[d]^{\id}\\
+      \rtwocell^{G(1_A)}_{1_{GA}}{\iso} & }} \;=\;
+  \vcenter{\xymatrix{ \ar[r]^{1_{FA}}\ar[d]_{\id} \drtwocell\omit{\iso}&  \ar[d]^{\id}\\
+      \ar[r]_{1_{GA}} &
+    }}
+  \quad\text{and}\quad
+  \vcenter{\xymatrix{
+      \ar[r]|{Ff}\ar[d]_{\id} \drtwocell\omit{\al_f}
+      \rruppertwocell^{F(gf)}{\iso}
+      &
+      \ar[r]|{Fg}\ar[d]|{\id} \drtwocell\omit{\al_g} &
+      \ar[d]^{\id}\\
+      \ar[r]|{Gf} \rrlowertwocell_{G(gf)}{\iso} & \ar[r]|{Gg} & }}
+  \;=\;
+  \vcenter{\xymatrix{ \ar[r]^{F(gf)}\ar[d]_{\id} \drtwocell\omit{\al_{gf}} &  \ar[d]^{\id}\\
+      \ar[r]_{G(gf)} & }}\label{eq:laxtransf-ax}
+\end{equation}
+
+\end{defn}
 
 
 Recall also that if $\al,\al'\maps F\to G$ are oplax transformations,
@@ -193,7 +215,7 @@ Since any functor of bicategories preserves adjoint equivalences, and an adjoint
 \end{proof}
 
 Of course, the functor constructed in \cref{thm:h-locfr} depends on the choices of companions made in the proof.
-Howver up to equivalence it does not depend on these choices:
+However up to equivalence it does not depend on these choices:
 
 \begin{lem}\label{thm:h-locfr-uniq}
   Suppose we make two different sets of choices of companions for each component of a tight transformation in $\cDblcf(\lD,\lE)$, yielding by the proof of \cref{thm:h-locfr} two different functors
@@ -259,7 +281,7 @@ Howver up to equivalence it does not depend on these choices:
 \end{rmk}
 
 So far we have been able to deal with arbitrary tight transformations and their resulting colax (or lax) transformations.
-But when we come to talk about tricategories or locally cubical bicategories, we have to restrict to pseudo natural transformations on the side of bicategories, since there is no tricategory (or locally cubical bicategory) containing arbitrary colax transformations: the interchange law only holds laxly.
+But when we come to talk about tricategories or locally cubical bicategories, \fxnote[author=LW]{In the introduction, these were called locally double bicategories. Should we make this consistent?}we have to restrict to pseudo natural transformations on the side of bicategories, since there is no tricategory (or locally cubical bicategory) containing arbitrary colax transformations: the interchange law only holds laxly.
 (One could write down a notion of ``colax tricategory'', but we will not attempt this.)
 This restriction means we need a corresponding restriction on the double-categorical side.
 
@@ -269,14 +291,34 @@ This restriction means we need a corresponding restriction on the double-categor
   We write $\cDblf$ for the 2-category of double categories, functors, and transformations with loosely strong companions.
 \end{defn}
 
-We are now ready to prove that $\cH$ lifts to a functor of locally cubical bicategories.
-The definition of locally cubical bicategory can be found in~\cite{gg:ldstr-tricat}, but is also easy to write down: the 2-category $\cDbl$ has finite products, so we can write down the definition of bicategory in terms of hom-categories, with for instance composition functors $\bT(A,B) \times \bT(B,C) \to \bT(A,C)$, and then replace all the hom-categories with hom-double-categories.
-(In other words, we pass through a general notion of bicategory enriched over a cartesian monoidal strict 2-category.)
-\fxnote{Maybe we should formally define enriched bicategories in general?
-Later on when we discuss products we do it at that level of generality.}
-Thus, a locally cubical bicategory has objects, 1-morphisms, tight 2-morphisms, loose 2-cells, and 3-cells that fit in a square of tight and loose 2-cells.
+We are now ready to prove that $\cH$ lifts to a functor of locally cubical bicategories. The definition of locally cubical bicategory can be found in~\cite{gg:ldstr-tricat}, but it can also be derived as a bicategory enriched in the monoidal 2-category $\cDbl$.
 
-Note also that a locally cubical bicategory with one object is precisely a monoidal double category in the sense of \cref{sec:symm-mono-double}, and thus the explicit description of the coherences in \cref{sec:symm-mono-double} can also be applied here.
+\begin{defn}
+Let $\mathcal{V}$ be a monoidal 2-category. A $\mathcal{V}$-enriched bicategory ${\bf B}$ consists of the following elements:
+\begin{itemize}
+\item A collection of objects $\cat{B}=\{A,B,C,...\} $
+\item For each two objects $A,B$ of $\cat{B}$, an object ${\cat B}(A,B)$ of $\mathcal{V}$. 
+\item For each three objects $A, B, C$ of $\cat{B}$, a 1-cell  $\comp: {\cat B}(B,C) \otimes {\cat B}(A,B) \rightarrow {\cat B}(A,C)$ of $\mathcal{V}$. 
+\item For each object $A$ of $\cat{B}$, a 1-cell $I_A: 1 \rightarrow {\bf B}(A,A)$ of $\mathcal{V}$, where $1$ is the initial object of $\mathcal{V}$. 
+\item For each four objects $A,B,C,D$ of $\cat{B}$, a 2-cell of $\mathcal{V}$, depicted below. 
+  \begin{center}
+    \input{alpha.tex}
+    \end{center}
+\item For each two objects $A,B$ of $\cat{B}$, a natural isomorphisms 
+  \begin{center}
+    \input{lambdarho.tex}
+    \end{center}
+ \end{itemize}
+This data needs to satisfy the usual axioms for bicategories~\cite{maclane}
+\end{defn}
+
+The 2-category $\cDbl$ has finite products, which gives the monoidal structure. 
+%we can write down the definition of bicategory in terms of hom-categories, with for instance composition functors $\bT(A,B) \times \bT(B,C) \to \bT(A,C)$, and then replace all the hom-categories with hom-double-categories.
+%(In other words, we pass through a general notion of bicategory enriched over a cartesian monoidal strict 2-category.)
+\fxnote{Are you happy with this definition?}
+When we apply the definition above, we see that a locally cubical bicategory has objects, hom-double categories {of 1-morphisms, tight 2-morphisms, loose 2-cells, and 3-cells, which fit in a square of tight and loose 2-cells. We have double functors $\comp$, $I_A$ and tight isomorphisms $\alpha, \rho, \lambda$.
+
+Note that a locally cubical bicategory with one object is precisely a monoidal double category in the sense of \cref{sec:symm-mono-double}, and thus the explicit description of the coherences in \cref{sec:symm-mono-double} can also be applied here.
 We will primarily be concerned with the following two examples.
 
 \begin{eg}
@@ -418,24 +460,24 @@ The pseudofunctor $\comp$ is defined on functors by composition. On pseudo trans
 
 Functoriality follows from naturality of the icons. Note that there are several canonical ways to define this composition on cubical modifications, by choosing different versions of the Godement product.  
 
-Now, we can similarly obtain the notion of \emph{functor} between locally cubical bicategories by writing down the definition of functor between bicategories and replacing all categories by double categories:
+Now, we can similarly obtain the notion of \emph{functor} between locally cubical bicategories from the definition of a $\mathcal{V}$-enriched functor between $\mathcal{V}$-enriched bicategories.
 
 \begin{defn}\label{def:lcbcfunc}
-Let ${\bf S,T}$ be locally cubical bicategories. A functor $\cT: {\bf T} \rightarrow {\bf S}$ consists of the following data:
+Let $\mathcal{V}$ be a monoidal 2-category. Let ${\bf S,T}$ be $\mathcal{V}$-enriched bicategories. A $\mathcal{V}$-enriched functor $\cT: {\bf T} \rightarrow {\bf S}$ consists of the following data:
 \begin{enumerate}
 \item An assignment on objects that sends each object $A$ of ${\bf T}$ to an object $\cT A$ of ${\bf S}$.
-\item For each two objects $A,B$, a pseudo double functor (1-cell in \cDbl) ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$
-\item For every triple of objects $A,B,C$ of ${\bf T}$, a tight transformation (2-cell in $\cD bl$) 
+\item For each two objects $A,B$ of ${\bf T}$, a 1-cell ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$ of $\mathcal{V}$.
+\item For every triple of objects $A,B,C$ of ${\bf T}$, a 2-cell of $\mathcal{V}$ 
 \begin{align} 
 \begin{tikzpicture}
-\node(1) at (0,0) {${\bf T}(A,B) \times {\bf T}(B,C)$};
+\node(1) at (0,0) {${\bf T}(A,B) \otimes {\bf T}(B,C)$};
 \node(2) at (5,0) {${\bf S}(\cT(A),\cT(C))$};
 \draw[->] (1) to[in=155, out=25] node[above]{$\cT \comp $} (2); 
 \draw[->] (1) to[in=-155, out=-25] node[below]{$ \comp (\cT,\cT)$} (2); 
 \node at (2.5,0) {$\Downarrow \phi \iso$};
 \end{tikzpicture}
 \end{align}
-\item For every object $A$ of {\bf T} a tight transformation
+\item For every object $A$ of ${\bf T}$ a 2-cell of $\mathcal{V}$
 \begin{align}
 \begin{tikzpicture}[xscale=.5, yscale=.3]
 \node(1) at (0,0) {$*$};
@@ -451,12 +493,15 @@ Let ${\bf S,T}$ be locally cubical bicategories. A functor $\cT: {\bf T} \righta
 \end{enumerate}
 \end{defn}
 
+When we apply this definition to the monoidal 2-category $\cDbl$, we see that a {\bf functor of locally cubical bicategories} $\cT$ consists of a map of objects $A \mapsto \cT A$; pseudo double functors ${\bf T}(A,B) \rightarrow {\bf S}(\cT(A),\cT(B))$ for each two objects $A,B$; and tight transformations $\phi$ for each two objects $A,B$ of ${\bf T}$, and $\phi_u$ for every object $A$ of ${\bf T}$. 
+
+\fxnote[author=LW]{For consistency, I have reformulated this first in terms of general V-enriched functors and then specialised to an lcbc-functor. Do you think this is a clear enough?}
 
 \begin{thm}\label{thm:h-functor}
-  There is a functor of locally cubical bicategories $\cH\maps \cDblf\to \cBicat$.
+There is a functor of locally cubical bicategories $\cH\maps \cDblf\to \cBicat$.
 \end{thm}
 \begin{proof}
-Since any pseudo functor can be seen as a double functor between double categories with only identity tight 1-morphisms, each pseudo functor $\cH: \cDbl(\D,\E) \rightarrow \cBicat(\cH\D, \cH \E)$ corresponds to a pseudo double functor $\fH: \fDblf(\D,\E) \rightarrow \fBicat(\fH\D, \fH \E)$. Consequently, the first two requirements in \autoref{def:Iconfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}.
+Since any pseudo functor can be seen as a double functor between double categories with only identity tight 1-morphisms, each pseudo functor $\cH: \cDbl(\D,\E) \rightarrow \cBicat(\cH\D, \cH \E)$ corresponds to a pseudo double functor $\fH: \fDblf(\D,\E) \rightarrow \fBicat(\fH\D, \fH \E)$. Consequently, the first two requirements in \autoref{def:lcbcfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}.
 The third requirement amounts to the existence of a tight transformation $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$ for every pair of transformations with loosely strong companions 
 
   \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
@@ -484,10 +529,11 @@ Here, we use the 'Godement product' $*$ of 2-cells in $\cDbl$.
   H(\alhat_A)$ is a companion of $(\be*\al)_A = \be_{GA} \circ
   H(\al_A)$.  Therefore, we take the component $(\phi_{\alpha,\beta})_A$ to be
   \[\theta_{\behat_{GA} \circ H(\alhat_A),\, \widehat{\be*\al}_A}.\]
- As the other morphisms in the diagrams above are also $\theta$-isomorphisms, the equations hold by uniqueness of $\theta$-isomorphisms.
+ As the other morphisms in the diagrams above are also $\theta$-isomorphisms, the equations hold by Lemma~\ref{thm:theta-compose-vert}.
 For the tight transformation  $\phi_u$ we can simply take the identity, since $\cH$ is strictly unital.
-The coherence equations hold by uniqueness of $\theta$-isomorphisms.
+The coherence equations hold by Lemma~\ref{thm:theta-compose-vert}
 \end{proof}
+
 
 Our goal is to enhance this functor to act on ``monoidal objects''.
 It is well-known that ``monoidal functors preserve monoid objects'', so our approach will be to categorify this: we will show that $\cH$ is monoidal, in an appropriate sense, and that monoidal functors of this sort preserve monoidal objects of the appropriate sort.
