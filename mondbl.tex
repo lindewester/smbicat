@@ -59,7 +59,7 @@ M\to N$ of $\lD_1$ with $S(\alpha)=f$ and $T(\alpha)=g$ a
 \end{equation}
 
 
-Note that composition of tight 1-morphisms is strictly associative and unitaly, while that of loose 1-cells is only weakly so.
+Note that composition of tight 1-morphisms is strictly associative and unital, while that of loose 1-cells is only weakly so.
 The words ``tight'' and ``loose'', borrowed from~\cite{ls:limlax}, are intended to suggest one kind of morphism that is ``stricter'' than another.
 Traditionally the two kinds of 1-arrow in a double category are called ``vertical'' and ``horizontal'' with reference to how they are drawn, but this creates confusion because some authors draw the tight morphisms (those with strictly associative composition) vertically and others draw them horizontally.
 We usually draw the tight 1-morphisms vertically and the loose 1-cells horizontally, but the terminology ``tight'' and ``loose'' unambiguously identifies which arrows we are talking about, independently of our conventions about how to draw pictures.%
@@ -78,7 +78,7 @@ as
 \[\vcenter{\xymatrix@C=4pc{ \ar[r]|-@{|}^-{} \ar[d] \ar@{}[dr]|{\Downarrow\;\be\odot\al} &  \ar[d]\\
   \ar[r]|-@{|}_-{} & }}\]
 
-
+\fxnote[author=LW]{We need to decide if we want to keep this (here)}
 Alternatively, we can draw the poincar\'{e} dual of the diagram ~\cite{myers2016string}. In these ``string diagrams'', the regions are objects, the vertical lines are 1-cells, the horizontal lines are 1-morphisms and the box is a 2-morphism. Below we depict loose and tight composition of 2-cells.
 
 \begin{align}
@@ -153,6 +153,7 @@ loose 1-cells, and globular 2-morphisms.  In the literature, this is often calle
 occurring bicategories are actually the loose bicategory of some
 naturally ocurring double category.  Here are just a few examples.
 
+\fxnote[author=LW]{We should combine this with the example in the last section, or mention that the last section provides details.}
 \begin{eg}
   The double category \lMod\ has as objects rings, as tight 1-morphisms ring
   homomorphisms, as loose 1-cells bimodules, and as 2-morphisms equivariant
@@ -184,8 +185,6 @@ naturally ocurring double category.  Here are just a few examples.
 % we will extend this usage to double categories.
 
 The string diagrams corresponding to the loose bicategories have all the elements of the diagrams for double categories, without the horizontal lines. This is the calculus for bicategories described in~\cite{bms}, which is an extention of the string diagrams for braided monoidal categories by M. Kelly and M.L. Laplaza~\cite{kellylaplaza}.
-\fxnote[author=MS]{At this point in the paper we haven't introduced monoidal structure, so this comment doesn't seem quite right here.}
-\fxnote[author=LW]{Fixed. The monoidal structure was not relevant for the way we use them.}
 
 \begin{align}
 &\mbox{Horizontal composition} &\mbox{Vertical composition}  \hspace{28pt} \\
@@ -219,7 +218,7 @@ categories naturally form a \emph{2-category}, a much simpler object.
 
 \begin{defn}
   Let \lD\ and \lE\ be double categories.  A \textbf{(pseudo double)
-    functor} $F\maps \lD\to \lE$ consists of the following.
+    functor} $F \maps \lD\to \lE$ consists of the following.
   \begin{itemize}
   \item Functors $F_0\maps \lD_0 \to \lE_0$ and $F_1\maps \lD_1 \to
     \lE_1$ such that $S\circ F_1 = F_0\circ S$ and $T\circ F_1 =
@@ -279,8 +278,7 @@ categories naturally form a \emph{2-category}, a much simpler object.
   for all objects $A$.
 \end{defn}
 
-We write \cDbl\ for the strict 2-category of double categories, functors, and
-transformations, and $\mathbf{Dbl}$ for its underlying 1-category. As pseudofunctors compose strictly associatively, this is well-defined. Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
+We write \cDbl\ for the strict 2-category of double categories, functors, and transformations, and $\mathbf{Dbl}$ for its underlying 1-category. As pseudofunctors compose strictly associatively, this is well-defined. Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
 $\al_A$, \emph{and} each $\al_M$, is invertible.
 
 The 2-category \cDbl\ gives us an easy way to define what we mean by a
@@ -332,50 +330,203 @@ structure.
   and
   \[\fu\maps U_{A\ten B} \too[\iso] (U_A \ten U_B)\]
   such that the following diagrams commute, expressing that $\ten$ is a pseudo double functor:
-\[
-  \xymatrix{
-    ((M_1\ten N_1)\odot (M_2\ten N_2)) \odot (M_3\ten N_3) \ar[r]\ar[d]
-    & ((M_1\odot M_2)\ten (N_1\odot N_2)) \odot (M_3\ten N_3) \ar[d]\\
-    (M_1\ten N_1)\odot ((M_2\ten N_2) \odot (M_3\ten N_3)) \ar[d] &
-    ((M_1\odot M_2)\odot M_3) \ten ((N_1\odot N_2)\odot N_3) \ar[d]\\
-    (M_1\ten N_1) \odot ((M_2\odot M_3) \ten (N_2\odot N_3))\ar[r] &
-    (M_1\odot (M_2\odot M_3)) \ten (N_1\odot (N_2\odot N_3))}\]
-  \[\xymatrix{(M\ten N) \odot U_{C\ten D} \ar[r]\ar[d] &
-    (M\ten N)\odot (U_C\ten U_D) \ar[d]\\
-    M\ten N\ar@{<-}[r] & (M\odot U_C) \ten (N\odot U_D)}\]
-  \[\xymatrix{U_{A\ten B}\odot (M\ten N)  \ar[r]\ar[d] &
-    (U_A\ten U_B)\odot (M\ten N) \ar[d]\\
-    M\ten N\ar@{<-}[r] & (U_A \odot M) \ten (U_B\odot N)}\]
+\begin{equation}\label{eq:mondoub1}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.8, yscale=1.5]
+\node (tl) at (0,2) {$((M_1 \tens N_1)\odot (M_2 \tens N_2)) \odot (M_3 \tens N_3)$};
+\node (tr) at (4,2) {$((M_1 \odot M_2) \tens (N_1 \odot N_2)) \odot (M_3 \tens N_3)$};
+\node (ml) at (0,1) {$(M_1 \tens N_1) \odot ((M_2 \tens N_2) \odot (M_3 \tens N_3))$};
+\node (mr) at (4,1) {$((M_1 \odot M_2) \odot M_3) \tens ((N_1 \odot N_2) \odot N_3)$};
+\node (bl) at (0,0) {$(M_1 \tens N_1) \odot ((M_2 \odot M_3) \tens (N_2 \odot N_3))$};
+\node (br) at (4,0) {$(M_1 \odot (M_2 \odot M_3)) \tens (N_1 \odot (N_2 \odot N_3))$};
+\draw[->] (tl) to node[above] {$\fx \odot \id$} (tr);
+\draw[->] (tl) to node[left]{$\fa$} (ml);
+\draw[->] (ml) to node[left]{$\id\odot \fx$} (bl);
+\draw[->] (tr) to node[left]{$\fx$} (mr);
+\draw[->] (mr) to node[left]{$\fa \odot \fa$} (br);
+\draw[->] (bl) to node[above] {$\fx$} (br);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+
+%\begin{equation}\label{eq:mondoub1}
+%\begin{aligned}
+%  \xymatrix{
+%    ((M_1\ten N_1)\odot (M_2\ten N_2)) \odot (M_3\ten N_3) \ar[r]\ar[d]
+%    & ((M_1\odot M_2)\ten (N_1\odot N_2)) \odot (M_3\ten N_3) \ar[d]\\
+%    (M_1\ten N_1)\odot ((M_2\ten N_2) \odot (M_3\ten N_3)) \ar[d] &
+%    ((M_1\odot M_2)\odot M_3) \ten ((N_1\odot N_2)\odot N_3) \ar[d]\\
+%    (M_1\ten N_1) \odot ((M_2\odot M_3) \ten (N_2\odot N_3))\ar[r] &
+%    (M_1\odot (M_2\odot M_3)) \ten (N_1\odot (N_2\odot N_3))}
+%    \end{aligned}
+%\end{equation}
+
+\begin{equation}\label{eq:mondoub2}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2, yscale=1.5]
+\node (tl) at (0,2) {$(M \tens N) \odot U_{C \tens D}$};
+\node (tr) at (4,2) {$(M \tens N) \odot ( U_C \tens U_D)$};
+\node (ml) at (0,1) {$M \tens N$};
+\node (mr) at (4,1) {$(M \odot U_C) \tens (N \odot U_D)$};
+\draw[->] (tl) to node[above] {$\id \odot \fu$} (tr);
+\draw[->] (tl) to node[left]{$\fr$} (ml);
+\draw[->] (tr) to node[left]{$\fx$} (mr);
+\draw[->] (mr) to node[above] {$\fr \tens \fr$} (ml);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+
+%\begin{equation}\label{eq:mondoub2}
+%\begin{aligned}    
+%  \xymatrix{(M\ten N) \odot U_{C\ten D} \ar[r]\ar[d] &
+%    (M\ten N)\odot (U_C\ten U_D) \ar[d]\\
+%    M\ten N\ar@{<-}[r] & (M\odot U_C) \ten (N\odot U_D)}
+%        \end{aligned}
+%    \end{equation}
+    
+    \begin{equation}\label{eq:mondoub3}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2, yscale=1.5]
+\node (tl) at (0,2) {$U_{A \tens B} \odot (M \tens N) $};
+\node (tr) at (4,2) {$(U_A \tens U_B) \odot (M \tens N) $};
+\node (ml) at (0,1) {$M \tens N$};
+\node (mr) at (4,1) {$(U_A \odot M ) \tens (U_B \odot N)$};
+\draw[->] (tl) to node[above] {$\fu \odot \id$} (tr);
+\draw[->] (tl) to node[left]{$\fl$} (ml);
+\draw[->] (tr) to node[left]{$\fx$} (mr);
+\draw[->] (mr) to node[above] {$\fl \tens \fl$} (ml);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+
+%    \begin{equation}\label{eq:mondoub3}
+%    \begin{aligned}
+%  \xymatrix{U_{A\ten B}\odot (M\ten N)  \ar[r]\ar[d] &
+ %   (U_A\ten U_B)\odot (M\ten N) \ar[d]\\
+ %   M\ten N\ar@{<-}[r] & (U_A \odot M) \ten (U_B\odot N)}
+ %       \end{aligned}
+%    \end{equation}
 \item \label{eq:mon2}The following diagrams commute, expressing that the
   associativity isomorphism for $\ten$ is a transformation of double
   categories.
-  \[\xymatrix{
-    ((M_1\ten N_1)\ten P_1) \odot ((M_2\ten N_2)\ten P_2) \ar[r]\ar[d] &
-    (M_1\ten (N_1\ten P_1)) \odot (M_2\ten (N_2\ten P_2)) \ar[d]\\
-    ((M_1\ten N_1) \odot (M_2\ten N_2)) \ten (P_1\odot P_2) \ar[d] &
-    (M_1\odot M_2) \ten ((N_1\ten P_1)\odot (N_2\ten P_2))\ar[d] \\
-    ((M_1\odot M_2) \ten(N_1\odot N_2)) \ten (P_1\odot P_2) \ar[r] &
-    (M_1\odot M_2) \ten ((N_1\odot N_2)\ten (P_1\odot P_2))}\]
-  \[\xymatrix{
-    U_{(A\ten B)\ten C} \ar[r] \ar[d] & U_{A\ten (B\ten C)} \ar[d]\\
-    U_{A\ten B} \ten U_C \ar[d] & U_A\ten U_{B\ten C}\ar[d]\\
-    (U_A\ten U_B)\ten U_C \ar[r] & U_A\ten (U_B\ten U_C) }\]
+\begin{equation}\label{eq:mondoub4}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.8, yscale=1.5]
+\node (tl) at (0,2) {$((M_1 \tens N_1) \tens P_1) \odot ((M_2 \tens N_2) \tens P_2) $};
+\node (tr) at (4,2) {$(M_1 \tens (N_1 \tens P_1)) \odot (M_2 \tens (N_2 \tens P_2))$};
+\node (ml) at (0,1) {$((M_1 \tens N_1) \odot (M_2 \tens N_2)) \tens (P_1 \odot P_2)$};
+\node (mr) at (4,1) {$(M_1 \odot M_2)  \tens ((N_1 \tens P_1) \odot (N_2 \tens P_2))$};
+\node (bl) at (0,0) {$((M_1 \odot M_2) \tens (N_1 \odot N_2)) \tens (P_1 \odot P_2)$};
+\node (br) at (4,0) {$(M_1 \odot M_2) \tens ((N_1 \odot N_2) \tens (P_1 \odot P_2))$};
+\draw[->] (tl) to node[above] {$\fa \odot \fa$} (tr);
+\draw[->] (tl) to node[left]{$\fx$} (ml);
+\draw[->] (ml) to node[left]{$ \fx \tens \id$} (bl);
+\draw[->] (tr) to node[left]{$\fx$} (mr);
+\draw[->] (mr) to node[left]{$\id \tens \fx$} (br);
+\draw[->] (bl) to node[above] {$\fa$} (br);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+  
+%     {\small 
+%\begin{equation}\label{eq:mondoub4}
+%\begin{aligned}
+%  \xymatrix{
+%    ((M_1\ten N_1)\ten P_1) \odot ((M_2\ten N_2)\ten P_2) \ar[r]\ar[d] &
+ %   (M_1\ten (N_1\ten P_1)) \odot (M_2\ten (N_2\ten P_2)) \ar[d]\\
+    %((M_1\ten N_1) \odot (M_2\ten N_2)) \ten (P_1\odot P_2) \ar[d] &
+%    (M_1\odot M_2) \ten ((N_1\ten P_1)\odot (N_2\ten P_2))\ar[d] \\
+   % ((M_1\odot M_2) \ten(N_1\odot N_2)) \ten (P_1\odot P_2) \ar[r] &
+%    (M_1\odot M_2) \ten ((N_1\odot N_2)\ten (P_1\odot P_2))}
+   %     \end{aligned}
+      %  \end{equation}
+        
+        \begin{equation}\label{eq:mondoub5}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.8, yscale=1.5]
+\node (tl) at (0,2) {$U_{(A \tens B) \tens C}$};
+\node (tr) at (4,2) {$U_{A \tens (B \tens C)}$};
+\node (ml) at (0,1) {$U_{A \tens B} \tens U_C$};
+\node (mr) at (4,1) {$U_A \tens U_{B \tens C}$};
+\node (bl) at (0,0) {$(U_A \tens U_B) \tens U_C$};
+\node (br) at (4,0) {$U_A \tens (U_B \tens U_C)$};
+\draw[->] (tl) to node[above] {$U_{\alpha_{A,B,C}}$} (tr);
+\draw[->] (tl) to node[left]{$\fu$} (ml);
+\draw[->] (ml) to node[left]{$\fu \tens \id$} (bl);
+\draw[->] (tr) to node[left]{$\fu$} (mr);
+\draw[->] (mr) to node[left]{$\id \tens \fu$} (br);
+\draw[->] (bl) to node[above] {$\alpha_{U_A, U_B, U_C}$} (br);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+%    \begin{equation}\label{eq:mondoub5}
+  %  \begin{aligned}
+  %\xymatrix{
+%    U_{(A\ten B)\ten C} \ar[r] \ar[d] & U_{A\ten (B\ten C)} \ar[d]\\
+   % U_{A\ten B} \ten U_C \ar[d] & U_A\ten U_{B\ten C}\ar[d]\\
+%    (U_A\ten U_B)\ten U_C \ar[r] & U_A\ten (U_B\ten U_C) }
+   %     \end{aligned}
+   % \end{equation}
+    %}
+
 \item \label{eq:mon3}The following diagrams commute, expressing that the unit
   isomorphisms for $\ten$ are transformations of double categories.
-  \[\vcenter{\xymatrix{
-      (M\ten U_I)\odot (N\ten U_I)\ar[r]\ar[d] &
-      (M\odot N)\ten (U_I \odot U_I) \ar[d]\\
-      M\odot N \ar@{<-}[r] &
-      (M\odot N)\ten U_I }}\]
-  \[\vcenter{\xymatrix{U_{A\ten I} \ar[r]\ar[dr] & U_A\ten U_I \ar[d]\\
-       & U_A}}\]
-  \[\vcenter{\xymatrix{
-      (U_I\ten M)\odot (U_I\ten N)\ar[r]\ar[d] &
-      (U_I \odot U_I) \ten (M\odot N) \ar[d]\\
-      M\odot N \ar@{<-}[r] &
-      U_I\ten (M\odot N) }}\]
-  \[\vcenter{\xymatrix{U_{I\ten A} \ar[r]\ar[dr] & U_I\ten U_A \ar[d]\\
-      & U_A}}\]
+ \begin{equation}\label{eq:mondoub6}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2, yscale=1.5]
+\node (tl) at (0,2) {$(M \tens U_I) \odot (N \tens U_I) $};
+\node (tr) at (4,2) {$(M \odot N) \tens ( U_I \odot U_I)$};
+\node (ml) at (0,1) {$M \odot N$};
+\node (mr) at (4,1) {$(M \odot N) \tens U_I$};
+\draw[->] (tl) to node[above] {$\fx$} (tr);
+\draw[->] (tl) to node[left]{$\rho_M \odot \rho_M$} (ml);
+\draw[->] (tr) to node[left]{$\id \tens \rho_{U_I}$} (mr);
+\draw[->] (mr) to node[above] {$\rho_{M \odot N}$} (ml);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+      
+      \begin{equation}\label{eq:mondoub7}
+\begin{aligned}
+\begin{tikzpicture}[yscale=1.5]
+\node (tl) at (0,2) {$U_{A\tens I}$};
+\node (tr) at (4,2) {$U_A \tens  U_I$};
+\node (mr) at (4,1) {$U_A$};
+\draw[->] (tl) to node[above]{$\fu$} (tr);
+\draw[->] (tl) to node[left]{$U_{\rho_A}$} (mr);
+\draw[->] (tr) to node[right]{$\rho_{U_A}$} (mr);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+
+ \begin{equation}\label{eq:mondoub8}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2, yscale=1.5]
+\node (tl) at (0,2) {$(U_I \tens M) \odot ( U_I \tens N) $};
+\node (tr) at (4,2) {$( U_I \odot U_I) \tens (M \odot N) $};
+\node (ml) at (0,1) {$M \odot N$};
+\node (mr) at (4,1) {$U_I \tens (M \odot N) $};
+\draw[->] (tl) to node[above] {$\fx$} (tr);
+\draw[->] (tl) to node[left]{$\lambda_M \odot \lambda_N$} (ml);
+\draw[->] (tr) to node[left]{$\lambda_{U_I} \tens \id$} (mr);
+\draw[->] (mr) to node[above] {$\lambda_{M \odot N}$} (ml);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+      
+      \begin{equation}\label{eq:mondoub9}
+\begin{aligned}
+\begin{tikzpicture}[yscale=1.5]
+\node (tl) at (0,2) {$U_{I\tens A}$};
+\node (tr) at (4,2) {$U_I \tens  U_A$};
+\node (mr) at (4,1) {$U_A$};
+\draw[->] (tl) to node[above]{$\fu$} (tr);
+\draw[->] (tl) to node[left]{$U_{\lambda_A}$} (mr);
+\draw[->] (tr) to node[right]{$\lambda_{U_A}$} (mr);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+
   \setcounter{mondbl}{\value{enumi}}
 \end{enumerate}
 Similarly, a \textbf{braided monoidal double category} is a monoidal double
@@ -386,16 +537,45 @@ category with the following additional structure.
   preserve the braidings).
 \item \label{eq:braid1} The following diagrams commute, expressing that the braiding is
   a transformation of double categories. 
-  \[\xymatrix{(M_1\odot M_2)\ten (N_1\odot N_2) \ar[r]^\fs\ar[d]_\fx &
-    (N_1\odot N_2)\ten (M_1 \odot M_2)\ar[d]^\fx\\
-    (M_1\ten N_1)\odot (M_2\ten N_2) \ar[r]_{\fs\odot \fs} &
-    (N_1\ten M_1) \odot (N_2 \ten M_2)}
-  \]
-  \[\xymatrix{U_A \ten U_B \ar[r]^(0.55)\fu \ar[d]_\fs &
-    U_{A\ten B} \ar[d]^{U_\fs}\\
-    U_B\ten U_A \ar[r]_(0.55)\fu &
-    U_{B\ten A}}.
-  \]
+  \begin{equation}\label{eq:brmondoub1}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2, yscale=1.5]
+\node (tl) at (0,2) {$(M_1 \odot M_2) \tens (N_1 \odot N_2)$};
+\node (tr) at (4,2) {$(N_1 \odot N_2) \tens (M_1 \odot M_2)$};
+\node (ml) at (0,1) {$(M_1 \tens N_1) \odot (M_2 \tens N_2)$};
+\node (mr) at (4,1) {$(N_1 \tens M_1) \odot (N_2 \tens M_2)$};
+\draw[->] (tl) to node[above] {$\fs$} (tr);
+\draw[->] (tl) to node[left]{$\fx$} (ml);
+\draw[->] (tr) to node[left]{$\fx$} (mr);
+\draw[->] (ml) to node[above] {$\fs \odot \fs$} (mr);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+  %\[\xymatrix{(M_1\odot M_2)\ten (N_1\odot N_2) \ar[r]^\fs\ar[d]_\fx &
+  %  (N_1\odot N_2)\ten (M_1 \odot M_2)\ar[d]^\fx\\
+   % (M_1\ten N_1)\odot (M_2\ten N_2) \ar[r]_{\fs\odot \fs} &
+  %  (N_1\ten M_1) \odot (N_2 \ten M_2)}
+ % \]
+ \begin{equation}\label{eq:brmondoub2}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2, yscale=1.5]
+\node (tl) at (0,2) {$U_A \tens U_B$};
+\node (tr) at (4,2) {$U_{A \tens B}$};
+\node (ml) at (0,1) {$U_B \tens U_A$};
+\node (mr) at (4,1) {$U_{B \tens A}$};
+\draw[->] (tl) to node[above] {$\fu$} (tr);
+\draw[->] (tl) to node[left]{$\fs$} (ml);
+\draw[->] (tr) to node[left]{$U_{\fs}$} (mr);
+\draw[->] (ml) to node[above] {$\fu$} (mr);
+\end{tikzpicture}
+    \end{aligned}
+\end{equation}
+
+ % \[\xymatrix{U_A \ten U_B \ar[r]^(0.55)\fu \ar[d]_\fs &
+  %  U_{A\ten B} \ar[d]^{U_\fs}\\
+  %  U_B\ten U_A \ar[r]_(0.55)\fu &
+  %  U_{B\ten A}}.
+  %\]
   \setcounter{mondbl}{\value{enumi}}
 \end{enumerate}
 Finally, a \textbf{symmetric monoidal double category} is a braided one such that
@@ -407,6 +587,7 @@ them are fairly small, and in any given case most or all of them are
 fairly obvious.  Thus, verifying that a given double category is
 (braided or symmetric) monoidal is not a great deal of work.
 
+\fxnote[author=LW]{If we merge the examples with the final section, this should be included.}
 \begin{eg}
   The examples \lMod, \lnCob, and \lProf\ are all easily seen to be
   symmetric monoidal under the tensor product of rings, disjoint union

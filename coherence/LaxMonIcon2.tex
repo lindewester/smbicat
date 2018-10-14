@@ -3,65 +3,67 @@
 \usepackage{tikz}
 \newcommand{\id}{\mathrm{id}}
 \begin{document}
-
-\begin{equation}\label{eq:monicon2}
-\begin{aligned}
-\begin{tikzpicture}[xscale=4,yscale=2]
-\node (02) at (0,2){$\tens(f \times I_B )i_1 $};
-\node (12) at (1,2){$\tens(f \times fI_A)i_1 $};
-\node (22) at (2,2){$f\tens(\transid \times I_A)i_1 $};
-\node (32) at (3,2){$f $};
-\node (01) at (0,1){$\tens(\transid \times I_B)i_1 f$};
-\node (31) at (3,1){$f $};
-\node (00) at (0,0){$\tens(\transid \times I_B )i_1 g$};
-\node (30) at (3,0){$g $};
-\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\looseid_f \times \iota_f) \looseid_{i_1}$} (12);
-\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (22);
-\draw[doubleloose] (22) to node[above]{$\looseid_f r$} (32);
-\draw[doubleloose] (01) to node[above]{$r \looseid_f $} (31);
-\draw[doubleloose] (00) to node[above]{$r \looseid_g $} (30);
-\draw[=] (02) to node[left]{} (01);
-\draw[=] (32) to node[left]{} (31);
-\draw[doubletight] (01) to node[left]{$\tightid_{\tens (\transid \times I)i_1} \beta$} (00);
-\draw[doubletight] (31) to node[left]{$\beta$} (30);
-\node at (1.5,1.5){$\DDownarrow \delta^f$};
-\node at (1.5,0.5){$\DDownarrow \looseid_{r}\tightid_{\beta}$};
-\end{tikzpicture}
-\end{aligned}
-\end{equation}
-\[=\]
+{\small
 \begin{equation*}
 \begin{aligned}
 \begin{tikzpicture}[xscale=4,yscale=2]
-\node (02) at (0,2){$\tens(f \times I_B )i_1 $};
-\node (12) at (1,2){$\tens(f \times fI_A)i_1 $};
-\node (22) at (2,2){$f\tens(\transid \times I_A)i_1 $};
-\node (32) at (3,2){$f$};
-\node (01) at (0,1){$\tens(g \times I_B)i_1 $};
-\node (11) at (1,1){$\tens(g\times gI_A )i_1 $};
-\node (21) at (2,1){$g\tens(\transid \times I_A) i_1 $};
-\node (31) at (3,1){$g $};
-\node (00) at (0,0){$\tens(\transid \times I_B )i_1 g$};
-\node (30) at (3,0){$g $};
-\draw[doubleloose] (02) to node[above]{$\looseid_{\tens} (\looseid \times\iota_f) \looseid_{i_1}$} (12);
-\draw[doubleloose] (12) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (22);
-\draw[doubleloose] (22) to node[above]{$\looseid_f r$} (32);
-\draw[doubleloose] (01) to node[above]{$\looseid_{\tens} (\looseid_g \times \iota_g) \looseid_{i_1}$} (11);
-\draw[doubleloose] (11) to node[above]{$\chi \looseid_{(\transid \times I_A)i_1}$} (21);
-\draw[doubleloose] (21) to node[above]{$\looseid_g r$} (31);
-\draw[doubleloose] (00) to node[above]{$r \looseid_g $} (30);
-\draw[doubletight] (02) to node[left]{$\tightid_{\tens(\transid\times I)}\beta$} (01);
-\draw[doubletight] (12) to node[right]{$\tightid (\beta \times \beta) \tightid$} (11);
-\draw[doubletight] (22) to node[left]{$\beta \tightid$} (21);
-\draw[doubletight] (32) to node[left]{$\beta$} (31);
-\draw[doubletight] (01) to node[left]{$\tightid_{\tens} (\beta\times \tightid_I)\tightid_{i_1}$} (00);
-\draw[doubletight] (31) to node[left]{$\beta$} (30);
-\node at (0.5,1.5){$\DDownarrow \tightid (\tightid \times N^{\beta}) \tightid$};
-\node at (1.5,1.5){$\DDownarrow \Sigma^{\beta} \tightid$};
-\node at (2.5,1.5){$\DDownarrow \looseid_{\beta} \tightid_{r}$};
-\node at (1.5,0.5){$\DDownarrow \delta^g$};
+\node (02) at (0,2){\scriptsize$\tens(f \times I_B ) $};
+\node (12) at (1,2){\scriptsize$\tens(f \times fI_A) $};
+\node (22) at (2,2){\scriptsize$f\tens(\transid \times I_A) $};
+\node (32) at (3,2){\scriptsize$f $};
+\node (01) at (0,1){\scriptsize$\tens(\transid \times I_B) f$};
+\node (31) at (3,1){\scriptsize$f $};
+\node (00) at (0,0){\scriptsize$\tens(\transid \times I_B ) g$};
+\node (30) at (3,0){\scriptsize$g $};
+\draw[doubleloose] (02) to node[above]{\scriptsize$\looseid_{\tens} (\looseid_f \times \iota_f) $} (12);
+\draw[doubleloose] (12) to node[above]{\scriptsize$\chi \looseid_{(\transid \times I_A)}$} (22);
+\draw[doubleloose] (22) to node[above]{\scriptsize$\looseid_f r$} (32);
+\draw[doubleloose] (01) to node[above]{\scriptsize$r \looseid_f $} (31);
+\draw[doubleloose] (00) to node[above]{\scriptsize$r \looseid_g $} (30);
+\draw[=] (02) to node[left]{} (01);
+\draw[=] (32) to node[left]{} (31);
+\draw[doubletight] (01) to node[left]{\scriptsize$\tightid_{\tens (\transid \times I)} \beta$} (00);
+\draw[doubletight] (31) to node[left]{\scriptsize$\beta$} (30);
+\node at (1.5,1.5){\scriptsize $\DDownarrow \delta^f$};
+\node at (1.5,0.5){\scriptsize $\DDownarrow \looseid_{r}\tightid_{\beta}$};
 \end{tikzpicture}
 \end{aligned}
-\end{equation*}
-
+\end{equation*}}
+\begin{equation}\label{eq:monicon2}
+=
+\end{equation}
+{\small
+\begin{equation*}
+\begin{aligned}
+\begin{tikzpicture}[xscale=4,yscale=2]
+\node (02) at (0,2){\scriptsize$\tens(f \times I_B ) $};
+\node (12) at (1,2){\scriptsize$\tens(f \times fI_A) $};
+\node (22) at (2,2){\scriptsize$f\tens(\transid \times I_A) $};
+\node (32) at (3,2){\scriptsize$f$};
+\node (01) at (0,1){\scriptsize$\tens(g \times I_B) $};
+\node (11) at (1,1){\scriptsize$\tens(g\times gI_A ) $};
+\node (21) at (2,1){\scriptsize$g\tens(\transid \times I_A)  $};
+\node (31) at (3,1){\scriptsize$g $};
+\node (00) at (0,0){\scriptsize$\tens(\transid \times I_B ) g$};
+\node (30) at (3,0){\scriptsize$g $};
+\draw[doubleloose] (02) to node[above]{\scriptsize$\looseid_{\tens} (\looseid \times\iota_f) $} (12);
+\draw[doubleloose] (12) to node[above]{\scriptsize$\chi \looseid_{(\transid \times I_A)}$} (22);
+\draw[doubleloose] (22) to node[above]{\scriptsize$\looseid_f r$} (32);
+\draw[doubleloose] (01) to node[above]{\scriptsize$\looseid_{\tens} (\looseid_g \times \iota_g) $} (11);
+\draw[doubleloose] (11) to node[above]{\scriptsize$\chi \looseid_{(\transid \times I_A)}$} (21);
+\draw[doubleloose] (21) to node[above]{\scriptsize$\looseid_g r$} (31);
+\draw[doubleloose] (00) to node[above]{\scriptsize$r \looseid_g $} (30);
+\draw[doubletight] (02) to node[left]{\scriptsize$\tightid_{\tens(\transid\times I)}\beta$} (01);
+\draw[doubletight] (12) to node[right]{\scriptsize$\tightid (\beta \times \beta) \tightid$} (11);
+\draw[doubletight] (22) to node[left]{\scriptsize$\beta \tightid$} (21);
+\draw[doubletight] (32) to node[left]{\scriptsize$\beta$} (31);
+\draw[doubletight] (01) to node[left]{\scriptsize$\tightid_{\tens} (\beta\times \tightid_I)$} (00);
+\draw[doubletight] (31) to node[left]{\scriptsize$\beta$} (30);
+\node at (0.5,1.5){\scriptsize$\DDownarrow \tightid (\tightid \times N^{\beta}) \tightid$};
+\node at (1.5,1.5){\scriptsize$\DDownarrow \Sigma^{\beta} \tightid$};
+\node at (2.5,1.5){\scriptsize$\DDownarrow \looseid_{\beta} \tightid_{r}$};
+\node at (1.5,0.5){\scriptsize$\DDownarrow \delta^g$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation*}}
 \end{document} 

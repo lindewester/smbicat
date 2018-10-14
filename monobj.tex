@@ -1,4 +1,4 @@
-\section{Monoidal objects in locally cubical bicategories}
+\section{Monoidal objects in locally-double bicategories}
 \label{sec:mono-objects}
 
 
@@ -17,20 +17,21 @@
 We now move on to define an appropriate abstract sort of ``monoidal objects'', that will be preserved by the product-preserving functor $\cH$, and that specializes to monoidal double categories and to monoidal bicategories. 
 Such structures are obtained by abstracting the definitions of monoidal, braided, and symmetric structure for bicategories given in~\cite{nick:tricatsbook},~\cite{mccrudden:bal-coalgb}, and~\cite{gg:ldstr-tricat}. 
 Under this translation pseudonatural transformations become \emph{loose} 2-cells and modifications become globular 3-cells.
-The loose 2-cells in \cDblf\ (which has no nonidentity tight 2-morphisms) are the (tight) transformations, while those in \fBicat\ are exactly the pseudonatural transformations (its tight 2-morphisms are icons).
+The loose 2-cells in \fDblf\ (which has no nonidentity tight 2-morphisms) are the (tight) transformations, while those in \fBicat\ are exactly the pseudonatural transformations (its tight 2-morphisms are icons).
 
-We define monoidal, braided, sylleptic and sylleptic objects, 1-cell, 2-cells, icons and 3-cells by taking instances of bicategories, functors, pseudonatural transformations, and modifications in the original definitions as objects, 1-cells, 2-cells, and 3-cells, respectively. The monoidal constraints and coherence axioms are reformulated in equational form, wherever they are expressed explicitly in terms of 2-cell composites in the target bicategory. Note that certain constraint 2-cells are suppressed in~\cite{nick:tricatsbook},~\cite{mccrudden:bal-coalgb}, and~\cite{gg:ldstr-tricat} to simplify notation. In the equational form below, this cannot be done, resulting in coherence-equations that look more intimidating, but are in fact not more complicated than their bicategorical counterparts. We give the coherence axioms for monoidal objects, 1-cells, 2-cells, icons and 3-cells explicitly, but leave the axioms for braided, symmetric and sylleptic monoidal structures as an exercise for the reader.
-\fxnote{Remark on strict composition of 1-cells, how this enables almost-literal transposition of definition from the world of bicategories: locally double bicategories with this property have ``all the formal behavior'' of $\fBicat$.}
-
-Before we give the definitions of monoidal cells, we unfold the structure of a locally cubical bicategory and fix our notation. In addition to objects, locally cubical bicategory have 4 different elements, which together form the Hom-double category. We call the objects, loose 1-cells and 2-morphisms of the Hom-double category '1-cells', '2-cells' and '3-cells', respectively; the tight 1-morphisms are called 'icons', after the icons between pseudofunctors. The structure contains three types of composition. We will adopt the notation introduced for intercategories~\cite{gp:intercategories-i}, of which locally cubical bicategories are a special case. Firstly, we have loose composition ``$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell boundary. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning ``$\beta$ after $\alpha$". We write $\looseid_{f}$ and $\looseid_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. Loose composition is weakly associative and loose identities hold up to isomorphism. 
-Secondly, we have tight composition ``$\verc$" in the hom-double categories. This gives us composition of tight 2-cells along a 1-cell boundary and tight composition of 3-cells along a loose 2-cell boundary, written in the conventional order: $f \verc g$ denoting ``$f$ after $g$". We write $\tightid_f$ and $\tightid_{\alpha}$ for the tight identity on a 1-cell $f$ and a loose 2-cell $\alpha$, respectively; we denote the associator, left and right unitor for $\hor$ by $\hora, \horr, \horl$, respectively. Tight composition is strictly associative and has strict identities. 
-Thirdly, there is composition ``$\comp$" of 1-cells, 2-cells, and 3-cells along a 0-cell boundary, given by the enriched structure. We write this composition in the conventional order: $f \comp g$ meaning ``$f$ after $g$". When it is clear from the context, we omit the composition symbol ``$\comp$",  and write the juxtaposition of 1-cells instead. The identities for this composition are denoted by ``$\transid$". We denote the associator, left and right unitor for $\comp$ by $\compa, \compr, \compl$, respectively
-We write ``$\onecell$" to denote 1-cells, ``$\looseRightarrow$" to denote the loose 2-cells, ``$\Rightarrow$" to denote the tight 2-cells and ``$\RRightarrow$" to denote $3$-cells.
+We define monoidal, braided, sylleptic and symmetric objects, 1-cell, 2-cells, icons and 3-cells by taking instances of bicategories, functors, pseudonatural transformations, and modifications in the original definitions as objects, 1-cells, 2-cells, and 3-cells, respectively. 
 
 For readability, we will strictify the hom-double categories, as we did with the double categories in Section~\ref{sec:symm-mono-double}, except where we prove that this structure is preserved by monoidal cells. As a consequence, we omit the associativity and unit constraints for $\comp$ and $\verc$ in various places.
-Furthermore, we restrict our attention to locally cubical bicategories where composition of 1-cells along 0-cells is strict, while it is weak on higher cells. This is sufficient for the cases of bicategories and double categories.
+Furthermore, we restrict our attention to locally-double bicategories where composition of 1-cells along 0-cells is strict, while it is weak on higher cells. This is sufficient for the cases of bicategories and double categories. This restriction enables an almost-literal transposition of definition from the world of bicategories. The monoidal constraints and coherence axioms are reformulated in equational form instead of their original diagrammatic expression of 2-cell composites in the target bicategory. Note that certain constraint 2-cells are suppressed in~\cite{nick:tricatsbook},~\cite{mccrudden:bal-coalgb}, and~\cite{gg:ldstr-tricat} to simplify notation. In the equational form below, this cannot be done, resulting in coherence-equations that look more intimidating, but are in fact not more complicated than their bicategorical counterparts. Consequently, locally double bicategories with this property have ``all the formal behavior'' of $\fBicat$.
+We give the coherence axioms for monoidal objects, 1-cells, 2-cells, icons and 3-cells explicitly, but leave the axioms for braided, symmetric and sylleptic monoidal structures as an exercise for the reader.
 
-Let \fB\ be a locally cubical bicategory with products and strict composition of 1-cells along 0-cells.
+Before we give the definitions of monoidal cells, we unfold the structure of a locally-double bicategory and fix our notation. In addition to objects, locally-double bicategories have 4 different elements, which together form the hom-double categories. We call the objects, loose 1-cells and 2-morphisms of the hom-double category '1-cells', '2-cells' and '3-cells', respectively; the tight 1-morphisms are called 'icons', after the icons between pseudofunctors. The structure contains three types of composition. We will adopt the notation introduced for intercategories~\cite{gp:intercategories-i}, of which locally-double bicategories are a special case. Firstly, we have loose composition ``$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell boundary. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning ``$\beta$ after $\alpha$". We write $\looseid_{f}$ and $\looseid_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. Loose composition is weakly associative and loose identities hold up to isomorphism. 
+Secondly, we have tight composition ``$\verc$" in the hom-double categories. This gives us composition of tight 2-cells along a 1-cell boundary and tight composition of 3-cells along a loose 2-cell boundary, written in the conventional order: $f \verc g$ denoting ``$f$ after $g$". We write $\tightid_f$ and $\tightid_{\alpha}$ for the tight identity on a 1-cell $f$ and a loose 2-cell $\alpha$, respectively; we denote the associator, left and right unitor for $\hor$ by $\hora, \horr, \horl$, respectively. Tight composition is strictly associative and has strict identities. 
+Thirdly, there is composition ``$\comp$" of 1-cells, 2-cells, and 3-cells along a 0-cell boundary, given by the enriched structure. We write this composition in the conventional order: $f \comp g$ meaning ``$f$ after $g$". When it is clear from the context, we omit the composition symbol ``$\comp$",  and write the juxtaposition of 1-cells instead. The identities for this composition are denoted by ``$\transid$". We denote the associator, left and right unitor for $\comp$ by $\compa, \compr, \compl$, respectively.
+We write ``$\onecell$" to denote 1-cells, ``$\looseRightarrow$" to denote the loose 2-cells, ``$\Rightarrow$" to denote the tight 2-cells and ``$\RRightarrow$" to denote $3$-cells.
+
+
+Let \fB\ be a locally-double bicategory with products and strict composition of 1-cells along 0-cells.
 
 \begin{defn}
 A {\bf monoidal object} in \fB\ is an object $A$, equipped with 1-cells $\otimes: A \times A \onecell A$ and $I_A: * \onecell A$, and 2-cells
@@ -38,8 +39,8 @@ A {\bf monoidal object} in \fB\ is an object $A$, equipped with 1-cells $\otimes
 \item $\alpha: \ten (\tens \times \id) \looseRightarrow{} \ten  (\id \times \tens) $
 \item $l: \ten (I \times \transid) i_2 \looseRightarrow{} \transid$ and $r:\ten (\transid \times I) i_1 \looseRightarrow{} \transid$ 
 \end{itemize}
-where $*$ is the initial object of $\cB$ and $i_1: A \rightarrow A \times *$, $i_2: A \rightarrow 
-* \times A$ are the embedding morphisms defining the products $A \times *$ and $* \times A$, respectively. Finally, it must be equipped with the invertible globular 3-cells $\pi, \mu, \lambda, \rho$ depicted below, which generalise the Mac Lane pentagon and the three other coherence diagrams given in Definition 4.1 of~\cite{nick:tricatsbook}. The horizontally drawn equality is added for readability. These 3-cells must satisfy the three axioms~\ref{eq:monobjeq1},~\ref{eq:monobjeq2}~\ref{eq:monobjeq3}, which generalise the coherence axioms for monoidal bicategories~\cite[Definition 4.1]{nick:tricatsbook}.
+where $*$ is the initial object of $\fB$ and $i_1: A \rightarrow A \times *$, $i_2: A \rightarrow 
+* \times A$ are the embedding morphisms defining the products $A \times *$ and $* \times A$, respectively. Finally, it must be equipped with the invertible globular 3-cells $\pi, \mu, \lambda, \rho$ depicted below, which generalise the Mac Lane pentagon and the three other coherence diagrams given in Definition 4.1 of~\cite{nick:tricatsbook}. The horizontally drawn equality is added for readability. These 3-cells must satisfy the three axioms~These 3-cells must satisfy the three axioms~\eqref{eq:monobjeq1},~\eqref{eq:monobjeq2}~\eqref{eq:monobjeq3} in Appendix~\ref{ap:coherence}, which generalise the coherence axioms for monoidal bicategories~\cite[Definition 4.1]{nick:tricatsbook}.
 
 
 \input{pi}
@@ -51,15 +52,11 @@ where $*$ is the initial object of $\cB$ and $i_1: A \rightarrow A \times *$, $i
 \input{lcbcrho}
 
 
-A monoidal object is {\bf braided} if in addition it is equipped with a loose 2-cell $\sigma_A: \tens \looseRightarrow{} \mathord{\ten} \tau$, where $\tau: A \times A \rightarrow A \times A$ interchanges the two copies of $A$; and if there are invertible globular 3-cells 
-
+A monoidal object is {\bf braided} if, in addition, it is equipped with a loose 2-cell $\sigma_A: \tens \looseRightarrow{} \mathord{\ten} \tau$, where $\tau: A \times A \rightarrow A \times A$ interchanges the two copies of $A$; and if there are invertible globular 3-cells 
 \input{R}
-
 \input{S}
-satisfying the axioms (BA1), (BA2), (BA3), and (BA4) given in~\cite[p136--139]{mccrudden:bal-coalgb} . 
+satisfying axioms analogous to (BA1), (BA2), (BA3), and (BA4) given in~\cite[p136--139]{mccrudden:bal-coalgb} . 
 It is {\bf sylleptic} when it is additionally equipped with an invertible globular 3-cell
-
-
 \begin{equation}
 \begin{aligned}
  \begin{tikzpicture}
@@ -73,9 +70,7 @@ It is {\bf sylleptic} when it is additionally equipped with an invertible globul
  \end{tikzpicture}
  \end{aligned}
  \end{equation}
-
- 
-  satisfying the axioms (SA1), (SA2) on~\cite[p144--145]{mccrudden:bal-coalgb}. It is {\bf symmetric} if in addition, it satisfies the axiom given on~\cite[p91]{mccrudden:bal-coalgb}.
+  satisfying the axioms analogous to (SA1), (SA2) on~\cite[p144--145]{mccrudden:bal-coalgb}. It is {\bf symmetric} if in addition, it satisfies the axiom analogous to the equation given on~\cite[p91]{mccrudden:bal-coalgb}.
 \end{defn}
 
 
@@ -92,13 +87,13 @@ as well as globular invertible 3-cells
  &\gamma: \looseid_{\tens}(\iota_f \times \looseid_f) \looseid_{i_2} \horc \chi \looseid_{I \times \transid} \looseid_{i_2} \horc \looseid_f l\RRightarrow l \looseid_f \\
  &\delta:  \looseid_f r^{-1} \RRightarrow r^{-1} \looseid_f \horc \looseid_{\tens} (\looseid \times \iota) \looseid_{i_1 f} \horc \chi \looseid_{(\transid \times I)i_1}
 \end{align*}
-as in Definition 4.10 of~\cite{nick:tricatsbook}, expressing the usual associativity and unitality conditions, which satisfy the three given commutativity axioms.
+which satisfy the two axioms~\eqref{eq:laxfunc1},~\eqref{eq:laxfunc2} in Appendix~\ref{ap:coherence}, expressing the usual associativity and unitality conditions~\cite[Definition 4.10]{nick:tricatsbook}.
 
 A lax monoidal 1-cell is called {\bf braided}, when $A$ and $B$ are braided and there is a globular 3-cell 
 \begin{equation*}
 u: \sigma_B \looseid_{f \times f} \horc \chi  \looseid_{\tau} \looseRightarrow \chi \horc (\looseid_f \sigma_A)
 \end{equation*}
-satisfying the braiding axioms (BHA1) and (BHA2) given in  \cite[p141-142]{mccrudden:bal-coalgb}. 
+satisfying braiding axioms analogous to (BHA1) and (BHA2) given in~\cite[p141-142]{mccrudden:bal-coalgb}. 
 
 The 1-cell $f:A \onecell B$ is {\bf colax monoidal} when it is equipped with loose 2-cells $\bar{\chi}$ and $\bar{\iota}$ which go in the opposite direction of $\chi$ and $\iota$, respectively, and with the following globular invertible 3-cells: 
 \begin{align*}
@@ -106,22 +101,22 @@ The 1-cell $f:A \onecell B$ is {\bf colax monoidal} when it is equipped with loo
  \bar{\gamma}&: l^{-1} \looseid_f  \RRightarrow  \looseid_f l^{-1}   \horc \bar{\chi} \looseid_{I \times \transid} \looseid_{i_2} \horc \looseid_{\tens}(\bar{\iota}_f \times \looseid_f) \looseid_{i_2} \\
  \bar{\delta}&: \bar{\chi} \looseid_{\transid \times I} \horc \looseid_{\tens} (\looseid_{f}\times \bar{\iota}) \looseid_{i1} \horc r^{-1} \looseid_f \RRightarrow  \looseid_f r^{-1}   
 \end{align*}
-satisfying analogous axioms with the cells pasted together in a different order, corresponding to the direction of $\bar{\gamma}, \bar{\delta}$, and $\bar{\omega}$. 
+satisfying analogous axioms to~\ref{eq:laxfunc1},~\ref{eq:laxfunc2}, but with the cells pasted together in a different order, corresponding to the direction of $\bar{\gamma}, \bar{\delta}$, and $\bar{\omega}$. 
 
-An colax monoidal 1-cell is called {\bf braided}, when $A$ and $B$ are braided and there is a globular 3-cell 
+A colax monoidal 1-cell is called {\bf braided}, when $A$ and $B$ are braided and there is a globular 3-cell 
 \begin{equation*}
 \bar{u}:  \chi  \looseid_{\tau} \horc \sigma_B \looseid_{f \times f} \looseRightarrow  (\looseid_f \sigma_A) \horc \chi 
 \end{equation*}
-satisfying the braiding axioms analogous to (BHA1) and (BHA2) given in  \cite[p141-142]{mccrudden:bal-coalgb}. The 3-cells of these axioms are pasted in a different order, such that composition of their 2-cell sources and targets is well-defined. 
+satisfying axioms analogous to the braiding axioms (BHA1) and (BHA2) given in \cite[p141-142]{mccrudden:bal-coalgb}. Again, the 3-cells of these axioms are pasted in a different order, such that composition of their 2-cell sources and targets is well-defined. 
 
-If $f$ is both lax and colax monoidal, the associated loose 2-cells $\chi$ and $\iota$ form adjoint equivalences with their colax counterparts~\ref{eq:adjoint}, and the 3-cells correspond to their colax counterparts as mates under the adjoint equivalence structure, it is {\bf strong monoidal}. The mate correspondences for $\omega$, $\gamma$ and $\delta$ are depicted in planar diagrams in equations~\ref{eq:strong2mates} and~\ref{eq:strong2mates2} of Appendix~\ref{ap:coherence} for illustration.
+If $f$ is both lax and colax monoidal, the associated loose 2-cells $\chi$ and $\iota$ form adjoint equivalences with their colax counterparts, and the 3-cells correspond to their colax counterparts as mates under the adjoint equivalence structure, it is {\bf strong monoidal}. The mate correspondences for $\omega$, $\gamma$ and $\delta$ are depicted as equations of planar diagrams~\eqref{eq:strong2mates1},~\eqref{eq:strong2mates2} and~\eqref{eq:strong2mates3} in Appendix~\ref{ap:coherence} for illustration.
 
 
-A monoidal 1-cell between sylleptic or symmetric objects is {\bf sylleptic} or {\bf symmetric}, respectively, if it is braided and the 3-cells defining the braided monoidal structure satisfy the additional axiom (SHA1) given in  \cite[p145]{mccrudden:bal-coalgb}.
+A monoidal 1-cell between sylleptic or symmetric objects is {\bf sylleptic} or {\bf symmetric}, respectively, if it is braided and the 3-cells defining the braided monoidal structure satisfy an additional axiom analogous to (SHA1) of~\cite[p145]{mccrudden:bal-coalgb}.
 \end{defn}
 
 By construction, these definitions give the expected results in \fBicat. 
-In \cDblf, where there are no nonidentity 3-cells, they reduce to the definitions from section~\ref{sec:symm-mono-double}; and in particular every syllepsis is a symmetry.
+In \fDblf, where there are no nonidentity 3-cells, they reduce to the definitions from section~\ref{sec:symm-mono-double}; and in particular, every syllepsis is a symmetry.
 
 \begin{defn}\label{Def:monverttrans}
 Let $f, g:A \onecell B$ be lax monoidal 1-cells in \fB. A {\bf lax monoidal 2-cell} $\beta: f \looseRightarrow g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
@@ -139,7 +134,7 @@ such that coherence equations \eqref{eq:mon2cell1}, \eqref{eq:mon2cell2}, and \e
 %\item $\bar{M}_{\mbox{lax}}: \iota_f \horc \beta  \looseid_{I_A} \RRightarrow{} \looseid_{I_B} \horc \iota_g$
 %The coherence equations in this case consist of the same 3-cells, but pasted together such that all 3-cells point in the same direction.(?)
 
-A monoidal 2-cell between lax monoidal 1-cells is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, and in addition the coherence axiom generalising (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} when applied to the locally cubical bicategory of bicategories.
+A monoidal 2-cell between lax monoidal 1-cells is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, and in addition the coherence axiom generalising (BTA1) of~\cite[p143]{mccrudden:bal-coalgb} holds.
 
 Let $f, g:A \onecell B$ be colax monoidal 1-cells in \fB. %A {\bf lax monoidal 2-cell} $\beta: f \looseRightarrow{} g$ is a loose 2-cell in \fB\ that is equipped with globular 3-cells
 %\begin{itemize}
@@ -155,16 +150,16 @@ such that coherence equations analogous to \eqref{eq:mon2cell1}, \eqref{eq:mon2c
 
 It is {\bf lax monoidal} if it is equipped with 3-cells $\bar{\Pi}$ and $\bar{M}$ that correspond to the 3-cells pointing in the opposite direction of $\Pi$ and $M$,  respectively, such that analogous coherence equations hold with the 3-cells pasted together in a suitable order.
 
-A monoidal 2-cell between colax monoidal 1-cells is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, and in addition a coherence axiom analogous to~\cite[(BTA1) p143]{mccrudden:bal-coalgb} holds. In the equation, the 3-cell $u$ is different and therefore the cells are pasted in a different order.
+A monoidal 2-cell between colax monoidal 1-cells is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, and, in addition, the coherence axiom analogous to~\cite[(BTA1) p143]{mccrudden:bal-coalgb} holds. In the equation, the 3-cell $u$ is different and therefore the cells are pasted in a different order.
 
 
 We call a loose 2-cell $\beta$ a {\bf strong monoidal 2-cell} when $\Pi$ and $M$ are isomorphisms. 
 \end{defn}
 
-When interpreted in $\cBicat$, monoidal 2-cells should correspond to monoidal pseudo transformations. Such transformations are less general than tritansformations between one-object tricategories. As there is only one fixed object, the constraints $\Pi$ and $M$ are given by icons instead of adjoint equivalences, which leads to the notion of a pseudo-icon~\cite[Definition 5]{gg:ldstr-tricat}, from which the definition above is derived. This notion equals that of a monoidal pseudo transformation given in~\cite{sp:thesis} up to canonical isomorphisms. In $\cDbl$, monoidal 2-cells correspond to pseudo double transformations.
+When interpreted in $\fBicat$, monoidal 2-cells should correspond to monoidal pseudo transformations. Such transformations are less general than tritansformations between one-object tricategories. As there is only one fixed object, the constraints $\Pi$ and $M$ are given by icons instead of adjoint equivalences, which leads to the notion of a pseudo-icon~\cite[Definition 5]{gg:ldstr-tricat}, from which the definition above is derived. This notion equals, up to canonical isomorphisms, that of a monoidal pseudo transformation given in~\cite{sp:thesis}. In $\fDblf$, monoidal 2-cells correspond to pseudo double transformations.
 
 
-As remarked above, we will actually construct a locally cubical bicategory of monoidal objects.
+As remarked above, we will actually construct a locally-double bicategory of monoidal objects.
 The monoidal 2-cells will be the loose 2-cells therein; we now define the tight 2-morphisms.
 
 \begin{defn}\label{Def:monicon}
@@ -199,15 +194,14 @@ The monoidal 2-cells will be the loose 2-cells therein; we now define the tight 
  \end{tikzpicture}
 \end{aligned}
 \end{equation}
+such that the coherence axioms~\eqref{eq:monicon1},~\eqref{eq:monicon2},~\eqref{eq:monicon3} in Appendix~\ref{ap:coherence} hold. In the case of bicategories, these axioms specify to (TA2), (TA3) and (TA4) of~\cite{gg:ldstr-tricat}.
 
-such that the coherence axioms~\ref{eq:monicon1},~\ref{eq:monicon2},~\ref{eq:monicon3} in Appendix~\ref{ap:coherence} hold. In the case of bicategories, these axioms specify to (TA2), (TA3) and (TA4) of~\cite{gg:ldstr-tricat}.
+If $f, g:A \rightarrow B$ are colax monoidal 1-cells the data for a monoidal icon consists of the same 2-cells between 1-cells in the opposite direction; the coherence equations analogous to~\ref{eq:monicon1},~\ref{eq:monicon2}, and~\ref{eq:monicon3} are  derived by pasting 3-cells together in the order for which the composition of their 2-cell components is well-defined.
 
-If $f, g:A \rightarrow B$ are colax monoidal 1-cells the data for a monoidal icon consists of the same 2-cells between 1-cells in the opposite direction; the coherence equations analogous to~\ref{eq:monicon1},~\ref{eq:monicon2}, and~\ref{eq:monicon3} are  derived by pasting 3-cells together in the order  for which composition their 2-cell source and targets is well-defined.
-
-A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symetric} when $f,g$ are braided, sylleptic or symmetric, respectively, and in addition, the coherence axiom~\eqref{eq:bricon} in Appendix~\ref{ap:coherence} holds. For bicategories, this axiom specifies to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb}. 
+A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, respectively, and in addition, the coherence axiom analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb}. 
 \end{defn}
 
-Monoidal icons interpreted in $\cBicat$ correspond to ico-icons~\cite[Definition 2]{gg:ldstr-tricat}. These are doubly degenerate colax tritransformations between lax trihomomorphisms which agree on both 0- and 1-cells.
+Monoidal icons interpreted in $\fBicat$ correspond to ico-icons~\cite[Definition 2]{gg:ldstr-tricat}. These are doubly degenerate colax tritransformations between lax trihomomorphisms which agree on both 0- and 1-cells.
 
 \begin{defn}
   Let $f,g,f',g': A \rightarrow B$ be lax monoidal 1-cells, let $\alpha: f \looseRightarrow{} g$, $\beta: f' \looseRightarrow{} g'$ be lax monoidal 2-cells, and let $\gamma: f \Rightarrow f'$, $\delta: g \Rightarrow g'$ be monoidal icons. A \textbf{monoidal 3-cell} is a 3-cell 
@@ -232,7 +226,7 @@ Monoidal icons interpreted in $\cBicat$ correspond to ico-icons~\cite[Definition
  
  \begin{equation}\label{eq:mon3cell1}
 \begin{aligned}
- \begin{tikzpicture}[scale=2]
+ \begin{tikzpicture}[scale=1.8]
  \node (tm) at (0,1) {\scriptsize $f  I_A$};
  \node (tr) at (1,1) {\scriptsize$g  I_A$};
  \node (bm) at (0,0) {\scriptsize$f' I_A$};
@@ -260,7 +254,7 @@ Monoidal icons interpreted in $\cBicat$ correspond to ico-icons~\cite[Definition
 \end{aligned}
  =
  \begin{aligned}
-  \begin{tikzpicture}[scale=2]
+  \begin{tikzpicture}[scale=1.8]
  \node (ml) at (0,1) {\scriptsize$I_B$};
  \node (mm) at (1,1) {\scriptsize$I_B$};
  \node (bl) at (0,0) {\scriptsize$I_B$};
@@ -288,7 +282,7 @@ Monoidal icons interpreted in $\cBicat$ correspond to ico-icons~\cite[Definition
  \end{aligned}
 \end{equation}
 
- \begin{equation}\label{eq:mon3cell2}
+\begin{equation}\label{eq:mon3cell2}
 \begin{aligned}
  \begin{tikzpicture}[yscale=2, xscale=2]
  \node (tm) at (0,1) {\scriptsize$f\ten$};
@@ -351,20 +345,20 @@ If the 1-cells or 2-cells are colax, the 3-cells in the coherence equations are 
 Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be braided, sylleptic, or symmetric monoidal 1-cells, 2-cells, and icons, respectively. A \textbf{braided, sylleptic, or symmetric monoidal 3-cell} $\Gamma$ as depicted above, is simply a monoidal 3-cell. 
 \end{defn}
 
-Monoidal 3-cells in $\cBicat$ correspond to cubical pseudo-icon modifications~\cite[Definition 16]{gg:ldstr-tricat}. When the icon components are identities, this reduces to a monoidal modification~\cite[Definition 2.8]{sp:thesis}. 
+Monoidal 3-cells in $\fBicat$ correspond to cubical pseudo-icon modifications~\cite[Definition 16]{gg:ldstr-tricat}. When the icon components are identities, this reduces to a monoidal modification~\cite[Definition 2.8]{sp:thesis}. 
 
-We will show that monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in a locally cubical bicategory \fB\ form a locally cubical bicategory $\cM on_l\cB$. If we consider colax or strong cells instead, we obtain the locally cubical bicategory $\cM on_o\cB$ or $\cM on_s\cB$, respectively. Braided, sylleptic and symmetric cells form  locally cubical bicategories $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$. Here, $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
+We will show that monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in a locally-double bicategory \fB\ form a locally-double bicategory $\cM on_l\fB$. If we consider colax or strong cells instead, we obtain the locally-double bicategory $\cM on_o\fB$ or $\cM on_s\fB$, respectively. Braided, sylleptic and symmetric cells form locally-double bicategories $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$. Here, $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
 
 \begin{prop}\label{prop:dc}
-Let $A,B$ be monoidal objects in a locally cubical bicategory with strict composition of 1-cells along 0-cells. The hom-spaces $\cM on_w\cB (A,B)$, $\cB r \cM on_w\cB(A,B)$, $\cS yl \cM on_w\cB(A,B)$, and $\cS ym \cM on_w\cB(A,B)$ are double categories for $w \in \{l,c,s\}$.
+Let $A,B$ be monoidal objects in a locally-double bicategory with strict composition of 1-cells along 0-cells. The hom-spaces $\cM on_w\fB (A,B)$, $\cB r \cM on_w\fB(A,B)$, $\cS yl \cM on_w\fB(A,B)$, and $\cS ym \cM on_w\fB(A,B)$ are double categories for $w \in \{l,c,s\}$.
 \end{prop}
 
 \begin{proof}
 First we show that 1-cells and icons in the respective hom-spaces form a category. For each lax monoidal 1-cell $f:A \rightarrow B$, the identity icon $\tightid_f$ is a lax monoidal icon with the 3-cells $N^{\tightid_f} := \tightid_{\iota_f}$ and $\Sigma^{\tightid_f} := \tightid_{\chi_f}$. This is well-defined, because the functor ``$\comp$" preserves tight identities. The coherence equations are trivially satisfied.  For each two lax monoidal 1-cells $f,g$ and lax monoidal icons $\alpha, \beta: f \Rightarrow g$, the composite icon $\beta \verc \alpha$ can be equipped with the lax monoidal structure given by the composites $N^{\beta \verc \alpha} := N^{\beta} \verc N^{\alpha}$ and $\Sigma^{\beta \verc \alpha} : = \Sigma^{\beta} \verc \Sigma^{\alpha}$.  We have a strict interchange law between $\verc$ and $\comp$, induced by functoriality of $\comp$, so these 3-cells are well-defined. The coherence conditions~\eqref{eq:monicon1}--\eqref{eq:monicon3} hold by componentwise application of the coherence equalities for $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$. The same argument holds for colax 1-cells and icons. For strong 1-cells and icons we need to verify that the lax structure cells $N^{\tightid_f}$, $N^{\beta \verc \alpha}, \Sigma^{\tightid_f}$, and $\Sigma^{\beta \verc \alpha} $ are inverse in the loose direction to their colax counterparts. For $N^{\tightid_f}$ and $\Sigma^{\tightid_f}$, this follows from functoriality of ``$\horc$". For $N^{\beta \verc \alpha}$ and $\Sigma^{\beta \verc \alpha}$, this follows from the the fact that the statement is true for their components combined with the exchange law between ``$\horc$" and ``$\verc$" and strictness of ``$\verc$".
 When $f$ and $g$ are braided, sylleptic or symmetric, the same data satisfies the coherence equation for braided monoidal icons.
 
-We also need to show that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \looseRightarrow{} g$, the identity 3-cell $\tightid_{\alpha}$ in $\cB$  is lax monoidal. The required two equations~\ref{eq:mon3cell1},~\ref{eq:mon3cell2} are trivially satisfied.
-For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \verc L$ in $\cB$ is a monoidal 3-cell. The equations for monoidal 3-cells hold by sequential application of the respective equations for $L$ and $K$. The same is true for colax monoidal 2-cells and 3-cells, and hence for strong monoidal 2-cells and 3-cells. As braided, sylleptic, and symmetric monoidal 3-cells are not required to satisfy additional data, it follows that braided, sylleptic, or symmetric monoidal 2-cells and 3-cells form a category.
+We also need to show that lax monoidal 2-cells and monoidal 3-cells form a category. For every lax monoidal 2-cell $\alpha: f \looseRightarrow{} g$, the identity 3-cell $\tightid_{\alpha}$ in $\fB$  is lax monoidal. The required two equations~\eqref{eq:mon3cell1},~\eqref{eq:mon3cell2} are trivially satisfied.
+For any two monoidal 3-cells $L: \alpha \Rightthreecell \beta$, $K:\beta \Rightthreecell \gamma$, the composition $K \verc L$ in $\fB$ is a monoidal 3-cell. The equations for monoidal 3-cells~\eqref{eq:mon3cell1},~\eqref{eq:mon3cell2} hold by sequential application of the respective equations for $L$ and $K$. The same is true for colax monoidal 2-cells and 3-cells, and hence for strong monoidal 2-cells and 3-cells. As braided, sylleptic, and symmetric monoidal 3-cells are not required to satisfy additional data, it follows that braided, sylleptic, or symmetric monoidal 2-cells and 3-cells form a category.
 
 Now we describe the loose structure; we need to show that $\horc$ and $\looseid$ are well-defined as the functors which give the loose structure in the new double category. To see this, recall that $\horc$ and $\looseid$ correspond to the functors $\odot$ and $U$, respectively, given  in Definition~\ref{def:dblcat}.
 Let $f$ be a lax monoidal 1-cell. The loose identity 2-cell $\looseid_f$ is a strong monoidal 2-cell with monoidal structure given by the composition of coherence cells $\horl$, $\horr$.
@@ -385,7 +379,7 @@ M^{\looseid_f}:=
   \draw[doubleloose] (bl) to node[above] {\scriptsize$\looseid_I$}(bm);
  \draw[doubleloose] (bm) to node[above] {\scriptsize$\iota_f$}(br);
   \draw[=] (tr) to (br);
- \node at (0.5,0.5) {\scriptsize $\DDownarrow$ $\iso $}; 
+ \node at (0.5,0.5) {\scriptsize $\DDownarrow \iso $}; 
  \end{tikzpicture}
  \end{aligned}
 \end{equation}
@@ -410,7 +404,7 @@ M^{\looseid_f}:=
  \end{tikzpicture}
 \end{aligned}
 \end{equation}
-The conditions for monoidal 3-cells follow from the naturality conditions of the coherence cells $\horl$ and $\horr$. 
+The conditions for monoidal 3-cells follow from the naturality conditions of the coherence cells. 
 Let $\gamma$ be a monoidal icon, one can verify that the loose identity 3-cell $\looseid_{\gamma}$ is a monoidal 3-cell: The loose source and target 2-cells of $\looseid_{\gamma}$, are loose identities; hence, the coherence condition holds by naturality of $\horl$ and $\horr$. 
 
 Let $\alpha:f \looseRightarrow{} g$ and $\beta: g \looseRightarrow{} h$ be two lax monoidal 2-cells. Their composition $\alpha \horc \beta$ is lax monoidal with the structure 3-cells given below.
@@ -490,8 +484,8 @@ M^{\alpha \horc \beta} :=
  \draw[doubleeq] (brr) to (bbrr);
  \draw[doubleloose] (bbl) to node[below]{\scriptsize$\looseid_{\ten} (\alpha \times \alpha)$} (bbm);
   \draw[doubleloose] (bbm) to node[below]{\scriptsize$\looseid_{\ten} (\beta \times \beta)$} (bbr);
-   \draw[doubleloose] (tm) to[in=220, out=-60] node[above]{\scriptsize$(\alpha \horc \beta)\looseid_{\ten}$} (trr);
-   \draw[doubleloose] (bbl) to[in=120, out=60] node[below]{\scriptsize$\looseid_{\ten} \comp (\alpha \horc \beta)\times (\alpha \horc \beta)$} (bbr);
+   \draw[doubleloose] (tm) to[in=220, out=-60] node[below]{\scriptsize$(\alpha \horc \beta)\looseid_{\ten}$} (trr);
+   \draw[doubleloose] (bbl) to[in=120, out=60] node[above]{\scriptsize$\looseid_{\ten} \comp (\alpha \horc \beta)\times (\alpha \horc \beta)$} (bbr);
     \node at (0.5,-.5) {\scriptsize $\DDownarrow  \Pi^{\alpha}$};
   \node at (1.25,-.5) {\scriptsize $=$};
   \node at (0.25,.5) {\scriptsize $=$};
@@ -504,22 +498,22 @@ M^{\alpha \horc \beta} :=
 The coherence equations are satisfied by sequential application of the respective equation for $\alpha$ and $\beta$, applications of the exchange law between loose and tight composition, together with simple manipulations of coherence cells.
 
 Let $\Gamma$ and $\Delta$ be monoidal 3-cells. Their composite $\Gamma \horc \Delta$ is again monoidal. Again, the conditions for monoidal 3-cells follow directly from the conditions on the monoidal 3-cells $\Gamma$ and $\Delta$, applications of the exchange law between loose and tight composition, and simple manipulations of coherence cells.
-By analogous arguments, one can show that the images of $\horc$ and $\looseid$ on colax or strong cells are well-defined as colax or strong monoidal cells. 
+By analogous arguments, one can show that the images of $\horc$ and $\looseid$ on colax or strong monoidal cells are well-defined as colax or strong monoidal cells. 
 
-Let $f$ be a braided, sylleptic or symmetric monoidal 1-cell. The loose identity $\looseid_f$ is a braided, sylleptic or symmetric monoidal 2-cell, respectively, as the coherence equation~\cite[(BTA1) p143]{mccrudden:bal-coalgb} merely states that the 3-cell $u$ pasted with coherence 3-cells equals itself. Let $\alpha, \beta$ be braided, sylleptic, or symmetric monoidal 2-cells, the loose composition $\alpha \horc \beta$ is braided, sylleptic, or symmetric monoidal, respectively. One can verify that~\cite[(BTA1) p143]{mccrudden:bal-coalgb} holds by applying the exchange law between loose and tight composition, manipulation of coherence cells, and sequential application of the respective equations for $\alpha$ and $\beta$.  Braided, sylleptic and symmetric monoidal 3-cells are simply monoidal 3-cells; therefore, it follows that the images of $\horc$ and $\looseid$ of braided, sylleptic, or symmetric monoidal cells are well-defined in $\cB r \cM on_w\cB(A,B)$, $\cS yl \cM on_w\cB(A,B)$, and $\cS ym \cM on_w\cB(A,B)$, respectively.
+Let $f$ be a braided, sylleptic or symmetric monoidal 1-cell. The loose identity $\looseid_f$ is a braided, sylleptic or symmetric monoidal 2-cell, respectively, as the coherence equation~\cite[(BTA1) p143]{mccrudden:bal-coalgb} merely states that the 3-cell $u$ pasted with coherence 3-cells equals itself. Let $\alpha, \beta$ be braided, sylleptic, or symmetric monoidal 2-cells, the loose composition $\alpha \horc \beta$ is braided, sylleptic, or symmetric monoidal, respectively. One can verify that~\cite[(BTA1) p143]{mccrudden:bal-coalgb} holds by applying the exchange law between loose and tight composition, manipulation of coherence cells, and sequential application of the respective equations for $\alpha$ and $\beta$.  Braided, sylleptic and symmetric monoidal 3-cells are simply monoidal 3-cells; therefore, it follows that the images of $\horc$ and $\looseid$ of braided, sylleptic, or symmetric monoidal cells are well-defined in $\cB r \cM on_w\fB(A,B)$, $\cS yl \cM on_w\fB(A,B)$, and $\cS ym \cM on_w\fB(A,B)$, respectively.
 
-Functoriality of $\horc$ and $\looseid$ in $\cM on \cB(A,B)$ follows from their functoriality in $\cB(A,B)$. 
-The unitality and associativity cells $\hora$, $\horl$, and $\horr$ are monoidal 3-cells. Unfolding the constraints for monoidal 3-cells shows that the 3-cells pasted together with coherence cells need to equal themselves. It follows from coherence of the functor $\horc$, that this is the case. Therefore,  $\cM on_w\cB(A,B)$ is a double category for $q \in \{l,c,s\}$. 
-Since braided, symmetric, or sylleptic monoidal 3-cells require no extra data, it follows that $\cB r \cM on_w\cB(A,B)$, $\cS yl \cM on_w\cB(A,B)$, and $\cS ym \cM on_w\cB(A,B)$ are double categories for $w \in \{l,c,s\}$.
+Functoriality of $\horc$ and $\looseid$ in $\cM on \fB(A,B)$ follows from their functoriality in $\fB(A,B)$. 
+The unitality and associativity cells $\hora$, $\horl$, and $\horr$ are monoidal 3-cells. Unfolding the constraints for monoidal 3-cells shows that the 3-cells pasted together with coherence cells need to equal themselves. It follows from coherence of the functor $\horc$, that this is the case. Therefore,  $\cM on_w\fB(A,B)$ is a double category for $q \in \{l,c,s\}$. 
+Since braided, symmetric, or sylleptic monoidal 3-cells require no extra data, it follows that $\cB r \cM on_w\fB(A,B)$, $\cS yl \cM on_w\fB(A,B)$, and $\cS ym \cM on_w\fB(A,B)$ are double categories for $w \in \{l,c,s\}$.
 \end{proof}
 
 \begin{thm}\label{thm:lcbc}
-Let \fB\ be a locally cubical bicategory with strict composition of 1-cells along 0-cells. Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in  \fB\ form a locally cubical bicategory $\cM on_l\cB$ 
-  If we consider colax or strong cells instead, we obtain the locally cubical bicategory $\cM on_c\cB$ or $\cM on_s\cB$, respectively. When the objects and cells are braided, sylleptic or symmetric,  we obtain the locally cubical bicategories $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$, where $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
+Let \fB\ be a locally-double bicategory with strict composition of 1-cells along 0-cells. Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in  \fB\ form a locally-double bicategory $\cM on_l\fB$. 
+  If we consider colax or strong cells instead, we obtain the locally-double bicategory $\cM on_c\fB$ or $\cM on_s\fB$, respectively. When the objects and cells are braided, sylleptic or symmetric,  we obtain the locally-double bicategories $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$, where $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
 \end{thm}
 
 \begin{proof}
-We have established in Proposition~\ref{prop:dc}, that the respective homsets $\cM on_wB(A,B)$, $\cB r \cM on_w\cB$, $\cS yl \cM on_w\cB$, and $\cS ym \cM on_w\cB$ for $w \in \{l,c,s\}$ form double categories. 
+We have established in Proposition~\ref{prop:dc}, that the respective hom-sets $\cM on_w \fB(A,B)$, $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$ for $w \in \{l,c,s\}$ form double categories. 
 
 We need to check that the unit $\transid_A$ is a well-defined pseudo double functor from the trivial double category to the respective hom-categories of lax, colax and strong monoidal cells, as well as braided, sylleptic and symmetric cells. 
 The unit 1-cells $\transid_A$ are monoidal for all objects $A \in$ \fB,  with the monoidal structure $\xi, \iota$ given by the unitor 2-cells, and $\gamma, \delta$, and $\omega$ by coherence cells for the structure of the double category. The constraints boil down to simple manipulations of coherence cells, which hold by coherence of double categories. By functoriality of $\transid$, its image on the loose 2-cell  is isomorphic to the loose identity $\looseid_{\transid_A}$. This isomorphism gives rise to the following lax monoidal structure on $\transid_{\transid_A}$: 
@@ -583,7 +577,7 @@ For any two lax monoidal 1-cells $f:A \rightarrow B$, $g:B \rightarrow C$, the c
 \iota_{g \comp f} & : \hspace{.5cm} &I_C \xlooseRightarrow{\iota_g} g I_B \xlooseRightarrow{\looseid_g \iota_f} gfI_A
 \end{align}
 
-The structure 3-cell $\gamma^{g\circ f}$ for is defined below. For readability, we write ``$\widehat{}$" to express that we have left out coherence 3-cells, needed to make the source and target of the 3-cell well defined. 
+The structure 3-cell $\gamma^{g\circ f}$ for is given below. For readability, we write "$\hspace{5pt}\widehat{}\hspace{5pt}$" to express that we have left out some coherence 3-cells, which are needed to make the source and target of the 3-cell well defined. 
 
 \begin{equation}
 \begin{aligned}
@@ -742,22 +736,22 @@ Let $\Gamma$ and $\Delta$ be two composable monoidal 3-cells. It is easy to see 
 \end{proof}
 
  \begin{lem}\label{lem:funcmonob}
-Let $\mathcal{T}: T \rightarrow S$ be a functor of locally cubical bicategories. If $F$ preserves products, it preserves  monoidal objects, 1-cells, 2-cells, icons and 3-cells as well as any braided, sylleptic or symmetric structure on the objects, 1-cells, 2-cells, icons and 3-cells.
+Let $F: T \rightarrow S$ be a functor of locally-double bicategories. If $F$ preserves products, it preserves  monoidal objects, 1-cells, 2-cells, icons and 3-cells as well as any braided, sylleptic or symmetric structure on the objects, 1-cells, 2-cells, icons and 3-cells.
  \end{lem}
  
  \begin{proof}
-Let $A$ be a monoidal object. As the functor $\mathcal{T}$ preserves products, we have a product $\cT(A) \times_{\cT} \cT(A) = \cT(A \times A)$. As a consequence $\ten\maps
-  A\times A\to A$ induces 1-cells $\ten_{\mathcal{T}} \maps
- \mathcal{T}A\times_{\cT} \mathcal{T} A\to\mathcal{T}A$ and $I_{\cT}:= \mathcal{T}(I_A)$. 
+Let $A$ be a monoidal object. As the functor $F$ preserves products, we have a product $F(A) \times_{F} F(A) = F(A \times A)$. As a consequence $\ten\maps
+  A\times A\to A$ induces 1-cells $\ten_{F} \maps
+ FA\times_{F} F A\to FA$ and $I_{F}:= F(I_A)$. 
  
-Since $\phi$ and $\phi_u$ are globular, we have an equality $\cT(f \comp g) = \cT(f) \comp \cT(g)$ for all $f$ and $g$ and for the identity 1-cell we have an equality $\cT(\transid_A) = \transid_{\cT(A)}$. The loose associativity 2-cell of $A$ gives rise to a loose 2-cell
-  \[\vcenter{\xymatrix@C=6pc{\cT(A)\times\cT(A)\times\cT(A) \rtwocell^{\ten_{\cT}
-        (\Id\times\ten_{\cT})}_{\ten_{\cT}(\ten_{\cT}\times\Id)}{\hspace{.2cm}\fa_{\cT}\eqv} &\cT(A) }}\]
-  which simply equals $\cT(\alpha)$ together with the invertible 2-cells.
+Since $\phi$ and $\phi_u$ are globular, we have an equality $F(f \comp g) = F(f) \comp F(g)$ for all $f$ and $g$ and for the identity 1-cell we have an equality $F(\transid_A) = \transid_{F(A)}$. The loose associativity 2-cell of $A$ gives rise to a loose 2-cell
+  \[\vcenter{\xymatrix@C=6pc{F(A)\times F(A)\times F(A) \rtwocell^{\ten_{F}
+        (\Id\times\ten_{F})}_{\ten_{F}(\ten_{F}\times\Id)}{\hspace{.2cm}\fa_{F}\eqv} &F(A) }}\]
+  which simply equals $F(\alpha)$ together with the invertible 2-cells.
   
-  Likewise, the unit constraints $l, r$ as well as the constraints for (braided) monoidal 1-cells $\sigma$ induce 1-cells $l_{\cT}, r_{\cT}$, and $\sigma_{\cT}$, respectively. Note that the swap functor $\tau$ is mapped by $\cT$ to the swap functor for the product $\times_{\cT}$, so $\sigma_{\cT}$ is well-defined.
+  Likewise, the unit constraints $l, r$ as well as the constraints for (braided) monoidal 1-cells $\sigma$ induce 1-cells $l_{F}, r_{F}$, and $\sigma_{F}$, respectively. Note that the swap functor $\tau$ is mapped by $F$ to the swap functor for the product $\times_{F}$, so $\sigma_{F}$ is well-defined.
   
- Furthermore, the invertible 3-cell filling the Mac Lane pentagon lifts to the invertible 3-cell of the Mac Lane Pentagon for $\cT(A)$. Which is simply its image under $\cT$, composed the natural transformations $\cT_{\odot}$, $\phi$,and $\phi_u$ ensuring that it has the right type.
+ Furthermore, the invertible 3-cell filling the Mac Lane pentagon lifts to the invertible 3-cell of the Mac Lane Pentagon for $F(A)$. Which is simply its image under $F$, composed the natural transformations $F_{\odot}$, $\phi$,and $\phi_u$ ensuring that it has the right type.
 %   \[\xy
 %  (-10,0)*{\ten_{\cT}(\ten_{\cT},\Id)(\ten_{\cT}, \Id, %\Id)}="A";
 %  (20,10)*{\ten_{\cT}(\ten_{\cT},\Id)(\Id, \ten_{\cT},\Id)}="B";
@@ -790,7 +784,7 @@ Since $\phi$ and $\phi_u$ are globular, we have an equality $\cT(f \comp g) = \c
 \draw[->] (tl) to [in=180, out=-10] (br);
 %\draw[->] (tl) to [in=180, out=10](tr);
 %\draw[->] (bl) to [in=185, out=0](br);
-\node at (1.5,.6) {$\Downarrow \cT(\pi) \iso$};
+\node at (1.5,.6) {$\Downarrow F(\pi) \iso$};
 %\node at (2.5,.6) {$\Downarrow \phi^{-1} \iso$};
 %\node at (1.5,1.5) {$\Downarrow \phi^{-1} \iso$};
 %\node at (.5,.4) {$\Downarrow \phi \iso$};
@@ -799,8 +793,8 @@ Since $\phi$ and $\phi_u$ are globular, we have an equality $\cT(f \comp g) = \c
 \node at (1,0) {$\iso $};
 \end{tikzpicture}  
 
- Note that there may be several way to past these 3-cells, but by coherence of enriched pseudo functors, the result is the same. Likewise, the isomorphic 3-cells $\mu, \lambda,\rho$ and the isomorphic 3-cells $R,S$, and $v$ witnessing the braiding and syllepsis, lift to the appropriate 3-cell for $\cT(A)$. This is also the case for the isomorphic 3-cells $R,S$ that characterise the braiding. 
-   Finally,  the three equations between pasting composites of $\pi_{\cT}, \mu_{\cT}, \lambda_{\cT}, \rho_{\cT}$ hold by coherence of enriched pseudo functors.
+ Note that there may be several way to past these 3-cells, but by coherence of enriched pseudo functors, the result is the same. Likewise, the isomorphic 3-cells $\mu, \lambda,\rho$ and the isomorphic 3-cells $R,S$, and $v$ witnessing the braiding and syllepsis, lift to the appropriate 3-cell for $F(A)$. This is also the case for the isomorphic 3-cells $R,S$ that characterise the braiding. 
+   Finally,  the three equations between pasting composites of $\pi_{F}, \mu_{F}, \lambda_{F}, \rho_{F}$ hold by coherence of enriched pseudo functors.
 
 %Similarly, we prove that $\cT$ preserves braided, sylleptic and symmetric structure. The swap functor $\tau$ is mapped by $\cT$ to the swap functor for the product $\times_{\cT}$. It follows that the braiding 2-cell $\sigma: \tens \looseRightarrow \tens \tau$  gives rise to a braiding 
 
@@ -809,28 +803,28 @@ Since $\phi$ and $\phi_u$ are globular, we have an equality $\cT(f \comp g) = \c
         
 %Analogously to $\alpha$, the invertible globular 3-cells $S, T$, and $\upsilon$ are lifted to their images under $\cT$, augmented with instances of $\phi$ to ensure that the 3-cells have the right type. 
 
-Similarly, one can show that for a monoidal transformation $f$, $\cT(f)$ is monoidal with structure loose 2-cells $\cT(\iota_f)$ and $\cT(\chi_f)$ and 3-cells obtained from $\cT(\omega),  \cT(\gamma)$, and $\cT(\delta)$ analogously to $\alpha$. If $f$ is braided, the braiding of $\cT(f)$ is witnessed by the 3-cell obtained from $\cT(u)$. Likewise, $\cT$ preserves any monoidal, braided, sylleptic and symmetric structure of tight 2-morphisms, loose 2-cells and 3-cells. 
+Similarly, one can show that for a monoidal transformation $f$, $F(f)$ is monoidal with structure loose 2-cells $F(\iota_f)$ and $F(\chi_f)$ and 3-cells obtained from $F(\omega),  F(\gamma)$, and $F(\delta)$ analogously to $\alpha$. If $f$ is braided, the braiding of $F(f)$ is witnessed by the 3-cell obtained from $F(u)$. Likewise, $F$ preserves any monoidal, braided, sylleptic and symmetric structure of tight 2-morphisms, loose 2-cells and 3-cells. 
  \end{proof}
 
 \begin{thm}\label{thm:lcbcfunctor}
-Let $F: \cC  \rightarrow \cD$ be a functor of locally cubical bicategories, such that the tight transformations $\phi$, $\phi_u$ are globular. If $F$ preserves products, then it lifts to the functors below between locally cubical bicategories, for $w \in \{l,o,s\}$.
+Let $F: \fB  \rightarrow \fC$ be a functor of locally-double bicategories, such that the tight transformations $\phi$, $\phi_u$ are globular. If $F$ preserves products, then it lifts to the functors below between locally-double bicategories, for $w \in \{l,o,s\}$.
 \begin{align*}
-&\cM on_wF: \cM on_w \cC  \rightarrow \cM on_w\cD\\ 
-&\cBr \cM on_wF: \cBr \cM on_w \cC  \rightarrow \cBr \cM on_w\cD\\
-& \cSyl \cM on_wF: \cSyl \cM on_w \cC  \rightarrow \cSyl \cM on_w\cD\\
-&\cSym \cM on_wF: \cSym \cM on_w \cC  \rightarrow \cSym \cM on_w\cD
+&\cM on_wF: \cM on_w \fB  \rightarrow \cM on_w\fC\\ 
+&\cBr \cM on_wF: \cBr \cM on_w \fB  \rightarrow \cBr \cM on_w\fC\\
+& \cSyl \cM on_wF: \cSyl \cM on_w \fB  \rightarrow \cSyl \cM on_w\fC\\
+&\cSym \cM on_wF: \cSym \cM on_w \fB  \rightarrow \cSym \cM on_w\fC
 \end{align*}
 \end{thm}
 
 \begin{proof}
 By Lemma~\ref{lem:funcmonob}, the assignment of $F$ on objects and higher cells is well-defined in the respective categories.
-We wil show that functor $F$ gives rise to a pseudo double functor $\cM on_lF: \cM on_l \cC(A, B)  \rightarrow \cM on_l\cD(\cM on_lF(A), \cM on_lF(B))$. The other functors are derived in a similar way. We need to verify that $F(N^{\alpha \verc \beta}) = F(N^{\alpha}) \verc F(N^{\beta})$ and $F(N^{\tightid_f}) = N^{\tightid_{Ff}}$ in $\cM on_l\cD$ and likewise for $\Sigma$. This follows from functoriality of $F$, the fact that $N^{\alpha \verc \beta} = N^{\alpha \verc \beta}$ and $N^{\tightid_f} = \tightid_{\iota_f}$, $F(\iota_f) = \iota_{Ff}$.
+We wil show that functor $F$ gives rise to a pseudo double functor $\cM on_lF: \cM on_l \fB(A, B)  \rightarrow \cM on_l\fC(\cM on_lF(A), \cM on_lF(B))$. The other functors are derived in a similar way. We need to verify that $F(N^{\alpha \verc \beta}) = F(N^{\alpha}) \verc F(N^{\beta})$ and $F(N^{\tightid_f}) = N^{\tightid_{Ff}}$ in $\cM on_l\fC$ and likewise for $\Sigma$. This follows from functoriality of $F$, the fact that $N^{\alpha \verc \beta} = N^{\alpha \verc \beta}$ and $N^{\tightid_f} = \tightid_{\iota_f}$, $F(\iota_f) = \iota_{Ff}$.
 The natural transformations $F_{\odot}$ and $F_U$ are well-defined 3-cells in $\cM onD$; the respective equations hold by coherence of the pseudo double functor $F$.
-Finally, we need to prove that $\phi$ and $\phi_u$ are well-defined tight transformations in $\cM on(\cT A, \cT B)$. Since their components are globular 3-cells, we only need to check that these are monoidal. The equations hold by coherence of enriched functors after expanding the definitions of $M^{\cT\alpha \comp \cT \beta}, M^{\cT(\alpha \comp \beta)}, M^{\cT(\looseid_f)}$, and $M^{\looseid_{\cT f}}$ and similarly for $\Pi$.
+Finally, we need to prove that $\phi$ and $\phi_u$ are well-defined tight transformations in $\cM on \fC(F A, F B)$. Since their components are globular 3-cells, we only need to check that these are monoidal. The equations hold by coherence of enriched functors after expanding the definitions of $M^{F\alpha \comp F \beta}, M^{F(\alpha \comp \beta)}, M^{F(\looseid_f)}$, and $M^{\looseid_{F f}}$ and similarly for $\Pi$.
 \end{proof}
 
 \begin{thm}\label{thm:H}
-The functor $\cH: \fDbl_f \rightarrow \fBicat$ lifts to the functors $\cM on_w \cH: \cMon_w\fDbl_f \rightarrow \cMon_w \fBicat$, $\cBr_w \cH: \cBr_w\fDbl_f \rightarrow \cBr_w \fBicat$,  $\cSyl_w\cH: \cSyl_w\fDbl_f \rightarrow \cSyl_w\fBicat$, and $\cSym_w \cH: \cSym_w\fDbl_f \rightarrow \cSym_w \fBicat$ for $w\in \{l,o,s\}$.
+The functor $\cH: \fDblf \rightarrow \fBicat$ lifts to the functors $\cM on_w \cH: \cMon_w\fDblf \rightarrow \cMon_w \fBicat$, $\cBr_w \cH: \cBr_w\fDblf \rightarrow \cBr_w \fBicat$,  $\cSyl_w\cH: \cSyl_w\fDblf \rightarrow \cSyl_w\fBicat$, and $\cSym_w \cH: \cSym_w\fDblf \rightarrow \cSym_w \fBicat$ for $w\in \{l,o,s\}$.
 \end{thm}
 
 \begin{proof}

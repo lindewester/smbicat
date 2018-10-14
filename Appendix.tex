@@ -1,7 +1,7 @@
-\section{Appendix}
+\section{Coherence Equations for Locally-Double Bicategories}
 \label{ap:coherence}
 
-We give the coherence diagrams for  monoidal objects, 1-cells, 2-cells and icons in a locally cubical bicategory, defined in Section~\ref{sec:mono-objects}. For readability, we omit certain cells, arising as coherence constraints for double categories. Where we do so, we write $\hat{\alpha}$ for the composition of a 3-cell ${\alpha}$ with coherence cells that ensure that the source and target 2-cells are of the right type.
+We give the coherence equations for  monoidal objects, 1-cells, 2-cells and icons in a locally cubical bicategory, defined in Section~\ref{sec:mono-objects}. For readability, we omit certain cells, arising as coherence constraints for double categories. Where we do so, we write $\hat{\alpha}$ for the composition of a 3-cell ${\alpha}$ with coherence cells that ensure that the source and target 2-cells are of the right type.
 
 \subsubsection*{Monoidal Object}
 
@@ -12,13 +12,14 @@ We give the coherence diagrams for  monoidal objects, 1-cells, 2-cells and icons
 
 \subsubsection*{Lax Monoidal 1-cell}
 
-[To be added]
+\input{coherence/LaxFunc1} \newpage
+\input{coherence/LaxFunc2} \newpage
 
 \subsubsection*{Strong Monoidal 1-cell}
 
-The structure cells $\chi$ and $\bar{\chi}$ form an adjoint equivalence, if  there exist globular 3-cells $\eta$ and $\epsilon$, such that the equations below hold. 
+%The structure cells $\chi$ and $\bar{\chi}$ form an adjoint equivalence, if  there exist globular 3-cells $\eta$ and $\epsilon$, such that the equations below hold. 
 
-\input{coherence/StrongMon1celladjoint.tex}
+%\input{coherence/StrongMon1celladjoint.tex}
 
 The 3-cells $\omega$ and $\bar{\omega}$ correspond to each other as mates, if the equation below holds. Here, one needs to note that for two adjoint equivalences $\alpha \dashv \bar{\alpha}$ and $\beta \dashv \bar{\beta}$, where $\alpha: f \rightarrow g$ and $\beta: h \rightarrow k$, there is an adjoint equivalence $\alpha \beta \dashv \bar{\alpha}\bar{\beta}$ witnessed by $\eta_{\alpha \beta} := \eta_{\alpha} \eta_{\beta}$ and $\epsilon_{\alpha \beta} :=  \epsilon_{\alpha} \epsilon_{\beta}$.  
 
