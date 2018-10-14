@@ -8,25 +8,37 @@ Frobenius algebras and modules play an important role in quantum theory. Recentl
 An essential question in either perspective is the existence of monoidal structures, which are braided or symmetric, for these categories. We will explore this question in generality for the bicategory $\mathcal{A}lg({\cat B})$, defined below.
 
 \begin{defn}
-Let ${\bf B}$ be a bicategory. We can define a new bicategory $\mathcal{A}lg({\cat B})$ consisting of the elements listed below.
+Let ${\mathbb{D}}$ be a double category. We can define a new bicategory $\mathcal{A}lg({\mathbb{D}})$ consisting of the elements listed below.
 
 \begin{itemize}
-\item 0-cells are monads in ${\bf B}$: pairs $(a,A)$ of a 0-cell $a \in {\cat B}$ and an algebra $A \in {\cat B}(a,a)$.
-\item 1-cells $(a,A) \rightarrow (b,B)$ are 1-cells $X \in {\cat B}(a,b)$ with the structure of an $A-B-$bimodule.
-\item 2-cells are 2-morphisms in ${\cat B}$ that are bimodule homomorphisms.
+\item 0-cells are {\bf monoids} $(A,\tinymult[gray dot], \tinyunit[gray dot])$, in the monoidal category ${\mathbb{D}_1}$. Note that this requires that $S(A)=T(A)$.
+\item 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are pairs (${\bf M}, M)$ of a $1-cell$ $M$ in $\doub{D}$ and a globular 2-cell ${\bf M}:A \times M \times B \rightarrow M$ in $\doub{D}$, with the structure of an $A-B-$bimodule. Note that $S(M) = T(A)$ and $T(M) = S(B)$. 
+\item 2-cells are 2-morphisms $f:M \rightarrow N$ in ${\doub{D}}$ that are bimodule homomorphisms.
 \end{itemize}
+
+%\begin{itemize}
+%\item 0-cells are {\bf monoids} $(A,\tinymult[gray dot], \tinyunit[gray dot])$, in the monoidal category ${\mathbb{D}_1}$. Note that this requires that $S(A)=T(A)$.
+%\item 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are 1-cells ${\bf M}:A \rightarrow B$ with the structure of an $A-B-$bimodule.
+%\item 2-cells are 2-morphisms in ${\cat B}$ that are bimodule homomorphisms.
+%\end{itemize}
 Structural data regarding this construction, such as horizontal composition, is described in ~\cite{carquevillerunkel}. 
 \end{defn}
 
-In \ref{sec:Dalg} we define the double category $\mathbb{A}lg({\cat B})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\cat B})$.  In \ref{sec:brmonDalg} and \ref{sec:fibDalg} we show that $\mathbb{A}lg({\cat B})$ is fibrant and that it is monoidal and braided or symmetric whenever this is true for ${\cat B}$. 
-We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original bicateory ${\bf B}$ is not important.
+
+In \ref{sec:Dalg} we define the double category $\mathbb{A}lg({\mathbb{D}})$, whose horizontal bicategory corresponds to $\mathcal{A}lg({\doub{D}})$.  In \ref{sec:brmonDalg} and \ref{sec:fibDalg} we show that $\mathbb{A}lg({\doub{D}})$ is fibrant and that it is monoidal and braided or symmetric whenever this is true for ${\doub{D}}$. 
+We will often refer to these categories as $\mathbb{A}lg$ and $\mathcal{A}lg$, when the choice of the original double category ${\doub{D}}$ is not important.
+
 
 \subsection{Notation}
-Without loss of generality, we will assume that our bicategories are strict. %We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}, and its extended graphical calculus for monoidal bicategories described in ~\cite{bms}. In this diagrammatic language, we depict 0-cells as coloured surfaces, with the convention to use white for the unit 0-cell. We draw 1-cells (and identity 2-cells) as lines, and 2-cells generally as boxes between the source 1-cell in the bottom and the target 1-cell on top. We write horizontal composition $(\hor)$ and vertical composition $(\ver)$ in the horizontal and vertical direction, respectively. We write the tensor product $(\tens)$ as juxtaposition in the third direction, which is pointing into the paper. In our pictures this will be expressed as overlapping surfaces, as illustrated below. The reader who is not familiar with this graphical calculus may ignore the coloured surfaces and view the lines and boxes as string diagrams. This corresponds to the situation where the monoidal bicategory has only one object, which makes it a braided monoidal category. 
+%Without loss of generality, we will assume that our bicategories are strict. We use the language of string diagrams for braided monoidal categories, first introduced by M. Kelly and M.L. Laplaza in ~\cite{kellylaplaza}, and its extended graphical calculus for monoidal bicategories described in ~\cite{bms}. In this diagrammatic language, we depict 0-cells as coloured surfaces, with the convention to use white for the unit 0-cell. We draw 1-cells (and identity 2-cells) as lines, and 2-cells generally as boxes between the source 1-cell in the bottom and the target 1-cell on top. We write horizontal composition $(\hor)$ and vertical composition $(\ver)$ in the horizontal and vertical direction, respectively. We write the tensor product $(\tens)$ as juxtaposition in the third direction, which is pointing into the paper. In our pictures this will be expressed as overlapping surfaces, as illustrated below. The reader who is not familiar with this graphical calculus may ignore the coloured surfaces and view the lines and boxes as string diagrams. This corresponds to the situation where the monoidal bicategory has only one object, which makes it a braided monoidal category. 
+We use the language of string diagrams for braided monoidal double categories~\cite{bms}. In this diagrammatic language, we depict 0-cells as coloured surfaces, with the convention to use white for the unit 0-cell. We draw 1-cells (and identity 2-cells) as lines, and 2-cells generally as boxes between the source 1-cell in the bottom and the target 1-cell on top. We write loose composition $(\odot)$ and tight composition $(\circ)$ in the horizontal and vertical direction, respectively. We write the tensor product $(\tens)$ as juxtaposition in the third direction, which is pointing into the paper. In our pictures this will be expressed as overlapping surfaces, as illustrated below. The reader who is not familiar with this graphical calculus may ignore the coloured surfaces and view the lines and boxes as string diagrams. This corresponds to the situation where the monoidal bicategory has only one object, which makes it a braided monoidal category. 
 
+\begin{equation*}
+\mbox{[Update diagrams]}
+\end{equation*}
 
 \begin{align}
-&\mbox{Horizontal composition} &\mbox{Vertical composition} \hspace{28pt}
+&\mbox{Loose composition} &\mbox{Tight composition} \hspace{28pt}
  &\mbox{Tensor product} \\
 &
 \begin{tikzpicture}[scale=1.75]
@@ -67,8 +79,7 @@ Without loss of generality, we will assume that our bicategories are strict. %We
 \end{align}
 
 \subsection{The double category $\Alg$}\label{sec:Dalg}
-We will consider the abstract notion of an {\bf algebra} $(A, \tinymult[white dot], \tinyunit[white dot])$ in a bicategory {\cat B}. This is a 0-cell $a$, together with a 1-cell $A \in {\cat B}(a,a)$ and a multiplication 2-cell 
-$\tinymult[white dot]: A \hor A \rightarrow A$, as well as a unit 2-cell, $\tinyunit[white dot]: I_a \rightarrow A$, satisfying the associativity and unit law below. Here, we write $'\hor'$ for horizontal composition in the bicategory ${\cat B}$.
+We will consider the abstract notion of a {\bf monoid} $(a,A, \tinymult[white dot], \tinyunit[white dot])$ in a double category {\doub{D}}. This is a 0-cell $a$ with a 1-cell $A$ such that $S(A)=T(A)=a$, a globular multiplication 2-cell $\tinymult[white dot]: A \odot A \rightarrow A$, and a globular unit 2-cell $\tinyunit[white dot]: U_a \rightarrow A$, that satisfy the associativity and unit law below. This makes $A$ a monoid in the usual sense in the monoidal category $\doub{D}_1$.
 
 \begin{calign}
 \label{eq:frobenius}
@@ -118,129 +129,12 @@ $\tinymult[white dot]: A \hor A \rightarrow A$, as well as a unit 2-cell, $\tiny
   \end{pic}
 \end{calign}
 
-Let $A \in {\cat B}(a,a)$ and $B \in {\cat B}(b,b)$ be algebras. A {\bf monad map} $f: (A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (B, \tinymult[gray dot], \tinyunit[gray dot])$ is a pair $(f_1, f_2)$ where $f_1: a \rightarrow b$ is a 1-cell and $f_2$ is a 2-cell 
-\begin{center}
-\begin{tikzpicture}[scale=1.75]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0); 
-      \draw (-.5,-2) to[in=-90, out=90] (-.1,-1);
-      \draw (.1,-1) to[in=-90,out=90] (.5,0);   
-      \node[morphism, minimum width=10mm] (l) at (0,-1) {$f_2$};
-      \draw (0,0) to (l.north);
-      \draw (l.south) to (0,-2) node[below] {};
-      \node at (-.5,-2.2) {$A$};
-      \node at (0,-2.2) {$f_1$};  
-             \node at (0,0.2) {$f_1$};  
-       \node at (.5,0.2) {$B$};   
-        \node at (-.5,-1) {$a$};    
-             \node at (.5,-1) {$b$};
- \end{tikzpicture}
-\end{center}
+A {\bf monoid homomorphism} $(f, {\bf f}): (a, A, \tinymult[white dot], \tinyunit[white dot]) \rightarrow (b, B, \tinymult[gray dot], \tinyunit[gray dot])$ between two monoids is a 1-morphism $f:a\rightarrow b$ together with a 2-cell ${\bf f}:A \rightarrow B$ that respects the multiplication, $f \tinymult[white dot] = \tinymult[gray dot] (f odot f)$, and the unit, $\tinyunit[gray dot] = f \ver \tinyunit[white dot]$.
+\begin{equation*}
+\mbox{[insert picture]}
+\end{equation*} 
 
-Such that the two equalities below hold.
-
-
-\begin{calign}\label{eq:monadmap}
-\begin{pic}[xscale=1.25, yscale=1.5]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0); 
-\node[white dot]  (ma) at (-.5,-1.5){}; 
-      \draw (ma) to[in=-90, out=90] (-.1,-1);
-      \draw (-.25,-2) to[in=0, out=90] (ma);
-      \draw (-.75,-2) to[in=180, out=90] (ma);
-      \draw (.1,-1) to[in=-90,out=90] (.5,0);   
-      \node[morphism, minimum width=8mm] (l) at (0,-1) {$f_2$};
-      \draw (0,0) to (l.north);
-      \draw (l.south) to (0,-2) node[below] {};
-     \node at (-.25,-2.2) {$A$};
-          \node at (-.75,-2.2) {$A$};
-      \node at (0,-2.2) {$f_1$};  
-      \node at (0,0.2) {$f_1$};  
-       \node at (.5,0.2) {$B$};   
-        \node at (-.5,-1) {$a$};    
-        \node at (.5,-1) {$b$};
- \end{pic}
-   \hspace{1pt}=\hspace{1pt}
- \begin{pic}[xscale=1.25, yscale=1.5]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0); 
-\node[black dot]  (mb) at (.5,-.25){}; 
-      \draw (.2,-1.25) to[in=-90, out=90] (.8,-.65);
-      \draw (.8,-.65) to[in=0, out=90] (mb);
-       \draw (.2,-.75) to[in=180, out=90] (mb);
-      \draw (mb) to (.5,0);
-      \draw (-.75,-2) to[in=-90, out=90] (-.2,-.75);
-            \draw (-.25,-2) to[in=-90, out=90] (-.2, -1.25);
-                        \node[morphism, minimum width=8mm] (l1) at (0,-1.25) {$f_2$};
-      \node[morphism, minimum width=8mm] (l2) at (0,-.75) {$f_2$};
-     \node at (-.25,-2.2) {$A$};
-          \node at (-.75,-2.2) {$A$};
-      \node at (0,-2.2) {$f_1$};  
-      \node at (0,0.2) {$f_1$};  
-       \node at (.5,0.2) {$B$};   
-        \node at (-.7,-1) {$a$};    
-        \node at (.7,-1) {$b$};
- \end{pic} 
- \hspace{20pt} 
- \begin{pic}[xscale=1.25, yscale=1.5]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0); 
-\node[white dot]  (ma) at (-.5,-1.75){}; 
-      \draw (ma) to[in=-90, out=90] (-.1,-1);
-      \draw (.1,-1) to[in=-90,out=90] (.5,0);   
-      \node[morphism, minimum width=8mm] (l) at (0,-1) {$f_2$};
-      \draw (0,0) to (l.north);
-      \draw (l.south) to (0,-2) node[below] {};
-      \node at (0,-2.2) {$f_1$};  
-      \node at (0,0.2) {$f_1$};  
-       \node at (.5,0.2) {$B$};   
-        \node at (-.5,-1) {$a$};    
-        \node at (.5,-1) {$b$};
- \end{pic}
-   \hspace{1pt}=\hspace{1pt}
- \begin{pic}[xscale=1.25, yscale=1.5]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0); 
-\node[black dot]  (mb) at (.5,-.5){}; 
-      \draw (mb) to (.5,0);
-      \node[morphism, minimum width=8mm] (l) at (0,-1) {$f_2$};
-      \node at (0,-2.2) {$f_1$};  
-      \node at (0,0.2) {$f_1$};  
-       \node at (.5,0.2) {$B$};   
-        \node at (-.7,-1) {$a$};    
-        \node at (.7,-1) {$b$};
- \end{pic} 
-\end{calign}
-
-Algebras and monad maps form a category, where composition of morphisms $f \ver g: (A, \tinymult[white dot], \tinyunit[white dot]) \xrightarrow{f} (B, \tinymult[gray dot], \tinyunit[gray dot]) \xrightarrow{g} (C, \tinymult[black dot], \tinyunit[black dot])$ is defined below. The identity morphism $\id_A$ is given by the coherence isomorphism $A \odot \id_a \rightarrow \id_a \odot A$. Note that by these definitions, we do not have strict associativity of the composition and strict identities. To fix this, we strictify horizontal composition of the maps $f_1$.
-
-[Does this make sense?] 
-
-\begin{center}
-\begin{tikzpicture}[xscale=.75]
-\draw[fill=red, draw=black, opacity=0.5] (-.2,3) -- (-.2,0) -- (3,0) to[in=-90,out=90] (2.1,1) -- (1.9,1) to[in=-90,out=90] (0,3) -- (-.2,3);
-\draw[fill=purple, draw=black, opacity=0.5] (3,0) to[in=-90,out=90] (2.1,1) -- (1.9,1) to[in=-90,out=90] (0,3) -- (1,3) to[in=90,out=-90] (1.9,2) -- (2.2,2) to[in=90, out=-90] (4,0) -- (3,0);
-\draw[fill=blue, draw=black, opacity=0.5] (1,3) to[in=90,out=-90] (1.9,2) -- (2.2,2) to[in=90, out=-90] (4,0) -- (4.2,0) -- (4.2, 3) -- (1,3);  
-\draw (2,0) to  (2,3);
-      \node[morphism, minimum width=5mm] (f) at (2,1) {$f_2$};
-      \node[morphism, minimum width=5mm] (g) at (2,2) {$g_2$};
-      \node at (2,-.2) {$A$};
-      \node at (3,-.2) {$f_1$};  
-             \node at (4,-.2) {$g_1$};  
-       \node at (2,3.2) {$C$};   
-        \node at (1,3.2) {$g_1$};    
-             \node at (0,3.2) {$f_1$};
-             \node at (1,1) {$a$};
-             \node at (2.5,.3) {$a$};
-             \node at (3.5,.5) {$b$};
-             \node at (1,2.2) {$b$};
-             \node at (3.5,2) {$c$};
-             \node at (1.6,2.6) {$c$};
- \end{tikzpicture}
-\end{center}
-
-If ${\bf B}$ is monoidal or braided, or symmetric monoidal, then the category of algebras and monad maps  is also monoidal, braided, or symmetric monoidal, respectively. The tensor product for algebras in inherited from the original 2-category. This is depicted below. The unit object is the trivial algebra on the unit for the original monoidal structure with multiplication given by $\lambda_I = \rho_I$. 
-
+If ${\doub{D}}$ is braided monoidal, then the {\bf category of monoids and monoid homomorphisms} is also braided monoidal. The tensor product for monoids in inherited from the original double category. This is depicted below. The unit object is the trivial monoid on the unit for the original monoidal structure with multiplication given by $\lambda_I = \rho_I$. The original structure isomorphisms are all monoid homomorphisms. In principle this can be shown directly, but in the diagrammatic calculus this holds trivially.  
 \tikzset{region/.style={draw=black, fill opacity=0.75}}
 \tikzset{regionA/.style={region, fill=red!50}}
 \tikzset{regionB/.style={region, fill=blue!50}}
@@ -264,32 +158,13 @@ If ${\bf B}$ is monoidal or braided, or symmetric monoidal, then the category of
   \end{pic}
 \end{calign}
 
-The monoidal constraints $\alpha_{A,B,C}$ for algebras $(A, m_A, u_A) \in {\cat B}(a,a), (B, m_B, u_B) \in {\cat B}(b,b)$ and $(C, m_C, u_C) \in {\cat B}(c,c)$, respectively consist of the 1-cell component $\alpha_{a,b,c}$ in {\cat B} and the 2-cell component $\alpha_{A,B,C}$ in {\cat B} depicted below.
-
-\begin{center}
-\begin{tikzpicture}[scale=1.75]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0); 
-      \draw (-.5,-2) to[in=-90, out=90] (-.1,-1);
-      \draw (.1,-1) to[in=-90,out=90] (.5,0);   
-      \node[morphism, minimum width=10mm] (l) at (0,-1) {$\alpha_{A,B,C}$};
-      \draw (0,0) to (l.north);
-      \draw (l.south) to (0,-2) node[below] {};
-      \node at (-.5,-2.1) {$(A \otimes B) \otimes C$};
-      \node at (0,-2.25) {$\alpha_{a,b,c}$};  
-             \node at (0,0.25) {$\alpha_{a,b,c}$};  
-       \node at (.5,0.1) {$A \otimes (B \otimes C)$};   
-        \node at (-.5,-.5) {$(a \otimes b) \otimes c$};    
-             \node at (.5,-1.5) {$a \otimes (b \otimes c)$};
- \end{tikzpicture}
-\end{center}
-
-Equations~\ref{eq:monadmap} are satisfied by coherence of {\cat B} and naturality of the constraints. Likewise, the monoidal constraints $\lambda, \rho$ and $\sigma$ of ${\cat B}$ give rise to monoidal constraints on the category of algebras and monad maps.
 
 
+An A,B-{\bf bimodule} $(M, {\bf M})$ in {\doub{D}} is 1-cell $M: a \hto b$, together with a globular 2-cell ${\bf M}: A \odot M \odot  B \rightarrow M$, satisfying the composition and unit law below.
 
-An A,B-{\bf bimodule} in {\bf B} is an object $M$ in the hom category ${\bf B}(a,b)$ together with a morphism ${\bf M}: A \hor M \hor  B \rightarrow M$ in ${\bf B}(a,b)$, satisfying the composition and unit law below.
-
+\begin{equation*}
+\mbox{[Add region labels and colors}]
+\end{equation*}
 \begin{equation}\label{eq:bimodule}
     \begin{pic}[yscale=0.85]
       \node[morphism, minimum width=10mm] (u) at (0,0) {$\mathbf{M}$};
@@ -329,61 +204,12 @@ An A,B-{\bf bimodule} in {\bf B} is an object $M$ in the hom category ${\bf B}(a
       \draw (m.-45) to[out=-90,in=90] +(0,-0.75) node[black dot] {};
     \end{pic}
   \end{equation}
-For readability, we sometimes write A-B-bimodules ${\bf M}$ as $_A{\bf M}_B$ and we abbreviate the following compositions: ${}_{\tinydot[white dot]}{\bf M} := {\bf M} \ver (\tinyunit[white dot] \tens \mathid)$, ${\bf M}_{\tinydot[gray dot]}:= {\bf M} \ver (\mathid \tens \tinyunit[gray dot])$, and $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}:= {\bf M} \ver (\tinyunit[white dot] \tens \tinyunit[gray dot])$. 
-Let $A \in {\cat B}(a,a),  B \in {\cat B}(b,b), C \in {\cat B}(c,c),  D \in {\cat B}(d,d)$ be algebras and let ${\bf M} \in {\cat B}(a,b), {\bf N} \in {\cat B}(c,d)$ be bimodules.  An {\bf extended bimodule homomorphism} ${\bf f}: {\bf M} \rightarrow {\bf N}$ is a triple $(f_l, f , f_r)$, where $f_l, f_r$ are monad maps and $f: M \hor f_{r1} \rightarrow f_{l1} \hor N$ is a 2-cell, such that the equation below holds.
-
-\begin{equation}\label{eq:bimodule}
-    \begin{pic}[xscale=1.5, yscale=5/3]
-\draw[fill=red, draw=black, opacity=0.5] (0.8,0) -- (2,0) -- (2,2) -- (2,1.9) to[in=-90,out=90] (1,3) -- (0.8,3) -- (0.8,0);
-\draw[fill=orange, draw=black, opacity=0.5] (2,2) -- (2,1.9) to[in=-90,out=90] (1,3) -- (2,3) -- (2,2);
-    \draw (1.8,0) to (1.8,1);
-    \draw[fill=blue, draw=black, opacity=0.5] (2,0)-- (3,0) to[in=-90, out=90] (2.1,2) -- (2,2) -- (2,0);
-     \draw[fill=green, draw=black, opacity=0.5]  (3.2,0) --(3,0) to[in=-90, out=90] (2.1,2) -- (2,2) -- (2,3)-- (3.2,3) -- (3.2,0);   
-    \draw (2,0) to (2,1);
-    \draw (2.2,0) to (2.2,1);
-\node[morphism, minimum width=10mm] (M) at (2,1) {$\mathbf{M}$};
-\node[morphism, minimum width=5mm] (f) at (2,2) {$f_2$};
-\draw (M) to (f);
-\draw (f) to (2,3);
-\node at (1.8,-.2) {$A$};
-\node at (2,-.2) {$M$};
-\node at (2.2, -.2) {$B$};
-\node at (2,3.2) {$N$};
-\node at (3,-.2) {$f_{l1}$};
-\node at (1,3.2) {$f_{r1}$};
-\node at (1.3, .5) {$a$};
-\node at (2.7,2.7) {$b'$};
-\node at (2.4, 0.5) {$b$};
-\node at (1.6, 2.7) {$a'$};
-    \end{pic}
-    =
-    \begin{pic}
-\draw[fill=red, draw=black, opacity=0.5] (.5,0) -- (2,0) -- (2,2) -- (1.9,2)to[in=-90, out=90] (1.6,3) -- (1.4,3) to[in=-90,out=90] (0.7,5) -- (.5,5) -- (.5,0); 
-\draw[fill=orange, draw=black, opacity=0.5] (2,2) -- (1.9,2)to[in=-90, out=90] (1.6,3) -- (1.4,3) to[in=-90,out=90] (.7,5) -- (2,5) -- (2,2);
-    \draw[fill=green, draw=black, opacity=0.5] (3.3,0) to[in=-90, out=90] (2.6,1) -- (2.4,1)  to[in=-90, out=90] (2.1,2) -- (2,2) -- (2,5) -- (3.5,5) -- (3.5,0) -- (3.3,0);
-     \draw[fill=blue, draw=black, opacity=0.5]  (3.3,0) to[in=-90, out=90] (2.6,1) -- (2.4,1)  to[in=-90, out=90] (2.1,2) -- (2,2) -- (2,0) -- (3.3,0);  
-     \draw (1.5,4) to (1.5,0);
-     \draw (2.5,4) to (2.5,0);
-     \node[morphism, minimum width=5mm] (fr) at (2.5,1) {$f_{r_2}$}; 
-     \node[morphism, minimum width=5mm] (f) at (2,2) {$f$}; 
-     \node[morphism, minimum width=12mm] (N) at (2,4) {$\mathbf{N}$};
-          \node[morphism, minimum width=5mm] (fl) at (1.5,3) {$f_{l_2}$}; 
-    \node at (1.1, .3) {$a$};
-\node at (2.7,4.6) {$b'$};
-\node at (2.7, 0.3) {$b$};
-\node at (1.6, 4.6) {$a'$};
-\node at (1.5,-.2) {$A$};
-\node at (2,-.2) {$M$};
-\node at (2.5, -.2) {$B$};
-\node at (2,5.2) {$N$};
-\node at (.5,5.2) {$f_{l1}$};
-\node at (3.5,-.2) {$f_{r1}$};
-    \end{pic}
-  \end{equation}
-
-Composition of extended bimodule homomorphisms is defined as component wise compisition $(g_l, g ,g_r) \ver (f_l, f, f_r) = (g_l \ver f_l, g \ver f, g_r \ver f_r)$, where $g \ver f$ is defined as composition of monad maps. 
-When $f_l$ and $f_r$ are both identities, this corresponds to the standard definition of a {\bf bimodule homomorphism}.
-Bimodules and extended bimodule homomorphisms in a bicategory {\bf B} form a braided monoidal category, where the tensor product on objects is inherited from {\cat B}, see the picture below. On morphisms, it is defined as $(f_l, f, f_r):= \tens (g_l, g, g_r) = (f_l \tens g_l, f \tens g, f_r \tens g_r)$. The unit object corresponds to the bimodule given below on the unit object of {\cat B}. 
+For readability, we sometimes write A-B-bimodules ${\bf M}$ as $_A{\bf M}_B$ and we abbreviate the following compositions: ${}_{\tinydot[white dot]}{\bf M} := {\bf M} (\tinyunit[white dot] \tens \mathid)$, ${\bf M}_{\tinydot[gray dot]}:= {\bf M}  (\mathid \tens \tinyunit[gray dot])$, and $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}:= {\bf M}  (\tinyunit[white dot] \tens \tinyunit[gray dot])$. An {\bf extended bimodule homomorphism} ${\bf f}: {\bf M} \rightarrow {\bf N}$ is a triple of 2-cells $(A \xrightarrow{\bf f_l} C, M \xrightarrow{\bf f} N, B \xrightarrow{\bf f_r} D)$ in $\doub{D}$ such that $f  {\bf M} = {\bf N}  (f_l \odot f \odot f_r)$.
+\begin{equation*}
+\mbox[insert picture]
+\end{equation*}
+ When ${\bf f_l}$ and ${\bf f_r}$ are identities and {\bf f} is globular, this corresponds to the standard definition of a {\bf bimodule homomorphism}.
+Bimodules and extended bimodule homomorphisms in a monoidal double category {\doub{D}} form a braided monoidal category, where the tensor product on objects is inherited from {\doub{B}}, see the picture below. On morphisms, it is defined as $({\bf f_l},{\bf f},{\bf  f_r})\tens ({\bf g_l}, {\bf g}, {\bf g_r}) = ({\bf f_l} \tens {\bf g_l}, {\bf f} \tens {\bf g}, {\bf f_r} \tens {\bf g_r})$. The unit object corresponds to the bimodule given by the coherence map depicted below. 
 
 \begin{equation}
 {\bf I}:= \quad
@@ -393,10 +219,10 @@ Bimodules and extended bimodule homomorphisms in a bicategory {\bf B} form a bra
       \node[gray dot, inner sep=1.5pt] (1) at (0,0.55) {};
       \node (2) at (-0.5,1) {};
       \node (3) at (0.5,1) {};
-      \draw (0.center)node[above]{$I$} to (1.center);
-      \draw (1.center) to [out=left, in=down, out looseness=1.5] (2.center)node[below]{$I$};
-      \draw (1.center) to [out=right, in=down, out looseness=1.5] (3.center)node[below]{$I$};
-      \draw (1.center) to (0,1)node[below]{$I$};
+      \draw (0.center)node[above]{$U_I$} to (1.center);
+      \draw (1.center) to [out=left, in=down, out looseness=1.5] (2.center)node[below]{$U_I$};
+      \draw (1.center) to [out=right, in=down, out looseness=1.5] (3.center)node[below]{$U_I$};
+      \draw (1.center) to (0,1)node[below]{$U_I$};
       \end{pic}}\hspace{-3pt}}}
 \hspace{30pt}
 \tikzset{region/.style={draw=black, fill opacity=0.75}}
@@ -423,25 +249,29 @@ _A{\bf M}_B \tens {}_C{\bf N}_D :=
       \draw (l.-135) to[out=-90,in=90] (-.4,-2.1) node[below] {};
     \end{pic}}
 \end{equation}
-By the notation for the unit object, we mean that we apply the multiplication map, $\tinymult[gray dot]$, on the unit $\id_I$ for horizontal composition twice. We draw it symmetrically because of the associativity condition. 
-The associator, unitor, and swap constraints are given by the maps with the following components, where $\alpha, \lambda$, and $\rho$ are the monoidal constraints of {\bf B}. These are extended bimodule homomorphisms by coherence of {\bf B} and naturality of $\alpha, \lambda, \rho$ and $\sigma$. 
+
+\begin{equation*}
+\mbox{[Add region labels 'I']}
+\end{equation*}
+
+The associator, unitor, and swap natural isomorphisms are given by the maps with the following components, where $\alpha, \lambda$, and $\rho$ are the structure isomorphisms of the original monoidal double category. 
 
 \begin{align}
- {\bf \alpha}_{_A{\bf M}_B,_C{\bf N}_D,_E{\bf P}_F} &:= (\alpha_{A,C,E}, \alpha_{M,N,P}, \alpha_{B,D,F}) 
-\\{\bf \lambda}_{_A{\bf M}_B}&:= (\lambda_A, \lambda_M, \lambda_B)
-\\{\bf \rho}_{_A{\bf M}_B} &:= (\rho_A, \rho_M, \rho_B)
-\\{\bf \sigma}_{\bf {}_AM_B,{}_CN_D}&: = (\sigma_{A,C}, \sigma_{M,N}, \sigma_{B,D})
+ {\bf \alpha}_{_A{\bf M}_B,_C{\bf N}_D,_E{\bf P}_F} &:= ({\bf \alpha}_{A,C,E}, {\bf \alpha}_{M,N,P}, {\bf \alpha}_{B,D,F}) 
+\\{\bf \lambda}_{_A{\bf M}_B}&:= ({\bf \lambda}_A, {\bf \lambda}_M, {\bf \lambda}_B)
+\\{\bf \rho}_{_A{\bf M}_B} &:= ({\bf \rho}_A, {\bf \rho}_M, {\bf \rho}_B)
+\\{\bf \sigma}_{\bf {}_AM_B,{}_CN_D}&: = ({\bf \sigma}_{A,C}, {\bf \sigma}_{M,N}, {\bf \sigma}_{B,D})
 \end{align}
 
-For clarity we write algebras and algebra homomorphisms in normal font and we write bimodules and (extended) bimodule homomorphisms in bold. This will help distinguishing between the two categories, which together form a double category.
+For clarity we write monoids and monoid homomorphisms in normal font and we write bimodules and (extended) bimodule homomorphisms in bold. This will help distinguishing between the two categories, which together form a double category.
 
 \begin{lem}\label{lem:algdouble}
-Let ${\cat B}$ be a bicategory such that in the hom-categories all colimits exist, and where horizontal composition $\hor$ preserves these colimits. The category $\D_0$ of algebras and monad maps of ${\bf B}$ and the category $\D_1$ of bimodules and extended bimodule homomorphisms of ${\bf B}$ form a double category $\Alg({\cat B})$.
+Let ${\doub{D}}$ be a double category such that all coequalizers exist in $\doub{D}_1$, and where horizontal composition $\odot$ preserves coequalizers. The category of monoids and monoid homomorphisms of ${\doub{D}}$ and the category of bimodules and extended bimodule homomorphisms of ${\doub{D}}$ together form a double category, which we call $\Alg[\doub{D}]$
 \end{lem}
 
 \begin{proof}
-The {\bf unit functor} $\lD_0 \xrightarrow{U} \lD_1$ is defined on objects as $U(A,\tinymult[gray dot],\tinyunit[gray dot]) := 
-      \smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=0.4,string,yscale=-1]
+The {\bf unit functor} $\Alg[\doub{D}]_0 \xrightarrow{U} \Alg[\doub{D}]_1$ is defined on objects as $U(a,A,\tinymult[gray dot],\tinyunit[gray dot]) := 
+     (A, \smash{{\hspace{-5pt}\ensuremath{\begin{pic}[scale=0.4,string,yscale=-1]
       \node (0) at (0,0) {};
       \node[gray dot, inner sep=1.5pt] (1) at (0,0.55) {};
       \node (2) at (-0.5,1) {};
@@ -450,78 +280,56 @@ The {\bf unit functor} $\lD_0 \xrightarrow{U} \lD_1$ is defined on objects as $U
       \draw (1.center) to [out=left, in=down, out looseness=1.5] (2.center);
       \draw (1.center) to [out=right, in=down, out looseness=1.5] (3.center);
       \draw (1.center) to (0,1);
-      \end{pic}}\hspace{-3pt}}}$; 
-      and on morphisms as $U(f) := (f,f,f)$. The {\bf source and target functors} $S,T: \lD_1 \rightarrow \lD_0$ are defined on objects as $S({}_A {\bf M}_B) = A$, and  $T({}_A {\bf M}_B) = B$, and on morphisms as  $S(f_l,f,f_r)=f_l$, and $T(f_l, f, f_r) = f_r$.
-The functor $\ominus: {\lD_1} \times_{\lD_0} {\lD_1} \rightarrow {\lD_1}$, maps objects $(_A{\bf M}_B$, $_B{\bf N}_C)$ to $_A{\bf M} \tinydot[gray dot] {\bf N}_C$, and morphisms $((f_l, f, h), (h, g, g_r))$ to $(f_l, f \tinydot[gray dot] g, g_r)$, where ${M} \tinydot[gray dot] {N}$ and $f \tinydot[gray dot] g$ are defined by the following coequalisers:
+      \end{pic}}\hspace{-3pt}}})$; 
+      and on morphisms as $U({\bf f}) := ({\bf f},{\bf f},{\bf f})$. The {\bf source and target functors} $S,T: \lD_1 \rightarrow \lD_0$ are defined on objects as $S({}_A {\bf M}_B) = A$, and  $T({}_A {\bf M}_B) = B$, and on morphisms as  $S({\bf f_l},{\bf f},{\bf f_r})={\bf f_l}$, and $T({\bf f_l}, {\bf f}, {\bf f_r}) = {\bf f_r}$.
+The functor ${\Alg[\doub{D}]_1} \times_{\Alg[\doub{D}]_0} {\Alg[\doub{D}]_1} \rightarrow {\Alg[\doub{D}]_1}$, maps objects $(_A{\bf M}_B$, $_B{\bf N}_C)$ to $_A{\bf M} \tinydot[gray dot] {\bf N}_C$, and morphisms $(({\bf f_l}, {\bf f}, {\bf h}), ({\bf h}, {\bf g}, {\bf g_r}))$ to $({\bf f_l}, {\bf f \tinydot[gray dot] g}, {\bf g_r})$, where ${M} \tinydot[gray dot] {N}$ and $f \tinydot[gray dot] g$ are defined by the following coequalisers:
 
 \begin{equation}\label{eq:coequaliser}
   \begin{pic}[xscale=4,yscale=1.66, thin]
-    \node (tl) at (-.3,1) {$M \hor B \hor N$};
-    \node (bl) at (-.3,0) {$M' \hor B' \hor N'$};
-    \node (t) at (1,1) {$M \hor N$};
-    \node (b) at (1,0) {$M' \hor N'$};
+    \node (tl) at (-.3,1) {$M \odot B \odot N$};
+    \node (bl) at (-.3,0) {$M' \odot B' \odot N'$};
+    \node (t) at (1,1) {$M \odot N$};
+    \node (b) at (1,0) {$M' \odot N'$};
     \node (tr) at (1.7,1) {$M \tinydot[gray dot] N$};
     \node (br) at (1.7,0) {$M' \tinydot[gray dot] N'$};
-    \draw[->] (tl) to node[left] {$(f * h * g)$} (bl);
-    \draw[->] (t) to node[right] {$f *g$} (b);
-    \draw[->, dashed] (tr) to node[right] {$f \tinydot[gray dot] g$} (br);
+    \draw[->] (tl) to node[left] {$({\bf f} \odot {\bf h} \odot {\bf g})$} (bl);
+    \draw[->] (t) to node[right] {${\bf f} \odot {\bf g}$} (b);
+    \draw[->, dashed] (tr) to node[right] {${\bf f} \tinydot[gray dot] {\bf g}$} (br);
     \draw[->] (t) to node[above] {$c$} (tr);
     \draw[->] (b) to node[below] {$c'$} (br);
-    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M} \hor \mathid_{N}$} ([yshift=1.5pt]t.west);
-    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_{M} \hor \mathbf{N}_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
-    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \hor \mathid_{N'}$} ([yshift=1.5pt]b.west);
-    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{M'} \hor \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M} \odot \mathid_{N}$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_{M} \odot \mathbf{N}_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \odot \mathid_{N'}$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{M'} \odot \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
   \end{pic}
  \end{equation}
 
-Here, the composition $f*g$ is defined if $f$ is a 2-cell of the form $M \hor h \rightarrow f_{l1} \hor N$, and $g$ is a 2-cell of the form $K \hor g_{r1} \rightarrow h \hor L$ as follows:
-
-\begin{equation}
-  \begin{pic}[]
-\draw[fill=red, draw=black, opacity=0.5] (-.2,3) -- (-.2,0) -- (1,0) -- (1,2) -- (0.9,2) to[in=-90, out=90] (0,3) -- (-.2,3);
-\draw[fill=orange, draw=black, opacity=0.5] (1,2) -- (0.9,2) to[in=-90, out=90] (0,3) -- (1,3) -- (1,2);
-    \draw[fill=blue, draw=black, opacity=0.5] (1,0) -- (2,0) -- (2,1) -- (1.9,1) to[in=-90, out=90] (1.1,2) -- (1,2) -- (1,0);
-     \draw[fill=purple, draw=black, opacity=0.5]  (2,1) -- (1.9,1) to[in=-90, out=90] (1.1,2) -- (1,2) -- (1,3) -- (2,3) -- (2,1);
-          \draw[fill=green, draw=black, opacity=0.5]  (2,0) -- (3,0) to[in=-90, out=90] (2.1,1) -- (2,1) -- (2,0); 
-  \draw[fill=yellow, draw=black, opacity=0.5]  (3,0) to[in=-90, out=90] (2.1,1) -- (2,1) -- (2,3) -- (3.2,3) -- (3.2,0) -- (3,0); 
-     \node[morphism, minimum width=5mm] (f) at (1,2) {$f$}; 
-     \node[morphism, minimum width=5mm] (g) at (2,1) {$g$}; 
-     \node at (.5,1.5) {$a$};
-     \node at (1.5,0.75) {$b$};
-     \node at (2.5, .3) {$c$};
-          \node at (.5,2.7) {$a'$};
-     \node at (1.5,2.25) {$b'$};
-     \node at (2.5, 1.5) {$c'$};
-  \end{pic}
- \end{equation}
-
-
-By commutativity of the left square, $c \ver (f * g)$ is another coequaliser of the upper two parallel maps, hence $f \tinydot[gray dot] g$ exists and is unique. 
+By commutativity of the left square, $c ({\bf f} \odot {\bf g})$ is another coequaliser of the upper two parallel maps, hence $f \tinydot[gray dot] g$ exists and is unique. 
   The module ${\bf M} \tinydot[gray dot] {\bf N}$ is given by the map that makes the diagram below commute. It exists and is unique by uniqueness of coequalisers, taking commutativity of the left square into account, and the fact that horizontal composition preserves coequalisers. 
 
 \begin{equation}\label{eq:coequaliser2}
   \begin{pic}[xscale=4,yscale=1.66, thin]
-    \node (tl) at (-.3,1) {$A \hor M \hor B \hor N \hor C$};
-    \node (bl) at (-.3,0) {$M \hor B \hor N$};
-    \node (t) at (1,1) {$A \hor M \hor N \hor C$};
-    \node (b) at (1,0) {$M \hor N$};
-    \node (tr) at (1.7,1) {$A \hor M \tinydot[gray dot] N \hor C$};
+    \node (tl) at (-.3,1) {$A \odot M \odot B \odot N \odot C$};
+    \node (bl) at (-.3,0) {$M \odot B \odot N$};
+    \node (t) at (1,1) {$A \odot M \odot N \odot C$};
+    \node (b) at (1,0) {$M \odot N$};
+    \node (tr) at (1.7,1) {$A \odot M \tinydot[gray dot] N \odot C$};
     \node (br) at (1.7,0) {$M \tinydot[gray dot] N$};
-    \draw[->] (tl) to node[left] {${\bf M}_{\tinydot[gray dot]} \hor \mathid_B \hor {}_{\tinydot[gray dot]}{\bf N}$} (bl);
-    \draw[->] (t) to node[right] {${\bf M}_{\tinydot[gray dot]} \hor  {}_{\tinydot[gray dot]}{\bf N}$} (b);
+    \draw[->] (tl) to node[left] {${\bf M}_{\tinydot[gray dot]} \odot \mathid_B \odot {}_{\tinydot[gray dot]}{\bf N}$} (bl);
+    \draw[->] (t) to node[right] {${\bf M}_{\tinydot[gray dot]} \odot  {}_{\tinydot[gray dot]}{\bf N}$} (b);
     \draw[->, dashed] (tr) to node[right] {${\bf M} \tinydot[gray dot] {\bf N}$} (br);
-    \draw[->] (t) to node[above] {$\mathid_A \hor c \hor \mathid_C$} (tr);
+    \draw[->] (t) to node[above] {$\mathid_A \odot c \odot \mathid_C$} (tr);
     \draw[->] (b) to node[below] {$c$} (br);
-    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {$\mathid_A \hor {}_{\tinydot[white dot]}\mathbf{M} \hor \mathid_N \hor \mathid_C$} ([yshift=1.5pt]t.west);
-    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_A \hor \mathid_M \hor \mathbf{N}_{\tinydot[black dot]} \hor \mathid_C$} ([yshift=-1.5pt]t.west);
-    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \hor \mathid_{N'}$} ([yshift=1.5pt]b.west);
-    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{M'} \hor \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {$\mathid_A \odot {}_{\tinydot[white dot]}\mathbf{M} \odot \mathid_N \odot \mathid_C$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_A \odot \mathid_M \odot \mathbf{N}_{\tinydot[black dot]} \odot \mathid_C$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{M'} \odot \mathid_{N'}$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{M'} \odot \mathbf{N'}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
   \end{pic}  
  \end{equation}
 
-Note that ${\bf N}_{\tinydot[gray dot]} \hor {}_{\tinydot[gray dot]}{\bf N}$ is a module. It is easy to check that ${\bf M}_{\tinydot[gray dot]}{\bf N}$ satisfies the module axioms as well, using commutativity of the diagram above and the fact that $c$ is epic. Pasting the two diagrams together into a cube proves that $(f \hor g)$ is a bimodule homomorphism.
+Note that ${\bf N}_{\tinydot[gray dot]} \odot {}_{\tinydot[gray dot]}{\bf N}$ is a module. It is easy to check that ${\bf M}_{\tinydot[gray dot]}{\bf N}$ satisfies the module axioms as well, using commutativity of the diagram above and the fact that $c$ is epic. Pasting the two diagrams together into a cube proves that ${\bf f} \odot {\bf g}$ is a bimodule homomorphism.
  
-It is left to verify functoriality of $\ominus$. When we unfold the definitions we see that we only need to check that $(h* k) \ver ( f * g) = (fh\ver f)*(k \ver gh)$, and $\mathid_{\bf M} * \mathid_{\bf M'} = \mathid_{\bf M \hor M'}$. Therefore, the diagrams below are equal, f we forget the middle part of the left diagram. As a consequence, the dashed arrows must be equal too. A similar argument shows that $\mathid_{\bf M} \tinydot[gray dot] \mathid_{\bf M'} = \mathid_{\bf M \tinydot[gray dot] M'}$.
+It is left to verify functoriality of ${\Alg[\doub{D}]_1} \times_{\Alg[\doub{D}]_0} {\Alg[\doub{D}]_1} \rightarrow {\Alg[\doub{D}]_1}$. When we unfold the definitions we see that we only need to check that $({\bf f}\tinydot[gray dot]{\bf f'}) \circ ( {\bf g} \tinydot[gray dot] {\bf g'}) = ({\bf f} \circ {\bf f'})\tinydot[gray dot] ({\bf g} \circ {\bf g'})$, and $\mathid_{\bf M} \tinydot[gray dot] \mathid_{\bf M'} = \mathid_{\bf M \tinydot[gray dot] M'}$. The two sides of the first equality are the unique maps making the two diagram below commute. If we forget the middle part of the left diagram, the diagrams are equal by the exchange law for $\odot$ and $\circ$. As a consequence, the dashed arrows of the two diagrams must be equal too. A similar argument shows that $\mathid_{\bf M} \tinydot[gray dot] \mathid_{\bf M'} = \mathid_{\bf M \tinydot[gray dot] M'}$.
  
  \begin{equation}
   \begin{pic}[xscale=2.3, yscale=1.5, thin]
@@ -535,9 +343,9 @@ It is left to verify functoriality of $\ominus$. When we unfold the definitions 
     \node (br) at (1.7,0) {${K}_{\tinydot[gray dot]} {L}$};
     \node (rd) at (1.7,-1) {${M}_{\tinydot[gray dot]} {N}$};
     \draw (tl) to  (-.3,.65);
-    \node at (-.3, 0.5) {$f * i * g$};
+    \node at (-.3, 0.5) {$f \hor i \hor g$};
     \draw[->] (-.3,.35) to  (bl);
-    \draw[->] (t) to node[right] {$f * g$} (b);
+    \draw[->] (t) to node[right] {$f \hor g$} (b);
     \draw[->, dashed] (tr) to node[right] {$f_{\tinydot[gray dot]}g$} (br);
     \draw[->, dashed] (br) to node[right] {$h_{\tinydot[gray dot]}k$} (rd);
     \draw[->] (t) to node[above] {$c_B$} (tr);
@@ -547,9 +355,9 @@ It is left to verify functoriality of $\ominus$. When we unfold the definitions 
     \draw[->] ([yshift=1.5pt]bl.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{K} \hor \mathid_{L}$} ([yshift=1.5pt]b.west);
     \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$\mathid_{K} \hor \mathbf{L}_{\tinydot[black dot]}$} ([yshift=-1.5pt]b.west);
     \draw (bl) to  (-.3,-.35);
-    \node at (-.3,-.5) {$h * j * k$};
+    \node at (-.3,-.5) {$h \hor j \hor k$};
     \draw[->] (-.3,-.65) to  (ld);
-    \draw[->] (b) to node[right] {$h * k$} (md);
+    \draw[->] (b) to node[right] {$h \hor k$} (md);
    % \draw[->, dashed] (tr) to node[right] {$\rho_M \tinydot[gray dot] \rho_N$} (rd);
     \draw[->] (md) to node[above] {$c_D$} (rd);
     \draw[->] ([yshift=1.5pt]ld.east) to node[above] {${}_{\tinydot[white dot]}\mathbf{P} \hor \mathid_{Q}$} ([yshift=1.5pt]md.west);
@@ -565,11 +373,11 @@ It is left to verify functoriality of $\ominus$. When we unfold the definitions 
     \node (rd) at (1.7,-1) {${M}_{\tinydot[gray dot]} {N}$};
     \draw (tl) to  (-.3,0.25);
     \draw[->] (-.3,-0.25) to  (ld);
-    \node at (-.3,0.125) {$(k \ver f) *(j \ver i)$};
-    \node at (-.3,-.125) {$* (k \ver g)$};
+    \node at (-.3,0.125) {$(k \ver f) \hor (j \ver i)$};
+    \node at (-.3,-.125) {$\hor (k \ver g)$};
     \draw (t) to  (1,0.3);
     \draw[->] (1,0.1) to  (md);
-    \node at (1,0.2) {$(h \ver f) * (k \ver g)$};
+    \node at (1,0.2) {$(h \ver f) \hor (k \ver g)$};
     \draw[dashed] (tr) to (1.7,-0.1);
     \node at (1.7,-.2) {$(h \ver f)_{\tinydot[gray dot]}(k \ver g)$};
     \draw[->, dashed] (1.7,-0.3) to (rd); 
@@ -606,9 +414,9 @@ Similarly we derive the component $a_{N_1,N_2,N_3}$. Naturality of $a$ follows f
  \draw[->, dashed] (r3) to node[right] {$a_{N_1,N_2,N_3}$} (r4);
   \draw[->, dashed] (r1) to node[right] {$(f_1 \tinydot[gray dot] f_2) \tinydot[gray dot] f_3$} (r3);
  \draw[->, dashed, cross] (r2) to node[left, yshift=14pt] {$f_1 \tinydot[gray dot] (f_2 \tinydot[gray dot] f_3)$} (r4);
- \draw (tl) to (0,0.6) node[below]{$f_1 * f_B * f_2 * f_C * f_3$};
+ \draw (tl) to (0,0.6) node[below]{$f_1 \hor f_B \hor f_2 \hor f_C \hor f_3$};
   \draw[->] (0,0.4) to (bl);
- \draw[->] (tm) to node[left] {$f_1 * f_2* f_3$} (bm); 
+ \draw[->] (tm) to node[left] {$f_1 \hor f_2 \hor f_3$} (bm); 
 \end{tikzpicture}
 
 The coequalisers $\pi_1$ and $\pi_2$ correspond to the compositions of coequalisers below. 
@@ -1034,8 +842,8 @@ The components of the {\bf left unitor} $l_{\bf M}: U_A \ominus {\bf M} \rightar
  \draw[->, dashed] (r3) to node[right] {$l_N$} (r4);
   \draw[->, dashed] (r1) to node[right] {$f \tinydot[gray dot] g$} (r3);
  \draw[->, dashed, cross] (r2) to node[left, yshift=10pt] {$g$} (r4);
- \draw[->] (tl) to node[left] {$f * h * g$} (bl);
- \draw[->] (tm) to node[left] {$f * g$} (bm);
+ \draw[->] (tl) to node[left] {$f \hor f \hor g$} (bl);
+ \draw[->] (tm) to node[left] {$f \hor g$} (bm);
 \end{tikzpicture}
 \end{proof}
 
@@ -1077,7 +885,7 @@ In this diagram, $c$, $c_M$, and $c_N$ are the coequalisers defining  $({M_1} \h
  \end{equation}
 
 
-It is left to prove that the diagrams given in points (iv),(v),(vi), and (ix) of Definition ~\ref{def:symmondoub} commute. Because $\fu$ and $\fx$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
+What is left to prove is that the diagrams given in points (iv),(v),(vi), and (ix) of Definition ~\ref{def:symmondoub} commute. Because $\fu$ and $\fx$ are globular, it suffices to verify commutativity of the diagrams only for the middle components of the extended module homomorphisms.
 
 The first equation of (iv) corresponds to the front square of the diagram below. The unlabelled arrows represent the coequalisers defining their target object.
 The bottom square and the upper right square commute by the definition of $\xi$. The square at the back commutes  by coherence of the bicategory ${\cat B}$ and the pseudofunctor $\tens$. The upper left and lower right square commute by definition of ${\bf a}$. The lower left and the top square commute by definition of $\tinydot[gray dot]$ and $\xi$.
@@ -1125,6 +933,10 @@ All other equations concerning $\xi$ are proven in the same way. These are the s
 It is easy to see that equations concerning $\fu$ hold, keeping in mind that $\fu$ is the identity, and $U_{\alpha_{A,B,C}} = \alpha_{U_A,U_B,U_C}$, $U(\rho_A) = \rho_{U_A}$, $U(\lambda_A) = \lambda_{U_A}$, and $\sigma_{U_A,U_B} = U(\sigma_{A,B})$.
 These remaining equations are the second equation of (v), the second and the fourth equation of (vi), and the second equation of (ix).
 \end{proof}
+
+\begin{equation*}
+\mbox{[Updated until here]}
+\end{equation*}
 
 \subsection{Companions and conjoints in $\Alg$}\label{sec:fibDalg}
 Finally, we will prove that $\Alg(\cat B$) is fibrant. this is the last step we need to take to show that we can lift $\Alg({\cat B})$ to obtain the bicategory ${\cA}lg({\cat B})$, which preserves any braided monoidal structure.
@@ -1178,8 +990,8 @@ The first equation of ~\ref{eq:compeqn} holds because $\epsilon_{\hat{f}} \circ 
  \draw[->, dashed] (r3) to node[right] {$r_{\hat{f}}$} (r4);
   \draw[->, dashed] (r1) to node[right] {$f \tinydot[gray dot] \mathid_B$} (r3);
  \draw[->, dashed, cross] (r2) to node[right,yshift=7pt] {$\mathid_B$} (r4);
- \draw[->] (tl) to node[left] {$f * f * \mathid_B$} (bl);
- \draw[->] (tm) to node[left] {$f *\mathid_B$} (bm);
+ \draw[->] (tl) to node[left] {$f \hor f \hor \mathid_B$} (bl);
+ \draw[->] (tm) to node[left] {$f \hor \mathid_B$} (bm);
 \end{tikzpicture}
 
 In this diagram, $c_A$ and $c_B$ are the coequalisers defining ${U_A}_{\tinydot[gray dot]} \hat{f}$ and $\hat{f}_{\tinydot[gray dot]}U_B$, respectively.
@@ -1189,70 +1001,328 @@ This simultaneously proves that $f$ has a conjoint, because $\Alg({\bf C}^{h* op
 \end{proof}
 
 \begin{eg}
-When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Theorem ~\ref{thm:trifunctor2}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
+When we take the category $\mathcal{A}B$ of Abelian groups and group homomorphisms as our symmetric monoidal category, we obtain the double category $\cMod$ of rings, ring homomorphisms, bimodules and bimodule homomorphisms. As a consequence of Lemma's ~\ref{lem:algdouble}, ~\ref{lem:algsymmon}, and ~\ref{lem:algfib}, and Theorem ~\ref{thm:lcbcfunctor}, the horizontal bicategory $\cMod$ of $\lMod$ is a symmetric monoidal.
 \end{eg}
 
 \begin{thm}\label{thm:eqcomp}
-Let {\bf B} be a bicategory. The bicategory $\mathcal{A}lg({\cat B})$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
+Let {\bf C} be a braided monoidal category where all coequalisers exist and where the tensor product preserves coequalisers. The loose bicategory $\mathcal{A}lg({\cat C})$ is braided monoidal; it is symmetric whenever {\bf C} is symmetric.
 \end{thm}
 
 \begin{proof}
-This follows directly from Lemmas \ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}, and from Theorem ~\ref{thm:trifunctor2}.
+By $\ref{lem:algdouble}, \ref{lem:algsymmon}, \ref{lem:algfib}$, $\mathbb{Alg}({\bf C})$ is braided monoidal and Fibrant; and it is symmetric or sylleptic whenever {\bf C} is symmetric or sylleptic, respectively. As a result, all constraints have loosely strong companions.  Therefore we may apply Theorem ~\ref{thm:lcbcfunctor} to finish the proof.
 \end{proof}
 
-When we consider braided bicategories with one object, more of the symmetry is preserved than one would expect from Theorem ~\ref{thm:eqcomp}
-
-\begin{prop}\label{prop:oneobject}
-Let {\bf B} be a braided monoidal bicategory with one object. The bicategory $\mathcal{A}lg({\cat B})$ of algebras, bimodules, and bimodule homomorphisms in {\cat B} is symmetric monoidal. 
+\subsection{Monoidal Functors and Transformations}
+We extend $\bAlg$ to functors and transformations and show that it gives rise to a pseudo functor. 
+\begin{prop}\label{prop:mfunctor}
+Any braided monoidal strong functor $F: {\bf C} \rightarrow {\bf D}$ which preserves coequalisers lifts to a braided monoidal strong double functor $\bAlg{F}:  \bAlg{\bf C} \rightarrow \bAlg{ \bf D}$. The functor $\bAlg{F}$ is sylleptic or symmetric, whenever $F$ is sylleptic or symmetric, respectively.
 \end{prop}
 
 \begin{proof}
-A braided monoidal bicategory with one object corresponds to a symmetric monoidal category. We can lift this symmetry $\sigma$ to a symmetry on the double category, illustrated by the picture below. The rest proof is analogous of that of Theorem \ref{thm:eqcomp}, with the only difference that in the diagrams the tensor product is no longer distinguishable from horizontal composition.
+Any braided monoidal functor preserves algebras and bimodules. The functor $\bAlg(F)_0$ maps an algebra $(A, \tinymult[gray dot], \tinyunit[gray dot])$ to the algebra $(FA, F(\tinymult[gray dot])\circ \chi, F(\tinyunit[gray dot])\circ \iota)$. The functor $\bAlg(F)_1$ maps an A-B-bimodule {\bf M} to $F({\bf M}) \circ \chi_{A, M \otimes B} \circ (\id \otimes \chi_{M,B)}$. On extended bimodule homomorphisms $\bAlg$ is defined componentwise. 
+The pseudo double transformation $F_{\odot}$ is the unique morphism defined by the coequalisers below.
+
+\begin{equation}\label{def:xi}
+  \begin{tikzpicture}[xscale=5, yscale=2, thin]
+    \node (tl) at (-.3,1) {$FM \ten FB \ten FN$};
+    \node (bl) at (-.3,0) {$F(M \ten B \ten N)$};
+    \node (t) at (1,1) {$FM \ten FN$};
+    \node (b) at (1,0) {$F(M\ten N)$};
+    \node (tr) at (1.7,1) {$FM \tinydot[gray dot] FN$};
+    \node (br) at (1.7,0) {$F(M \tinydot[gray dot] N)$};
+    \draw[->] (tl) to node[left] {$\iso$} (bl);
+    \draw[->] (t) to node[right] {$\chi \iso$} (b);
+    \draw[->, dashed] (tr) to node[right] {$F_{\odot}$} (br);
+    \draw[->] (t) to node[above] {c} (tr);
+    \draw[->] (b) to node[below] {$F(c)$} (br);
+    \draw[->] ([yshift=1.5pt]tl.east) to node[above] {${}_{\tinydot[white dot]}F(\mathbf{M})  \ten \mathid_{F(N)}$} ([yshift=1.5pt]t.west);
+    \draw[->] ([yshift=-1.5pt]tl.east) to node[below] {$\mathid_{F(M)} \ten F(\mathbf{N})_{\tinydot[black dot]}$} ([yshift=-1.5pt]t.west);
+    \draw[->] ([yshift=1.5pt]bl.east) to node[above] {$
+    F({}_{\tinydot[white dot]}\mathbf{M} \tens \mathid_{N} )$} ([yshift=1.5pt]b.west);
+    \draw[->] ([yshift=-1.5pt]bl.east) to node[below] {$F(\mathid_{M_1} \ten \mathbf{N}_{\tinydot[black dot]})$} ([yshift=-1.5pt]b.west);
+  \end{tikzpicture}
+ \end{equation}
+
+
+The two commuting diagrams below show that $F_{\odot}$ is a module homomorphism and that $F_{\odot}$ is natural in $\mathbb{A}lg{\bf D}_1$.
 
 \begin{equation}
-\begin{tikzpicture} 
-\draw (1.5,0) -- (1.5,0.5) -- (2.5,0.5) -- (2.5,0) -- (1.5,0);
-\draw (0,0) -- (0,0.5) -- (1,0.5) -- (1,0) -- (0,0);
-\node at (0.5,0.25) [] {${\bf M}$};
-\node at (2,0.25) [] {${\bf N}$};
-\draw (0.2,0) to[out=-90, in=90] (-1,-1);
-\draw (0.5,0) to[out=-90, in=90] (0.5,-1);
-\draw[cross] (0.8,0) to[out=-90, in=90] (3,-1);
-\draw (1.7,0) to[out=-90, in=90] (-0.5,-1);
-\draw (2,0) to[out=-90, in=90] (2,-1);
-\draw (2.2,0) to[out=-90, in=90] (3.5,-1);
-\draw (0.5,1) to (0.5,0.5);
-\draw (2, 1) to (2, 0.5);
-\node at (-1,-1.2) [] {A};
-\node at (0.5,-1.2) [] {M};
-\node at (3,-1.2) [] {B};
-\node at (-0.5,-1.2) [] {C};
-\node at (2,-1.2) [] {N};
-\node at (3.5,-1.2) [] {D};
-\node at (0.5,1.2) [] {N};
-\node at (2,1.2) [] {M};
+\begin{tikzpicture}[xscale=2.5, yscale=2]
+%uppersquare
+\node (u1) at (1,3) [] {$F(A\otimes M \otimes N \otimes C)$};
+\node (u2) at (3,3) [] {$F(A \otimes M \tinydot[gray dot] N \otimes C)$};
+\node (u3) at (0,2.5) [] {$FA \ten FM \otimes FN \ten FC$};
+\node (u4) at (2,2.5) [] {$FA \ten FM \tinydot[gray dot]FM \ten FC $};
+\node (u-1) at (-1,3) [] {$F(A\otimes M \otimes B \ten N \otimes C)$};
+\node (u-3) at (-2,2.5) [] {$FA \ten FM \otimes FB \ten FN \ten FC$};
+%leftuppersquare
+\draw[->] ([yshift=1.5pt]u-1.east) to node[above] {} ([yshift=1.5pt]u1.west);
+    \draw[->] ([yshift=-1.5pt]u-1.east) to node[below] {} ([yshift=-1.5pt]u1.west);
+        \draw[->] (u-3) to (u-1); 
+ %%%   
+\draw[->] (u1) to node[above] {} (u2);
+\draw[->] (u3) to node[below] {} (u1); 
+\draw[->, dashed ] (u4) to node[] {$\mathid \ten F_{\odot} \ten \mathid$} (u2);
+%lowersquare
+\node (m1) at (1,1.5) [] {$F(M \otimes N )$};
+\node (m2) at (3,1.5) [] {$F(M \tinydot[gray dot] N) $};
+\node (m3) at (0,1) [] {$FM \ten FN$};
+\node (m4) at (2,1) [] {$FM \tinydot[gray dot] FN$};
+\draw[->] (m3) to node[above] {} (m1); 
+\draw[->, dashed] (m4) to node[] {$F_{\odot}$} (m2);
+\draw[->] (m3) to node[above, xshift=8pt] {} (m4); 
+\draw[->] (m1) to node[above] {} (m2);
+\node (m-1) at (-1,1.5) [] {$F( M \ten B \ten N)$};
+\node (m-3) at (-2,1) [] {$FM \ten  FB \ten FN $};
+%leftlowersquare
+\draw[->] ([yshift=1.5pt]m-1.east) to node[above] {} ([yshift=1.5pt]m1.west);
+    \draw[->] ([yshift=-1.5pt]m-1.east) to node[below] {} ([yshift=-1.5pt]m1.west);
+ \draw[->] ([yshift=1.5pt]m-3.east) to node[above] {} ([yshift=1.5pt]m3.west);
+    \draw[->] ([yshift=-1.5pt]m-3.east) to node[below] {} ([yshift=-1.5pt]m3.west);
+    \draw[->] (m-3) to (m-1);
+%vertical
+\draw[->] (u1) to node[] {$F({\bf M}_{\tinydot[gray dot]} \ten  {}_{\tinydot[gray dot]}{\bf N})$} (m1); 
+\draw[->, dashed] (u2) to node[] {$F({\bf M}\tinydot[gray dot]{\bf N})$} (m2);
+\draw[->, cross] (u3) to node[] {$F({\bf M})_{\tinydot[gray dot]} \ten {}_{\tinydot[gray dot]}F({\bf N})$} (m3); 
+\draw[->, cross, dashed] (u4) to node[] {$F{\bf M }\tinydot[gray dot] F{\bf N}$} (m4);
+\draw[->] (u-1) to node[] {$F({\bf M}_{\tinydot[gray dot]} \ten \mathid_B \ten {}_{\tinydot[gray dot]}{\bf N})$} (m-1);
+\draw[->] (u-3) to node[above] {$F({\bf M})_{\tinydot[gray dot]} \ten \mathid_{FB} \ten {}_{\tinydot[gray dot]}F({\bf N})$} (m-3);
+%%%% cross
+\draw[->, cross] ([yshift=1.5pt]u-3.east) to node[above] {} ([yshift=1.5pt]u3.west);
+    \draw[->, cross] ([yshift=-1.5pt]u-3.east) to node[below] {} ([yshift=-1.5pt]u3.west);
+    \draw[->, cross] (u3) to node[above, xshift=8pt] {} (u4); 
 \end{tikzpicture}
-\hspace{10pt}
-  \begin{tikzpicture}[scale=1.5]
-    \draw (0,0.5) to (0,1)node[above] {};
-    \draw[cross] (.6,-.5) node[below]{} to[out=90,in=0] (0,0.5);
-    \draw[cross] (0,0.5) to[out=180,in=90] (-.6,-.5)node[below] {};
-    \node [white dot, node on layer=main] (m) at (0,.5) {};
-    \node[black dot] (m) at (.8,.5) {};
-    \draw (m.center) to (.8,1)node[above] {};
-    \draw (1.4,-.5) node[below]{} to[out=90,in=0] (m.center);
-    \draw (m.center) to[out=180,in=90] (0.2,-.5)node[below] {};
-  \end{tikzpicture}
 \end{equation}
+
+\begin{equation}
+\begin{tikzpicture}[xscale=2.5, yscale=2]
+%uppersquare
+\node (u1) at (1,3) [] {$F(M \otimes N)$};
+\node (u2) at (3,3) [] {$F(M \tinydot[gray dot] N )$};
+\node (u3) at (0,2.5) [] {$ FM \otimes FN $};
+\node (u4) at (2,2.5) [] {$FM \tinydot[gray dot] FM$};
+\node (u-1) at (-1,3) [] {$F(M \otimes B \ten N)$};
+\node (u-3) at (-2,2.5) [] {$FM \otimes FB \ten FN$};
+%leftuppersquare
+\draw[->] ([yshift=1.5pt]u-1.east) to node[above] {} ([yshift=1.5pt]u1.west);
+    \draw[->] ([yshift=-1.5pt]u-1.east) to node[below] {} ([yshift=-1.5pt]u1.west);
+        \draw[->] (u-3) to (u-1); 
+ %%%   
+\draw[->] (u1) to node[above] {} (u2);
+\draw[->] (u3) to node[below] {} (u1); 
+\draw[->, dashed ] (u4) to node[] {$ F_{\odot}$} (u2);
+%lowersquare
+\node (m1) at (1,1.5) [] {$F(M' \otimes N' )$};
+\node (m2) at (3,1.5) [] {$F(M' \tinydot[gray dot] N') $};
+\node (m3) at (0,1) [] {$FM' \ten FN'$};
+\node (m4) at (2,1) [] {$FM' \tinydot[gray dot] FN'$};
+\draw[->] (m3) to node[above] {} (m1); 
+\draw[->, dashed] (m4) to node[] {$F_{\odot}$} (m2);
+\draw[->] (m3) to node[above, xshift=8pt] {} (m4); 
+\draw[->] (m1) to node[above] {} (m2);
+\node (m-1) at (-1,1.5) [] {$F(M' \ten B \ten N')$};
+\node (m-3) at (-2,1) [] {$FM' \ten  FB \ten FN' $};
+%leftlowersquare
+\draw[->] ([yshift=1.5pt]m-1.east) to node[above] {} ([yshift=1.5pt]m1.west);
+    \draw[->] ([yshift=-1.5pt]m-1.east) to node[below] {} ([yshift=-1.5pt]m1.west);
+ \draw[->] ([yshift=1.5pt]m-3.east) to node[above] {} ([yshift=1.5pt]m3.west);
+    \draw[->] ([yshift=-1.5pt]m-3.east) to node[below] {} ([yshift=-1.5pt]m3.west);
+    \draw[->] (m-3) to (m-1);
+%vertical
+\draw[->] (u1) to node[] {$F(f \ten g)$} (m1); 
+\draw[->, dashed] (u2) to node[] {$F(f \tinydot[gray dot] g)$} (m2);
+\draw[->, cross] (u3) to node[] {$F(f) \ten F(g)$} (m3); 
+\draw[->, cross, dashed] (u4) to node[] {$F(f) \tinydot[gray dot] F(g)$} (m4);
+\draw[->] (u-1) to node[] {$F(f \ten \mathid \ten g)$} (m-1);
+\draw[->] (u-3) to node[above] {$F(f) \ten \mathid \ten F(g)$} (m-3);
+%%%% cross
+\draw[->, cross] ([yshift=1.5pt]u-3.east) to node[above] {} ([yshift=1.5pt]u3.west);
+    \draw[->, cross] ([yshift=-1.5pt]u-3.east) to node[below] {} ([yshift=-1.5pt]u3.west);
+    \draw[->, cross] (u3) to node[above, xshift=8pt] {} (u4); 
+\end{tikzpicture}
+\end{equation}
+
+One can show with a similar commuting diagram that $F_{\odot}$ is a natural isomorphism in $\mathbb{A}lg({\bf D})$.
+The natural isomorphism $F_U: U_{F_0(A)} \rightarrow F_1(U_A)$ is a strict identity, by the definition of $U, \mathbb{A}lgF_0$, and $\mathbb{A}lgF_1$. Finally, it is straightforward that $S \circ F_1 = F_0 \circ S$ and $T \circ F_1 = F_0 \circ T$.
+
+It remains to prove that the double functor $\mathbb{A}lgF$ is braided monoidal strong and sylleptic or symmetric whenever $F$ is sylleptic or symmetric. The first condition i) is that $F_0$ and $F_1$ are braided monoidal strong functors, which comes down to showing that the natural transformations $\chi: \ten (F,F) \rightarrow  F\ten$ and $`\iota: I_{\cD} \rightarrow F(I_{\cC})$ give rise to tight transformations of double categories, whose components are well-defined as algebra and module homomorphisms, respectively. This follows from naturality of $\chi$, and coherence and functoriality of $F$. Coherence of $\mathbb{A}lgF_0$ and $\mathbb{A}lgF_1$ follows from coherence of $F$. Similarly, the sylleptic or symmetric monoidal structure of $F$, gives rise to a sylleptic or symmetric monoidal structure for $F_0$, $F_1$. For condition ii) we need to show that $F_0 \circ S$ equals $S \circ F_1$ as monoidal functors, and similarly, $F_0 \circ T = T \circ F_1$. The first equality amounts to  $\chi^{F_0 \circ S} = \chi^{S \circ F_1}$ and $\chi^{F_0 \circ S} = \chi^{S \circ F_1}$, where we have written the functor that $\phi$ belongs to in superscript. Unfolding definitions gives us $F_0(\chi^{S}) \circ \chi^{F_0} = S(\chi^{F_1}) \circ \chi^{S}$. This holds, since $\chi^S$ is the identity. The constraints are shown to hold in a similar way.
+
+Finally, the first of the two additional diagrams given in condition (iii) of ~\ref{def:monfunc} corresponds to the front square of the commuting diagram below. The unlabelled arrows represent the coequalisers defining their target object. The back square commutes by coherence of $F$. The squares on the sides commute by definition of $\xi$, $F_{\odot}$, and $\chi \tinydot[gray dot] \chi$ and by naturality of $\chi$. It follows that the fron square must commute.The second diagram can be shown to hold by a similar commuting diagram.
+
+
+
+\begin{equation}
+\begin{tikzpicture}[xscale=3.2, yscale=2]
+%lowersquare
+\node (b1) at (0,0) [] {$F((N\ten L) \ten (M \ten K))$};
+\node (b2) at (2,0) [] {$F((N \ten M) \ten (L \ten K))$};
+\node (b3) at (1,-0.5) [] {$F((N\ten L) \tinydot[gray dot] (M \ten K))$};
+\node (b4) at (3,-0.5) [] {$F((N \tinydot[gray dot] M) \ten (L \tinydot[gray dot] K))$}; 
+\draw[->] (b1) to node[above, xshift=12pt] {$F(\hat{\sigma})$} (b2);
+\draw[->] (b3) to node[above] {$F(\xi)$} (b4);
+\draw[->] (b1) to node[above] {} (b3); 
+\draw[->] (b2) to node[above] {} (b4);
+%middlesquare
+\node (m1) at (0,1.5) [] {$F(N\ten L) \ten F(M \ten K)$};
+\node (m2) at (2,1.5) [] {$F(N \ten M) \ten F(L \ten K)$};
+\node (m3) at (1,1) [] {$F(N\ten L) \tinydot[gray dot] F(M \ten K)$};
+\node (m4) at (3,1) [] {$F(N \tinydot[gray dot] M) \ten F(L \tinydot[gray dot] K)$};
+\draw[->] (m1) to node[above] {} (m3); 
+\draw[->] (m2) to node[above] {} (m4);
+%lowervertical
+\draw[->] (m1) to node[left] {$\chi$} (b1); 
+\draw[->] (m2) to node[left] {$\chi$} (b2);
+\draw[->, cross] (m3) to node[left, yshift=8pt] {$F_{\odot}$} (b3); 
+\draw[->] (m4) to node[left] {$\chi$} (b4);
+%uppersquare
+\node (u1) at (0,3) [] {$(FN \ten FL) \ten (FM \ten FK)$};
+\node (u2) at (2,3) [] {$(FN \ten FM) \ten (FL \ten FK)$};
+\node (u3) at (1,2.5) [] {$(FN \ten FL) \tinydot[gray dot] (FM \ten FK)$};
+\node (u4) at (3,2.5) [] {$(FN \tinydot[gray dot] FM) \ten (FL \tinydot[gray dot] FK)$};
+\draw[->] (u1) to node[left] {$\chi \ten \chi$} (m1); 
+\draw[->] (u2) to node[left] {$\chi \ten \chi$} (m2);
+\draw[->, cross] (u3) to node[left] {$\chi \tinydot[gray dot] \chi$} (m3); 
+\draw[->] (u4) to node[left] {$F_{\odot} \ten F_{\odot}$} (m4);
+\draw[->, cross] (u3) to node[above, xshift=8pt] {$\xi$} (u4); 
+\draw[->] (u1) to node[above] {$\hat{\sigma}$} (u2);
+\draw[->] (u1) to node[below] {} (u3); 
+\draw[->, cross] (u2) to node[above] {} (u4);
+\end{tikzpicture}
+\end{equation}
+\end{proof}  
+
+
+
+Note that a similar result does not hold for braided monoidal lax or oplax functors, as the transformations $\chi$ and $\iota$ of $\mathbb{A}lg(F)$ may not have loosely strong companions. 
+
+\begin{prop}\label{prop:mtrans}
+Let $F,G: {\bf C} \rightarrow {\bf D}$ be braided monoidal functors that preserve coequalisers. A braided monoidal transformation $\alpha: F \Rightarrow G$ lifts to a braided monoidal double transformation $\bAlg \alpha: \bAlg F \Rightarrow \bAlg G$. Furthermore, $\bAlg \alpha$ is sylleptic or symmetric, whenever $\alpha$ is sylleptic or symmetric, respectively.
+\end{prop}
+
+\begin{proof}
+The components of any monoidal transformation $\alpha$ are algebra homomorphisms by the two coherence equations and by naturality of $\alpha$; hence, $\alpha$ gives rise to a natural transformation $\bAlg \alpha_0: \bAlg F_0 \Rightarrow \bAlg G_0$.
+It gives rise to a natural transformation $\bAlg \alpha_1: \bAlg F_1 \Rightarrow \bAlg  G_1$, where the component $\alpha_{\bf M}$ of an $A-B-$Bimodule ${\bf M}$ is defined as $(\alpha_A, \alpha_M, \alpha_B)$. This is well-defined by naturality of $\alpha$ and the coherence equations for monoidal transformations.
+
+The first equality for tight transformation follows from the first coherence condition for monoidal transformations, as shown below. Similarly, the second equality follows from the second coherence condition for monoidal tranformations.
+
+\begin{equation}
+\begin{tikzpicture}[xscale=2.5, yscale=2]
+%uppersquare
+\node (u1) at (1,3) [] {$F(M \otimes N)$};
+\node (u2) at (3,3) [] {$F(M \tinydot[gray dot] N )$};
+\node (u3) at (0,2.5) [] {$ FM \otimes FN $};
+\node (u4) at (2,2.5) [] {$FM \tinydot[gray dot] FM$};
+\node (u-1) at (-1,3) [] {$F(M \otimes B \ten N)$};
+\node (u-3) at (-2,2.5) [] {$FM \otimes FB \ten FN$};
+%leftuppersquare
+\draw[->] ([yshift=1.5pt]u-1.east) to node[above] {} ([yshift=1.5pt]u1.west);
+    \draw[->] ([yshift=-1.5pt]u-1.east) to node[below] {} ([yshift=-1.5pt]u1.west);
+        \draw[->] (u-3) to (u-1); 
+ %%%   
+\draw[->] (u1) to node[above] {} (u2);
+\draw[->] (u3) to node[below] {} (u1); 
+\draw[->, dashed ] (u4) to node[] {$ F_{\odot}$} (u2);
+%lowersquare
+\node (m1) at (1,1.5) [] {$G(M \otimes N)$};
+\node (m2) at (3,1.5) [] {$G(M \tinydot[gray dot] N) $};
+\node (m3) at (0,1) [] {$GM \ten GN$};
+\node (m4) at (2,1) [] {$GM \tinydot[gray dot] GN$};
+\draw[->] (m3) to node[above] {} (m1); 
+\draw[->, dashed] (m4) to node[] {$F_{\odot}$} (m2);
+\draw[->] (m3) to node[above, xshift=8pt] {} (m4); 
+\draw[->] (m1) to node[above] {} (m2);
+\node (m-1) at (-1,1.5) [] {$G(M \ten B \ten N)$};
+\node (m-3) at (-2,1) [] {$GM \ten  GB \ten GN $};
+%leftlowersquare
+\draw[->] ([yshift=1.5pt]m-1.east) to node[above] {} ([yshift=1.5pt]m1.west);
+    \draw[->] ([yshift=-1.5pt]m-1.east) to node[below] {} ([yshift=-1.5pt]m1.west);
+ \draw[->] ([yshift=1.5pt]m-3.east) to node[above] {} ([yshift=1.5pt]m3.west);
+    \draw[->] ([yshift=-1.5pt]m-3.east) to node[below] {} ([yshift=-1.5pt]m3.west);
+    \draw[->] (m-3) to (m-1);
+%vertical
+\draw[->] (u1) to node[] {$\alpha_{M \ten N}$} (m1); 
+\draw[->, dashed] (u2) to node[] {$\alpha_{M \tinydot[gray dot] N}$} (m2);
+\draw[->, cross] (u3) to node[] {$\alpha_M \ten \alpha_N$} (m3); 
+\draw[->, cross, dashed] (u4) to node[] {$\alpha_M \tinydot[gray dot] \alpha_N$} (m4);
+\draw[->] (u-1) to node[] {$\alpha_{M \ten B \ten N}$} (m-1);
+\draw[->] (u-3) to node[above] {$\alpha_M \ten \alpha_B \ten \alpha_N$} (m-3);
+%%%% cross
+\draw[->, cross] ([yshift=1.5pt]u-3.east) to node[above] {} ([yshift=1.5pt]u3.west);
+    \draw[->, cross] ([yshift=-1.5pt]u-3.east) to node[below] {} ([yshift=-1.5pt]u3.west);
+    \draw[->, cross] (u3) to node[above, xshift=8pt] {} (u4); 
+\end{tikzpicture}
+\end{equation}
+
+The coherence diagrams for monoidal transformations of double categories follow directly from the original coherence diagrams of $\alpha$.
 \end{proof}
 
+%\begin{thm}
+%Let $\alpha: F \Rightarrow G$ be a braided monoidal natural isomorphism. The monoidal pseudo transformation $\cAlg \alpha: \cAlg F \Rightarrow \cAlg G$ is braided monoidal. 
+%\end{thm}
+
+%\begin{proof}
+%As natural isomorphisms or fibrant double categories have loosely strong companions, the result follows from Proposition~\ref{prop:mtrans} and Theorem~\ref{thm:lcbcfunctor}.
+%\end{proof}
+
+\begin{prop}\label{prop:funcAlg}
+The $\bAlg$ construction gives rise to the following pseudo functors
+\begin{align*}
+\mathcal{B}r\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{D}bl_f\\
+\mathcal{S}ym\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{D}bl_f\\
+\mathcal{S}yl\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{S}yl\mathcal{M}on\mathcal{D}bl_f
+\end{align*}
+\end{prop}
+
+\begin{proof}
+The assignment on categories, functors and transformations is given in propositions~\ref{lem:algdouble},~\ref{prop:mfunctor},~\ref{prop:mtrans}.
+By Propositions~\ref{prop:mfunctor},~\ref{lem:algfib}, $\bAlg(F)$ is braided monoidal strong and $\bAlg({\bf C}),\bAlg({\bf D})$ are fibrant. Therefore, the transformations $\chi$ and $\iota$ of $\mathbb{A}lg(F)$ have loosely strong companions. 
+The assignment $\bAlg$ on functors and transformations preserves horizontal composition and units strictly. It follows that the coherence equations are trivially satisfied.
+\end{proof}
+
+
+\subsection{Commutative, symmetric, special, dagger and Frobenius algebras}
+In practice, we are often interested in algebras with specific properties. In this section we discuss a number of conditions on algebras which are preserved by the $\cAlg$ construction.
+
 \begin{defn}
-A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfies the equations below.
+An algebra in a braided monoidal category {\bf C} is called {\bf commutative} whenever the following equation holds.
+ \begin{align}
+  \begin{pic}[]
+        \node (l) at (-.5,-.6) {};
+        \node (r) at (.5,-.6) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+\end{pic}
+\,=\,
+  \begin{pic}[]
+          \node (ld) at (-.5,-.6) {};
+        \node (rd) at (.5,-.6) {};
+        \node (l) at (-.5,.4) {};
+        \node (r) at (.5,.4) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+         \draw[in=-90, out=90] (ld.center) to (r.center);
+         \draw[in=-90, out=90] (rd.center) to (l.center);
+  \end{pic}
+\end{align}
+
+
+\end{defn}
+
+
+
+\begin{defn}
+A {\bf Frobenius algebra} in a monoidal category ${\cat C}$ is a monoid $(A, \tinymult, \tinyunit)$ together with a comonoid 
+$(A, \tinycomult, \tinycounit)$ that satisfies the equations below.
 \begin{align}
   \begin{pic}[]
-    \draw[fill=red, draw=black, opacity=.5] (-1.2,-.5) -- (-1.2,1) -- (1.2,1) -- (1.2,-.5) -- (-1.2,-.5);
-    \node[white dot] (t) at (.5,.5) {};
-    \node[white dot] (b) at (-.5,0) {};
+    \node[gray dot] (t) at (.5,.5) {};
+    \node[gray dot] (b) at (-.5,0) {};
     \draw (b.center) to[out=0,in=180] (t.center);
     \draw (-.5,-.5) to (b.center);
     \draw (t.center) to (.5,1);
@@ -1261,9 +1331,8 @@ A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfie
   \end{pic}
 \,=\,
   \begin{pic}[]
-     \draw[fill=red, draw=black, opacity=.5] (-1,-.5) -- (-1,1) -- (1,1) -- (1,-.5) -- (-1,-.5);
-    \node[white dot] (t) at (0,.5) {};
-    \node[white dot] (b) at (0,0) {};
+    \node[gray dot] (t) at (0,.5) {};
+    \node[gray dot] (b) at (0,0) {};
     \draw (b.center) to (t.center);
     \draw (t.center) to[out=180,in=-90] (-.5,1);
     \draw (t.center) to[out=0,in=-90] (.5,1);
@@ -1272,9 +1341,8 @@ A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfie
   \end{pic}
  \, =\,
   \begin{pic}[]
-   \draw[fill=red, draw=black, opacity=.5] (-1.2,-.5) -- (-1.2,1) -- (1.2,1) -- (1.2,-.5) -- (-1.2,-.5);
-    \node[white dot] (t) at (-.5,.5) {};
-    \node[white dot] (b) at (.5,0) {};
+    \node[gray dot] (t) at (-.5,.5) {};
+    \node[gray dot] (b) at (.5,0) {};
     \draw (b.center) to[out=180,in=0] (t.center);
     \draw (.5,-.5) to (b.center);
     \draw (t.center) to (-.5,1);
@@ -1282,13 +1350,15 @@ A {\bf Frobenius algebra} is an algebra, together with a coalgebra that satisfie
     \draw (1,1) to[out=-90,in=0] (b.center);
   \end{pic}
 \end{align}
-We call a Frobenius algebra {\bf special} whenever the following equation holds.
+\end{defn}
+
+\begin{defn}
+We call a pair of an algebra and a coalgebra {\bf special} whenever the following equation holds.
  \begin{align}
   \begin{pic}[]
-   \draw[fill=red, draw=black, opacity=.5] (-.7,-.5) -- (-.7,1) -- (.7,1) -- (.7,-.5) -- (-.7,-.5);
         \node (0) at (0,-0.5) {};
-        \node[white dot] (1) at (0,-.1) {};
-        \node[white dot] (2) at (0,0.6) {};
+        \node[gray dot] (1) at (0,-.1) {};
+        \node[gray dot] (2) at (0,0.6) {};
         \node (3) at (0,1) {};
         \draw (0.center) to (1.center);
         \draw (2.center) to (3.center);
@@ -1297,27 +1367,65 @@ We call a Frobenius algebra {\bf special} whenever the following equation holds.
 \end{pic}
 \,=\,
   \begin{pic}[]
-   \draw[fill=red, draw=black, opacity=.5] (-.7,-.5) -- (-.7,1) -- (.7,1) -- (.7,-.5) -- (.7,-.5);
     \draw (0,-.5) to (0,1);
+  \end{pic}
+\end{align}
+It is called {\bf symmetric} when the weaker condition below holds.
+
+ \begin{align}
+  \begin{pic}[]
+        \node (l) at (-.5,-.6) {};
+        \node (r) at (.5,-.6) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node[gray dot] (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+\end{pic}
+\,=\,
+  \begin{pic}[]
+          \node (ld) at (-.5,-.6) {};
+        \node (rd) at (.5,-.6) {};
+        \node (l) at (-.5,.4) {};
+        \node (r) at (.5,.4) {};
+        \node[gray dot] (2) at (0,0.6) {};
+        \node[gray dot] (3) at (0,1) {};
+        \draw (2.center) to (3.center);
+        \draw[in=180, out=90] (l.center) to (2.center);
+        \draw[in=0, out=90] (r.center) to (2.center);
+         \draw[in=-90, out=90] (ld.center) to (r.center);
+         \draw[in=-90, out=90] (rd.center) to (l.center);
   \end{pic}
 \end{align}
 \end{defn}
 
-\begin{rmk}\label{comspecfrob}
-The bicategory of Frobenius algebras, bimodules and bimodule homomorphisms is symmetric monoidal. This follows from Theorem ~\ref{thm:eqcomp} since Frobenius algebras and algebra homomorphisms form a full symmetric monoidal subcategory of the category of algebras and algebra homomorphisms. The same statement holds for special and commutative Frobenius algebras. 
-\end{rmk}
+    
+% A {\bf dagger monoidal category} is a monoidal category that is equiped with a dagger $\dagger$, such that the equalities below hold.
+ 
+% \begin{align*}
+% (f \otimes g)^{\dagger} &= g^{\dagger} \otimes f^{\dagger}\\
+% \alpha^{\dagger} &= \alpha^{-1} \\
+%  \rho^{\dagger} &= \rho^{-1} \\
+  % \lambda^{\dagger} &= \lambda^{-1} 
+ %\end{align*}
+ 
+% A {\bf dagger braided monoidal category} is a dagger monoidal category with a braiding, such that the equation below holds
+ 
+% \begin{equation*}
+ %   \sigma^{\dagger} = \sigma^{-1} \\
+% \end{equation*}
+ 
+ 
+% A {\bf monoidal dagger functor} $F:{\bf C} \rightarrow {\bf D}$ is a functor between monoidal dagger categories that preserves the dagger, which means that $F\circ \dagger = \dagger \circ F$. ?????
+%\end{defn}
 
-\begin{cor}
-The equivariant completion of a bicategory introduced in ~\cite{carquevillerunkel} preserves symmetric, braided, and monoidal structure.
-\end{cor}
+ We will write $\bAlg_{S}({\bf C})$ and $\cAlg_{S}({\bf C})$ for $S\subset\{spec, \mbox{Frob}, c, sym\}$ for the sub-double categories and sub-bicategories of $\bAlg({\bf C})$ and $\cAlg({\bf C})$, respectively where the objects are restricted to the type of algebras specified by $S$. We denote special by $spec$, Frobenius by $\mbox{Frob}$, commutative by $c$ and symmetric by $sym$. 
+The double category $\bAlg_S({\bf C})$ is a braided monoidal sub-category of $\bAlg({\bf C})$ for each $S$, since the monoidal unit is special, dagger, Frobenius, commutative and symmetric. It is sylleptic or symmetric whenever ${\bf C}$ is sylleptic or symmetric, respectively.
 
-\begin{proof}
-The equivariant completion of a bicategory ${\bf B}$ is the subbicategory of $\mathcal{A}lg({\cat B})$ consisting of special Frobenius algebras, bimodules and bimodule homomorphisms. The result follows from remark \ref{comspecfrob} and Theorem \ref{thm:eqcomp}
-\end{proof}
+ \begin{defn}
+Let {\bf C} be a braided monoidal category. A dagger $\dagger: {\cat C} \rightarrow {\cat C}$, is a contravariant functor which is the identity on objects such that $\dagger(\dagger(f)) = f$. A Frobenius algebra in {\cat C} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger image of the algebra. 
+A bimodule is called a {\bf dagger bimodule} when the equation below holds, where the coalgebra is the dagger of the algebra and we denote $\dagger({\bf M})$ by ${\bf M}^{\dagger}$.
 
-\begin{defn}
-Let {\bf B} be a bicategory equiped with a dagger functor. A Frobenius algebra in a hom-category of {\bf B} is a {\bf dagger Frobenius algebra} when the coalgebra is the dagger of the algebra. 
-A bimodule is called a {\bf dagger bimodule} when the equation below holds.
 \begin{align}
     \begin{pic}[yscale=.85]
       \node[morphism, minimum width=10mm] (m) at (0,-.7) {$\textbf{M}^\dag$};
@@ -1342,81 +1450,90 @@ A bimodule is called a {\bf dagger bimodule} when the equation below holds.
     \end{pic}
     \end{align}
 \end{defn}
-When the bicategory {\bf B} is equiped with a dagger functor, and we restrict to dagger Frobenius algebras and dagger bimodules, we do not obtain a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
 
-\begin{prop}\label{prop:dagger}
-Let ${\cat B}$ be a dagger bicategory. The bicategory of dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms of ${\cat B}$ is monoidal whenever {\bf B} is monoidal; it is braided whenever {\bf B} is braided; and it is symmetric whenever {\bf B} is symmetric.
-\end{prop}
+When a braided monoidal category {\bf C} is equiped with a dagger functor, dagger algebras and dagger bimodules and bimodule homomorphisms do not form a fibrant double category by the method introduced in this paper. The reason is that the bimodule defined in equation ~\ref{eq:companion} as part of the data that forms a companion is not a dagger bimodule. To solve this, we restrict the categories $\mathbb{D}_0$ and $\mathbb{D}_1$ in an appropriate way to ensure that the result still holds.
+
+\begin{defn}
+Let $f: A\rightarrow B$ be an algebra homomorphism in a dagger category. The {\bf conjugate} $f_*$ of $f$ is defined as 
+\begin{align*}
+f_* :=
+\begin{pic}[]
+    \node[gray dot] (t) at (.5,.8) {};
+    \node[gray dot] (b) at (-.5,-.3) {};
+    \node[gray dot] (tu) at (.5,1){};
+    \node[gray dot] (bu) at (-.5,-.5){};
+    \node[morphism, minimum width=10mm] (m) at (0,.25) {$f^{\dagger}$};
+    \draw (b.center) to[out=0, in=-90] (m.south);
+    \draw (m.north) to[out=90, in=180] (t.center);
+    \draw (-.5,-.5) to (b.center);
+    \draw (t.center) to (.5,1);
+    \draw (t.center) to[out=0,in=90] (1,-.5);
+    \draw (-1,1) to[out=-90,in=180] (b.center);
+  \end{pic}
+\end{align*}
+
+An algebra homomorphism $f$ is {\bf self-conjugate} if $f=f_*$.
+\end{defn}
+
+We denote the double category of algebras and self-conjugate algebra homomorphisms, dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ in {\cat C}, of which $f_1$ and $f_2$ are self-conjugate, by $\bAlg_{\dagger}({\bf C})$. Restricting to self-conjugate morphisms ensures that ~\ref{eq:companion} is a dagger bimodule.  The double category $\bAlg_{\dagger}({\bf C})$ is a fibrant braided monoidal sub-category of our original double category, since self-conjugate morphisms are closed under the tensor product as well as lose and tight composition; furthermore, all structure isomorphisms of the braided monoidal double category are self-conjugate. 
+
+\begin{thm}
+The assignment $\cAlg_{S}$ gives rise to the functors of locally cubical bicategories below, for each subset $S \subset \{spec, \dagger, \mbox{Frob}, c, sym \}$
+\begin{align*}
+\cAlg_{S} : \mathcal{B}r\mathcal{M}on_s\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{B}icat\\
+\mathcal{S}yl\cAlg_{S}:: \mathcal{S}yl\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{S}yl\mathcal{M}on\mathcal{B}icat\\
+\mathcal{S}ym\cAlg_{S}: \mathcal{S}ym\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{B}icat
+\end{align*}
+\end{thm}
 
 \begin{proof}
-We take the category of dagger Frobenius algebras and self conjugate algebra homomorphisms of {\cat B} as $\D_0$. For $\D_1$ we take the category of dagger bimodules and extended bimodule homomorphisms $(f_1,f,f_2)$ {\cat B}, of which $f_1$ and $f_2$ are self conjugate. This ensures that ~\ref{eq:companion} is a dagger bimodule.  These categories are symmetric monoidal subcategories of our original $\D_0$ and $\D_1$, since self-conjugate morphisms are closed under the tensor product and all structure isomorphisms of the monoidal categories are self conjugate. All other steps of the construction hold in the same way as in the general case.  
+We regard $\mathcal{B}r\mathcal{M}on\mathcal{C}at, 
+\mathcal{S}ym\mathcal{M}on\mathcal{C}at$ and $ 
+\mathcal{S}yl\mathcal{M}on\mathcal{C}at$ as locally cubical bicategories with only identity tight 2-cells and 3-cells. 
+Let ${\cat C}$ be a braided monoidal dagger category. For each set of conditions $S$, we obtain a the braided monoidal sub-double category $\bAlg_S({\bf C}) \subset \bAlg({\bf C})$.  
+This assignment gives rise to the pseudo functors $\mathcal{B}r\mathcal{M}on\bAlg_S, 
+\mathcal{S}ym\mathcal{M}on\bAlg_S$ and $ 
+\mathcal{S}yl\mathcal{M}on\bAlg_S$, which are defined on hom-categories as in Prop~\ref{prop:funcAlg}. Composition with the functors in Theorem~\ref{thm:H} gives us the required functors below.
+\begin{align*}
+ \cBr\cMon_s\cCat\xrightarrow{\cBr\cMon_s \bAlg_S} \cBr\cMon_s\fDbl_f \xrightarrow{\cBr\cMon_s \cH} \cBr\cMon_s \fBicat \\
+   \cSyl\cMon_s\cCat \xrightarrow{\cSyl\cMon_s\bAlg_S} \cSyl\cMon_s\fDbl_f \xrightarrow{\cSyl\cMon_s\cH} \cSyl\cMon_s\fBicat\\
+  \cSym\cMon_scCat \xrightarrow{\cSym\cMon_s\bAlg_S} \cSym\cMon_s\fDbl_f \xrightarrow{\cSym\cMon_s \cH} \cSym\cMon_s \fBicat 
+\end{align*}
 \end{proof}
 
 \begin{cor}
-Let ${\bf C}$ be a symmetric monoidal category. The bicategory $2(CP({\bf C}))$ of ~\cite{heunenvicarywester} is symmetric monoidal.
+The bicategory $\cat{2Vect}$ is symmetric monoidal.
 \end{cor}
 
 \begin{proof}
-This follows directly from proposition \ref{prop:dagger} and \ref{prop:oneobject}.
+We obtain $\cat{2Vect}$ as $\cAlg(\cat{Vect})$ from the braided monoidal category $\cat{Vect}$ of vector spaces and linear maps. The category $\cat{Vect}$ is symmetric monoidal, contains all coequalisers and has a tensor product that preserves coequalisers. 
 \end{proof}
 
-\begin{rmk}
-If ${\bf C}$ is idempotent complete and we restrict to special Frobenius algebras, we can give an explicit definition for the functor $\ominus$, as was observed in ~\cite{heunenvicarywester} and ~\cite{carquevillerunkel}. As a result, part of the structure data becomes trivial.
+\begin{cor}
+The bicategory $\cat{2Hilb}$ is symmetric monoidal.
+\end{cor}
 
-Let $_A{\bf M}_B$ and $_B{\bf N}_C$ be dagger modules on special Frobenius algebras. The coequaliser which defines their horizontal composition %(definition\ref{def:horcom}), 
-is given by the dagger splitting of the dagger idempotent $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}{\bf N}_{\tinydot[black dot]}$: \begin{equation}\label{eq:frobeniusimage}
-    \begin{tikzpicture}[yscale=0.875]
-      \draw [use as bounding box, draw=none] (-1.5,-1) rectangle +(3,2);
-      \node[morphism, minimum width=10mm] (m) at (-.75,.2) {$\mathbf{M}$};
-      \node[morphism, minimum width=10mm] (n) at (.75,.2) {$\mathbf{N}$};
-      \draw (m.north) to (-.75,1) node[right] {$M$};
-      \draw (n.north) to (.75,1) node[right] {$N$};
-      \draw (m.south) to (-.75,-1) node[right] {$M$};
-      \draw (n.south) to (.75,-1) node[right] {$N$};
-      \draw (m.-135) to[out=-90,in=90] (-1.1,-.6) node[white dot] {};
-      \draw (n.-45) to[out=-90,in=90] (1.1,-.6) node[black dot] {};
-      \draw (m.-45) to[out=-90,in=150] (0,-.4) node[gray dot] {} to[out=30,in=-90] (n.-135);
-      \draw (0,-.5) to (0,-.75) node[gray dot] {};
-    \end{tikzpicture}
-  \end{equation},
-  
-  The module ${\bf M_{\tinydot[gray dot]}N}$ can be given explicitly as the dagger module below, where $c$ is the dagger splitting of the coequaliser.
-  
-  \begin{equation}\label{eq:bimodule-tensor}
-  \begin{pic}[yscale=0.875]
-    \node[morphism, minimum width=10mm] (mn) at (0,0) {$\mathbf{M} \;\;\; \mathbf{N}$};
-    \node[gray dot] at (0.05,0) {};
-    \draw (mn.north) to (0,1.8) node[right] {$M_{\tinydot[gray dot]} N$};
-    \draw (mn.south) to (0,-2) node[right] {$M_{\tinydot[gray dot]}N$};
-    \draw (mn.-45) to[out=-90,in=90] (1,-2) node[right] {$E$};
-    \draw (mn.-135) to[out=-90,in=90] (-1,-2) node[right] {$C$};
-  \end{pic}
-  \qquad := \qquad
-  \begin{pic}[yscale=0.875]
-      \node[morphism] (i) at (0,-1.3) {$c^\dag$};
-      \node[morphism] (id) at (0,1.2) {$c$};
-      \node[morphism, minimum width=10mm] (m) at (-.75,.2) {$\mathbf{M}$};
-      \node[morphism, minimum width=10mm] (n) at (.75,.2) {$\mathbf{N}$};
-      \draw (m.north) to[out=90,in=-90] (id.-135); 
-      \draw (n.north) to[out=90,in=-90] (id.-45);
-      \draw (m.south) to[out=-90,in=90] (i.135);
-      \draw (n.south) to[out=-90,in=90] (i.45);
-      \draw (m.-45) to[out=-90,in=150] (0,-.4) node[gray dot] {} to[out=30,in=-90] (n.-135);
-      \draw (0,-.5) to (0,-.75) node[gray dot] {};
-      \draw (m.-135) to[out=-90,in=90] (-1.25,-2) node[right] {$C$};
-      \draw (n.-45) to[out=-90,in=90] (1.25,-2) node[right] {$E$};
-      \draw (id.north) to (0,1.8) node[right] {$M_{\tinydot[gray dot]}N$};
-      \draw (i.south) to (0,-2) node[right] {$M_{\tinydot[gray dot]}N$};
-  \end{pic}
-\end{equation}
+\begin{proof}
+As shown in~\cite[Section 3.6.3]{westerthesis}, $\cat{2Hilb}$ is equivalent to $\cAlg_{c,s,\dagger, Frob}[\cat{FHilb}]$, where $\cat{FHilb}$ is the symmetric monoidal category of Hilbert spaces and linear maps, which contains all coequalizers.
+\end{proof}
 
- The natural isomorphisms $l: U_A \ominus {\bf M} \rightarrow {\bf M}$ and $r: {\bf M} \ominus U_B \rightarrow {\bf M}$, are given by the identity morphisms. This is because ${\bf M}_{\tinydot[gray dot]}^{\dagger}$ and $_{\tinydot[white dot]}{\bf M}^{\dagger}$ are the dagger splittings of $_{\tinydot[white dot]}{U_A}_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}$ and $_{\tinydot[white dot]}{\bf M}_{\tinydot[gray dot]}{U_B}_{\tinydot[gray dot]}$, respectively. It follows that these are the coequalisers defining $A_{\tinydot[white dot]}M$ and $M_{ \tinydot[gray dot]}B$.
-  But $M$ is the image of both $_{\tinydot[white dot]}{\bf M}$ and ${\bf M}_{\tinydot[gray dot]}$. 
-  It follows by definition that $A_{\tinydot[white dot]}M = M$, and ${U_A} \ominus {\bf M} = {\bf M}$, as well as $M_{\tinydot[gray dot]}B = M$, and ${\bf M} \ominus {\bf U_B} = {\bf M}$.
-  \end{rmk} 
+\begin{cor}
+Let ${\bf C}$ be a braided monoidal category that contains all coequalisers and where the tensor product preserves coequalisers. The bicategory $2(CP({\bf C}))$ of ~\cite{heunenvicarywester} is braided monoidal. It is sylleptic or symmetric monoidal whenever ${\bf C}$ is sylleptic or symmetric monoidal, respectively.
+\end{cor}
 
+\begin{proof}
+The bicategory $2(CP({\bf C}))$ is equal to the bicategory $\cAlg_{s,\dagger, Frob}({\bf C})$.
+\end{proof}
 
+\begin{cor}
+The bicategory $Prof({\bf {C}})$ is symmetric monoidal if $\cat{C}$ has limits and coequalizers. 
+\end{cor}
 
+\begin{proof}
+The bicategory $Prof$ can be constructed as the category $\cAlg[Span[\cat{C}]]$ from the monoidal double category of spans~\cite[Examples 4.2]{shulman:frbi}.
+This category has companions and conjoints, and if \cat{C} has limits, it is monoidal~\cite[Examples 4.15, 9.2]{shulman:frbi}.
+- Need extension to double categories.
+\end{proof}
 % Local Variables:
 % TeX-master: "smbicat"
 % End:

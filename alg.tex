@@ -1448,6 +1448,16 @@ Let ${\bf C}$ be a braided monoidal category that contains all coequalisers and 
 \begin{proof}
 The bicategory $2(CP({\bf C}))$ is equal to the bicategory $\cAlg_{s,\dagger, Frob}({\bf C})$.
 \end{proof}
+
+\begin{cor}
+The bicategory $Prof({\bf {C}})$ is symmetric monoidal if $\cat{C}$ has limits and coequalizers. 
+\end{cor}
+
+\begin{proof}
+The bicategory $Prof$ can be constructed as the category $\cAlg[Span[\cat{C}]]$ from the monoidal double category of spans~\cite[Examples 4.2]{shulman:frbi}.
+This category has companions and conjoints, and if \cat{C} has limits, it is monoidal~\cite[Examples 4.15, 9.2]{shulman:frbi}.
+- Need extension to double categories.
+\end{proof}
 % Local Variables:
 % TeX-master: "smbicat"
 % End:
