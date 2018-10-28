@@ -5,7 +5,7 @@ In this section, we recall basic notions of double categories to fix our termino
 Double categories go back originally to Ehresmann
 in~\cite{ehresmann:cat-str}; a brief introduction can be found
 in~\cite{ks:r2cats}.  Other references
-include~\cite{multi_funct_i,gp:double-limits,gp:double-adjoints}.
+include~\cite{multi_funct_i,gp:double-limits,gp:double-adjoints,aleiferi2018cartesian}.
 
 
 \begin{defn}\label{def:dblcat}
@@ -78,42 +78,6 @@ as
 \[\vcenter{\xymatrix@C=4pc{ \ar[r]|-@{|}^-{} \ar[d] \ar@{}[dr]|{\Downarrow\;\be\odot\al} &  \ar[d]\\
   \ar[r]|-@{|}_-{} & }}\]
 
-\fxnote[author=LW]{We need to decide if we want to keep this (here)}
-Alternatively, we can draw the poincar\'{e} dual of the diagram ~\cite{myers2016string}. In these ``string diagrams'', the regions are objects, the vertical lines are 1-cells, the horizontal lines are 1-morphisms and the box is a 2-morphism. Below we depict loose and tight composition of 2-cells.
-
-\begin{align}
-&\mbox{Loose composition} &\mbox{Tight composition} \hspace{28pt}\\
-&
-\begin{tikzpicture}[scale=1.75]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-1) -- (-.4,-1) -- (-.4,0) -- (-1,0);  
-\draw[fill=white!50!red, draw=black, opacity=0.5] (-1,-1) -- (-1,-2) -- (-.4,-2) -- (-.4,-1) -- (-1,-1);  
-\draw[fill=blue, draw=black, opacity=0.5] (-.4,0) -- (-.4,-1) -- (.4,-1) -- (.4,0) -- (-.4,0); 
-\draw[fill=white!50!blue, draw=black, opacity=0.5] (-.4,-1) -- (-.4,-2) -- (.4,-2) -- (.4,-1) -- (-.4,-1); 
-\draw[fill=green, draw=black, opacity=0.5] (.4,0) -- (.4,-1) -- (1,-1) -- (1,0) -- (.4,0);  
-\draw[fill=white!50!green, draw=black, opacity=0.5] (.4,-1) -- (.4,-2) -- (1,-2) -- (1,-1) -- (.4,-1);    
-      \node[morphism, minimum width=10mm] (l) at (-.4,-1) {$\alpha$};
-      \draw (-.4,0) to (l.north);
-      \draw (l.south) to (-.4,-2) node[below] {};
-            \node[morphism, minimum width=10mm] (r) at (.4,-1) {$\beta$};
-      \draw (.4,0) to (r.north);
-      \draw (r.south) to (.4,-2) node[below] {};
-    \end{tikzpicture}
- \hspace{10pt}
-&       \begin{tikzpicture}[scale=1.75]
-\draw[fill=black!50!red, draw=black, opacity=0.5] (-1,0) -- (-1,-.6) -- (0,-.6) -- (0,0) -- (-1,0); 
-\draw[fill=red, draw=black, opacity=0.5] (-1,-.6) -- (-1,-1.4) -- (0,-1.4) -- (0,-.6) -- (-1,-.6);  
-\draw[fill=white!50!red, draw=black, opacity=0.5] (-1,-1.4) -- (-1,-2) -- (0,-2) -- (0,-1.4) -- (-1,-1.4);   
-\draw[fill=black!50!blue, draw=black, opacity=0.5] (0,0) -- (0,-.6) -- (1,-.6) -- (1,0) -- (0,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,-.6) -- (0,-1.4) -- (1,-1.4) -- (1,-.6) -- (0,-.6); 
-\draw[fill=white!50!blue, draw=black, opacity=0.5] (0,-1.4) -- (0,-2) -- (1,-2) -- (1,-1.4) -- (0,-1.4);     
-      \node[morphism, minimum width=10mm] (g) at (0,-.6) {$\gamma$};
-       \node[morphism, minimum width=10mm] (f) at (0,-1.4) {$\delta$};
-       \draw (0,0) to (g.north);
-      \draw (f.north) to (g.south);
-      \draw (f.south) to (0,-2) node[below] {};
-    \end{tikzpicture}
-    \hspace{10pt}
-\end{align}
 
 The two different compositions of 2-morphisms obey an interchange law,
 by the functoriality of $\odot$:
@@ -153,20 +117,20 @@ loose 1-cells, and globular 2-morphisms.  In the literature, this is often calle
 occurring bicategories are actually the loose bicategory of some
 naturally ocurring double category.  Here are just a few examples.
 
-\fxnote[author=LW]{We should combine this with the example in the last section, or mention that the last section provides details.}
-\begin{eg}
-  The double category \lMod\ has as objects rings, as tight 1-morphisms ring
-  homomorphisms, as loose 1-cells bimodules, and as 2-morphisms equivariant
-  bimodule maps.  Its loose bicategory $\cMod = \cH(\lMod)$ is
-  the usual bicategory of rings and bimodules.% In Section ~\ref{sec:Alg} we prove that this bicategory is symmetric monoidal.
-\end{eg}
-
 \begin{eg}
   The double category \lnCob\ has as objects closed $n$-manifolds, as
   tight 1-morphisms diffeomorphisms, as loose 1-cells cobordisms, and as
   2-morphisms diffeomorphisms between cobordisms.  Again $\cH(\lnCob)$
   is the usual bicategory of cobordisms.
 \end{eg}
+
+\begin{eg}
+  The double category \lMod\ has as objects rings, as tight 1-morphisms ring
+  homomorphisms, as loose 1-cells bimodules, and as 2-morphisms equivariant
+  bimodule maps.  Its loose bicategory $\cMod = \cH(\lMod)$ is
+  the usual bicategory of rings and bimodules. 
+\end{eg}
+
 
 \begin{eg}
   The double category \lProf\ has as objects categories, as
@@ -177,6 +141,8 @@ naturally ocurring double category.  Here are just a few examples.
   especially the enriched versions.
 \end{eg}
 
+In Section ~\ref{sec:Alg} we will discuss the symmetric monoidal bicategories categories, \lMod\, \lProf\ amongst other applications.
+
 % If $A$ and $B$ are objects of \lD, we write $\lD(A,B)$ for the
 % \emph{set} of vertical arrows from $A$ to $B$ and $\calD(A,B)$ for the
 % \emph{category} of horizontal 1-cells and globular 2-cells from $A$ to
@@ -184,34 +150,6 @@ naturally ocurring double category.  Here are just a few examples.
 % \textbf{locally} when it is true of all hom-categories $\calD(A,B)$, and
 % we will extend this usage to double categories.
 
-The string diagrams corresponding to the loose bicategories have all the elements of the diagrams for double categories, without the horizontal lines. This is the calculus for bicategories described in~\cite{bms}, which is an extention of the string diagrams for braided monoidal categories by M. Kelly and M.L. Laplaza~\cite{kellylaplaza}.
-
-\begin{align}
-&\mbox{Horizontal composition} &\mbox{Vertical composition}  \hspace{28pt} \\
-&
-\begin{tikzpicture}[scale=1.75]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (-.4,-2) -- (-.4,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (-.4,0) -- (-.4,-2) -- (.4,-2) -- (.4,0) -- (-.4,0); 
-\draw[fill=green, draw=black, opacity=0.5] (.4,0) -- (.4,-2) -- (1,-2) -- (1,0) -- (.4,0);     
-      \node[morphism, minimum width=10mm] (l) at (-.4,-1) {$f$};
-      \draw (-.4,0) to (l.north);
-      \draw (l.south) to (-.4,-2) node[below] {};
-            \node[morphism, minimum width=10mm] (r) at (.4,-1) {$h$};
-      \draw (.4,0) to (r.north);
-      \draw (r.south) to (.4,-2) node[below] {};
-    \end{tikzpicture}
- \hspace{10pt}
-&       \begin{tikzpicture}[scale=1.75]
-\draw[fill=red, draw=black, opacity=0.5] (-1,0) -- (-1,-2) -- (0,-2) -- (0,0) -- (-1,0);  
-\draw[fill=blue, draw=black, opacity=0.5] (0,0) -- (0,-2) -- (1,-2) -- (1,0) -- (0,0);      
-      \node[morphism, minimum width=10mm] (g) at (0,-.6) {$g$};
-       \node[morphism, minimum width=10mm] (f) at (0,-1.4) {$f$};
-       \draw (0,0) to (g.north);
-      \draw (f.north) to (g.south);
-      \draw (f.south) to (0,-2) node[below] {};
-    \end{tikzpicture}
-    \hspace{10pt}
-\end{align}
 
 As opposed to bicategories, which naturally form a tricategory, double
 categories naturally form a \emph{2-category}, a much simpler object.
@@ -587,7 +525,7 @@ them are fairly small, and in any given case most or all of them are
 fairly obvious.  Thus, verifying that a given double category is
 (braided or symmetric) monoidal is not a great deal of work.
 
-\fxnote[author=LW]{If we merge the examples with the final section, this should be included.}
+%\fxnote[author=LW]{If we merge the examples with the final section, this should be included.}
 \begin{eg}
   The examples \lMod, \lnCob, and \lProf\ are all easily seen to be
   symmetric monoidal under the tensor product of rings, disjoint union
@@ -603,7 +541,7 @@ fairly obvious.  Thus, verifying that a given double category is
   with its cartesian product.  Many of the ``cartesian bicategories''
   considered in~\cite{cw:cart-bicats-i,ckww:cartbicats-ii} are in
   fact the loose bicategory of some cartesian object in \cDbl,
-  and inherit their monoidal structure in this way.\fxnote{There were some recent preprint(s) on the arxiv about this; cite them.}\fxnote[author=MS]{I no longer know what I had in mind when I wrote that (I'm assuming I was the one who wrote it).}
+  and inherit their monoidal structure in this way.
 \end{rmk}
 
 Two further general methods for constructing symmetric monoidal double
