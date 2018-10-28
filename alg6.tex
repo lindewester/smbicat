@@ -1,7 +1,7 @@
 \section{An example}\label{sec:Alg} 
-As a demonstration of our method, we apply Theorem~\ref{thm:H} to prove that the family of bicategories $\mathcal{A}lg({\mathbb{D}})$ of monoids, bimodules and bimodule homomorphisms in a monoidal double category $\mathbb{D}$ is monoidal. The result of this section builds on the work in~\cite[Theorem 11.5]{shulman:frbi} and some extentions of this theorem in the second author's PhD thesis~\cite[Chapter 5]{westerthesis}.
+As a demonstration of our method, we apply Theorem~\ref{thm:H} to prove that the family of bicategories $\mathcal{A}lg[{\mathbb{D}}]$ of monoids, bimodules and bimodule homomorphisms in a monoidal double category $\mathbb{D}$ is monoidal. The result of this section builds on the work in~\cite[Theorem 11.5]{shulman:frbi} and some extentions of this theorem in the second author's PhD thesis~\cite[Chapter 5]{westerthesis}.
 
-The family $\mathcal{A}lg({\mathbb{D}})$ contains the well-known bicategories $\cat{2Vect}$, $\cat{2Hilb}$  introduced in~\cite{kapranov562},~\cite{baez2004higher} and the bicategory \cat{Prof}~\cite{?}. Additionally, it contains various categories that are relevant in the field of categorical quantum mechanics, such as the bicategory $2[CP^*[{\bf C}]]$ defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. For full generality, we formulate the result for the categories of special, dagger, Frobenius, commutative, and symmetric monoids, as well as dagger bimodules.
+The family $\mathcal{A}lg[{\mathbb{D}}]$ contains the well-known bicategories $\cat{2Vect}$, $\cat{2Hilb}$  introduced in~\cite{kapranov562},~\cite{baez2004higher} and the bicategory \cat{Prof}~\cite{?}. Additionally, it contains various categories that are relevant in the field of categorical quantum mechanics, such as the bicategory $2[CP^*[{\bf C}]]$ defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. For full generality, we formulate the result for the categories of special, dagger, Frobenius, commutative, and symmetric monoids, as well as dagger bimodules.
 In other sources~\cite{westerthesis}~\cite{jamiesbook}~\cite{heunenvicarywester},  monoids are called algebras and equivariant maps correspond to extended bimodule homomorphisms. 
 
 A {\bf monoid} $(a, A, \mult, \unit)$ in a monoidal double category $\mathbb{D}$ consists of an object $a$, a loose 1-cell $A: a \mapsto a$ and globular 2-cells $\mult: A \odot A \rightarrow A$, $\unit: I_a \rightarrow A$. Such that $\mult \circ (\mult \odot \id) = \mult \circ (\id \odot \mult)$ and $\mult \circ (\unit \odot \id) = \id = \mult \circ (\id \odot \mult)$.
@@ -11,7 +11,7 @@ In other words, it is a monoid in ste usual sense in the monoidal category $\mat
 %We apply Theorem~\ref{thm:lcbcfunctor} to the double category below.
 
 \begin{defn}
-Let ${\mathbb{D}}$ be a double category. We can define a new double category $\mathbb{A}lg({\mathbb{D}})$ consisting of the elements listed below.
+Let ${\mathbb{D}}$ be a double category. We can define a new double category $\mathbb{A}lg[{\mathbb{D}}]$ consisting of the elements listed below.
 
 \begin{itemize}
 \item 0-cells are {\bf monoids} $(a, A,\tinymult[gray dot], \tinyunit[gray dot])$, in the monoidal category ${\mathbb{D}_1}$. 
@@ -34,17 +34,17 @@ We say that a monoidal double category $\mathbb{D}$ has {\bf local coequalizers}
 \end{defn}
 
 \begin{prop}\label{thm:eqcomp}
-Let $\mathbb{D}$ be a monoidal double category with local coequalizers and the tensor product $\tens$ preserves those coequalizers. The loose bicategory $\mathcal{A}lg(\mathbb{D})$ of $\mathbb{A}lg(\mathbb{D})$ is monoidal; it is braided or symmetric whenever $\mathbb{D}$ is braided or symmetric.
+Let $\mathbb{D}$ be a monoidal double category with local coequalizers and the tensor product $\tens$ preserves those coequalizers. The loose bicategory $\mathcal{A}lg[\mathbb{D}]$ of $\mathbb{A}lg[\mathbb{D}]$ is monoidal; it is braided or symmetric whenever $\mathbb{D}$ is braided or symmetric.
 \end{prop}
 
 \begin{proof}
-It was shown in~\cite[]{shulman:frbi} that the doube category above is symmetric monoidal and has loosely strong companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that the horizontal bicategory $\mathcal{A}lg(\mathbb{D})$ is symmetric monoidal.
+It was shown in~\cite[]{shulman:frbi} that the doube category above is symmetric monoidal and has loosely strong companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that the horizontal bicategory $\mathcal{A}lg[\mathbb{D}]$ is symmetric monoidal.
 \end{proof}
 
 
 An explicit description of the monoidal structure for the special case when ${\mathbb{D}}$ is a monoidal category was given in~\cite{westerthesis}. \fxnote[author=LW]{However, the choice of companions works only for monoidal categories, not for monoidal bicategories.}
 
-Similarly, monoidal functors $F,G:\mathbb{D} \rightarrow \mathbb{E}$ between double categories lift to monoidal functors of the form $\mathbb{A}lgF,\mathbb{A}lgG: \mathcal{A}lg(\mathbb{D}) \rightarrow \mathcal{A}lg(\mathbb{E})$ and monoidal transformations $\alpha: F \Rightarrow G$ lift to monoidal transformations of the form $\mathbb{A}lg\alpha: \mathbb{A}lgF \Rightarrow \mathbb{A}lgG$. In fact, the $\mathbb{A}lg$ construction gives rise to a functor, as shown below. 
+Similarly, monoidal functors $F,G:\mathbb{D} \rightarrow \mathbb{E}$ between double categories lift to monoidal functors of the form $\mathbb{A}lgF,\mathbb{A}lgG: \mathcal{A}lg[\mathbb{D}] \rightarrow \mathcal{A}lg[\mathbb{E}]$ and monoidal transformations $\alpha: F \Rightarrow G$ lift to monoidal transformations of the form $\mathbb{A}lg\alpha: \mathbb{A}lgF \Rightarrow \mathbb{A}lgG$. In fact, the $\mathbb{A}lg$ construction gives rise to a functor, as shown below. 
 
 \begin{prop}\label{prop:funcAlg}
 The $\bAlg$ construction gives rise to the following pseudo functors
@@ -112,7 +112,7 @@ A pair of a monoid  $\tinymult[gray dot]$ and a comonoid $\tinycomult[black dot]
 % A {\bf monoidal dagger functor} $F:{\bf C} \rightarrow {\bf D}$ is a functor between monoidal dagger categories that preserves the dagger, which means that $F\circ \dagger = \dagger \circ F$. ?????
 %\end{defn}
 
-We will write $\bAlg_{S}({\bf C})$ and $\cAlg_{S}({\bf C})$ for $S\subset\{spec, \mbox{Frob}, c, sym\}$ for the sub-double categories and sub-bicategories of $\bAlg({\bf C})$ and $\cAlg({\bf C})$, respectively, where the objects are restricted to the type of monoids specified by $S$. We denote special by $spec$, Frobenius by $\mbox{Frob}$, commutative by $c$ and symmetric by $sym$. 
+We will write $\bAlg_{S}[{\bf C}]$ and $\cAlg_{S}[{\bf C}]$ for $S\subset\{spec, \mbox{Frob}, c, sym\}$ for the sub-double categories and sub-bicategories of $\bAlg[{\bf C}]$ and $\cAlg[{\bf C}]$, respectively, where the objects are restricted to the type of monoids specified by $S$. We denote special by $spec$, Frobenius by $\mbox{Frob}$, commutative by $c$ and symmetric by $sym$. 
 \end{defn} 
 
 
@@ -158,7 +158,7 @@ As shown in~\cite[Section 3.6.3]{westerthesis}, $\cat{2Hilb}$ is equivalent to $
 
 
 \begin{cor}
- The bicategory $2[CP([{\bf C})])]$ of ~\cite{heunenvicarywester} is braided monoidal. It is sylleptic or symmetric monoidal whenever ${\bf C}$ is sylleptic or symmetric monoidal, respectively.
+ The bicategory $2[CP[{\bf C}]]$ of ~\cite{heunenvicarywester} is braided monoidal. It is sylleptic or symmetric monoidal whenever ${\bf C}$ is sylleptic or symmetric monoidal, respectively.
 \end{cor}
 
 \begin{proof}
