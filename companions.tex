@@ -7,16 +7,16 @@ unit object $I$, and the pseudo double functor $\ten\maps
 \lD\times\lD\to\lD$ clearly induces a functor $\ten\maps
 \cH(\lD)\times\cH(\lD)\to\cH(\lD)$.  However, the problem is that the
 constraint isomorphisms such as $A\ten (B\ten C)\iso (A\ten B)\ten C$
-are \emph{tight} 1-morphisms, which get discarded when we pass to
+are \emph{tight} 1-cells, which get discarded when we pass to
 $\cH(\lD)$.  Thus, in order for $\cH(\lD)$ to inherit a symmetric
-monoidal structure, we must have a way to make tight 1-morphisms
-into loose 1-cells.  Thus is the purpose of the following
+monoidal structure, we must have a way to make tight 1-cells
+into loose ones.  Thus is the purpose of the following
 definition.
 
 
 \begin{defn}\label{def:companion}
   Let \lD\ be a double category and $f\maps A\to B$ a tight
-  1-morphism.  A \textbf{companion} of $f$ is a loose 1-cell
+  1-cell.  A \textbf{companion} of $f$ is a loose 1-cell
   $\fhat\maps A\hto B$ together with 2-morphisms
   \begin{equation*}
     \begin{array}{c}
@@ -75,9 +75,7 @@ definition.
     \end{array}
   \end{align}
   A \textbf{conjoint} of $f$, denoted $\fchk\maps B\hto A$, is a
-  companion of $f$ in the double category $\lD^{l\cdot\mathrm{op}}$
-  obtained by reversing the loose 1-cells, but not the tight
-  1-morphisms, of \lD.
+  companion of $f$ in the ``loose opposite'' double category $\lD\lop$.
 \end{defn}
 
 \begin{rmk}
@@ -162,11 +160,13 @@ a strictly functorial choice of a companion for each tight arrow.
 % \end{rmk}
 
 The existence of companions and conjoints gives us a way to `lift'
-tight 1-morphisms to loose 1-cells.  What is even more crucial
-for our applications, however, is that these liftings are unique up to
+tight 1-cells to loose ones.  What is even more crucial
+for our application, however, is that these liftings are unique up to
 isomorphism, and that these isomorphisms are canonical and coherent.
 This is the content of the following lemmas.  We state most of them
-only for companions, but all have dual versions for conjoints. Later we will use them to prove the existence of structure isomorphisms and the commutativity of diagrams needed for $\cH$ to preserve monoidal structures.
+only for companions, but all have dual versions for conjoints.
+
+%Later we will use them to prove the existence of structure isomorphisms and the commutativity of diagrams needed for $\cH$ to preserve monoidal structures.
 
 \begin{lem}\label{thm:theta}
   Let $\fhat\maps A\hto B$ and $\fhat'\maps A\hto B$ be companions of
@@ -671,7 +671,7 @@ We show that equation~\eqref{eq:comp-iso} holds when we substitute $\theta_{\id_
 \begin{rmk}
   It is tempting to want to state a general coherence theorem along the lines of ``any two composites of $\theta$-isomorphisms having the same source and target are equal.''
   However, like statements such as ``any two composites of constraints in a monoidal category are equal'', this statement is actually literally false, because to determine a $\theta$-isomorphism requires not only a source and target but also the choice of companion data.
-  If the same 1-cell is a companion of the same 1-morphism in more than one way (which is the case as soon as it has any nontrivial automorphisms), then there will be different $\theta$-isomorphisms with the same source and target.
+  If a given 1-cell is a companion of the same 1-cell in more than one way (which is the case as soon as it has any nontrivial automorphisms), then there will be different $\theta$-isomorphisms with the same source and target.
   This is analogous to how in a particular monoidal category there can be ``accidental'' composites of constraints that are not covered by the coherence theorem.
   It is probably possible to state a general coherence theorem for $\theta$-isomorphisms that is sufficiently careful to be true, but we will not need this.
 \end{rmk}
@@ -679,14 +679,11 @@ We show that equation~\eqref{eq:comp-iso} holds when we substitute $\theta_{\id_
 
 \begin{rmk}
   Since all the tight constraints of a monoidal double category are invertible, to construct its underlying monoidal bicategory we only need it to have companions (and hence, by \cref{thm:comp-iso}, conjoints) for all tight \emph{isomorphisms}.
-  In~\cite{gg:ldstr-tricat} double categories of this sort were called ``fibrant'', but we prefer to call them \textbf{isofibrant} to emphasize the restriction to isomorphisms.
+  In~\cite{gg:ldstr-tricat} double categories of this sort were called ``fibrant'', but we prefer to call them \textbf{isofibrant} to emphasize the restriction to isomorphisms; note that this condition is equivalent to asking that the (source, target) functor $\lD_1 \to \lD_0\times\lD_0$ is an ``isofibration''.
   
   To lift lax or colax monoidal \emph{functors}, and noninvertible transformations between monoidal functors, to the bicategorical level, we require our double categories to have companions (or conjoints, depending on the directions) for noninvertible tight morphisms as well.
   In~\cite{shulman:frbi} double categories with companions and conjoints for \emph{all} tight morphisms were called \emph{framed bicategories}; we might also call them \textbf{bifibrant} since in this case the (source, target) functor $\lD_1 \to \lD_0\times\lD_0$ is a bifibration (i.e.\ both a fibration and an opfibration; though in fact, it is sufficient to assume it to be one \emph{or} the other).
-
-  However, even this assumption is not enough to lift monoidal functors and transformations, since a ``componentwise'' companion of a tight transformation will in general only be an \emph{oplax} natural transformation on bicategories.
-  Pseudo-ness of this is really a condition on the particular transformation rather than on the double categories involved; in~\cite{cs:multicats} such transformations were called \emph{horizontally strong}, so we call them \textbf{loosely strong} instead.
-  We will incorporate this condition by restricting the domain of our functor $\cH$ to contain only loosely strong transformations.
+  In \cref{sec:1x1-to-bicat} we will see that a further condition is also required to ensure that the ``componentwise'' companion of a tight transformation is pseudo, rather than lax or colax, natural.
 \end{rmk}
 
 

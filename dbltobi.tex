@@ -12,7 +12,7 @@ As a point of notation, we write $\odot$ for the composition of
 1-cells in a bicategory, since our bicategories are generally of the
 form $\cH(\lD)$.  As advocated by Max Kelly, we say \textbf{functor}
 to mean a morphism between bicategories that preserves composition up
-to isomorphism; equivalent terms include \emph{weak 2-functor},
+to coherent isomorphism; equivalent terms include \emph{weak 2-functor},
 \emph{pseudofunctor}, and \emph{homomorphism}.
 We will not discuss lax functors (a.k.a. ``morphisms'') between bicategories at all in this paper.
 
@@ -80,7 +80,7 @@ When two functors of bicategories agree on objects, there is a simpler notion of
 An icon is, morally speaking, an oplax transformation whose 1-cell components are all identities; but as noted by~\cite{lack:icons} this can be reexpressed without referring to these identity morphisms at all, yielding a definition that is easier to work with (because identity 1-cells in a bicategory are not strict).
 
 \begin{defn}
-Let $\cD, \cE$ be bicategories, and let $F,G: \cD \rightarrow \cE$ be pseudo functors that agree on objects. An \textbf{icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\cD$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following equations hold:
+Let $\cD, \cE$ be bicategories, and let $F,G: \cD \rightarrow \cE$ be functors that agree on objects. An \textbf{icon} $\alpha: F \Rightarrow G$ is given by a family of 2-cells $\alpha_f : Ff \Rightarrow Gf$ indexed by the 1-cells of $\cD$, which are natural in $f$ and such that for all objects $A, B, C$ and 1-cells $A \xrightarrow{f} B \xrightarrow{g} C$ the following equations hold:
 %\[
 %\begin{tikzpicture}[yscale=1,xscale=1.5]
 %\node (tl) at (0,1) {$I_{FA}$};
@@ -166,7 +166,7 @@ Note that if \lE\ is isofibrant, every invertible $\al$ has this property, and i
   \end{align}
 \end{thm}
 
-Note that we are here regarding the 1-category $\cDbl(\lD,\lE)$ as a bicategory with only identity 2-cells.
+Note that we are here regarding the 1-category $\cDblcf(\lD,\lE)$ as a bicategory with only identity 2-cells.
 Since any functor of bicategories preserves adjoint equivalences, and an adjoint equivalence in a mere category is simply an isomorphism, it follows that if $\al$ is an isomorphism then $\alhat$ is (equipped with the structure of) a pseudo natural adjoint equivalence.
 
 \begin{proof}
@@ -272,12 +272,11 @@ However up to equivalence it does not depend on these choices:
 
 \begin{rmk}
   There is a similar result for conjoints instead of companions, but hedged about with duality.
-  Let $\lE\lop$ denote the \emph{loose opposite} of a double category, obtained by reversing the loose 1-cells but not the tight ones.
-  Then a conjoint in $\lE$ is the same as a companion in $\lE\lop$, and more generally $(-)\lop$ is a functor $\cDbl \to \cDbl$ that takes transformations with conjoints to transformations with companions.
-  Thus if we denote by $\cDbllf(\lD,\lE)$ the category of functors and transformations having componentwise companions, then $(-)\lop$ defines a functor $\cDbllf(\lD,lE) \to \cDblcf(\lD\lop,\lE\lop)$.
+  Recall that a conjoint in $\lE$ is the same as a companion in the ``loose opposite'' $\lE\lop$, and more generally the 2-functor $(-)\lop:\cDbl \to \cDbl$ takes transformations with conjoints to transformations with companions.
+  Thus if we denote by $\cDbllf(\lD,\lE)$ the category of functors and transformations having componentwise conjoints, then $(-)\lop$ defines a functor $\cDbllf(\lD,lE) \to \cDblcf(\lD\lop,\lE\lop)$.
 
   We also have $\cH(\lE\lop) = (\cH\lE)\op$, where $(-)\op$ denots the bicategory obtained by reversing 1-cells but not 2-cells.
-  This operation reverses the direction of transformations, and interchanges lax and colax transformations, so we have a functor $\cBicat_c(\cA,\cB) \to \cBicat_l(\cA\op,\cB\op)\op$.
+  Since $(-)\op$ reverses the direction of transformations, and interchanges lax and colax transformations, we have a functor $\cBicat_c(\cA,\cB) \to \cBicat_l(\cA\op,\cB\op)\op$.
   Thus, composing all of this up, we obtain a functor
   \begin{multline*}
     \cDbllf(\lD,\lE) \to \cDblcf(\lD\lop,\lE\lop) \to \cBicat_c(\cH(\lD\lop),\cH(\lE\lop))\\ = \cBicat_c((\cH\lD)\op, (\cH\lE)\op) \to \cBicat_l(\cH\lD, \cH\lE)\op.
@@ -297,9 +296,9 @@ This restriction means we need a corresponding restriction on the double-categor
   We write $\cDblf$ for the 2-category of double categories, functors, and transformations with loosely strong companions.
 \end{defn}
 
-We are now ready to prove that $\cH$ lifts to a functor of locally-double bicategories. The definition of a locally-double bicategory can be found in~\cite{gg:ldstr-tricat}, where it is called a locally cubical bicategory. It can also be derived as a bicategory enriched in the monoidal 2-category $\cDbl$.
+We are now ready to prove that $\cH$ lifts to a functor of locally-double bicategories. The definition of a locally-double bicategory can be found in~\cite{gg:ldstr-tricat}, where it is called a locally cubical bicategory. It can also be derived as a bicategory enriched in the monoidal 2-category $\cDbl$, in the following sense.
 
-\begin{defn}
+\begin{defn}\label{def:lcbc}
 Let $\mathcal{V}$ be a monoidal 2-category. A $\mathcal{V}$-enriched bicategory $\fB$ consists of the following elements:
 \begin{itemize}
 \item A collection of objects $\fB=\{A,B,C,...\} $
@@ -321,8 +320,7 @@ This data needs to satisfy the usual axioms for bicategories~\cite{maclane}
 The 2-category $\cDbl$ has finite products, which gives the monoidal structure. 
 %we can write down the definition of bicategory in terms of hom-categories, with for instance composition functors $\bT(A,B) \times \bT(B,C) \to \bT(A,C)$, and then replace all the hom-categories with hom-double-categories.
 %(In other words, we pass through a general notion of bicategory enriched over a cartesian monoidal strict 2-category.)
-\fxnote{Are you happy with this definition?}
-When we apply the definition above to $\cDbl$, we see that a locally-double bicategory has objects, hom-double categories {of 1-morphisms, tight 2-morphisms, loose 2-cells, and 3-cells, which fit in a square of tight and loose 2-cells. We have double functors $\comp$, $I_A$ and tight isomorphisms $\alpha, \rho, \lambda$.
+When we apply the definition above to $\cDbl$, we see that a locally-double bicategory has objects, hom-double categories {of 1-cells, tight 2-cells, loose 2-cells, and 3-cells which fit in a square of tight and loose 2-cells. We have double functors $\comp$, $I_A$ and tight isomorphisms $\alpha, \rho, \lambda$.
 
 Note that a locally-double bicategory with one object is precisely a monoidal double category in the sense of \cref{sec:symm-mono-double}, and thus the explicit description of the coherences in \cref{sec:symm-mono-double} can also be applied here.
 We will primarily be concerned with the following two examples.
@@ -464,7 +462,7 @@ The double functor $\comp$ is defined on functors of bicategories by composition
 \end{equation*}
 %%%%%%%%%
 
-Functoriality follows from naturality of the icons. Note that there are several canonical ways to define this composition on cubical modifications, by choosing different versions of the Godement product.  
+Functoriality follows from naturality of the icons. Note that there are several equivalent ways to define this composition on cubical modifications, by choosing different versions of the Godement product.  
 
 Now, we can similarly obtain the notion of \emph{functor} between locally-double bicategories from the definition of a $\mathcal{V}$-enriched functor between $\mathcal{V}$-enriched bicategories.
 
@@ -499,14 +497,16 @@ Let $\mathcal{V}$ be a monoidal 2-category. Let ${\fB,\fC}$ be $\mathcal{V}$-enr
 \end{enumerate}
 \end{defn}
 
-When we apply this definition to the monoidal 2-category $\cDbl$, we see that a {\bf functor of locally-double bicategories} $F$ consists of a map of objects $A \mapsto F A$; pseudo double functors ${\fB}(A,B) \rightarrow {\fC}(F(A),F(B))$ for each two objects $A,B$; and tight transformations $\phi$ for each two objects $A,B$ of ${\fB}$, and $\phi_u$ for every object $A$ of ${\fB}$. 
+When we apply this definition to the monoidal 2-category $\cDbl$, we see that a {\bf functor of locally-double bicategories} $F$ consists of a map of objects $A \mapsto F A$; pseudo double functors ${\fB}(A,B) \rightarrow {\fC}(F(A),F(B))$ for each two objects $A,B$; and tight transformations $\phi$ for each two objects $A,B$ of ${\fB}$, and $\phi_u$ for every object $A$ of ${\fB}$, plus axioms.
 
 \begin{thm}\label{thm:h-functor}
 The map $\cL$ gives rise to a functor of locally-double bicategories $\cL \maps \fDblf\to \fBicat$.
 \end{thm}
 \begin{proof}
-Since any functor of bicategories can be seen as a double functor between double categories with only identity tight 1-morphisms, the functor $\cDbl(\D,\E) \rightarrow \cBicat(\cH\D, \cH \E)$ corresponds to a pseudo double functor $\fDblf(\D,\E) \rightarrow \fBicat(\cH\D, \cH \E)$. Consequently, the first two requirements in \autoref{def:lcbcfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}.
-The third requirement amounts to the existence of a tight transformation $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$ for every pair of transformations with loosely strong companions 
+Note that the 1-functor $\cH:\mathbf{Dbl}\to\mathbf{Bicat}$ has a left adjoint that regards a bicategory as a double category with only identity tight 1-cells.
+Thus, the functor of bicategories $\cDblf(\D,\E) \rightarrow \cBicat(\cH(\D), \cH (\E)) = \cH( \fBicat(\cH(\D),\cH(\E)))$ has an adjunct pseudo double functor $\fDblf(\D,\E) \rightarrow \fBicat(\cH\D, \cH \E)$. Consequently, the first two requirements in \autoref{def:lcbcfunc} are satisfied by Theorems \ref{thm:1-func} and \ref{thm:h-locfr}.
+Since $\cH$ strictly preserves composition of 1-cells,
+the third requirement amounts to the existence of a tight transformation $\phi\maps \behat * \alhat \iso \widehat{\be*\al}$ for every pair of transformations with loosely strong companions 
 
   \[\vcenter{\xymatrix{\lC \rtwocell^F_G{\al} & \lD \rtwocell^H_K{\be}
       & \lE}}\]

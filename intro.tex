@@ -18,13 +18,8 @@ The underlying idea has often been implicitly used in particular cases, such as
 bicategories of enriched profunctors, but to our knowledge the first
 general statement was claimed in~\cite[Appendix B]{shulman:frbi}.
 In the unpublished~\cite{shulman:smbicat}, the first author worked out the details for the construction of monoidal bicategories themselves.
-Here we include that work and build on it further to construct monoidal functors, transformations, and so on between monoidal bicategories as well, making the entire construction into a functor.
-\footnote{These details have also been worked out
-in~\cite[\S5]{gg:ldstr-tricat} from a different perspective, using
-``locally-double bicategories''.  Our goal is to be more
-comprehensive, considering also the case of symmetric monoidal
-structure and the construction of monoidal functors and
-transformations.}
+Here we include that work and build on it further to construct monoidal functors, transformations, and so on between monoidal bicategories as well, making the entire construction into a functor.%
+\footnote{See also~\cite[\S5]{gg:ldstr-tricat} which generalizes the construction in a different direction, showing that every sufficiently nice locally cubical bicategory has an underlying tricategory.}
 
 The method relies on the fact that in many bicategories, the 1-cells
 are not the most fundamental notion of `morphism' between the objects.
@@ -36,19 +31,19 @@ a bicategory to a \emph{double category}, or a category internal to
 the bicategory and easier to deal with for coherence questions; in
 many cases it is quite easy to show that we have a \emph{symmetric
   monoidal double category}.  The central observation is that in most
-cases (when the natural transformations have `loosely strong companions and conjoints' for the tight morphisms) we can then `lift' this
+cases (when the natural transformations have `loosely strong companions') we can then `lift' this
 symmetric monoidal structure to the original bicategory.  That is, we
 prove the following theorem:
 
 \begin{thm}\label{thm:mondbl-monbi-intro}
-  If \lD\ is a monoidal double category, of which the monoidal constraints have loosely strong companions and conjoints, then its underlying bicategory $\cH(\lD)$ is a monoidal bicategory.  If \lD\ is braided
+  If \lD\ is a monoidal double category, of which the monoidal constraints have loosely strong companions, then its underlying bicategory $\cH(\lD)$ is a monoidal bicategory.  If \lD\ is braided
   or symmetric, so is $\cH(\lD)$.
 \end{thm}
 
 In~\cite{shulman:smbicat} this theorem was proven by explicitly constructing liftings of all the coherence data, but in the present paper we take a more functorial viewpoint.
 Specifically, in addition to our interest in constructing functors and transformations between monoidal bicategories in addition to the monoidal bicategories themselves, we take a more conceptual approach to the proof of \cref{thm:mondbl-monbi-intro}.
 We extend the operation $\cH$ that takes a double category to its underlying bicategory to a suitable sort of ``functor'', and show that this functor is product-preserving.
-Thus, just as a product-preserving functor between ordinary categories automatically preserves not just internal monoids but also monoid homomorphisms, the functor $\cH$ preserves monoidal bicategories as well as functors, transformations, and so on between them.
+Thus, just as a product-preserving functor between ordinary categories automatically preserves not just internal monoids but also monoid homomorphisms, the functor $\cH$ preserves monoidal objects as well as functors, transformations, and so on between them.
 In fact, we will show that $\cH$ induces another functor from a ``category'' of monoidal double categories to one of monoidal bicategories, thereby preserving all kinds of composition as well.
 
 The tricky part is deciding into what kind of categorical structure we should assemble our double categories and bicategories, and thus what kind of functor $\cH$ should be.
@@ -58,8 +53,9 @@ On the one hand, manipulating all the coherences in a tricategory, let alone a f
 On the other hand, even the tricategory of bicategories is considerably stricter than an arbitrary tricategory.
 In addition to suggesting that stricter alternatives are available, this also means that if we treated bicategories as forming a fully weak tricategory, then an internal notion of ``monoid'' in that tricategory would not coincide exactly with a monoidal bicategory as usually defined, but would have extra unnecessary coherences added, making for yet more work in relating such a definition to the now-accepted one.
 
-The first alternative to tricategories one might consider is what has been called an \emph{iconic tricategory}.
-Formally, this is a tricategory-like structure whose coherences for composition along 0-cells are \emph{icons}~\cite{lack:icons} rather than fully general pseudonatural transformations; informally it means that composition of 1-cells along 0-cells is strictly associative and unital (though composition of 2-cells along 0-cells need not be).
+The first alternative to tricategories one might consider is what was called in~\cite{shulman:psalg} an \emph{iconic tricategory}.
+This is a tricategory-like structure whose coherences for composition along 0-cells are \emph{icons}~\cite{lack:icons} rather than fully general pseudonatural transformations; more precisely it is a bicategory enriched over the monoidal 2-category of bicategories, pseudofunctors, and icons.
+Informally, an iconic tricategory is one where composition of 1-cells along 0-cells is strictly associative and unital (though composition of 2-cells along 0-cells need not be).
 The tricategory of bicategories is indeed iconic, as of course is the strict 2-category of double categories regarded as a tricategory, and $\cH$ can be made into a product-preserving ``iconic functor'' between them.
 However, while the notion of iconic tricategory suffices for our \emph{input} data, it is insufficient for our \emph{output} data: the tricategory of monoidal bicategories is not iconic.
 
@@ -68,12 +64,12 @@ In addition to 0-cells and 1-cells, a locally-double category has \emph{two} kin
 Just as a bicategory can be regarded as a double category that is trivial in one direction, an iconic tricategory can be regarded as a locally-double bicategory --- although in the case of bicategories, it is more natural to take the additional kind of 2-cells to be icons.
 Similarly, it is shown in~\cite{gg:ldstr-tricat} that monoidal bicategories form a locally-double bicategory, with an appropriate notion of ``monoidal icon'' as the additional 2-cells.
 
-We will show that more generally, internal monoids in any locally-double bicategory with products form another locally-double bicategory, and that this reproduces the standard notions of monoidal double category and monoidal bicategory.
+We will show that more generally, internal monoids in any\footnote{Actually, for technical simplicity we assume a 1-dimensional strictness property that is satisfied in both our main examples, and should be obtainable by a suitable strictification theorem.} locally-double bicategory with products form another locally-double bicategory, and that this reproduces the standard notions of monoidal double category and monoidal bicategory.
 Moreover, we will show that any product-preserving functor between locally-double bicategories with products induces another functor between their locally-double bicategories of internal monoids (of all sorts).
 In particular, this specializes to our desired statement:
 
 \begin{thm}\label{thm:functor-intro}
-  The assignment $\cH$ extends to a functor between the locally-double bicategories of monoidal, braided, sylleptic, and symmetric double categories and bicategories.
+  The assignment $\cH$ extends to a functor between the locally-double bicategories of monoidal, braided, and symmetric double categories and bicategories.
   In particular, it preserves monoidal functors and monoidal transformations, and composites thereof.
 \end{thm}
 
@@ -101,10 +97,11 @@ cells in an $(n+1)$ by $(k+1)$ grid.  Thus
 double categories are \textbf{1x1-categories}, while in
 place of tricategories we may consider 2x1-categories and
 1x2-categories --- or even 1x1x1-categories, i.e.\ triple categories,
-as in~\cite{gp:intercategories-i,gp:intercategories-ii}.  Any
+as in~\cite{gp:intercategories-i,gp:intercategories-ii}.%
+\footnote{If we also generalize the traditional terminology to say that an $(n+1)$-category is a category \emph{enriched} in $n$-categories even when $n$ is a symbol more general than a natural number, we could say that locally-double bicategories are ``$((1\times 1)+1)$-categories''.}
+Any
 $(n\times k)$-category with a suitable lifting property
 should have an underlying $(n+k)$-category, but this discards an increasing amount of structure as $n$ and $k$ grow.
-
 
 % , such as duality and
 % trace~\cite{ps:traces} or autonomous
