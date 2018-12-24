@@ -44,12 +44,12 @@ kind of double categories of most interest to us, we will usually drop
 the adjective ``pseudo.''
 
 We call the objects of $\lD_0$ \textbf{objects} or \textbf{0-cells},
-and we call the morphisms of $\lD_0$ \textbf{tight 1-morphisms}
+and we call the morphisms of $\lD_0$ \textbf{tight 1-cells}
 and write them as $f\maps A\to B$.  We call the objects of $\lD_1$
 \textbf{loose 1-cells}; if $M$ is a 1-cell with $S(M)=A$ and
 $T(M)=B$, we write $M\maps A\hto B$.  We call a morphism $\alpha\maps
 M\to N$ of $\lD_1$ with $S(\alpha)=f$ and $T(\alpha)=g$ a
-\textbf{2-morphism} and draw it as follows:
+\textbf{2-cell} and draw it as follows:
 \begin{equation}\label{eq:square}
   \xymatrix@-.5pc{
     A \ar[r]|{|}^{M}  \ar[d]_f \ar@{}[dr]|{\Downarrow\alpha}&
@@ -57,12 +57,14 @@ M\to N$ of $\lD_1$ with $S(\alpha)=f$ and $T(\alpha)=g$ a
     C \ar[r]|{|}_N & D
   }.
 \end{equation}
+We will sometimes say ``$k$-morphism'' as a synonym for ``$k$-cell'' (tight or loose).
+Note that composition of tight 1-cells is strictly associative and unital, while that of loose 1-cells is only weakly so.
+This is the case in the majority of examples, and is part of what makes monoidal double categories so much easier to construct than monoidal bicategories.
+(It is, however, possible to define double categories that are weak in both directions~\cite{verity:base-change}.)
 
-
-Note that composition of tight 1-morphisms is strictly associative and unital, while that of loose 1-cells is only weakly so.
 The words ``tight'' and ``loose'', borrowed from~\cite{ls:limlax}, are intended to suggest one kind of morphism that is ``stricter'' than another.
 Traditionally the two kinds of 1-arrow in a double category are called ``vertical'' and ``horizontal'' with reference to how they are drawn, but this creates confusion because some authors draw the tight morphisms (those with strictly associative composition) vertically and others draw them horizontally.
-We usually draw the tight 1-morphisms vertically and the loose 1-cells horizontally, but the terminology ``tight'' and ``loose'' unambiguously identifies which arrows we are talking about, independently of our conventions about how to draw pictures.%
+We usually draw the tight 1-cells vertically and the loose ones horizontally, but the terminology ``tight'' and ``loose'' unambiguously identifies which arrows we are talking about, independently of our conventions about how to draw pictures.%
 \footnote{In~\cite{shulman:smbicat} a similar effect was intended by simply distinguishing between ``1-morphisms'' (the tight ones) and ``1-cells'' (the loose ones), but since ``morphism'' and ``cell'' (and ``arrow'') are generally used interchangeably in higher category theory this was not very successful.}
 
 We write the composition of tight 1-morphisms $A\too[f] B\too[g] C$
@@ -87,11 +89,6 @@ Every object $A$ has a tight identity $1_A$ and a loose unit
 $U_A$, every loose 1-cell $M$ has an identity 2-morphism $1_M$, every
 tight 1-morphism $f$ has a loose unit 2-morphism $U_f$, and we
 have $1_{U_A} = U_{1_A}$ (by the functoriality of $U$).
-
-Note that the tight composition $\circ$ is strictly associative and
-unital, while the loose one $\odot$ is only weakly so.  This is
-the case in the majority of examples, and is part of what makes monoidal double categories so much easier to construct than monoidal bicategories.
-(It is, however, possible to define double categories that are weak in both directions~\cite{verity:base-change}.)
 
 % \begin{rmk}\label{rmk:monglob}
 %   In general, an $(n\times 1)$-category consists of 1-categories
@@ -119,14 +116,14 @@ naturally ocurring double category.  Here are just a few examples.
 
 \begin{eg}
   The double category \lnCob\ has as objects closed $n$-manifolds, as
-  tight 1-morphisms diffeomorphisms, as loose 1-cells cobordisms, and as
-  2-morphisms diffeomorphisms between cobordisms.  Again $\cH(\lnCob)$
+  tight 1-cells diffeomorphisms, as loose 1-cells cobordisms, and as
+  2-cells diffeomorphisms between cobordisms.  Again $\cH(\lnCob)$
   is the usual bicategory of cobordisms.
 \end{eg}
 
 \begin{eg}
-  The double category \lMod\ has as objects rings, as tight 1-morphisms ring
-  homomorphisms, as loose 1-cells bimodules, and as 2-morphisms equivariant
+  The double category \lMod\ has as objects rings, as tight 1-cells ring
+  homomorphisms, as loose 1-cells bimodules, and as 2-cells equivariant
   bimodule maps.  Its loose bicategory $\cMod = \cH(\lMod)$ is
   the usual bicategory of rings and bimodules. 
 \end{eg}
@@ -134,14 +131,14 @@ naturally ocurring double category.  Here are just a few examples.
 
 \begin{eg}
   The double category \lProf\ has as objects categories, as
-  tight 1-morphisms functors, as loose 1-cells \emph{profunctors} (a profunctor
+  tight 1-cells functors, as loose 1-cells \emph{profunctors} (a profunctor
   $A\hto B$ is a functor $B\op\times A\to \mathbf{Set}$), and as
-  2-morphisms natural transformations.  Bicategories such as
+  2-cells natural transformations.  Bicategories such as
   $\cH(\lProf)$ are commonly encountered in category theory,
   especially the enriched versions.
 \end{eg}
 
-In Section ~\ref{sec:Alg} we will discuss the symmetric monoidal bicategories categories, \lMod\, \lProf\ amongst other applications.
+Further examples will be found in Section~\ref{sec:Alg}.
 
 % If $A$ and $B$ are objects of \lD, we write $\lD(A,B)$ for the
 % \emph{set} of vertical arrows from $A$ to $B$ and $\calD(A,B)$ for the
@@ -149,7 +146,6 @@ In Section ~\ref{sec:Alg} we will discuss the symmetric monoidal bicategories ca
 % $B$.  It is standard in bicategory theory to say that something holds
 % \textbf{locally} when it is true of all hom-categories $\calD(A,B)$, and
 % we will extend this usage to double categories.
-
 
 As opposed to bicategories, which naturally form a tricategory, double
 categories naturally form a \emph{2-category}, a much simpler object.
@@ -219,11 +215,19 @@ categories naturally form a \emph{2-category}, a much simpler object.
 We write \cDbl\ for the strict 2-category of double categories, functors, and transformations, and $\mathbf{Dbl}$ for its underlying 1-category. As pseudofunctors compose strictly associatively, this is well-defined. Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
 $\al_A$, \emph{and} each $\al_M$, is invertible.
 
+\begin{rmk}
+  A double category has three different opposites:
+  in the \emph{loose opposite} $\lD\lop$ we reverse the loose 1-cells (and reverse the 2-cells in the loose direction) but not the tight ones, in the \emph{tight opposite} $\lD\ttop$ we reverse the tight ones but not the loose ones, and in the \emph{double opposite} $\lD\tlop$ we reverse both.
+  These define 2-functors $(-)\lop : \cDbl\to\cDbl$, $(-)\ttop : \cDbl\co \to \cDbl$, and $(-)\tlop : \cDbl\co \to \cDbl$, where $(-)\co$ denotes reversal of 2-cells but not 1-cells in a 2-category.
+\end{rmk}
+
+
+
 The 2-category \cDbl\ gives us an easy way to define what we mean by a
 \emph{symmetric monoidal double category}.
 We say that a strict 2-category $\cK$ has \emph{finite products} if it has a strictly terminal object, i.e.\ an object $1$ such that each category $\cK(D,1)$ is \emph{isomorphic} to the terminal category, and any two objects $D,E$ have a strict product, i.e.\ a span $D \ot D\times E \to E$ such that the induced functors $\cK(X,D\times E) \to \cK(X,D) \times \cK(X,E)$ is an \emph{isomorphism} of categories.
 In any such 2-category with finite products there is a notion of a \emph{pseudomonoid} (perhaps braided or symmetric), which generalizes the notion of monoidal category in \cCat.
-We omit the general definition, since we will give a more general one in a later section;\fxnote[author=MS]{update reference}
+We omit the general definition, since we will give a more general one in \cref{sec:mono-objects};
 for now we just specialize it to \cDbl\ and obtain the following.
 
 \begin{defn}\label{def:symmondoub}
@@ -542,6 +546,7 @@ fairly obvious.  Thus, verifying that a given double category is
   considered in~\cite{cw:cart-bicats-i,ckww:cartbicats-ii} are in
   fact the loose bicategory of some cartesian object in \cDbl,
   and inherit their monoidal structure in this way.
+  Cartesian double categories have recently been further studied by~\cite{aleiferi2018cartesian}.
 \end{rmk}
 
 Two further general methods for constructing symmetric monoidal double
