@@ -1,4 +1,4 @@
-\section{Monoidal objects in locally-double bicategories}
+\section{Monoidal objects in locally cubical bicategories}
 \label{sec:mono-objects}
 
 
@@ -20,29 +20,29 @@ Under this translation pseudonatural transformations become \emph{loose} 2-cells
 Recall that the loose 2-cells in \fDblf\ (which has no nonidentity tight 2-morphisms) are the (tight) transformations, while those in \fBicat\ are exactly the pseudonatural transformations (its tight 2-morphisms are icons).
 We will define monoidal, braided, sylleptic and symmetric objects, 1-cell, 2-cells, icons and 3-cells by taking instances of bicategories, functors, pseudonatural transformations, and modifications in the original definitions as objects, 1-cells, 2-cells, and 3-cells, respectively. 
 
-Before we give the definitions of monoidal cells, we unfold the structure of a locally-double bicategory and fix our notation. In addition to objects, locally-double bicategories have 4 different elements, which together form the hom-double categories. We call the objects, loose 1-cells and 2-morphisms of the hom-double category '1-cells', '2-cells' and '3-cells', respectively; the tight 1-morphisms are called 'icons', after the icons between pseudofunctors. The structure contains three types of composition. We will adopt the notation introduced for intercategories~\cite{gp:intercategories-i}, of which locally-double bicategories are a special case. Firstly, we have loose composition ``$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell boundary. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning ``$\beta$ after $\alpha$". We write $\looseid_{f}$ and $\looseid_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. Loose composition is weakly associative and loose identities hold up to isomorphism. 
+Before we give the definitions of monoidal cells, we unfold the structure of a locally cubical bicategory and fix our notation. In addition to objects, locally cubical bicategories have 4 different elements, which together form the hom-double categories. We call the objects, loose 1-cells and 2-morphisms of the hom-double category '1-cells', '2-cells' and '3-cells', respectively; the tight 1-morphisms are called 'icons', after the icons between pseudofunctors. The structure contains three types of composition. We will adopt the notation introduced for intercategories~\cite{gp:intercategories-i}, of which locally cubical bicategories are a special case. Firstly, we have loose composition ``$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell boundary. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning ``$\beta$ after $\alpha$". We write $\looseid_{f}$ and $\looseid_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. Loose composition is weakly associative and loose identities hold up to isomorphism. 
 Secondly, we have tight composition ``$\verc$" in the hom-double categories. This gives us composition of tight 2-cells along a 1-cell boundary and tight composition of 3-cells along a loose 2-cell boundary, written in the conventional order: $f \verc g$ denoting ``$f$ after $g$". We write $\tightid_f$ and $\tightid_{\alpha}$ for the tight identity on a 1-cell $f$ and a loose 2-cell $\alpha$, respectively; we denote the associator, left and right unitor for $\hor$ by $\hora, \horr, \horl$, respectively. Tight composition is strictly associative and has strict identities. 
 Thirdly, there is composition ``$\comp$" of 1-cells, 2-cells, and 3-cells along a 0-cell boundary, given by the enriched structure. We write this composition in the conventional order: $f \comp g$ meaning ``$f$ after $g$". When it is clear from the context, we omit the composition symbol ``$\comp$",  and write the juxtaposition of 1-cells instead. The identities for this composition are denoted by ``$\transid$". We denote the associator, left and right unitor for $\comp$ by $\compa, \compr, \compl$, respectively.
 We write ``$\onecell$" to denote 1-cells, ``$\looseRightarrow$" to denote the loose 2-cells, ``$\Rightarrow$" to denote the tight 2-cells and ``$\RRightarrow$" to denote $3$-cells.
 
 For readability, we will implicitly strictify the hom-double categories, as we did with the double categories in Section~\ref{sec:symm-mono-double}, except where we prove that this structure is preserved by monoidal cells. As a consequence, we omit the associativity and unit constraints for $\comp$ and $\verc$ in various places.
-Furthermore, we restrict our input locally-double bicategories by assuming that composition of 1-cells along 0-cells is strict, in the following precise sense:
+Furthermore, we restrict our input locally cubical bicategories by assuming that composition of 1-cells along 0-cells is strict, in the following precise sense:
 
 \begin{defn}\label{defn:1strict}
-  A locally-double bicategory is \textbf{1-strict} if the tight transformations $\alpha$, $\lambda$, and $\rho$ from \cref{def:lcbc} are globular, i.e.\ their tight 1-cell components are identities.
-  Similarly, a functor of locally-double bicategories is \textbf{1-strict} if the tight transformations $\phi$ and $\phi_u$ from \cref{def:lcbcfunc} are globular.
+  A locally cubical bicategory is \textbf{1-strict} if the tight transformations $\alpha$, $\lambda$, and $\rho$ from \cref{def:lcbc} are globular, i.e.\ their tight 1-cell components are identities.
+  Similarly, a functor of locally cubical bicategories is \textbf{1-strict} if the tight transformations $\phi$ and $\phi_u$ from \cref{def:lcbcfunc} are globular.
 \end{defn}
 
 Our primary examples $\fDblf$ and $\fBicat$ are 1-strict, as is the functor $\cH:\fDblf\to\fBicat$.
 This simplifying restriction enables an almost-literal transposition of definition from the world of bicategories, as long as the monoidal constraints and coherence axioms are reformulated in equational form instead of their original diagrammatic expression of 2-cell composites in the target bicategory.
 \fxnote[author=MS]{Something about whiskering here?}
-(We also expect that there is a coherence theorem replacing any locally-double bicategory by an equivalent 1-strict one.)
+(We also expect that there is a coherence theorem replacing any locally cubical bicategory by an equivalent 1-strict one.)
 
 Note that certain constraint 2-cells are suppressed in~\cite{nick:tricatsbook},~\cite{mccrudden:bal-coalgb}, and~\cite{gg:ldstr-tricat} to simplify notation, but in the equational form below, this cannot be done; thus the coherence equations look more intimidating, but in fact are not more complicated than their bicategorical counterparts. Consequently, locally double bicategories with this property have ``all the formal behavior'' of $\fBicat$.
 We give the coherence axioms for monoidal objects, 1-cells, 2-cells, icons and 3-cells explicitly, but leave the axioms for braided, symmetric and sylleptic monoidal structures as an exercise for the reader.
 
 
-Let \fB\ be a 1-strict locally-double bicategory with products.
+Let \fB\ be a 1-strict locally cubical bicategory with products.
 
 \begin{defn}
 A {\bf monoidal object} in \fB\ is an object $A$, equipped with 1-cells $\otimes: A \times A \onecell A$ and $I_A: * \onecell A$, and 2-cells
@@ -170,7 +170,7 @@ We call a loose 2-cell $\beta$ a {\bf strong monoidal 2-cell} when $\Pi$ and $M$
 When interpreted in $\fBicat$, monoidal 2-cells should correspond to monoidal pseudo transformations. Such transformations are less general than tritansformations between one-object tricategories. As there is only one fixed object, the constraints $\Pi$ and $M$ are given by icons instead of adjoint equivalences, which leads to the notion of a pseudo-icon~\cite[Definition 5]{gg:ldstr-tricat}, from which the definition above is derived. This notion equals, up to canonical isomorphisms, that of a monoidal pseudo transformation given in~\cite{sp:thesis}. In $\fDblf$, monoidal 2-cells correspond to pseudo double transformations.
 
 
-As remarked above, we will actually construct a locally-double bicategory of monoidal objects.
+As remarked above, we will actually construct a locally cubical bicategory of monoidal objects.
 The monoidal 2-cells will be the loose 2-cells therein; we now define the tight 2-morphisms.
 
 \begin{defn}\label{Def:monicon}
@@ -209,7 +209,7 @@ such that the coherence axioms~\eqref{eq:monicon1},~\eqref{eq:monicon2},~\eqref{
 
 If $f, g:A \rightarrow B$ are colax monoidal 1-cells the data for a monoidal icon consists of the same 2-cells between 1-cells in the opposite direction; the coherence equations analogous to~\ref{eq:monicon1},~\ref{eq:monicon2}, and~\ref{eq:monicon3} are  derived by pasting 3-cells together in the order for which the composition of their 2-cell components is well-defined.
 
-A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, respectively, and in addition, the coherence axiom analogous to (BTA1) of~\cite[p143]{mccrudden:bal-coalgb}. 
+A monoidal icon is {\bf braided}, {\bf sylleptic} or {\bf symmetric} when $f,g$ are braided, sylleptic or symmetric, respectively, and in addition, the coherence axiom~\ref{eq:brmonicon} in Appendix~\ref{ap:coherence} holds. 
 \end{defn}
 
 Monoidal icons interpreted in $\fBicat$ correspond to ico-icons~\cite[Definition 2]{gg:ldstr-tricat}. These are doubly degenerate colax tritransformations between lax trihomomorphisms which agree on both 0- and 1-cells.
@@ -358,10 +358,10 @@ Let $f,g,f',g', \alpha, \beta, \gamma$ and $\delta: g \Rightarrow g'$ be braided
 
 Monoidal 3-cells in $\fBicat$ correspond to cubical pseudo-icon modifications~\cite[Definition 16]{gg:ldstr-tricat}. When the icon components are identities, this reduces to a monoidal modification~\cite[Definition 2.8]{sp:thesis}. 
 
-We will show that monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in a locally-double bicategory \fB\ form a locally-double bicategory $\cM on_l\fB$. If we consider colax or strong cells instead, we obtain the locally-double bicategory $\cM on_o\fB$ or $\cM on_s\fB$, respectively. Braided, sylleptic and symmetric cells form locally-double bicategories $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$. Here, $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
+We will show that monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in a locally cubical bicategory \fB\ form a locally cubical bicategory $\cM on_l\fB$. If we consider colax or strong cells instead, we obtain the locally cubical bicategory $\cM on_o\fB$ or $\cM on_s\fB$, respectively. Braided, sylleptic and symmetric cells form locally cubical bicategories $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$. Here, $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
 
 \begin{prop}\label{prop:dc}
-Let $A,B$ be monoidal objects in a locally-double bicategory with strict composition of 1-cells along 0-cells. The hom-spaces $\cM on_w\fB (A,B)$, $\cB r \cM on_w\fB(A,B)$, $\cS yl \cM on_w\fB(A,B)$, and $\cS ym \cM on_w\fB(A,B)$ are double categories for $w \in \{l,c,s\}$.
+Let $A,B$ be monoidal objects in a locally cubical bicategory with strict composition of 1-cells along 0-cells. The hom-spaces $\cM on_w\fB (A,B)$, $\cB r \cM on_w\fB(A,B)$, $\cS yl \cM on_w\fB(A,B)$, and $\cS ym \cM on_w\fB(A,B)$ are double categories for $w \in \{l,c,s\}$.
 \end{prop}
 
 \begin{proof}
@@ -519,8 +519,8 @@ Since braided, symmetric, or sylleptic monoidal 3-cells require no extra data, i
 \end{proof}
 
 \begin{thm}\label{thm:lcbc}
-Let \fB\ be a locally-double bicategory with strict composition of 1-cells along 0-cells. Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in  \fB\ form a locally-double bicategory $\cM on_l\fB$. 
-  If we consider colax or strong cells instead, we obtain the locally-double bicategory $\cM on_c\fB$ or $\cM on_s\fB$, respectively. When the objects and cells are braided, sylleptic or symmetric,  we obtain the locally-double bicategories $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$, where $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
+Let \fB\ be a locally cubical bicategory with strict composition of 1-cells along 0-cells. Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in  \fB\ form a locally cubical bicategory $\cM on_l\fB$. 
+  If we consider colax or strong cells instead, we obtain the locally cubical bicategory $\cM on_c\fB$ or $\cM on_s\fB$, respectively. When the objects and cells are braided, sylleptic or symmetric,  we obtain the locally cubical bicategories $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$, where $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
 \end{thm}
 
 \begin{proof}
@@ -747,7 +747,7 @@ Let $\Gamma$ and $\Delta$ be two composable monoidal 3-cells. It is easy to see 
 \end{proof}
 
  \begin{lem}\label{lem:funcmonob}
-Let $F: T \rightarrow S$ be a functor of locally-double bicategories. If $F$ preserves products, it preserves  monoidal objects, 1-cells, 2-cells, icons and 3-cells as well as any braided, sylleptic or symmetric structure on the objects, 1-cells, 2-cells, icons and 3-cells.
+Let $F: T \rightarrow S$ be a functor of locally cubical bicategories. If $F$ preserves products, it preserves  monoidal objects, 1-cells, 2-cells, icons and 3-cells as well as any braided, sylleptic or symmetric structure on the objects, 1-cells, 2-cells, icons and 3-cells.
  \end{lem}
  
  \begin{proof}
@@ -818,7 +818,7 @@ Similarly, one can show that for a monoidal transformation $f$, $F(f)$ is monoid
  \end{proof}
 
 \begin{thm}\label{thm:lcbcfunctor}
-Let $F: \fB  \rightarrow \fC$ be a functor of locally-double bicategories, such that the tight transformations $\phi$, $\phi_u$ are globular. If $F$ preserves products, then it lifts to the functors below between locally-double bicategories, for $w \in \{l,o,s\}$.
+Let $F: \fB  \rightarrow \fC$ be a functor of locally cubical bicategories, such that the tight transformations $\phi$, $\phi_u$ are globular. If $F$ preserves products, then it lifts to the functors below between locally cubical bicategories, for $w \in \{l,o,s\}$.
 \begin{align*}
 &\cM on_wF: \cM on_w \fB  \rightarrow \cM on_w\fC\\ 
 &\cBr \cM on_wF: \cBr \cM on_w \fB  \rightarrow \cBr \cM on_w\fC\\
