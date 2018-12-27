@@ -519,7 +519,7 @@ Since braided, symmetric, or sylleptic monoidal 3-cells require no extra data, i
 \end{proof}
 
 \begin{thm}\label{thm:lcbc}
-Let \fB\ be a 1-strict locally cubical bicategory with products. Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in  \fB\ form a locally cubical bicategory $\cM on_l\fB$. 
+Let \fB\ be a 1-strict locally cubical bicategory with products. Monoidal objects, lax monoidal 1-cells, lax monoidal 2-cells, monoidal icons, and monoidal 3-cells in  \fB\ form a locally cubical bicategory $\cMon_l\fB$. 
   If we consider colax or strong cells instead, we obtain the locally cubical bicategory $\cM on_c\fB$ or $\cM on_s\fB$, respectively. When the objects and cells are braided, sylleptic or symmetric,  we obtain the locally cubical bicategories $\cB r \cM on_w\fB$, $\cS yl \cM on_w\fB$, and $\cS ym \cM on_w\fB$, where $w \in \{l,c,s\}$ denotes whether the cells are lax, colax, or strong.
 \end{thm}
 
@@ -746,8 +746,13 @@ In all coherence equations between 3-cells for the monoidal and braided, syllept
 Let $\Gamma$ and $\Delta$ be two composable monoidal 3-cells. It is easy to see that the composition $\Gamma \comp \Delta$ satisfies the two equations for monoidal 3-cells. This is a matter of applying the equations for $\Gamma$ and $\Delta$ sequentially.
 \end{proof}
 
+\begin{rmk}
+  Note that even though $\fB$ is 1-strict, $\cMon_l\fB$ is not.\fxnote{Say a bit more here.}
+\end{rmk}
+
  \begin{lem}\label{lem:funcmonob}
-Let $F: T \rightarrow S$ be a functor of locally cubical bicategories. If $F$ preserves products, it preserves  monoidal objects, 1-cells, 2-cells, icons and 3-cells as well as any braided, sylleptic or symmetric structure on the objects, 1-cells, 2-cells, icons and 3-cells.
+   Let $F: T \rightarrow S$ be a 1-strict functor of 1-strict locally cubical bicategories with products.
+   If $F$ preserves products, it preserves  monoidal objects, 1-cells, 2-cells, icons and 3-cells as well as any braided, sylleptic or symmetric structure on the objects, 1-cells, 2-cells, icons and 3-cells.
  \end{lem}
  
  \begin{proof}
@@ -818,7 +823,8 @@ Similarly, one can show that for a monoidal transformation $f$, $F(f)$ is monoid
  \end{proof}
 
 \begin{thm}\label{thm:lcbcfunctor}
-Let $F: \fB  \rightarrow \fC$ be a functor of locally cubical bicategories, such that the tight transformations $\phi$, $\phi_u$ are globular. If $F$ preserves products, then it lifts to the functors below between locally cubical bicategories, for $w \in \{l,o,s\}$.
+  Let $F: \fB  \rightarrow \fC$ be a 1-strict functor between 1-strict locally cubical bicategories with products.
+  If $F$ preserves products, then it lifts to the functors below between locally cubical bicategories, for $w \in \{l,o,s\}$.
 \begin{align*}
 &\cM on_wF: \cM on_w \fB  \rightarrow \cM on_w\fC\\ 
 &\cBr \cM on_wF: \cBr \cM on_w \fB  \rightarrow \cBr \cM on_w\fC\\
@@ -839,7 +845,7 @@ The functor $\cH: \fDblf \rightarrow \fBicat$ lifts to the functors $\cM on_w \c
 \end{thm}
 
 \begin{proof}
-Note that in the case of $\cH$, $\phi$ and $\phi_u$ have globular components. The result then follows from Theorem~\ref{thm:lcbcfunctor}
+  Since $\cH$ is 1-strict, the result then follows from Theorem~\ref{thm:lcbcfunctor}.
 \end{proof}
 
 
