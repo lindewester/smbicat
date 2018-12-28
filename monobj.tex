@@ -37,6 +37,7 @@ Our primary examples $\fDblf$ and $\fBicat$ are 1-strict, as is the functor $\cH
 This simplifying restriction enables an almost-literal transposition of definition from the world of bicategories, as long as the monoidal constraints and coherence axioms are reformulated in equational form instead of their original diagrammatic expression of 2-cell composites in the target bicategory.
 \fxnote[author=MS]{Something about whiskering here?}
 (We also expect that there is a coherence theorem replacing any locally cubical bicategory by an equivalent 1-strict one.)
+\fxnote[author=MS]{Also say something about how 1-strictness is not just for convenience, but in order to be able to write down the necessary composites of loose 2-cells; otherwise we'd need to insert constraints that are \textit{a priori} only tight 2-cells, hence fibrancy is needed already to even define things.}
 
 Note that certain constraint 2-cells are suppressed in~\cite{nick:tricatsbook},~\cite{mccrudden:bal-coalgb}, and~\cite{gg:ldstr-tricat} to simplify notation, but in the equational form below, this cannot be done; thus the coherence equations look more intimidating, but in fact are not more complicated than their bicategorical counterparts. Consequently, locally cubical bicategories with this property have ``all the formal behavior'' of $\fBicat$.
 We give the coherence axioms for monoidal objects, 1-cells, 2-cells, icons and 3-cells explicitly, but leave the axioms for braided, symmetric and sylleptic monoidal structures as an exercise for the reader.
@@ -809,7 +810,7 @@ Since $\phi$ and $\phi_u$ are globular, we have an equality $F(f \comp g) = F(f)
 \node at (1,0) {$\iso $};
 \end{tikzpicture}  
 
- Note that there may be several way to past these 3-cells, but by coherence of enriched pseudo functors, the result is the same. Likewise, the isomorphic 3-cells $\mu, \lambda,\rho$ and the isomorphic 3-cells $R,S$, and $v$ witnessing the braiding and syllepsis, lift to the appropriate 3-cell for $F(A)$. This is also the case for the isomorphic 3-cells $R,S$ that characterise the braiding. 
+ Note that there may be several way to paste these 3-cells, but by coherence of enriched pseudo functors, the result is the same. Likewise, the invertible 3-cells $\mu, \lambda,\rho$, as well as $R,S$, and $v$ witnessing the braiding and syllepsis, lift to the appropriate 3-cells for $F(A)$.
    Finally,  the three equations between pasting composites of $\pi_{F}, \mu_{F}, \lambda_{F}, \rho_{F}$ hold by coherence of enriched pseudo functors.
 
 %Similarly, we prove that $\cT$ preserves braided, sylleptic and symmetric structure. The swap functor $\tau$ is mapped by $\cT$ to the swap functor for the product $\times_{\cT}$. It follows that the braiding 2-cell $\sigma: \tens \looseRightarrow \tens \tau$  gives rise to a braiding 
