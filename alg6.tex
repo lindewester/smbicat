@@ -1,4 +1,8 @@
 \section{An example}\label{sec:Alg} 
+
+\subsection*{Monoids and bimodules in double categories}
+\label{sec:mod}
+
 As a demonstration of our method, we apply Theorem~\ref{thm:H} to prove that the family of bicategories $\mathcal{A}lg[{\mathbb{D}}]$ of monoids, bimodules and bimodule homomorphisms in a monoidal double category $\mathbb{D}$ is monoidal. The result of this section builds on work of the first author in~\cite[Theorem 11.5]{shulman:frbi} and some extentions of this theorem in the second author's PhD thesis~\cite[Chapter 5]{westerPhDthesis}.
 
 The family $\mathcal{A}lg[{\mathbb{D}}]$ contains the well-known bicategories $\cat{2Vect}$, $\cat{2Hilb}$  introduced in~\cite{kapranov562},~\cite{baez2004higher}, the bicategory \cat{Prof}~\cite{benabou}. Additionally, it contains various subcategories that are relevant in the field of categorical quantum mechanics, such as the equivariant completion of a braided monoidal bicategory~\cite{carquevillerunkel}, which is a tool for finding topological quantum field theories, as well as the bicategory $2[CP^*[{\bf C}]]$ defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. %For full generality, we formulate the result for the categories of special, dagger, Frobenius, commutative, and symmetric monoids, as well as dagger bimodules.
@@ -31,11 +35,11 @@ Structural data regarding this construction, such as horizontal composition, is 
 For the double category to be well-defined, we need certain coequalizers in $\mathbb{D}$ to exist. To this end we introduce the definition below, which is derived from~\cite[Definition 11.4]{shulman:frbi}.
 
 \begin{defn}
-We say that a monoidal double category $\mathbb{D}$ has {\bf local coequalizers} if for each object $a$, the hom-category $\mathbb{D}(a,a)$ has all coequalizers and the coequalizers are preserved by $\odot$. We write $\mathcal{D}bl^l$ for the 2-category of double categories with local coequalizers and $\mathcal{D}bl_f^l$ for the 2-category of double categories with local coequalizers and strong companions.
+We say that a monoidal double category $\mathbb{D}$ has {\bf local coequalizers} if for each object $a$, the hom-category $\mathbb{D}(a,a)$ has all coequalizers and the coequalizers are preserved by $\odot$. We write $\mathcal{D}bl^l$ for the 2-category of double categories with local coequalizers and $\cDblf^l$ for the 2-category of double categories with local coequalizers and companions.\fxnote[author=MS]{Previously we used $\cDblf$ for the 2-category of double categories with a restriction on the \emph{2-cells} to have loosely strong companions.  Does this match that?  If not, we should modify it.}
 \end{defn}
 
 \begin{prop}\label{thm:eqcomp}
-Let $\mathbb{D}$ be a monoidal double category with local coequalizers and the tensor product $\tens$ preserves those coequalizers. The loose bicategory $\mathcal{A}lg[\mathbb{D}]$ of $\mathbb{A}lg[\mathbb{D}]$ is monoidal; it is braided or symmetric whenever $\mathbb{D}$ is braided or symmetric.
+Let $\mathbb{D}$ be a monoidal double category with local coequalizers and companions and conjoints, and such that the tensor product $\tens$ preserves the local coequalizers. The loose bicategory $\mathcal{A}lg[\mathbb{D}]$ of $\mathbb{A}lg[\mathbb{D}]$ is monoidal; it is braided or symmetric whenever $\mathbb{D}$ is braided or symmetric.
 \end{prop}
 
 \begin{proof}
@@ -200,6 +204,38 @@ The bicategory $\cat{2Hilb}$ is symmetric monoidal.
 As shown in~\cite[Section 3.6.3]{westerthesis}, $\cat{2Hilb}$ is equivalent to $2[\cat{FHilb}]$, where $\cat{FHilb}$ is the symmetric monoidal category of finite Hilbert spaces and linear maps, which contains all coequalizers.
 \end{proof}
 
+\subsection*{Black-boxing of open Markov processes}
+\label{sec:markov}
+
+As another example, the authors of~\cite{bc:markov} construct a symmetric monoidal double category $\mathbb{M}\mathsf{ark}$ whose objects are finite sets and whose loose 1-cells are ``open Markov processes''.
+The loose composition and the tensor product then give two related ways to put together smaller open Markov processes into larger ones (and eventually into closed ones).
+In addition, they constructed a symmetric monoidal \emph{functor}, called \textbf{black-boxing}, from this double category to a double category $\mathbb{L}\mathsf{inRel}$ of linear relations.
+
+The authors of~\cite{bc:markov} also showed that both of these double categories have companions for tight isomorphisms, and then used our results to conclude that their loose bicategories $\mathcal{M}\mathit{ark}$ and $\mathcal{L}\mathit{inRel}$ are symmetric monoidal bicategories.
+At the time of writing~\cite{bc:markov}, only the earlier version~\cite{shulman:smbicat} of this paper was available, which constructed monoidal bicategories but not monoidal functors between them; thus, the authors of~\cite{bc:markov} were only able to conjecture that their black-boxing double functor induced a symmetric monoidal functor of bicategories.
+However, with Theorem~\ref{thm:lcbcfunctor} now in hand, we can prove their conjecture:
+
+\begin{thm}[{\cite[Conjecture 6.7]{bc:markov}}]
+  There exists a symmetric monoidal functor of bicategories $\blacksquare : \mathcal{M}\mathit{ark} \to \mathcal{L}\mathit{inRel}$ that maps
+  \begin{enumerate}
+  \item any finite set $S$ to the vector space $\blacksquare(S) = \mathbb{R}^S \oplus \mathbb{R}^S$,
+  \item any open Markov process $S \xto{i} (X,H) \xot{o} T$ to the linear relation
+    \[ \blacksquare(S \xto{i} (X,H) \xot{o} T) \subseteq \mathbb{R}^S\oplus \mathbb{R}^S\oplus \mathbb{R}^T\oplus \mathbb{R}^T \]
+    consisting of all 4-tuples $(i^*(v),I,o^*(v),O)$ where $v\in \mathbb{R}^X$ is some steady state with inflows $I$ and outflows $O$ (see~\cite[Definition 2.7]{bc:markov}), and
+  \item any globular morphism of open Markov processes
+    \[
+      \begin{tikzcd}
+        & {(X,H)} \arrow[dd, "p"] &  \\
+        S \arrow[ru, "i_1"] \arrow[rd, "i_1'"'] &  & T \arrow[lu, "o_1"'] \arrow[ld, "o_1'"] \\
+        & {(X',H')} & 
+      \end{tikzcd}
+    \]
+    to the inclusion $\blacksquare(X,H) \subseteq \blacksquare(X',H')$.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  Apply Theorem~\ref{thm:lcbcfunctor} to the symmetric monoidal double functor of~\cite[Theorem 5.5]{bc:markov}.
+\end{proof}
 
 
 % Local Variables:
