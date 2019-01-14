@@ -1,5 +1,5 @@
 %smbicat version
-\usepackage{amssymb,amsmath,stmaryrd,txfonts,mathrsfs,amsthm}
+\usepackage{amsfonts,amsmath,stmaryrd,txfonts,mathrsfs,amsthm}
 \usepackage[all,2cell]{xy}
 \usepackage[neveradjust]{paralist}
 \usepackage{hyperref}
@@ -580,9 +580,9 @@ sign distance] (-.1,0) -- (.1,0); \draw (-.1,0) -- (.1,0);}}
 \newcommand{\looseRightarrow}{\mathrel{\raisebox{-.25em}{\usebox{\looseRightarrowbox}}}}
 \newcommand{\xlooseRightarrow}[1]{\mathrel{\overset{#1}{\raisebox{-.25em}{\usebox{\looseRightarrowbox}}}}}
 
-\newsavebox{\onecellbox}
-\savebox{\onecellbox}{\tikz[scale=1.5]{\draw[onecell] (-.15,0) -- (.15,0);}}
-\newcommand{\onecell}{\mathrel{\raisebox{-.25em}{\usebox{\onecellbox}}}}
+%\newsavebox{\onecellbox}
+%\savebox{\onecellbox}{\tikz[scale=1.5]{\draw[onecell] (-.15,0) -- (.15,0);}}
+%\newcommand{\onecell}{\mathrel{\raisebox{-.25em}{\usebox{\onecellbox}}}}
 %\newsavebox{\Rightslashedarrowbox}
 %\savebox{\Rightslashedarrowbox}{\tikz[scale=1.5]{\draw[Rightslashedarrow{}] (-.1,0) -- (1,0);}}
 %\newcommand{\Rightslashedarrow}{\mathrel{\raisebox{-.2em}%{\usebox{\Rightslashedarrowbox}}}}

@@ -1,11 +1,12 @@
 \section{An example}\label{sec:Alg} 
-As a demonstration of our method, we apply Theorem~\ref{thm:H} to prove that the family of bicategories $\mathcal{A}lg[{\mathbb{D}}]$ of monoids, bimodules and bimodule homomorphisms in a monoidal double category $\mathbb{D}$ is monoidal. The result of this section builds on the work in~\cite[Theorem 11.5]{shulman:frbi} and some extentions of this theorem in the second author's PhD thesis~\cite[Chapter 5]{westerthesis}.
+As a demonstration of our method, we apply Theorem~\ref{thm:H} to prove that the family of bicategories $\mathcal{A}lg[{\mathbb{D}}]$ of monoids, bimodules and bimodule homomorphisms in a monoidal double category $\mathbb{D}$ is monoidal. The result of this section builds on work of the first author in~\cite[Theorem 11.5]{shulman:frbi} and some extentions of this theorem in the second author's PhD thesis~\cite[Chapter 5]{westerPhDthesis}.
 
-The family $\mathcal{A}lg[{\mathbb{D}}]$ contains the well-known bicategories $\cat{2Vect}$, $\cat{2Hilb}$  introduced in~\cite{kapranov562},~\cite{baez2004higher} and the bicategory \cat{Prof}~\cite{?}. Additionally, it contains various categories that are relevant in the field of categorical quantum mechanics, such as the bicategory $2[CP^*[{\bf C}]]$ defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. For full generality, we formulate the result for the categories of special, dagger, Frobenius, commutative, and symmetric monoids, as well as dagger bimodules.
-In other sources~\cite{westerthesis}~\cite{jamiesbook}~\cite{heunenvicarywester},  monoids are called algebras and equivariant maps correspond to extended bimodule homomorphisms. 
+The family $\mathcal{A}lg[{\mathbb{D}}]$ contains the well-known bicategories $\cat{2Vect}$, $\cat{2Hilb}$  introduced in~\cite{kapranov562},~\cite{baez2004higher}, the bicategory \cat{Prof}~\cite{benabou}. Additionally, it contains various subcategories that are relevant in the field of categorical quantum mechanics, such as the equivariant completion of a braided monoidal bicategory~\cite{carquevillerunkel}, which is a tool for finding topological quantum field theories, as well as the bicategory $2[CP^*[{\bf C}]]$ defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. %For full generality, we formulate the result for the categories of special, dagger, Frobenius, commutative, and symmetric monoids, as well as dagger bimodules.
 
-A {\bf monoid} $(a, A, \mult, \unit)$ in a monoidal double category $\mathbb{D}$ consists of an object $a$, a loose 1-cell $A: a \mapsto a$ and globular 2-cells $\mult: A \odot A \rightarrow A$, $\unit: I_a \rightarrow A$. Such that $\mult \circ (\mult \odot \id) = \mult \circ (\id \odot \mult)$ and $\mult \circ (\unit \odot \id) = \id = \mult \circ (\id \odot \mult)$.
-In other words, it is a monoid in ste usual sense in the monoidal category $\mathbb{D}(a,a)$. A {\bf monoid homomorphism} $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ is a pair $(f, {\bf f})$ of a 1-morphism $f:a\rightarrow b$ in $\mathbb{D}$ and a 2-cell ${\bf f}:A \rightarrow B$ in $\mathbb{D}$ that respects the multiplication, $f \circ \tinymult[gray dot] = \tinymult[black dot] \circ (f \odot f)$, as well as the unit, $\tinyunit[black dot] = f \circ \tinyunit[gray dot]$. $f: A \rightarrow B$. A {\bf bimodule} $(a,A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (b, B,\tinymult[black dot], \tinyunit[black dot])$ is a pair (${\bf M}, M)$ of a $1-cell$ $M$ in $\doub{D}$ and a globular 2-cell ${\bf M}:A \times M \times B \rightarrow M$ in $\doub{D}$, with the structure of an $A$-$B$- bimodule. We will often simply write $M$ for the bimodule $({\bf M}, m)$. This is also called an {\bf A-B-bimodule}. Note that $S(M) = T(A)$ and $T(M) = S(B)$. Let $\phi: (a,A,\tinymult[gray dot], \tinyunit[gray dot]) \rightarrow (c,C,\tinymult[black dot], \tinyunit[black dot])$ and $\psi: (b,B,\tinymult[gray dot], \tinyunit[gray dot]) \rightarrow (d,D,\tinymult[black dot], \tinyunit[black dot])$ be monoid homomorphisms and let $M$ and $N$ be an $A$-$B$-bimodule and a $C$-$D$-bimodule, respectively. A {\bf $(\phi, \psi)$-equivariant map} is a 2-morphism $f:M \rightarrow N$ in ${\doub{D}}$ such that ${\bf M} \circ (\phi \tens f \tens \psi) = f \circ {\bf N}$.
+A {\bf monoid} $(a, A, \mult, \unit)$ in a monoidal double category $\mathbb{D}$ consists of an object $a$, a loose 1-cell $A: a \mapsto a$ and globular 2-cells $\mult: A \odot A \rightarrow A$, $\unit: I_a \rightarrow A$, such that $\mult \circ (\mult \odot \id) = \mult \circ (\id \odot \mult)$ and $\mult \circ (\unit \odot \id) = \id = \mult \circ (\id \odot \mult)$.
+In other words, it is a monoid in the usual sense in the monoidal category $\mathbb{D}(a,a)$. A {\bf monoid homomorphism} $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ is a pair $(f, {\bf f})$ of a 1-morphism $f:a\rightarrow b$ in $\mathbb{D}$ and a 2-cell ${\bf f}:A \rightarrow B$ in $\mathbb{D}$ that respects the multiplication, $f \circ \tinymult[gray dot] = \tinymult[black dot] \circ (f \odot f)$, as well as the unit, $\tinyunit[black dot] = f \circ \tinyunit[gray dot]$. $f: A \rightarrow B$. A {\bf bimodule} $(a,A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (b, B,\tinymult[black dot], \tinyunit[black dot])$ is a pair (${\bf M}, M)$ of a $1-cell$ $M$ in $\doub{D}$ and a globular 2-cell ${\bf M}:A \times M \times B \rightarrow M$ in $\doub{D}$, with the structure of an $A$-$B$- bimodule. We will simply write $M$ for the bimodule $({\bf M}, m)$. This is also called an {\bf A-B-bimodule}. Note that $S(M) = T(A)$ and $T(M) = S(B)$. Let $\phi: (a,A,\tinymult[gray dot], \tinyunit[gray dot]) \rightarrow (c,C,\tinymult[black dot], \tinyunit[black dot])$ and $\psi: (b,B,\tinymult[gray dot], \tinyunit[gray dot]) \rightarrow (d,D,\tinymult[black dot], \tinyunit[black dot])$ be monoid homomorphisms and let $M$ and $N$ be an $A$-$B$-bimodule and a $C$-$D$-bimodule, respectively. A {\bf $(\phi, \psi)$-equivariant map} is a 2-morphism $f:M \rightarrow N$ in ${\doub{D}}$ such that ${\bf M} \circ (\phi \tens f \tens \psi) = f \circ {\bf N}$.
+
+In other sources~\cite{westerthesis}~\cite{jamiesbook}~\cite{heunenvicarywester},~\cite{carquevillerunkel},  monoids are called algebras and equivariant maps correspond to extended bimodule homomorphisms. 
 
 
 %We apply Theorem~\ref{thm:lcbcfunctor} to the double category below.
@@ -24,7 +25,7 @@ Let ${\mathbb{D}}$ be a double category. We can define a new double category $\m
 %\item 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are 1-cells ${\bf M}:A \rightarrow B$ with the structure of an $A-B-$bimodule.
 %\item 2-cells are 2-morphisms in ${\cat B}$ that are bimodule homomorphisms.
 %\end{itemize}
-Structural data regarding this construction, such as horizontal composition, is described in~\cite{shulman:frbi}, where the double category is called $\mathbb{M}od(\mathbb{D})$. A more detailed description in the case that $\mathbb{D}$ is a monoidal category is given in~\cite{westerthesis}.
+Structural data regarding this construction, such as horizontal composition, is described in~\cite{shulman:frbi}, where the double category is called $\mathbb{M}od(\mathbb{D})$. A more detailed description in the case that $\mathbb{D}$ is a monoidal category is given in~\cite{westerPhDthesis}.
 \end{defn}
 
 For the double category to be well-defined, we need certain coequalizers in $\mathbb{D}$ to exist. To this end we introduce the definition below, which is derived from~\cite[Definition 11.4]{shulman:frbi}.
@@ -38,11 +39,11 @@ Let $\mathbb{D}$ be a monoidal double category with local coequalizers and the t
 \end{prop}
 
 \begin{proof}
-It was shown in~\cite[]{shulman:frbi} that the doube category above is symmetric monoidal and has loosely strong companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that the horizontal bicategory $\mathcal{A}lg[\mathbb{D}]$ is symmetric monoidal.
+It was shown in~\cite[Examples 9.2]{shulman:frbi} that the doube category above is symmetric monoidal and has loosely strong companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that the horizontal bicategory $\mathcal{A}lg[\mathbb{D}]$ is symmetric monoidal.
 \end{proof}
 
 
-An explicit description of the monoidal structure for the special case when ${\mathbb{D}}$ is a monoidal category was given in~\cite{westerthesis}. \fxnote[author=LW]{However, the choice of companions works only for monoidal categories, not for monoidal bicategories.}
+An explicit description of the monoidal structure for the special case when ${\mathbb{D}}$ is a monoidal category was given in~\cite{westerPhDthesis}. 
 
 Similarly, monoidal functors $F,G:\mathbb{D} \rightarrow \mathbb{E}$ between double categories lift to monoidal functors of the form $\mathbb{A}lgF,\mathbb{A}lgG: \mathcal{A}lg[\mathbb{D}] \rightarrow \mathcal{A}lg[\mathbb{E}]$ and monoidal transformations $\alpha: F \Rightarrow G$ lift to monoidal transformations of the form $\mathbb{A}lg\alpha: \mathbb{A}lgF \Rightarrow \mathbb{A}lgG$. In fact, the $\mathbb{A}lg$ construction gives rise to a functor, as shown below. 
 
@@ -56,7 +57,7 @@ The $\bAlg$ construction gives rise to the following pseudo functors
 \end{prop}
 
 \begin{proof}
-By~\cite[Proposition11.22]{shulman:frbi}, $\mathbb{A}lg$ gives rise to a functor $\mathcal{B}r\mathcal{M}on_s\mathcal{D}bl_f^l \rightarrow \mathcal{B}r\mathcal{M}on_s \mathcal{D}bl_f^l$, as well as the braided and symmetric versions. We compose this with the functor from Theorem~\ref{thm:H} to obtain the result
+By~\cite[Proposition11.22]{shulman:frbi}, $\mathbb{A}lg$ gives rise to a functor $\mathcal{M}on_s\mathcal{D}bl_f^l \rightarrow \mathcal{M}on_s \mathcal{D}bl_f^l$, as well as the braided and symmetric versions. We compose this with the functor from Theorem~\ref{thm:H} to obtain the result
 \end{proof}
 
 \begin{cor}
@@ -64,7 +65,7 @@ The bicategory $\cat{2Vect}$ is symmetric monoidal.
 \end{cor}
 
 \begin{proof}
-We obtain $\cat{2Vect}$ as $\cAlg[\cat{Vect}]$ from the braided monoidal category $\cat{Vect}$ of vector spaces and linear maps. The category $\cat{Vect}$ is symmetric monoidal, contains local coequalisers and has a tensor product that preserves coequalisers. 
+We obtain $\cat{2Vect}$ as $\cAlg[\cat{FVect}]$ from the braided monoidal category $\cat{FVect}$ of finite dimensional vector spaces and linear maps. The category $\cat{FVect}$ is symmetric monoidal, contains local coequalisers and has a tensor product that preserves coequalisers. The result followis from Proposition~\ref{prop:funcAlg}.
 \end{proof}
 
 \begin{cor}
@@ -73,11 +74,11 @@ The bicategory $\cat{Prof}$ is symmetric monoidal.
 
 \begin{proof}
 The bicategory $\cat{Prof}$ can be constructed as the category $\cAlg[Span[\cat{C}]]$ from the monoidal double category of spans~\cite[Examples 4.2]{shulman:frbi}.
-This category has local coequalisers and loosely strong companions, and if \cat{C} has limits, it is monoidal~\cite[Examples 4.15, 9.2]{shulman:frbi}.
+This category has local coequalisers and loosely strong companions, and if \cat{C} has limits, it is monoidal~\cite[Examples 4.15, 9.2]{shulman:frbi}. The result followis from Proposition~\ref{prop:funcAlg}.
 \end{proof}
 
 \subsection*{Applications in Quantum Theory}
-Monoids and modules play an important role in quantum theory. Recently, the bicategory of Frobenius algebras, bimodules and bimodule homomorphisms in a monoidal bicategory has been defined in~\cite{heunenvicarywester} as a mathematical foundation for a diagrammatic language of quantum protocols. Examples are the well-known bicategory $\cat{2Hilb}$ and the bicategory $2[CP[{\bf C}]]$ of mixed quantum states. The monoidal structure is essential for such applications, as it enables the description of compound quantum systems, as well as parallel quantum protocols.
+Frobenius algebras and modules play an important role in quantum theory. 
 
 \begin{defn}
 A {\bf Frobenius algebra} in a monoidal double category ${\cat{C}}$ is a monoid $(A, \tinymult, \tinyunit)$ together with a comonoid 
@@ -89,8 +90,10 @@ it is {\bf symmetric} if the weaker condition
 $\tinycounit[gray dot] \circ \tinymult[gray dot] \circ \sigma = \tinycounit[gray dot] \circ \tinymult[gray dot]
 $ holds.
 A pair of a monoid  $\tinymult[gray dot]$ and a comonoid $\tinycomult[black dot]$  is called {\bf special} when the equation $ \tinymult[gray dot] \circ \tinycomult[black dot] = \id$ holds.
+\end{defn}
 
 
+Recently, the bicategory of Frobenius algebras, bimodules and bimodule homomorphisms in a monoidal bicategory $\cat{B}$ was introduced in~\cite{carquevillerunkel} as the {\it equivariant completion }of $\cat{B}$. This is a tool for generating topological quantum field theories, which is a non-trivial process in general.
 
     
 % A {\bf dagger monoidal category} is a monoidal category that is equiped with a dagger $\dagger$, such that the equalities below hold.
@@ -112,14 +115,51 @@ A pair of a monoid  $\tinymult[gray dot]$ and a comonoid $\tinycomult[black dot]
 % A {\bf monoidal dagger functor} $F:{\bf C} \rightarrow {\bf D}$ is a functor between monoidal dagger categories that preserves the dagger, which means that $F\circ \dagger = \dagger \circ F$. ?????
 %\end{defn}
 
-We will write $\bAlg_{S}[{\bf C}]$ and $\cAlg_{S}[{\bf C}]$ for $S\subset\{spec, \mbox{Frob}, c, sym\}$ for the sub-double categories and sub-bicategories of $\bAlg[{\bf C}]$ and $\cAlg[{\bf C}]$, respectively, where the objects are restricted to the type of monoids specified by $S$. We denote special by $spec$, Frobenius by $\mbox{Frob}$, commutative by $c$ and symmetric by $sym$. 
-\end{defn} 
+%We will write $\bAlg_{S}[{\bf C}]$ and $\cAlg_{S}[{\bf C}]$ for $S\subset\{spec, \mbox{Frob}, c, sym\}$ for the sub-double categories and sub-bicategories of $\bAlg[{\bf C}]$ and $\cAlg[{\bf C}]$, respectively, where the objects are restricted to the type of monoids specified by $S$. We denote special by $spec$, Frobenius by $\mbox{Frob}$, commutative by $c$ and symmetric by $sym$. 
 
 
+Let $\doub{D}$ be a double category. The {\bf equivariant completion} of the horizontal bicategory $\cH(\doub{D})$ is the horizontal bicategory of the double category $\mathbb{E}q[{\mathbb{D}}]$ defined below.  
+
+\begin{defn}
+Let ${\mathbb{D}}$ be a double category with local coequalisers and loosely strong companions, where the tensor product preserves coequalisers. We can define a new double category $\mathbb{E}q[{\mathbb{D}}]$ consisting of the elements listed below.
+
+
+\begin{itemize}
+\item 0-cells are {\bf Frobenius algebras} $(a, A,\tinymult[gray dot], \tinyunit[gray dot])$, in the monoidal category ${\mathbb{D}_1}$. 
+\item 1-morphisms $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf monoid homomorphism}
+\item horizontal 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf bimodules}
+\item 2-cells $({\bf M},M) \rightarrow ({\bf N},N)$ from a $A$-$B$-bimodule to a $C$-$D$-bimodule are $(\phi, \psi)$-equivariant maps, where $\phi:  A\rightarrow C$, $\psi: B \rightarrow D$ are monoid homomorphisms.  
+\end{itemize}
+
+Structural data regarding this construction, such as horizontal composition, is as for $\mathbb{A}lg[{\mathbb{D}}]$.
+\end{defn}
+
+\begin{cor}
+The equivariant completion of a monoidal bicategory $\cat{B}$ is monoidal. It is braided whenever $\cat{B}$ is braided and it is symmetric whenever $\cat{B}$ is symmetric.
+\end{cor}
+
+\begin{proof}
+This follows from Proposition~\ref{thm:eqcomp} applied to the double category $\mathbb{E}q[\cat{B}]$, where \cat{B} is regarded as a double category with trivial 1-morphisms.
+\end{proof}
+
+
+Another related example in quantum theory is the bicategory of $\cAlg[\mathbb{D}]$ special dagger Frobenius algebras, bimodules and bimodule homomorphisms in a monoidal bicategory~\cite{heunenvicarywester}, which was introduced as a mathematical foundation for a diagrammatic language of quantum protocols. Examples are the well-known bicategory $\cat{2Hilb}$ and the bicategory $2[CP[{\bf C}]]$ of mixed quantum states. The monoidal structure is essential for such applications, as it enables the description of compound quantum systems, as well as parallel quantum protocols. 
 
 
 \begin{defn}
-Let ${\cat{C}}$ be a monoidal category. A {\bf dagger} $\dagger: {\cat{C}} \rightarrow {\cat{C}}$, is a contravariant functor which is the identity on objects, such that $\dagger(\dagger(f)) = f$. A Frobenius algebra in $\cat{C}$ is a {\bf dagger Frobenius algebra} when the comonoid is the dagger image of the monoid. 
+Let ${\bf C}$ be a category. A dagger $\dagger: {\cat C} \rightarrow {\cat C}$, is a contravariant functor which is the identity on objects such that $\dagger(\dagger(f)) = f$. 
+A {\bf \index{dagger monoidal category}dagger monoidal category} is a monoidal category that is equipped with a dagger $\dagger$, such that the equalities below hold.
+ \begin{align*}
+ (f \otimes g)^{\dagger} &= g^{\dagger} \otimes f^{\dagger}\\
+ \alpha^{\dagger} &= \alpha^{-1} \\
+  \rho^{\dagger} &= \rho^{-1} \\
+   \lambda^{\dagger} &= \lambda^{-1} 
+ \end{align*}
+A {\bf \index{dagger braided monoidal category}dagger braided monoidal category} is a dagger monoidal category with a braiding that satisfies the equality below.
+ \begin{equation*}
+    \sigma^{\dagger} = \sigma^{-1} \\
+ \end{equation*}
+ A Frobenius algebra in a dagger braided monoidal category $\cat{C}$ is a {\bf dagger Frobenius algebra} when the comonoid is the dagger image of the monoid. 
 A bimodule is called a {\bf dagger bimodule} when the equation below holds, where the comonoid is the dagger of the monoid and we denote $\dagger({\bf M})$ by ${\bf M}^{\dagger}$.
 
 \begin{equation}
@@ -127,43 +167,39 @@ A bimodule is called a {\bf dagger bimodule} when the equation below holds, wher
 \end{equation}
 \end{defn}
 
-In~\cite[Theorem 5.7.32]{westerthesis} it is shown that the restriction to commutative, special and symmetric algebras in \cat{C} gives rise to monoidal subcategories of $\mathbb{A}lg[\cat{C}]$, which are braided and symmetric, when \cat{C} is braided or symmetric. The only thing to check here, is that the monoidal object of $\mathbb{A}lg[\cat{C}]$ is commutative, special and symmetric. For dagger monoids, dagger bimodules and equivariant maps to form a double category, it was shown that one needs to restrict to self-conjugate monoid homomorphisms as 1-morphisms. Such morphisms, which are defined below, are the only ones with loosely strong companions in the subcategory. Furthermore, they are closed under loose and strong composition, as well as the tensor product, hence the subcategory is well-defined and monoidal, braided or symmetric.
-
 \begin{defn}
-Let $f: A\rightarrow B$ be a  morphism. The {\bf conjugate} $f_*$ of $f$ is defined as 
-\begin{equation}
-f_* := (\id \tens \tinycounit[gray dot]) \circ \id \tens \tinymult[gray dot]) ] \circ (\id \tens f^{\dagger} \tens \id) \circ (\tinycomult[gray dot] \tens \id) \circ (\tinyunit[gray dot] \tens \id)
-\end{equation}
-An morphism $f$ is {\bf self-conjugate} if $f=f_*$.
+Let $f: A\rightarrow B$ be an algebra homomorphism between dagger Frobenius algebras in a dagger category. The {\bf conjugate} $f_*$ of $f$ is defined as $f_* := (\id \otimes \tinycounit[gray dot]) \circ (\id \otimes \tinymult[gray dot]) \circ (\id \otimes f^{\dagger} \otimes \id) \circ (\tinycomult[gray dot] \otimes \id) \circ (\tinyunit[gray dot] \otimes \id)$
+An algebra homomorphism $f$ is {\bf self-conjugate} if $f=f_*$.
 \end{defn}
 
-The observations above lead to the following theorem from~\cite{westerthesis}.
+
+
+To prove that the $2[-]$ construction preserves braided monoidal structure, one could define a suitable notion of dagger double category and prove that Proposition~\ref{thm:eqcomp} can be specialised to the case where monoids are special dagger Frobenius algebras and bimodules are dager bimodules. Instead, we make use of the direct proof of the fibrant and monoidal structure of de double category $\ltwo[\cat{C}]$ defined in~\cite{westerPhDthesis}, for the special case that $\cat{C}$ is a monoidal dagger category,~\cite[Prop 5.4.25]{westerPhDthesis}. This double category consists of special dagger Frobenius algebras, self-conjugate algebra homomorphisms, dagger bimodules and equivariant maps.
 
 \begin{thm}
-The assignment $\cAlg_{S}$ gives rise to the functors of locally cubical bicategories below, for each subset $S \subset \{spec, \dagger, \mbox{Frob}, c, sym \}$
+The assignment $2[-]$ gives rise to the functors of locally cubical bicategories below,
 \begin{align*}
-\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{M}on\mathcal{B}icat\\
- \mathcal{B}r\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{B}icat\\
+ \mathcal{B}r\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{B}icat\\
  \mathcal{S}ym\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{B}icat
 \end{align*}
+Where $\mathcal{B}r\mathcal{M}on\mathcal{C}at$ and $\mathcal{S}ym\mathcal{M}on\mathcal{C}at$ are the locally cubical bicategories of braided monoidal bicategories and symmetric monoidal bicategories, respectively, where all coequalizers exist and the tensor product preserves coequalizers. these locally cubical bicategories have only trivial loose 2-cells and 3-cells
 \end{thm}
+
+\begin{proof}
+This follows directly from~\cite[Proposition5.4.25]{westerPhDthesis} and Theorem~\ref{thm:eqcomp}.
+\end{proof}
+
+Similarly, one can show that the result holds for the bicategory of commutative or symmetric dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms.
+
 
 \begin{cor}
 The bicategory $\cat{2Hilb}$ is symmetric monoidal.
 \end{cor}
 
 \begin{proof}
-As shown in~\cite[Section 3.6.3]{westerthesis}, $\cat{2Hilb}$ is equivalent to $\cAlg_{c,spec,\dagger, Frob}[\cat{FHilb}]$, where $\cat{FHilb}$ is the symmetric monoidal category of Hilbert spaces and linear maps, which contains all coequalizers.
+As shown in~\cite[Section 3.6.3]{westerthesis}, $\cat{2Hilb}$ is equivalent to $2[\cat{FHilb}]$, where $\cat{FHilb}$ is the symmetric monoidal category of finite Hilbert spaces and linear maps, which contains all coequalizers.
 \end{proof}
 
-
-\begin{cor}
- The bicategory $2[CP[{\bf C}]]$ of ~\cite{heunenvicarywester} is braided monoidal. It is sylleptic or symmetric monoidal whenever ${\bf C}$ is sylleptic or symmetric monoidal, respectively.
-\end{cor}
-
-\begin{proof}
-The bicategory $2[CP[{\bf C}]]$ is equal to the bicategory $\cAlg_{s,\dagger, Frob}[CP[{\bf C}]]$, where $CP[\cat{C}]$ is the monoidal category of mixed quantum states and completely positive maps~\cite{chk:cqchannel}.
-\end{proof}
 
 
 % Local Variables:
