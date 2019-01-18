@@ -57,15 +57,16 @@ The first alternative to tricategories one might consider is what was called in~
 This is a tricategory-like structure whose coherences for composition along 0-cells are \emph{icons}~\cite{lack:icons} rather than fully general pseudonatural transformations; more precisely it is a bicategory enriched over the monoidal 2-category of bicategories, pseudofunctors, and icons.
 Informally, an iconic tricategory is one where composition of 1-cells along 0-cells is strictly associative and unital (though composition of 2-cells along 0-cells need not be).
 The tricategory of bicategories is indeed iconic, as of course is the strict 2-category of double categories regarded as a tricategory, and $\cH$ can be made into a product-preserving ``iconic functor'' between them.
-However, while the notion of iconic tricategory suffices for our \emph{input} data, it is insufficient for our \emph{output} data: the tricategory of monoidal bicategories is not iconic.
+However, while the notion of iconic tricategory suffices for our \emph{input} data, it is insufficient for our \emph{output} data: the tricategory of monoidal bicategories is not iconic.\footnote{The same problem occurs for the ``bicategory-enriched categories'' of~\cite{verity:base-change}.}
 
-There is, however, a stricter structure than tricategories that does encompass monoidal bicategories: a bicategory enriched over \emph{double} categories, introduced in~\cite{gg:ldstr-tricat}.
+There is, however, a stricter structure than tricategories that does encompass monoidal bicategories: a bicategory enriched over \emph{double} categories, introduced in~\cite{gg:ldstr-tricat} under the name \emph{locally cubical bicategory}.
 In addition to 0-cells and 1-cells, a locally cubical category has \emph{two} kinds of 2-cells (``vertical'' and ``horizontal''), as well as 3-cells inhabiting a square boundary of 2-cells.
 Just as a bicategory can be regarded as a double category that is trivial in one direction, an iconic tricategory can be regarded as a locally cubical bicategory --- although in the case of bicategories, it is more natural to take the additional kind of 2-cells to be icons.
 Similarly, it is shown in~\cite{gg:ldstr-tricat} that monoidal bicategories form a locally cubical bicategory, with an appropriate notion of ``monoidal icon'' as the additional 2-cells.
 
-We will show that more generally, internal monoids in any\footnote{Actually, for technical simplicity we assume a 1-dimensional strictness property that is satisfied in both our main examples, and should be obtainable by a suitable strictification theorem.} locally cubical bicategory with products form another locally cubical bicategory, and that this reproduces the standard notions of monoidal double category and monoidal bicategory.
-Moreover, we will show that any product-preserving functor between locally cubical bicategories with products induces another functor between their locally cubical bicategories of internal monoids (of all sorts).
+We will show that more generally, internal monoids in a 1-strict\footnote{This is a simplifying assumption that includes the two examples of double categories and bicategories to which we will apply the theorem; it says roughly that composition of 1-cells is strictly associative.
+  Without this condition it would be more difficult to express the notion of ``monoidal object''; see \autoref{rmk:1strict}.} locally cubical bicategory with products form another locally cubical bicategory, and that this reproduces the standard notions of monoidal double category and monoidal bicategory.
+Moreover, we will show that any 1-strict product-preserving functor between 1-strict locally cubical bicategories with products induces another functor between their locally cubical bicategories of internal monoids (of all sorts).
 In particular, this specializes to our desired statement:
 
 \begin{thm}\label{thm:functor-intro}
@@ -80,7 +81,7 @@ Note that this laxity is only relative to the monoidal structure: on the underly
 One might hope to incorporate both lax and colax functoriality in a single theorem.
 For instance, as noted in~\cite{gp:double-adjoints,shulman:dblderived}, lax and colax morphisms \emph{themselves} form the horizontal and vertical morphisms in a double category!
 A functoriality theorem at this level would have the advantage of also preserving ``mates'' in this double category, including for instance doctrinal adjunctions~\cite{kelly:doc-adjn} between lax and colax monoidal functors.
-However, the kind of 3-dimensional structure that would be needed for such a theorem in our case seemingly does not exist in the literature (though~\cite{gp:intercategories-i} is a step towards it), so we do not pursue it here.
+However, this would require a more complicated 3-dimensional structure such as that of~\cite{gp:intercategories-i}; we do not pursue it here.
 
 \begin{rmk}
 We also expect similar theorems to be true in higher dimensions.  For
@@ -131,7 +132,7 @@ There is a lot to check here, but the hardest part is writing down all the defin
 Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${\cA}lg(\bC)$ of algebras, bimodules and bimodule homomorphisms, as well as that of dagger algebras, dagger bimodules, and dagger bimodule homomorphisms, in a monoidal category \bC, varying functorially in \bC.
 
 We would like to thank Peter May, Tom Fiore, Stephan Stolz, Chris
-Douglas, Nick Gurski, Jamie Vicary, and Julian Hedges for helpful discussions and comments.
+Douglas, Nick Gurski, Jamie Vicary, Julian Hedges, and Bob Par\'{e} for helpful discussions and comments.
 
 % Local Variables:
 % TeX-master: "smbicat"

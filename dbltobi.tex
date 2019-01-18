@@ -319,8 +319,14 @@ This data needs to satisfy the usual axioms for bicategories~\cite{maclane}
 
 The 2-category $\cDbl$ has finite products, which gives the monoidal structure. 
 %we can write down the definition of bicategory in terms of hom-categories, with for instance composition functors $\bT(A,B) \times \bT(B,C) \to \bT(A,C)$, and then replace all the hom-categories with hom-double-categories.
-%(In other words, we pass through a general notion of bicategory enriched over a cartesian monoidal strict 2-category.)
+% (In other words, we pass through a general notion of bicategory enriched over a cartesian monoidal strict 2-category.)
 When we apply the definition above to $\cDbl$, we see that a locally cubical bicategory has objects, hom-double categories {of 1-cells, tight 2-cells, loose 2-cells, and 3-cells which fit in a square of tight and loose 2-cells. We have double functors $\comp$, $I_A$ and tight isomorphisms $\alpha, \rho, \lambda$.
+  
+\begin{rmk}\label{rmk:lcbop}
+  Recall from \autoref{rmk:dblop} that a double category has three opposites $\lD\lop$, $\lD\ttop$, and $\lD\tlop$ depending on whether we reverse the loose 1-cells, tight 1-cells, or both.
+  Applied homwise, these operations induce three duals of a locally cubical bicategory, which we denote $\fB\lco$, $\fB\tco$, and $\fB\tlco$, and which respectively reverse the loose 2-cells, tight 2-cells, and both.
+  (If we added the possibility to reverse the 1-cells we would obtain seven different ``opposites'' such as $\fB\op$, $\fB\lcoop$, and so on, but we will have no use for that duality in this paper.)
+\end{rmk}
 
 Note that a locally cubical bicategory with one object is precisely a monoidal double category in the sense of \cref{sec:symm-mono-double}, and thus the explicit description of the coherences in \cref{sec:symm-mono-double} can also be applied here.
 We will primarily be concerned with the following two examples.
