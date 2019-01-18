@@ -908,7 +908,12 @@ Finally, we need to prove that $\phi$ and $\phi_u$ are well-defined tight transf
   Since $\cH$ is 1-strict, the result then follows from Theorem~\ref{thm:lcbcfunctor}.
 \end{proof}
 
-
+\begin{rmk}\label{rmk:loosely-strong}
+  Recall that the notation $\fDblf$ means that we restrict the 2-cells to have \emph{loosely strong} companions.
+  As noted in \autoref{thm:iso-strong}, the ``loosely strong'' restriction is automatic for \emph{invertible} 2-cells, so it does not appear at the level of monoidal objects: any monoidal double category with companions has a monoidal loose bicategory.
+  However, in order for a lax monoidal double functor $F:\lD\to\lE$ to induce a monoidal functor of loose bicategories, it does not suffice for $\lD$ and $\lE$ to have companions: the constraints $FA \tens FB \to F(A\tens B)$ and $I_\lE \to F(I_\lD)$ must induce pseudonatural, rather than colax natural, transformations.
+  But, again, for a \emph{strong} monoidal double functor, this extra condition is automatic.
+\end{rmk}
 
 % Local Variables:
 % TeX-master: "smbicat"
