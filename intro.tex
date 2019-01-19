@@ -65,7 +65,7 @@ Just as a bicategory can be regarded as a double category that is trivial in one
 Similarly, it is shown in~\cite{gg:ldstr-tricat} that monoidal bicategories form a locally cubical bicategory, with an appropriate notion of ``monoidal icon'' as the additional 2-cells.
 
 We will show that more generally, internal monoids in a 1-strict\footnote{This is a simplifying assumption that includes the two examples of double categories and bicategories to which we will apply the theorem; it says roughly that composition of 1-cells is strictly associative.
-  Without this condition it would be more difficult to express the notion of ``monoidal object''; see \autoref{rmk:1strict}.} locally cubical bicategory with products form another locally cubical bicategory, and that this reproduces the standard notions of monoidal double category and monoidal bicategory.
+  Without this condition it would be more difficult to express the notion of ``monoidal object''; see the discussion below \autoref{defn:1strict}.} locally cubical bicategory with products form another locally cubical bicategory, and that this reproduces the standard notions of monoidal double category and monoidal bicategory.
 Moreover, we will show that any 1-strict product-preserving functor between 1-strict locally cubical bicategories with products induces another functor between their locally cubical bicategories of internal monoids (of all sorts).
 In particular, this specializes to our desired statement:
 
@@ -121,15 +121,14 @@ Proceeding to the contents of this paper, in
 \S\ref{sec:symm-mono-double} we review the definition of symmetric
 monoidal double categories, and in \S\ref{sec:comp-conj} we recall the
 notions of `companion' and `conjoint' whose presence supplies the
-necessary lifting property.
+necessary lifting property and prove their essential uniqueness.
 (Double categories with companions and conjoints have also been called ``framed bicategories''~\cite{shulman:frbi}, and are roughly equivalent to ``proarrow equipments''~\cite{wood:proarrows-i}).
-Then in \S\ref{sec:1x1-to-bicat} we describe a functor from double categories with loosely strong companions to bicategories.
-In order to prove that this functor preserves the monoidal structure, we define monoidal structures abstractly for elements of a locally cubical bicategory in \S\ref{sec:mono-objects}, and we show that the monoidal objects and cells form a new locally cubical bicategory. Furthermore, we prove that any product-preserving functor between locally cubical bicategories preserves monoidal objects and cells of all sorts, and indeed induces another functor of locally cubical bicategories.
+Then in \S\ref{sec:1x1-to-bicat} we show that the loose bicategory of a double category defines a functor from the locally cubical bicategory of double categories with ``loosely strong companions'' to the locally cubical bicategory of bicategories.
+
+In order to prove that this functor preserves the monoidal structure, in \S\ref{sec:mono-objects} we define monoidal structures abstractly on objects of a locally cubical bicategory, and we show that the monoidal objects and cells form a new locally cubical bicategory. Furthermore, we prove that any 1-strict product-preserving functor between 1-strict locally cubical bicategories preserves monoidal objects and cells of all sorts, and indeed induces another functor of locally cubical bicategories.
 There is a lot to check here, but the hardest part is writing down all the definitions in the appropriate generality! We specialize this to the functor from double categories with loosely strong companions and conjoints for all transformations to bicategories, yielding functorial constructions of monoidal, braided, and symmetric monoidal bicategories.
 
-\fxnote{Rewrite this paragraph once the paper settles down.}
-
-Finally, in \S\ref{sec:Alg} we illustrate our method by constructing the symmetric monoidal bicategory ${\cA}lg(\bC)$ of algebras, bimodules and bimodule homomorphisms, as well as that of dagger algebras, dagger bimodules, and dagger bimodule homomorphisms, in a monoidal category \bC, varying functorially in \bC.
+Finally, in \S\ref{sec:Alg} we illustrate our method with a number of examples, including algebras and bimodules, categories and profunctors, dagger Frobenius algebras and bimodules, black-boxing of open Markov processes, cartesian bicategories and cartesian double categories, and parametrized spectra.
 
 We would like to thank Peter May, Tom Fiore, Stephan Stolz, Chris
 Douglas, Nick Gurski, Jamie Vicary, Julian Hedges, and Bob Par\'{e} for helpful discussions and comments.
