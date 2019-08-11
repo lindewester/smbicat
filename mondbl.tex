@@ -117,7 +117,7 @@ naturally ocurring double category.  Here are just a few examples.
 \begin{eg}
   The double category \lnCob\ has as objects closed $n$-manifolds, as
   tight 1-cells diffeomorphisms, as loose 1-cells cobordisms, and as
-  2-cells diffeomorphisms between cobordisms.  Again $\cH(\lnCob)$
+  2-cells diffeomorphisms between cobordisms.  Its loose bicategory $\cH(\lnCob)$
   is the usual bicategory of cobordisms.
 \end{eg}
 
@@ -128,7 +128,6 @@ naturally ocurring double category.  Here are just a few examples.
   the usual bicategory of rings and bimodules. 
 \end{eg}
 
-
 \begin{eg}
   The double category \lProf\ has as objects categories, as
   tight 1-cells functors, as loose 1-cells \emph{profunctors} (a profunctor
@@ -136,6 +135,10 @@ naturally ocurring double category.  Here are just a few examples.
   2-cells natural transformations.  Bicategories such as
   $\cH(\lProf)$ are commonly encountered in category theory,
   especially the enriched versions.
+\end{eg}
+
+\begin{eg}
+  The double category \lSpan\ has as objects sets, as tight 1-cells functions, as loose 1-cells spans, and as 2-cells maps of spans over pairs of functions.  Its loose bicategory $\cH(\lSpan)$ is the usual bicategory of spans.
 \end{eg}
 
 Further examples will be found in Section~\ref{sec:Alg}.
@@ -215,7 +218,7 @@ categories naturally form a \emph{2-category}, a much simpler object.
 We write \cDbl\ for the strict 2-category of double categories, functors, and transformations, and $\mathbf{Dbl}$ for its underlying 1-category. As pseudofunctors compose strictly associatively, this is well-defined. Note that a 2-cell $\al$ in \cDbl\ is an isomorphism just when each
 $\al_A$, \emph{and} each $\al_M$, is invertible.
 
-\begin{rmk}
+\begin{rmk}\label{rmk:dblop}
   A double category has three different opposites:
   in the \emph{loose opposite} $\lD\lop$ we reverse the loose 1-cells (and reverse the 2-cells in the loose direction) but not the tight ones, in the \emph{tight opposite} $\lD\ttop$ we reverse the tight ones but not the loose ones, and in the \emph{double opposite} $\lD\tlop$ we reverse both.
   These define 2-functors $(-)\lop : \cDbl\to\cDbl$, $(-)\ttop : \cDbl\co \to \cDbl$, and $(-)\tlop : \cDbl\co \to \cDbl$, where $(-)\co$ denotes reversal of 2-cells but not 1-cells in a 2-category.
@@ -225,7 +228,7 @@ $\al_A$, \emph{and} each $\al_M$, is invertible.
 
 The 2-category \cDbl\ gives us an easy way to define what we mean by a
 \emph{symmetric monoidal double category}.
-We say that a strict 2-category $\cK$ has \emph{finite products} if it has a strictly terminal object, i.e.\ an object $1$ such that each category $\cK(D,1)$ is \emph{isomorphic} to the terminal category, and any two objects $D,E$ have a strict product, i.e.\ a span $D \ot D\times E \to E$ such that the induced functors $\cK(X,D\times E) \to \cK(X,D) \times \cK(X,E)$ is an \emph{isomorphism} of categories.
+We say that a strict 2-category $\cK$ has \emph{finite products} if it has a strictly terminal object, i.e.\ an object $1$ such that each category $\cK(D,1)$ is \emph{isomorphic} to the terminal category, and any two objects $D,E$ have a strict product, i.e.\ a span $D \ot D\times E \to E$ such that each induced functor $\cK(X,D\times E) \to \cK(X,D) \times \cK(X,E)$ is an \emph{isomorphism} of categories.
 In any such 2-category with finite products there is a notion of a \emph{pseudomonoid} (perhaps braided or symmetric), which generalizes the notion of monoidal category in \cCat.
 We omit the general definition, since we will give a more general one in \cref{sec:mono-objects};
 for now we just specialize it to \cDbl\ and obtain the following.
@@ -531,7 +534,7 @@ fairly obvious.  Thus, verifying that a given double category is
 
 %\fxnote[author=LW]{If we merge the examples with the final section, this should be included.}
 \begin{eg}
-  The examples \lMod, \lnCob, and \lProf\ are all easily seen to be
+  The examples \lnCob, \lMod, \lProf, and \lSpan\ are all easily seen to be
   symmetric monoidal under the tensor product of rings, disjoint union
   of manifolds, and cartesian product of categories, respectively.
 \end{eg}
@@ -550,7 +553,7 @@ fairly obvious.  Thus, verifying that a given double category is
 \end{rmk}
 
 Two further general methods for constructing symmetric monoidal double
-categories can be found in~\cite{shulman:frbi}.
+categories can be found in~\cite{shulman:frbi}; we will return to them in \S\ref{sec:Alg}.
 
 \begin{rmk}
   The general yoga of internalization says that an $X$ internal to

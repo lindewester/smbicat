@@ -15,6 +15,10 @@
 \mdef\cTwocat{2\text{-}\mathcal{C}\mathit{at}}
 \mdef\cBicat{\mathcal{B}\mathit{icat}}
 \mdef\cCat{\mathcal{C}\mathit{at}}
+\mdef\cVect{\mathcal{V}\mathit{ect}}
+\mdef\cHilb{\mathcal{H}\mathit{ilb}}
+\mdef\cProf{\mathcal{P}\mathit{rof}}
+\mdef\cSpan{\mathcal{S}\mathit{pan}}
 \mdef\cMon{\mathcal{M}\mathit{on}}
 \mdef\cBr{\mathcal{B}\mathit{r}}
 \mdef\cSyl{\mathcal{S}\mathit{yl}}
@@ -26,9 +30,10 @@
 \mdef\fC{\mathfrak{T}}
 \mdef\lMod{\mathbb{M}\mathsf{od}}
 \mdef\lnCob{n\mathbb{C}\mathsf{ob}}
-\newcommand{\ltwo}{\ensuremath{\mathbb{2}}}
-\mdef\ltwo{\mbox{2\hspace{-7pt}\selectfont\textrm{2}}}
+\let\ltwo\bbtwo
 \mdef\lProf{\mathbb{P}\mathsf{rof}}
+\mdef\lSpan{\mathbb{S}\mathsf{pan}}
+\mdef\lMat{\mathbb{M}\mathsf{at}}
 \mdef\cDbl{\mathcal{D}\mathit{bl}}
 \mdef\cDblcf{\cDbl_{c\mathbf{f}}}
 \mdef\cDbllf{\cDbl_{l\mathbf{f}}}
@@ -46,9 +51,10 @@
 \mdef\D{\mathbb{D}}
 \mdef\E{\mathbb{E}}
 \mdef\F{\mathbb{F}}
-\newcommand{\bAlg}{\mathbb{A}\mathit{lg}}
+\newcommand{\bAlg}{\mathbb{A}\mathsf{lg}}
+\let\lAlg\bAlg
 \newcommand{\cAlg}{\mathcal{A}\mathit{lg}}
-\newcommand{\Alg}{\mathbb{A}\mathit{lg}}
+\newcommand{\Alg}{\mathbb{A}\mathsf{lg}}
 \newcommand{\tens}{\otimes}
 \newcommand{\onecell}{\rightarrow}
 \newcommand{\ver}{\cdot}
@@ -65,6 +71,10 @@
 \newcommand{\lop}{^{l\cdot\mathrm{op}}}
 \newcommand{\ttop}{^{t\cdot\mathrm{op}}}
 \newcommand{\tlop}{^{tl\cdot\mathrm{op}}}
+\newcommand{\lco}{^{l\cdot\mathrm{co}}}
+\newcommand{\tco}{^{t\cdot\mathrm{co}}}
+\newcommand{\tlco}{^{tl\cdot\mathrm{co}}}
+\newcommand{\lcoop}{^{l\cdot\mathrm{coop}}}
 
 \newcommand{\hora}{a^{\horc}}
 \newcommand{\horr}{r^{\horc}}
@@ -77,20 +87,21 @@
 
 \newcounter{mondbl}             % For restarting enums manually
 
-%\includeonly{monobj}
+%\includeonly{}
 
 \hyphenation{mon-oid-al}
 
 \begin{document}
 
 \begin{abstract}
-  We present a method of constructing symmetric monoidal bicategories from symmetric monoidal double categories that satisfy a lifting
-  condition. Such symmetric monoidal double categories frequently
-  occur in nature, so the method is widely applicable, though not
-  universally so. Our main example is the bicategory ${\cA}lg$ of algebras, bimodules and bimodule homomorphisms. The same method can be used to construct symmetric monoidal functors and symmetric monoidal transformations, and is functorial.   
+  We present a method of constructing monoidal, braided monoidal, and symmetric monoidal bicategories from corresponding types of monoidal double categories that satisfy a lifting condition.
+  Many important monoidal bicategories arise naturally in this way, and applying our general method is much easier than explicitly verifying the coherence laws of a monoidal bicategory for each example.
+  Abstracting from earlier work in this direction, we express the construction as a functor between locally cubical bicategories that preserves monoid objects; this ensures that it also preserves monoidal functors, transformations, adjunctions, and so on.
+  Examples include the monoidal bicategories of algebras and bimodules, categories and profunctors, sets and spans, open Markov processes, parametrized spectra, and various functors relating them.
 \end{abstract}
 
 \maketitle
+\setcounter{tocdepth}{1}
 \tableofcontents
 
 \include{intro}

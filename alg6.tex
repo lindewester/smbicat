@@ -1,11 +1,14 @@
-\section{An example}\label{sec:Alg} 
+\section{Examples}\label{sec:Alg} 
 
-\subsection*{Monoids and bimodules in double categories}
+We now consider a number of examples, to illustrate the utility of our results.
+
+\subsection{Monoids and bimodules in double categories}
 \label{sec:mod}
 
-As a demonstration of our method, we apply Theorem~\ref{thm:H} to prove that the family of bicategories $\mathcal{A}lg[{\mathbb{D}}]$ of monoids, bimodules and bimodule homomorphisms in a monoidal double category $\mathbb{D}$ is monoidal. The result of this section builds on work of the first author in~\cite[Theorem 11.5]{shulman:frbi} and some extentions of this theorem in the second author's PhD thesis~\cite[Chapter 5]{westerPhDthesis}.
+To start with, we apply Theorem~\ref{thm:H} to prove that the family of bicategories $\cAlg[{\mathbb{D}}]$ of monoids, bimodules and bimodule homomorphisms in a monoidal double category $\mathbb{D}$ is monoidal. The result of this section builds on work of the first author in~\cite[Theorem 11.5]{shulman:frbi} and some extentions of this theorem in the second author's PhD thesis~\cite[Chapter 5]{westerPhDthesis}.
 
-The family $\mathcal{A}lg[{\mathbb{D}}]$ contains the well-known bicategories $\cat{2Vect}$, $\cat{2Hilb}$  introduced in~\cite{kapranov562},~\cite{baez2004higher}, the bicategory \cat{Prof}~\cite{benabou}. Additionally, it contains various subcategories that are relevant in the field of categorical quantum mechanics, such as the equivariant completion of a braided monoidal bicategory~\cite{carquevillerunkel}, which is a tool for finding topological quantum field theories, as well as the bicategory $2[CP^*[{\bf C}]]$ defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. %For full generality, we formulate the result for the categories of special, dagger, Frobenius, commutative, and symmetric monoids, as well as dagger bimodules.
+In addition to the well-known bicategory $\cMod$ of rings and bimodules,
+the family $\cAlg[{\mathbb{D}}]$ contains the well-known bicategories $2\cVect$, $2\cHilb$ introduced in~\cite{kapranov562,baez2004higher} and also the bicategory $\cProf$ of categories and profunctors~\cite{benabou}. Additionally, it contains various subcategories that are relevant in the field of categorical quantum mechanics, such as the equivariant completion of a braided monoidal bicategory~\cite{carquevillerunkel}, which is a tool for finding topological quantum field theories, as well as the bicategory $2[CP^*[{\bf C}]]$ defined in~\cite{heunenvicarywester} as the mathematical foundation of a diagrammatic language for quantum protocols. %For full generality, we formulate the result for the categories of special, dagger, Frobenius, commutative, and symmetric monoids, as well as dagger bimodules.
 
 A {\bf monoid} $(a, A, \mult, \unit)$ in a monoidal double category $\mathbb{D}$ consists of an object $a$, a loose 1-cell $A: a \mapsto a$ and globular 2-cells $\mult: A \odot A \rightarrow A$, $\unit: I_a \rightarrow A$, such that $\mult \circ (\mult \odot \id) = \mult \circ (\id \odot \mult)$ and $\mult \circ (\unit \odot \id) = \id = \mult \circ (\id \odot \mult)$.
 In other words, it is a monoid in the usual sense in the monoidal category $\mathbb{D}(a,a)$. A {\bf monoid homomorphism} $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ is a pair $(f, {\bf f})$ of a 1-morphism $f:a\rightarrow b$ in $\mathbb{D}$ and a 2-cell ${\bf f}:A \rightarrow B$ in $\mathbb{D}$ that respects the multiplication, $f \circ \tinymult[gray dot] = \tinymult[black dot] \circ (f \odot f)$, as well as the unit, $\tinyunit[black dot] = f \circ \tinyunit[gray dot]$. $f: A \rightarrow B$. A {\bf bimodule} $(a,A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (b, B,\tinymult[black dot], \tinyunit[black dot])$ is a pair (${\bf M}, M)$ of a $1-cell$ $M$ in $\doub{D}$ and a globular 2-cell ${\bf M}:A \times M \times B \rightarrow M$ in $\doub{D}$, with the structure of an $A$-$B$- bimodule. We will simply write $M$ for the bimodule $({\bf M}, m)$. This is also called an {\bf A-B-bimodule}. Note that $S(M) = T(A)$ and $T(M) = S(B)$. Let $\phi: (a,A,\tinymult[gray dot], \tinyunit[gray dot]) \rightarrow (c,C,\tinymult[black dot], \tinyunit[black dot])$ and $\psi: (b,B,\tinymult[gray dot], \tinyunit[gray dot]) \rightarrow (d,D,\tinymult[black dot], \tinyunit[black dot])$ be monoid homomorphisms and let $M$ and $N$ be an $A$-$B$-bimodule and a $C$-$D$-bimodule, respectively. A {\bf $(\phi, \psi)$-equivariant map} is a 2-morphism $f:M \rightarrow N$ in ${\doub{D}}$ such that ${\bf M} \circ (\phi \tens f \tens \psi) = f \circ {\bf N}$.
@@ -16,7 +19,7 @@ In other sources~\cite{westerthesis}~\cite{jamiesbook}~\cite{heunenvicarywester}
 %We apply Theorem~\ref{thm:lcbcfunctor} to the double category below.
 
 \begin{defn}
-Let ${\mathbb{D}}$ be a double category. We can define a new double category $\mathbb{A}lg[{\mathbb{D}}]$ consisting of the elements listed below.
+Let ${\mathbb{D}}$ be a double category. We can define a new double category $\lAlg[{\mathbb{D}}]$ consisting of the elements listed below.
 
 \begin{itemize}
 \item 0-cells are {\bf monoids} $(a, A,\tinymult[gray dot], \tinyunit[gray dot])$, in the monoidal category ${\mathbb{D}_1}$. 
@@ -32,56 +35,75 @@ Let ${\mathbb{D}}$ be a double category. We can define a new double category $\m
 Structural data regarding this construction, such as horizontal composition, is described in~\cite{shulman:frbi}, where the double category is called $\mathbb{M}od(\mathbb{D})$. A more detailed description in the case that $\mathbb{D}$ is a monoidal category is given in~\cite{westerPhDthesis}.
 \end{defn}
 
-For the double category to be well-defined, we need certain coequalizers in $\mathbb{D}$ to exist. To this end we introduce the definition below, which is derived from~\cite[Definition 11.4]{shulman:frbi}.
+For the double category to be well-defined, we need certain coequalizers in $\mathbb{D}$ to exist. To this end we recall the definition below from~\cite[Definition 11.4]{shulman:frbi}.
 
 \begin{defn}
-We say that a monoidal double category $\mathbb{D}$ has {\bf local coequalizers} if for each object $a$, the hom-category $\mathbb{D}(a,a)$ has all coequalizers and the coequalizers are preserved by $\odot$. We write $\mathcal{D}bl^l$ for the 2-category of double categories with local coequalizers and $\cDblf^l$ for the 2-category of double categories with local coequalizers and loosely strong companions.
+A double category $\mathbb{D}$ has {\bf local coequalizers} if for each objects $a,b$, the hom-category $\mathbb{D}(a,b)$ has all coequalizers and the coequalizers are preserved by $\odot$. We write $\cDbl^l$ for the 2-category of double categories with local coequalizers and $\cDblf^l$ for the 2-category of double categories with local coequalizers with 2-cells that have loosely strong companions.
 \end{defn}
 
 \begin{prop}\label{thm:eqcomp}
-Let $\mathbb{D}$ be a monoidal double category with local coequalizers and companions and conjoints, and such that the tensor product $\tens$ preserves the local coequalizers. The loose bicategory $\mathcal{A}lg[\mathbb{D}]$ of $\mathbb{A}lg[\mathbb{D}]$ is monoidal; it is braided or symmetric whenever $\mathbb{D}$ is braided or symmetric.
+Let $\mathbb{D}$ be a monoidal double category with local coequalizers and companions and conjoints, and such that the tensor product $\tens$ preserves the local coequalizers. The loose bicategory $\cAlg[\mathbb{D}]$ of $\lAlg[\mathbb{D}]$ is monoidal; it is braided or symmetric whenever $\mathbb{D}$ is braided or symmetric.
 \end{prop}
 
 \begin{proof}
-It was shown in~\cite[Examples 9.2]{shulman:frbi} that the doube category above is symmetric monoidal and has loosely strong companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that the horizontal bicategory $\mathcal{A}lg[\mathbb{D}]$ is symmetric monoidal.
+By~\cite[Examples 9.2]{shulman:frbi}, the double category $\cAlg[\mathbb{D}]$ is symmetric monoidal and has companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that its horizontal bicategory $\cAlg[\mathbb{D}]$ is symmetric monoidal.
 \end{proof}
 
 
 An explicit description of the monoidal structure for the special case when ${\mathbb{D}}$ is a monoidal category was given in~\cite{westerPhDthesis}. 
 
-Similarly, monoidal functors $F,G:\mathbb{D} \rightarrow \mathbb{E}$ between double categories lift to monoidal functors of the form $\mathbb{A}lgF,\mathbb{A}lgG: \mathcal{A}lg[\mathbb{D}] \rightarrow \mathcal{A}lg[\mathbb{E}]$ and monoidal transformations $\alpha: F \Rightarrow G$ lift to monoidal transformations of the form $\mathbb{A}lg\alpha: \mathbb{A}lgF \Rightarrow \mathbb{A}lgG$. In fact, the $\mathbb{A}lg$ construction gives rise to a functor, as shown below. 
+\begin{cor}
+The bicategory $2\cVect$ is symmetric monoidal.
+\end{cor}
+
+\begin{proof}
+We obtain $2\cVect$ as $\cAlg[\cat{FVect}]$ from the braided monoidal category $\cat{FVect}$ of finite dimensional vector spaces and linear maps. The category $\cat{FVect}$ is symmetric monoidal, contains local coequalisers and has a tensor product that preserves coequalisers. The result followis from Proposition~\ref{prop:funcAlg}.
+\end{proof}
+
+\begin{cor}
+The bicategory $\cProf(\cat{C})$ of internal categories and profunctors in a category $\cat{C}$ with finite limits and coequalizers preserved by pullback is symmetric monoidal.
+\end{cor}
+
+\begin{proof}
+The bicategory $\cProf(\cat{C})$ can be constructed as the category $\cAlg[\lSpan[\cat{C}]]$ from the monoidal double category of spans~\cite[Examples 4.2]{shulman:frbi}.
+This category has local coequalisers and companions and is symmetric monoidal~\cite[Examples 4.15, 9.2]{shulman:frbi}. The result follows from Proposition~\ref{prop:funcAlg}.
+\end{proof}
+
+\begin{cor}
+The bicategory $\cat{V}\cProf$ of categories and profunctors enriched over a cocomplete closed symmetric monoidal category $\cat{V}$ is symmetric monoidal.
+\end{cor}
+
+\begin{proof}
+The bicategory $\cat{V}\cProf$ can be constructed as the category $\cAlg[\lMat[\cat{V}]]$ from the monoidal double category of matrices~\cite[Examples 11.8]{shulman:frbi}.
+This category has local coequalisers and companions and is symmetric monoidal, so the result again follows from Proposition~\ref{prop:funcAlg}.
+\end{proof}
+
+Similarly, monoidal functors $F,G:\mathbb{D} \rightarrow \mathbb{E}$ between double categories with companions lift to monoidal functors of the form $\lAlg F,\lAlg G: \cAlg[\mathbb{D}] \rightarrow \cAlg[\mathbb{E}]$ and monoidal transformations $\alpha: F \Rightarrow G$ lift to monoidal transformations of the form $\lAlg\alpha: \lAlg F \Rightarrow \lAlg G$, as long as all the constraints are loosely strong (which in \autoref{rmk:loosely-strong} we noted is automatic when they are invertible). In fact, the $\lAlg$ construction gives rise to a functor, as shown below. 
 
 \begin{prop}\label{prop:funcAlg}
-The $\bAlg$ construction gives rise to the following pseudo functors
+The $\bAlg$ construction gives rise to the following functors of bicategories:
 \begin{align*}
-\mathcal{M}on_s\mathcal{D}bl^l _f\rightarrow \mathcal{M}on\mathcal{B}icat\\
-\mathcal{B}r\mathcal{M}on_s\mathcal{D}bl^l_f \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{B}icat\\
-\mathcal{S}ym\mathcal{M}on_s\mathcal{D}bl^l_f \rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{B}icat\\
+\mathcal{M}on_{pp}\cDblf^l &\rightarrow \mathcal{M}on\mathcal{B}icat\\
+\mathcal{B}r\mathcal{M}on_{pp}\cDblf^l &\rightarrow \mathcal{B}r\mathcal{M}on\mathcal{B}icat\\
+\mathcal{S}ym\mathcal{M}on_{pp}\cDblf^l &\rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{B}icat.
 \end{align*}
 \end{prop}
-
 \begin{proof}
-By~\cite[Proposition11.22]{shulman:frbi}, $\mathbb{A}lg$ gives rise to a functor $\mathcal{M}on_s\mathcal{D}bl_f^l \rightarrow \mathcal{M}on_s \mathcal{D}bl_f^l$, as well as the braided and symmetric versions. We compose this with the functor from Theorem~\ref{thm:H} to obtain the result
+By~\cite[Proposition 11.22]{shulman:frbi}, $\lAlg$ is a functor $\mathcal{M}on_{pp}\cDblf^l \rightarrow \mathcal{M}on_{pp} \cDblf^l$, and similarly for the braided and symmetric versions. We compose this with the functor from Theorem~\ref{thm:H} to obtain the result.
 \end{proof}
 
-\begin{cor}
-The bicategory $\cat{2Vect}$ is symmetric monoidal.
-\end{cor}
+\begin{eg}\label{thm:span-functor}
+  If $F:\cat{C}\to\cat{D}$ is a functor between categories with finite limits and coequalizers preserved by pullback, and $F$ preserves finite limits and coequalizers, then it induces a strong symmetric monoidal double functor $\lSpan(\cat{C}) \to \lSpan(\cat{D})$, hence $\lAlg[\lSpan(\cat{C})] \to \lAlg[\lSpan(\cat{D})]$, and thus a symmetric monoidal functor of bicategories $\cProf(\cat{C}) \to \cProf(\cat{D})$.
+\end{eg}
 
-\begin{proof}
-We obtain $\cat{2Vect}$ as $\cAlg[\cat{FVect}]$ from the braided monoidal category $\cat{FVect}$ of finite dimensional vector spaces and linear maps. The category $\cat{FVect}$ is symmetric monoidal, contains local coequalisers and has a tensor product that preserves coequalisers. The result followis from Proposition~\ref{prop:funcAlg}.
-\end{proof}
+\begin{eg}\label{thm:cat-functor}
+  If $F:\cat{V}\to\cat{W}$ is a cocontinuous strong monoidal functor between closed symmetic monoidal categories, it induces a strong symmetric monoidal double functor $\lMat(\cat{V})\to\lMat(\cat{W})$, hence $\lAlg[\lMat(\cat{V})]\to\lAlg[\lMat(\cat{W})]$, and thus a symmetric monoidal functor of bicategories $\cat{V}\cProf \to \cat{W}\cProf$.
+\end{eg}
 
-\begin{cor}
-The bicategory $\cat{Prof}$ is symmetric monoidal.
-\end{cor}
+Similar results apply to the ``enriched indexed categories'' of~\cite{shulman:eicats}.
 
-\begin{proof}
-The bicategory $\cat{Prof}$ can be constructed as the category $\cAlg[Span[\cat{C}]]$ from the monoidal double category of spans~\cite[Examples 4.2]{shulman:frbi}.
-This category has local coequalisers and loosely strong companions, and if \cat{C} has limits, it is monoidal~\cite[Examples 4.15, 9.2]{shulman:frbi}. The result followis from Proposition~\ref{prop:funcAlg}.
-\end{proof}
 
-\subsection*{Applications in Quantum Theory}
+\subsection{Applications in Quantum Theory}
 Frobenius algebras and modules play an important role in quantum theory. 
 
 \begin{defn}
@@ -135,7 +157,7 @@ Let ${\mathbb{D}}$ be a double category with local coequalisers and loosely stro
 \item 2-cells $({\bf M},M) \rightarrow ({\bf N},N)$ from a $A$-$B$-bimodule to a $C$-$D$-bimodule are $(\phi, \psi)$-equivariant maps, where $\phi:  A\rightarrow C$, $\psi: B \rightarrow D$ are monoid homomorphisms.  
 \end{itemize}
 
-Structural data regarding this construction, such as horizontal composition, is as for $\mathbb{A}lg[{\mathbb{D}}]$.
+Structural data regarding this construction, such as horizontal composition, is as for $\lAlg[{\mathbb{D}}]$.
 \end{defn}
 
 \begin{cor}
@@ -143,7 +165,7 @@ The equivariant completion of a monoidal bicategory $\cat{B}$ is monoidal. It is
 \end{cor}
 
 \begin{proof}
-This follows from Proposition~\ref{thm:eqcomp} applied to the double category $\mathbb{E}q[\cat{B}]$, where \cat{B} is regarded as a double category with trivial 1-morphisms.
+This follows from Proposition~\ref{thm:eqcomp} applied to the double category $\mathbb{E}q[\cat{B}]$, where \cat{B} is regarded as a double category with trivial tight 1-morphisms.
 \end{proof}
 
 
@@ -178,7 +200,7 @@ An algebra homomorphism $f$ is {\bf self-conjugate} if $f=f_*$.
 
 
 
-To prove that the $2[-]$ construction preserves braided monoidal structure, one could define a suitable notion of dagger double category and prove that Proposition~\ref{thm:eqcomp} can be specialised to the case where monoids are special dagger Frobenius algebras and bimodules are dager bimodules. Instead, we make use of the direct proof of the fibrant and monoidal structure of de double category $\ltwo[\cat{C}]$ defined in~\cite{westerPhDthesis}, for the special case that $\cat{C}$ is a monoidal dagger category,~\cite[Prop 5.4.25]{westerPhDthesis}. This double category consists of special dagger Frobenius algebras, self-conjugate algebra homomorphisms, dagger bimodules and equivariant maps.
+To prove that the $2[-]$ construction preserves braided monoidal structure, one could define a suitable notion of dagger double category and prove that Proposition~\ref{thm:eqcomp} can be specialised to the case where monoids are special dagger Frobenius algebras and bimodules are dagger bimodules. Instead, we make use of the direct proof of the fibrant and monoidal structure of the double category $\ltwo[\cat{C}]$ defined in~\cite{westerPhDthesis}, for the special case that $\cat{C}$ is a monoidal dagger category,~\cite[Prop 5.4.25]{westerPhDthesis}. This double category consists of special dagger Frobenius algebras, self-conjugate algebra homomorphisms, dagger bimodules and equivariant maps.
 
 \begin{thm}
 The assignment $2[-]$ gives rise to the functors of locally cubical bicategories below,
@@ -186,25 +208,25 @@ The assignment $2[-]$ gives rise to the functors of locally cubical bicategories
  \mathcal{B}r\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{B}r\mathcal{M}on\mathcal{B}icat\\
  \mathcal{S}ym\mathcal{M}on\mathcal{C}at \rightarrow \mathcal{S}ym\mathcal{M}on\mathcal{B}icat
 \end{align*}
-Where $\mathcal{B}r\mathcal{M}on\mathcal{C}at$ and $\mathcal{S}ym\mathcal{M}on\mathcal{C}at$ are the locally cubical bicategories of braided monoidal bicategories and symmetric monoidal bicategories, respectively, where all coequalizers exist and the tensor product preserves coequalizers. these locally cubical bicategories have only trivial loose 2-cells and 3-cells
+Where $\mathcal{B}r\mathcal{M}on\mathcal{C}at$ and $\mathcal{S}ym\mathcal{M}on\mathcal{C}at$ are the locally cubical bicategories of braided monoidal bicategories and symmetric monoidal bicategories, respectively, where all coequalizers exist and the tensor product preserves coequalizers. These locally cubical bicategories have only trivial loose 2-cells and 3-cells.
 \end{thm}
 
 \begin{proof}
-This follows directly from~\cite[Proposition5.4.25]{westerPhDthesis} and Theorem~\ref{thm:eqcomp}.
+This follows directly from~\cite[Proposition 5.4.25]{westerPhDthesis} and Theorem~\ref{thm:eqcomp}.
 \end{proof}
 
 Similarly, one can show that the result holds for the bicategory of commutative or symmetric dagger Frobenius algebras, dagger bimodules and bimodule homomorphisms.
 
 
 \begin{cor}
-The bicategory $\cat{2Hilb}$ is symmetric monoidal.
+The bicategory $2\cHilb$ is symmetric monoidal.
 \end{cor}
 
 \begin{proof}
-As shown in~\cite[Section 3.6.3]{westerthesis}, $\cat{2Hilb}$ is equivalent to $2[\cat{FHilb}]$, where $\cat{FHilb}$ is the symmetric monoidal category of finite Hilbert spaces and linear maps, which contains all coequalizers.
+As shown in~\cite[Section 3.6.3]{westerthesis}, $2\cHilb$ is equivalent to $2[\cat{FHilb}]$, where $\cat{FHilb}$ is the symmetric monoidal category of finite Hilbert spaces and linear maps, which contains all coequalizers.
 \end{proof}
 
-\subsection*{Black-boxing of open Markov processes}
+\subsection{Black-boxing of open Markov processes}
 \label{sec:markov}
 
 As another example, the authors of~\cite{bc:markov} construct a symmetric monoidal double category $\mathbb{M}\mathsf{ark}$ whose objects are finite sets and whose loose 1-cells are ``open Markov processes''.
@@ -216,7 +238,7 @@ At the time of writing~\cite{bc:markov}, only the earlier version~\cite{shulman:
 However, with Theorem~\ref{thm:lcbcfunctor} now in hand, we can prove their conjecture:
 
 \begin{thm}[{\cite[Conjecture 6.7]{bc:markov}}]
-  There exists a symmetric monoidal functor of bicategories $\blacksquare : \mathcal{M}\mathit{ark} \to \mathcal{L}\mathit{inRel}$ that maps
+  There exists a strong symmetric monoidal functor of bicategories $\blacksquare : \mathcal{M}\mathit{ark} \to \mathcal{L}\mathit{inRel}$ that maps
   \begin{enumerate}
   \item any finite set $S$ to the vector space $\blacksquare(S) = \mathbb{R}^S \oplus \mathbb{R}^S$,
   \item any open Markov process $S \xto{i} (X,H) \xot{o} T$ to the linear relation
@@ -234,8 +256,60 @@ However, with Theorem~\ref{thm:lcbcfunctor} now in hand, we can prove their conj
   \end{enumerate}
 \end{thm}
 \begin{proof}
-  Apply Theorem~\ref{thm:lcbcfunctor} to the symmetric monoidal double functor of~\cite[Theorem 5.5]{bc:markov}.
+  Apply Theorem~\ref{thm:lcbcfunctor} to the strong symmetric monoidal double functor of~\cite[Theorem 5.5]{bc:markov}, noting again that the constraints of any \emph{strong} monoidal functor are automatically loosely strong.
 \end{proof}
+
+\subsection{Cartesian double categories and cartesian bicategories}
+\label{sec:cartesian}
+
+A \emph{cartesian bicategory}~\cite{cw:cart-bicats-i,ckww:cartbicats-ii} is designed as an axiomatization of properties of bicategories like $\cSpan$ in which the objects have ``cartesian products'', but it is complicated because these cartesian products are not products in the ordinary bicategorical sense (only when restricted to the subcategory of ``maps'', i.e.\ left adjoints).
+By contrast, a \emph{cartesian double category}~\cite{aleiferi2018cartesian} is easily defined as a cartesian object in the 2-category $\cDbl$, i.e.\ one whose diagonal $\lD \to \lD\times \lD$ and projection $\lD\to *$ have right adjoints, which also has companions and conjoints.
+Our results make it clear that:
+
+\begin{thm}
+  If $\lD$ is a cartesian double category, then $\cH(\lD)$ is a symmetric monoidal bicategory.
+\end{thm}
+\begin{proof}
+  A cartesian object in a 2-category is automatically a symmetric monoid object therein, so we can apply Theorem~\ref{thm:lcbcfunctor}.
+\end{proof}
+
+One might naively think that the functor $\cH$ should preserve the cartesian structure as well, implying that $\cH(\lD)$ is a cartesian object in $\fBicat$.
+However, as noted above, a cartesian bicategory does not have cartesian products in the ordinary bicategorical sense, so this must fail.
+The reason is instructive: the transformations exhibiting the adjunctions in $\cDbl$ making $\lD$ cartesian do not have \emph{loosely strong} companions; thus their loose lifts are only colax natural.
+If our functor $\cH$ could be extended to this case somehow, then it might also imply automatically that the loose bicategory of a cartesian double category is a cartesian bicategory.
+
+
+\subsection{Monoidal fibrations and parametrized spectra}
+\label{sec:mfps}
+
+In~\cite{shulman:frbi} the first author also introduced the notion of \emph{monoidal fibration}, and showed that any sufficiently well-behaved symmetric monoidal fibration gives rise to a symmetric monoidal double category with all companions and conjoints.
+We will not recall the definition of monoidal fibration here, but only note that the double categories $\lSpan(\cat{C})$ and $\lMat(\cat{V})$ can be constructed in this way (see~\cite[Examples 15.3 and 15.4]{shulman:frbi}).
+Moreover, the construction is functorial, so the functors from Examples~\ref{thm:span-functor} and~\ref{thm:cat-functor} can be obtained from morphisms of monoidal fibrations, as well as their enhancement to the enriched indexed categories of~\cite{shulman:eicats}.
+
+One final family of examples obtained in this way are the bicategories of \emph{parametrized spectra} from~\cite{maysig:pht}.
+
+\begin{thm}
+  The bicategory $\mathcal{E}\mathit{x}$ of parametrized spectra from~\cite[Chapter 17]{maysig:pht} is symmetric monoidal.
+\end{thm}
+\begin{proof}
+  By~\cite[Example 14.6]{shulman:frbi}, this bicategory can be constructed as the loose bicategory of the double category obtained from a symmetric monoidal fibration of parametrized spectra.
+  Thus, by~\cite[Theorem 14.2]{shulman:frbi} and Theorem~\ref{thm:lcbcfunctor}, it is symmetric monoidal.
+\end{proof}
+
+This symmetric monoidal structure is observed in~\cite[Remark 17.17]{maysig:pht}, but without any details supplied.
+Our stronger functoriality results are also relevant to~\cite{maysig:pht}, for instance:
+
+\begin{thm}
+  For a map $f:A\to B$ of $G$-spaces, the functor of bicategories $f^*: G\mathcal{E}\mathit{x}^{\mathit{fib}}_B \to G\mathcal{E}\mathit{x}^{\mathit{fib}}_A$ from~\cite[Proposition 19.3.4]{maysig:pht} is a symmetric monoidal functor.
+\end{thm}
+\begin{proof}
+  It is straightforward to verify (indeed, the proof of~\cite[Proposition 19.3.4]{maysig:pht} essentially does this) that it is induced by a strong morphism of symmetric monoidal fibrations.
+  Thus, the latter yields a strong symmetric monoidal double functor, and therefore by Theorem~\ref{thm:lcbcfunctor} a symmetric monoidal functor of bicategories.
+\end{proof}
+
+The pushforward $i_!$ of~\cite[Proposition 19.3.1]{maysig:pht}, however, is only a colax functor of bicategories.
+Thus, although it does come from a colax functor of double categories, our machinery does not apply to it.
+In light of this and \S\ref{sec:cartesian}, it would be interesting to investigate both whether our results can be extended to lax and colax functors and to lax and colax transformations.
 
 
 % Local Variables:
