@@ -1,91 +1,76 @@
 %
 \documentclass[12pt]{ociamthesis}
 \usepackage{tikz}
-\newcommand{\id}{\mathrm{id}}
+\usepackage{amsmath}
+\usepackage{rotating}
+
+\input{decls}
 \begin{document}
 
 \begin{equation*}
 \begin{aligned}
 \begin{tikzpicture}[xscale=3.5, yscale=1.5]
-\node (04) at (0,4) {\scriptsize$ \tens( \tens \times \transid)(f \times f \times f)$};
-\node (14) at (1,4) {\scriptsize $ \tens(f \tens \times f)$};
-\node (24) at (2,4) {\scriptsize $f \tens(\tens \times \transid)$};
-\node (34) at (3,4) {\scriptsize $f\tens (\transid \times \tens)$};
-\node (44) at (4,4) {\scriptsize $g \tens (\transid \times \tens)$};
-\node (03) at (0,3) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (13) at (1,3) {\scriptsize $\tens( \transid \times \tens)(f \times f \times f)$};
-\node (23) at (2,3) {\scriptsize $\tens (f \times f \tens)$};
-\node (33) at (3,3) {\scriptsize $f \tens (\transid \times  \tens)$};
-\node (43) at (4,3) {\scriptsize $g \tens (\transid \times  \tens)$};
-\node (02) at (0,2) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (12) at (1,2) {\scriptsize $\tens( \transid \times \tens)(f \times f \times f)$};
-\node (22) at (2,2) {\scriptsize $\tens (f \times f \tens)$};
-\node (32) at (3,2) {\scriptsize $\tens (g \times g \tens)$};
-\node (42) at (4,2) {\scriptsize $g \tens (\transid \times  \tens)$};
+\node (04) at (0,4) {\small$ \tens( \tens \times \transid)(f \times f \times f)$};
+\node (054) at (0,5.5) {\small $ \tens([\tens(f  \times f)] \times f)$};
+\node (14) at (1,6) {\small $ \tens(f \tens \times f)$};
+\node (154) at (1.75,6.5) {\small $ \tens(f \times f)(\tens \times \transid)$};
+\node (24) at (3,6) {\small $f \tens(\tens \times \transid)$};
+\node (34) at (4,5.5) {\small $f\tens (\transid \times \tens)$};
+\node (44) at (4,3.5) {\small $g \tens (\transid \times \tens)$};
+%%%%%%
+\node (03) at (1,4) {\small $\tens( \transid \times \tens)(f \times f \times f)$ };
+\node (13) at (1.5,4.5) {\small $\tens( f \times [\tens(f \times f)])$ };
+\node (23) at (2.5,4.5) {\small $\tens (f \times f \tens)$ };
+\node (33) at (3,5) {\small $\tens (f \times f )(\transid \times \tens)$};
 %%%%%%%
-\node (01) at (0,1) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (11) at (1,1) {\scriptsize $\tens( \transid \times \tens)(f \times f \times f)$};
-\node (21) at (2,1) {\scriptsize $\tens (\transid \times \tens) (g \times g \times g)$};
-\node (31) at (3,1) {\scriptsize $\tens (g \times g \tens)$};
-\node (41) at (4,1) {\scriptsize $g \tens (\transid \times  \tens)$};
+\node (10) at (0,2) {\small $\tens (\tens \times \transid) (g \times g \times g)$};
+\node (21) at (1,1) {\small $\tens ( \transid \times \tens) (g \times g \times g)$};
+\node (31) at (2,.5) {\small $\tens (g \times [\tens (g \times g) ])$};
+\node (32) at (3,1) {\small $\tens (g \times g \tens)$};
+\node (41) at (3.5,2.5) {\small $\tens (g \times g) (\transid \times \tens)$};
 %%%%%%%
-\node (00) at (0,0) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (10) at (1,0) {\scriptsize $\tens( \transid \times \tens)(g \times g \times g)$};
-\node (20) at (2,0) {\scriptsize $\tens (\transid \times \tens) (g \times g \times g)$};
-\node (30) at (3,0) {\scriptsize $\tens (g \times g \tens)$};
-\node (40) at (4,0) {\scriptsize $g \tens (\transid \times  \tens)$};
-%%%%%%%
-\draw[doubleloose] (04) to node[above]{\scriptsize $\looseid_{\tens}(\chi_f \times \looseid_f)$} (14);
-\draw[doubleloose] (14) to node[above]{\scriptsize $\chi_f \looseid_{\tens \times \transid}$} (24);
-\draw[doubleloose] (24) to node[above]{\scriptsize $\looseid_{f}\alpha$} (34);
-\draw[doubleloose] (34) to node[above]{\scriptsize $\beta \looseid_{\tens} \looseid_{\transid \times \tens}$} (44);
+\draw[doubleeq] (04) to  (054);
+\draw[doubleloose] (054) to node[above]{$\substack{\looseid (\chi \times \looseid)}$} (14);
+\draw[doubleeq] (14) to  (154);
+\draw[doubleloose] (154) to node[above]{$\substack{\chi \looseid}$} (24);
+\draw[doubleloose] (24) to node[above]{$\substack{\looseid \alpha}$} (34);
+\draw[doubleloose] (34) to node[right]{$\substack{\beta \looseid \looseid}$} (44);
 %%%%%%%%
-\draw[doubleloose] (03) to node[above]{\scriptsize $\alpha \looseid_{f \times f \times f}$} (13);
-\draw[doubleloose] (13) to node[above]{\scriptsize $\looseid_{\tens} (\looseid_{\transid} \times \chi_f)$} (23);
-\draw[doubleloose] (23) to node[above]{\scriptsize $\chi_f \looseid_{\transid \times \tens}$} (33);
-\draw[doubleloose] (33) to node[above]{\scriptsize $\beta \looseid_{\tens} \looseid_{\transid \times \tens}$} (43);
+\draw[doubleloose] (04) to node[above]{$\substack{\alpha \looseid_{f \times f \times f}}$} (03);
+\draw[doubleeq] (03) to  (13);
+\draw[doubleloose] (13) to node[above]{$\substack{\looseid (\looseid \times \chi)}$} (23);
+\draw[doubleeq] (23) to  (33);
+\draw[doubleloose] (33) to node[above]{$\substack{\chi \looseid}$} (34);
 %%%%%%%%
-\draw[doubleloose] (12) to node[above]{\scriptsize $\looseid_{\tens} (\looseid_{\transid} \times \chi_f)$} (22);
-\draw[doubleloose] (22) to node[above]{\scriptsize $\looseid_{\tens} (\beta \times \beta) \looseid_{\transid \times \tens}$} (32);
-\draw[doubleloose] (32) to node[above]{\scriptsize $\chi_g \looseid_{\transid \times \tens}$} (42);
+\draw[doubleloose] (13) to node[left, yshift=-10pt, xshift=5pt]{$\substack{\looseid \\ (\beta \times \looseid (\beta \times \beta))}$} (31);
+\draw[doubleloose] (23) to node[right]{$\substack{\looseid (\beta \times \beta \looseid)}$} (32);
+\draw[doubleloose] (33) to node[left]{$\substack{\looseid (\beta \times \beta) \looseid}$} (41);
 %%%%%%%%
-\draw[doubleloose] (01) to node[above]{\scriptsize $\alpha \looseid_{f \times f \times f}$} (11);
-\draw[doubleloose] (11) to node[above]{\scriptsize $\looseid_{\tens} \looseid_{\transid \times \tens} (\beta \times \beta \times \beta)$} (21);
-\draw[doubleloose] (21) to node[above]{\scriptsize $\looseid_{\tens} (\looseid_{\transid} \times \chi_g)$} (31);
+\draw[doubleloose] (03) to node[right]{$\substack{\looseid \looseid \\ (\beta \times \beta \times \beta)}$} (21);
 %%%%%%%%
-\draw[doubleloose] (00) to node[above]{\scriptsize $\looseid_{\tens} (\looseid_{\tens} \times \looseid_{\transid})(\beta \times \beta \times \beta)$} (10);
-\draw[doubleloose] (10) to node[above]{\scriptsize $\alpha \looseid_{g \times g \times g}$} (20);
-\draw[doubleloose] (20) to node[above]{\scriptsize $\looseid_{\tens} (\looseid_{\transid} \times \chi_g)$} (30);
-\draw[doubleloose] (30) to node[above]{\scriptsize $\chi_g \looseid_{\transid \times \tens}$} (40);
-%%%%%%%%
-\draw[doubletighteq] (04) to (03);
-\draw[doubletighteq] (34) to (33);
-\draw[doubletighteq] (44) to (43);
+\draw[doubleloose] (04) to node[left]{$\substack{\looseid (\looseid \times \looseid)\\(\beta \times \beta \times \beta)}$} (10);
+\draw[doubleloose] (10) to node[above]{$\substack{\alpha \looseid}$} (21);
+\draw[doubleeq] (21) to  (31);
+\draw[doubleloose] (31) to node[above]{$\substack{\looseid (\looseid \times \chi)}$} (32);
+\draw[doubleeq] (32) to (41);
+\draw[doubleloose] (41) to node[above]{$\substack{\chi \looseid}$} (44);
 %%%%%%%%%
-\draw[doubletighteq] (03) to (02);
-\draw[doubletighteq] (13) to (12);
-\draw[doubletighteq] (23) to (22);
-\draw[doubletighteq] (43) to (42);
-%%%%%%%%%
-\draw[doubletighteq] (02) to (01);
-\draw[doubletighteq] (12) to (11);
-\draw[doubletighteq] (32) to (31);
-\draw[doubletighteq] (42) to (41);
-%%%%%%%%%
-\draw[doubletighteq] (01) to (00);
-\draw[doubletighteq] (21) to (20);
-\draw[doubletighteq] (31) to (30);
-\draw[doubletighteq] (41) to (40);
-%%%%%%%%%
-\node at (1.5,3.5) {\scriptsize $\DDownarrow \omega^f$};
-\node at (3.5,3.5) {\scriptsize $=$};
-\node at (0.5,2) {\scriptsize $=$};
-\node at (1.5,2.5) {\scriptsize $=$};
-\node at (3,2.5) {\scriptsize $\DDownarrow \overline{\Pi^{\beta} \tightid_{\looseid_{\transid \times \tens}}}$};
-\node at (2,1.5) {\scriptsize $\DDownarrow \overline{\tightid_{\looseid} ({\horl}^{-1} \horr \times \Pi^{\beta})}$};
-\node at (3.5,1) {\scriptsize $=$};
-\node at (1,0.5) {\scriptsize $\DDownarrow ({\horl}^{-1} \verc \horr) ({\horr}^{-1} \verc \horl)$};
-\node at (2.5,0.5) {\scriptsize $=$};
+\node at (2,5.5) {$\substack{\DDownarrow \omega^f}$};
+\node at (3.55,3.45) {$\substack{\DDownarrow \iso}$};
+\node at (3.5,4.5) {$\substack{\DDownarrow \Pi^{\beta} \tightid}$};
+\node at (1.25,3) {$\substack{\DDownarrow \iso}$};
+\node at (2.35,4) {$\substack{\DDownarrow \iso}$};
+\node at (2.25,2.75) {$\substack{ \DDownarrow \tightid ({\tightid \times \Pi^{\beta})}}$};
+\node at (2.1,1.35) {$\substack{\DDownarrow \iso}$};
+\node at (3.25,3) {$\substack{\DDownarrow \iso}$};
+\node at (.5,2.5) {$\substack{\DDownarrow \iso}$};
+%\draw[doubleloose] (23) to[in=115, out=-20] node[above]{$\substack{\chi \looseid}$} (41);
+%%%%%%
+\draw[doubleloose] (13) to[in=105, out=-45] node[right, xshift=-25pt, yshift=30pt]{$\substack{\looseid \\(\beta \times S(\Pi))}$} (32);
+\draw[doubleloose] (13) to[in=145, out=-70] node[left, yshift=-30pt, xshift=32pt]{$\substack{\looseid \\(\beta \times T(\Pi))}$} (32);
+%%%%%%
+\draw[doubleloose] (33) to[in=105, out=-5] node[right, xshift=-20pt, yshift=20pt]{$\substack{\looseid \\(\beta \times S(\Pi))}$} (44);
+\draw[doubleloose] (33) to[in=145, out=-70] node[left, yshift=-15pt, xshift=27pt]{$\substack{\looseid \\(\beta \times T(\Pi))}$} (44);
 \end{tikzpicture}
 \end{aligned}
 \end{equation*}
@@ -94,87 +79,69 @@
 \end{equation}
 \begin{equation*}
 \begin{aligned}
-\begin{tikzpicture}[xscale=3.5, yscale=1.5]
-\node (04) at (0,4) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (14) at (1,4) {\scriptsize $\tens(f \tens \times f)$};
-\node (24) at (2,4) {\scriptsize $f \tens(\tens \times \transid)$};
-\node (34) at (3,4) {\scriptsize $f\tens (\transid \times \tens)$};
-\node (44) at (4,4) {\scriptsize $g \tens (\transid \times \tens)$};
+\begin{tikzpicture}[xscale=3.25, yscale=1.5]
+\node (04) at (-.5,4) {\small$ \tens( \tens \times \transid)(f \times f \times f)$};
+\node (054) at (0,5.5) {\small $ \tens([\tens(f  \times f)] \times f)$};
+\node (14) at (1,6) {\small $ \tens(f \tens \times f)$};
+\node (154) at (1.75,6.5) {\small $ \tens(f \times f)(\tens \times \transid)$};
+\node (24) at (3,6) {\small $f \tens(\tens \times \transid)$};
+\node (34) at (4,5.5) {\small $f\tens (\transid \times \tens)$};
+\node (44) at (4,4) {\small $g \tens (\transid \times \tens)$};
 %%%%%%%%%
-\node (03) at (0,3) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (13) at (1,3) {\scriptsize $\tens( f \tens \times f)$};
-\node (23) at (2,3) {\scriptsize $f \tens ( \tens \times \transid)$};
-\node (33) at (3,3) {\scriptsize $g \tens (\tens \times  \transid)$};
-\node (43) at (4,3) {\scriptsize $g \tens (\transid \times \tens)$};
-\node (02) at (0,2) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (12) at (1,2) {\scriptsize $\tens(f \tens \times f )$};
-\node (22) at (2,2) {\scriptsize $\tens (g \tens \times g)$};
-\node (32) at (3,2) {\scriptsize $g \tens (\tens \times \transid)$};
-\node (42) at (4,2) {\scriptsize $g \tens (\transid \times  \tens)$};
+\node (33) at (3.5,3) {\small $g \tens (\tens \times  \transid)$};
+\node (22) at (2,2) {\small $\tens (g  \tens \times g)$};
+\node (42) at (3,2) {\small $\tens (g \times g)(\tens \times \transid)$};
 %%%%%%%
-\node (01) at (0,1) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (11) at (1,1) {\scriptsize $\tens( \tens \times \transid)(g \times g \times g)$};
-\node (21) at (2,1) {\scriptsize $\tens (g \tens \times g)$};
-\node (31) at (3,1) {\scriptsize $g \tens ( \tens \times \transid )$};
-\node (41) at (4,1) {\scriptsize $g \tens (\transid \times  \tens)$};
+\node (10) at (0,2) {\small $\tens (\tens \times \transid) (g \times g \times g)$};
+\node (20) at (1,2) {\small $\tens ([\tens (g \times g)] \times g)$};
+\node (11) at (1,1) {\small $\tens ( \transid \times \tens) (g \times g \times g)$};
+\node (31) at (2,.5) {\small $\tens (g \times [\tens (g \times g) ])$};
+\node (32) at (3,1) {\small $\tens (g \times g \tens)$};
+\node (41) at (4,2) {\small $\tens (g \times g) (\transid \times \tens)$};
 %%%%%%%
-\node (00) at (0,0) {\scriptsize $\tens( \tens \times \transid)(f \times f \times f)$};
-\node (10) at (1,0) {\scriptsize $\tens( \transid \times \tens)(g \times g \times g)$};
-\node (20) at (2,0) {\scriptsize $\tens (\transid \times \tens) (g \times g \times g)$};
-\node (30) at (3,0) {\scriptsize $\tens (g \times g \tens)$};
-\node (40) at (4,0) {\scriptsize $g \tens (\transid \times  \tens)$};
-%%%%%%%
-\draw[doubleloose] (04) to node[above]{\scriptsize $\looseid_{\tens}(\chi_f \times \looseid_f)$} (14);
-\draw[doubleloose] (14) to node[above]{\scriptsize $\chi_f (\looseid_{\tens \times \transid})$} (24);
-\draw[doubleloose] (24) to node[above]{\scriptsize $\looseid_{f}\alpha$} (34);
-\draw[doubleloose] (34) to node[above]{\scriptsize $\beta \looseid_{\tens} \looseid_{\transid \times \tens}$} (44);
+\draw[doubleeq] (04) to  (054);
+\draw[doubleloose] (054) to node[above]{$\substack{\looseid(\chi \times \looseid)}$} (14);
+\draw[doubleeq] (14) to  (154);
+\draw[doubleloose] (154) to node[above]{$\substack{\chi \looseid}$} (24);
+\draw[doubleloose] (24) to node[above]{$\substack{\looseid \alpha}$} (34);
+\draw[doubleloose] (34) to node[right]{$\substack{ \beta \looseid \looseid}$} (44);
 %%%%%%%%
-\draw[doubleloose] (13) to node[above]{\scriptsize $\chi_f \looseid_{\tens \times \transid}$} (23);
-\draw[doubleloose] (23) to node[above]{\scriptsize $\beta \looseid_{\tens} \looseid_{\tens \times \transid}$} (33);
-\draw[doubleloose] (33) to node[above]{\scriptsize $ \looseid_{g} \alpha$} (43);
+\draw[doubleloose] (154) to node[left]{$\substack{ \looseid (\beta \times \beta) \looseid}$} (42);
+\draw[doubleloose] (24) to node[right]{$\substack{\beta \looseid \looseid}$} (33);
+\draw[doubleloose] (33) to node[above,yshift=2pt]{$\substack{ \looseid \alpha}$} (44);
 %%%%%%%%
-\draw[doubleloose] (02) to node[above]{\scriptsize $\looseid_{\tens}(\chi_f \times \looseid_f)$} (12);
-\draw[doubleloose] (12) to node[above]{\scriptsize $\looseid_{\tens} (\beta \times \beta) \looseid_{\tens \times \transid}$} (22);
-\draw[doubleloose] (22) to node[above]{\scriptsize $\chi_g \looseid_{\tens \times \transid}$} (32);
+\draw[doubleloose] (054) to node[left]{$\substack{\looseid \\ ([\looseid( \beta\times \beta)] \times \beta)}$} (20);
+\draw[doubleloose] (14) to node[right]{$\substack{\looseid \\ (\beta \looseid \times \beta)}$} (22);
+\draw[doubleeq] (22) to  (42);
+\draw[doubleloose] (42) to node[above]{$\substack{\chi \looseid}$} (33);
 %%%%%%%%
-\draw[doubleloose] (01) to node[above]{\scriptsize $\looseid_{\tens} \looseid_{\tens \times \transid}(\beta \times \beta \times \beta)$} (11);
-\draw[doubleloose] (11) to node[above]{\scriptsize $\looseid_{\tens} (\chi_g \times \looseid_g)$} (21);
-\draw[doubleloose] (21) to node[above]{\scriptsize $\chi_g \looseid_{\tens \times \transid}$} (31);
-\draw[doubleloose] (31) to node[above]{\scriptsize $\looseid_g \alpha$} (41);
+\draw[doubleeq] (10) to (20);
+\draw[doubleloose] (20) to node[above]{$\substack{\looseid (\chi \times \looseid)}$} (22);
 %%%%%%%%
-\draw[doubleloose] (00) to node[above]{\scriptsize $\looseid_{\tens} (\looseid_{\tens \times \transid})(\beta \times \beta \times \beta)$} (10);
-\draw[doubleloose] (10) to node[above]{\scriptsize $\alpha \looseid_{g \times g \times g}$} (20);
-\draw[doubleloose] (20) to node[above]{\scriptsize $\looseid_{\tens} (\looseid_{\transid} \times \chi_g)$} (30);
-\draw[doubleloose] (30) to node[above]{\scriptsize $\chi_g \looseid_{\transid \times \tens}$} (40);
 %%%%%%%%
-\draw[doubletighteq] (04) to (03);
-\draw[doubletighteq] (14) to (13);
-\draw[doubletighteq] (24) to (23);
-\draw[doubletighteq] (44) to (43);
-%%%%%%%%%
-\draw[doubletighteq] (03) to (02);
-\draw[doubletighteq] (13) to (12);
-\draw[doubletighteq] (33) to (32);
-\draw[doubletighteq] (43) to (42);
-%%%%%%%%%
-\draw[doubletighteq] (02) to (01);
-\draw[doubletighteq] (22) to (21);
-\draw[doubletighteq] (32) to (31);
-\draw[doubletighteq] (42) to (41);
-%%%%%%%%%
-\draw[doubletighteq] (01) to (00);
-\draw[doubletighteq] (11) to (10);
-\draw[doubletighteq] (41) to (40);
-%%%%%%%%%
-\node at (.5,3) {\scriptsize $=$};
-\node at (1.5,3.5) {\scriptsize $=$};
-\node at (3,3.5) {\scriptsize $\DDownarrow ({\horl}^{-1} \verc \horr) ({\horr}^{-1} \verc \horl)$};
-\node at (2,2.5) {\scriptsize $\DDownarrow \overline{\Pi^{\beta} \tightid_{\looseid_{\tens \times \transid}}}$};
-\node at (2.5,1.5) {\scriptsize $=$};
-\node at (.5,.5) {\scriptsize $=$};
-\node at (2.5,0.5) {\scriptsize $\DDownarrow \omega^g$};
-\node at (1,1.5) {\scriptsize $\DDownarrow \overline{\tightid_{\looseid_{\tens}} (\Pi^{\beta} \times  {\horr}^{-1} \verc \horl)}$};
-\node at (3.5,2) {\scriptsize $=$};
+\draw[doubleloose] (04) to node[left]{$\substack{\looseid (\looseid \times \looseid)\\(\beta \times \beta \times \beta)}$} (10);
+\draw[doubleloose] (10) to node[above]{$\substack{\alpha \looseid}$} (21);
+\draw[doubleeq] (21) to  (31);
+\draw[doubleloose] (31) to node[above]{$\substack{\looseid (\looseid \times \chi)}$} (32);
+\draw[doubleeq] (32) to (41);
+\draw[doubleloose] (41) to node[right]{$\substack{\chi \looseid}$} (44);
+%%%%%%%%
+\node at (3.65,4.5) {$\substack{ \DDownarrow \iso}$};
+\node at (2.75, 5.65) {$\substack{ \DDownarrow \iso}$};
+\node at (2.5,5) {$\substack{\DDownarrow \Pi^{\beta} \tightid}$};
+\node at (3,3.5) {$\substack{ \DDownarrow \iso}$};
+\node at (1.75,4.5) {$\substack{\DDownarrow \iso}$};
+\node at (2,1.5) {$\substack{\DDownarrow \omega^g}$};
+\node at (.75,5) {$\substack{ \DDownarrow \iso}$};
+\node at (.85,4) {$\substack{\DDownarrow \tightid (\Pi^{\beta} \times  \tightid)}$};
+\node at (1.25,2.5) {$\substack{ \DDownarrow \iso}$};
+\node at (0,3.25) {$\substack{\DDownarrow \iso}$};
+%%%%%%
+\draw[doubleloose] (054) to[in=105, out=-45] node[right, xshift=-30pt, yshift=25pt]{$\substack{\looseid \\( S(\Pi) \times \beta)}$} (22);
+\draw[doubleloose] (054) to[in=145, out=-70] node[right, yshift=-10pt, xshift=20pt]{$\substack{\looseid \\( T(\Pi) \times \beta)}$} (22);
+%%%%%%
+\draw[doubleloose] (154) to[in=105, out=-45] node[right, xshift=-20pt, yshift=20pt]{$\substack{\beta S(\Pi) }$} (33);
+\draw[doubleloose] (154) to[in=145, out=-70] node[right, yshift=0pt, xshift=0pt]{$\substack{\beta  T(\Pi) }$} (33);
 \end{tikzpicture}
 \end{aligned}
 \end{equation*}

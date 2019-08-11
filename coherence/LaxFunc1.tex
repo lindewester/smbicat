@@ -9,15 +9,15 @@
 
 {\small
 \begin{equation*}
-\begin{tikzpicture}[xscale=2.25, yscale=1.5]
+\begin{tikzpicture}[xscale=1.75, yscale=1.5]
 %%%%Row A
-\node (A0) at (0,5) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (A1) at (1,6) {$\substack{\tens(\tens \times \transid)\\(f \tens \times f \times f)}$};
-\node (A2) at (2,7) {$\substack{\tens(f\tens \times f)\\(\tens \times \transid \times \transid)}$};
+\node (A0) at (-1,4) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
+\node (A1) at (-.5,6.5) {$\substack{\tens(\tens \times \transid)\\(f \tens \times f \times f)}$};
+\node (A2) at (1.5,7.5) {$\substack{\tens(f\tens \times f)\\(\tens \times \transid \times \transid)}$};
 \node (A3) at (3,8) {$\substack{f\tens(\tens \times \transid)\\( \tens \times \transid \times \transid)}$};
-\node (A4) at (4,7) {$\substack{f\tens(\tens \times \transid)\\(\transid \times \tens \times \transid)}$};
-\node (A5) at (5,6) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \tens \times \transid)}$};
-\node (A6) at (6,5) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (A4) at (4.5,7.5) {$\substack{f\tens(\tens \times \transid)\\(\transid \times \tens \times \transid)}$};
+\node (A5) at (6,6.5) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \tens \times \transid)}$};
+\node (A6) at (7,4.5) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
 %%%%%%
 \draw[doubleloose] (A0) to node[above, xshift=-16pt]{$\substack{\looseid \looseid \\(\chi \times \looseid \times \looseid)}$} (A1);
 \draw[doubleloose] (A1) to node[above, xshift=-16pt]{$\substack{\looseid (\chi \times \looseid) \looseid}$}
@@ -27,158 +27,89 @@
 \draw[doubleloose] (A4) to node[above, xshift=16pt]{$\substack{\looseid \alpha \looseid }$} (A5);
 \draw[doubleloose] (A5) to node[above, xshift=16pt]{$\substack{ \looseid \looseid \\ (\looseid \times \alpha)}$} (A6);
 %%%%Row B
-\node (B0) at (0,4) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (B1) at (1,5) {$\substack{\tens(\tens \times \transid)\\(f \tens \times f \times f)}$};
-\node (B2) at (2,6) {$\substack{\tens(f\tens \times f)\\(\tens \times \transid \times \transid)}$};
-\node (B3) at (3,5) {$\substack{\tens(f\tens \times f)\\( \transid \times \tens \times \transid)}$};
-\node (B4) at (4,6) {$\substack{f\tens(\tens \times \transid)\\(\transid \times \tens \times \transid)}$};
-\node (B5) at (5,5) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \tens \times \transid)}$};
-\node (B6) at (6,4) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (B3) at (3,6) {$\substack{\tens(f\tens \times f)\\( \transid \times \tens \times \transid)}$};
 %%%%%%
-\draw[doubleloose] (B0) to node[above, xshift=-16pt]{} (B1);
-\draw[doubleloose] (B1) to node[above, xshift=-16pt]{}
-(B2);
-\draw[doubleloose] (B2) to node[below, xshift=-16pt]{$\substack{\looseid \looseid (\alpha \times \looseid) }$} (B3);
-\draw[doubleloose] (B3) to node[below, xshift=16pt]{$\substack{  \chi \looseid \looseid}$} (B4);
-\draw[doubleloose] (B4) to node[above, xshift=16pt]{} (B5);
-\draw[doubleloose] (B5) to node[above, xshift=16pt]{} (B6);
-%%%% Vertical AB
-\draw[doubletighteq] (A0) to (B0);
-\draw[doubletighteq] (A2) to (B2);
-\draw[doubletighteq] (A4) to (B4);
-\draw[doubletighteq] (A6) to (B6);
+\draw[doubleloose] (A2) to node[below, xshift=-16pt]{$\substack{\looseid \looseid (\alpha \times \looseid) }$} (B3);
+\draw[doubleloose] (B3) to node[below, xshift=16pt]{$\substack{  \chi \looseid \looseid}$} (A4);
 %%%%Row C
-\node (C0) at (0,3) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (C1) at (1,4) {$\substack{\tens(\tens \times \transid)\\(\transid \times \tens \times \transid) \\(f \times f \times f \times f)}$};
-\node (C2) at (2,4) {$\substack{\tens(\tens \times \transid)\\(f\times f\tens \times f)}$};
-\node (C3) at (3,4) {$\substack{\tens(f\tens \times f)\\( \transid \times \tens \times \transid)}$};
-\node (C4) at (4,5) {$\substack{f\tens(\tens \times \transid)\\(\transid \times \tens \times \transid)}$};
-\node (C5) at (5,4) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \tens \times \transid)}$};
-\node (C6) at (6,3) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (C1) at (1.5,3) {$\substack{\tens(\tens \times \transid)\\(\transid \times \tens \times \transid) \\(f \times f \times f \times f)}$};
+\node (C2) at (3,4.5) {$\substack{\tens(\tens \times \transid)\\(f\times f\tens \times f)}$};
 %%%%%%
-\draw[doubleloose] (C0) to node[below, xshift=16pt]{$\substack{\looseid (\alpha \times \looseid)\\ \looseid}$} (C1);
-\draw[doubleloose] (C1) to node[above]{$\substack{\looseid \looseid \\(\chi \times \looseid \times \looseid)}$} (C2);
-\draw[doubleloose] (C2) to node[above]{$\substack{\looseid (\chi \times \looseid) \looseid}$} (C3);
-\draw[doubleloose] (C3) to node[below, xshift=16pt]{$\substack{  \chi \looseid \looseid}$} (C4);
-\draw[doubleloose] (C4) to node[below, xshift=-16pt]{$\substack{\looseid \alpha \looseid}$} (C5);
-\draw[doubleloose] (C5) to node[above, xshift=16pt]{} (C6);
-%%%% Vertical BC
-\draw[doubletighteq] (B0) to (C0);
-\draw[doubletighteq] (B3) to (C3);
-\draw[doubletighteq] (B6) to (C6);
+\draw[doubleloose] (A0) to node[above, xshift=10pt]{$\substack{\looseid (\alpha \times \looseid)\\ \looseid}$} (C1);
+\draw[doubleloose] (C1) to node[above, xshift=-12]{$\substack{\looseid \looseid \\(\chi \times \looseid \times \looseid)}$} (C2);
+\draw[doubleloose] (C2) to node[left]{$\substack{\looseid \\ (\chi \times \looseid) \\ \looseid}$} (B3);
 %%%%Row D
-\node (D0) at (0,2) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (D1) at (1,2) {$\substack{\tens(\tens \times \transid)\\(\transid \times \tens \times \transid) \\(f \times f \times f \times f)}$};
-\node (D2) at (2,3) {$\substack{\tens(\tens \times \transid)\\(f\times f\tens \times f)}$};
-\node (D3) at (3,3) {$\substack{\tens(\transid \times \tens)\\( f \times f\tens \times f)}$};
-\node (D4) at (4,2) {$\substack{\tens(f \times f\tens)\\(\transid \times \tens \times \transid)}$};
-\node (D5) at (5,3) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \tens \times \transid)}$};
-\node (D6) at (6,2) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (D3) at (3.5,3.5) {$\substack{\tens(\transid \times \tens)\\( f \times f\tens \times f)}$};
+\node (D4) at (5.5,3.5) {$\substack{\tens(f \times f\tens)\\(\transid \times \tens \times \transid)}$};
 %%%%%%
-\draw[doubleloose] (D0) to node[above]{$\substack{\looseid (\alpha \times \looseid)\\ \looseid}$} (D1);
-\draw[doubleloose] (D1) to node[above, xshift=-16pt]{$\substack{\looseid \looseid \\(\looseid \times \chi \times \looseid)}$} (D2);
-\draw[doubleloose] (D2) to node[above]{$\substack{\alpha \looseid }$} (D3);
-\draw[doubleloose] (D3) to node[above, xshift=16pt]{$\substack{  \looseid (\looseid \times \chi)\\ \looseid }$} (D4);
-\draw[doubleloose] (D4) to node[above, xshift=-16pt]{$\substack{\chi \looseid \looseid }$} (D5);
-\draw[doubleloose] (D5) to node[above, xshift=16pt]{} (D6);
-%%%% Vertical CD
-\draw[doubletighteq] (C0) to (D0);
-\draw[doubletighteq] (C2) to (D2);
-\draw[doubletighteq] (C5) to (D5);
-\draw[doubletighteq] (C6) to (D6);
+\draw[doubleloose] (C2) to node[right]{$\substack{\alpha \looseid }$} (D3);
+\draw[doubleloose] (D3) to node[above]{$\substack{  \looseid (\looseid \times \chi)\\ \looseid }$} (D4);
+\draw[doubleloose] (D4) to node[right]{$\substack{\chi \looseid \looseid }$} (A5);
 %%%%Row E
-\node (E0) at (0,1) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (E1) at (1,1) {$\substack{\tens(\tens \times \transid)\\(\transid \times \tens \times \transid) \\(f \times f \times f \times f)}$};
-\node (E2) at (2,1) {$\substack{\tens( \transid \times \tens)\\(\transid \times \tens \times \transid) \\ (f\times f \times f \times f)}$};
-\node (E3) at (3,2) {$\substack{\tens(\transid \times \tens)\\( f \times f\tens \times f)}$};
-\node (E4) at (4,1) {$\substack{\tens(f \times f\tens)\\(\transid \times \tens \times \transid)}$};
-\node (E5) at (5,1) {$\substack{\tens(f \times f\tens)\\(\transid   \times \transid \times \tens)}$};
-\node (E6) at (6,1) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (E2) at (2,2) {$\substack{\tens( \transid \times \tens)\\(\transid \times \tens \times \transid) \\ (f\times f \times f \times f)}$};
+\node (E5) at (6.5,1) {$\substack{\tens(f \times f\tens)\\(\transid   \times \transid \times \tens)}$};
 %%%%%%
-\draw[doubleloose] (E0) to node[above]{$\substack{\looseid (\alpha \times \looseid)\\ \looseid}$} (E1);
-\draw[doubleloose] (E1) to node[above]{$\substack{\alpha \looseid \looseid}$} (E2);
-\draw[doubleloose] (E2) to node[below, xshift=14pt]{$\substack{\looseid \looseid \\ (\looseid \times \chi \times \looseid)}$} (E3);
-\draw[doubleloose] (E3) to node[below, xshift=-14pt]{$\substack{  \looseid (\looseid \times \chi)\\ \looseid }$} (E4);
-\draw[doubleloose] (E4) to node[above]{$\substack{\looseid \looseid \\ (\looseid \times \alpha ) }$} (E5);
-\draw[doubleloose] (E5) to node[above]{$\substack{ \chi \looseid \looseid}$} (E6);
-%%%% Vertical DE
-\draw[doubletighteq] (D0) to (E0);
-\draw[doubletighteq] (D1) to (E1);
-\draw[doubletighteq] (D3) to (E3);
-\draw[doubletighteq] (D4) to (E4);
-\draw[doubletighteq] (D6) to (E6);
+\draw[doubleloose] (C1) to node[left]{$\substack{\alpha \looseid \looseid}$} (E2);
+\draw[doubleloose] (E2) to node[below, xshift=14pt]{$\substack{\looseid \looseid \\ (\looseid \times \chi \times \looseid)}$} (D3);
+\draw[doubleloose] (D4) to node[right]{$\substack{\looseid \looseid \\ (\looseid \times \alpha ) }$} (E5);
+\draw[doubleloose] (E5) to node[right, xshift=2pt]{$\substack{ \chi \looseid \looseid}$} (A6);
 %%%%Row F
-\node (F0) at (0,0) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (F1) at (1,0) {$\substack{\tens(\tens \times \transid)\\(\transid \times \tens \times \transid) \\(f \times f \times f \times f)}$};
-\node (F2) at (2,0) {$\substack{\tens( \transid \times \tens)\\(\transid \times \tens \times \transid) \\ (f\times f \times f \times f)}$};
-\node (F3) at (3,-1) {$\substack{\tens(\transid \times \tens)\\( \transid \times \transid \times \tens) \\ ( f \times f \times f \times f)}$};
+\node (F3) at (2,-1) {$\substack{\tens(\transid \times \tens)\\( \transid \times \transid \times \tens) \\ ( f \times f \times f \times f)}$};
 \node (F4) at (4,-1) {$\substack{\tens(\transid \times \tens) \\(f \times f \times f\tens)}$};
-\node (F5) at (5,0) {$\substack{\tens(f \times f\tens)\\(\transid   \times \transid \times \tens)}$};
-\node (F6) at (6,0) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
 %%%%%%
-\draw[doubleloose] (F0) to node[above]{$\substack{\looseid (\alpha \times \looseid)\\ \looseid}$} (F1);
-\draw[doubleloose] (F1) to node[above]{$\substack{\alpha \looseid \looseid}$} (F2);
-\draw[doubleloose] (F2) to node[above, xshift=16pt]{$\substack{\looseid (\looseid \times \alpha) \looseid}$} (F3);
+\draw[doubleloose] (E2) to node[right]{$\substack{\looseid \\ (\looseid \times \alpha)\\ \looseid}$} (F3);
 \draw[doubleloose] (F3) to node[above]{$\substack{  \looseid \looseid \\ (\looseid \times \looseid \times \chi) }$} (F4);
-\draw[doubleloose] (F4) to node[above, xshift=-16pt]{$\substack{\looseid (\looseid \times \chi) }$} (F5);
-\draw[doubleloose] (F5) to node[above]{$\substack{ \chi \looseid \looseid}$} (F6);
-%%%% Vertical EF
-\draw[doubletighteq] (E0) to (F0);
-\draw[doubletighteq] (E2) to (F2);
-\draw[doubletighteq] (E5) to (F5);
-\draw[doubletighteq] (E6) to (F6);
+\draw[doubleloose] (F4) to node[above, xshift=-16pt]{$\substack{\looseid (\looseid \times \chi) }$} (E5);
 %%%%Row G
-\node (G0) at (0,-1) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (G1) at (1,-2) {$\substack{\tens(\transid \times \tens)\\(\tens \times \transid \times \transid) \\(f \times f \times f \times f)}$};
-\node (G2) at (2,-2) {$\substack{\tens( \tens \times \transid)\\(\transid \times \transid \times \tens) \\ (f\times f \times f \times f)}$};
-\node (G3) at (3,-2) {$\substack{\tens(\transid \times \tens)\\( \transid \times \transid \times \tens) \\ ( f \times f \times f \times f)}$};
-\node (G4) at (4,-2) {$\substack{\tens(\transid \times \tens) \\(f \times f \times f\tens)}$};
-\node (G5) at (5,-2) {$\substack{\tens(f \times f\tens)\\(\transid   \times \transid \times \tens)}$};
-\node (G6) at (6,-1) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (G1) at (-1,1) {$\substack{\tens(\transid \times \tens)\\(\tens \times \transid \times \transid) \\(f \times f \times f \times f)}$};
+\node (G2) at (0,-.5) {$\substack{\tens( \tens \times \transid)\\(\transid \times \transid \times \tens) \\ (f\times f \times f \times f)}$};
 %%%%%%
-\draw[doubleloose] (G0) to node[below, xshift=-16pt]{$\substack{\looseid (\alpha \times \looseid)\\ \looseid}$} (G1);
+\draw[doubleloose] (A0) to node[below, xshift=-16pt]{$\substack{\alpha  \looseid  \looseid}$} (G1);
 \draw[doubleeq] (G1) to node[above]{} (G2);
-\draw[doubleloose] (G2) to node[above]{$\substack{\alpha \looseid \looseid}$} (G3);
-\draw[doubleloose] (G3) to node[above]{$\substack{  \looseid \looseid \\ (\looseid \times \looseid \times \chi) }$} (G4);
-\draw[doubleloose] (G4) to node[above]{$\substack{\looseid (\looseid \times \chi) }$} (G5);
-\draw[doubleloose] (G5) to node[below, xshift=16pt]{$\substack{ \chi \looseid \looseid}$} (G6);
-%%%% Vertical EF
-\draw[doubletighteq] (F0) to (G0);
-\draw[doubletighteq] (F3) to (G3);
-\draw[doubletighteq] (F6) to (G6);
+\draw[doubleloose] (G2) to node[above]{$\substack{\alpha \looseid \looseid}$} (F3);
 %%%%%3-cells
-\node at (3,6.5) {$\iso ({\horl}^{-1}\horr) ({\horr}^{-1} \horl)$};
-\node at (1.5,4.75) {$\DDownarrow \widehat{\tightid \omega}$};
-\node at (3.8,3.5) {$\DDownarrow \widehat{\omega \tightid }$};
-\node at (2,2) {\begin{tabular}{c}$\iso $\\$({\horr}^{-1} \horl)({\horl}^{-1}\horr) $\end{tabular}};
-\node at (5,2) {\begin{tabular}{c} $\iso$ \\ $ ({\horl}^{-1}\horr)({\horr}^{-1} \horl) $\end{tabular}};
-\node at (3.5,0.25) {$\DDownarrow \widehat{ \tightid \omega}$};
-\node at (1.5,-1) {$\DDownarrow \widehat{ \tightid \omega}$};
-\node at (1,5.5) {$=$};
-\node at (5,5.5) {$=$};
-\node at (5,4.5) {$=$};
-\node at (1,3) {$=$};
-\node at (5.5,3) {$=$};
-\node at (.5,1.5) {$=$};
-\node at (1,.5) {$=$};
-\node at (3.5,2) {$=$};
-\node at (5.5,.5) {$=$};
-\node at (5,-1) {$=$};
+\node at (3,7) {$\DDownarrow \iso $};
+\node at (1,6.5) {$\DDownarrow \iso $};
+\node at (1,5) {$\DDownarrow \tightid (\omega \times \tightid)$};
+\node at (1,4) {$\DDownarrow \iso $};
+\node at (4.5,6.75) {$\DDownarrow \iso$};
+\node at (4.5,5.5) {$\DDownarrow \omega \tightid$};
+\node at (4.5,4.25) {$\DDownarrow \iso$};
+\node at (2.5,3) {$\DDownarrow \iso$};
+\node at (6.25,3.75) {$\DDownarrow \iso$};
+\node at (4.25,3) {$\DDownarrow \iso$};
+\node at (4,1.5) {$\DDownarrow  \tightid \omega$};
+\node at (4.25,0) {$\DDownarrow \iso$};
+\node at (1.75,1.25) {$\DDownarrow \iso$};
+\node at (.5,1.55) {$\DDownarrow \pi \tightid $};
+\node at (-.25,.5) {$\DDownarrow \iso$};
+%%%%%Extra cells
+\draw[doubleloose] (A0) to[out=55, in=180] node[above, yshift=5pt]{$\substack{\looseid (S(\omega) \times \looseid) }$} (B3);
+\draw[doubleloose] (A0) to[out=15, in=225] node[below,yshift=-5pt]{$\substack{\looseid (T(\omega) \times \looseid)  }$}(B3);
+%%%%%Extra cells
+\draw[doubleloose] (C2) to[out=55, in=180] node[above, yshift=5pt]{$\substack{S(\omega) \looseid }$} (A5);
+\draw[doubleloose] (C2) to[out=15, in=225] node[below,yshift=-5pt]{$\substack{T(\omega) \looseid  }$}(A5);
+%%%%%Extra cells
+\draw[doubleloose] (A0) to[out=-35, in=105] node[right, yshift=5pt]{$\substack{S(\pi) \\ \looseid }$} (F3);
+\draw[doubleloose] (A0) to[out=-75, in=145] node[left,yshift=-5pt]{$\substack{T(\pi) \\ \looseid  }$}(F3);
+%%%%%Extra cells
+\draw[doubleloose] (E2) to[out=10, in=140] node[above]{$\substack{\looseid (\looseid \times S(\omega) )}$} (E5);
+\draw[doubleloose] (E2) to[out=-45, in=190] node[below]{$\substack{\looseid (\looseid \times t(\omega) )}$}(E5);
 \end{tikzpicture} 
 \end{equation*}}
+{\small
 \begin{equation}\label{eq:laxfunc1}
 =
 \end{equation}
-{\small
 \begin{equation*}
 \begin{tikzpicture}[xscale=2.25, yscale=1.5]
 %%%%Row A
 \node (A0) at (0,5) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (A1) at (1,6) {$\substack{\tens(\tens \times \transid)\\(f \tens \times f \times f)}$};
-\node (A2) at (2,7) {$\substack{\tens(f\tens \times f)\\(\tens \times \transid \times \transid)}$};
+\node (A1) at (0,6.5) {$\substack{\tens(\tens \times \transid)\\(f \tens \times f \times f)}$};
+\node (A2) at (1.5,8) {$\substack{\tens(f\tens \times f)\\(\tens \times \transid \times \transid)}$};
 \node (A3) at (3,8) {$\substack{f\tens(\tens \times \transid)\\( \tens \times \transid \times \transid)}$};
-\node (A4) at (4,7) {$\substack{f\tens(\tens \times \transid)\\(\transid \times \tens \times \transid)}$};
-\node (A5) at (5,6) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \tens \times \transid)}$};
+\node (A4) at (4.5,8) {$\substack{f\tens(\tens \times \transid)\\(\transid \times \tens \times \transid)}$};
+\node (A5) at (6,6.5) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \tens \times \transid)}$};
 \node (A6) at (6,5) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
 %%%%%%
 \draw[doubleloose] (A0) to node[above, xshift=-16pt]{$\substack{\looseid \looseid \\(\chi \times \looseid \times \looseid)}$} (A1);
@@ -189,142 +120,64 @@
 \draw[doubleloose] (A4) to node[above, xshift=16pt]{$\substack{\looseid \alpha \looseid }$} (A5);
 \draw[doubleloose] (A5) to node[above, xshift=16pt]{$\substack{ \looseid \looseid \\ (\looseid \times \alpha)}$} (A6);
 %%%%Row B
-\node (B0) at (0,4) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (B1) at (1,5) {$\substack{\tens(\tens \times \transid)\\(f \tens \times f \times f)}$};
-\node (B2) at (2,6) {$\substack{\tens(f\tens \times f)\\(\tens \times \transid \times \transid)}$};
-\node (B3) at (3,7) {$\substack{f\tens(\tens \times \transid)\\( \tens \times \transid \times \transid)}$};
-\node (B4) at (4,6) {$\substack{f\tens(\transid \times \tens)\\(\tens \times \transid \times  \transid)}$};
-\node (B5) at (5,5) {$\substack{f\tens(\tens \times \transid)\\(\transid  \times \transid \times \tens )}$};
-\node (B6) at (6,4) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (B4) at (3,6) {$\substack{f\tens(\transid \times \tens)\\(\tens \times \transid \times  \transid)}$};
+\node (B5) at (4,5) {$\substack{f\tens(\tens \times \transid)\\(\transid  \times \transid \times \tens )}$};
 %%%%%%
-\draw[doubleloose] (B0) to node[above, xshift=-16pt]{} (B1);
-\draw[doubleloose] (B1) to node[above, xshift=-16pt]{}
-(B2);
-\draw[doubleloose] (B2) to  (B3);
-\draw[doubleloose] (B3) to node[above, xshift=16pt]{$\substack{  \looseid \alpha \looseid}$} (B4);
+\draw[doubleloose] (A3) to node[above, xshift=16pt]{$\substack{  \looseid \alpha \looseid}$} (B4);
 \draw[doubleeq] (B4) to  (B5);
-\draw[doubleloose] (B5) to node[above, xshift=16pt]{$\substack{\looseid \alpha \looseid}$} (B6);
-%%%% Vertical BC
-\draw[doubletighteq] (A0) to (B0);
-\draw[doubletighteq] (A3) to (B3);
-\draw[doubletighteq] (A6) to (B6);
+\draw[doubleloose] (B5) to node[above, xshift=16pt]{$\substack{\looseid \alpha \looseid}$} (A6);
 %%%%Row C
-\node (C0) at (0,3) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (C1) at (1,4) {$\substack{\tens(\tens \times \transid)\\(f \tens \times f \times f)}$};
-\node (C2) at (2,4) {$\substack{\tens(\transid \times \tens)\\(f\tens \times f \times f)}$};
-\node (C3) at (3,5) {$\substack{\tens(f \times f\tens)\\(\tens \times \transid \times  \transid)}$};
-\node (C4) at (4,5) {$\substack{f\tens(\transid \times \tens)\\(\tens \times \transid \times  \transid)}$};
-\node (C5) at (5,4) {$\substack{f\tens(\tens \times \transid)\\(\transid  \times \transid \times \tens )}$};
-\node (C6) at (6,3) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (C2) at (1.5,4.5) {$\substack{\tens(\transid \times \tens)\\(f\tens \times f \times f)}$};
+\node (C3) at (2.5,5) {$\substack{\tens(f \times f\tens)\\(\tens \times \transid \times  \transid)}$};
 %%%%%%
-\draw[doubleloose] (C0) to node[above, xshift=-16pt]{} (C1);
-\draw[doubleloose] (C1) to node[above]{$\substack{\alpha \looseid}$}
+\draw[doubleloose] (A1) to node[above]{$\substack{\alpha \looseid}$}
 (C2);
 \draw[doubleloose] (C2) to node[above,  xshift=-16pt]{$\substack{\looseid (\looseid \times \chi)\\ \looseid}$} (C3);
-\draw[doubleloose] (C3) to node[above]{$\substack{  \chi \looseid}$} (C4);
-\draw[doubleeq] (C4) to  (C5);
-\draw[doubleloose] (C5) to node[above, xshift=16pt]{$\substack{\looseid \alpha \looseid}$} (C6);
-%%%% Vertical BC
-\draw[doubletighteq] (B0) to (C0);
-\draw[doubletighteq] (B1) to (C1);
-\draw[doubletighteq] (B4) to (C4);
-\draw[doubletighteq] (B6) to (C6);
+\draw[doubleloose] (C3) to node[above]{$\substack{  \chi \looseid}$} (B4);
 %%%%Row G
-\node (G0) at (0,2) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
 \node (G1) at (1,2) {$\substack{\tens(\transid \times \tens)\\( \tens \times \transid \times \transid)\\ (f \times f \times f \times f)}$};
-\node (G2) at (2,3) {$\substack{\tens(\transid \times \tens)\\(f\tens \times f \times f)}$};
-\node (G3) at (3,3) {$\substack{\tens(f \times f\tens)\\(\tens \times \transid \times  \transid)}$};
-\node (G4) at (4,3) {$\substack{f\tens(\transid \times \tens)\\(\tens \times \transid \times  \transid)}$};
-\node (G5) at (5,3) {$\substack{f\tens(\tens \times \transid)\\(\transid  \times \transid \times \tens )}$};
-\node (G6) at (6,2) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
 %%%%%%
-\draw[doubleloose] (G0) to node[above]{$\substack{\alpha \looseid \looseid}$} (G1);
+\draw[doubleloose] (A0) to node[above]{$\substack{\alpha \looseid \looseid}$} (G1);
 \draw[doubleloose] (G1) to node[above, xshift=-16pt, yshift=-4pt]{$\substack{ \looseid \looseid \\(\chi \times \looseid \times \looseid)}$}
-(G2);
-\draw[doubleloose] (G2) to node[above]{$\substack{\looseid (\looseid \times \chi)\\ \looseid}$} (G3);
-\draw[doubleloose] (G3) to node[above]{$\substack{  \chi \looseid}$} (G4);
-\draw[doubleeq] (G4) to  (G5);
-\draw[doubleloose] (G5) to node[above, xshift=16pt]{$\substack{\looseid \alpha \looseid}$} (G6);
-%%%% Vertical CG
-\draw[doubletighteq] (C0) to (G0);
-\draw[doubletighteq] (C2) to (G2);
-\draw[doubletighteq] (C6) to (G6);
+(C2);
 %%%%Row D
-\node (D0) at (0,1) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (D1) at (1,1) {$\substack{\tens(\transid \times \tens)\\( \tens \times \transid \times \transid)\\ (f \times f \times f \times f)}$};
 \node (D2) at (2,1) {$\substack{\tens (\transid \times f \tens ) \\ (\tens \times \transid \times \transid ) \\ (  f \times f \times \transid \times \transid)}$};
-\node (D3) at (3,2) {$\substack{\tens(\transid \times f\tens)\\(f\tens \times \transid \times  \transid)}$};
-\node (D4) at (4,2) {$\substack{f\tens(\transid \times \tens)\\(\tens \times \transid \times  \transid)}$};
-\node (D5) at (5,2) {$\substack{f\tens(\tens \times \transid)\\(\transid  \times \transid \times \tens )}$};
-\node (D6) at (6,1) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
-%%%%%%
-\draw[doubleloose] (D0) to node[above]{$\substack{\alpha \looseid \looseid}$} (D1);
-\draw[doubleloose] (D1) to node[above]{$\substack{  \looseid \\(\looseid \times \chi) \looseid}$}
+%%%%%%%%%
+\draw[doubleloose] (G1) to node[above]{$\substack{  \looseid \\(\looseid \times \chi) \looseid}$}
 (D2);
-\draw[doubleloose] (D2) to node[below,  xshift=16pt]{$\substack{\looseid \looseid \\(\chi \times \looseid \times \looseid)}$} (D3);
-\draw[doubleloose] (D3) to node[below]{$\substack{  \chi \looseid \looseid}$} (D4);
-\draw[doubleeq] (D4) to  (D5);
-\draw[doubleloose] (D5) to node[below, xshift=-16pt]{$\substack{\looseid \alpha \looseid}$} (D6);
-%%%% Vertical CD
-\draw[doubletighteq] (G0) to (D0);
-\draw[doubletighteq] (G1) to (D1);
-\draw[doubletighteq] (G3) to (D3);
-\draw[doubletighteq] (G6) to (D6);
+\draw[doubleloose] (D2) to node[below,  xshift=16pt]{$\substack{\looseid \looseid \\(\chi \times \looseid \times \looseid)}$} (C3);
 %%%%Row E
-\node (E0) at (0,0) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (E1) at (1,0) {$\substack{\tens( \transid \times \tens)\\(\tens \times \transid \times \transid) \\(f \times f \times f \times f)}$};
-\node (E2) at (2,0) {$\substack{\tens (\transid \times f \tens ) \\ (\tens \times \transid \times \transid ) \\ (  f \times f \times \transid \times \transid)}$};
-\node (E3) at (3,0) {$\substack{\tens (\tens \times \transid) \\ (f \times f \times f\tens)}$};
-\node (E4) at (4,0) {$\substack{\tens (\tens \times \transid) \\ (f \times f \times f\tens)}$};
-\node (E5) at (5,0) {$\substack{\tens(f \times f\tens)\\(\transid  \times \transid \times \tens)}$};
-\node (E6) at (6,0) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (E3) at (3,1) {$\substack{\tens (\tens \times \transid) \\ (f \times f \times f\tens)}$};
+\node (E4) at (4,1) {$\substack{\tens (\tens \times \transid) \\ (f \times f \times f\tens)}$};
+\node (E5) at (5,1) {$\substack{\tens(f \times f\tens)\\(\transid  \times \transid \times \tens)}$};
 %%%%%%
-\draw[doubleloose] (E0) to node[above]{$\substack{\alpha \looseid \looseid}$} (E1);
-\draw[doubleloose] (E1) to node[above,]{$\substack{ \looseid \\ (\looseid \times \chi) \looseid}$}
-(E2);
-\draw[doubleeq] (E2) to (E3);
+\draw[doubleeq] (D2) to (E3);
 \draw[doubleloose] (E3) to node[above]{$\substack{\alpha \looseid \looseid}$} (E4);
 \draw[doubleloose] (E4) to node[above]{$\substack{\looseid (\looseid \times \chi)\\ \looseid}$}  (E5);
-\draw[doubleloose] (E5) to node[above]{$\substack{\chi \looseid \looseid}$} (E6);
-%%%% Vertical DE
-\draw[doubletighteq] (D0) to (E0);
-\draw[doubletighteq] (D2) to (E2);
-\draw[doubletighteq] (D6) to (E6);
+\draw[doubleloose] (E5) to node[above]{$\substack{\chi \looseid \looseid}$} (A6);
 %%%%Row F
-\node (F0) at (0,-1) {$\substack{\tens(\tens \times \transid)\\(\tens \times \transid \times \transid)\\(f \times f \times f \times f)}$};
-\node (F1) at (1,-1) {$\substack{\tens( \transid \times \tens)\\(\tens \times \transid \times \transid) \\(f \times f \times f \times f)}$};
-\node (F2) at (2,-1) {$\substack{\tens(\tens \times \transid)\\(\transid \times \transid \times \tens) \\(f\times f \times f \times f) }$};
-\node (F3) at (3,-1) {$\substack{\tens(\transid \times \tens)\\(\transid \times \transid \times \tens) \\ (f\times f \times f \times f)  }$};
-\node (F4) at (4,-1) {$\substack{\tens(\transid \times \tens)\\(f \times f \times f \tens)}$};
-\node (F5) at (5,-1) {$\substack{\tens(f \times f\tens)\\(\transid  \times \transid \times \tens)}$};
-\node (F6) at (6,-1) {$\substack{f\tens(\transid \times \tens)\\(\transid  \times \transid \times \tens)}$};
+\node (F2) at (2,0) {$\substack{\tens(\tens \times \transid)\\(\transid \times \transid \times \tens) \\(f\times f \times f \times f) }$};
+\node (F3) at (3,0) {$\substack{\tens(\transid \times \tens)\\(\transid \times \transid \times \tens) \\ (f\times f \times f \times f)  }$};
 %%%%%%
-\draw[doubleloose] (F0) to node[above]{$\substack{\alpha \looseid \looseid}$} (F1);
-\draw[doubleeq] (F1) to (F2);
+\draw[doubleeq] (G1) to (F2);
 \draw[doubleloose] (F2) to node[above]{$\substack{\alpha \looseid \looseid}$} (F3);
-\draw[doubleloose] (F3) to node[above]{$\substack{\looseid \looseid \\(  \looseid \times \looseid \times \chi)}$} (F4);
-\draw[doubleloose] (F4) to node[above]{$\substack{\looseid (\looseid \times \chi) \\ \looseid}$}  (F5);
-\draw[doubleloose] (F5) to node[above]{$\substack{\chi \looseid \looseid}$} (F6);
-%%%% Vertical EF
-\draw[doubletighteq] (E0) to (F0);
-\draw[doubletighteq] (E1) to (F1);
-\draw[doubletighteq] (E4) to (F4);
-\draw[doubletighteq] (E6) to (F6);
+\draw[doubleloose] (F3) to node[above]{$\substack{\looseid \looseid \\(  \looseid \times \looseid \times \chi)}$} (E4);
 %%%% 3-cells
-\node at (1.5,6) {$=$};
-\node at (4.5,6) {$\DDownarrow \widehat{\tightid \Pi} $};
-\node at (5,4.5) {$= $};
-\node at (2.5,5.5) {$\DDownarrow \widehat{\omega \tightid} $};
-\node at (.5, 4) {$= $};
-\node at (3.5, 4) {$= $};
-\node at (1, 3) {$\DDownarrow ({\horr}^{-1}\horl) \tightid ({\horl}^{-1} \horr) $};
-\node at (2, 2) {$\DDownarrow \tightid ({\horr}^{-1}\horl) ({\horl}^{-1} \horr) $};
-\node at (4.5, 2.5) {$=$};
-\node at (1, .5) {$=$};
-\node at (4, 1) {$\DDownarrow \widehat{\omega \tightid}$};
-\node at (.5, -.5) {$=$};
-\node at (5, -.5) {$=$};
-\node at (2.5, -.5) {$\DDownarrow (\tightid {\horr}^{-1}\horl) \tightid ({\horl}^{-1} \horr) $};
+\node at (4.5,6.5) {$\DDownarrow \tightid \pi $};
+\node at (1.5,6) {$\DDownarrow \omega \tightid $};
+\node at (.5, 5) {$\DDownarrow \iso$};
+\node at (2, 3) {$\DDownarrow \iso$};
+\node at (4, 3) {$\DDownarrow \omega \tightid$};
+\node at (2.5, .5) {$\DDownarrow \iso $};
+%%%%%Extra arrows
+\draw[doubleloose] (A1) to[out=25, in=145 ] node[above] {$\substack{S(\omega) \looseid}$} (B4);
+\draw[doubleloose] (A1) to[out=-35, in=205 ] node[below] {$\substack{T(\omega) \looseid}$} (B4);
+%%%%%Extra arrows
+\draw[doubleloose] (A3) to[out=-15, in=125 ] node[above, xshift=10] {$\substack{\looseid S(\pi)}$} (A6);
+\draw[doubleloose] (A3) to[out=-60, in=160 ] node[below, xshift=-10] {$\substack{\looseid T(\pi) }$} (A6);
+%%%%%Extra arrows
+\draw[doubleloose] (D2) to[out=60, in=200 ] node[above, xshift=-10] {$\substack{ S(\omega) \looseid}$} (A6);
+\draw[doubleloose] (D2) to[out=15, in=240 ] node[below, xshift=10] {$\substack{T(\omega) \looseid }$} (A6);
 \end{tikzpicture} 
 \end{equation*}}
 \end{document} 
