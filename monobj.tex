@@ -19,8 +19,6 @@ Such structures are obtained by abstracting the definitions of monoidal, braided
 Under this translation pseudonatural transformations become \emph{loose} 2-cells and modifications become globular 3-cells.
 Recall that the loose 2-cells in \fDblf\ (which has no nonidentity tight 2-morphisms) are the (tight) transformations, while those in \fBicat\ are exactly the pseudonatural transformations (its tight 2-morphisms are icons).
 We will define monoidal, braided, sylleptic and symmetric objects, 1-cell, 2-cells, icons and 3-cells by taking instances of bicategories, functors, pseudonatural transformations, and modifications in the original definitions as objects, 1-cells, 2-cells, and 3-cells, respectively. 
-
-
 We give the coherence axioms for monoidal objects, 1-cells, 2-cells and 3-cells explicitly, but leave the axioms for braided, symmetric and sylleptic monoidal structures as an exercise for the reader. 
 
 Before we give the definitions of monoidal cells, we unfold the structure of a locally cubical bicategory and fix our notation. In addition to objects, locally cubical bicategories have 4 different elements, which together form the hom-double categories. We call the objects, loose 1-cells, tight 1-cells, and 2-morphisms of the hom-double category '1-cells', 'loose 2-cells', 'tight 2-cells' and '3-cells' of the locally cubical bicategory, respectively. The structure contains three types of composition. We will adopt the notation introduced for intercategories~\cite{gp:intercategories-i}, of which locally cubical bicategories are a special case. Firstly, we have loose composition ``$\horc$" within the hom- double categories. This gives us composition of loose 2-cells along a 1-cell boundary and of 3-cells along a tight 2-cell boundary. We write this composition in the order of diagrammatic composition: $\alpha \horc \beta$, meaning ``$\beta$ after $\alpha$". We write $\looseid_{f}$ and $\looseid_{\alpha}$ for the loose identity on a 1-cell $f$ and a tight 2-cell $\alpha$, respectively. Loose composition is weakly associative and loose identities hold up to isomorphism. 
@@ -134,7 +132,7 @@ u: \sigma_B \looseid_{f \times f} \horc \chi  \looseid_{\tau} \looseRightarrow \
 satisfying braiding axioms analogous to (BHA1) and (BHA2) given in~\cite[p141-142]{mccrudden:bal-coalgb}. 
 If $A$ and $B$ are sylleptic or symmetric, then $f$ is {\bf sylleptic} or {\bf symmetric}, respectively, if it is braided and the 3-cells defining the braided monoidal structure satisfy an additional axiom analogous to (SHA1) of~\cite[p145]{mccrudden:bal-coalgb}.
 
-A \textbf{(braided, sylleptic, or symmetric) colax monoidal 1-cell} in \fB is simply a lax one in $\fB\lco$.
+A \textbf{(braided, sylleptic, or symmetric) colax monoidal 1-cell} in \fB  is simply a lax one in $\fB\lco$.
 Thus it is equipped with loose 2-cells $\bar{\chi}$ and $\bar{\iota}$ which go in the opposite direction of $\chi$ and $\iota$, respectively, and appropriate invertible 3-cells.
 % \begin{align*}
 %  \bar{\omega}&: \bar{\chi} \looseid_{\transid \times \tens}  \horc  \looseid_{\tens}(\looseid_f \times \bar{\chi})   \horc  \alpha^{-1}\looseid_{f \times f \times f} \RRightarrow \looseid_f \alpha^{-1}  \horc  \bar{\chi} \looseid_{\tens \times \transid} \horc  \looseid_{\tens}(\bar{\chi} \times \looseid_f)   \\ 
