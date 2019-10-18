@@ -23,8 +23,8 @@ Let ${\mathbb{D}}$ be a double category. We can define a new double category $\l
 
 \begin{itemize}
 \item 0-cells are {\bf monoids} $(a, A,\tinymult[gray dot], \tinyunit[gray dot])$, in the monoidal category ${\mathbb{D}_1}$. 
-\item 1-morphisms $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf monoid homomorphism}
-\item horizontal 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf bimodules}
+\item tight 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf monoid homomorphism}
+\item loose 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf bimodules}
 \item 2-cells $({\bf M},M) \rightarrow ({\bf N},N)$ from a $A$-$B$-bimodule to a $C$-$D$-bimodule are $(\phi, \psi)$-equivariant maps, where $\phi:  A\rightarrow C$, $\psi: B \rightarrow D$ are monoid homomorphisms.  
 \end{itemize}
 %\begin{itemize}
@@ -32,7 +32,7 @@ Let ${\mathbb{D}}$ be a double category. We can define a new double category $\l
 %\item 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are 1-cells ${\bf M}:A \rightarrow B$ with the structure of an $A-B-$bimodule.
 %\item 2-cells are 2-morphisms in ${\cat B}$ that are bimodule homomorphisms.
 %\end{itemize}
-Structural data regarding this construction, such as horizontal composition, is described in~\cite{shulman:frbi}, where the double category is called $\mathbb{M}od(\mathbb{D})$. A more detailed description in the case that $\mathbb{D}$ is a monoidal category is given in~\cite{westerPhDthesis}.
+Structural data regarding this construction, such as loose composition, is described in~\cite{shulman:frbi}, where the double category is called $\mathbb{M}od(\mathbb{D})$. A more detailed description in the case that $\mathbb{D}$ is a monoidal category is given in~\cite{westerPhDthesis}.
 \end{defn}
 
 For the double category to be well-defined, we need certain coequalizers in $\mathbb{D}$ to exist. To this end we recall the definition below from~\cite[Definition 11.4]{shulman:frbi}.
@@ -46,7 +46,7 @@ Let $\mathbb{D}$ be a monoidal double category with local coequalizers and compa
 \end{prop}
 
 \begin{proof}
-By~\cite[Examples 9.2]{shulman:frbi}, the double category $\cAlg[\mathbb{D}]$ is symmetric monoidal and has companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that its horizontal bicategory $\cAlg[\mathbb{D}]$ is symmetric monoidal.
+By~\cite[Examples 9.2]{shulman:frbi}, the double category $\cAlg[\mathbb{D}]$ is symmetric monoidal and has companions and conjoints. Therefore, we may apply Theorem~\ref{thm:lcbcfunctor}, which states that its loose bicategory $\cAlg[\mathbb{D}]$ is symmetric monoidal.
 \end{proof}
 
 
@@ -144,7 +144,7 @@ Recently, the bicategory of Frobenius algebras, bimodules and bimodule homomorph
 %We will write $\bAlg_{S}[{\bf C}]$ and $\cAlg_{S}[{\bf C}]$ for $S\subset\{spec, \mbox{Frob}, c, sym\}$ for the sub-double categories and sub-bicategories of $\bAlg[{\bf C}]$ and $\cAlg[{\bf C}]$, respectively, where the objects are restricted to the type of monoids specified by $S$. We denote special by $spec$, Frobenius by $\mbox{Frob}$, commutative by $c$ and symmetric by $sym$. 
 
 
-Let $\doub{D}$ be a double category. The {\bf equivariant completion} of the horizontal bicategory $\cH(\doub{D})$ is the horizontal bicategory of the double category $\mathbb{E}q[{\mathbb{D}}]$ defined below.  
+Let $\doub{D}$ be a double category. The {\bf equivariant completion} of the loose bicategory $\cH(\doub{D})$ is the loose bicategory of the double category $\mathbb{E}q[{\mathbb{D}}]$ defined below.  
 
 \begin{defn}
 Let ${\mathbb{D}}$ be a double category with local coequalisers and loosely strong companions, where the tensor product preserves coequalisers. We can define a new double category $\mathbb{E}q[{\mathbb{D}}]$ consisting of the elements listed below.
@@ -152,12 +152,12 @@ Let ${\mathbb{D}}$ be a double category with local coequalisers and loosely stro
 
 \begin{itemize}
 \item 0-cells are {\bf Frobenius algebras} $(a, A,\tinymult[gray dot], \tinyunit[gray dot])$, in the monoidal category ${\mathbb{D}_1}$. 
-\item 1-morphisms $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf monoid homomorphism}
-\item horizontal 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf bimodules}
+\item tight 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf monoid homomorphism}
+\item loose 1-cells $(A,\tinymult[gray dot], \tinyunit[gray dot]) \mapsto (B,\tinymult[black dot], \tinyunit[black dot])$ are {\bf bimodules}
 \item 2-cells $({\bf M},M) \rightarrow ({\bf N},N)$ from a $A$-$B$-bimodule to a $C$-$D$-bimodule are $(\phi, \psi)$-equivariant maps, where $\phi:  A\rightarrow C$, $\psi: B \rightarrow D$ are monoid homomorphisms.  
 \end{itemize}
 
-Structural data regarding this construction, such as horizontal composition, is as for $\lAlg[{\mathbb{D}}]$.
+Structural data regarding this construction, such as loose composition, is as for $\lAlg[{\mathbb{D}}]$.
 \end{defn}
 
 \begin{cor}
@@ -165,7 +165,7 @@ The equivariant completion of a monoidal bicategory $\cat{B}$ is monoidal. It is
 \end{cor}
 
 \begin{proof}
-This follows from Proposition~\ref{thm:eqcomp} applied to the double category $\mathbb{E}q[\cat{B}]$, where \cat{B} is regarded as a double category with trivial tight 1-morphisms.
+This follows from Proposition~\ref{thm:eqcomp} applied to the double category $\mathbb{E}q[\cat{B}]$, where \cat{B} is regarded as a double category with trivial tight 1-cells.
 \end{proof}
 
 
@@ -175,19 +175,18 @@ Another related example in quantum theory is the bicategory of $\cAlg[\mathbb{D}
 \begin{defn}
 Let ${\bf C}$ be a category. A dagger $\dagger: {\cat C} \rightarrow {\cat C}$, is a contravariant functor which is the identity on objects such that $\dagger(\dagger(f)) = f$. 
 A {\bf \index{dagger monoidal category}dagger monoidal category} is a monoidal category that is equipped with a dagger $\dagger$, such that the equalities below hold.
- \begin{align*}
- (f \otimes g)^{\dagger} &= g^{\dagger} \otimes f^{\dagger}\\
- \alpha^{\dagger} &= \alpha^{-1} \\
-  \rho^{\dagger} &= \rho^{-1} \\
-   \lambda^{\dagger} &= \lambda^{-1} 
- \end{align*}
+ \begin{mathpar}
+ (f \otimes g)^{\dagger} = g^{\dagger} \otimes f^{\dagger}\and
+ \alpha^{\dagger} = \alpha^{-1} \and
+  \rho^{\dagger} = \rho^{-1} \and
+   \lambda^{\dagger} = \lambda^{-1} 
+ \end{mathpar}
 A {\bf \index{dagger braided monoidal category}dagger braided monoidal category} is a dagger monoidal category with a braiding that satisfies the equality below.
  \begin{equation*}
     \sigma^{\dagger} = \sigma^{-1} \\
  \end{equation*}
  A Frobenius algebra in a dagger braided monoidal category $\cat{C}$ is a {\bf dagger Frobenius algebra} when the comonoid is the dagger image of the monoid. 
 A bimodule is called a {\bf dagger bimodule} when the equation below holds, where the comonoid is the dagger of the monoid and we denote $\dagger({\bf M})$ by ${\bf M}^{\dagger}$.
-
 \begin{equation}
 {\bf M}^{\dagger} = (\id \tens {\bf M }\tens \id) \circ (\tinycomult[white dot] \tens \id \tens \tinycomult[black dot]) \circ (\tinyunit[white dot] \tens \id \tens \tinyunit[black dot])
 \end{equation}
@@ -229,7 +228,7 @@ As shown in~\cite[Section 3.6.3]{westerthesis}, $2\cHilb$ is equivalent to $2[\c
 \subsection{Black-boxing of open Markov processes}
 \label{sec:markov}
 
-As another example, the authors of~\cite{bc:markov} construct a symmetric monoidal double category $\mathbb{M}\mathsf{ark}$ whose objects are finite sets and whose loose 1-cells are ``open Markov processes''.
+The authors of~\cite{bc:markov} construct a symmetric monoidal double category $\mathbb{M}\mathsf{ark}$ whose objects are finite sets and whose loose 1-cells are ``open Markov processes''.
 The loose composition and the tensor product then give two related ways to put together smaller open Markov processes into larger ones (and eventually into closed ones).
 In addition, they constructed a symmetric monoidal \emph{functor}, called \textbf{black-boxing}, from this double category to a double category $\mathbb{L}\mathsf{inRel}$ of linear relations.
 
@@ -262,7 +261,7 @@ However, with Theorem~\ref{thm:lcbcfunctor} now in hand, we can prove their conj
 \subsection{Cartesian double categories and cartesian bicategories}
 \label{sec:cartesian}
 
-A \emph{cartesian bicategory}~\cite{cw:cart-bicats-i,ckww:cartbicats-ii} is designed as an axiomatization of properties of bicategories like $\cSpan$ in which the objects have ``cartesian products'', but it is complicated because these cartesian products are not products in the ordinary bicategorical sense (only when restricted to the subcategory of ``maps'', i.e.\ left adjoints).
+A \emph{cartesian bicategory}, as defined in~\cite{cw:cart-bicats-i,ckww:cartbicats-ii}, is designed as an axiomatization of properties of bicategories like $\cSpan$ in which the objects have ``cartesian products'', but it is complicated because these cartesian products are not products in the ordinary bicategorical sense (only when restricted to the subcategory of ``maps'', i.e.\ left adjoints).
 By contrast, a \emph{cartesian double category}~\cite{aleiferi2018cartesian} is easily defined as a cartesian object in the 2-category $\cDbl$, i.e.\ one whose diagonal $\lD \to \lD\times \lD$ and projection $\lD\to *$ have right adjoints, which also has companions and conjoints.
 Our results make it clear that:
 
@@ -273,7 +272,7 @@ Our results make it clear that:
   A cartesian object in a 2-category is automatically a symmetric monoid object therein, so we can apply Theorem~\ref{thm:lcbcfunctor}.
 \end{proof}
 
-One might naively think that the functor $\cH$ should preserve the cartesian structure as well, implying that $\cH(\lD)$ is a cartesian object in $\fBicat$.
+One might hope that the functor $\cH$ should preserve the cartesian structure as well, implying that $\cH(\lD)$ is a cartesian object in $\fBicat$.
 However, as noted above, a cartesian bicategory does not have cartesian products in the ordinary bicategorical sense, so this must fail.
 The reason is instructive: the transformations exhibiting the adjunctions in $\cDbl$ making $\lD$ cartesian do not have \emph{loosely strong} companions; thus their loose lifts are only colax natural.
 If our functor $\cH$ could be extended to this case somehow, then it might also imply automatically that the loose bicategory of a cartesian double category is a cartesian bicategory.
@@ -296,7 +295,7 @@ One final family of examples obtained in this way are the bicategories of \emph{
   Thus, by~\cite[Theorem 14.2]{shulman:frbi} and Theorem~\ref{thm:lcbcfunctor}, it is symmetric monoidal.
 \end{proof}
 
-This symmetric monoidal structure is observed in~\cite[Remark 17.17]{maysig:pht}, but without any details supplied.
+This symmetric monoidal structure is observed without details in~\cite[Remark 17.17]{maysig:pht}.
 Our stronger functoriality results are also relevant to~\cite{maysig:pht}, for instance:
 
 \begin{thm}
@@ -309,7 +308,7 @@ Our stronger functoriality results are also relevant to~\cite{maysig:pht}, for i
 
 The pushforward $i_!$ of~\cite[Proposition 19.3.1]{maysig:pht}, however, is only a colax functor of bicategories.
 Thus, although it does come from a colax functor of double categories, our machinery does not apply to it.
-In light of this and \S\ref{sec:cartesian}, it would be interesting to investigate both whether our results can be extended to lax and colax functors and to lax and colax transformations.
+This provides an additional motivation to extend our results to lax and colax functors and transformations.
 
 
 % Local Variables:

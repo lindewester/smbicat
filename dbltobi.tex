@@ -32,7 +32,7 @@ Recall that the assignment $\cH$ sends each double category $\lC$ to the loose b
 % MS: This doesn't really make precise sense, and I'm not sure it's necessary.
 %Note that this is a stronger condition than we need for our main result.
 The action of \cH\ on transformations is less obvious. It
-requires the presence of companions or conjoints to lift the part of the data given by vertical morphisms to loose 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations between functors of bicategories.
+requires the presence of companions or conjoints to lift the part of the data given by tight morphisms to loose 1-cells. Before we discuss how this works, we briefly recall some definitions regarding transformations between functors of bicategories.
 
 If $F,G\maps \cA\to\cB$ are functors between bicategories, then an
 \textbf{oplax transformation} $\al\maps F\to G$ consists of 1-cells
@@ -304,8 +304,8 @@ This restriction means we need a corresponding restriction on the double-categor
 We are now ready to prove that $\cH$ lifts to a functor of locally cubical bicategories. The definition of a locally cubical bicategory can be found in~\cite{gg:ldstr-tricat}, where it is called a locally cubical bicategory. It can also be derived as a bicategory enriched in the monoidal 2-category $\cDbl$, in the following sense.
 
 \begin{defn}\label{def:lcbc}
-Let $\mathcal{V}$ be a monoidal 2-category. A $\mathcal{V}$-enriched bicategory $\fB$ consists of the following elements:
-\begin{itemize}
+Let $\mathcal{V}$ be a monoidal 2-category. A \textbf{$\mathcal{V}$-enriched bicategory} $\fB$ consists of the following data.
+\begin{enumerate}
 \item A collection of objects $\fB=\{A,B,C,...\} $
 \item For each two objects $A,B$ of $\fB$, an object $\fB(A,B)$ of $\mathcal{V}$. 
 \item For each three objects $A, B, C$ of $\fB$, a 1-cell  $\comp: \fB(B,C) \otimes \fB(A,B) \rightarrow \fB(A,C)$ of $\mathcal{V}$. 
@@ -318,8 +318,8 @@ Let $\mathcal{V}$ be a monoidal 2-category. A $\mathcal{V}$-enriched bicategory 
   \begin{center}
     \input{lambdarho.tex}
     \end{center}
- \end{itemize}
-This data needs to satisfy the usual axioms for bicategories~\cite{maclane}
+  \item The usual axioms for bicategories~\cite{maclane} hold.
+ \end{enumerate}
 \end{defn}
 
 The 2-category $\cDbl$ has finite products, which gives the monoidal structure. 
@@ -351,16 +351,14 @@ We will primarily be concerned with the following two examples.
   \item Its morphisms are functors.
   \item Its loose 2-cells are pseudo natural transformations.
   \item Its tight 2-cells are icons~\cite{lack:icons}.
-  \item Its 3-cells are \emph{cubical modifications} as defined in~\cite[Definition 13]{gg:ldstr-tricat}.
+  \item Its 3-cells are \emph{cubical modifications}, defined below:
   \end{itemize}
 \end{eg}
 
-We recall the definition of a cubical modification.
-
-\begin{defn}
+\begin{defn}[{\cite[Definition 13]{gg:ldstr-tricat}}]
 Let $F,G,H,K: \cD \rightarrow \cE$ be pseudo functors; let $\alpha: F \Rightarrow G$, $\beta: H \Rightarrow K$ be pseudo transformations; let $\gamma: F \Rightarrow H$, $\delta: G \Rightarrow K$ be icons. A \textbf{cubical modification}
 \[
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.5]
 \node (tl) at (0,1) {$F$};
 \node (tr) at (1,1) {$G$};
 \node (bl) at (0,0) {$H$};
@@ -478,7 +476,7 @@ Functoriality follows from naturality of the icons. Note that there are several 
 Now, we can similarly obtain the notion of \emph{functor} between locally cubical bicategories from the definition of a $\mathcal{V}$-enriched functor between $\mathcal{V}$-enriched bicategories.
 
 \begin{defn}\label{def:lcbcfunc}
-Let $\mathcal{V}$ be a monoidal 2-category. Let ${\fB,\fC}$ be $\mathcal{V}$-enriched bicategories. A $\mathcal{V}$-enriched functor $F: {\fB} \rightarrow {\fC}$ consists of the following data:
+Let $\mathcal{V}$ be a monoidal 2-category. Let ${\fB,\fC}$ be $\mathcal{V}$-enriched bicategories. A \textbf{$\mathcal{V}$-enriched functor} $F: {\fB} \rightarrow {\fC}$ consists of the following data:
 \begin{enumerate}
 \item An assignment on objects that sends each object $A$ of ${\fB}$ to an object $F A$ of ${\fC}$.
 \item For each two objects $A,B$ of ${\fB}$, a 1-cell ${\fB}(A,B) \rightarrow {\fC}(F(A),F(B))$ of $\mathcal{V}$.
@@ -511,7 +509,7 @@ Let $\mathcal{V}$ be a monoidal 2-category. Let ${\fB,\fC}$ be $\mathcal{V}$-enr
 When we apply this definition to the monoidal 2-category $\cDbl$, we see that a {\bf functor of locally cubical bicategories} $F$ consists of a map of objects $A \mapsto F A$; pseudo double functors ${\fB}(A,B) \rightarrow {\fC}(F(A),F(B))$ for each two objects $A,B$; and tight transformations $\phi$ for each two objects $A,B$ of ${\fB}$, and $\phi_u$ for every object $A$ of ${\fB}$, plus axioms.
 
 \begin{thm}\label{thm:h-functor}
-The map $\cL$ gives rise to a functor of locally cubical bicategories $\cL \maps \fDblf\to \fBicat$.
+There is a functor of locally cubical bicategories $\cL \maps \fDblf\to \fBicat$.
 \end{thm}
 \begin{proof}
 Note that the 1-functor $\cH:\mathbf{Dbl}\to\mathbf{Bicat}$ has a left adjoint that regards a bicategory as a double category with only identity tight 1-cells.

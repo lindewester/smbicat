@@ -4,8 +4,8 @@
 We give the coherence diagrams for monoidal objects, 1-cells, 2-cells and icons in a locally cubical bicategory, defined in Section~\ref{sec:mono-objects}. For readability, we sometimes write $S(\alpha)$ and $T(\alpha)$ for the composite 2-cells that form the source and target, respectively, of a 3-cell $\alpha$.
 Furthermore, we simplify notation for coherence constraints for double categories, by writing $\iso$ to indicate composites of such coherence cells.
 
-For monoidal objects, 1-cells and 2-cells, the coherence axioms  live entirely in the loose bicategory of the hom double category, since all the tight 2-cells are identities. Therefore, we write them with
-ordinary bicategorical pasting diagrams, leaving out the identity
+For monoidal objects, 1-cells and 2-cells, the coherence axioms live entirely in the loose bicategory of the hom-double-category, since all the tight 2-cells are identities. Therefore, we write them as
+ordinary bicategorical pasting diagrams, omitting the identity
 2-cells.  
 
 \subsubsection*{Monoidal Object}
@@ -63,3 +63,126 @@ ordinary bicategorical pasting diagrams, leaving out the identity
 \subsubsection*{Braided Monoidal Icon}
 
 \input{coherence/BraidLaxMonIcon}
+
+\subsubsection*{Monoidal 3-cell}
+
+\begin{equation}\label{eq:mon3cell1}
+\begin{aligned}
+ \begin{tikzpicture}[scale=1.8]
+ \node (tm) at (0,1) {\scriptsize $f  I_A$};
+ \node (tr) at (1,1) {\scriptsize$g  I_A$};
+ \node (bm) at (0,0) {\scriptsize$f' I_A$};
+ \node (br) at (01,0) {\scriptsize$g' I_A$}; 
+ \draw[doubleloose] (tm)  to node[above]{\scriptsize$\alpha \looseid_I$} (tr);
+ \draw[doubletight] (tm) to node[right, yshift=8] {\scriptsize$\gamma \tightid_I$} (bm);
+ \draw[doubleloose] (bm) to node[above] {\scriptsize$\beta \looseid_I$}(br);
+  \draw[-implies, double equal sign distance] (tr) to node[right] {\scriptsize $\delta \tightid_I$}(br);
+ \node at (0.5,0.5) {\scriptsize $\DDownarrow \Gamma \tightid_{\looseid}$}; 
+ \node (tl) at (-1,1) {\scriptsize$I_B$};
+ \node (bl) at (-1,0) {\scriptsize$I_B$};
+ \draw[doubleloose] (tl)  to node[above]{\scriptsize$\iota_f$} (tm);
+ \draw[doubleeq] (tl) to (bl);
+ \draw[doubleloose] (bl) to node[above]{\scriptsize$\iota_{f'}$}(bm);
+ \node at (-0.5,.5) {\scriptsize $\DDownarrow N^{\gamma}$};
+\node (bl1) at (-1,-.7){\scriptsize$I_B$};  
+ \node (bm1) at (0,-.7) {\scriptsize$I_B$};
+  \node (br1) at (1,-.7) {\scriptsize$g' I_A$}; 
+ \draw[doubleloose] (bl1)  to node[above]{\scriptsize$\looseid_{I}$} (bm1);
+ \draw[doubleloose] (bm1) to  node[above]{\scriptsize$\iota_{g'}$}(br1);
+  \draw[doubleeq] (bl)  to (bl1);
+    \draw[doubleeq] (br)  to (br1);
+ \node at (0,-0.35) {\scriptsize $\DDownarrow M^{\beta}$}; 
+ \end{tikzpicture}
+\end{aligned}
+ =
+ \begin{aligned}
+  \begin{tikzpicture}[scale=1.8]
+ \node (ml) at (0,1) {\scriptsize$I_B$};
+ \node (mm) at (1,1) {\scriptsize$I_B$};
+ \node (bl) at (0,0) {\scriptsize$I_B$};
+ \node (bm) at (01,0) {\scriptsize$I_B$}; 
+ \draw[doubleloose] (ml)  to node[above]{\scriptsize$ \looseid_{I}$}(mm);
+ \draw[doubleeq] (ml) to  (bl);
+ \draw[doubleloose] (bl) to  node[above]{\scriptsize$ \looseid_{I}$}(bm);
+ \draw[doubleeq] (mm) to (bm);
+ \node at (0.5,0.5) {\scriptsize $=$}; 
+ \node (tl) at (0,1.7) {\scriptsize$I_B$};
+ \node (tm) at (1,1.7) {\scriptsize$f I_A$};
+ \node (tr) at (2,1.7) {\scriptsize$g I_A$};
+ \node (mr) at (2,1) {\scriptsize$g I_A$};
+ \draw[doubleloose] (tl)  to node[above]{\scriptsize$\iota_f$} (tm);
+ \draw[doubleloose] (tm) to node[above]{\scriptsize$\alpha \looseid_I$} (tr);
+ \draw[doubleloose] (mm) to node[above]{\scriptsize$\iota_{g}$}(mr);
+ \node at (1,1.35) {\scriptsize\footnotesize $\DDownarrow M^{\alpha}$};
+  \node (br) at (2,0) {$g' I$};
+ \draw[doubleloose] (bm)  to node[above]{\scriptsize$\iota_{g'}$} (br);
+ \draw[doubletight] (mr) to  node[right]{\scriptsize$\delta \tightid_I$}(br);
+ \draw[doubleeq] (tr) to (mr);
+  \draw[doubleeq] (tl) to (ml);
+ \node at (1.5,.5) {\scriptsize$\DDownarrow N^{\delta}$}; 
+ \end{tikzpicture}
+ \end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:mon3cell2}
+\begin{aligned}
+ \begin{tikzpicture}[yscale=2, xscale=2]
+ \node (tm) at (0,1) {\scriptsize$f\ten$};
+ \node (tr) at (1,1) {\scriptsize$g \ten$};
+ \node (mm) at (0,0) {\scriptsize$f' \ten$};
+ \node (mr) at (01,0) {\scriptsize$g' \ten$}; 
+ \draw[doubleloose] (tm)  to node[above]{\scriptsize$\alpha  \looseid_{\ten}$} (tr);
+ \draw[doubletight] (tm) to node[right, yshift=8]{\scriptsize$\gamma \tightid_{\ten}$} (mm);
+ \draw[doubleloose] (mm) to node[above, xshift=1pt, yshift=-1pt] {\scriptsize$\beta \looseid_{\ten}$}(mr);
+  \draw[doubletight] (tr) to node[right] {\scriptsize$\delta \tightid_{\ten}$}(mr);
+ \node at (0.5,0.5) {\scriptsize$\DDownarrow \Gamma \tightid$}; 
+ \node (tl) at (-1,1) {\scriptsize$\ten  (f\times f)$};
+ \node (ml) at (-1,0) {\scriptsize$\ten  (f'\times f')$};
+ \draw[doubleloose] (tl)  to node[above]{\scriptsize$\chi^f$} (tm);
+ \draw[doubletight] (tl) to node[left]{\scriptsize$\tightid_{\ten} (\gamma \times \gamma)$} (ml);
+ \draw[doubleloose] (ml) to node[above]{\scriptsize$\chi^{f'}$}(mm);
+ \node at (-0.5,0.5) {\scriptsize $\DDownarrow \Sigma^{\gamma}$};
+ \node (bl) at (-1,-.7) {\scriptsize$\ten (f'\times f')$};
+  \node (bm) at (0,-.7) {\scriptsize$\ten (g'\times g')$};
+  \node (br) at (1,-.7) {\scriptsize$g' \ten$};
+  \draw[doubleeq] (ml) to (bl);
+ \draw[doubleloose] (bl)  to node[above]{\scriptsize$\looseid_{\ten} (\beta \times \beta)$} (bm);
+ \draw[doubleloose] (bm) to  node[above]{\scriptsize$\chi^{g'}$}(br);
+   \draw[doubleeq] (mr) to (br);
+ \node at (0,-0.35) {\scriptsize $\DDownarrow \Pi^{\beta}$}; 
+ \end{tikzpicture}
+\end{aligned}
+ =
+ \begin{aligned}
+  \begin{tikzpicture}[yscale=2, xscale=2]
+ \node (ml) at (0,1) {\scriptsize$\ten (f\times f)$};
+ \node (mm) at (1,1) {\scriptsize$\ten (g\times g)$};
+ \node (bl) at (0,0) {\scriptsize$\ten (f'\times f')$};
+ \node (bm) at (01,0) {\scriptsize$\ten (g'\times g')$}; 
+ \draw[doubleloose] (ml)  to node[above]{\scriptsize$\looseid_{\ten} (\alpha \times \alpha)$} (mm);
+ \draw[doubletight] (ml) to node[left]{\scriptsize$\tightid_{\ten} (\gamma \times \gamma)$}  (bl);
+ \draw[doubleloose] (bl) to node [below] {\scriptsize$\looseid_{\ten} (\beta \times \beta)$} (bm);
+  \draw[doubletight] (mm) to node[above] {\scriptsize$\tightid_{\ten} (\delta \times \delta)$} (bm);
+ \node at (0.5,0.5) {\scriptsize\footnotesize $\DDownarrow \tightid (\Gamma \times \Gamma)$}; 
+ \node (tl) at (0,1.7) {\scriptsize$ \ten (f \times f$)};
+ \node (tm) at (1,1.7) {\scriptsize$f \ten$};
+ \node (tr) at (2,1.7) {\scriptsize$g \ten$};
+   \node (mr) at (2,1) {\scriptsize$g \ten$};
+   \node(br) at (2,0) {\scriptsize$g' \ten$};
+ \draw[doubleloose] (tl)  to node[above]{\scriptsize$\chi^f$} (tm);
+ \draw[doubleloose] (tm) to node[above]{\scriptsize$\alpha \looseid_{\ten}$} (tr);
+ \draw[doubletick] (mm) to node[above]{\scriptsize$\chi^{g}$}(mr);
+ \node at (1,1.35) {\scriptsize $\DDownarrow \Pi^{\alpha}$};
+ \draw[doubleloose] (bm)  to node[below]{\scriptsize$\chi^{g'}$} (br);
+ \draw[doubletight] (mr) to  node[right]{\scriptsize$\delta \tightid_{\ten}$}(br);
+ \draw[doubleeq] (tr) to (mr);
+  \draw[doubleeq] (tl) to (ml);
+ \node at (1.5,.5) {\scriptsize $\DDownarrow \Sigma^{\delta}$}; 
+ \end{tikzpicture}
+ \end{aligned}
+\end{equation}
+
+
+% Local Variables:
+% TeX-master: "smbicat"
+% End:

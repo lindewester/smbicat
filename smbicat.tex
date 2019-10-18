@@ -1,4 +1,5 @@
 \documentclass{amsart}
+\usepackage{newclude}
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage[status=draft]{fixme}
@@ -104,21 +105,21 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 
-\include{intro}
+\include*{intro}
 
-\include{mondbl}
+\include*{mondbl}
 
-\include{companions}
+\include*{companions}
 
-\include{dbltobi}
+\include*{dbltobi}
 
-\include{monobj}
+\include*{monobj}
 
 %\include{functor}
 
 %\include{intercat}
 
-\include{alg6}
+\include*{alg6}
  
 \bibliographystyle{alpha}
 \bibliography{smbicat}
