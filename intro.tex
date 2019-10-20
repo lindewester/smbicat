@@ -63,15 +63,14 @@ In addition to 0-cells and 1-cells, a locally cubical bicategory has \emph{two} 
 Just as a bicategory can be regarded as a double category that is trivial in one direction, an iconic tricategory can be regarded as a locally cubical bicategory --- although in the case of bicategories, it is more natural to take the additional kind of 2-cells to be icons.
 Similarly, it is shown in~\cite{gg:ldstr-tricat} that monoidal bicategories form a locally cubical bicategory, with an appropriate notion of ``monoidal icon'' as the additional 2-cells.
 
-We will show that more generally, internal monoids in a locally cubical bicategory with products form another locally cubical bicategory, and that this reproduces the standard notions of monoidal double category and monoidal bicategory.
-Moreover, we will show that any product-preserving functor between locally cubical bicategories with products induces another functor between their locally cubical bicategories of internal monoids (of all sorts).\footnote{To be precise, we impose a simplifying assumption called ``1-strictness'' on our locally cubical bicategories and functors, which says roughly that composition of 1-cells is strictly associative.
-  This is satisfied by our examples of interest, and otherwise it would be more difficult to express the notion of ``monoidal object''; see the discussion below \autoref{defn:1strict}.
-  However, we expect that this technical restriction could be lifted if desired.}
-In particular, this specializes to our desired statement:
+Thus, we can hope to show that in general, internal monoids in a locally cubical bicategory with products form another locally cubical bicategory; that this reproduces the standard notions of monoidal double category and monoidal bicategory; and that any product-preserving functor between locally cubical bicategories with products induces another functor between their locally cubical bicategories of internal monoids (of all sorts).
+But unfortunately, here the extra generality of locally cubical bicategories becomes a problem: the usual definition of monoidal bicategory in fact \emph{relies} on the additional strictness of bicategories, and doesn't make sense in the generality of any locally cubical bicategory.
+We expect this could be dealt with using ``local fibrancy'' conditions, but for simplicity we will instead assume that our \emph{input} locally cubical bicategories and functors are ``1-strict'', i.e.\ they satisfy roughly the same strictness property of an iconic tricategory (composition of 1-cells is strictly associative), even though our output ones may not be.
+Thus, we finally obtain our desired statement:
 
 \begin{thm}\label{thm:functor-intro}
   The assignment $\cH$ extends to a functor between the locally cubical bicategories of monoidal, braided, and symmetric double categories and bicategories.
-  In particular, it preserves monoidal functors and monoidal transformations, and composites thereof.
+  In particular, it preserves monoidal functors, monoidal transformations, and composites thereof.
 \end{thm}
 
 In fact, we actually prove several theorems of this sort, depending on whether the monoidal functors and transformations in question are chosen to be \emph{lax}, \emph{colax}, or \emph{strong}, i.e.\ whether they preserve the monoidal structure up to a transformation in one direction, the other direction, or an invertible transformation.
