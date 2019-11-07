@@ -1,0 +1,338 @@
+\documentclass{beamer}
+\newif\ifbeamer\beamertrue
+\input{decls}
+\tikzcdset{diagrams={ampersand replacement=\&}}
+\autodefs{\cDbl\cMonDbl\cMonBicat\cBicat\cMon\fBicat\fDbl\iMon\fMonDbl\fMonBicat}
+
+% \usetheme{Warsaw}
+% \setbeamertemplate{headline}{}
+
+\usetheme[height=0cm]{Rochester}
+\useinnertheme{circles}
+\useoutertheme[compress,subsection=false]{miniframes}
+\usecolortheme{rose}
+\setbeamertemplate{navigation symbols}{}
+
+\title{Constructing symmetric monoidal bicategories functorially}
+\author{Michael Shulman \and Linde Wester Hansen}
+\date{AMS Sectional Meeting\\UC Riverside\\Applied Category Theory Special Session\\November 9, 2019}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\section{Constructing symmetric monoidal bicategories\dots}
+
+\begin{frame}
+  \frametitle{Symmetric monoidal bicategories}
+  Symmetric monoidal bicategories are everywhere!
+  \begin{enumerate}
+  \item Rings and bimodules
+  \item Sets and spans
+  \item Sets and relations
+  \item Categories and profunctors
+  \item Manifolds and cobordisms
+  \item Topological spaces and parametrized spectra
+  \item Sets and (decorated/structured) cospans
+  \item Sets and open Markov processes
+  \item Vector spaces and linear relations
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is a symmetric monoidal bicategory?}
+    A \alert{symmetric monoidal bicategory} is a bicategory \cB with
+    \begin{enumerate}
+    \item A functor $\ten : \cB\times \cB\to \cB$
+    \item A pseudonatural equivalence $(A \ten B) \ten C \simeq A \ten (B\ten C)$
+    \item An invertible modification
+      \[\small
+        \begin{tikzcd}
+          ((AB)C)D \ar[r] \ar[d] \ar[drr,phantom,"\pi\Downarrow"] \& (A(BC))D \ar[r] \& A((BC)D) \ar[d] \\
+          (AB)(CD) \ar[rr] \& \& A(B(CD))
+        \end{tikzcd}
+      \]
+  \item\vspace{-.5cm}
+    \includegraphics[width=5cm]{associahedron1.png}\;\raisebox{1cm}{$=$}\;\includegraphics[width=5cm]{associahedron1.png}
+  \item more data and axioms for units, braiding, syllepsis\dots
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Surely it can't be that bad}
+  In all the examples I listed before, the monoidal structures
+  \begin{enumerate}
+  \item tensor product of rings
+  \item cartesian product of sets
+  \item cartesian product of spaces
+  \item disjoint union of sets
+  \item \dots
+  \end{enumerate}
+  are actually associative up to \alert{isomorphism}, with \alert{strictly} commuting pentagons, etc.
+
+  \bigskip
+  But a bicategory doesn't know how to talk about isomorphisms, only equivalences!
+  We need to add extra data: ring homomorphisms, functions, linear maps, etc.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Double categories}
+  A \alert{double category} is an internal category in Cat.
+  It has:
+  \begin{enumerate}
+  \item objects $A,B,C,\dots$
+  \item \alert{loose} morphisms $A\hto B$ that compose weakly
+  \item \alert{tight} morphisms $A\to B$ that compose strictly
+  \item 2-cells shaped like squares:
+    \begin{equation}\label{eq:square}
+      \xymatrix{
+        A \ar[r]|{|}  \ar[d] \ar@{}[dr]|{\Downarrow}&
+        B\ar[d]\\
+        C \ar[r]|{|} & D
+      }.
+    \end{equation}
+  \end{enumerate}
+  No one can agree on which morphisms to draw horizontally or vertically.
+  But ``loose'' and ``tight'' are independent of that choice.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Symmetric monoidal double categories}
+  Double categories, (pseudo) functors, and strictly-natural tight transformations form a 2-category \cDbl.
+  \begin{definition}
+    A \alert{symmetric monoidal double category} is a symmetric pseudo-monoid in \cDbl.
+  \end{definition}
+  \begin{itemize}
+  \item Coherences are isomorphisms, not equivalences, and diagrams commute strictly.
+  \item Hardly more complicated than a pair of ordinary symmetric monoidal categories.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Symmetric monoidal double categories}
+  Symmetric monoidal double categories are everywhere!
+  \begin{enumerate}
+  \item Rings, bimodules, and ring homomorphisms
+  \item Sets, spans, and functions
+  \item Sets, relations, and functions
+  \item Categories, profunctors, and functors
+  \item Manifolds, cobordisms, and diffeomorphisms
+  \item Topological spaces, parametrized spectra, and continuous maps
+  \item Sets, (decorated/structured) cospans, and functions
+  \item Sets, open Markov processes, and functions
+  \item Vector spaces, linear relations, and linear transformations
+  \end{enumerate}
+  \dots but what if what we actually \alert{want} is a monoidal \alert{bicategory}?
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Companions}
+  A \alert{companion} of a tight morphism $f:A\to B$ is a loose morphism $\fhat : A\hto B$ and squares
+  \begin{equation*}
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{\smash{\fhat}} \ar[d]_f \ar@{}[dr]|{\Downarrow \epsilon_{\hat{f}} }
+        & \ar@{=}[d]\\
+        \ar@{=}[r] & }
+    \end{array}\quad\text{and}\quad
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar@{=}[r] \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}}
+        & \ar[d]^f\\
+        \ar[r]|-@{|}_-{\smash{\raisebox{-3mm}{$\scriptstyle\fhat$}}} & }
+    \end{array}
+  \end{equation*}
+  such that the following equations hold.
+  \begin{align}\label{eq:compeqn}
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar@{=}[r] \ar@{=}[d] \ar@{}[dr]|{\Downarrow \eta_{\hat{f}}}
+        & \ar[d]^f\\
+        \ar[r]|-{\fhat} \ar[d]_f \ar@{}[dr]|
+        {\Downarrow  \epsilon_{\hat{f}} }
+        & \ar@{=}[d]\\
+        \ar@{=}[r] & }
+    \end{array} &= 
+    \begin{array}{c}
+      \xymatrix@-.5pc{ \ar@{=}[r] \ar[d]_f
+        \ar@{}[dr]|{\Downarrow 1_f} &  \ar[d]^f\\
+        \ar@{=}[r] & }
+    \end{array}
+    &
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar@{=}[r] \ar@{=}[d] \ar@{}[dr]|{ \Downarrow \eta_{\hat{f}}}&
+        \ar[r]|-@{|}^{\fhat}\ar[d]|f \ar@{}[dr]|{\Downarrow  \epsilon_{\hat{f}} }
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat} &
+        \ar@{=}[r] &}
+%       \xymatrix@-.5pc{
+%         \ar[rr]|-@{|}^-{\fhat} \ar@{}[drr]|\iso \ar@{=}[d] &&
+%         \ar@{=}[d] \\
+%         \ar@{=}[r] \ar@{=}[d] \ar@{}[dr]|\Downarrow &
+%         \ar[r]|-@{|}^-{\fhat} \ar[d]_f \ar@{}[dr]|\Downarrow
+%         & \ar@{=}[d]\\
+%         \ar[r]|-@{|}_-{\fhat} &
+%         \ar@{=}[r] &\\
+%         \ar[rr]|-@{|}_-{\fhat} \ar@{}[urr]|\iso \ar@{=}[u] &&
+%         \ar@{=}[u]}
+    \end{array} &=
+    \begin{array}{c}
+      \xymatrix@-.5pc{
+        \ar[r]|-@{|}^-{\fhat} \ar@{=}[d] \ar@{}[dr]|{\Downarrow 1_{\fhat}}
+        & \ar@{=}[d]\\
+        \ar[r]|-@{|}_-{\fhat} & }
+    \end{array}
+  \end{align}
+  There is also a dual notion of \alert{conjoint}.
+  The double categories listed before have companions and conjoints for all tight morphisms.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Constructing symmetric monoidal bicategories}
+  \begin{theorem}[S., 2010]
+    Let \dD be a symmetric monoidal bicategory whose coherence isomorphisms have loose companions.
+    Then the underlying bicategory $\cL\dD$ of objects and loose morphisms is a symmetric monoidal bicategory.
+    (And similarly for the monoidal and braided monoidal cases.)
+  \end{theorem}
+  \begin{proof}
+    Lift all the coherences to the companions.
+  \end{proof}
+  In particular, all the examples listed before are symmetric monoidal bicategories.
+\end{frame}
+
+\section{\dots functorially}
+
+\begin{frame}
+  \frametitle{What about functors?}
+  But we'd also like to be able to construct
+  \begin{itemize}
+  \item monoidal functors and
+  \item monoidal transformations, 
+  \item in a way that preserves composition,
+  \item and hence preserves things like adjunctions,
+  \item \dots
+  \end{itemize}
+  In other words, what we want is a \alert{functor}
+  \[\cL : \cMonDbl \to \cMonBicat .\]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Functors beget functors}
+  Morally, we should have
+  \begin{align*}
+    \cMonDbl &= \cMon(\cDbl) \\
+    \cMonBicat &= \cMon(\cBicat)
+  \end{align*}
+  and \cMon should be a functor, so that our desired functor
+  \[\cL : \cMonDbl \to \cMonBicat \]
+  is simply induced by an easier functor
+  \[ \cL : \cDbl \to \cBicat. \]
+  But \alert{what kind of functors are these?}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tricategories?}
+  \begin{block}{First answer}
+    \cBicat is a tricategory, and the 2-category \cDbl can be regarded as a tricategory with no nonidentity 3-cells, so \cL should be a tricategory functor.
+  \end{block}
+  But:
+  \begin{itemize}
+  \item Constructing a tricategory functor is a lot of work.
+  \item More importantly, a monoidal bicategory, as usually defined, is \alert{not} just a ``monoid object in the tricategory \cBicat''.
+  \end{itemize}
+  \cBicat is stricter than a general tricategory in several ways, and a definition that makes sense in an arbitrary tricategory would involve a lot of superfluous coherence data when specialized to \cBicat.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Iconic tricategories?}
+  \begin{block}{Second answer}
+    \cBicat is an \alert{iconic tricategory}: composition of 1-cells is strictly associative and unital.
+  \end{block}
+  Equivalently, a bicategory enriched over the 2-category of bicategories, pseudofunctors, and \alert{icons} (\alert{I}dentity \alert{C}omponent \alert{O}plax \alert{N}atural transformations -- Lack 2010).
+
+	\bigskip
+  Closely related to the \alert{bicategory-enriched categories} of Verity.
+
+    \bigskip
+  But \cMonBicat is \alert{not} iconic!
+  Composition of monoidal functors of bicategories, as usually defined, is not strictly associative.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Third time's the charm}
+  \begin{block}{Final answer}
+    \fBicat and \fMonBicat are both \alert{locally cubical bicategories} (Garner-Gurski 2009): bicategories enriched over the monoidal 2-category \cDbl.
+  \end{block}
+  \only<1>{\fBicat has:
+  \begin{enumerate}
+  \item Objects: bicategories
+  \item 1-cells: pseudofunctors
+  \item loose 2-cells: pseudonatural transformations
+  \item tight 2-cells: icons
+  \item square 3-cells: cubical modifications
+  \end{enumerate}}
+\only<2>{\fDbl has:
+  \begin{enumerate}
+  \item Objects: double categories (with companions)
+  \item 1-cells: pseudofunctors
+  \item loose 2-cells: strictly-natural tight transformations
+  \item tight 2-cells: only identities
+  \item square 3-cells: only identities
+  \end{enumerate}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Monoids in locally cubical bicategories}
+  \begin{theorem}[Hansen--S.]
+    Let \fB be a locally cubical bicategory with products, in which composition of 1-cells is strictly associative.
+    Then there is a locally cubical bicategory $\iMon(\fB)$ of monoids in \fB.
+  \end{theorem}
+  Just write down the ordinary definitions of monoidal bicategory, monoidal pseudofunctor, monoidal icon, etc.\ in ``point-free style''.\\
+  A 1-strict locally cubical bicategory is (almost) exactly the correct structure in which they make sense.
+  \begin{example}\vspace{-.7cm}
+  \begin{align*}
+    \iMon(\fDbl) &= \fMonDbl\\
+    \iMon(\fBicat) &= \fMonBicat
+  \end{align*}
+\end{example}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Constructing symmetric monoidal bicategories functorially}
+  \begin{theorem}[Hansen-S.]
+    Let $F:\fB\to\fC$ be a locally cubical functor that preserves products and also strict 1-cell composition.
+    Then there is a locally cubical functor $\iMon(F) : \iMon(\fB) \to \iMon(\fC)$, and similarly for braided and symmetric monoids.
+  \end{theorem}
+  \begin{example}\vspace{-.7cm}
+    \begin{align*}
+      \iMon(\fDbl) &\to \iMon(\fBicat)\\
+      \mathsf{BrMon}(\fDbl) &\to \mathsf{BrMon}(\fBicat)\\
+      \mathsf{SymMon}(\fDbl) &\to \mathsf{SymMon}(\fBicat)
+    \end{align*}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some technicalities}
+  \begin{enumerate}
+  \item We can construct braided and symmetric monoidal bicategories this way, but not properly-sylleptic ones.
+  \item A monoid in \fBicat still has a \emph{bit} more coherence data than a monoidal bicategory, because bicategories are strict in one more way that's invisible to the locally cubical structure: \emph{whiskering} is strictly associative.
+    This could probably be incorporated with a multicategorical approach like Verity's.
+  \item If we weaken 1-strictness of the input, the coherence diagrams end up trying to compose tight and loose 2-cells with each other.
+    So we'd need some kind of ``local companions''.
+    But if we worked that out, we could iterate the construction, and ask whether $\iMon(\iMon(\fB)) = \mathsf{BrMon}(\fB)$, etc.
+  \end{enumerate}
+\end{frame}
+
+\end{document}
