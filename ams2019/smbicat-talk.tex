@@ -3,6 +3,7 @@
 \input{decls}
 \tikzcdset{diagrams={ampersand replacement=\&}}
 \autodefs{\cDbl\cMonDbl\cMonBicat\cBicat\cMon\fBicat\fDbl\iMon\fMonDbl\fMonBicat}
+\def\ubicat{\underline{\cBicat}}
 
 % \usetheme{Warsaw}
 % \setbeamertemplate{headline}{}
@@ -195,7 +196,7 @@
     \end{array}
   \end{align}
   There is also a dual notion of \alert{conjoint}.
-  The double categories listed before have companions and conjoints for all tight morphisms.
+  The double categories listed before have companions and conjoints for all tight morphisms\\ (i.e.\ they are \alert{framed bicategories}).
 \end{frame}
 
 \begin{frame}
@@ -244,35 +245,53 @@
 \begin{frame}
   \frametitle{Tricategories?}
   \begin{block}{First answer}
-    \cBicat is a tricategory, and the 2-category \cDbl can be regarded as a tricategory with no nonidentity 3-cells, so \cL should be a tricategory functor.
+    \cBicat is a \alert{tricategory}, and we can regard \cDbl as a tricategory with no nonidentity 3-cells.
+    So \cL should be a tricategory functor.
   \end{block}
-  But:
-  \begin{itemize}
-  \item Constructing a tricategory functor is a lot of work.
-  \item More importantly, a monoidal bicategory, as usually defined, is \alert{not} just a ``monoid object in the tricategory \cBicat''.
-  \end{itemize}
+  \begin{block}{First problem}
+    \begin{itemize}
+    \item Constructing a tricategory functor is a lot of work.
+    \item More importantly, a monoidal bicategory, as usually defined, is \alert{not} just a ``monoid object in the tricategory \cBicat''.
+    \end{itemize}
+  \end{block}
   \cBicat is stricter than a general tricategory in several ways, and a definition that makes sense in an arbitrary tricategory would involve a lot of superfluous coherence data when specialized to \cBicat.
 \end{frame}
 
 \begin{frame}
   \frametitle{Iconic tricategories?}
   \begin{block}{Second answer}
-    \cBicat is an \alert{iconic tricategory}: composition of 1-cells is strictly associative and unital.
+    \cBicat and \cDbl are \alert{iconic tricategories}: bicategories enriched over the 2-category of bicategories, pseudofunctors, and \alert{icons}.
   \end{block}
-  Equivalently, a bicategory enriched over the 2-category of bicategories, pseudofunctors, and \alert{icons} (\alert{I}dentity \alert{C}omponent \alert{O}plax \alert{N}atural transformations -- Lack 2010).
-
-	\bigskip
-  Closely related to the \alert{bicategory-enriched categories} of Verity.
-
-    \bigskip
-  But \cMonBicat is \alert{not} iconic!
-  Composition of monoidal functors of bicategories, as usually defined, is not strictly associative.
+  \begin{definition}[Lack 2010]
+    An \alert{icon} (\alert{I}dentity \alert{C}omponent \alert{O}plax \alert{N}atural transformation) between pseudofunctors $F,G:\cA\to\cB$ consists of:
+    \begin{enumerate}
+    \item The assertion that $F(A) = G(A)$ for all objects $A\in\cA$.
+    \item For all $\ph:X\to Y$ in \cA, a 2-cell
+      \[ \xymatrix{ \mathllap{FX =\;} GX \rtwocell^{F\ph}_{G\ph} & FY \mathrlap{\;= GY} } \]
+    \end{enumerate}
+  \end{definition}
 \end{frame}
 
 \begin{frame}
+  \frametitle{Iconic tricategories?}
+  % \begin{itemize}
+  % \item
+    An iconic tricategory is equivalently a tricategory in which composition of 1-cells is strictly associative and unital\\ (though compostion of 2-cells along 0-cells need not be).
+  % \item Closely related to the \alert{bicategory-enriched categories} of Verity.
+  % \end{itemize}
+  \begin{block}{Second problem}
+    \cMonBicat is \alert{not} iconic!
+  \end{block}
+  Composition of monoidal functors of bicategories is not strictly associative.
+  For $\cA \xto{F} \cB \xto{G} \cC$, the composite laxator is
+  \[ G F X\ten G F Y \xto{G_{\ten}} G(FX\ten FY) \xto{F_{\ten}} GF(X\ten Y) \]
+  a composition in \cC, which is a bicategory.
+\end{frame}
+
+\begin{frame}[t]
   \frametitle{Third time's the charm}
   \begin{block}{Final answer}
-    \fBicat and \fMonBicat are both \alert{locally cubical bicategories} (Garner-Gurski 2009): bicategories enriched over the monoidal 2-category \cDbl.
+    \fBicat, \fDbl, \fMonBicat, \fMonDbl are all \alert{locally cubical bicategories} (Garner-Gurski 2009): bicategories enriched over the monoidal 2-category \cDbl.
   \end{block}
   \only<1>{\fBicat has:
   \begin{enumerate}
@@ -290,6 +309,15 @@
   \item tight 2-cells: only identities
   \item square 3-cells: only identities
   \end{enumerate}}
+  \only<3>{\fMonBicat has:
+  \begin{enumerate}
+  \item Objects: monoidal bicategories
+  \item 1-cells: monoidal pseudofunctors
+  \item loose 2-cells: monoidal pseudonatural transformations
+  \item tight 2-cells: monoidal icons
+  \item square 3-cells: cubical monoidal modifications
+  \end{enumerate}
+  In particular, composition of monoidal pseudofunctors is associative up to a \emph{monoidal icon}.}
 \end{frame}
 
 \begin{frame}
@@ -324,15 +352,52 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Some technicalities}
-  \begin{enumerate}
-  \item We can construct braided and symmetric monoidal bicategories this way, but not properly-sylleptic ones.
-  \item A monoid in \fBicat still has a \emph{bit} more coherence data than a monoidal bicategory, because bicategories are strict in one more way that's invisible to the locally cubical structure: \emph{whiskering} is strictly associative.
-    This could probably be incorporated with a multicategorical approach like Verity's.
-  \item If we weaken 1-strictness of the input, the coherence diagrams end up trying to compose tight and loose 2-cells with each other.
-    So we'd need some kind of ``local companions''.
-    But if we worked that out, we could iterate the construction, and ask whether $\iMon(\iMon(\fB)) = \mathsf{BrMon}(\fB)$, etc.
-  \end{enumerate}
+  \frametitle{The fine print, I}
+  Monoidal pseudofunctors can be (monoidally) lax, colax, or strong --- and so can monoidal pseudonatural transformations!
+    \[
+      \xymatrix{
+        FX \ten FY \ar[r]^{F_{\ten}} \ar[d]_{\al\ten\al} \drtwocell\omit & F(X\ten Y) \ar[d]^{\al} \\
+        GX\ten GY \ar[r]_{G_{\ten}} & G(X\ten Y)
+      }
+    \]
+    \[
+      \xymatrix{
+        FX \ten FY \ar[r]^{F_{\ten}} \ar[d]_{\al\ten\al} \drtwocell\omit{^} & F(X\ten Y) \ar[d]^{\al} \\
+        GX\ten GY \ar[r]_{G_{\ten}} & G(X\ten Y)
+      }
+    \]
+    So we actually have \alert{nine} functors.
+\end{frame}
+
+\begin{frame}
+  \frametitle{The fine print, II}
+  % \begin{itemize}
+  % \item We can construct braided and symmetric monoidal bicategories this way, but not properly-sylleptic ones.
+% \item
+  Bicategories also have a strictly associative \alert{whiskering} operation.
+  \[ (\al \ast G)\ast F = \al\ast (G\circ F) \qquad G\ast (F\ast \be) = (G\circ F) \ast \be \]
+  But a 1-strict locally cubical bicategory doesn't have such an operation: we have to use $\al \circ 1_F$, which is only \alert{isomorphic} to $\al \ast F$.
+  Thus a monoid in $\fBicat$ still has a bit more coherence data than a monoidal bicategory.
+
+  \bigskip
+  \structure{Possible fix}: Verity (1992) defined a \alert{multicategory} $\ubicat$ such that $\ubicat$-enriched categories are ``iconic tricategories with strictly associative whiskering''.
+  Perhaps there is a similar $\underline{\cDbl}$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{The fine print, III}
+  \begin{itemize}
+  \item A monoid in the category of monoids is a commutative monoid.
+  \item A monoid in the 2-category of monoidal categories is a\\ braided monoidal category (Joyal--Street 1993).
+  \item A monoid in the 2-category of braided monoidal categories is a symmetric monoidal category (Joyal--Street 1993).
+  \end{itemize}
+  We should similarly have $\iMon(\iMon(\fB)) \simeq \mathsf{BrMon}(\fB)$, etc. ---\\
+  but our $\iMon$ can't be iterated, since $\iMon(\fB)$ is no longer 1-strict!
+
+  \bigskip
+  The restriction of 1-strictness is surprisingly hard to lift.
+  Without it, the coherence diagrams for defining monoids in a locally cubical bicategory end up trying to compose tight and loose 2-cells with each other.
+  We need some kind of ``local companions''.
 \end{frame}
 
 \end{document}
